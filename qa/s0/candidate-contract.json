@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "types": ["BACKGROUND", "PREFERENCE", "PROGRESS", "DIFFICULTY", "PERFORMANCE", "REVIEW_SUGGESTION"],
+  "evidence_types": ["SELF_REPORTED", "READ_ONLY", "AFTER_EXPLANATION", "WITH_HINT", "INDEPENDENT_ATTEMPT", "UNVERIFIED"],
+  "required_candidate_fields": ["type", "topic_key", "fact_key", "content", "evidence_type", "source_ids"],
+  "max_candidates": 20,
+  "max_content_chars": 2000,
+  "identity_rule": "profile_id, branch_id, origin, status and revision are supplied by the application, never by the model"
+}

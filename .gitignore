@@ -1,0 +1,15 @@
+.local/
+.env
+.env.*
+!.env.example
+**/local.properties
+**/google-services.json
+**/*.jks
+**/*.keystore
+**/__pycache__/
+**/.gradle/
+**/build/
+**/node_modules/
+**/.kotlin/
+client/web/src/main/resources/static/
+qa/s0/private/

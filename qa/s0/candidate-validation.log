@@ -1,0 +1,11 @@
+test_bad_json_and_truncation (test_candidates.CandidateTests.test_bad_json_and_truncation) ... ok
+test_duplicates_and_version (test_candidates.CandidateTests.test_duplicates_and_version) ... ok
+test_empty (test_candidates.CandidateTests.test_empty) ... ok
+test_invalid_fields (test_candidates.CandidateTests.test_invalid_fields) ... ok
+test_other_person_source (test_candidates.CandidateTests.test_other_person_source) ... ok
+test_valid (test_candidates.CandidateTests.test_valid) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+OK

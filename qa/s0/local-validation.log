@@ -1,0 +1,16 @@
+test_bad_json_and_truncation (test_candidates.CandidateTests.test_bad_json_and_truncation) ... ok
+test_duplicates_and_version (test_candidates.CandidateTests.test_duplicates_and_version) ... ok
+test_empty (test_candidates.CandidateTests.test_empty) ... ok
+test_invalid_fields (test_candidates.CandidateTests.test_invalid_fields) ... ok
+test_other_person_source (test_candidates.CandidateTests.test_other_person_source) ... ok
+test_valid (test_candidates.CandidateTests.test_valid) ... ok
+test_bad_tool_never_executes_followup (test_provider.ProviderTests.test_bad_tool_never_executes_followup) ... ok
+test_finished_incremental_stream (test_provider.ProviderTests.test_finished_incremental_stream) ... ok
+test_prose_cannot_call_tool (test_provider.ProviderTests.test_prose_cannot_call_tool) ... ok
+test_true_tool_roundtrip (test_provider.ProviderTests.test_true_tool_roundtrip) ... ok
+test_truncated_and_unfinished_stream (test_provider.ProviderTests.test_truncated_and_unfinished_stream) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.002s
+
+OK

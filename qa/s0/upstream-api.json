@@ -1,0 +1,20 @@
+{
+  "tag": "2.5.6",
+  "published_at": "2026-10-01T09:55:19Z",
+  "assets": [
+    {
+      "name": "rikkahub-2.5.6-arm64-v8a.apk",
+      "size": 40255950,
+      "browser_download_url": "https://github.com/rikkahub/rikkahub/releases/download/2.5.6/rikkahub-2.5.6-arm64-v8a.apk",
+      "digest": "sha256:f0a2cbe2224a22f439921f66c65682f43e8a3009347754291ea6a0a83de57af6"
+    }
+  ],
+  "submodules": [
+    {
+      "path": "material3/material-color-utilities",
+      "mode": "160000",
+      "type": "commit",
+      "sha": "6fd88eb3e95ba1d457842e2a2bf847d06b3a018a"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "repository": "https://github.com/rikkahub/rikkahub",
+  "tag": "2.5.6",
+  "commit": "447bb7e89710d31f1204d7a2973baa19fdbd5b28",
+  "archive_sha256": "447dfad8f36f7699bf412494bd3e86fd23c97baaeab7566859a8d5258880ab11",
+  "license": "AGPL-3.0",
+  "destination": "client",
+  "submodules": [{
+    "repository": "https://github.com/material-foundation/material-color-utilities",
+    "commit": "6fd88eb3e95ba1d457842e2a2bf847d06b3a018a",
+    "destination": "client/material3/material-color-utilities"
+  }],
+  "upstream_apk": {
+    "name": "rikkahub-2.5.6-arm64-v8a.apk",
+    "sha256": "f0a2cbe2224a22f439921f66c65682f43e8a3009347754291ea6a0a83de57af6",
+    "purpose": "S0 upstream device validation; not a MathStudyAgent build"
+  }
+}
