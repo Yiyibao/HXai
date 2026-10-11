@@ -15,6 +15,13 @@ OWNER_STORAGE_LIMIT = 512 * 1024 * 1024
 TOTAL_STORAGE_LIMIT = 2 * 1024 * 1024 * 1024
 
 
+class AuthorizationRevoked(PermissionError):
+    """The identity was revoked after the request's initial authentication."""
+
+    def __init__(self):
+        super().__init__("authentication_required")
+
+
 def storage_reservation(options, source_bytes):
     output_limit = (30 if options.get("operation") == "office_pdf" else 64) * 1024 * 1024
     return source_bytes + output_limit + len(json.dumps(options).encode("utf-8"))
@@ -81,6 +88,32 @@ class Store:
             row = db.execute("SELECT id FROM identities WHERE token_hash=? AND active=1", (hashlib.sha256(token.encode()).hexdigest(),)).fetchone()
         return row[0] if row else None
 
+    def revoke(self, owner):
+        """Revoke and cancel queued/running work in the same transaction.
+
+        The dispatcher observes cancellation; this does not claim that an
+        already-running container was synchronously terminated. Stored source
+        files and storage reservations remain until normal verified cleanup.
+        """
+        now = time.time()
+        with self.db() as db:
+            db.execute("BEGIN IMMEDIATE")
+            changed = db.execute("UPDATE identities SET active=0 WHERE id=?", (owner,)).rowcount
+            db.execute("""UPDATE jobs SET cancel=1,state='CANCELLED',error='authorization_revoked',
+                          updated=?,expires=MIN(expires,?)
+                          WHERE owner=? AND state IN ('QUEUED','RUNNING')""",
+                       (now, now + 86400, owner))
+        return bool(changed)
+
+    @staticmethod
+    def _fence_revoked_jobs(db, now):
+        # Also honor revocations made by older administrator versions.
+        db.execute("""UPDATE jobs SET cancel=1,state='CANCELLED',error='authorization_revoked',
+                      updated=?,expires=MIN(expires,?)
+                      WHERE state IN ('QUEUED','RUNNING') AND NOT EXISTS
+                      (SELECT 1 FROM identities WHERE identities.id=jobs.owner AND active=1)""",
+                   (now, now + 86400))
+
     def get(self, owner, job_id):
         with self.db() as db:
             row = db.execute("SELECT * FROM jobs WHERE id=? AND owner=?", (job_id, owner)).fetchone()
@@ -93,6 +126,11 @@ class Store:
         try:
             with self.db() as db:
                 db.execute("BEGIN IMMEDIATE")
+                # Authentication before a slow upload is not a dispatch grant.
+                # Serialize this check with revoke before returning any receipt
+                # or moving staged input into the persistent task directory.
+                if not db.execute("SELECT 1 FROM identities WHERE id=? AND active=1", (owner,)).fetchone():
+                    raise AuthorizationRevoked()
                 old = db.execute("SELECT * FROM jobs WHERE owner=? AND request_key=?", (owner, key)).fetchone()
                 if old:
                     if old["fingerprint"] != fingerprint:
@@ -187,7 +225,10 @@ class Store:
     def claim(self):
         with self.db() as db:
             db.execute("BEGIN IMMEDIATE")
-            row = db.execute("SELECT * FROM jobs WHERE state='QUEUED' AND cancel=0 ORDER BY created LIMIT 1").fetchone()
+            self._fence_revoked_jobs(db, time.time())
+            row = db.execute("""SELECT jobs.* FROM jobs JOIN identities ON identities.id=jobs.owner
+                                WHERE jobs.state='QUEUED' AND jobs.cancel=0 AND identities.active=1
+                                ORDER BY jobs.created,jobs.id LIMIT 1""").fetchone()
             if row:
                 db.execute("UPDATE jobs SET state='RUNNING',updated=? WHERE id=?", (time.time(), row["id"]))
         return dict(row) if row else None
@@ -195,5 +236,7 @@ class Store:
     def finish(self, job_id, state, manifest=None, error=None):
         now = time.time()
         with self.db() as db:
+            db.execute("BEGIN IMMEDIATE")
+            self._fence_revoked_jobs(db, now)
             db.execute("UPDATE jobs SET state=?,manifest=?,error=?,updated=?,expires=MIN(expires,?) WHERE id=? AND state='RUNNING' AND cancel=0",
                        (state, json.dumps(manifest) if manifest else None, error, now, now + 86400, job_id))
