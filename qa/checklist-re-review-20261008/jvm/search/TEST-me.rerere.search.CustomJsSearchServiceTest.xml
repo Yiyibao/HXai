@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.search.CustomJsSearchServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-08T06:42:53.581Z" hostname="DESKTOP-QH4J0RS" time="0.971">
+  <properties/>
+  <testcase name="scraping supports async functions and response text" classname="me.rerere.search.CustomJsSearchServiceTest" time="0.765"/>
+  <testcase name="existing synchronous search and fetch options still work" classname="me.rerere.search.CustomJsSearchServiceTest" time="0.08"/>
+  <testcase name="script errors do not poison subsequent searches" classname="me.rerere.search.CustomJsSearchServiceTest" time="0.03"/>
+  <testcase name="cancellation stops an in flight fetch" classname="me.rerere.search.CustomJsSearchServiceTest" time="0.09"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Possibly running android unit test without robolectric
+java.lang.RuntimeException: Method isLoggable in android.util.Log not mocked. See https://developer.android.com/r/studio-ui/build/not-mocked for details.
+	at android.util.Log.isLoggable(Log.java)
+	at okhttp3.internal.platform.android.AndroidLog.enableLogging(AndroidLog.kt:132)
+	at okhttp3.internal.platform.android.AndroidLog.enable(AndroidLog.kt:109)
+	at okhttp3.internal.platform.PlatformRegistry.findPlatform(PlatformRegistry.kt:25)
+	at okhttp3.internal.platform.Platform$Companion.findPlatform(Platform.kt:252)
+	at okhttp3.internal.platform.Platform$Companion.access$findPlatform(Platform.kt:230)
+	at okhttp3.internal.platform.Platform.<clinit>(Platform.kt:231)
+	at okhttp3.OkHttpClient$Builder.<init>(OkHttpClient.kt:607)
+	at me.rerere.search.SearchService$Companion.<clinit>(SearchService.kt:71)
+	at me.rerere.search.SearchService.<clinit>(SearchService.kt)
+	at me.rerere.search.CustomJsSearchServiceTest$scraping supports async functions and response text$1.invokeSuspend(CustomJsSearchServiceTest.kt:62)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at me.rerere.search.CustomJsSearchServiceTest.scraping supports async functions and response text(CustomJsSearchServiceTest.kt:61)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:299)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:293)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+]]></system-err>
+</testsuite>

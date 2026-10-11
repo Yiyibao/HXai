@@ -1,0 +1,72 @@
+[
+  {
+    "name": "gallery-final",
+    "passed": true,
+    "started": "2026-10-08T06:40:30.8493352+08:00",
+    "seconds": 8.9,
+    "log": "gallery-final.log"
+  },
+  {
+    "name": "slider-final",
+    "passed": true,
+    "started": "2026-10-08T06:40:39.7064159+08:00",
+    "seconds": 5.2,
+    "log": "slider-final.log"
+  },
+  {
+    "name": "workspace-boundary-final",
+    "passed": true,
+    "started": "2026-10-08T06:40:44.8936984+08:00",
+    "seconds": 3.1,
+    "log": "workspace-boundary-final.log"
+  },
+  {
+    "name": "feedback-seed",
+    "passed": true,
+    "started": "2026-10-08T06:40:47.9632832+08:00",
+    "seconds": 3.0,
+    "log": "feedback-seed.log"
+  },
+  {
+    "name": "feedback-verify",
+    "passed": true,
+    "started": "2026-10-08T06:40:50.9859056+08:00",
+    "seconds": 2.9,
+    "log": "feedback-verify.log"
+  },
+  {
+    "name": "StudyRealModelTest",
+    "passed": false,
+    "started": "2026-10-08T06:40:53.9060153+08:00",
+    "seconds": 165.0,
+    "log": "StudyRealModelTest.log"
+  },
+  {
+    "name": "ProjectReviewTeachingTest",
+    "passed": true,
+    "started": "2026-10-08T06:43:38.8739705+08:00",
+    "seconds": 23.1,
+    "log": "ProjectReviewTeachingTest.log"
+  },
+  {
+    "name": "LearningLoopRealModelTest",
+    "passed": true,
+    "started": "2026-10-08T06:44:02.0065460+08:00",
+    "seconds": 57.0,
+    "log": "LearningLoopRealModelTest.log"
+  },
+  {
+    "name": "LearningMemoryRealModelTest",
+    "passed": true,
+    "started": "2026-10-08T06:44:58.9774918+08:00",
+    "seconds": 47.6,
+    "log": "LearningMemoryRealModelTest.log"
+  },
+  {
+    "name": "MaterialRealModelTest",
+    "passed": true,
+    "started": "2026-10-08T06:45:46.5456474+08:00",
+    "seconds": 208.0,
+    "log": "MaterialRealModelTest.log"
+  }
+]

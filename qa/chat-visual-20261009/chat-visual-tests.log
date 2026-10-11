@@ -1,0 +1,30 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart
+00:00 +0: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:00 +1: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:00 +2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:00 +3: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/interactive_surface_test.dart: Budget slider recalculates locally and only button submits action
+00:00 +4: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/interactive_surface_test.dart: Budget slider recalculates locally and only button submits action
+00:01 +5: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/interactive_surface_test.dart: Budget slider recalculates locally and only button submits action
+00:01 +6: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/interactive_surface_test.dart: Budget slider recalculates locally and only button submits action
+00:01 +7: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:01 +8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:01 +9: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:01 +10: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:01 +11: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:01 +12: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:01 +13: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:01 +14: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:01 +15: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:02 +16: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:02 +17: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:02 +18: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:02 +19: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Chat delivers artifact actions and displays native failure
+00:02 +20: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Chat delivers artifact actions and displays native failure
+00:02 +21: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Late mode acknowledgement preserves the newly selected conversation mode
+00:02 +22: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Send receipt after new chat preserves its new draft
+00:03 +23: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Old send failure does not appear in a newly selected chat
+00:03 +24: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Refresh invalidates an outstanding pagination response
+00:03 +25: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Old pagination failure cannot escape after context changes
+00:03 +26: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: A current successful send selects its chat and clears the composer
+00:03 +27: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Late attachment failure is silent after epoch change
+00:03 +28: All tests passed!

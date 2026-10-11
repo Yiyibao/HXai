@@ -1,7 +1,7 @@
 package me.rerere.tts.provider.providers
 
 import android.content.Context
-import android.util.Log
+import me.rerere.common.util.ServicePrivacyLog as Log
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import me.rerere.tts.model.AudioChunk
@@ -49,7 +49,7 @@ class GroqTTSProvider : TTSProvider<TTSProviderSetting.Groq> {
 
         if (!response.isSuccessful) {
             Log.e(TAG, "generateSpeech: ${response.code} ${response.message}")
-            Log.e(TAG, "generateSpeech: ${response.body?.string()}")
+            Log.e(TAG, "generateSpeech: ${response.body.string()}")
             throw TTSProviderException(
                 message = "Groq TTS request failed: ${response.code} ${response.message}",
                 statusCode = response.code

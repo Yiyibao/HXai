@@ -1,0 +1,53 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.MaterialPaginationTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.MaterialPaginationTest:
+INSTRUMENTATION_STATUS: test=toolCanReadTailAndPreviewCanChangePages
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.MaterialPaginationTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Action performScrollTo() failed.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (Text + InputText + EditableText contains '查看提取内容与范围' (ignoreCase: false))
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollTo(Actions.kt:82)
+	at me.rerere.rikkahub.service.MaterialPaginationTest.toolCanReadTailAndPreviewCanChangePages(MaterialPaginationTest.kt:46)
+
+INSTRUMENTATION_STATUS: stream=
+Error in toolCanReadTailAndPreviewCanChangePages(me.rerere.rikkahub.service.MaterialPaginationTest):
+java.lang.AssertionError: Action performScrollTo() failed.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (Text + InputText + EditableText contains '查看提取内容与范围' (ignoreCase: false))
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollTo(Actions.kt:82)
+	at me.rerere.rikkahub.service.MaterialPaginationTest.toolCanReadTailAndPreviewCanChangePages(MaterialPaginationTest.kt:46)
+
+INSTRUMENTATION_STATUS: test=toolCanReadTailAndPreviewCanChangePages
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 7.35
+There was 1 failure:
+1) toolCanReadTailAndPreviewCanChangePages(me.rerere.rikkahub.service.MaterialPaginationTest)
+java.lang.AssertionError: Action performScrollTo() failed.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (Text + InputText + EditableText contains '查看提取内容与范围' (ignoreCase: false))
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollTo(Actions.kt:82)
+	at me.rerere.rikkahub.service.MaterialPaginationTest.toolCanReadTailAndPreviewCanChangePages(MaterialPaginationTest.kt:46)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

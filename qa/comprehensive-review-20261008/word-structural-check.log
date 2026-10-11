@@ -1,0 +1,14 @@
+Failed to find real location of C:\Users\Hfff\AppData\Local\Programs\Python\Python313\python.exe
+{
+  "fraction_numerator": "(x+1)",
+  "fraction_denominator": "2",
+  "power_base": "y",
+  "power_exponent": "3",
+  "image_count": 1,
+  "original_image_bytes_preserved": true,
+  "table_count": 1,
+  "automated_suite_status": "FAILED",
+  "failure_reason": "literal text assertion rejects redundant numerator parentheses",
+  "image_generation_probe_executed": false,
+  "output_sha256": "575045d144859d0358066b643ed1c79a04e457d39a1e5142da5669725a2e09b9"
+}

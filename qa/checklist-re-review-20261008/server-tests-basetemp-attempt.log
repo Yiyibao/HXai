@@ -1,0 +1,9 @@
+Failed to find real location of C:\Users\Hfff\AppData\Local\Programs\Python\Python313\python.exe
+============================= test session starts =============================
+platform win32 -- Python 3.13.13, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\Office\Study\code\MathStudyAgent\server\document-service
+configfile: pytest.ini
+plugins: anyio-4.14.2, asyncio-1.4.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 26 items
+

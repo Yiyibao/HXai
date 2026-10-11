@@ -9,7 +9,7 @@ import android.media.AudioRecord
 import android.media.MediaRecorder
 import android.os.SystemClock
 import android.util.Base64
-import android.util.Log
+import me.rerere.common.util.ServicePrivacyLog as Log
 import androidx.core.content.ContextCompat
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

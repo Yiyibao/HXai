@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.highlight.core.RegexesTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-07T22:19:16.313Z" hostname="DESKTOP-QH4J0RS" time="0.005">
+  <properties/>
+  <testcase name="builds alternations and lookaheads" classname="me.rerere.highlight.core.RegexesTest" time="0.002"/>
+  <testcase name="unicode mode keeps javascript predefined character class semantics" classname="me.rerere.highlight.core.RegexesTest" time="0.001"/>
+  <testcase name="translates constructs java rejects" classname="me.rerere.highlight.core.RegexesTest" time="0.0"/>
+  <testcase name="counts capture groups the way highlight_js does" classname="me.rerere.highlight.core.RegexesTest" time="0.0"/>
+  <testcase name="renumbers backreferences when expressions are joined" classname="me.rerere.highlight.core.RegexesTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

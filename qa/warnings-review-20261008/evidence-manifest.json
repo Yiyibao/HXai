@@ -1,0 +1,2244 @@
+{
+  "files": [
+    {
+      "file": "additional-emulator-results.json",
+      "bytes": 1819,
+      "sha256": "938cb8feb87adb5da718f5acd3f8dd19a1def6b8e8e8d4cecd5bf39c84b1423b"
+    },
+    {
+      "file": "after-build-first.log",
+      "bytes": 20167,
+      "sha256": "6108189fd81031c873823c51ccfcaa343b33acc32bfca8274f2e1d1b8f051f64"
+    },
+    {
+      "file": "after-build-second.log",
+      "bytes": 49334,
+      "sha256": "f7cbee12b28ba58645bedc64c669cc1d75a0e961e1ee55c022c25da2e8c94168"
+    },
+    {
+      "file": "after-lint.xml",
+      "bytes": 46980,
+      "sha256": "6efe1c529186823b56f72d7941db3668175d93189ded2a42b0ae65729400aed2"
+    },
+    {
+      "file": "all-module-jvm-results.json",
+      "bytes": 25564,
+      "sha256": "893aefe84b61ee82d362a3d5f12d04a45790250c248759b5749ffbf0c7880022"
+    },
+    {
+      "file": "all-saved-file-hashes.json",
+      "bytes": 2311,
+      "sha256": "4f4dfb4291919f751345e86c931b87c0433e95adcfe9aca31e250d7bec302aa3"
+    },
+    {
+      "file": "approval-error-type-metadata.txt",
+      "bytes": 54,
+      "sha256": "9012915a6b9cd5e1f21cbf4e37e963a8489288fb8eb771c951c81922b3124dc2"
+    },
+    {
+      "file": "approval-http-metadata.json",
+      "bytes": 1897,
+      "sha256": "296173d8a214ad49d3ed24a18e6a1652e93cbfdd8d297a9790dd1529b7d5bfb7"
+    },
+    {
+      "file": "BackupPageTest.log",
+      "bytes": 818,
+      "sha256": "4c95bdba6da5ad4e019aff702bd3ea64af9919914523ea62f5ab11320f6618c0"
+    },
+    {
+      "file": "BackupReliabilityTest.log",
+      "bytes": 2285,
+      "sha256": "4d7a8fdbcf1068931f332cbd428cc5ed5aa8d9a980dc9e93b7aaad6b7f95d4a3"
+    },
+    {
+      "file": "before-build.log",
+      "bytes": 36438,
+      "sha256": "dff6ebedd83824f855d6ded01a233522662b7b47621776cea5f89f092dea92e3"
+    },
+    {
+      "file": "before-lint-with-fixture.log",
+      "bytes": 26006,
+      "sha256": "60431c6c66d06f06948997215d01c9d3f96bca4203e469b7f9bfda241554ba2e"
+    },
+    {
+      "file": "before-lint.log",
+      "bytes": 14464,
+      "sha256": "dfe3dbe715d3b7db7890010f92b32b0b1a09061753b2f3cb67dce9287842fc42"
+    },
+    {
+      "file": "before-lint.xml",
+      "bytes": 372847,
+      "sha256": "d4fca876573ea2270b68ea082c2ed04fa99d12930e147483e02ecdedebe6f218"
+    },
+    {
+      "file": "before-warning-destinations.json",
+      "bytes": 171114,
+      "sha256": "e309dc340848356f9ac6af6bbc9acdcf933d9ac348ec956064a22a5a6ccc540a"
+    },
+    {
+      "file": "boundary-install-before.log",
+      "bytes": 76,
+      "sha256": "7ed8077e18ea1232bc80f6cf16f0e955db5bfc14dab4220ae2251853311aa9fb"
+    },
+    {
+      "file": "ChatNetworkFaultTest.log",
+      "bytes": 11365,
+      "sha256": "7cbe824dc810a137f0dc2f737e1d12c501668935317b0ec2133a23ef8de64e84"
+    },
+    {
+      "file": "collection-final.log",
+      "bytes": 8250,
+      "sha256": "1a9941ffe3fb30e09513673eccbf00f8b57f8b2e6490178fe5e61943bc5ff20a"
+    },
+    {
+      "file": "collection-first.log",
+      "bytes": 5937,
+      "sha256": "79a1ee27921f89f7af0a9e6626b5c9c1bb9150ab8e27a04df6a28634d0059327"
+    },
+    {
+      "file": "collection-full-review.log",
+      "bytes": 6741,
+      "sha256": "7df28b3e5d143947f29c5f3e0bf3d13343505a87d05c9d73f377619fa57051d4"
+    },
+    {
+      "file": "compiler-fixes.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "compiler-ledger.log",
+      "bytes": 759,
+      "sha256": "8f68d696b1dcbb98b008a0e1b1de724928eae865470be3c543879beeee7bc60e"
+    },
+    {
+      "file": "compiler-warning-counts.json",
+      "bytes": 733,
+      "sha256": "a433686ddfe4462ba941a3dd730b9fa79d3dd6dedda35577972ed8b04db7c5d8"
+    },
+    {
+      "file": "context-privacy-final-verified.log",
+      "bytes": 867,
+      "sha256": "ff8183e9cfb3ccd0164ce4eb2e988e255982af524f826b1b1108e27045001594"
+    },
+    {
+      "file": "context-privacy-final.log",
+      "bytes": 867,
+      "sha256": "8f8a3ae8bd3d09ed9fa52a7fbd0ecfa95c033cfdcff352a010e5b450b5288e39"
+    },
+    {
+      "file": "context-privacy-first-failure.log",
+      "bytes": 2367,
+      "sha256": "1690a29844578ef89251052b0c2753aa27a1d591859fc6c9b28c853de10bbf8d"
+    },
+    {
+      "file": "CredentialVaultTest.log",
+      "bytes": 7007,
+      "sha256": "7ab4e5b0d8e2c2a302a8c02cb55e05d2c2c1ade744c7a16ffeaac03ca21eb235"
+    },
+    {
+      "file": "current-diff-stat.txt",
+      "bytes": 14026,
+      "sha256": "b3a4c101d913a02c57cbd2d602fefd9392ac189215bd05e770708e6763d2bdc9"
+    },
+    {
+      "file": "current-workspace-file-hashes.json",
+      "bytes": 78139,
+      "sha256": "f2fb6b5fa330e3a33b58af267347152946603085b39c755e91000b3109d1ae5b"
+    },
+    {
+      "file": "delivery/artifact/delivered.docx",
+      "bytes": 1563,
+      "sha256": "01d5f2717b667182dcfd8675819c6b36ef6b1fc841a30821c2179bb5849d62d9"
+    },
+    {
+      "file": "delivery/artifact/delivered.md",
+      "bytes": 32,
+      "sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd"
+    },
+    {
+      "file": "delivery/artifact/delivered.pdf",
+      "bytes": 29097,
+      "sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a"
+    },
+    {
+      "file": "delivery/artifact/delivered.pptx",
+      "bytes": 2533,
+      "sha256": "482fb0a4030fb25a96926b44c9a82fefeca415218bf2e6910cb721a0e0acace0"
+    },
+    {
+      "file": "delivery/artifact/delivered.xlsx",
+      "bytes": 2398,
+      "sha256": "0b9703bde45d518db7708b20b3a2d4f28ca50f1d1d6fabdcc72eb5aad9a4a551"
+    },
+    {
+      "file": "delivery/artifact/delivery-receipts.txt",
+      "bytes": 4303,
+      "sha256": "c5c75a466a8ee739b4c07db3f5dd352a7dd7d082b25930a9860b42bda211c5b2"
+    },
+    {
+      "file": "delivery/artifact/source.docx",
+      "bytes": 1563,
+      "sha256": "01d5f2717b667182dcfd8675819c6b36ef6b1fc841a30821c2179bb5849d62d9"
+    },
+    {
+      "file": "delivery/artifact/source.md",
+      "bytes": 32,
+      "sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd"
+    },
+    {
+      "file": "delivery/artifact/source.pdf",
+      "bytes": 29097,
+      "sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a"
+    },
+    {
+      "file": "delivery/artifact/source.pptx",
+      "bytes": 2533,
+      "sha256": "482fb0a4030fb25a96926b44c9a82fefeca415218bf2e6910cb721a0e0acace0"
+    },
+    {
+      "file": "delivery/artifact/source.xlsx",
+      "bytes": 2398,
+      "sha256": "0b9703bde45d518db7708b20b3a2d4f28ca50f1d1d6fabdcc72eb5aad9a4a551"
+    },
+    {
+      "file": "delivery/material/delivered.docx",
+      "bytes": 5725,
+      "sha256": "908dde1cab170a138e8b05d02b9c2d1530e351dc17ad48ca98bd80ac9e121fce"
+    },
+    {
+      "file": "delivery/material/delivered.md",
+      "bytes": 32,
+      "sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd"
+    },
+    {
+      "file": "delivery/material/delivered.pdf",
+      "bytes": 29097,
+      "sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a"
+    },
+    {
+      "file": "delivery/material/delivered.pptx",
+      "bytes": 2533,
+      "sha256": "bb88888042f3d9d27d1dd131bb935ff1e9f7ff37010a7584d934363f11e871c1"
+    },
+    {
+      "file": "delivery/material/delivered.xlsx",
+      "bytes": 2495,
+      "sha256": "64c2dc8bc3265d0b0e86c70547c769b6a72eb3b9570ea84531243f75f9ffa7ad"
+    },
+    {
+      "file": "delivery/material/delivery-receipts.txt",
+      "bytes": 15623,
+      "sha256": "3fb8ddd30d8144ba181d624343c93d51af0046dc86b076b83b75861ea243a918"
+    },
+    {
+      "file": "delivery/material/source.docx",
+      "bytes": 5725,
+      "sha256": "908dde1cab170a138e8b05d02b9c2d1530e351dc17ad48ca98bd80ac9e121fce"
+    },
+    {
+      "file": "delivery/material/source.md",
+      "bytes": 32,
+      "sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd"
+    },
+    {
+      "file": "delivery/material/source.pdf",
+      "bytes": 29097,
+      "sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a"
+    },
+    {
+      "file": "delivery/material/source.pptx",
+      "bytes": 2533,
+      "sha256": "bb88888042f3d9d27d1dd131bb935ff1e9f7ff37010a7584d934363f11e871c1"
+    },
+    {
+      "file": "delivery/material/source.xlsx",
+      "bytes": 2495,
+      "sha256": "64c2dc8bc3265d0b0e86c70547c769b6a72eb3b9570ea84531243f75f9ffa7ad"
+    },
+    {
+      "file": "delivery-receipts.txt",
+      "bytes": 4303,
+      "sha256": "c5c75a466a8ee739b4c07db3f5dd352a7dd7d082b25930a9860b42bda211c5b2"
+    },
+    {
+      "file": "diagnostic-test-apk-build.log",
+      "bytes": 17553,
+      "sha256": "d31ce51ba0fc047a81d0a9164f779b5c0e1149bec90717c615648028a09c62af"
+    },
+    {
+      "file": "DiagnosticsPageTest.log",
+      "bytes": 1672,
+      "sha256": "b9491ac216e394c54033b051f3f3f59316b5d78ba7adae3a07e807285594d3bd"
+    },
+    {
+      "file": "DiagnosticsTest-post-privacy.log",
+      "bytes": 2915,
+      "sha256": "6134111fff9d60953d0d245a17b0ffbbf39b067907e87d46e064d0ce2d8ec58d"
+    },
+    {
+      "file": "DiagnosticsTest.log",
+      "bytes": 2915,
+      "sha256": "6505489486c2dfea7591d47af08d96eef95746bd99ffaba912b32ea838d22e32"
+    },
+    {
+      "file": "diff-check-final.log",
+      "bytes": 9021,
+      "sha256": "ca01f0bc900b0406a41187405e2ac30d7cd7175391f88779c9e4df38e8230a7d"
+    },
+    {
+      "file": "diff-check.log",
+      "bytes": 8902,
+      "sha256": "cd482a48b5abcf2b040bf1296f8bdba28171fc80741603fbd5c48b9196e3d6e5"
+    },
+    {
+      "file": "document-health-headers.txt",
+      "bytes": 947,
+      "sha256": "d00308b3560280bc3a6c3bf555f192ed57abc8f20078780a4fcf58bbe4f068ee"
+    },
+    {
+      "file": "document-health.log",
+      "bytes": 37,
+      "sha256": "fd6cea35f80fc847f3f702f478f66d92eddc70f370520bbd2bf7aa453c181433"
+    },
+    {
+      "file": "document-service-precondition.txt",
+      "bytes": 52,
+      "sha256": "e68f8bc01429e3ba1eb6271b4a0965ce84ea46af49c3c8eee9fb1cc34d4d137c"
+    },
+    {
+      "file": "document-service-project-runtime.log",
+      "bytes": 638,
+      "sha256": "0b97b7ddd88eaeac1893e242e2a12aabee409180586081c3962c2fc2f7ecd2f2"
+    },
+    {
+      "file": "document-service-runtime-versions.txt",
+      "bytes": 84,
+      "sha256": "7c102186a3f052e9fc4470a4b33f7b17da1523607897bc8b32d68ec840fed2d1"
+    },
+    {
+      "file": "document-service.log",
+      "bytes": 648,
+      "sha256": "f7d7efd4a27f350f7c122bb9d1fe282f569b1cd527595c3a77a01118fd203dcf"
+    },
+    {
+      "file": "DocumentServicePageTest.log",
+      "bytes": 1000,
+      "sha256": "8f49bdb67f0f8b2baacd90f694c1d047f4db7bec963bc3097dd0d6f371f21ccc"
+    },
+    {
+      "file": "emulator-build.txt",
+      "bytes": 86,
+      "sha256": "54289bad534d5363c67c63ad3fcc4661837b702a5e1ad26d178d477c83f2e67c"
+    },
+    {
+      "file": "emulator-page-size.txt",
+      "bytes": 6,
+      "sha256": "30f236f92d107cedc1eab7b3d6dafa316df3657ac88e59ece8df2944b6c995ca"
+    },
+    {
+      "file": "emulator-results.json",
+      "bytes": 4738,
+      "sha256": "4ae3b23361958a835a77e119c2defb388f461dc560284c6c8613693924f645c9"
+    },
+    {
+      "file": "emulator-run.log",
+      "bytes": 1285,
+      "sha256": "87f93b1728e8b5f07ccab1ec219d6531e7909f2271c929f5b0c3d0920442486b"
+    },
+    {
+      "file": "exact-delivery-audit.log",
+      "bytes": 40,
+      "sha256": "b6e20377837705526e40aca734b2f99042a6f0db96457dabc01dc8f62f6447ba"
+    },
+    {
+      "file": "exact-delivery-hashes.json",
+      "bytes": 6061,
+      "sha256": "57e77e22d3942c7b99733224460ac190cbc3043530784263de6cad4ceb966520"
+    },
+    {
+      "file": "feature-test-matrix.md",
+      "bytes": 9017,
+      "sha256": "d14f960bc37902919295c159f9450cc0117260b63bef4d2e76622a0bc5d71ea3"
+    },
+    {
+      "file": "feedback-seed.log",
+      "bytes": 845,
+      "sha256": "4e871e910af96334c33a1648dba0295fd38c1b7d270642bc4e7059fce0064336"
+    },
+    {
+      "file": "feedback-verify.log",
+      "bytes": 845,
+      "sha256": "ceede66f4a96b9a01941fffe8595dd3ea78526607c415407239d3bb6f1ffc299"
+    },
+    {
+      "file": "final-apk-hashes.json",
+      "bytes": 847,
+      "sha256": "9716a3b7b2291074961f0da8d7a52f5f312bc793a2398d074af91ea97662629e"
+    },
+    {
+      "file": "final-app-install.log",
+      "bytes": 38,
+      "sha256": "c4aa470acafcf8576c15b0f0b5ae7e852d1ec5413372d0e6a9272e788e1306d3"
+    },
+    {
+      "file": "final-build-tests-lint-second.log",
+      "bytes": 100847,
+      "sha256": "0aa3242f7a1429259bdeb8d194dd0b3c2753d1ae4b847eef1f697085ad4b9747"
+    },
+    {
+      "file": "final-build-tests-lint.log",
+      "bytes": 1657,
+      "sha256": "1d07db2d2963d982abb7da57719652e022538395d18bbf9c9d9075a179d182ad"
+    },
+    {
+      "file": "final-compiler-full.log",
+      "bytes": 74502,
+      "sha256": "e29390273c10a435a4c3d03dd4f2cd5d343f69d693f73c5de35ba2ebf272f0f4"
+    },
+    {
+      "file": "final-lint-verified.log",
+      "bytes": 26295,
+      "sha256": "69da4aa53ec4557365a513251698299b97dbac491b2e814e0754ea79889180e3"
+    },
+    {
+      "file": "final-privacy-build-tests-lint.log",
+      "bytes": 32471,
+      "sha256": "59e5e63148d9249f79a883a2e3d3c031ba2f8cc9cca84c56fa32872c854869f5"
+    },
+    {
+      "file": "final-status.txt",
+      "bytes": 18873,
+      "sha256": "7ae72f72f428224e96c20c6299d7b2f59d0d7cb2a048130ff5065575a3a1df3c"
+    },
+    {
+      "file": "final-test-install.log",
+      "bytes": 38,
+      "sha256": "c4aa470acafcf8576c15b0f0b5ae7e852d1ec5413372d0e6a9272e788e1306d3"
+    },
+    {
+      "file": "finish-resources.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "first-compiler-warning-destinations.json",
+      "bytes": 55760,
+      "sha256": "eec21ba3d6596197d84ea70273bad4f703704ca40ce583e103fd5ab2dcafa047"
+    },
+    {
+      "file": "first-jvm/oauth/binary/output-events.bin",
+      "bytes": 6140,
+      "sha256": "d036eb974ef4784586404e6eb6998fa36bda60f2b7732757adeed1f1c5036d62"
+    },
+    {
+      "file": "first-jvm/oauth/binary/results-generic.bin",
+      "bytes": 11989,
+      "sha256": "d8102c595dd10b1f60a77837abebf7e9867cd2117637e0174835c1b8256c58a4"
+    },
+    {
+      "file": "first-jvm/oauth/TEST-me.rerere.oauth.OAuthHttpClientTest.xml",
+      "bytes": 5329,
+      "sha256": "0be48e2c6d6150944e3e96f59abf8eadc81feaf70c7af42bdaa636cf9ebc6c7f"
+    },
+    {
+      "file": "first-jvm/oauth/TEST-me.rerere.oauth.OAuthLoopbackCallbackServerTest.xml",
+      "bytes": 6620,
+      "sha256": "f82bc2e071ad480e6ca1b833358395b67c2d7c001a2bdb0d1dfbce03f947e3ff"
+    },
+    {
+      "file": "first-jvm/workspace/binary/output-events.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "first-jvm/workspace/binary/results-generic.bin",
+      "bytes": 46237,
+      "sha256": "d358500d968bfaaa9beefe5a2bf6c749946d4fbea827463efa82c8c9d4fad88c"
+    },
+    {
+      "file": "first-jvm/workspace/TEST-me.rerere.workspace.ExampleUnitTest.xml",
+      "bytes": 27454,
+      "sha256": "f7b5abf97f031624b994d4949e5330ebbdba83b57415385a4f728514435993a5"
+    },
+    {
+      "file": "first-jvm/workspace/TEST-me.rerere.workspace.RootfsInstallerTest.xml",
+      "bytes": 604,
+      "sha256": "ff85904f8d92b318c5f5e304d1ff4966b7f0e8262090664bc5b3be17b81086ae"
+    },
+    {
+      "file": "first-jvm/workspace/TEST-me.rerere.workspace.RootfsPathResolutionTest.xml",
+      "bytes": 1387,
+      "sha256": "f17f920ec615b88bb88593e09b19219dfa9d9563c627ffb7e13d0f96c04d142a"
+    },
+    {
+      "file": "fix-script.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "fixtures/material-real-model.md",
+      "bytes": 8205,
+      "sha256": "257ec6d7d56f472c219ca1b9490af368b6ee29d7370d713605e26db36ac53de0"
+    },
+    {
+      "file": "fixtures/review-real-teaching.md",
+      "bytes": 1136,
+      "sha256": "d838981b67c8e10982afc8f4859e95d3539a64c1ad3776287934fb2f06aa5726"
+    },
+    {
+      "file": "fixtures/s1-real-teaching.md",
+      "bytes": 1066,
+      "sha256": "356d7d94b0219751faa3424875c58d61f6ec2eeef92e6028c9ce336c62ed5e15"
+    },
+    {
+      "file": "fixtures/s2-real-followup.md",
+      "bytes": 45,
+      "sha256": "b93590924a48a3e8db5a17b230ef83f1324c70fed8a53bef09b6f4be535f7051"
+    },
+    {
+      "file": "fixtures/s2-real-memory.json",
+      "bytes": 21858,
+      "sha256": "cc0c091f675365d753d07ce878063c10a1cc00e5e9fd997f41899d7c8b3081f7"
+    },
+    {
+      "file": "fixtures/s3-real-records.json",
+      "bytes": 5817,
+      "sha256": "a53cb1c77efd1c8321e10abe772f7f518c5d198f4909ff323abfb788bb255b4b"
+    },
+    {
+      "file": "fixtures/s3-real-teaching.md",
+      "bytes": 3518,
+      "sha256": "1850ceeb232b353ae8c944f1c498825518ffc040291f498b8f92a82e1cf3a8e3"
+    },
+    {
+      "file": "FrontendDeliveryRoutesTest.log",
+      "bytes": 1717,
+      "sha256": "bed17be89bc3a5030b8b6db303d1e22126757f321e3b95ee958984b48ebe3028"
+    },
+    {
+      "file": "FrontendModelPickerTest.log",
+      "bytes": 823,
+      "sha256": "1fee9f54a317110237fecb88ad06fb36f709b6dfcb92c420f3b211a9c46a9517"
+    },
+    {
+      "file": "full-build-tests-lint-recheck.log",
+      "bytes": 73261,
+      "sha256": "0dfae6599fd61ad7bef70a358bb459a5a8e0b62c465300875b492f54bb8eb2cd"
+    },
+    {
+      "file": "full-build-tests-lint.log",
+      "bytes": 76401,
+      "sha256": "5a4d7de84ea7cd599ae0f9d5afa4fa0472d4f563aa7376badf7776d8e8271d95"
+    },
+    {
+      "file": "full-review-apk-hashes.json",
+      "bytes": 846,
+      "sha256": "de9c7cd26d1cd9f8f84a1fc1dfc626fe7531a75350ddb83e864b91ffad938876"
+    },
+    {
+      "file": "gallery-final.log",
+      "bytes": 819,
+      "sha256": "fc9d2eed9db30f1bb6d54b3418edea5bbb1defd0bed621f08f31619727292799"
+    },
+    {
+      "file": "gallery-first.log",
+      "bytes": 818,
+      "sha256": "71cac374415eede98795ea7ebd5c938164a92fcedd081cd05a936d49ec48b4cf"
+    },
+    {
+      "file": "icon-alias-audit.json",
+      "bytes": 629,
+      "sha256": "b546b504586dbc0955873b12c97587c7357cdb3bc7bf7db7fe698830d4ce0bfd"
+    },
+    {
+      "file": "incomplete-stale-lint-copy.xml",
+      "bytes": 372847,
+      "sha256": "d4fca876573ea2270b68ea082c2ed04fa99d12930e147483e02ecdedebe6f218"
+    },
+    {
+      "file": "initial-status.txt",
+      "bytes": 14069,
+      "sha256": "bfb8db25ca60900db60477a43d133546f46e8d02c4af80024409809b7adf331a"
+    },
+    {
+      "file": "install-first.log",
+      "bytes": 76,
+      "sha256": "7ed8077e18ea1232bc80f6cf16f0e955db5bfc14dab4220ae2251853311aa9fb"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.provider.providers.claude.ClaudePromptCacheRequestTest.xml",
+      "bytes": 6326,
+      "sha256": "48af90660c8be9b035b7518f91febbb3d5e2638e0cd3668074ceadf8c1a4b351"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.provider.providers.claude.ClaudeRequestMessageTest.xml",
+      "bytes": 1595,
+      "sha256": "639fb3687e9bfddf0bdeaf7582a807923a9145b000f4b098c8cfa3bb05d02066"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.provider.providers.claude.ClaudeServerToolTest.xml",
+      "bytes": 2039,
+      "sha256": "cb001e75e6b2c3eca5a88334bb92339c46850afafd9ffff55bf92cd1800f5146"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.provider.providers.google.GoogleRequestMessageTest.xml",
+      "bytes": 1734,
+      "sha256": "e13c4be6996e6e5c721deb7d2b8af5e6991bd5e5308122edc401ace60432fd4a"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.provider.providers.google.GoogleToolCombinationTest.xml",
+      "bytes": 900,
+      "sha256": "cf1af495b49163e2e3f35efa1a149f6261a70d5d75a9d9962969bab56aa42b64"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.provider.providers.google.InteractionsApiTest.xml",
+      "bytes": 2066,
+      "sha256": "88d5fa41682199b843f9bb6f0fec3c7983b78fe1180626eb793859b849e0016e"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.provider.providers.openai.ChatCompletionsMoonshotRequestTest.xml",
+      "bytes": 846,
+      "sha256": "70b2b154c5beb5bdb4ddee75d80c5bed7909e3091ff4b80b1419f2413a62a8a9"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.provider.providers.openai.ChatCompletionsRequestMessageTest.xml",
+      "bytes": 2715,
+      "sha256": "f9f710aee180e8040f290bd49feeb365888c31f00edbd9b2ec9f28bd8d06d815"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.provider.providers.openai.ChatCompletionsToolSchemaTest.xml",
+      "bytes": 530,
+      "sha256": "22a67eddadd2c5ba229666b23fe537ac5222a544267f48031648c64852c5105b"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.provider.providers.openai.ChatCompletionsUsageParsingTest.xml",
+      "bytes": 534,
+      "sha256": "14ec63f54c0209ec43c23f22ef738223b7c1b1454fbc9c3b2fc5028cb34b20a0"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest.xml",
+      "bytes": 3045,
+      "sha256": "b2ff508897fcca8428f8d069d1be377fd334df438f7dcd344b7d759b5d13227e"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.provider.providers.openai.ResponseApiStreamDecoderTest.xml",
+      "bytes": 2378,
+      "sha256": "b3eba57d19466cb12b902bc9d969a436172d45e0a398e21ecb06fb495b42e28b"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.provider.providers.ProviderMessageGroupingTest.xml",
+      "bytes": 2709,
+      "sha256": "66805623e2bdb2e616d7078f443602d6eabc823318a949ebcdfe9a271da6f48f"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.provider.stream.StreamTraceReplayTest.xml",
+      "bytes": 1709,
+      "sha256": "2c15163756a51985449c09272d99ca81f2f1b5909c9e12accd421b612dfe8dde"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.registry.ModelRegistryTest.xml",
+      "bytes": 1687,
+      "sha256": "3bcf17d0f33384b2a780b85ff6a07fa974e29a4973a0bcb6ee2aeb839a879ca4"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.ui.MessageContextLimitTest.xml",
+      "bytes": 1980,
+      "sha256": "e7322ce6bed62103001f905bc4714e744b3c46a0c7ba8ec7fb08f08709623cc7"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.ui.MessageMetadataTest.xml",
+      "bytes": 1837,
+      "sha256": "f4200f8df14bba7f953b510f215b25951e198954c99e1b2ecba8bc2d61505e24"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.ui.MessageToolMigrationTest.xml",
+      "bytes": 2436,
+      "sha256": "57f4953bba9dbb858fa39422ec2992b392878ffc5e6973c2cd6a11fe6013adfc"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.ui.MessageUploadValidationTest.xml",
+      "bytes": 939,
+      "sha256": "74decc63d17c00b7c518f234feee6a1af5937d79e59a371050ee7b54ceb8a74d"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.ui.MessageVisibilityTest.xml",
+      "bytes": 685,
+      "sha256": "c5be74171080666b83fa049cd1ebd0c7da01cf23f31d83030513949529940bf0"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.ui.StreamChunkHandlerTest.xml",
+      "bytes": 1349,
+      "sha256": "ebfe08339a160bc2a315d8d1659a92dd6af31362c72b746d54bd6a3e53a65439"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.ui.ToolApprovalStateTest.xml",
+      "bytes": 775,
+      "sha256": "7789b2f5c1dee19158d8f83877514fb6791ecda6855bbfedd57db61ec4f79e71"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.ui.UIMessagePartTest.xml",
+      "bytes": 579,
+      "sha256": "ccd246ca6b5939e2beecd8da3a8f8a924c3e576f5c21cbfccc4c2efd937fac50"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.ui.UIMessageSerializationTest.xml",
+      "bytes": 464,
+      "sha256": "f98de1a9153b693a171767b005d046c6efc4b1c51fbf811cadefbdfbcd169ebb"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.util.ErrorPrivacyTest.xml",
+      "bytes": 459,
+      "sha256": "6230a8f691e0ee39ee136d4970a4833a6f7f637414d098f6a281d9d40e07441a"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.util.FileEncoderExifTransformTest.xml",
+      "bytes": 1126,
+      "sha256": "3f26c272a0eb80b8001716b11d303e4e4dcc19ad108dc38970916b503bf6f40d"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.util.JsonTest.xml",
+      "bytes": 1075,
+      "sha256": "2ed2fb0856d46a1e4434de2933ee5fd42ee96abb27e39ee8ca4782a91d1aca2b"
+    },
+    {
+      "file": "jvm/ai/TEST-me.rerere.ai.util.RequestHeadersTest.xml",
+      "bytes": 778,
+      "sha256": "88ca33ac051fc9571b64ef53fe8f129a622e263430417d488eaa0479db91a8b1"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.ai.mcp.McpConnectionKeyTest.xml",
+      "bytes": 813,
+      "sha256": "c030f0c39df29643fc6c28121de542e04ffea4448a43770e47e0a04412fa7df7"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.ai.mcp.McpToolSchemaTest.xml",
+      "bytes": 1225,
+      "sha256": "618b5b48dae2d2e2e445ef8280b0a51382744f2607320d40a594984e5a28b5de"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.ai.tools.local.JavascriptToolTest.xml",
+      "bytes": 1074,
+      "sha256": "0cc59bb2f211f1ea509c6480a38fd784305c4c285cbaff5666cc7863386d5a6b"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.ai.tools.SearchToolsTest.xml",
+      "bytes": 5581,
+      "sha256": "c78dc94320a15cc92ae1fc95303ba876e63113d38fa3955fd4defb0ec79216c1"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.ai.tools.SkillsToolsTest.xml",
+      "bytes": 649,
+      "sha256": "b93964a187ad61faef7cefbee994037d102bec245227750ac3e3a8d293edc836"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.ai.tools.TextReplacersTest.xml",
+      "bytes": 2429,
+      "sha256": "ad70da60d66ef86a21f9693e06de9e3e98136fe9d582d9516155d4218ccf8dc9"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest.xml",
+      "bytes": 7510,
+      "sha256": "04fa43d892e082e1689804f906a9cf34b0858b89e9fd6fcd60a866a818e73944"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.ai.transformers.ThinkTagTransformerTest.xml",
+      "bytes": 1503,
+      "sha256": "8355c420ef682db8309b32babf48f3e0b606be4e1e72920650737cf494203a8c"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest.xml",
+      "bytes": 2022,
+      "sha256": "7b5a56e2b0a5653e07c5c46f472fd5c778f9e175010c7c166c8a02b15431689b"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.datastore.DefaultProvidersTest.xml",
+      "bytes": 533,
+      "sha256": "8371138f3ea9f0d4448f75e2e994f7f1e5aa84b3eafd59822b72d46a5c3f597b"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.datastore.FindProviderTest.xml",
+      "bytes": 682,
+      "sha256": "0ab12107570a9f7e9be5fdf431be3c4ad9f9425b66e504f3861647647183b858"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.files.BuiltinSkillsTest.xml",
+      "bytes": 620,
+      "sha256": "b5afaa9e26348e9540c6b710ddda10a7913c0c9a97d887d059a81cbd63bd6374"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.files.SkillPathsTest.xml",
+      "bytes": 1009,
+      "sha256": "4a137e7312b76abb2eef14e35d46e814919a9b9621147ac54eed1b14a5fc20bf"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.network.ProxyConfigTest.xml",
+      "bytes": 969,
+      "sha256": "98e91a15274e71285f2a2761371f5cd72bc99c5c548a73e280846bf160b5a1b8"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.sync.BackupIntegrityTest.xml",
+      "bytes": 629,
+      "sha256": "f1647afe17e4a500e31b9ba3d9388c4c808cf82b69a6af354dfb7249e9419ec1"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.sync.BackupPathsTest.xml",
+      "bytes": 624,
+      "sha256": "0cbf4d37ce4684ac85f474e316e4213fb0bc7aa3e75effc9a9bd1d6f0ae84cc3"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.sync.EncryptedBackupTest.xml",
+      "bytes": 1196,
+      "sha256": "5c45a3f462e2f793417e171e26332c75f8029d72b63056e263de586a55cd5d8c"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.sync.importer.ChatboxImporterTest.xml",
+      "bytes": 515,
+      "sha256": "28bceb3f3c030a350989ebbc9b04eb24a4b749f29c7a1c30f5a77afc1f0ef701"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.sync.MemoryRestoreTest.xml",
+      "bytes": 777,
+      "sha256": "2c3c8a4d7ebe6a987f141546ae254a54abed63c751aa7214e170b56155c68ff4"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.data.sync.PendingRestoreTest.xml",
+      "bytes": 1960,
+      "sha256": "ca2e29719ddf57df6ac7f4661bdf1ca50e5c2ee677431070e4cb3775bb101f53"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.ExampleUnitTest.xml",
+      "bytes": 432,
+      "sha256": "ca737bcd6689dca28b489e0c1576d3f602c5ae015f263c823ac704b1643a8aef"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.feature.material.DocumentContractTest.xml",
+      "bytes": 937,
+      "sha256": "369d5e2f6088490b37cce5a4c593fdc84515abac3bce920db9e9d432b6c34e09"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.feature.memory.LearningLoopTest.xml",
+      "bytes": 783,
+      "sha256": "629ca18e5a0cd4f1e128057fed8f8642bec7cce70b31de263f3be10822b1121d"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.feature.memory.MemoryContractTest.xml",
+      "bytes": 5010,
+      "sha256": "84c45fd7bb942ab410d9baf701cf0c6d1923f473b3e351e8df91affbaef252e2"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.feature.studychat.StudyChatContractTest.xml",
+      "bytes": 1804,
+      "sha256": "3beffce868892c5f95d909a7a5220df10cf4bf78c16f8e827c083c9014c288a6"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.service.ChatServiceTest.xml",
+      "bytes": 1570,
+      "sha256": "33a3c950047364327f68927ae1e68b18f15f71e8cb4b8f4d29ca66d5f28c0bea"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.service.ConversationSessionManagerTest.xml",
+      "bytes": 1388,
+      "sha256": "135f244de026d4c7db0d51a663c5a823aabd162bc6399c77a53123d72c638d04"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.service.ConversationSessionTest.xml",
+      "bytes": 3955,
+      "sha256": "573acab18ec546c1e20556733e566559840520b848f3fd29d07c4d78cac3a50e"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.service.GenerationRecoveryTest.xml",
+      "bytes": 1509,
+      "sha256": "e9832ab5f0863c3a6b06fe5656e9d97a696fa91a112afbf355fd27052cf9ba5d"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.service.LearnerProfileCompatibilityTest.xml",
+      "bytes": 530,
+      "sha256": "582b1b4b0790b98e8dcd3581f6cdb2f13960fb88f9ad7c19e1f5b4fcef4b4db4"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.service.MessageQueueTest.xml",
+      "bytes": 2291,
+      "sha256": "2b21684f89474bfa4a0c86a684598628930fddae6032b053282ea27a7e337d45"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.service.QueuedAttachmentCleanupTest.xml",
+      "bytes": 1513,
+      "sha256": "f8af860423149e04c6213998e5c96b0b43e2eedf6cd5359c2fe54f2603dc2eac"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.service.SettingsCredentialExportTest.xml",
+      "bytes": 665,
+      "sha256": "a72156fb43d7a31a74c3f02969f7eb96d62befb432382293bae34bce33ed9afa"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.ShareSheetTest.xml",
+      "bytes": 1352,
+      "sha256": "8a5ce6da006e61b2f6be9c6794d5e3926703825f92c978a20539ffcda456fcf2"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.ui.components.webview.WebViewContentCacheTest.xml",
+      "bytes": 819,
+      "sha256": "15356c627b06c509a56cf160c3954a97c341e75b63331cf8a6d50e9154531f29"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest.xml",
+      "bytes": 2175,
+      "sha256": "fa9f67b5bfc8f7ee8bc82c574fb21414ebe0ce4e5a1a3fd8a075fe19a784b82b"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.ui.pages.setting.components.ProviderConfigureConvertToTest.xml",
+      "bytes": 1540,
+      "sha256": "4d6436aff44d586fbfc35176c3aab06eff87e9a88ff56dab95fd1fa090ce446a"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.utils.ChatUtilTest.xml",
+      "bytes": 586,
+      "sha256": "d9673fca81a2d831410a1cb92de546c246dc61e17974e8b44d906f925feb89e5"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.utils.DiffUtilsTest.xml",
+      "bytes": 1095,
+      "sha256": "bae6492293bc72bf632fe211621652b3d5f372f49b6bfafe6f0fde75440b1887"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.utils.StringUtilsTest.xml",
+      "bytes": 2594,
+      "sha256": "ecd1abd0c55f98f8412911030e12067dc345a351a86ec3d340b5a908f04f2907"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.rikkahub.utils.VersionTest.xml",
+      "bytes": 1622,
+      "sha256": "e47c9c974a5e42a2b6b35f5f811ade8af609d15e774cafd2141dca2ed753eff3"
+    },
+    {
+      "file": "jvm/app/TEST-me.rerere.tts.provider.TTSPrivacyTest.xml",
+      "bytes": 473,
+      "sha256": "bac8fd1a895a6038a5d201b5f658252f4354f7332586553578e25cb93fe84a44"
+    },
+    {
+      "file": "jvm/common/TEST-me.rerere.common.ExampleUnitTest.xml",
+      "bytes": 428,
+      "sha256": "04198cda260c0b3378dbc53e833dfbe602bcddc82cd52665c6150095b2f8ad6e"
+    },
+    {
+      "file": "jvm/document/TEST-me.rerere.document.ExampleUnitTest.xml",
+      "bytes": 432,
+      "sha256": "adf34710588d025b58726f895bf58c24eeb2de59b0c87a9d5ddbc7b845d86910"
+    },
+    {
+      "file": "jvm/search/TEST-me.rerere.search.CustomJsSearchServiceTest.xml",
+      "bytes": 3767,
+      "sha256": "d7351ec2ff33fa5d62b422d2d5226181d671820f9caaf5ce0fc30a1bafec56cf"
+    },
+    {
+      "file": "jvm/search/TEST-me.rerere.search.DoubaoSearchServiceTest.xml",
+      "bytes": 567,
+      "sha256": "d718e5dc2e05cac035b70ed25367fcf1481e3e9c64cab87bed8907e404fec059"
+    },
+    {
+      "file": "jvm/search/TEST-me.rerere.search.ExampleUnitTest.xml",
+      "bytes": 428,
+      "sha256": "e6f5f44c51b6a4b6a7777f89ee15cd9d688bee816584b5b5ccc5dacfd0ed8a10"
+    },
+    {
+      "file": "jvm/search/TEST-me.rerere.search.ExaSearchServiceTest.xml",
+      "bytes": 1558,
+      "sha256": "82f1d42dd1a954881afedb7aa084745a87165cf5a954443fb47c7a516e508726"
+    },
+    {
+      "file": "jvm/speech/TEST-me.rerere.asr.ASRProviderSettingMiMoTest.xml",
+      "bytes": 707,
+      "sha256": "63b787f846bb8022a42f6daa9e511b0b672a0476d96fade27788a4ee01977c68"
+    },
+    {
+      "file": "jvm/speech/TEST-me.rerere.asr.ASRProviderSettingStepTest.xml",
+      "bytes": 705,
+      "sha256": "b28b0946e31fe26bb79d304663d5aae14ef9d7f505e83720124452c378f8cd44"
+    },
+    {
+      "file": "jvm/speech/TEST-me.rerere.asr.ASRProviderSettingVolcengineTest.xml",
+      "bytes": 796,
+      "sha256": "36a7ba32d8b6c47942e474f391808c11f4cd8761ac8295556d03ae8ef4f12c4b"
+    },
+    {
+      "file": "jvm/speech/TEST-me.rerere.asr.ASRVoiceTurnTest.xml",
+      "bytes": 966,
+      "sha256": "6a8c5bd4330867bc355d8a57f9a033d5a7951f573f6a6a8571c4dcb86464c258"
+    },
+    {
+      "file": "jvm/speech/TEST-me.rerere.asr.providers.VolcengineASRProtocolTest.xml",
+      "bytes": 1795,
+      "sha256": "ebd58ab001ca8ebd5fac129b8b61adc636418c291eb7d793e558cf80da9c3b4d"
+    },
+    {
+      "file": "jvm/speech/TEST-me.rerere.tts.ExampleUnitTest.xml",
+      "bytes": 422,
+      "sha256": "50a3a0b8ebc9f1e13bcc3604a1799adaa01ec0e3259fc9b1146e4b337bd47b72"
+    },
+    {
+      "file": "jvm/speech/TEST-me.rerere.tts.provider.providers.MiMoTTSProviderTest.xml",
+      "bytes": 903,
+      "sha256": "d127a68f3db1e8e324e01fd6cb4492aeff42f41afd0b00c94a0fcb8fa92b29de"
+    },
+    {
+      "file": "jvm/speech/TEST-me.rerere.tts.provider.providers.VolcengineTTSProviderTest.xml",
+      "bytes": 1432,
+      "sha256": "3e0920d8564b5dc25ac4c593b14f0617ce6ffc3bfb4e6965f3cb838a38ff540a"
+    },
+    {
+      "file": "jvm/speech/TEST-me.rerere.tts.provider.TTSProviderSettingElevenLabsTest.xml",
+      "bytes": 483,
+      "sha256": "f1327da966f673600535d6fef2865b861222c701b71cb35798f3e957e2779684"
+    },
+    {
+      "file": "jvm/speech/TEST-me.rerere.tts.provider.TTSProviderSettingFishAudioTest.xml",
+      "bytes": 480,
+      "sha256": "e827c990ce1c6370f342a5d387f19d3738f53be8e2fe4e4d792a826826503095"
+    },
+    {
+      "file": "jvm/speech/TEST-me.rerere.tts.provider.TTSProviderSettingMiMoTest.xml",
+      "bytes": 602,
+      "sha256": "25087290ab6dfbf91f6050df113157058b89b1d61b6e60a8e3affc0949277680"
+    },
+    {
+      "file": "jvm/speech/TEST-me.rerere.tts.provider.TTSProviderSettingStepTest.xml",
+      "bytes": 739,
+      "sha256": "74e778e35c9b6a2403c5a82720e849e27a41277d5c946c36103221b509a84ce6"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.ai.mcp.McpConnectionKeyTest.xml",
+      "bytes": 813,
+      "sha256": "c030f0c39df29643fc6c28121de542e04ffea4448a43770e47e0a04412fa7df7"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.ai.mcp.McpToolSchemaTest.xml",
+      "bytes": 1225,
+      "sha256": "618b5b48dae2d2e2e445ef8280b0a51382744f2607320d40a594984e5a28b5de"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.ai.tools.local.JavascriptToolTest.xml",
+      "bytes": 1074,
+      "sha256": "0cc59bb2f211f1ea509c6480a38fd784305c4c285cbaff5666cc7863386d5a6b"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.ai.tools.SearchToolsTest.xml",
+      "bytes": 5581,
+      "sha256": "c78dc94320a15cc92ae1fc95303ba876e63113d38fa3955fd4defb0ec79216c1"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.ai.tools.SkillsToolsTest.xml",
+      "bytes": 649,
+      "sha256": "b93964a187ad61faef7cefbee994037d102bec245227750ac3e3a8d293edc836"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.ai.tools.TextReplacersTest.xml",
+      "bytes": 2429,
+      "sha256": "ad70da60d66ef86a21f9693e06de9e3e98136fe9d582d9516155d4218ccf8dc9"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest.xml",
+      "bytes": 7510,
+      "sha256": "04fa43d892e082e1689804f906a9cf34b0858b89e9fd6fcd60a866a818e73944"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.ai.transformers.ThinkTagTransformerTest.xml",
+      "bytes": 1503,
+      "sha256": "8355c420ef682db8309b32babf48f3e0b606be4e1e72920650737cf494203a8c"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest.xml",
+      "bytes": 2022,
+      "sha256": "7b5a56e2b0a5653e07c5c46f472fd5c778f9e175010c7c166c8a02b15431689b"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.datastore.DefaultProvidersTest.xml",
+      "bytes": 533,
+      "sha256": "8371138f3ea9f0d4448f75e2e994f7f1e5aa84b3eafd59822b72d46a5c3f597b"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.datastore.FindProviderTest.xml",
+      "bytes": 682,
+      "sha256": "0ab12107570a9f7e9be5fdf431be3c4ad9f9425b66e504f3861647647183b858"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.files.BuiltinSkillsTest.xml",
+      "bytes": 620,
+      "sha256": "b5afaa9e26348e9540c6b710ddda10a7913c0c9a97d887d059a81cbd63bd6374"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.files.SkillPathsTest.xml",
+      "bytes": 1009,
+      "sha256": "4a137e7312b76abb2eef14e35d46e814919a9b9621147ac54eed1b14a5fc20bf"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.network.ProxyConfigTest.xml",
+      "bytes": 969,
+      "sha256": "98e91a15274e71285f2a2761371f5cd72bc99c5c548a73e280846bf160b5a1b8"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.sync.BackupIntegrityTest.xml",
+      "bytes": 629,
+      "sha256": "f1647afe17e4a500e31b9ba3d9388c4c808cf82b69a6af354dfb7249e9419ec1"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.sync.BackupPathsTest.xml",
+      "bytes": 624,
+      "sha256": "0cbf4d37ce4684ac85f474e316e4213fb0bc7aa3e75effc9a9bd1d6f0ae84cc3"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.sync.EncryptedBackupTest.xml",
+      "bytes": 1196,
+      "sha256": "5c45a3f462e2f793417e171e26332c75f8029d72b63056e263de586a55cd5d8c"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.sync.importer.ChatboxImporterTest.xml",
+      "bytes": 515,
+      "sha256": "28bceb3f3c030a350989ebbc9b04eb24a4b749f29c7a1c30f5a77afc1f0ef701"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.sync.MemoryRestoreTest.xml",
+      "bytes": 777,
+      "sha256": "2c3c8a4d7ebe6a987f141546ae254a54abed63c751aa7214e170b56155c68ff4"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.data.sync.PendingRestoreTest.xml",
+      "bytes": 1960,
+      "sha256": "ca2e29719ddf57df6ac7f4661bdf1ca50e5c2ee677431070e4cb3775bb101f53"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.ExampleUnitTest.xml",
+      "bytes": 432,
+      "sha256": "ca737bcd6689dca28b489e0c1576d3f602c5ae015f263c823ac704b1643a8aef"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.feature.material.DocumentContractTest.xml",
+      "bytes": 937,
+      "sha256": "369d5e2f6088490b37cce5a4c593fdc84515abac3bce920db9e9d432b6c34e09"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.feature.memory.LearningLoopTest.xml",
+      "bytes": 783,
+      "sha256": "629ca18e5a0cd4f1e128057fed8f8642bec7cce70b31de263f3be10822b1121d"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.feature.memory.MemoryContractTest.xml",
+      "bytes": 5010,
+      "sha256": "84c45fd7bb942ab410d9baf701cf0c6d1923f473b3e351e8df91affbaef252e2"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.feature.studychat.StudyChatContractTest.xml",
+      "bytes": 1804,
+      "sha256": "3beffce868892c5f95d909a7a5220df10cf4bf78c16f8e827c083c9014c288a6"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.service.ChatServiceTest.xml",
+      "bytes": 1570,
+      "sha256": "33a3c950047364327f68927ae1e68b18f15f71e8cb4b8f4d29ca66d5f28c0bea"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.service.ConversationSessionManagerTest.xml",
+      "bytes": 1388,
+      "sha256": "135f244de026d4c7db0d51a663c5a823aabd162bc6399c77a53123d72c638d04"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.service.ConversationSessionTest.xml",
+      "bytes": 3955,
+      "sha256": "573acab18ec546c1e20556733e566559840520b848f3fd29d07c4d78cac3a50e"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.service.GenerationRecoveryTest.xml",
+      "bytes": 1509,
+      "sha256": "e9832ab5f0863c3a6b06fe5656e9d97a696fa91a112afbf355fd27052cf9ba5d"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.service.LearnerProfileCompatibilityTest.xml",
+      "bytes": 530,
+      "sha256": "582b1b4b0790b98e8dcd3581f6cdb2f13960fb88f9ad7c19e1f5b4fcef4b4db4"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.service.MessageQueueTest.xml",
+      "bytes": 2291,
+      "sha256": "2b21684f89474bfa4a0c86a684598628930fddae6032b053282ea27a7e337d45"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.service.QueuedAttachmentCleanupTest.xml",
+      "bytes": 1513,
+      "sha256": "f8af860423149e04c6213998e5c96b0b43e2eedf6cd5359c2fe54f2603dc2eac"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.service.SettingsCredentialExportTest.xml",
+      "bytes": 665,
+      "sha256": "a72156fb43d7a31a74c3f02969f7eb96d62befb432382293bae34bce33ed9afa"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.ShareSheetTest.xml",
+      "bytes": 1352,
+      "sha256": "8a5ce6da006e61b2f6be9c6794d5e3926703825f92c978a20539ffcda456fcf2"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.ui.components.webview.WebViewContentCacheTest.xml",
+      "bytes": 819,
+      "sha256": "15356c627b06c509a56cf160c3954a97c341e75b63331cf8a6d50e9154531f29"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest.xml",
+      "bytes": 2175,
+      "sha256": "fa9f67b5bfc8f7ee8bc82c574fb21414ebe0ce4e5a1a3fd8a075fe19a784b82b"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.ui.pages.setting.components.ProviderConfigureConvertToTest.xml",
+      "bytes": 1540,
+      "sha256": "4d6436aff44d586fbfc35176c3aab06eff87e9a88ff56dab95fd1fa090ce446a"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.utils.ChatUtilTest.xml",
+      "bytes": 586,
+      "sha256": "d9673fca81a2d831410a1cb92de546c246dc61e17974e8b44d906f925feb89e5"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.utils.DiffUtilsTest.xml",
+      "bytes": 1095,
+      "sha256": "bae6492293bc72bf632fe211621652b3d5f372f49b6bfafe6f0fde75440b1887"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.utils.StringUtilsTest.xml",
+      "bytes": 2594,
+      "sha256": "ecd1abd0c55f98f8412911030e12067dc345a351a86ec3d340b5a908f04f2907"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.rikkahub.utils.VersionTest.xml",
+      "bytes": 1622,
+      "sha256": "e47c9c974a5e42a2b6b35f5f811ade8af609d15e774cafd2141dca2ed753eff3"
+    },
+    {
+      "file": "jvm-final/app/TEST-me.rerere.tts.provider.TTSPrivacyTest.xml",
+      "bytes": 473,
+      "sha256": "bac8fd1a895a6038a5d201b5f658252f4354f7332586553578e25cb93fe84a44"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.provider.providers.claude.ClaudePromptCacheRequestTest.xml",
+      "bytes": 6326,
+      "sha256": "48af90660c8be9b035b7518f91febbb3d5e2638e0cd3668074ceadf8c1a4b351"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.provider.providers.claude.ClaudeRequestMessageTest.xml",
+      "bytes": 1595,
+      "sha256": "639fb3687e9bfddf0bdeaf7582a807923a9145b000f4b098c8cfa3bb05d02066"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.provider.providers.claude.ClaudeServerToolTest.xml",
+      "bytes": 2039,
+      "sha256": "cb001e75e6b2c3eca5a88334bb92339c46850afafd9ffff55bf92cd1800f5146"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.provider.providers.google.GoogleRequestMessageTest.xml",
+      "bytes": 1734,
+      "sha256": "e13c4be6996e6e5c721deb7d2b8af5e6991bd5e5308122edc401ace60432fd4a"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.provider.providers.google.GoogleToolCombinationTest.xml",
+      "bytes": 900,
+      "sha256": "cf1af495b49163e2e3f35efa1a149f6261a70d5d75a9d9962969bab56aa42b64"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.provider.providers.google.InteractionsApiTest.xml",
+      "bytes": 2066,
+      "sha256": "88d5fa41682199b843f9bb6f0fec3c7983b78fe1180626eb793859b849e0016e"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.provider.providers.openai.ChatCompletionsMoonshotRequestTest.xml",
+      "bytes": 846,
+      "sha256": "70b2b154c5beb5bdb4ddee75d80c5bed7909e3091ff4b80b1419f2413a62a8a9"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.provider.providers.openai.ChatCompletionsRequestMessageTest.xml",
+      "bytes": 2715,
+      "sha256": "f9f710aee180e8040f290bd49feeb365888c31f00edbd9b2ec9f28bd8d06d815"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.provider.providers.openai.ChatCompletionsToolSchemaTest.xml",
+      "bytes": 530,
+      "sha256": "22a67eddadd2c5ba229666b23fe537ac5222a544267f48031648c64852c5105b"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.provider.providers.openai.ChatCompletionsUsageParsingTest.xml",
+      "bytes": 534,
+      "sha256": "14ec63f54c0209ec43c23f22ef738223b7c1b1454fbc9c3b2fc5028cb34b20a0"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest.xml",
+      "bytes": 3045,
+      "sha256": "b2ff508897fcca8428f8d069d1be377fd334df438f7dcd344b7d759b5d13227e"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.provider.providers.openai.ResponseApiStreamDecoderTest.xml",
+      "bytes": 2378,
+      "sha256": "b3eba57d19466cb12b902bc9d969a436172d45e0a398e21ecb06fb495b42e28b"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.provider.providers.ProviderMessageGroupingTest.xml",
+      "bytes": 2709,
+      "sha256": "66805623e2bdb2e616d7078f443602d6eabc823318a949ebcdfe9a271da6f48f"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.provider.stream.StreamTraceReplayTest.xml",
+      "bytes": 1709,
+      "sha256": "2c15163756a51985449c09272d99ca81f2f1b5909c9e12accd421b612dfe8dde"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.registry.ModelRegistryTest.xml",
+      "bytes": 1687,
+      "sha256": "3bcf17d0f33384b2a780b85ff6a07fa974e29a4973a0bcb6ee2aeb839a879ca4"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.ui.MessageContextLimitTest.xml",
+      "bytes": 1980,
+      "sha256": "e7322ce6bed62103001f905bc4714e744b3c46a0c7ba8ec7fb08f08709623cc7"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.ui.MessageMetadataTest.xml",
+      "bytes": 1837,
+      "sha256": "f4200f8df14bba7f953b510f215b25951e198954c99e1b2ecba8bc2d61505e24"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.ui.MessageToolMigrationTest.xml",
+      "bytes": 2436,
+      "sha256": "57f4953bba9dbb858fa39422ec2992b392878ffc5e6973c2cd6a11fe6013adfc"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.ui.MessageUploadValidationTest.xml",
+      "bytes": 939,
+      "sha256": "74decc63d17c00b7c518f234feee6a1af5937d79e59a371050ee7b54ceb8a74d"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.ui.MessageVisibilityTest.xml",
+      "bytes": 685,
+      "sha256": "c5be74171080666b83fa049cd1ebd0c7da01cf23f31d83030513949529940bf0"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.ui.StreamChunkHandlerTest.xml",
+      "bytes": 1349,
+      "sha256": "ebfe08339a160bc2a315d8d1659a92dd6af31362c72b746d54bd6a3e53a65439"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.ui.ToolApprovalStateTest.xml",
+      "bytes": 775,
+      "sha256": "7789b2f5c1dee19158d8f83877514fb6791ecda6855bbfedd57db61ec4f79e71"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.ui.UIMessagePartTest.xml",
+      "bytes": 579,
+      "sha256": "ccd246ca6b5939e2beecd8da3a8f8a924c3e576f5c21cbfccc4c2efd937fac50"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.ui.UIMessageSerializationTest.xml",
+      "bytes": 464,
+      "sha256": "f98de1a9153b693a171767b005d046c6efc4b1c51fbf811cadefbdfbcd169ebb"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.util.ErrorPrivacyTest.xml",
+      "bytes": 459,
+      "sha256": "6230a8f691e0ee39ee136d4970a4833a6f7f637414d098f6a281d9d40e07441a"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.util.FileEncoderExifTransformTest.xml",
+      "bytes": 1126,
+      "sha256": "3f26c272a0eb80b8001716b11d303e4e4dcc19ad108dc38970916b503bf6f40d"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.util.JsonTest.xml",
+      "bytes": 1075,
+      "sha256": "2ed2fb0856d46a1e4434de2933ee5fd42ee96abb27e39ee8ca4782a91d1aca2b"
+    },
+    {
+      "file": "jvm-full/ai/TEST-me.rerere.ai.util.RequestHeadersTest.xml",
+      "bytes": 778,
+      "sha256": "88ca33ac051fc9571b64ef53fe8f129a622e263430417d488eaa0479db91a8b1"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.ai.mcp.McpConnectionKeyTest.xml",
+      "bytes": 813,
+      "sha256": "c8cbc576473bc56f9ce1e259ab090eb254864dc562d5ca22777c5700fc4a706d"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.ai.mcp.McpToolSchemaTest.xml",
+      "bytes": 1227,
+      "sha256": "0917cba3644afa8e858bc1092a432b59b7acffe99e410ddbcb2095a5f05696d4"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.ai.tools.local.JavascriptToolTest.xml",
+      "bytes": 1073,
+      "sha256": "0ad58216e94d93edb12a90e29569776395c949c60331c4f97854ee9fa3d2973f"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.ai.tools.SearchToolsTest.xml",
+      "bytes": 5581,
+      "sha256": "d18cbb68adc36ccde0899520fcf58ee029b0334103ba724ee0871af730aeb088"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.ai.tools.SkillsToolsTest.xml",
+      "bytes": 649,
+      "sha256": "502dd0c4e4acf06cac07ce0ea898e6aab5ee3c5b1118ac3190339a39e7516e3c"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.ai.tools.TextReplacersTest.xml",
+      "bytes": 2425,
+      "sha256": "47ca54c1307e2318c76b8d449e18dd9bd19f28ce8304a402d0e6478f0a8bd34e"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest.xml",
+      "bytes": 7514,
+      "sha256": "bdc769546ed0f38036502ebea2f919328375d55824e686f83e9e43abcdb26afb"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.ai.transformers.ThinkTagTransformerTest.xml",
+      "bytes": 1504,
+      "sha256": "ee0ad821c14607252034c7d1aead8d098a07c2fddc62a8a9d1f613212a0fae19"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest.xml",
+      "bytes": 2018,
+      "sha256": "2febbdc7ea5d560196019146114f648c7c3fc49b531322ef8393071a1420f0ea"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.datastore.DefaultProvidersTest.xml",
+      "bytes": 531,
+      "sha256": "0b851dbe6129cebd807df105ef733c5fcebdf4ad8005fcf5262fafe796d4a576"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.datastore.FindProviderTest.xml",
+      "bytes": 682,
+      "sha256": "e6187aa1c8b179383d1ed27ab12c68a0115d6776b464007fd12ae64b5e11c396"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.files.BuiltinSkillsTest.xml",
+      "bytes": 620,
+      "sha256": "3615348752301b59b07e52c524dfe934ec34de2272d17ee7f1928cfd16e7a002"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.files.SkillPathsTest.xml",
+      "bytes": 1008,
+      "sha256": "16dc7c051c0ae47fa6b8f6d79289f7bbfdf8d507de09ac087b69923a1ece4883"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.network.ProxyConfigTest.xml",
+      "bytes": 965,
+      "sha256": "5a403224405e0e0a66e99da0ab0ebc5a385e9c751878c75209844a0a27f7e5b5"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.sync.BackupIntegrityTest.xml",
+      "bytes": 630,
+      "sha256": "aeb1e25941f44dec5a52105e12151fc9291febcb353c5cc58ff3896687eb05c4"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.sync.BackupPathsTest.xml",
+      "bytes": 625,
+      "sha256": "c983325e2823e3c4de4734c1d792d61074eb2b954865b137e76a1684d8041085"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.sync.EncryptedBackupTest.xml",
+      "bytes": 1194,
+      "sha256": "8101ce2ea2ec20f7fac0e0071ea06e938d3105a2dffbe8d06aa998b19adb2af1"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.sync.importer.ChatboxImporterTest.xml",
+      "bytes": 513,
+      "sha256": "2f51c6198dab209618a9d54fa73df357faed985404cc089c60c49c605fd255da"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.sync.MemoryRestoreTest.xml",
+      "bytes": 773,
+      "sha256": "39571cef3d044695131b9dc84bbe592b5bec7a7917e8d155fafd11b36e0af189"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.data.sync.PendingRestoreTest.xml",
+      "bytes": 1960,
+      "sha256": "03f5535226da5f4c3941cdfab48b4fed995ef32d6683d680ebb02cd64f18d707"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.ExampleUnitTest.xml",
+      "bytes": 432,
+      "sha256": "37beec557018356cbc554d30910e5dc4ed97bde390b08cb6a53f2742a4b09dc6"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.feature.material.DocumentContractTest.xml",
+      "bytes": 937,
+      "sha256": "98dc8aba18a4df74838a8f4b717e40d4452cb94204fd4946fc502939bb5af7ab"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.feature.memory.LearningLoopTest.xml",
+      "bytes": 784,
+      "sha256": "0898c3f533dc6ed3e55128d1872ebe6cfb330b7020a14a63625d0c82f840109f"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.feature.memory.MemoryContractTest.xml",
+      "bytes": 4995,
+      "sha256": "54a42c08faa250b0062bf1bea46a6728fef2840559f5b7bf6ca93977cffc98e9"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.feature.studychat.StudyChatContractTest.xml",
+      "bytes": 1798,
+      "sha256": "93db21f82fd331dc56b456ba7d2282c6769d49b3a911121a1dc7fc7eea543a16"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.service.ChatServiceTest.xml",
+      "bytes": 1570,
+      "sha256": "1b490051b50de35d0220277de3c7b62e6e9b7ecfeacce2c36075ec9a4b08103b"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.service.ConversationSessionManagerTest.xml",
+      "bytes": 1388,
+      "sha256": "8e9e89fb4f2d8a4e818a21fe0ade4d3459ee776ab2b3f62f6a46c722b311bcb1"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.service.ConversationSessionTest.xml",
+      "bytes": 3952,
+      "sha256": "4bb56fbc8f80a70e21c8fc3fb614954a465ef4b66bce9dd603fe92fb5d4eeb5e"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.service.GenerationRecoveryTest.xml",
+      "bytes": 1509,
+      "sha256": "e97e572dcdae16eef758707eb3bc7bcdf182e72196db16db99b4bc53335367ea"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.service.LearnerProfileCompatibilityTest.xml",
+      "bytes": 530,
+      "sha256": "94642aeb92b2358e824c3829bc78a3ad468050583ecbd226a6d50adb4da3064c"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.service.MessageQueueTest.xml",
+      "bytes": 2285,
+      "sha256": "32680966fb9b7e6baaf0ea7faa280e280d6488d8202a985c85cf50a0a578997c"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.service.QueuedAttachmentCleanupTest.xml",
+      "bytes": 1511,
+      "sha256": "8dc7bc3395495a1fa38cef33ac9a481eb5390428872c37457ffc7b7a218cf123"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.service.SettingsCredentialExportTest.xml",
+      "bytes": 663,
+      "sha256": "8041b9b1ea049b37fe6f1a103d71a35ac5bb290e35d3829b1a06164aef5a3fac"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.ShareSheetTest.xml",
+      "bytes": 1354,
+      "sha256": "7949e4fe043da291fc39e592a37863c05a0bb79240382fe2f6f7119805bab329"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.ui.components.webview.WebViewContentCacheTest.xml",
+      "bytes": 818,
+      "sha256": "c27d6dd214ac8cd4c1b3e8e270010dbec129b1240ce5d556cbebbf70f4f530e3"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest.xml",
+      "bytes": 2173,
+      "sha256": "89dc3a3bf3d45dcc2a407200ced056cb4d0ddf89a22a461eadf2a5dd7c35d154"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.ui.pages.setting.components.ProviderConfigureConvertToTest.xml",
+      "bytes": 1538,
+      "sha256": "ec40f689869029d11db17e5454a4ffc59fede0ba80430f427bbd023c03f2aa1d"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.utils.ChatUtilTest.xml",
+      "bytes": 588,
+      "sha256": "c2b3d6d7e85c259083e2786482df9add28367ecb3303557986a4eecf576fd076"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.utils.DiffUtilsTest.xml",
+      "bytes": 1095,
+      "sha256": "d3cc29f6a2511f29ef33ab6078825e327389040ada60984e209ddc94b00911df"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.utils.StringUtilsTest.xml",
+      "bytes": 2604,
+      "sha256": "8f16c4c1b6cdd48d5ac2de12a940151cbb1cbd125429f568ffd631c21a3b40ab"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.rikkahub.utils.VersionTest.xml",
+      "bytes": 1628,
+      "sha256": "ce74adb17d74528f40fe2b253914f87b04a45d7d0a963eeea9743a7f4266b587"
+    },
+    {
+      "file": "jvm-full/app/TEST-me.rerere.tts.provider.TTSPrivacyTest.xml",
+      "bytes": 473,
+      "sha256": "5eb3c92ddb00b270f54acfc931c58582bfe793b48a792889811391258af42ae9"
+    },
+    {
+      "file": "jvm-full/common/TEST-me.rerere.common.ExampleUnitTest.xml",
+      "bytes": 428,
+      "sha256": "04198cda260c0b3378dbc53e833dfbe602bcddc82cd52665c6150095b2f8ad6e"
+    },
+    {
+      "file": "jvm-full/document/TEST-me.rerere.document.ExampleUnitTest.xml",
+      "bytes": 432,
+      "sha256": "adf34710588d025b58726f895bf58c24eeb2de59b0c87a9d5ddbc7b845d86910"
+    },
+    {
+      "file": "jvm-full/highlight/TEST-me.rerere.highlight.CodeHighlighterTest.xml",
+      "bytes": 1103,
+      "sha256": "097d21533b70beb67c8f2fe70d44f29bf75f2bf0a2488a74e103c2725a3461b8"
+    },
+    {
+      "file": "jvm-full/highlight/TEST-me.rerere.highlight.core.HighlightEngineTest.xml",
+      "bytes": 1876,
+      "sha256": "93d79f771c978876a232a3edc3a100d5d1163a5d73b33505c285c2fc29c4e356"
+    },
+    {
+      "file": "jvm-full/highlight/TEST-me.rerere.highlight.core.RegexesTest.xml",
+      "bytes": 987,
+      "sha256": "38369d9f15a990cdefca556ec229990c4db9f7dc50acd843f089a5e09f1fea27"
+    },
+    {
+      "file": "jvm-full/highlight/TEST-me.rerere.highlight.ExampleUnitTest.xml",
+      "bytes": 434,
+      "sha256": "781ac9da9dafd2558f3a0f7ea3e717fb7e8124401faef7b3ab450b84b1d75027"
+    },
+    {
+      "file": "jvm-full/highlight/TEST-me.rerere.highlight.languages.LanguageFixtureTest.xml",
+      "bytes": 3435,
+      "sha256": "257d7c76ace6ff6963f69498871759f21056f09a337dd195324dd031c2e351ef"
+    },
+    {
+      "file": "jvm-full/material3/TEST-me.rerere.material3.ExampleUnitTest.xml",
+      "bytes": 433,
+      "sha256": "a6a682c3e67a5c1439de14ad6147089730c5d61d76ebf3c41554a31e5580a65a"
+    },
+    {
+      "file": "jvm-full/oauth/TEST-me.rerere.oauth.OAuthHttpClientTest.xml",
+      "bytes": 5329,
+      "sha256": "f0852bbd048410f6e104617988f37a8f8455de2c0e89119a9c2418eddb5f7639"
+    },
+    {
+      "file": "jvm-full/oauth/TEST-me.rerere.oauth.OAuthLoopbackCallbackServerTest.xml",
+      "bytes": 673,
+      "sha256": "1e649840ddc5628826d91d74afb2c9f2c098d62d3812fe20f3a0579c8232e0ce"
+    },
+    {
+      "file": "jvm-full/search/TEST-me.rerere.search.CustomJsSearchServiceTest.xml",
+      "bytes": 3767,
+      "sha256": "d7351ec2ff33fa5d62b422d2d5226181d671820f9caaf5ce0fc30a1bafec56cf"
+    },
+    {
+      "file": "jvm-full/search/TEST-me.rerere.search.DoubaoSearchServiceTest.xml",
+      "bytes": 567,
+      "sha256": "d718e5dc2e05cac035b70ed25367fcf1481e3e9c64cab87bed8907e404fec059"
+    },
+    {
+      "file": "jvm-full/search/TEST-me.rerere.search.ExampleUnitTest.xml",
+      "bytes": 428,
+      "sha256": "e6f5f44c51b6a4b6a7777f89ee15cd9d688bee816584b5b5ccc5dacfd0ed8a10"
+    },
+    {
+      "file": "jvm-full/search/TEST-me.rerere.search.ExaSearchServiceTest.xml",
+      "bytes": 1558,
+      "sha256": "82f1d42dd1a954881afedb7aa084745a87165cf5a954443fb47c7a516e508726"
+    },
+    {
+      "file": "jvm-full/speech/TEST-me.rerere.asr.ASRProviderSettingMiMoTest.xml",
+      "bytes": 707,
+      "sha256": "63b787f846bb8022a42f6daa9e511b0b672a0476d96fade27788a4ee01977c68"
+    },
+    {
+      "file": "jvm-full/speech/TEST-me.rerere.asr.ASRProviderSettingStepTest.xml",
+      "bytes": 705,
+      "sha256": "b28b0946e31fe26bb79d304663d5aae14ef9d7f505e83720124452c378f8cd44"
+    },
+    {
+      "file": "jvm-full/speech/TEST-me.rerere.asr.ASRProviderSettingVolcengineTest.xml",
+      "bytes": 796,
+      "sha256": "36a7ba32d8b6c47942e474f391808c11f4cd8761ac8295556d03ae8ef4f12c4b"
+    },
+    {
+      "file": "jvm-full/speech/TEST-me.rerere.asr.ASRVoiceTurnTest.xml",
+      "bytes": 966,
+      "sha256": "6a8c5bd4330867bc355d8a57f9a033d5a7951f573f6a6a8571c4dcb86464c258"
+    },
+    {
+      "file": "jvm-full/speech/TEST-me.rerere.asr.providers.VolcengineASRProtocolTest.xml",
+      "bytes": 1795,
+      "sha256": "ebd58ab001ca8ebd5fac129b8b61adc636418c291eb7d793e558cf80da9c3b4d"
+    },
+    {
+      "file": "jvm-full/speech/TEST-me.rerere.tts.ExampleUnitTest.xml",
+      "bytes": 422,
+      "sha256": "50a3a0b8ebc9f1e13bcc3604a1799adaa01ec0e3259fc9b1146e4b337bd47b72"
+    },
+    {
+      "file": "jvm-full/speech/TEST-me.rerere.tts.provider.providers.MiMoTTSProviderTest.xml",
+      "bytes": 903,
+      "sha256": "d127a68f3db1e8e324e01fd6cb4492aeff42f41afd0b00c94a0fcb8fa92b29de"
+    },
+    {
+      "file": "jvm-full/speech/TEST-me.rerere.tts.provider.providers.VolcengineTTSProviderTest.xml",
+      "bytes": 1432,
+      "sha256": "3e0920d8564b5dc25ac4c593b14f0617ce6ffc3bfb4e6965f3cb838a38ff540a"
+    },
+    {
+      "file": "jvm-full/speech/TEST-me.rerere.tts.provider.TTSProviderSettingElevenLabsTest.xml",
+      "bytes": 483,
+      "sha256": "f1327da966f673600535d6fef2865b861222c701b71cb35798f3e957e2779684"
+    },
+    {
+      "file": "jvm-full/speech/TEST-me.rerere.tts.provider.TTSProviderSettingFishAudioTest.xml",
+      "bytes": 480,
+      "sha256": "e827c990ce1c6370f342a5d387f19d3738f53be8e2fe4e4d792a826826503095"
+    },
+    {
+      "file": "jvm-full/speech/TEST-me.rerere.tts.provider.TTSProviderSettingMiMoTest.xml",
+      "bytes": 602,
+      "sha256": "25087290ab6dfbf91f6050df113157058b89b1d61b6e60a8e3affc0949277680"
+    },
+    {
+      "file": "jvm-full/speech/TEST-me.rerere.tts.provider.TTSProviderSettingStepTest.xml",
+      "bytes": 739,
+      "sha256": "74e778e35c9b6a2403c5a82720e849e27a41277d5c946c36103221b509a84ce6"
+    },
+    {
+      "file": "jvm-full/videogen/TEST-me.rerere.videogen.provider.providers.VideoGenerationProviderTest.xml",
+      "bytes": 5688,
+      "sha256": "bb587459c608737e5459f5d28e4cd2e41169196b898985da7fefc283e2101bdf"
+    },
+    {
+      "file": "jvm-full/web/TEST-me.rerere.rikkahub.web.ExampleUnitTest.xml",
+      "bytes": 440,
+      "sha256": "426bf390c1cd1ae00ac7ad914572707744b227704633bee554d0eacf7cbc7f7f"
+    },
+    {
+      "file": "jvm-full/workspace/TEST-me.rerere.workspace.ExampleUnitTest.xml",
+      "bytes": 27448,
+      "sha256": "7439f2f45ad0fb233f3a7c7ae441203865d61265762d13cdd35f9b151f622f95"
+    },
+    {
+      "file": "jvm-full/workspace/TEST-me.rerere.workspace.RootfsInstallerTest.xml",
+      "bytes": 601,
+      "sha256": "983d6120748f5992c013a0579e2011246afaadf3843d4ba02e17f59bf6be7c84"
+    },
+    {
+      "file": "jvm-full/workspace/TEST-me.rerere.workspace.RootfsPathResolutionTest.xml",
+      "bytes": 1388,
+      "sha256": "454d4e13b139be0ebf3c011299505a34df5f78fc298714122f42be9000826049"
+    },
+    {
+      "file": "LearningLoopPersistenceTest.log",
+      "bytes": 827,
+      "sha256": "6398eb492ffa588f732c991b410835b632ac306e7194fe15bf059d3b3a358388"
+    },
+    {
+      "file": "LearningLoopRealModelTest.log",
+      "bytes": 816,
+      "sha256": "5e669f06cb5fcf926b6c0afd17cda256bdf9d3c9728755c615a3b57cabfd387b"
+    },
+    {
+      "file": "LearningMemoryPageTest.log",
+      "bytes": 809,
+      "sha256": "b365aa576eb1278999a67c533ee13aa644519d479c592310c3196ff9c8fcb9f7"
+    },
+    {
+      "file": "LearningMemoryPersistenceTest.log",
+      "bytes": 4842,
+      "sha256": "3078e57da5c63cadcb7f4a6750323cfdd498c509c75a56b3819553642e9afb9d"
+    },
+    {
+      "file": "LearningMemoryRealModelTest.log",
+      "bytes": 858,
+      "sha256": "278456e72104d1cb1f7b920b3aff8c2539c53684554ef0d53239a32a49008a37"
+    },
+    {
+      "file": "LegacyMemoryEntryTest.log",
+      "bytes": 839,
+      "sha256": "29fca0c8406a74ea0d8d3bf9bb0287c51e7cca297aade6adbdfd321fbdc34f74"
+    },
+    {
+      "file": "lint-first-resource-migration-failure.xml",
+      "bytes": 178936,
+      "sha256": "a40ef29a7bccc8e58c546db02ba0b3a308a851d04f7e314f93d9a449427e6943"
+    },
+    {
+      "file": "lint-results-final.txt",
+      "bytes": 18171,
+      "sha256": "f44e349bbab5df8601a06cd2110fb0986f5fe54bba9f6714a12985fcdff82fa5"
+    },
+    {
+      "file": "lint-thread-diagnostic.txt",
+      "bytes": 239742,
+      "sha256": "23c6f04bf247d5ff89128f356d9012e1fe0c2718d7e5c456df7e2d78d1125a68"
+    },
+    {
+      "file": "material3-listitem-source.txt",
+      "bytes": 84560,
+      "sha256": "cde0288cc1ae406a7f0caf2c55865100ef66cee616cac83cc0b10eb9baba362c"
+    },
+    {
+      "file": "material3-slider-source.txt",
+      "bytes": 155189,
+      "sha256": "7cfff537810d8e0b7dfe9eaf84cc8d5cb99e6b7baea7fc86b68b641cca92d4ec"
+    },
+    {
+      "file": "material3-source-fetch.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "MaterialDeliveryTest.log",
+      "bytes": 971,
+      "sha256": "d5cf2c8f75b63ff603aafad150a9144e5cd07fb55419bac00be2f5f4026e206e"
+    },
+    {
+      "file": "MaterialFidelityTest.log",
+      "bytes": 2127,
+      "sha256": "dc90d5dade0041de3753a2c2187cb688e975e3c5ca84dc1d8fc444d237070b45"
+    },
+    {
+      "file": "MaterialFilesTest.log",
+      "bytes": 2763,
+      "sha256": "c7f84abdd03bab0e489bcd0efda7ebdaf3e70f69e03be1d9241c6c1a368f8869"
+    },
+    {
+      "file": "MaterialPageTest.log",
+      "bytes": 959,
+      "sha256": "80c6dd3cd899c58b54ec9b72d5f12d225d668f2e382906973dea8c1d636c63e2"
+    },
+    {
+      "file": "MaterialPaginationTest.log",
+      "bytes": 815,
+      "sha256": "d79285eb1d15f4b338b53c61f0d7659526aa0639ddea092ed8c89c7e1cfe7f59"
+    },
+    {
+      "file": "MaterialRealModelTest.log",
+      "bytes": 795,
+      "sha256": "9b20a53d0916f26eb9024c47d9fc8375ac568fcb5e80f976224bd47aa1779a41"
+    },
+    {
+      "file": "memory-seed.log",
+      "bytes": 813,
+      "sha256": "fd37ec86a3d2b8a9a1c7e7d40ad13f790afbcf018f68d94513f64bf67a55b0ee"
+    },
+    {
+      "file": "memory-verify.log",
+      "bytes": 813,
+      "sha256": "af6cfb26dce64c653d1f3823139052414b84e9625b5fc892c4512898a72561e5"
+    },
+    {
+      "file": "module-compiler-fixes.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "native-audit-apk-bound.log",
+      "bytes": 2520,
+      "sha256": "8b30e01d979a6437fecaa31976f0fa685c388bfeb63c60b45d6cf56b3d32f5a1"
+    },
+    {
+      "file": "native-audit-final.log",
+      "bytes": 2172,
+      "sha256": "7a069c834f468287d6e03b58c957afc3ff712ab7abb900e9db70d87664a3bc16"
+    },
+    {
+      "file": "native-audit.log",
+      "bytes": 2172,
+      "sha256": "7a069c834f468287d6e03b58c957afc3ff712ab7abb900e9db70d87664a3bc16"
+    },
+    {
+      "file": "packaged-native-alignment.json",
+      "bytes": 35035,
+      "sha256": "7e2cd4796651dcafe0ec6cdc1acc877abd2400542f01d8d59cef62bfb030c6a9"
+    },
+    {
+      "file": "placeholder-created",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "post-boundary-api-build-lint.log",
+      "bytes": 33765,
+      "sha256": "21e065dbd458d91355d7085a9add7bce380930630787f82abcd69ff0e538e6e8"
+    },
+    {
+      "file": "pre-privacy-lint.xml",
+      "bytes": 46980,
+      "sha256": "6efe1c529186823b56f72d7941db3668175d93189ded2a42b0ae65729400aed2"
+    },
+    {
+      "file": "privacy-first-install.log",
+      "bytes": 38,
+      "sha256": "c4aa470acafcf8576c15b0f0b5ae7e852d1ec5413372d0e6a9272e788e1306d3"
+    },
+    {
+      "file": "privacy-overload-test-build.log",
+      "bytes": 17553,
+      "sha256": "569328a195835a2145387f52ecf3e244b3b503badf85f477f4b5d489b9327576"
+    },
+    {
+      "file": "privacy-test-apk-build.log",
+      "bytes": 53340,
+      "sha256": "4690622a2055bace8362d4c9906107194048c92c68b5b06fd6bbf5d3e4ea1dfa"
+    },
+    {
+      "file": "privacy-verified-install.log",
+      "bytes": 38,
+      "sha256": "c4aa470acafcf8576c15b0f0b5ae7e852d1ec5413372d0e6a9272e788e1306d3"
+    },
+    {
+      "file": "ProjectReviewAuditTest-post-privacy.log",
+      "bytes": 7787,
+      "sha256": "b916fc5874d6be3a8f84bc479f1d202cce75143df39c26eab2e710d1a4a135c0"
+    },
+    {
+      "file": "ProjectReviewAuditTest.log",
+      "bytes": 7787,
+      "sha256": "d562e468db713e2b681d12222b000e5a5c69f53477cce0ad10fd3b0e8337cba9"
+    },
+    {
+      "file": "ProjectReviewDeliveryTest.log",
+      "bytes": 986,
+      "sha256": "0146a99451c9a90892b14e54d1dd2f6188e56ac61f9a7141fa6f93951a07b9c4"
+    },
+    {
+      "file": "ProjectReviewTeachingTest.log",
+      "bytes": 1326,
+      "sha256": "6dd86d45beb17eca211d080815e5c94ca5a04bbfaf4e99e579edbf5f9208e91b"
+    },
+    {
+      "file": "remaining-compiler-warnings.json",
+      "bytes": 82594,
+      "sha256": "5d26f1f6ba89a6a10626ead00702ea75f0c8ef661ebce9434eab8fcc7a01f671"
+    },
+    {
+      "file": "remaining-compiler-warnings.md",
+      "bytes": 67552,
+      "sha256": "901a1da4a561805b6caaf7b5749b3571a2fbf6b370965bcbc3c41cb4c145cac5"
+    },
+    {
+      "file": "remaining-warnings.json",
+      "bytes": 44048,
+      "sha256": "0a8d2db3b300580bf5675201ec3dae01400e364dce14980841bb00b2e6acffd0"
+    },
+    {
+      "file": "remaining-warnings.md",
+      "bytes": 35333,
+      "sha256": "fbfebe371fc20143d686f1a4c85c8f2c5180aa5f9fd6fde23bbd8096d92b94dc"
+    },
+    {
+      "file": "remaining-web-build-warnings.json",
+      "bytes": 5426,
+      "sha256": "3913b838da73ed5a3e2731e76eb4dc0bda128cf58e7fffeca466db5a601feaf4"
+    },
+    {
+      "file": "report.md",
+      "bytes": 14691,
+      "sha256": "6e32ff818835481a558f67882517eb6b5b3d41a3d3ac0d75893aa40434f2864b"
+    },
+    {
+      "file": "resource-fixes-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "resource-fixes-resume.log",
+      "bytes": 1005,
+      "sha256": "87c9521e16477dc482120feb6940e5e70c99f7ea3a552a7df2b5db6f7810abf0"
+    },
+    {
+      "file": "resource-fixes.log",
+      "bytes": 690,
+      "sha256": "58e5f5e2c2fb8ddc625c4c23a8c9115f892d780f58d14cf110aa6a0765581615"
+    },
+    {
+      "file": "review-changes.md",
+      "bytes": 3672,
+      "sha256": "278810b0b3bcf09c09552d5a9a23064c2f24cc1ce727b707f0f077fed5cd1777"
+    },
+    {
+      "file": "runtime-seed.log",
+      "bytes": 856,
+      "sha256": "d2ad4a5c91e92631f40160323aea06c2a406a2c2e9353052d3dfe542c1b21fd7"
+    },
+    {
+      "file": "runtime-verify.log",
+      "bytes": 856,
+      "sha256": "2f744d9c5ae7aac88f3d88dab27cbb2edaf2f04b114591381f9ece11f35cf243"
+    },
+    {
+      "file": "saved-file-hashes.json",
+      "bytes": 1312,
+      "sha256": "d651f9958fc01674326815dd913a7dd7f0496876b385cb0f8715cfb1e2b1d0bb"
+    },
+    {
+      "file": "screenshots/artifact-owner-switch.png",
+      "bytes": 68608,
+      "sha256": "1842dac4bca6be3eb3d87ef480b2e6cc6b24966dbbb5fd3c1ae8529a5405ed69"
+    },
+    {
+      "file": "screenshots/artifact-owner-switch.txt",
+      "bytes": 34,
+      "sha256": "d3dc5f50f41a84b2a7b0a07b3329e03112cbf79e56dcf4bd2dc80a2bac3e750e"
+    },
+    {
+      "file": "screenshots/corrupt-open.png",
+      "bytes": 76301,
+      "sha256": "3b788f4f199777afd6e8c095649fb5b7c7a5c0b27c8018e4f9b2bcaece09d540"
+    },
+    {
+      "file": "screenshots/corrupt-open.txt",
+      "bytes": 34,
+      "sha256": "69cf735ca81e450be48b93766fcfe4d4ee4a932418f82a755c8bd30ebb24d092"
+    },
+    {
+      "file": "screenshots/delivery-open-docx.png",
+      "bytes": 75310,
+      "sha256": "d50c42ff1899d2aff896c91e9b86e2722f4813a9b23abebbc1b2f0144293ff95"
+    },
+    {
+      "file": "screenshots/delivery-open-md.png",
+      "bytes": 57852,
+      "sha256": "d1201aa43dae3ae3fb7f666de42c3c3d24980bfbb6c724d6a4707227eba84bea"
+    },
+    {
+      "file": "screenshots/delivery-open-pdf.png",
+      "bytes": 71925,
+      "sha256": "eba53f7d07e3f7eab9b57597efe19396e3c6c4ad624738df747a843d3f0ecca0"
+    },
+    {
+      "file": "screenshots/delivery-open-pptx.png",
+      "bytes": 79642,
+      "sha256": "510a86b793e29bc2bdbdf3448fb5fc28bd4b9d02ed2da440dd08d28f568383ba"
+    },
+    {
+      "file": "screenshots/delivery-open-xlsx.png",
+      "bytes": 74215,
+      "sha256": "16107e9e2a4f6860be5dfbf77dbfa6a0b3216787666c8c261e62d15e71173b68"
+    },
+    {
+      "file": "screenshots/delivery-send-docx.png",
+      "bytes": 76591,
+      "sha256": "1f38a537bfa1912bfebdf3f8bde84fb05c5ef2e7ccb191eba0b930d7080223d4"
+    },
+    {
+      "file": "screenshots/delivery-send-md.png",
+      "bytes": 59118,
+      "sha256": "0f48746133ce622d798651ac7b5fe28441e675ab22cbb5341d6e5699cd0bbdae"
+    },
+    {
+      "file": "screenshots/delivery-send-pdf.png",
+      "bytes": 73746,
+      "sha256": "047508cf2cae7759d6dcf9d0837c3f6d5293ecb01143730cfdf8d8dbc01e4550"
+    },
+    {
+      "file": "screenshots/delivery-send-pptx.png",
+      "bytes": 81012,
+      "sha256": "f068a0d7b1c7e8d8981708dd8a11537355b80302e2e00f4bb89fc38b99dd31eb"
+    },
+    {
+      "file": "screenshots/delivery-send-xlsx.png",
+      "bytes": 74707,
+      "sha256": "99f4cd0d9d72ab543aa0c02005eef7912e148519badb05728d5e14242868e9f9"
+    },
+    {
+      "file": "screenshots/docx-preview.png",
+      "bytes": 134557,
+      "sha256": "5fc99657e0599ce88e29841921266266130ce8ae8d194f59801ef776c348bbf3"
+    },
+    {
+      "file": "screenshots/docx-preview.txt",
+      "bytes": 34,
+      "sha256": "0e7756bcf1878cbb2a59e172ec5dfde7c20e51aa18108c353c423615b1b1d9d1"
+    },
+    {
+      "file": "screenshots/filter-after.png",
+      "bytes": 146097,
+      "sha256": "383bc725a0782bb7adb62b5edfd99f243c8721e7e612dea2e65e80a24d7daff3"
+    },
+    {
+      "file": "screenshots/filter-after.txt",
+      "bytes": 34,
+      "sha256": "473588243d143eb760cf900d64be2bab4ee1a3c07d63b9b08ad6d6c1be2fc411"
+    },
+    {
+      "file": "screenshots/filter-before.png",
+      "bytes": 146097,
+      "sha256": "383bc725a0782bb7adb62b5edfd99f243c8721e7e612dea2e65e80a24d7daff3"
+    },
+    {
+      "file": "screenshots/filter-before.txt",
+      "bytes": 34,
+      "sha256": "473588243d143eb760cf900d64be2bab4ee1a3c07d63b9b08ad6d6c1be2fc411"
+    },
+    {
+      "file": "screenshots/invented-symbol.png",
+      "bytes": 154434,
+      "sha256": "e1e0502e37f914b68b0790adefdcd40703e5c17a75ca22009790f455698b5e50"
+    },
+    {
+      "file": "screenshots/invented-symbol.txt",
+      "bytes": 69,
+      "sha256": "09d4e5cb15a7392c085e029c1063b1ce5288e18fa8d53bbac724f675ab1ec94d"
+    },
+    {
+      "file": "screenshots/long-material-tail.png",
+      "bytes": 188563,
+      "sha256": "d8a85726d8fb29d129f4f04154006b6613196e18c369c2d2457433c68c65f34d"
+    },
+    {
+      "file": "screenshots/long-material-tail.txt",
+      "bytes": 69,
+      "sha256": "5616d40324824763c3635935f3c209565dfb3ea8322a161b9863f449e1227064"
+    },
+    {
+      "file": "screenshots/material-text-preview.png",
+      "bytes": 166334,
+      "sha256": "af6d40ca75e66f8d9899e221a2b1e564b7707d79c236a015706149d0177690d0"
+    },
+    {
+      "file": "screenshots/material-text-preview.txt",
+      "bytes": 69,
+      "sha256": "5a0559f365458103af22c2c05c2d70afec307bd62d7f3a499c311b9abf3c4101"
+    },
+    {
+      "file": "screenshots/memory-edited.png",
+      "bytes": 129568,
+      "sha256": "bfef7b87f1fdd519b26aaaad95361e334829e4c2f69209e681ebeaff377eaedc"
+    },
+    {
+      "file": "screenshots/memory-edited.txt",
+      "bytes": 34,
+      "sha256": "68ab30700efa746fd0fafd7fab9fbd1cadd4aa2697abbe9a89e19562e8d08a21"
+    },
+    {
+      "file": "screenshots/missing-artifact.png",
+      "bytes": 68882,
+      "sha256": "9994b1ee5ae5ed916771832e822a34cb5636a9d23ae5e673bca1ab242fb328d7"
+    },
+    {
+      "file": "screenshots/missing-artifact.txt",
+      "bytes": 34,
+      "sha256": "36761f0f6984f124fe0aa2e8cbda1bda437c238f026ef18521f909bf89444f7b"
+    },
+    {
+      "file": "screenshots/teaching-mode.png",
+      "bytes": 245302,
+      "sha256": "056702819bbf45a14f25a6d1084e54efbbc097aedc0315feba5562d5f878bcfc"
+    },
+    {
+      "file": "screenshots/teaching-mode.txt",
+      "bytes": 34,
+      "sha256": "73f16cc8f22ceda9b6095cdb83ff725f961aab9cb42d566fa33a4fa20e56cb1c"
+    },
+    {
+      "file": "slider-final.log",
+      "bytes": 862,
+      "sha256": "625b326acdd9cc4de9379339edc661517f7fc1c8a4d36ccbe2fb60bc5f8314db"
+    },
+    {
+      "file": "StudyChatCompletionTest.log",
+      "bytes": 4059,
+      "sha256": "2145f96a113f4c1a60f9999b5cf72aab71b18c53799d91230d593557eab6296c"
+    },
+    {
+      "file": "StudyNavigationTest-post-privacy.log",
+      "bytes": 816,
+      "sha256": "fa1d804a2b7b846dd0fe1e7e2afc14aee7bddbc05458c32dc0eb999e28c4e19f"
+    },
+    {
+      "file": "StudyNavigationTest.log",
+      "bytes": 816,
+      "sha256": "dc90b28cb39571b64eb3e4819567f4a18e533cdef4c09db97a1ac3bff7baad50"
+    },
+    {
+      "file": "StudyRealModelTest-diagnostic-final.log",
+      "bytes": 5475,
+      "sha256": "03d5d46e65a156d2e0008db95266d61eb0d87297084935a839025669a0cae80d"
+    },
+    {
+      "file": "StudyRealModelTest.log",
+      "bytes": 2652,
+      "sha256": "4ce368db07d270cd2f7a6e3b54a3b01b7962210b4b4485796d0597d499b57d3e"
+    },
+    {
+      "file": "temporary-config-cleanup.txt",
+      "bytes": 120,
+      "sha256": "8eeb236fa48b6a811ac215a6d83ea12d546c5395b42796083f06a3267dd64f25"
+    },
+    {
+      "file": "test-summary.json",
+      "bytes": 75173,
+      "sha256": "7fdf3c9ad30c1659758d59c46c847e90bcb28f9f1e51738a67fc67c4ac32f072"
+    },
+    {
+      "file": "unused-resource-audit.json",
+      "bytes": 8150,
+      "sha256": "1d795e4e261f97d5887f8b0bb2048228c16c04808cfbef55cf29cf8ba6bab2c2"
+    },
+    {
+      "file": "visual-inspection.json",
+      "bytes": 378,
+      "sha256": "2bc42d756fbbc4e3641f4c00455cbd7fdd87e02be49fdf4149815274d1cc534b"
+    },
+    {
+      "file": "warning-counts.json",
+      "bytes": 99,
+      "sha256": "36da131ebf2712e01943684ae8f9e4e47c7ad2809636bc5cdd148313cc5efeb8"
+    },
+    {
+      "file": "warning-types.md",
+      "bytes": 1518,
+      "sha256": "5ef876a7630a26adf48aa72e3d3c430bef29c086aab0c8966890ce5495f88333"
+    },
+    {
+      "file": "WarningFixGalleryTest-post-privacy.log",
+      "bytes": 819,
+      "sha256": "7ba0d3f4782a97eb90489caca52f8a1ab108bbcc0271bc7edd81e850d0c6fcc5"
+    },
+    {
+      "file": "WarningFixSliderTest-post-privacy.log",
+      "bytes": 862,
+      "sha256": "717e93f2f2e8d249702dfa498ee8f36dbab21c83d32bc3eb662d33b497160fcf"
+    },
+    {
+      "file": "WarningReviewBoundaryTest-post-privacy.log",
+      "bytes": 841,
+      "sha256": "c62d4854c6277b34bd05dc8f96b05e4a1c283fb110330696f7f75612974a8332"
+    },
+    {
+      "file": "web-build-after.log",
+      "bytes": 35366,
+      "sha256": "3123266c7d55c4455a56578ff4fa4d02ffdde4fe2a23dbc03b2dcfe1b166b598"
+    },
+    {
+      "file": "web-directive-fixes.json",
+      "bytes": 2474,
+      "sha256": "0899ba0435ba3d2bd02e7cd4271de54a1982f852cd35ee00fabe60c4241c1239"
+    },
+    {
+      "file": "web-typecheck-after.log",
+      "bytes": 31,
+      "sha256": "d4595a86627499c8116cbc3dfc8d36d28f1a5af7e9d88826e05ea8c2ebe8d62e"
+    },
+    {
+      "file": "web-typecheck.log",
+      "bytes": 31,
+      "sha256": "d4595a86627499c8116cbc3dfc8d36d28f1a5af7e9d88826e05ea8c2ebe8d62e"
+    },
+    {
+      "file": "workspace-boundary-final.log",
+      "bytes": 841,
+      "sha256": "8d657923d7643e4b5e2f1e0e93ae57770ca70351584c2235bec75f27a2a1a4f8"
+    },
+    {
+      "file": "workspace-boundary-first-failure.log",
+      "bytes": 2787,
+      "sha256": "ae1c51fec5f260c1e5c3ff9a6e392dfa9b2c4bef1d0b6c1cd4b1f73662933a61"
+    },
+    {
+      "file": "workspace-environment-failures.json",
+      "bytes": 3817,
+      "sha256": "3993842b11cbb7bebb064453e89c79a85e78453c07b366f1da5d05154c336ce2"
+    },
+    {
+      "file": "workspace-provider-before.txt",
+      "bytes": 468,
+      "sha256": "5da38a691bcc1bc64b0e444e0bec91865412e60a26fd28dbfbbfb4abe402552b"
+    }
+  ]
+}

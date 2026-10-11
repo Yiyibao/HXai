@@ -1,0 +1,25 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.IndependentPostfixProbeTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.IndependentPostfixProbeTest:
+INSTRUMENTATION_STATUS: test=deletedConversationMustRejectStaleSaveAfterSessionEviction
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"IndependentPostfixProbeTest.deletedConversationMustRejectStaleSaveAfterSessionEviction","runId":"44afccf7-77e1-4ea3-9f3c-4fd0f35dfb35","startedAt":1791464957070,"finishedAt":1791464957339,"status":"PASS","entries":[{"name":"qa-evidence\/IndependentPostfixProbeTest.deletedConversationMustRejectStaleSaveAfterSessionEviction\/44afccf7-77e1-4ea3-9f3c-4fd0f35dfb35\/result.txt","sha256":"9b1228db71ac40fdaf9ed213f757dcfd922422ca6d4a4152a0d269db34d7bf0f","bytes":75,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.IndependentPostfixProbeTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=deletedConversationMustRejectStaleSaveAfterSessionEviction
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 1.241
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

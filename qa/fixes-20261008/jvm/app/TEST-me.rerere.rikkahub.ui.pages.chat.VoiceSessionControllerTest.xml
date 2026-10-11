@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-07T17:33:28.352Z" hostname="DESKTOP-QH4J0RS" time="4.262">
+  <properties/>
+  <testcase name="reply during speech waits until current sentence is enqueued" classname="me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest" time="0.564"/>
+  <testcase name="queue pause resolves its localized message" classname="me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest" time="0.226"/>
+  <testcase name="withdrawing a queued utterance does not stop voice mode or speak it" classname="me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest" time="0.556"/>
+  <testcase name="without TTS replies do not interrupt listening" classname="me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest" time="0.234"/>
+  <testcase name="empty utterance never enters queue" classname="me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest" time="0.229"/>
+  <testcase name="ending voice mode preserves accepted queued messages and detaches late replies" classname="me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest" time="0.222"/>
+  <testcase name="ASR generation and playback errors stop capture and pause voice mode" classname="me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest" time="0.669"/>
+  <testcase name="new utterances enter queue while earlier reply is still generating" classname="me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest" time="0.233"/>
+  <testcase name="speech stop waits for final text before enqueueing" classname="me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest" time="0.23"/>
+  <testcase name="ending during playback does not reopen the microphone" classname="me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest" time="0.234"/>
+  <testcase name="replies are spoken in order and capture resumes only after playback" classname="me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest" time="0.865"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

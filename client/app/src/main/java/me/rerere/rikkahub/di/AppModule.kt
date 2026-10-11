@@ -21,6 +21,8 @@ import me.rerere.tts.provider.TTSManager
 import org.koin.dsl.module
 
 val appModule = module {
+    single { me.rerere.rikkahub.feature.material.MaterialFiles(get()) }
+    single { me.rerere.rikkahub.feature.material.DocumentServiceRepository(get(), get()) }
     single<Json> { JsonInstant }
 
     single {
@@ -79,9 +81,13 @@ val appModule = module {
 
     single {
         ChatToolFactory(
+            documentService = get(),
+            materialFiles = get(),
+            providerManager = get(),
             json = get(),
             memoryRepository = get(),
             conversationRepository = get(),
+            learningMemories = get(),
             localTools = get(),
             mcpManager = get(),
             skillManager = get(),
@@ -91,6 +97,7 @@ val appModule = module {
 
     single {
         ChatService(
+            materialFiles = get(),
             context = get(),
             appScope = get(),
             appEventBus = get(),
@@ -105,6 +112,8 @@ val appModule = module {
             mcpManager = get(),
             filesManager = get(),
             workspaceRepository = get(),
+            learningMemories = get(),
+            memoryRunner = get(),
             folderRepository = get()
         )
     }

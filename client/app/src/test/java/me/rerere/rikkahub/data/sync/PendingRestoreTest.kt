@@ -6,6 +6,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertThrows
 import org.junit.Assert.assertTrue
+import org.junit.Assert.fail
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TemporaryFolder
@@ -13,6 +14,23 @@ import java.io.File
 import java.io.IOException
 
 class PendingRestoreTest {
+    @Test fun completeRestoreRemovesExtraManagedFilesAndRollbackRestoresThem() = runBlocking {
+        val pending = restore()
+        val extra = write(File(temporary.root, "files/materials/owner/extra.json"), "newer material")
+        val staging = pending.createStagingDirectory()
+        write(File(staging, "payload/database/rikka_hub"), "snapshot")
+        write(File(staging, "replace-folders.json"), "[\"materials\"]")
+        write(File(staging, "settings.json"), "settings")
+        pending.publish(staging)
+        try { pending.apply { throw IOException("disk full") }; fail() } catch (_: RestoreFailedException) { }
+        assertEquals("newer material", extra.readText())
+        val next = pending.createStagingDirectory()
+        write(File(next, "payload/database/rikka_hub"), "snapshot")
+        write(File(next, "replace-folders.json"), "[\"materials\"]")
+        pending.publish(next)
+        pending.apply { }
+        assertFalse(extra.exists())
+    }
     @get:Rule val temporary = TemporaryFolder()
 
     private fun restore() = PendingRestore(
@@ -174,4 +192,14 @@ class PendingRestoreTest {
     }
 
     private class SimulatedProcessDeath : Error()
+
+    @Test fun corruptInstalledFileAfterProcessLossRollsBackInsteadOfCommitting() = runBlocking {
+        write(database(), "old database")
+        stage(restore())
+        try { restore().apply { throw SimulatedProcessDeath() } } catch (_: SimulatedProcessDeath) { }
+        database().writeText("corrupt installed bytes")
+        try { restore().apply { fail("corrupt content must not commit") }; fail() } catch (_: RestoreFailedException) { }
+        assertEquals("old database", database().readText())
+        assertFalse(File(temporary.root, "restore/pending").exists())
+    }
 }

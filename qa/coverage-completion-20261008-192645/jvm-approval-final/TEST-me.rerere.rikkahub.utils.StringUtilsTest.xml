@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.utils.StringUtilsTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2026-10-08T11:50:09.974Z" hostname="DESKTOP-QH4J0RS" time="0.004">
+  <properties/>
+  <testcase name="remove brackets does not cross bracket boundaries" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.002"/>
+  <testcase name="extract chinese double quotes" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.0"/>
+  <testcase name="extract white corner brackets" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.0"/>
+  <testcase name="remove brackets returns null for blank result" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.0"/>
+  <testcase name="extract english single quotes" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.0"/>
+  <testcase name="extract as text returns null when empty" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.001"/>
+  <testcase name="remove brackets returns null when all removed" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.0"/>
+  <testcase name="remove brackets keeps outside text trimmed" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.0"/>
+  <testcase name="no brackets returns original text" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.0"/>
+  <testcase name="remove chinese brackets" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.0"/>
+  <testcase name="extract chinese single quotes" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.0"/>
+  <testcase name="extract corner brackets" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.0"/>
+  <testcase name="blank content is ignored" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.0"/>
+  <testcase name="remove english brackets" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.0"/>
+  <testcase name="extract english double quotes" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.001"/>
+  <testcase name="remove multiple brackets" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.0"/>
+  <testcase name="extract multiple quotes" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.0"/>
+  <testcase name="no quotes returns empty" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.0"/>
+  <testcase name="extract as text joins with separator" classname="me.rerere.rikkahub.utils.StringUtilsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

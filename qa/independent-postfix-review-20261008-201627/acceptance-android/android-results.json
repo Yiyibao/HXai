@@ -1,0 +1,74 @@
+[
+  {
+    "name": "skills",
+    "class": "SkillsInstallBoundaryTest",
+    "runId": "83ec97ad-d10f-4d50-a087-3bac349e78e1",
+    "started": 1791461894824,
+    "ended": 1791461898495,
+    "ok": true,
+    "exit": 0
+  },
+  {
+    "name": "word",
+    "class": "WordFormulaAssertionTest",
+    "runId": "c0c58e2a-997e-4a64-9a53-8128f4f4a436",
+    "started": 1791461898529,
+    "ended": 1791461902609,
+    "ok": true,
+    "exit": 0
+  },
+  {
+    "name": "diagnostics",
+    "class": "DiagnosticsTest",
+    "runId": "d9cedadd-f08c-4d95-9cd1-3e98ba311c1c",
+    "started": 1791461902649,
+    "ended": 1791461919610,
+    "ok": true,
+    "exit": 0
+  },
+  {
+    "name": "context-privacy",
+    "class": "WarningReviewContextPrivacyTest",
+    "runId": "0d156319-6477-4546-afe5-04d3f9e1c791",
+    "started": 1791461919627,
+    "ended": 1791461932363,
+    "ok": true,
+    "exit": 0
+  },
+  {
+    "name": "skills-install",
+    "class": "ChecklistSupplementTest#skillsInstallWorksWhileAuthoringAndEditingAreDisabled",
+    "runId": "45f8956f-c74f-4c70-a206-f7212dcd79e2",
+    "started": 1791461932387,
+    "ended": 1791461936311,
+    "ok": true,
+    "exit": 0
+  },
+  {
+    "name": "skills-enabled",
+    "class": "ChecklistSupplementTest#installedSkillsCanBeUsedOnlyWhenEnabled",
+    "runId": "0e48ef1d-4413-416c-a896-9e2a9836956b",
+    "started": 1791461936328,
+    "ended": 1791461940311,
+    "ok": true,
+    "exit": 0
+  },
+  {
+    "name": "seed",
+    "class": "ChecklistSupplementTest#controlledBoundariesSurviveIndependentProcess",
+    "runId": "838812c3-2fe5-49cc-8580-a48f8d1a29bf",
+    "started": 1791461940326,
+    "ended": 1791461947899,
+    "ok": true,
+    "exit": 0
+  },
+  {
+    "name": "verify",
+    "class": "ChecklistSupplementTest#controlledBoundariesSurviveIndependentProcess",
+    "runId": "fe5c2816-0824-449c-a499-5b0d12154294",
+    "started": 1791461947970,
+    "ended": 1791461953188,
+    "ok": true,
+    "exit": 0
+  }
+]

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.tts.provider.TTSProviderSettingMiMoTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-07T16:43:48.391Z" hostname="DESKTOP-QH4J0RS" time="0.002">
+  <properties/>
+  <testcase name="mimo_is_registered_in_provider_types" classname="me.rerere.tts.provider.TTSProviderSettingMiMoTest" time="0.001"/>
+  <testcase name="mimo_defaults_are_expected" classname="me.rerere.tts.provider.TTSProviderSettingMiMoTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

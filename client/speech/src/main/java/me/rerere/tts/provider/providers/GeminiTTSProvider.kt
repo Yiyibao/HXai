@@ -2,7 +2,7 @@ package me.rerere.tts.provider.providers
 
 import android.content.Context
 import android.util.Base64
-import android.util.Log
+import me.rerere.common.util.ServicePrivacyLog as Log
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.Serializable

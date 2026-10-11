@@ -1,0 +1,79 @@
+[
+  {
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "module": "ai",
+    "tests": 200
+  },
+  {
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "module": "app",
+    "tests": 317
+  },
+  {
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "module": "common",
+    "tests": 1
+  },
+  {
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "module": "document",
+    "tests": 1
+  },
+  {
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "module": "search",
+    "tests": 16
+  },
+  {
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "module": "speech",
+    "tests": 43
+  },
+  {
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "module": "oauth",
+    "tests": 2
+  },
+  {
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "module": "highlight",
+    "tests": 53
+  },
+  {
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "module": "material3",
+    "tests": 1
+  },
+  {
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "module": "videogen",
+    "tests": 3
+  },
+  {
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "module": "web",
+    "tests": 1
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "schema": 2,
+  "contextSha256": "7be7f9afc07a2dcbf4fe207beaae9d317550cf093c80fa4d1d298816b2785cff",
+  "appSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "testSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "records": [
+    {
+      "name": "qa-evidence/QaEvidenceRunTest.synthetic/05d835c4-2c5e-4dc7-af39-58b7a00a29e4/transcript.md",
+      "sha256": "aca2a8c6ff3900220a7897cbd26675466cdaff9d3f204986c67684791e3043c8",
+      "bytes": 29,
+      "reusedSyntheticInput": false,
+      "method": "QaEvidenceRunTest.synthetic",
+      "runId": "05d835c4-2c5e-4dc7-af39-58b7a00a29e4",
+      "status": "PASS",
+      "deviceMtime": 1800000000,
+      "startedAt": 1800000000000,
+      "finishedAt": 1800000001000
+    }
+  ]
+}

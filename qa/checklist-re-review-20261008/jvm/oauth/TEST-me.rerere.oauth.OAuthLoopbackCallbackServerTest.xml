@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.oauth.OAuthLoopbackCallbackServerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-08T06:42:53.255Z" hostname="DESKTOP-QH4J0RS" time="2.164">
+  <properties/>
+  <testcase name="callback is delivered only to matching state" classname="me.rerere.oauth.OAuthLoopbackCallbackServerTest" time="2.164"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+]]></system-err>
+</testsuite>

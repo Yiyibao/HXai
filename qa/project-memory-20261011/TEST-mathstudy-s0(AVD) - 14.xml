@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuites tests="2" failures="0" errors="0" skipped="0" time="0.000" timestamp="2026-10-11T06:58:13" hostname="localhost">
+  <testsuite name="me.rerere.rikkahub.service.FlutterProjectMemoryTest" tests="2" failures="0" errors="0" skipped="0" time="0.930" timestamp="2026-10-11T06:58:13" hostname="localhost">
+    <properties>
+      <property name="device" value="emulator-5554" />
+    </properties>
+    <testcase name="projectsPersistMovesAndDeletionKeepsConversations" classname="me.rerere.rikkahub.service.FlutterProjectMemoryTest" time="0.784" />
+    <testcase name="manualMemoryPersistsRetrievesEditsAndDeletesWithoutChat" classname="me.rerere.rikkahub.service.FlutterProjectMemoryTest" time="0.146" />
+  </testsuite>
+</testsuites>

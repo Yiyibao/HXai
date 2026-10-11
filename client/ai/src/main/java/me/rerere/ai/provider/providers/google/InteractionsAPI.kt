@@ -92,7 +92,7 @@ internal class InteractionsAPI(
         // await() waits for the response headers; reading the body can still block.
         client.newCall(request).await().use { response ->
             if (!response.isSuccessful) {
-                throw Exception("Failed to get response: ${response.code} ${response.body.string()}")
+                throw Exception("Failed to get response: ${response.code}")
             }
             val bodyJson = json.parseToJsonElement(response.body.string()).jsonObject
             parseInteraction(bodyJson, fallbackModel = params.model.modelId)
@@ -107,15 +107,11 @@ internal class InteractionsAPI(
         val requestBody = buildRequestBody(messages, params, stream = true)
         val request = buildRequest(providerSetting, params, requestBody)
 
-        Log.i(TAG, "streamText: ${json.encodeToString(requestBody)}")
-
         val decoder = InteractionsStreamDecoder(fallbackModel = params.model.modelId)
 
         fun sendChunks(chunks: Iterable<StreamChunk>) {
             chunks.forEach { chunk ->
-                trySend(chunk).onFailure { e ->
-                    Log.w(TAG, "onEvent: chunk dropped (${e?.message})")
-                }
+                trySend(chunk).onFailure { Log.w(TAG, "Stream chunk dropped") }
             }
         }
 
@@ -126,13 +122,11 @@ internal class InteractionsAPI(
                 type: String?,
                 data: String
             ) {
-                Log.d(TAG, "onEvent: $id/$type $data")
                 try {
                     val result = decoder.accept(SseEvent(id = id, event = type, data = data))
                     sendChunks(result.chunks)
                     if (result.completed) close()
                 } catch (e: Throwable) {
-                    Log.e(TAG, "Failed to parse stream event: $data", e)
                     close(e)
                 }
             }
@@ -148,7 +142,6 @@ internal class InteractionsAPI(
                         exception = Exception("Unknown error: ${response.code}")
                     }
                 } catch (e: Throwable) {
-                    Log.w(TAG, "onFailure: failed to parse from $bodyRaw")
                 } finally {
                     close(exception ?: Exception("Stream failed"))
                 }

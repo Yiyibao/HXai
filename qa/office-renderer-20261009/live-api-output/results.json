@@ -1,0 +1,98 @@
+[
+  {
+    "extension": "docx",
+    "manifest": {
+      "contractVersion": 1,
+      "operation": "office_pdf",
+      "sourceSha256": "5283b1ff495e5e4b1cad805bf2a3c49c3ab0ea1ec3d82a5f304e38f17493f1b3",
+      "sourceExtension": "docx",
+      "renderer": "LibreOffice",
+      "rendererVersion": "25.2.3.2",
+      "renderOptions": {
+        "scope": "print_layout",
+        "includeHiddenSlides": false,
+        "includeNotes": false
+      },
+      "pageCount": 1,
+      "warnings": [
+        "LibreOffice compatibility rendering; verify complex Office layout.",
+        "Font substitution: Calibri, Cambria, Courier, Symbol"
+      ],
+      "assets": [
+        {
+          "assetId": "pdf",
+          "path": "output.pdf",
+          "mediaType": "application/pdf",
+          "size": 43143,
+          "sha256": "3ba46fedab1bf2ed3f4834952d4a1375fea55f1824aba4bdaf16884108b14b14"
+        }
+      ]
+    },
+    "extractedText": "Synthetic header\nBold edited and plain source\nItem Quantity\nSynthetic 21\nx ²+ y ²=z ²",
+    "sameOriginalDigest": true
+  },
+  {
+    "extension": "xlsx",
+    "manifest": {
+      "contractVersion": 1,
+      "operation": "office_pdf",
+      "sourceSha256": "0ade014a7e7f92e9a1013a0739844283699cebb780a53eff78c9f823a4c9059f",
+      "sourceExtension": "xlsx",
+      "renderer": "LibreOffice",
+      "rendererVersion": "25.2.3.2",
+      "renderOptions": {
+        "scope": "print_layout",
+        "includeHiddenSlides": false,
+        "includeNotes": false
+      },
+      "pageCount": 1,
+      "warnings": [
+        "LibreOffice compatibility rendering; verify complex Office layout.",
+        "Font substitution: Calibri, Cambria"
+      ],
+      "assets": [
+        {
+          "assetId": "pdf",
+          "path": "output.pdf",
+          "mediaType": "application/pdf",
+          "size": 31674,
+          "sha256": "ffef370767789597a5b0d26704b31a11462753104c4a20940d71e475a0072beb"
+        }
+      ]
+    },
+    "extractedText": "Count Triple Code\n4 12 001\n",
+    "sameOriginalDigest": true
+  },
+  {
+    "extension": "pptx",
+    "manifest": {
+      "contractVersion": 1,
+      "operation": "office_pdf",
+      "sourceSha256": "41a4a23c2d07e8dd8656022f9ed4201eb7e5adb6542fd0fef57f0907db5e3fc9",
+      "sourceExtension": "pptx",
+      "renderer": "LibreOffice",
+      "rendererVersion": "25.2.3.2",
+      "renderOptions": {
+        "scope": "print_layout",
+        "includeHiddenSlides": false,
+        "includeNotes": false
+      },
+      "pageCount": 2,
+      "warnings": [
+        "LibreOffice compatibility rendering; verify complex Office layout.",
+        "Font substitution: Calibri"
+      ],
+      "assets": [
+        {
+          "assetId": "pdf",
+          "path": "output.pdf",
+          "mediaType": "application/pdf",
+          "size": 16777,
+          "sha256": "35a66326ae2740602be43d7ebbb398422c542eca8f861d7764fbdae8b26feb7f"
+        }
+      ]
+    },
+    "extractedText": "Edited slide title\nKeep adjacent text\nUntouched second slide",
+    "sameOriginalDigest": true
+  }
+]

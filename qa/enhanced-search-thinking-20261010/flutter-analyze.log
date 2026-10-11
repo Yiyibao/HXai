@@ -1,0 +1,51 @@
+Analyzing flutter_ui...                                         
+
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\pages\chat_page.dart:77:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\pages\chat_page.dart:126:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\pages\chat_page.dart:131:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\pages\chat_page.dart:135:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\pages\chat_page.dart:154:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\pages\chat_page.dart:158:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\pages\chat_page.dart:707:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\pages\chat_page.dart:726:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\pages\chat_page.dart:730:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\pages\chat_page.dart:752:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\pages\chat_page.dart:755:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\pages\chat_page.dart:1073:35 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:30:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:35:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:89:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:106:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:115:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:123:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:133:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:137:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:142:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:144:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:158:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:162:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:166:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:174:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:185:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:191:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:201:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:215:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:236:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:251:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:257:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:260:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:263:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:269:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:382:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:442:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:473:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:590:25 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:667:23 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:792:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:989:23 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:1169:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\interactive_surface.dart:1292:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\math_markdown.dart:268:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\interactive_surface_test.dart:189:21 - curly_braces_in_flow_control_structures
+
+47 issues found. (ran in 9.9s)

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.sync.PendingRestoreTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-09T03:27:36.406Z" hostname="DESKTOP-QH4J0RS" time="1.761">
+  <properties/>
+  <testcase name="corruptInstalledFileAfterProcessLossRollsBackInsteadOfCommitting" classname="me.rerere.rikkahub.data.sync.PendingRestoreTest" time="0.178"/>
+  <testcase name="failedSettingsWriteRestoresOriginalDatabaseAndSidecarsAndCanRetry" classname="me.rerere.rikkahub.data.sync.PendingRestoreTest" time="0.352"/>
+  <testcase name="installsStandaloneDatabaseAndDoesNotReplayOnLaterLaunches" classname="me.rerere.rikkahub.data.sync.PendingRestoreTest" time="0.25"/>
+  <testcase name="restartResumesInstallationInterruptedBeforeCommit" classname="me.rerere.rikkahub.data.sync.PendingRestoreTest" time="0.18"/>
+  <testcase name="invalidJournalAfterInterruptionKeepsOriginalsForRecovery" classname="me.rerere.rikkahub.data.sync.PendingRestoreTest" time="0.143"/>
+  <testcase name="cannotReplaceAlreadyPendingRestore" classname="me.rerere.rikkahub.data.sync.PendingRestoreTest" time="0.037"/>
+  <testcase name="publishingDoesNotTouchLiveFiles" classname="me.rerere.rikkahub.data.sync.PendingRestoreTest" time="0.044"/>
+  <testcase name="completeRestoreRemovesExtraManagedFilesAndRollbackRestoresThem" classname="me.rerere.rikkahub.data.sync.PendingRestoreTest" time="0.257"/>
+  <testcase name="rejectsArchiveTraversalPaths" classname="me.rerere.rikkahub.data.sync.PendingRestoreTest" time="0.001"/>
+  <testcase name="failedInitialJournalWriteKeepsOriginalDataAndDoesNotBlockLaterLaunches" classname="me.rerere.rikkahub.data.sync.PendingRestoreTest" time="0.182"/>
+  <testcase name="filesOnlyRestoreLeavesDatabaseAndWalUntouched" classname="me.rerere.rikkahub.data.sync.PendingRestoreTest" time="0.136"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

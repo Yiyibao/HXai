@@ -1,0 +1,100 @@
+[
+  {
+    "name": "ConversationBoundaryFixTest",
+    "passed": true,
+    "started": "2026-10-08T14:41:40.5951879+08:00",
+    "seconds": 7.2,
+    "log": "ConversationBoundaryFixTest.log"
+  },
+  {
+    "name": "WordFormulaAssertionTest",
+    "passed": true,
+    "started": "2026-10-08T14:41:47.8429069+08:00",
+    "seconds": 3.5,
+    "log": "WordFormulaAssertionTest.log"
+  },
+  {
+    "name": "StudyChatCompletionTest",
+    "passed": true,
+    "started": "2026-10-08T14:41:51.3098698+08:00",
+    "seconds": 5.8,
+    "log": "StudyChatCompletionTest.log"
+  },
+  {
+    "name": "ChatNetworkFaultTest",
+    "passed": true,
+    "started": "2026-10-08T14:41:57.1045061+08:00",
+    "seconds": 110.5,
+    "log": "ChatNetworkFaultTest.log"
+  },
+  {
+    "name": "ProjectReviewAuditTest",
+    "passed": true,
+    "started": "2026-10-08T14:43:47.6142381+08:00",
+    "seconds": 50.1,
+    "log": "ProjectReviewAuditTest.log"
+  },
+  {
+    "name": "MaterialFilesTest",
+    "passed": true,
+    "started": "2026-10-08T14:44:37.6848865+08:00",
+    "seconds": 6.0,
+    "log": "MaterialFilesTest.log"
+  },
+  {
+    "name": "MaterialFidelityTest",
+    "passed": true,
+    "started": "2026-10-08T14:44:43.6626582+08:00",
+    "seconds": 3.6,
+    "log": "MaterialFidelityTest.log"
+  },
+  {
+    "name": "LearningMemoryPersistenceTest",
+    "passed": true,
+    "started": "2026-10-08T14:44:47.2438768+08:00",
+    "seconds": 3.9,
+    "log": "LearningMemoryPersistenceTest.log"
+  },
+  {
+    "name": "BackupReliabilityTest",
+    "passed": true,
+    "started": "2026-10-08T14:44:51.1901003+08:00",
+    "seconds": 18.4,
+    "log": "BackupReliabilityTest.log"
+  },
+  {
+    "name": "MaterialDeliveryTest",
+    "passed": true,
+    "started": "2026-10-08T14:45:09.6267361+08:00",
+    "seconds": 41.6,
+    "log": "MaterialDeliveryTest.log"
+  },
+  {
+    "name": "ProjectReviewDeliveryTest",
+    "passed": true,
+    "started": "2026-10-08T14:45:51.2388909+08:00",
+    "seconds": 39.4,
+    "log": "ProjectReviewDeliveryTest.log"
+  },
+  {
+    "name": "MaterialPageTest",
+    "passed": true,
+    "started": "2026-10-08T14:46:30.6871191+08:00",
+    "seconds": 13.2,
+    "log": "MaterialPageTest.log"
+  },
+  {
+    "name": "runtime-seed",
+    "passed": true,
+    "started": "2026-10-08T14:46:43.9046229+08:00",
+    "seconds": 3.1,
+    "log": "runtime-seed.log"
+  },
+  {
+    "name": "runtime-verify",
+    "passed": true,
+    "started": "2026-10-08T14:46:47.0171287+08:00",
+    "seconds": 3.1,
+    "log": "runtime-verify.log"
+  }
+]

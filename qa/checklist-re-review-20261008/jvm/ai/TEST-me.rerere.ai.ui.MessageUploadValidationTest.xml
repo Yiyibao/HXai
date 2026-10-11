@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.ui.MessageUploadValidationTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-08T06:42:55.852Z" hostname="DESKTOP-QH4J0RS" time="0.001">
+  <properties/>
+  <testcase name="isValidToUpload should keep tool-only message valid" classname="me.rerere.ai.ui.MessageUploadValidationTest" time="0.001"/>
+  <testcase name="isValidToUpload should be false for blank reasoning with empty text" classname="me.rerere.ai.ui.MessageUploadValidationTest" time="0.0"/>
+  <testcase name="isValidToUpload should be true for non-empty text" classname="me.rerere.ai.ui.MessageUploadValidationTest" time="0.0"/>
+  <testcase name="isValidToUpload should be true for non-empty reasoning with empty text" classname="me.rerere.ai.ui.MessageUploadValidationTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

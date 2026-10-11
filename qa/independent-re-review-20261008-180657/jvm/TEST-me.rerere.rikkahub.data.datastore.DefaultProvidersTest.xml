@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.datastore.DefaultProvidersTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-08T10:11:04.458Z" hostname="DESKTOP-QH4J0RS" time="0.0">
+  <properties/>
+  <testcase name="default providers should include vercel ai gateway with expected balance config" classname="me.rerere.rikkahub.data.datastore.DefaultProvidersTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

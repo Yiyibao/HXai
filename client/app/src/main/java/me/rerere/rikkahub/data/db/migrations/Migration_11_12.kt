@@ -71,7 +71,7 @@ val Migration_11_12 = object : Migration(11, 12) {
                             val nodeId = Uuid.random().toString()
                             db.execSQL(
                                 "INSERT INTO message_node (id, conversation_id, node_index, messages, select_index) VALUES (?, ?, ?, ?, ?)",
-                                arrayOf(nodeId, conversationId, index, messagesJson, selectIndex)
+                                arrayOf<Any>(nodeId, conversationId, index, messagesJson, selectIndex)
                             )
                             nodeCount++
                         }

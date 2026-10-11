@@ -1,0 +1,16 @@
+gradle.projectsEvaluated {
+    def app = gradle.rootProject.findProject(':app')
+    if (app == null) return
+    def evidence = new File('D:/Office/Study/code/MathStudyAgent/qa/independent-re-review-20261008-180657')
+    app.android.sourceSets.getByName('test').java.srcDir(new File(evidence, 'probes'))
+    app.tasks.named('compileDebugUnitTestKotlin').configure { source(new File(evidence, 'probes')) }
+    def base = app.tasks.named('testDebugUnitTest').get()
+    app.tasks.register('qaSkillImportProbe', Test) {
+        dependsOn('compileDebugUnitTestKotlin', 'compileDebugUnitTestJavaWithJavac')
+        testClassesDirs = base.testClassesDirs
+        classpath = base.classpath
+        maxHeapSize = '64m'
+        filter { includeTestsMatching('independent.review.IndependentReviewProbeTest') }
+        reports.junitXml.outputLocation = new File(evidence, 'skill-import-probe-xml')
+    }
+}

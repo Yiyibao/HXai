@@ -1,0 +1,21 @@
+{
+  "model": "gpt-6-astra",
+  "protocol": "responses",
+  "reasoning_effort": "low",
+  "store_requested": false,
+  "environment": "DESKTOP_REAL_PROVIDER",
+  "status": "FAIL",
+  "events": {
+    "response.created": 1,
+    "response.in_progress": 1,
+    "response.output_item.added": 1,
+    "other": 1,
+    "response.output_text.delta": 1
+  },
+  "http_status": 200,
+  "reason": "bounded_stream_limit",
+  "marker_received": false,
+  "completed": false,
+  "elapsed_seconds": 72.335,
+  "checked_at": "2026-10-10T07:34:48.830648+00:00"
+}

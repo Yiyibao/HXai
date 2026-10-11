@@ -116,7 +116,7 @@ object OllamaSearchService : SearchService<SearchServiceOptions.OllamaOptions> {
 
             val response = httpClient.newCall(request).await()
             if (!response.isSuccessful) {
-                error("response failed for url $url #${response.code}")
+                error("response failed for requested URL #${response.code}")
             }
             val responseData = response.body.string().let {
                 json.decodeFromString<OllamaScrapeResponse>(it)

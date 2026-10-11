@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.provider.providers.openai.ResponseApiStreamDecoderTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-09T03:26:53.300Z" hostname="DESKTOP-QH4J0RS" time="0.054">
+  <properties/>
+  <testcase name="reasoning item without summary should preserve encrypted content" classname="me.rerere.ai.provider.providers.openai.ResponseApiStreamDecoderTest" time="0.005"/>
+  <testcase name="non streaming response should distinguish raw reasoning and summary" classname="me.rerere.ai.provider.providers.openai.ResponseApiStreamDecoderTest" time="0.003"/>
+  <testcase name="non streaming response should preserve metadata-only reasoning" classname="me.rerere.ai.provider.providers.openai.ResponseApiStreamDecoderTest" time="0.004"/>
+  <testcase name="incomplete response should preserve terminal metadata and usage" classname="me.rerere.ai.provider.providers.openai.ResponseApiStreamDecoderTest" time="0.003"/>
+  <testcase name="raw reasoning and summary with the same index should remain distinct without replaying plaintext" classname="me.rerere.ai.provider.providers.openai.ResponseApiStreamDecoderTest" time="0.01"/>
+  <testcase name="web search events should produce one completed server tool" classname="me.rerere.ai.provider.providers.openai.ResponseApiStreamDecoderTest" time="0.005"/>
+  <testcase name="failed response should terminate with provider error" classname="me.rerere.ai.provider.providers.openai.ResponseApiStreamDecoderTest" time="0.005"/>
+  <testcase name="function call arguments without item_id should fall back to call_id" classname="me.rerere.ai.provider.providers.openai.ResponseApiStreamDecoderTest" time="0.007"/>
+  <testcase name="non streaming response should parse web search without synthetic output" classname="me.rerere.ai.provider.providers.openai.ResponseApiStreamDecoderTest" time="0.003"/>
+  <testcase name="reasoning item should keep final metadata after summary done event" classname="me.rerere.ai.provider.providers.openai.ResponseApiStreamDecoderTest" time="0.003"/>
+  <testcase name="function call arguments without any id should fall back to output_index" classname="me.rerere.ai.provider.providers.openai.ResponseApiStreamDecoderTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,12 @@
+  File "<stdin>", line 32
+    temporary=env.with_suffix('.office-update'); temporary.write_text('
+                                                                      ^
+SyntaxError: unterminated string literal (detected at line 32)
+Traceback (most recent call last):
+  File "D:\Office\Study\code\MathStudyAgent\qa\office-renderer-20261009\deploy_renderer.py", line 67, in <module>
+    subprocess.run(['ssh','-i',key,host,'sudo python3 -'],input=script.encode(),check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['ssh', '-i', 'C:\\Users\\Hfff\\.ssh\\id_ed25519_tencent_blog', 'ubuntu@154.222.25.150', 'sudo python3 -']' returned non-zero exit status 1.

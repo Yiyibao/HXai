@@ -1,0 +1,1440 @@
+{
+  "excludedActiveLogs": [
+    "emulator.log",
+    "emulator-error.log"
+  ],
+  "files": [
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\additional-results.json",
+      "Hash": "56CF8631308ACF6A83B59D89D5003E2FCB9BFAD91D0C2453E149EAA784ABED56"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\additional-run.log",
+      "Hash": "8597B4CB7424F9DE2AE8103D1D1A71AF0377900684096768B39DC2F02166643C"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\all-apk-hashes.json",
+      "Hash": "A58B91F390E1EF9F0BDD63AEAF9F2F72B6E179CD6CEFF48ADE247B0BEE9E3B22"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\audit-artifacts.py",
+      "Hash": "636E489A65ADC8AC3B9F950B8506B20E36E2A5546AD6780C278D67916C0CF9D8"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\BackupPageTest.log",
+      "Hash": "E95F13E126A8FC1FC5FE9B83F15CB6F72E238DCA340443352F88C87CAD6AE372"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\boundary-run.log",
+      "Hash": "B67B1E6A8984C1D72D21FB64ECCD8393566A8FB98C13D47FCF3D37808407E0CE"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\build-quality-missing-config.log",
+      "Hash": "7A5244D5023E788A7EEB0ECCEB7C373D63853625EF09FF4AA9CF694268EEA663"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\build-quality-sandbox-failure.log",
+      "Hash": "330130F0BEF1E23D9DB0418467031DFD9F6ECBE52F68DBFEC0193A978F753EB1"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\build-quality.exit",
+      "Hash": "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\build-quality.log",
+      "Hash": "C9B21ED76C0BE18DAE7DE2C2C71288CF540859A5925DF9F8B612863DA0D7AD54"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\collect-failure-diagnostics.py",
+      "Hash": "95CF1066DB13C84032197E403CB4CE1512DD08BA515D61A8C62F6642F874D047"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\collect.py",
+      "Hash": "D8986B6C210DA10B6D9A17DF8B0BBF7ABEF8FD03E52EAE0B719B3BDC0C973D8D"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\collection-final.log",
+      "Hash": "DE54D80BE37B375F3B50BD2FBAA545A000BA961C9FD88387493D0C9402B2DC29"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\collection-first.log",
+      "Hash": "36D70A1AF975E53CE9CB6D27FBA5C2D693FBDF47D1309E8AE923F23833884754"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\collection-intermediate.log",
+      "Hash": "4D49156B2F2BCCB69DC98CD68E0ECD975C3E906F214D95D55EC0DD0AF1340473"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\collection-memory-stage.log",
+      "Hash": "4D49156B2F2BCCB69DC98CD68E0ECD975C3E906F214D95D55EC0DD0AF1340473"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\CredentialVaultTest.log",
+      "Hash": "717167679098920C0DA4E2510CF16F2E9A5F6D36127884255436FE69F5A7EF43"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\DiagnosticsPageTest.log",
+      "Hash": "2B0890C5B7002583EBE8F82CFAF6996B5A65197E75AFF5B6085C968AEBF29E58"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\DiagnosticsTest.log",
+      "Hash": "5B253AFA720EA6A15CCE94686275CC3DFDBFCF529D2D208479EC92FC9EFD83A4"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\diff-check.log",
+      "Hash": "19992D3A3A02D9C0D0E3923A51B842687CA5A77F4D036EB2ABDAF23C3CF5BB82"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\DocumentServicePageTest.log",
+      "Hash": "EAA00F869BF2438E318C7B14E8DDF97568283B2B92FBB8E3C380CA0D03551120"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\exact-delivery-hashes.json",
+      "Hash": "1388A18FAF263252F02E468CEF556DC6ABC6552515B63888BC4B50635CC08A28"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\failure-diagnostics.json",
+      "Hash": "0B62835F4BE871FD5198ED54D979296B0B4AEA371580D274C7702E74C558AA86"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\feedback-seed.log",
+      "Hash": "706A1D6FB2B4A53FB4886ADB5428FF622BEB595DB77C373E18D4387EC9C5758A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\feedback-verify.log",
+      "Hash": "2E0AD4CE55390002B592980053A3D6AA86869A7EF57C2FB14CB806B7C6822B50"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\final-review-summary.json",
+      "Hash": "DC045951AFA8D10BD529F147A75FBB00BB222FB14EF78C95797912EEAE41ABFD"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\findings.md",
+      "Hash": "BEAF0675ED234F95B0CD95FA5B6B48AD96AD7D3CB74884B79EE68011E6D436C8"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\FrontendDeliveryRoutesTest.log",
+      "Hash": "DAEA8F84C782F4B155DC64B1D31C27E31217C6119F5DCC40A97D16EC25D53B7D"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\FrontendModelPickerTest.log",
+      "Hash": "21EA111C62D8BE25F069EE062B9B727A51EB6C862AD5C6E36D776C650E35270C"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\image-probe.json",
+      "Hash": "730466AAB0EA7DD5CCDD20272CA7F8592F5E6E2C3592B4387FFDE24017019634"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm-executed.exit",
+      "Hash": "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm-executed.log",
+      "Hash": "CB804927B710A258E03FBA3718837BA6939B70143359E448E4C3F4050B7CE364"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm-remaining-modules.exit",
+      "Hash": "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm-remaining-modules.log",
+      "Hash": "C2BFC5C65529E5316CFCEFCEAE21F849F23CACB3831EBDE0BE9819F2C1DF7B38"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\large-font-result.json",
+      "Hash": "B9BFAA21B55DF2B7729D6079C043A9634BCDAB3125D709821D8D46547D2EC7D4"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\large-font.log",
+      "Hash": "A98B5190943E1F811709781E06088C897C23024D1FDE4F101F511310A394C33C"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\LearningLoopPersistenceTest.log",
+      "Hash": "B2107536FF41C4557F7B16EE3C691B803C6E7D87FF73369309E95886145775D6"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\LearningLoopRealModelTest.log",
+      "Hash": "DAD2068282C71B79596075CD807F5B0D10E83A085F0FCEB6CBEB11B3B7E79E32"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\LearningMemoryPageTest.log",
+      "Hash": "91ED196D60DD84BA8D358D19E88CFA760CEF0B8B5015EB1A0AD1DF4E3F42F718"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\LearningMemoryRealModelTest.log",
+      "Hash": "49BB22CEF2C222912FECC624D90E0A7ED26965371FE558026C217714D0E17D08"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\LegacyMemoryEntryTest.log",
+      "Hash": "1D58455979082CB7ED5D4AFB9D6E7B37734AFDF26E58473CAE704C9AF07ED468"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\lint-delta.json",
+      "Hash": "36659A44980E83DE85D9EC8F4262CE985B31A29C77143A99B773A531503B1890"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\lint-results.xml",
+      "Hash": "6EFE1C529186823B56F72D7941DB3668175D93189DED2A42B0AE65729400AED2"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\MaterialPaginationTest.log",
+      "Hash": "0D8F17F3DA33D3A6B27E6FFB6BB6EB4A5DCB56A2BF209A585C7B4B2A440659BC"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\MaterialRealModelTest.log",
+      "Hash": "B2CE136B0ED4B5707E79AB7CDD50F845F2BB07E14FB39B76C445AC50FE39C148"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\memory-seed.log",
+      "Hash": "D3843A729C1E57DED812BD601C11C39E31028785D6295BDA6659C4DFCEC2414E"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\memory-source-audit.json",
+      "Hash": "A5E917783AD2B7377C11F15CD01D934B0E2487A271DCF656FD9DD987AC0D0E63"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\memory-verify.log",
+      "Hash": "40C417F2DECC9C401D98199821B06A16AF32903D9BCFC89AED30BC959BB07A6C"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\original-font-scale.txt",
+      "Hash": "8A4434489576DE41F28A2D1D6E9D15E53DEAC6B48C2A4F416A52B7584A92964F"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\ProjectReviewTeachingTest.log",
+      "Hash": "B18AC77CC19BD4A2C299DBD055B1ECB1300A0CB19DB9F56F1A8A19D459C2FAD5"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\report.md",
+      "Hash": "F2A7D8C091905B9521E86A033C41B1A57BE1E43A9723396A6EF409F9F4A0955C"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\run-additional.ps1",
+      "Hash": "1529C66AD29FC3035A66B221D959329CE7CB8652835253CD78386AB72187A29B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\run-large-font.ps1",
+      "Hash": "B893E7F223CD7FC6E27C854B39EDA1DCDEB0CFD7B74F4244A572009F98BB1314"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\run-metadata.json",
+      "Hash": "6AEC51191CD3813B638B9317DB57866BA5028573E150E2893FEC67E45C098E8B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\scenario-gaps.md",
+      "Hash": "2FDB3C46B7EE6490B7583FC33D428EECE5441552CADB515DE0FAE1394E46EBEF"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\server-authorized.log",
+      "Hash": "FB143A82DF179DA898D23F33CEE829245FF0ABEEC69CE17D80D8AF633CBCF9D8"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\server-authorized.xml",
+      "Hash": "6C09D321E8F7B4DE2270D5974BFCF7F08D5681E88634276566CBA5289672F292"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\server-tests-basetemp-attempt.log",
+      "Hash": "8087C9EB77EB1C0E91B52DD4320DDF55990B9AEABB2EF41B78AFAE8E59F3BDA5"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\server-tests-sandbox-failure.log",
+      "Hash": "B079FB747F9A1AF95976A9B3FF720BB82F1A0CDC6C9D4CD0433F3B1B2C224B2C"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\server-tests-sandbox-failure.xml",
+      "Hash": "C6666AAD8706D7C5ACE05DB40FBB4D5A7E01A37AF48AF5E85FA584AF14746506"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\server-tests.log",
+      "Hash": "8087C9EB77EB1C0E91B52DD4320DDF55990B9AEABB2EF41B78AFAE8E59F3BDA5"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\server-tests.xml",
+      "Hash": "C6666AAD8706D7C5ACE05DB40FBB4D5A7E01A37AF48AF5E85FA584AF14746506"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\source-delta.json",
+      "Hash": "84F074C706EA6DA5F20551231A8A7E4CB775F30FFAD3AA3E85322A86E49EC495"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\source-hashes-before.json",
+      "Hash": "7304B2BAB3A7A73DD6F978B5E6C382C5D4974823E70E10BF942CD54A983BD70B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\StudyNavigationTest.log",
+      "Hash": "64B1D0E2AAEE822FBCDBFE5A4220749CB4B0BC115AAEBD6C28C99C42262D1A2E"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\StudyRealModelTest.log",
+      "Hash": "C3E498309D6BA993062BFDB617C0E7BE5937FF9D2405040B7E4D54CC17BF7937"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\test-summary.json",
+      "Hash": "3E32E1094E0BF63FD200BB320C1471A20A74F03D9B5B494E3C6A507E814CAC9F"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\tracked-before.patch",
+      "Hash": "0D49FBA8DE9EEA905888DA4EFB446CFEE5586CCB3E19E998A289B85E3EC1F1D4"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\WarningFixGalleryTest.log",
+      "Hash": "F29735D26870EBDAD603F439748C0D33C321332EECE9D424B19F47082123578A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\WarningFixSliderTest.log",
+      "Hash": "8A8680907E8BEB7C9A82A83CB6442C090C460643763022EB18ADCE7B3BCC7DF7"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\WarningReviewBoundaryTest.log",
+      "Hash": "8F0C7F60D31A4BEF5875E144EE07228221CA9062CF80BF767A957980A7580352"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\web-build.exit",
+      "Hash": "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\web-build.log",
+      "Hash": "F7B6765A409B07435B0FC8EE73B3CDE073820589D5863BAFC6D37E4F399C4E41"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\web-typecheck.exit",
+      "Hash": "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\web-typecheck.log",
+      "Hash": "D4595A86627499C8116CBC3DFC8D36D28F1A5AF7E9D88826E05EA8C2EBE8D62E"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\workspace-run.log",
+      "Hash": "000B423DC461186AA62D80FE051E8397AF22AB20CE2E7D04CE3BEB6793C8AD0E"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\worktree-status-after.txt",
+      "Hash": "AC9BB83A8DCD2CD01AB5948071B16E814F368B7FB40D06AAC1D88F08E27E2085"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\worktree-status-before.txt",
+      "Hash": "5960271E999DB99DE3F266E476DC86321E897ADFFE24AFB9121500C1484186E2"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\boundary\\BackupReliabilityTest.log",
+      "Hash": "DD2A07238B26519FA6BDEB311A28251AF17723B7DE5E06467C4936F2F6EB70F1"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\boundary\\ChatNetworkFaultTest.log",
+      "Hash": "D378A1D0FF4ECAE3C1811BDDAB11E6FEEB9D78F9D697E449C3A7A3691B2EDD4B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\boundary\\ConversationBoundaryFixTest.log",
+      "Hash": "4A79B3D09DB4F9EF8EADD00D33DD9B276A463D6397BA9D73BB890DF6AF082044"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\boundary\\install.log",
+      "Hash": "7ED8077E18EA1232BC80F6CF16F0E955DB5BFC14DAB4220AE2251853311AA9FB"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\boundary\\LearningMemoryPersistenceTest.log",
+      "Hash": "43D6498536E4D78589F53AE716DAD7FC16CD61C6A420D58BA718EC4AE4DF1363"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\boundary\\MaterialDeliveryTest.log",
+      "Hash": "83F65A8CFFEC79817016ECE405EA80CDAA1EC4E7E657CA565631291270028E83"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\boundary\\MaterialFidelityTest.log",
+      "Hash": "7BB553BFB34683475B903BE7E2BADA84DC6E5F0CF8BDD7D79BC6ED11754A8BA7"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\boundary\\MaterialFilesTest.log",
+      "Hash": "DAA6D2F9C62AE0C94FE251D3A92A47D68E2C62A5D1CB824F68EFA89199E94A3C"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\boundary\\MaterialPageTest.log",
+      "Hash": "52B354F75E8651ABD87E570F5F360295E771F12BC4AF6A44CA7D59DD0359011B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\boundary\\ProjectReviewAuditTest.log",
+      "Hash": "0392FFE7CFDFFCE3E8DF4D881B752FBCA9B27E9E84A8F5ADD5CE48235C6453BC"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\boundary\\ProjectReviewDeliveryTest.log",
+      "Hash": "D4E99A7F408446444D1EBC4FC508C7C40DD7ABFB1A1BC71B59C7F59D72D131E6"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\boundary\\runtime-apk-hashes.json",
+      "Hash": "1985239771C7BB37CFC4B6BEB0824F00C5AC1258A516A6C9A8C3035F6CB3AB39"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\boundary\\runtime-results.json",
+      "Hash": "EAB184C10AD55047871376FDD198976A2B3464E4E56E98BBEB25CAD3A87A9CE7"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\boundary\\runtime-seed.log",
+      "Hash": "EEEAAC52440E24A691CC77A81CFA38A5A35B55D935A4BFD9D5F52A9E4110523F"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\boundary\\runtime-verify.log",
+      "Hash": "E78E15320A8650FDA5D0F8C7197A620EABF7000AEA35CD15528F91C99EB8C167"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\boundary\\StudyChatCompletionTest.log",
+      "Hash": "50F6956B94A4DBCCB02E1417FE8422E9FEDC0ABAB8E88C2ED4861540623E075C"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\boundary\\WordFormulaAssertionTest.log",
+      "Hash": "8F01CBF6598CDC50537497C2DA257A10076AEF7780A5A8208D5BD6A5FBBA7C37"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\artifact\\delivered.docx",
+      "Hash": "CB65699FDA4D62FF60E2A397B4C81E682B39031835476BBF897AF2D74D20244E"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\artifact\\delivered.md",
+      "Hash": "E91D4B385868E5AED4471B3740CCC98ACF22F8307CC4996EC9AC0CDFF6F6EDCD"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\artifact\\delivered.pdf",
+      "Hash": "357E3D3547E75ACCA5A75A3CEFE7707191C30A17489DDADB7FAA514DC8EE1D9A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\artifact\\delivered.pptx",
+      "Hash": "15FE6AB19A2F9F03D1ED3D21AC339EB2CAE71276A6E2E987DE78F98110AB924C"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\artifact\\delivered.xlsx",
+      "Hash": "91DE145A554C01A9326A911FB404CACB52A5395CDD246A2D9E179A205239B3EB"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\artifact\\delivery-receipts.txt",
+      "Hash": "6DECD93E179C959FC6634FF1A4C105F6DAB97BE3AC0006F94B6D08F5D3855233"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\artifact\\source.docx",
+      "Hash": "CB65699FDA4D62FF60E2A397B4C81E682B39031835476BBF897AF2D74D20244E"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\artifact\\source.md",
+      "Hash": "E91D4B385868E5AED4471B3740CCC98ACF22F8307CC4996EC9AC0CDFF6F6EDCD"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\artifact\\source.pdf",
+      "Hash": "357E3D3547E75ACCA5A75A3CEFE7707191C30A17489DDADB7FAA514DC8EE1D9A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\artifact\\source.pptx",
+      "Hash": "15FE6AB19A2F9F03D1ED3D21AC339EB2CAE71276A6E2E987DE78F98110AB924C"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\artifact\\source.xlsx",
+      "Hash": "91DE145A554C01A9326A911FB404CACB52A5395CDD246A2D9E179A205239B3EB"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\material\\delivered.docx",
+      "Hash": "8ABAD0AF02BA6D930619AA2CD8A225EE7A0CDA010991DE0D6ACD63128495515D"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\material\\delivered.md",
+      "Hash": "E91D4B385868E5AED4471B3740CCC98ACF22F8307CC4996EC9AC0CDFF6F6EDCD"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\material\\delivered.pdf",
+      "Hash": "357E3D3547E75ACCA5A75A3CEFE7707191C30A17489DDADB7FAA514DC8EE1D9A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\material\\delivered.pptx",
+      "Hash": "F36BC19014B29D1E4127492B967F9BA1F5C711F4D031DA4786C855136A0FF874"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\material\\delivered.xlsx",
+      "Hash": "6224F7A1516AB5E6A5FDFE3A3183A265D12CB47EA446A4F97BE05B1E34A5C51B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\material\\delivery-receipts.txt",
+      "Hash": "CD9C5FEF8E1DC41611C7045BD6BF7EEEE9D3D3F1E7F7BCBCE4A0F9D039819BDB"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\material\\source.docx",
+      "Hash": "8ABAD0AF02BA6D930619AA2CD8A225EE7A0CDA010991DE0D6ACD63128495515D"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\material\\source.md",
+      "Hash": "E91D4B385868E5AED4471B3740CCC98ACF22F8307CC4996EC9AC0CDFF6F6EDCD"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\material\\source.pdf",
+      "Hash": "357E3D3547E75ACCA5A75A3CEFE7707191C30A17489DDADB7FAA514DC8EE1D9A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\material\\source.pptx",
+      "Hash": "F36BC19014B29D1E4127492B967F9BA1F5C711F4D031DA4786C855136A0FF874"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\delivery\\material\\source.xlsx",
+      "Hash": "6224F7A1516AB5E6A5FDFE3A3183A265D12CB47EA446A4F97BE05B1E34A5C51B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\fixtures\\material-real-model.md",
+      "Hash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\fixtures\\review-real-teaching.md",
+      "Hash": "D74709E200C8F21D77B39BFF5A62D9AC5209D20C698A700060AE33B6A1529D55"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\fixtures\\s1-real-teaching.md",
+      "Hash": "46B508A42A3695AC6967952FBDD6E931F398C5896B5344446510C6F5FFF15D05"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\fixtures\\s2-real-followup.md",
+      "Hash": "D11D2DBBAD0C416CF294EE93F39665323AB525467CAE241221FFAC70EA7C8C45"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\fixtures\\s2-real-memory.json",
+      "Hash": "A606352971AACFA4C3375D65651F33AF91100FF839EE9297A2707F66962BF079"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\fixtures\\s3-real-records.json",
+      "Hash": "72A9A65606FCD7BCF3C4C6F2A67BE84E1A719BC0231E233500A8C73C0E689843"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\fixtures\\s3-real-teaching.md",
+      "Hash": "990342D91239B2DA2311662378434A92F9B9F0F087B62CB87F054E6857AF64B8"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\fixtures\\word-input.docx",
+      "Hash": "8ABAD0AF02BA6D930619AA2CD8A225EE7A0CDA010991DE0D6ACD63128495515D"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.provider.providers.claude.ClaudePromptCacheRequestTest.xml",
+      "Hash": "53BF248DE56706C3FA1091EA4FC86D0EE74198D0815619476A27DD0106171C1F"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.provider.providers.claude.ClaudeRequestMessageTest.xml",
+      "Hash": "CEB18860C7B5E272596DEBFCF1AE32855C877F60C0CCB5664A86BB5D676E78F5"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.provider.providers.claude.ClaudeServerToolTest.xml",
+      "Hash": "45CC898F33C4EAB18EBD96B6D708867AFDB4A1B0ECCB48E52EDCC5CED6EE9CB2"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.provider.providers.google.GoogleRequestMessageTest.xml",
+      "Hash": "ECE675D4F111A7A4902B4589B7E504E9BF644CEE57A97316EC0EB2568252F879"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.provider.providers.google.GoogleToolCombinationTest.xml",
+      "Hash": "6D5CC9306AD49BDA0466C8E1A9AFDCE980AC78B18741087DCD5B7597DF37C6C8"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.provider.providers.google.InteractionsApiTest.xml",
+      "Hash": "CC20EFFE3C579DD3DCC443BF27BA451CAB645EE665995F4F06AE5616992127A0"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.provider.providers.openai.ChatCompletionsMoonshotRequestTest.xml",
+      "Hash": "A1C04D2E2D988CC1B3ED7C80DF3324220B5B2D3B1B3FEECA0432D74A0016E218"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.provider.providers.openai.ChatCompletionsRequestMessageTest.xml",
+      "Hash": "99B1A473D9B7D81C31F13376B4B9AD983995A2AA213B6FD82FD164CF13907044"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.provider.providers.openai.ChatCompletionsToolSchemaTest.xml",
+      "Hash": "63337740040F86111E3E1F62D419E7B19D10385175378C49AE2860D761003F0E"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.provider.providers.openai.ChatCompletionsUsageParsingTest.xml",
+      "Hash": "DD31AD94331EB61DA66F0986773E9B38EE82EBF90280CEC1208F0B35F5DF5D75"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest.xml",
+      "Hash": "7E1D3A65C865AE19697FBA0B95A20E09471C2163BE0A002D1B50D395CCF1C72E"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.provider.providers.openai.ResponseApiStreamDecoderTest.xml",
+      "Hash": "54F868472E9BA4939B7C3DBC3A2DBDE9EE0FEC51E569A9AF590E93741833DED9"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.provider.providers.ProviderMessageGroupingTest.xml",
+      "Hash": "961D1F8126322E648059AB929BF8195D2C29BEF3E7ABF1D761E8388258EB0D45"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.provider.stream.StreamTraceReplayTest.xml",
+      "Hash": "297396A1DCCCFA667B36E47BB92DD902E69E8739792BDBCE69F6BF3C56BD2F6E"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.registry.ModelRegistryTest.xml",
+      "Hash": "A99A4A664D0528482E4AE63AFA7ED3C8DD94AF0FD4832902182C94DFB8C7E73D"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.ui.MessageContextLimitTest.xml",
+      "Hash": "9E180F218DC7B1137A2CAF6F2643CD22C84E0411CD0C86518BA883F5B037A3ED"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.ui.MessageMetadataTest.xml",
+      "Hash": "C7386DF5C1B0C534DF6D89BDA811C7BCA04256DAA94251400BBDE0794D83E508"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.ui.MessageToolMigrationTest.xml",
+      "Hash": "385F319C175A0D84C0D9FF03C0FE82CEE1903016CC12C0DD10AEDD4A7980E512"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.ui.MessageUploadValidationTest.xml",
+      "Hash": "F9ED2DC409FB2E6FEDE9C6A47FB4C42B4523F36D6056944A94FC8970158007E1"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.ui.MessageVisibilityTest.xml",
+      "Hash": "CE497FE766E810FE01B23DB58F9FEC4BB93CACC0CDD9D2CDB43AB5EA48EAE264"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.ui.StreamChunkHandlerTest.xml",
+      "Hash": "2DF370BB266CBA8AF9921898AD57D3BAF355BE3B43C1FE2D958FCFDE8E021C2A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.ui.ToolApprovalStateTest.xml",
+      "Hash": "DA457F25DEC539035FCB1441A33C49455BFF3E5B23825AEF025BD83F7D5043E9"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.ui.UIMessagePartTest.xml",
+      "Hash": "D9F65099C29B364453E619A24A893C0302024E66FE0C56EB3A2D41D7AC888B8D"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.ui.UIMessageSerializationTest.xml",
+      "Hash": "FB05871CF25E63E295FFE5B09DA1127B6062264A1DF290986F8AEC6814BFA6B6"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.util.ErrorPrivacyTest.xml",
+      "Hash": "A6AAF037244D6105772F9613F3EBF7594D87065B5A0637F41634C926B4C146BE"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.util.FileEncoderExifTransformTest.xml",
+      "Hash": "94FDDF5477E129A72B4915F541454C593C182C2BE60F9CEA848D08F8CA809716"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.util.JsonTest.xml",
+      "Hash": "E3B09DBF642A0682442AD65D132DD153246785EE0101F5A935A23336CAD072B1"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\ai\\TEST-me.rerere.ai.util.RequestHeadersTest.xml",
+      "Hash": "B11C55785619C82AA08B648C881FAE3F11735B44C9C6DA380B03A45799AD903C"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.ai.mcp.McpConnectionKeyTest.xml",
+      "Hash": "42CEF350F42B8A65B6D770FCA0791CF2459DB4AA31EA37149F20ACBCE49A2EF1"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.ai.mcp.McpToolSchemaTest.xml",
+      "Hash": "07531CF94955867FFC9044CA7AA4FD7F94AB050490D14652BD4F912FCFA63936"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.ai.tools.local.JavascriptToolTest.xml",
+      "Hash": "CF6F9489FB606BB92BCEAB8FE0E5106B8A9D792E3176F3B2BEEDCE2AB96573B5"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.ai.tools.SearchToolsTest.xml",
+      "Hash": "9BEAE612263B6540892CE5CCBCC7CA52982B10A3A0AF9BC46646245A2D6C761A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.ai.tools.SkillsToolsTest.xml",
+      "Hash": "9CCF2F83B4BFDDA030089A7DF82C8F3839520EF63FCE6088EC8E227E09649B91"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.ai.tools.TextReplacersTest.xml",
+      "Hash": "7694963CC8CC10C0EE1EA9AD93D07AB9061C1C9CB5C26ADC7D9431E89BC27822"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest.xml",
+      "Hash": "E7E8AF06A2F2F7C5183F7EE547BA2CE0582F3D443552D90B22FF8E6959758A30"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.ai.transformers.ThinkTagTransformerTest.xml",
+      "Hash": "60FE828B4DD814978D40D91F0EFEF5393FBAF28B3BC88185DFFDFBCD8AC74DD4"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest.xml",
+      "Hash": "7109D5298EAB3B0C3B3C3579547BAEB2A3879AB906D48229BED0344B6BDC1F1C"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.datastore.DefaultProvidersTest.xml",
+      "Hash": "85180C5BFE03379297EA6B64F4E8CE2EA1FED4BCE73C9A869E13FF36C71EB610"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.datastore.FindProviderTest.xml",
+      "Hash": "4F3DD25755B44BD5E5FF23CE757801DEC2C498D034742A651AC49C8E8A72026B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.files.BuiltinSkillsTest.xml",
+      "Hash": "70D4E67F1C90B6279A7E690FC192ADFE2DDAE41ED9A2D78F58EBAEBA62C00DE8"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.files.SkillPathsTest.xml",
+      "Hash": "900B17ACB6419551FADB947479DF56D72402C79D4CC1ECFD074D0956815C727B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.network.ProxyConfigTest.xml",
+      "Hash": "45CD26043E2130259D96E6B99B480A094C4AD906F519B17689D05D9BCD990E33"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.sync.BackupIntegrityTest.xml",
+      "Hash": "873DC13B32063D153F0FA9DF71C2F7269D00F00B1E00569DC1D7F4F4D0FE154F"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.sync.BackupPathsTest.xml",
+      "Hash": "8BA132792DE7874819928C5EB6B8C3DDCE1CF2867EC6CECB552B6145815CE3A4"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.sync.EncryptedBackupTest.xml",
+      "Hash": "D0ABB3CB5198DD9D4AA8BFCBDF5155F5B2CDC868875EC1E645D3EB8B3DE87BF5"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.sync.importer.ChatboxImporterTest.xml",
+      "Hash": "62C8CA3CFA9F0E199C61BD7F14BEDA75378031C5BD8F16DDA3A68834DCACEDE3"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.sync.MemoryRestoreTest.xml",
+      "Hash": "DE8B2AD22CA6FA446B1395A5C234F891C8B76C39F6493D25193351982573AC04"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.data.sync.PendingRestoreTest.xml",
+      "Hash": "FE5BDFE8B0AF74F045F4DDC948EE8A19A5E0D338803DDFF5A7749F6251E8571D"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.ExampleUnitTest.xml",
+      "Hash": "D27F0DE2B3765BD692512D09315E0AB483F3AB4E7809A9C3189D9325B6943BF3"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.feature.material.DocumentContractTest.xml",
+      "Hash": "179DF29FCA79D158BE245EA80D7F051B153A32EA063F5CE16572374A81644EF2"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.feature.memory.LearningLoopTest.xml",
+      "Hash": "6B81EF073EB783D5A4929D82A0AF5E57F3956709954AFA4124012A1BCE88B45D"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.feature.memory.MemoryContractTest.xml",
+      "Hash": "3A57EBA96E7DF04086C39651F2D15C4F518C153C196E857FECF35F5ABDFA3B37"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.feature.studychat.StudyChatContractTest.xml",
+      "Hash": "B1BFA2743E44D5C772DB8EAC72F8B757D91838EFFAF391C878740E37B4BD388C"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.service.ChatServiceTest.xml",
+      "Hash": "B7D3493E7137C49E639B3FA6FDA67B65E28A68859923714B2DE57B8DC1E7EF63"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.service.ConversationCommitTest.xml",
+      "Hash": "D94DFAF048A1780908B3F409873BEFAA3BF771D5DDD8D5884ED1D4108EBC82B5"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.service.ConversationSessionManagerTest.xml",
+      "Hash": "3FE540DB0EB38763EF74CDA5EEAE379EDAAAB4C4EDC159BE7E065309881127BF"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.service.ConversationSessionTest.xml",
+      "Hash": "E772D4475BE64AA46309A3B3E8D5FF8EDEA3C9A5812E592304D8893D2188786A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.service.GenerationRecoveryTest.xml",
+      "Hash": "06E2131FDE7B031A52BE1305464F68A8F3C436AA56D6C849319853135BF1F69C"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.service.LearnerProfileCompatibilityTest.xml",
+      "Hash": "0B80BBC5F92173618AEFDF2114E5F2B64807626C6E9C2DE0C926D87B0927BE05"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.service.MessageQueueTest.xml",
+      "Hash": "3CFF60F12E195500BD678C5D9D3E4645F0A24434951EED9A0E559A047E192C1D"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.service.QueuedAttachmentCleanupTest.xml",
+      "Hash": "D168D457E832A4A0888E2ACB1D699096E03BEAC893E474DBD43C15DFB7EAAF6E"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.service.SettingsCredentialExportTest.xml",
+      "Hash": "CAF1FF9363CD84C0F02202BD7988C6244ABDC6D6832869EF91E7B3213E12B87F"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.ShareSheetTest.xml",
+      "Hash": "851C4262D4A421FC53F6EC212E6ED52A3201931F96585BBB752F45D7B674F1C9"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.ui.components.webview.WebViewContentCacheTest.xml",
+      "Hash": "BF144EA03F08EF9FF5343BC5783D58EAB856F4414118374F5E4615C65DA24D89"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest.xml",
+      "Hash": "0973FE0C21AFC732761DEC81DC8302125FE6CFE0664B8A0CB9C83C796A7C9FE4"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.ui.pages.setting.components.ProviderConfigureConvertToTest.xml",
+      "Hash": "A3FDD4CEE40670D52DEF4FA14EB95DC4E8355405D57B25E785F8EF7B7BBF1F6C"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.utils.ChatUtilTest.xml",
+      "Hash": "EB5AC160CE2750611C555A4024191FA1C3AE8F21899B06B14B22F6D4608721E0"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.utils.DiffUtilsTest.xml",
+      "Hash": "65A8136CD3EEE64A2CF7C74DCD5C60439D0CA9599E9A2D67D2F454F91A4DD851"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.utils.StringUtilsTest.xml",
+      "Hash": "2BD087A1874952066BD874631BD70D747D15159A7B1A8C56A0F46CAB755F7CD7"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.rikkahub.utils.VersionTest.xml",
+      "Hash": "DD3E4B418214F199AEC3B3104170F44800FE29E54DF915FA64656256371F0201"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\app\\TEST-me.rerere.tts.provider.TTSPrivacyTest.xml",
+      "Hash": "69607CF6866EF4B4667E12103631D43B15D69DD7EF8D2B81F046B76D34258402"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\common\\TEST-me.rerere.common.ExampleUnitTest.xml",
+      "Hash": "BCE1CD109502CB89C841D1BD360C19CD464554D840594CB93E933540005AF67C"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\document\\TEST-me.rerere.document.ExampleUnitTest.xml",
+      "Hash": "89D1C57757CA7FEFAFB43E056ABD07422EF55E8E8A3BABBA9BC18184738DD0B1"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\highlight\\TEST-me.rerere.highlight.CodeHighlighterTest.xml",
+      "Hash": "77535ACF9826D26AC4128ED193C6D845C7C428D2F60C5791E98EEF50E4F61BE8"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\highlight\\TEST-me.rerere.highlight.core.HighlightEngineTest.xml",
+      "Hash": "C74EFD19C600C82669FDCF83E6C699BBD62F7D767D70B5E372E382D090D56CA4"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\highlight\\TEST-me.rerere.highlight.core.RegexesTest.xml",
+      "Hash": "85962953A8E60C2422FF2F41C5CFD60825090E0C909DAAB1112C9F825C80E8AA"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\highlight\\TEST-me.rerere.highlight.ExampleUnitTest.xml",
+      "Hash": "BB09CAC77215C6E484E8289490D7DA17140CDA806BBA46F5C83B4241FA811978"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\highlight\\TEST-me.rerere.highlight.languages.LanguageFixtureTest.xml",
+      "Hash": "4D173969314F7D22E82A7A886D6E8CE87C5A5FB08DCEA800B8FF997704058D74"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\material3\\TEST-me.rerere.material3.ExampleUnitTest.xml",
+      "Hash": "CD9474C835FF5B1955AEB7C23CD05F9859C67AB04AD6427A8B2F60B1A042F5D3"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\oauth\\TEST-me.rerere.oauth.OAuthHttpClientTest.xml",
+      "Hash": "4EA53F70B78B9A67C1986F6B2CBA6D763B7526D4E09074F9F33FB8C876E623E4"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\oauth\\TEST-me.rerere.oauth.OAuthLoopbackCallbackServerTest.xml",
+      "Hash": "F50C15500DE78FB3D1BDE6A99AF6686D7EDBCABDA11B27C8B1312AC9CD8C0857"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\search\\TEST-me.rerere.search.CustomJsSearchServiceTest.xml",
+      "Hash": "52D2D6EAFD9947C66B574CB2DB6C532DCB21F05359E5CEC232788D28D9112219"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\search\\TEST-me.rerere.search.DoubaoSearchServiceTest.xml",
+      "Hash": "34488CFE5D935D14B569CDB53257D74EDEA3AA1D38379F33F798DF5468F146FC"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\search\\TEST-me.rerere.search.ExampleUnitTest.xml",
+      "Hash": "87B281CC09A7B8587D864B711BA8E0B8B7709168CA0B8AF3EE6A1D2E45F17B6B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\search\\TEST-me.rerere.search.ExaSearchServiceTest.xml",
+      "Hash": "655067282CE7427E94A8F7429F8AAA392839800C9AE480E6D1D398C2E77D4AE9"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\speech\\TEST-me.rerere.asr.ASRProviderSettingMiMoTest.xml",
+      "Hash": "65842D63113AC68338ABA8B9391EC50C63EC327F13AB18457E8E5371543843F6"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\speech\\TEST-me.rerere.asr.ASRProviderSettingStepTest.xml",
+      "Hash": "34041856285051BFECF5547D19F05A94B203584C1785D67C92D8599A053434AC"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\speech\\TEST-me.rerere.asr.ASRProviderSettingVolcengineTest.xml",
+      "Hash": "85864AC9BE4AA84CC85309A1D367558D4777C65CD9E7E3D84CFDC593FCA85893"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\speech\\TEST-me.rerere.asr.ASRVoiceTurnTest.xml",
+      "Hash": "1030B7D272FE1790D23043403D8ABCDC34CADB6E495A09FC9C85A88AAC1FC7CA"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\speech\\TEST-me.rerere.asr.providers.VolcengineASRProtocolTest.xml",
+      "Hash": "903515B44CAF017D5A26215AA8BDFED2C516432B19033272844762D279755A72"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\speech\\TEST-me.rerere.tts.ExampleUnitTest.xml",
+      "Hash": "9FA0323D05EC258E7DBA25CB9578EB95D15B135A6F253C7446FCD7E67FD71E2A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\speech\\TEST-me.rerere.tts.provider.providers.MiMoTTSProviderTest.xml",
+      "Hash": "588A8D8AA67B2E74F19C76298E03BCBFB9AAA2E6362024A5A5985AF52430B9FE"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\speech\\TEST-me.rerere.tts.provider.providers.VolcengineTTSProviderTest.xml",
+      "Hash": "EA15FA8C945CFABF7C128122D682E1E8B424BF2BB0B86261DF0A89645CD5CAF2"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\speech\\TEST-me.rerere.tts.provider.TTSProviderSettingElevenLabsTest.xml",
+      "Hash": "E68B7541469CCA36AC5A3B4C252708D7AEF024FF0C10EB3EF963CAEE0D7ED2B1"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\speech\\TEST-me.rerere.tts.provider.TTSProviderSettingFishAudioTest.xml",
+      "Hash": "7658C399183F8B934B272E6B3C4F37EBF0AD240445336C62289D171575A102E3"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\speech\\TEST-me.rerere.tts.provider.TTSProviderSettingMiMoTest.xml",
+      "Hash": "6E2E0F01825094D8322E1C4493303F600D1E681C476D3DF0BF2A640A74781A9D"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\speech\\TEST-me.rerere.tts.provider.TTSProviderSettingStepTest.xml",
+      "Hash": "2C7876C8FDD58F4E470564A7BD2A5DD446BCA573FB93F9E0F8846392DD82407E"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\videogen\\TEST-me.rerere.videogen.provider.providers.VideoGenerationProviderTest.xml",
+      "Hash": "C6F25B46E8040397B85D7AD0E467B3CC5C9092BF72AEE43BC306AF1615AC64B5"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\web\\TEST-me.rerere.rikkahub.web.ExampleUnitTest.xml",
+      "Hash": "B84E8992EB8E5AC0893BC1416E6090225D1E38E5025E055F92BE3C9EE6DB1175"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\jvm\\workspace\\TEST-me.rerere.workspace.ExampleUnitTest.xml",
+      "Hash": "1FF5AF5D03894DC0279F30A1B7FE9C3558FC319604D2B323D4E1484E728355FB"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_atomic_publish_and_hash0\\output\\document.json",
+      "Hash": "D1A28174522B6CB7919F3706769339BE0ADDCAA31FB109194F2BBBF7017F3ACE"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_atomic_publish_and_hash0\\output\\manifest.json",
+      "Hash": "947CCC319BAFC7FB7CE56663A214E17C44F4DADD40C5B75A173B7F6E81E5671F"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_atomic_publish_and_hash0\\published\\document.json",
+      "Hash": "D1A28174522B6CB7919F3706769339BE0ADDCAA31FB109194F2BBBF7017F3ACE"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_authentication_and_readin0\\tasks.sqlite3",
+      "Hash": "A38826856B399F83887E2F39C21CFA9F70C20204F6A7B3D757DCCB5D3791A7CB"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_compensation_cannot_remov0\\e38b6c24-427c-4d1a-8fec-cbac72e6e6b2\\synthetic.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_compensation_cannot_remov0\\service\\tasks.sqlite3",
+      "Hash": "27122D85262CF5EA67FC18B53741C1EC708ACD675F2DBAC4210CB6CB593784DD"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_failed_enqueue_compensate0\\tasks.sqlite3",
+      "Hash": "F8FF4CBD8BB41F6D5C935D2724F9BFE9DCAEA6DBA06F3BE60735CCDC62BB6A4F"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_failed_enqueue_compensate0\\jobs\\b9690ff7-59a4-40a2-8adf-ba479e3696d7\\input\\request.json",
+      "Hash": "0A157A17BDC5A4AF0311D87354FD63B08288342CD67C9E672FEC83DE57CC0200"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_failed_enqueue_compensate0\\jobs\\b9690ff7-59a4-40a2-8adf-ba479e3696d7\\input\\source.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_failed_enqueue_compensate0\\uploads\\duplicate.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_failed_enqueue_compensate1\\tasks.sqlite3",
+      "Hash": "A6A301106674B1A166F85EFCC0A15040C3EB220BADE64EB318474A27B1CED7B4"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_failed_enqueue_compensate1\\jobs\\c68a6c85-504f-42a4-bbc9-ede00f99d521\\input\\request.json",
+      "Hash": "0A157A17BDC5A4AF0311D87354FD63B08288342CD67C9E672FEC83DE57CC0200"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_failed_enqueue_compensate1\\jobs\\c68a6c85-504f-42a4-bbc9-ede00f99d521\\input\\source.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_failed_enqueue_compensate1\\uploads\\duplicate.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_failed_enqueue_compensate2\\tasks.sqlite3",
+      "Hash": "7C1663B65C6AD6FFC7092E19729476FFCE4280461A728EE0794D038AEDE1720B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_failed_enqueue_compensate2\\jobs\\b927f780-24c4-4128-9f51-ed38c134e709\\input\\request.json",
+      "Hash": "0A157A17BDC5A4AF0311D87354FD63B08288342CD67C9E672FEC83DE57CC0200"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_failed_enqueue_compensate2\\jobs\\b927f780-24c4-4128-9f51-ed38c134e709\\input\\source.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_failed_enqueue_compensate2\\uploads\\duplicate.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_idempotency_is_persistent0\\tasks.sqlite3",
+      "Hash": "F4B68F1A6C3316EF351BD2D618933738BE1E77E9DE7DD67AA0EC7EB08C6F0F75"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_idempotency_is_persistent0\\worker-ready.json",
+      "Hash": "44136FA355B3678A1146AD16F7E8649E94FB4FC21FE77E8310C060F61CAAFF8A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_idempotency_is_persistent0\\jobs\\2e29b0c1-2a5c-448f-9c65-7a7cfdd20874\\input\\request.json",
+      "Hash": "71E7F823094094EEC095EF6DB39AF6D6D6C039606A478C2D36FB6F42AFB77783"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_idempotency_is_persistent0\\jobs\\2e29b0c1-2a5c-448f-9c65-7a7cfdd20874\\input\\source.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_idempotency_is_persistent0\\jobs\\6516eece-7349-492e-a92b-e1f0341ed6f6\\input\\request.json",
+      "Hash": "71E7F823094094EEC095EF6DB39AF6D6D6C039606A478C2D36FB6F42AFB77783"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_idempotency_is_persistent0\\jobs\\6516eece-7349-492e-a92b-e1f0341ed6f6\\input\\source.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_invalid_options_options0_0\\tasks.sqlite3",
+      "Hash": "8F7088CE39C3747CB767ECB3BADFD5CD9AE807F368061797AEC80141CF3B71AF"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_invalid_options_options0_0\\worker-ready.json",
+      "Hash": "44136FA355B3678A1146AD16F7E8649E94FB4FC21FE77E8310C060F61CAAFF8A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_invalid_options_options1_0\\tasks.sqlite3",
+      "Hash": "0084A5586639C10F65C8A59CD6CAE1C987FB932B0F6AEA7207744C542F940EAE"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_invalid_options_options1_0\\worker-ready.json",
+      "Hash": "44136FA355B3678A1146AD16F7E8649E94FB4FC21FE77E8310C060F61CAAFF8A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_invalid_options_options2_0\\tasks.sqlite3",
+      "Hash": "06464F3ED979BD2065D200852C9B804E84FBBCEE84A6762BF1C783D9649F0D05"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_invalid_options_options2_0\\worker-ready.json",
+      "Hash": "44136FA355B3678A1146AD16F7E8649E94FB4FC21FE77E8310C060F61CAAFF8A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_invalid_options_options3_0\\tasks.sqlite3",
+      "Hash": "A4928B3E12813123BD357172A812FF77731E1241A474145E82D07EA83C828D66"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_invalid_options_options3_0\\worker-ready.json",
+      "Hash": "44136FA355B3678A1146AD16F7E8649E94FB4FC21FE77E8310C060F61CAAFF8A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_orphan_reconciliation_pre0\\tasks.sqlite3",
+      "Hash": "F6C1F209EF85B7A930A0D567DFC966885D809F03AACBB4C730CA6B46BAFB2C8E"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_orphan_reconciliation_pre0\\jobs\\277f1447-aeb0-4354-9e19-23ff122fe7ab\\synthetic.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_orphan_reconciliation_pre0\\jobs\\a2a31ec7-ed09-403b-bc89-01e2fa15e061\\input\\request.json",
+      "Hash": "0A157A17BDC5A4AF0311D87354FD63B08288342CD67C9E672FEC83DE57CC0200"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_orphan_reconciliation_pre0\\jobs\\a2a31ec7-ed09-403b-bc89-01e2fa15e061\\input\\source.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_orphan_reconciliation_pre0\\jobs\\not-a-job\\synthetic.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc0\\tasks.sqlite3",
+      "Hash": "55503411D9A9D8B2BD57670A3F07E38F7FBE29F62DC1DF0A48C299322FB606E9"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc0\\worker-ready.json",
+      "Hash": "44136FA355B3678A1146AD16F7E8649E94FB4FC21FE77E8310C060F61CAAFF8A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc0\\jobs\\5165bb7f-15ef-4ce5-84fc-de08dafe0a70\\input\\request.json",
+      "Hash": "71E7F823094094EEC095EF6DB39AF6D6D6C039606A478C2D36FB6F42AFB77783"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc0\\jobs\\5165bb7f-15ef-4ce5-84fc-de08dafe0a70\\input\\source.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc1\\tasks.sqlite3",
+      "Hash": "75B1C785B7408E52928F0E020E69467A2D070492219FC5AF065ABB831C2FB03D"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc1\\worker-ready.json",
+      "Hash": "44136FA355B3678A1146AD16F7E8649E94FB4FC21FE77E8310C060F61CAAFF8A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc1\\jobs\\70146a17-f37b-4194-be49-2af60077cb41\\input\\request.json",
+      "Hash": "71E7F823094094EEC095EF6DB39AF6D6D6C039606A478C2D36FB6F42AFB77783"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc1\\jobs\\70146a17-f37b-4194-be49-2af60077cb41\\input\\source.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc2\\tasks.sqlite3",
+      "Hash": "5856F4E7587F39565DC6E6778DB3254688A8EB6758464CF96E4D84561099B078"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc2\\worker-ready.json",
+      "Hash": "44136FA355B3678A1146AD16F7E8649E94FB4FC21FE77E8310C060F61CAAFF8A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc2\\jobs\\84d674cf-efe1-4aa3-8b62-c7d2252025b6\\input\\request.json",
+      "Hash": "71E7F823094094EEC095EF6DB39AF6D6D6C039606A478C2D36FB6F42AFB77783"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc2\\jobs\\84d674cf-efe1-4aa3-8b62-c7d2252025b6\\input\\source.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc3\\tasks.sqlite3",
+      "Hash": "C65230B0F2D446CF96177965444D7B88806B4E591D763505D4B53659E12B0A67"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc3\\worker-ready.json",
+      "Hash": "44136FA355B3678A1146AD16F7E8649E94FB4FC21FE77E8310C060F61CAAFF8A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc3\\jobs\\9757d322-93d8-4f2e-8da8-30926fd13495\\input\\request.json",
+      "Hash": "71E7F823094094EEC095EF6DB39AF6D6D6C039606A478C2D36FB6F42AFB77783"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc3\\jobs\\9757d322-93d8-4f2e-8da8-30926fd13495\\input\\source.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc4\\tasks.sqlite3",
+      "Hash": "CD8777E7EADDD37768F33238C670796E5AF44A5ED2BF798ED85E722957AC031E"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc4\\worker-ready.json",
+      "Hash": "44136FA355B3678A1146AD16F7E8649E94FB4FC21FE77E8310C060F61CAAFF8A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc4\\jobs\\8f29350d-9039-4ec7-ae92-7dc9281f322e\\input\\request.json",
+      "Hash": "71E7F823094094EEC095EF6DB39AF6D6D6C039606A478C2D36FB6F42AFB77783"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_other_identity_cannot_acc4\\jobs\\8f29350d-9039-4ec7-ae92-7dc9281f322e\\input\\source.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_queue_limit_and_cancel_ra0\\tasks.sqlite3",
+      "Hash": "8AECA8D1D1D82A3649CA165EFD7CBD445B6FD0A3FD3902B7671979DBD0690F67"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_queue_limit_and_cancel_ra0\\worker-ready.json",
+      "Hash": "44136FA355B3678A1146AD16F7E8649E94FB4FC21FE77E8310C060F61CAAFF8A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_queue_limit_and_cancel_ra0\\jobs\\24d8a877-8854-4c71-b7de-abf7e1c36edf\\input\\request.json",
+      "Hash": "71E7F823094094EEC095EF6DB39AF6D6D6C039606A478C2D36FB6F42AFB77783"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_queue_limit_and_cancel_ra0\\jobs\\24d8a877-8854-4c71-b7de-abf7e1c36edf\\input\\source.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_queue_limit_and_cancel_ra0\\jobs\\578f704f-84dc-4952-9601-47d645283ece\\input\\request.json",
+      "Hash": "71E7F823094094EEC095EF6DB39AF6D6D6C039606A478C2D36FB6F42AFB77783"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_queue_limit_and_cancel_ra0\\jobs\\578f704f-84dc-4952-9601-47d645283ece\\input\\source.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_queue_limit_and_cancel_ra0\\jobs\\e12e7176-b951-48a2-b100-1d20be62914c\\input\\request.json",
+      "Hash": "71E7F823094094EEC095EF6DB39AF6D6D6C039606A478C2D36FB6F42AFB77783"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_queue_limit_and_cancel_ra0\\jobs\\e12e7176-b951-48a2-b100-1d20be62914c\\input\\source.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_reconciliation_waits_for_0\\tasks.sqlite3",
+      "Hash": "4349C8683CCDD87D8CB80599AF3030C431C997E3BF58DB930B5F3B68704E7CEA"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_reconciliation_waits_for_0\\jobs\\ef57c83c-681f-4852-a78f-7cd13a694175\\input\\request.json",
+      "Hash": "0A157A17BDC5A4AF0311D87354FD63B08288342CD67C9E672FEC83DE57CC0200"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_reconciliation_waits_for_0\\jobs\\ef57c83c-681f-4852-a78f-7cd13a694175\\input\\source.pdf",
+      "Hash": "A01DE6A6A86F3503B20A3A18BA0E5CCA91F7AB089E7AB0D2E559297331B7294B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_signature_and_hash_valida0\\tasks.sqlite3",
+      "Hash": "24B709973EC232F441F87DDD71A5C7AD24B5691F86EFDF5D2E5E325BEC257EFB"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_signature_and_hash_valida0\\worker-ready.json",
+      "Hash": "44136FA355B3678A1146AD16F7E8649E94FB4FC21FE77E8310C060F61CAAFF8A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_untrusted_output_rejected0\\output\\document.json",
+      "Hash": "D1A28174522B6CB7919F3706769339BE0ADDCAA31FB109194F2BBBF7017F3ACE"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_untrusted_output_rejected0\\output\\manifest.json",
+      "Hash": "55A99564EA2E1C949C8CBD276D98CE6BB793EFCDE6FA9DAA0FAD0EA2967965F0"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_untrusted_output_rejected1\\output\\document.json",
+      "Hash": "D1A28174522B6CB7919F3706769339BE0ADDCAA31FB109194F2BBBF7017F3ACE"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_untrusted_output_rejected1\\output\\manifest.json",
+      "Hash": "B0BE8FAEC7999B87B529FF06F39987307E4EC3973891CBEC63D8716E5E6BEF2F"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_untrusted_output_rejected2\\output\\document.json",
+      "Hash": "D1A28174522B6CB7919F3706769339BE0ADDCAA31FB109194F2BBBF7017F3ACE"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_untrusted_output_rejected2\\output\\manifest.json",
+      "Hash": "0DF2E4E201B5AC64B8A8BCD865FA9371D9DC901B964035DF6A7D82FD1E16EA05"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_untrusted_output_rejected3\\output\\document.json",
+      "Hash": "D1A28174522B6CB7919F3706769339BE0ADDCAA31FB109194F2BBBF7017F3ACE"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_untrusted_output_rejected3\\output\\manifest.json",
+      "Hash": "46D91B51F014F59882A270067F073A038CF73CE02AB8A53519E0638FFC885B43"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-authorized\\test_untrusted_output_rejected4\\output\\manifest.json",
+      "Hash": "947CCC319BAFC7FB7CE56663A214E17C44F4DADD40C5B75A173B7F6E81E5671F"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-temp\\test_authentication_and_readin0\\tasks.sqlite3",
+      "Hash": "D71DF0F43B494DE7B05FEE4FD0D376F51289BB557DFA7B474B8BD94F576A6F23"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\pytest-temp\\test_authentication_and_readin0\\worker-ready.json",
+      "Hash": "44136FA355B3678A1146AD16F7E8649E94FB4FC21FE77E8310C060F61CAAFF8A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\artifact-owner-switch.png",
+      "Hash": "D919E3B016D69BA64685776C15EE7C30C8D3FFB873A4ACDF86EC46FB900071B9"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\artifact-owner-switch.txt",
+      "Hash": "28242B14E106DBFD5F46D694B3FE64B00F77EC8DBF6869563E4158ACD325B6FA"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\corrupt-open.png",
+      "Hash": "79EEA7CA9F5CB5430AAF6C5ED7F44FFDF93A6979B68EF4F2891B35B801DB420F"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\corrupt-open.txt",
+      "Hash": "B577FFC47654E784D9200BD51D170625C7D21BEC75DB16ADCAD12A3123B3B13E"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\docx-preview.png",
+      "Hash": "1D8E7E78A2C8049B46E8E5E7168C4A396C9F33A264147BD2158FF145E6011B0F"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\docx-preview.txt",
+      "Hash": "B5879D671760BBF5C758249C306C281BED0C0481A4D8632B1CC1D2A4F90FFF2D"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\filter-after.png",
+      "Hash": "DD29D4C18FBA80E984162E81E3F833B402C393EC806757183DE88065D8CB0ABB"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\filter-after.txt",
+      "Hash": "4E863D298C182031786821515DF31C56B1B8AED181478115B1B5AA61045BA94A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\filter-before.png",
+      "Hash": "DD29D4C18FBA80E984162E81E3F833B402C393EC806757183DE88065D8CB0ABB"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\filter-before.txt",
+      "Hash": "4E863D298C182031786821515DF31C56B1B8AED181478115B1B5AA61045BA94A"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\invented-symbol.png",
+      "Hash": "DC25885139A934594E2C32CDD90E7574E1AC07215DB4735AD684BFFCF687B8F6"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\invented-symbol.txt",
+      "Hash": "971FD889D00A4077A2EA54E9082D68054C0BA694F49D148AA763026D550321B9"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\long-material-tail.png",
+      "Hash": "8808FD77382F810ABD4480E7C669C6B26B1B6D4E1F2EF52EA5D46F737CC86224"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\long-material-tail.txt",
+      "Hash": "6FF34873667CC14D42E8EA7E0F9B3A97909A199471351B0D81208BD1BADB7C90"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\material-text-preview.png",
+      "Hash": "34AC60AC98C8EE1C0C9BC76619387CD0C12E2EAC567571E3ECD6EAB3EBAF4625"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\material-text-preview.txt",
+      "Hash": "9C5FC438E3F22D6D7206F92E91432DBD2956016AA2183340ACC18BD31F9EEB5E"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\memory-edited.png",
+      "Hash": "EEDEA27528B976A856A03EF912A13ADA8993C44D4C72923A2C60C5275097F8AF"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\memory-edited.txt",
+      "Hash": "63A38223451DC792CF3EC42611E36629C53919A571B5EAD49C780ACFC7167B96"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\missing-artifact.png",
+      "Hash": "891ED5045E9494BEB805AC892F724115144A0E450C877CEF2DB3A96EA69EACF4"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\missing-artifact.txt",
+      "Hash": "D25F0133773590BF3298368725F6729C2D1D7FDFE8B73D37DADE53DF5044A1A4"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\teaching-mode.png",
+      "Hash": "A38834D9A61CA2C56D1796BCBA87FFD47C006C818C8241ED1132D146A2816029"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\screenshots\\teaching-mode.txt",
+      "Hash": "3E83347856CA714C01CC8CF01E7FE4E65240319F777A01B71345E734187524E1"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\apk-hashes.json",
+      "Hash": "C7F570C5C09AA6C2063C698F11703DF777FD27E8BD1EA4743A5A7F8F65998309"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\build-final.log",
+      "Hash": "037EDC5ED046282131B33DD167476720699A864295D9C3CE63B3F3404574592B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\build-job-await.log",
+      "Hash": "3B7A95D6615A318D3267064B454F41990F5D8BC55A2C40D9762B74BF459EE0B5"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\build-narrow-cleanup.log",
+      "Hash": "EDF8004E5346F83B2685385929DA2E2C06589B2164F82956CAC749701F6352FB"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\build-second.log",
+      "Hash": "9E9C5D562EDD998A7C89D7610CACC1C4AEDB7C2563478897135A796B0A12FF28"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\build.exit",
+      "Hash": "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\build.log",
+      "Hash": "0D7B74E3BE36E720DD668695729A31FB1B118E4FE91074C787F0D018689A24AF"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\final-apk-hashes.json",
+      "Hash": "1E48A978FE8BE3F68181261F23AFF6994C680E5F485D5B537610B94C20406F6D"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\final-fixture-id.txt",
+      "Hash": "D7966774512FE2F795A39B5798D11EBA1FEFDDFA3B3B62AD3589099388BDA971"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\first-fixture-cleanup.log",
+      "Hash": "B47C00A9EECF4018AFB6B7F4EEAEEFF3720285E888A5D0370A7D771A914D21C7"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\fixture-id.txt",
+      "Hash": "8647A760CD936AF8FFEE0805102B9D1DA94507902E886D7711ADBC054AAFA474"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\install-final.log",
+      "Hash": "C4AA470ACAFCF8576C15B0F0B5AE7E852D1EC5413372D0E6A9272E788E1306D3"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\install-job-await.log",
+      "Hash": "C4AA470ACAFCF8576C15B0F0B5AE7E852D1EC5413372D0E6A9272E788E1306D3"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\install.log",
+      "Hash": "C4AA470ACAFCF8576C15B0F0B5AE7E852D1EC5413372D0E6A9272E788E1306D3"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\job-await-apk-hashes.json",
+      "Hash": "205478326ADAA63DD5A6396B868F254D6FA5E93539673EEC39C03243E611A0E9"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\job-await-fixture-id.txt",
+      "Hash": "6158CF83847C5316E49FE8A196A420097A72CE25DC444F2C09AE832FF36AF09B"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\report.md",
+      "Hash": "DC76A8B170E932BE959DD8645FAC488B9148876C1B8BF6B71F667A6516CF0519"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\second-fixture-cleanup.log",
+      "Hash": "C62967280A78B4D0FB781060B5231F92BDD4DB8A8F8045D780D1A51D66ED8A08"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\seed-final.log",
+      "Hash": "0805A2631DF7041C6AB2A90EC115F93E0D37DCA8EA1FC5F8DC4127C8CD99D1E5"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\seed-job-await.log",
+      "Hash": "2A0AFBCD86CA59E8E1DAB895DD12EC476A215771B71A17D4F61024E7433F638D"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\seed.log",
+      "Hash": "B5EBF543A6F2C5BDEB56631E3CA91292FC7517247813564190A625C8012613F0"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\skills-boundary.log",
+      "Hash": "D4C8F45E7A30D126448C50654C71A709C151475DE303A684A831F820EDBC215D"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\verify-final-not-run.txt",
+      "Hash": "E389CC4355386EA106A74CA0EA5860713759B37669F8AAF80661A1C98207058C"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\verify-not-run.txt",
+      "Hash": "E389CC4355386EA106A74CA0EA5860713759B37669F8AAF80661A1C98207058C"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\supplement\\verify-partial-manifest.log",
+      "Hash": "AC186D25DD332B1D56236C72CA67BA76B339721EAF013C5E1747C925A26A1A25"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\workspace\\classpath.json",
+      "Hash": "C9249979B1C0703B137822021BEBBB71D83F0F71842CB19297DCF9FB14FD32B4"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\workspace\\compile.log",
+      "Hash": "8BDC10045C1F789D901B880B0375E9916D366B95077FF6F491AAE8BF63A09809"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\workspace\\posix-all.log",
+      "Hash": "3644C5D24789A0F8DFD5F2A51CCC803AAEA07D8AC11317C5F5C72380EBB50FD6"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\workspace\\run-posix.sh",
+      "Hash": "50091A9062C46884BACE53DEE5D160DB6F3DD3397CB7C29387BB66A11246714E"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\checklist-re-review-20261008\\workspace\\windows-shell.log",
+      "Hash": "6B1E06394855606CAA0DD79AE1E41A6B3E6AB5AA335D53B0D48856397BB5E9FE"
+    }
+  ]
+}

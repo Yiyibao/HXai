@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.asr.ASRProviderSettingStepTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-09T03:00:10.119Z" hostname="DESKTOP-QH4J0RS" time="0.004">
+  <properties/>
+  <testcase name="step_copy_provider_preserves_extra_fields" classname="me.rerere.asr.ASRProviderSettingStepTest" time="0.002"/>
+  <testcase name="step_defaults_are_expected" classname="me.rerere.asr.ASRProviderSettingStepTest" time="0.001"/>
+  <testcase name="step_is_registered_in_provider_types" classname="me.rerere.asr.ASRProviderSettingStepTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

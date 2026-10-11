@@ -1,0 +1,25 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ClosureBoundaryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ClosureBoundaryTest:
+INSTRUMENTATION_STATUS: test=crossConversationReferencesAndDeleteIoRetry
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"ClosureBoundaryTest.crossConversationReferencesAndDeleteIoRetry","runId":"7dba6870-422c-4230-8429-0c8303e29c2a","startedAt":1791464564190,"finishedAt":1791464565411,"status":"PASS","entries":[{"name":"qa-evidence\/ClosureBoundaryTest.crossConversationReferencesAndDeleteIoRetry\/7dba6870-422c-4230-8429-0c8303e29c2a\/assertions.txt","sha256":"b87ee79ed8e45fecfea4ecfeb80d39238a3537b272b3c76083bd5bc75ad85866","bytes":156,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ClosureBoundaryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=crossConversationReferencesAndDeleteIoRetry
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 1.446
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

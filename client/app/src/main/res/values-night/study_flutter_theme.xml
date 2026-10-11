@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources><style name="Theme.StudyFlutterBase" parent="Theme.Material3.DayNight.NoActionBar">
+  <item name="android:windowBackground">#171717</item>
+  <item name="android:statusBarColor">#171717</item>
+  <item name="android:navigationBarColor">#171717</item>
+  <item name="android:windowLightStatusBar">false</item>
+</style><style name="Theme.StudyFlutter" parent="Theme.StudyFlutterBase" /></resources>

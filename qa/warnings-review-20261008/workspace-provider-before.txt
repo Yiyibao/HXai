@@ -1,0 +1,5 @@
+        567448d org.mathstudy.agent.debug/me.rerere.rikkahub.data.provider.WorkspaceDocumentsProvider filter 5e95642
+  org.mathstudy.agent.debug/me.rerere.rikkahub.data.provider.WorkspaceDocumentsProvider:
+    Provider{567448d org.mathstudy.agent.debug/me.rerere.rikkahub.data.provider.WorkspaceDocumentsProvider}
+  [org.mathstudy.agent.debug.documents]:
+    Provider{567448d org.mathstudy.agent.debug/me.rerere.rikkahub.data.provider.WorkspaceDocumentsProvider}

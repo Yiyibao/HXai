@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.highlight.languages.LanguageFixtureTest" tests="30" skipped="0" failures="0" errors="0" timestamp="2026-10-08T06:42:54.206Z" hostname="DESKTOP-QH4J0RS" time="0.991">
+  <properties/>
+  <testcase name="csharp" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.068"/>
+  <testcase name="dockerfile" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.024"/>
+  <testcase name="kotlin" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.056"/>
+  <testcase name="python" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.049"/>
+  <testcase name="properties" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.015"/>
+  <testcase name="typescript" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.099"/>
+  <testcase name="c" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.039"/>
+  <testcase name="go" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.02"/>
+  <testcase name="cpp" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.037"/>
+  <testcase name="css" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.036"/>
+  <testcase name="lua" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.011"/>
+  <testcase name="php" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.058"/>
+  <testcase name="sql" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.025"/>
+  <testcase name="xml" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.044"/>
+  <testcase name="bash" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.013"/>
+  <testcase name="dart" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.012"/>
+  <testcase name="diff" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.026"/>
+  <testcase name="glsl" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.023"/>
+  <testcase name="java" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.055"/>
+  <testcase name="json" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.014"/>
+  <testcase name="ruby" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.025"/>
+  <testcase name="rust" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.041"/>
+  <testcase name="toml" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.016"/>
+  <testcase name="yaml" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.018"/>
+  <testcase name="cmake" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.015"/>
+  <testcase name="latex" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.006"/>
+  <testcase name="swift" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.019"/>
+  <testcase name="javascript" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.051"/>
+  <testcase name="markdown" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.047"/>
+  <testcase name="powershell" classname="me.rerere.highlight.languages.LanguageFixtureTest" time="0.025"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

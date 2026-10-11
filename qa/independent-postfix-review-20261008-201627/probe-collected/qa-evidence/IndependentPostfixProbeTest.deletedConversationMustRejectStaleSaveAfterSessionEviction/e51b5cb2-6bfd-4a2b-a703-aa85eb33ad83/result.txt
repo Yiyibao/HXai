@@ -1,0 +1,4 @@
+removedSession=true
+saveSucceeded=true
+rowRevived=true
+messageCount=1

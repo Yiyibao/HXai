@@ -1,0 +1,199 @@
+{
+  "regressionVersion": {
+    "totals": {
+      "passed": 44,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "records": [
+      {
+        "log": "seed-final.log",
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "verify-final.log",
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "skills-install.log",
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "skills-use.log",
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "word-negative.log",
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "diagnostics.log",
+        "passed": 5,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "boundary.log",
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "network.log",
+        "passed": 19,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "material-fidelity.log",
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "material-page.log",
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "delivery.log",
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "project-delivery.log",
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "teaching-evidence.log",
+        "passed": 2,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ]
+  },
+  "candidateVersion": {
+    "totals": {
+      "passed": 18,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "records": [
+      {
+        "log": "seed-gate-fixed.log",
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "verify-gate-fixed.log",
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "diagnostics-gate-fixed.log",
+        "passed": 6,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "skills-install-gate-fixed.log",
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "skills-use-gate-fixed-retry.log",
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "boundary-gate-fixed.log",
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "word-negative-gate-fixed.log",
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ]
+  },
+  "firstVersionReal": {
+    "totals": {
+      "passed": 2,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "records": [
+      {
+        "log": "teaching-diagnostic.log",
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "log": "material-diagnostic.log",
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ]
+  },
+  "jvmApp": {
+    "tests": 322,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lint": {
+    "Warning": 42
+  },
+  "delivery": {
+    "checked": 10,
+    "passed": 10
+  }
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.registry.ModelRegistryTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2026-10-09T03:00:11.410Z" hostname="DESKTOP-QH4J0RS" time="0.013">
+  <properties/>
+  <testcase name="testGlm5AndMinimaxM25" classname="me.rerere.ai.registry.ModelRegistryTest" time="0.001"/>
+  <testcase name="testGemini25" classname="me.rerere.ai.registry.ModelRegistryTest" time="0.001"/>
+  <testcase name="testDeepseekV4" classname="me.rerere.ai.registry.ModelRegistryTest" time="0.005"/>
+  <testcase name="testStep5" classname="me.rerere.ai.registry.ModelRegistryTest" time="0.0"/>
+  <testcase name="testGPT5" classname="me.rerere.ai.registry.ModelRegistryTest" time="0.0"/>
+  <testcase name="testGemini4" classname="me.rerere.ai.registry.ModelRegistryTest" time="0.001"/>
+  <testcase name="testMuseSparkAndGlimmer" classname="me.rerere.ai.registry.ModelRegistryTest" time="0.0"/>
+  <testcase name="testContextLengthDsl" classname="me.rerere.ai.registry.ModelRegistryTest" time="0.001"/>
+  <testcase name="testOpenAIOModels" classname="me.rerere.ai.registry.ModelRegistryTest" time="0.001"/>
+  <testcase name="testContextLengthDefault" classname="me.rerere.ai.registry.ModelRegistryTest" time="0.0"/>
+  <testcase name="testSpecificityPriority" classname="me.rerere.ai.registry.ModelRegistryTest" time="0.0"/>
+  <testcase name="testClaude55" classname="me.rerere.ai.registry.ModelRegistryTest" time="0.001"/>
+  <testcase name="testClaudeSeries" classname="me.rerere.ai.registry.ModelRegistryTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

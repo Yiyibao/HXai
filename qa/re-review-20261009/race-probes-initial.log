@@ -1,0 +1,50 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/qa/re-review-20261009/race_probe_test.dart
+00:00 +0: PROBE initial build can overwrite a newer explicit refresh
+00:00 +0 -1: PROBE initial build can overwrite a newer explicit refresh [E]
+  Expected: 'stale-initial'
+    Actual: 'latest'
+     Which: is different.
+            Expected: stale-init ...
+              Actual: latest
+                      ^
+             Differ at offset 0
+  
+  package:matcher                                        expect
+  package:flutter_test/src/widget_tester.dart 473:18     expect
+  ..\..\qa\re-review-20261009\race_probe_test.dart 41:5  main.<fn>
+  
+00:00 +0 -1: CONTROL A to B to A drops the old explicit refresh
+00:00 +1 -1: PROBE attachment picker returning after A B A reintroduces cleared attachment
+00:00 +2 -1: PROBE same profile epoch change retains draft and attachment
+00:01 +3 -1: PROBE late mode acknowledgement changes the newly selected conversation mode
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.<anonymous closure> (file:///D:/Office/Study/code/MathStudyAgent/qa/re-review-20261009/race_probe_test.dart:86:48)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  PROBE late mode acknowledgement changes the newly selected conversation mode
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +3 -2: PROBE late mode acknowledgement changes the newly selected conversation mode [E]
+  Test failed. See exception logs above.
+  The test description was: PROBE late mode acknowledgement changes the newly selected conversation mode
+  
+00:05 +3 -2: PROBE send receipt after new chat clears the new chat draft
+00:05 +4 -2: Some tests failed.
+
+Failing tests:
+  D:/Office/Study/code/MathStudyAgent/qa/re-review-20261009/race_probe_test.dart: PROBE initial build can overwrite a newer explicit refresh
+  D:/Office/Study/code/MathStudyAgent/qa/re-review-20261009/race_probe_test.dart: PROBE late mode acknowledgement changes the newly selected conversation mode

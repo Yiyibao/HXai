@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.highlight.core.HighlightEngineTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-08T06:42:54.171Z" hostname="DESKTOP-QH4J0RS" time="0.021">
+  <properties/>
+  <testcase name="a known sub-language is highlighted by its own grammar" classname="me.rerere.highlight.core.HighlightEngineTest" time="0.002"/>
+  <testcase name="excludeBegin and excludeEnd keep delimiters out of the scope" classname="me.rerere.highlight.core.HighlightEngineTest" time="0.001"/>
+  <testcase name="match arrays scope each capture group on their own" classname="me.rerere.highlight.core.HighlightEngineTest" time="0.001"/>
+  <testcase name="resolves aliases and rejects unknown languages" classname="me.rerere.highlight.core.HighlightEngineTest" time="0.0"/>
+  <testcase name="nests modes and lets the innermost scope win" classname="me.rerere.highlight.core.HighlightEngineTest" time="0.002"/>
+  <testcase name="source text always survives highlighting" classname="me.rerere.highlight.core.HighlightEngineTest" time="0.002"/>
+  <testcase name="endsParent closes the enclosing mode as well" classname="me.rerere.highlight.core.HighlightEngineTest" time="0.001"/>
+  <testcase name="applies keywords to the text between matches" classname="me.rerere.highlight.core.HighlightEngineTest" time="0.001"/>
+  <testcase name="beginKeywords ignores a match preceded by a dot" classname="me.rerere.highlight.core.HighlightEngineTest" time="0.006"/>
+  <testcase name="starts hands over to a following mode" classname="me.rerere.highlight.core.HighlightEngineTest" time="0.001"/>
+  <testcase name="an unknown sub-language degrades to plain text" classname="me.rerere.highlight.core.HighlightEngineTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

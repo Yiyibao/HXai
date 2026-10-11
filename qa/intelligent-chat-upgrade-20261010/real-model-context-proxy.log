@@ -1,0 +1,67 @@
+
+me.rerere.rikkahub.service.ChatRenderingRealModelTest:
+Error in configuredModelRetainsConstraintsAfterAutomaticSummary(me.rerere.rikkahub.service.ChatRenderingRealModelTest):
+java.net.ConnectException: Failed to connect to /10.0.2.2:7897
+	at okhttp3.internal.connection.ConnectPlan.connectSocket(ConnectPlan.kt:285)
+	at okhttp3.internal.connection.ConnectPlan.connectTcp(ConnectPlan.kt:144)
+	at okhttp3.internal.connection.FastFallbackExchangeFinder$launchTcpConnect$1.runOnce(FastFallbackExchangeFinder.kt:147)
+	at okhttp3.internal.concurrent.TaskRunner$runnable$1.run(TaskRunner.kt:81)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+	at java.lang.Thread.run(Thread.java:1012)
+Caused by: java.net.ConnectException: failed to connect to /10.0.2.2 (port 7897) from /:: (port 0) after 20000ms: connect failed: ENETUNREACH (Network is unreachable)
+	at libcore.io.IoBridge.connect(IoBridge.java:187)
+	at java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:142)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:390)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:230)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:212)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:436)
+	at java.net.Socket.connect(Socket.java:646)
+	at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:173)
+	at okhttp3.internal.connection.ConnectPlan.connectSocket(ConnectPlan.kt:283)
+	... 6 more
+Caused by: android.system.ErrnoException: connect failed: ENETUNREACH (Network is unreachable)
+	at libcore.io.Linux.connect(Native Method)
+	at libcore.io.ForwardingOs.connect(ForwardingOs.java:201)
+	at libcore.io.BlockGuardOs.connect(BlockGuardOs.java:158)
+	at libcore.io.ForwardingOs.connect(ForwardingOs.java:201)
+	at libcore.io.IoBridge.connectErrno(IoBridge.java:218)
+	at libcore.io.IoBridge.connect(IoBridge.java:179)
+	... 14 more
+
+
+Time: 0.469
+There was 1 failure:
+1) configuredModelRetainsConstraintsAfterAutomaticSummary(me.rerere.rikkahub.service.ChatRenderingRealModelTest)
+java.net.ConnectException: Failed to connect to /10.0.2.2:7897
+	at okhttp3.internal.connection.ConnectPlan.connectSocket(ConnectPlan.kt:285)
+	at okhttp3.internal.connection.ConnectPlan.connectTcp(ConnectPlan.kt:144)
+	at okhttp3.internal.connection.FastFallbackExchangeFinder$launchTcpConnect$1.runOnce(FastFallbackExchangeFinder.kt:147)
+	at okhttp3.internal.concurrent.TaskRunner$runnable$1.run(TaskRunner.kt:81)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+	at java.lang.Thread.run(Thread.java:1012)
+Caused by: java.net.ConnectException: failed to connect to /10.0.2.2 (port 7897) from /:: (port 0) after 20000ms: connect failed: ENETUNREACH (Network is unreachable)
+	at libcore.io.IoBridge.connect(IoBridge.java:187)
+	at java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:142)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:390)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:230)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:212)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:436)
+	at java.net.Socket.connect(Socket.java:646)
+	at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:173)
+	at okhttp3.internal.connection.ConnectPlan.connectSocket(ConnectPlan.kt:283)
+	... 6 more
+Caused by: android.system.ErrnoException: connect failed: ENETUNREACH (Network is unreachable)
+	at libcore.io.Linux.connect(Native Method)
+	at libcore.io.ForwardingOs.connect(ForwardingOs.java:201)
+	at libcore.io.BlockGuardOs.connect(BlockGuardOs.java:158)
+	at libcore.io.ForwardingOs.connect(ForwardingOs.java:201)
+	at libcore.io.IoBridge.connectErrno(IoBridge.java:218)
+	at libcore.io.IoBridge.connect(IoBridge.java:179)
+	... 14 more
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+

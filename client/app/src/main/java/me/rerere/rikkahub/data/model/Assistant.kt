@@ -39,7 +39,7 @@ data class Assistant(
     val customBodies: List<CustomBody> = emptyList(),
     val mcpServers: Set<Uuid> = emptySet(),
     val localTools: List<LocalToolOption> = listOf(LocalToolOption.TimeInfo),
-    val enableWebSearch: Boolean = false, // 网络搜索开关(每个助手独立)
+    val enableWebSearch: Boolean = true, // 新建助手默认联网；通用工具工厂兼容旧配置并开放按需搜索
     val workspaceId: Uuid? = null,
     val background: String? = null, // 聊天页背景图地址(本地文件 URI 或网络 URL), 为 null 时无背景
     val backgroundOpacity: Float = 1.0f, // 背景图不透明度(0~1)

@@ -1,0 +1,20 @@
+[
+  {
+    "case": "existing-manifest-stale",
+    "expectation": "Reject yesterday evidence",
+    "rejected": false,
+    "status": "FAIL",
+    "error": null,
+    "adbCalls": 0,
+    "collectorSha256": "4a0dc77c5777248021646f7ce88172b4ca401bf6a3b0114951a477a975e75c92"
+  },
+  {
+    "case": "fresh-manifest-stale",
+    "expectation": "Reject yesterday evidence",
+    "rejected": true,
+    "status": "PASS",
+    "error": "Stale fixture: material-evidence/scan-input.pdf",
+    "adbCalls": 3,
+    "collectorSha256": "4a0dc77c5777248021646f7ce88172b4ca401bf6a3b0114951a477a975e75c92"
+  }
+]

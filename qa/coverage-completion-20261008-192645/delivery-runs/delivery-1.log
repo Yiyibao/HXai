@@ -1,0 +1,28 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ProjectReviewDeliveryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ProjectReviewDeliveryTest:
+INSTRUMENTATION_STATUS: test=everyFormatOpensSavesAndArrivesInOtherUid
+INSTRUMENTATION_STATUS_CODE: 1
+s_glBindAttribLocation: bind attrib 0 name position
+s_glBindAttribLocation: bind attrib 1 name color
+s_glBindAttribLocation: bind attrib 2 name localCoord
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid","runId":"9caae376-4dd6-4eea-89ca-9df157969b8b","startedAt":1791460949360,"finishedAt":1791460988264,"status":"PASS","entries":[{"name":"qa-evidence\/ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\/9caae376-4dd6-4eea-89ca-9df157969b8b\/source-md.md","sha256":"e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd","bytes":32,"reusedSyntheticInput":false},{"name":"qa-evidence\/ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\/9caae376-4dd6-4eea-89ca-9df157969b8b\/delivery-open-md.png","sha256":"a5967ba38f074e07cbcebca5d5cf9e57cc6a3c09f2339c97c90be54ccc1d1060","bytes":55646,"reusedSyntheticInput":false},{"name":"qa-evidence\/ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\/9caae376-4dd6-4eea-89ca-9df157969b8b\/delivery-send-md.png","sha256":"2974017f471db35842f9a5849752d7ceede6f208bd3ee3f3bc2681b437feb041","bytes":57121,"reusedSyntheticInput":false},{"name":"qa-evidence\/ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\/9caae376-4dd6-4eea-89ca-9df157969b8b\/source-docx.docx","sha256":"1ec5ecd750b3e5c5deb079de204788b8a91f58a9ad49ceeac4eba4aa2559fe14","bytes":1563,"reusedSyntheticInput":false},{"name":"qa-evidence\/ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\/9caae376-4dd6-4eea-89ca-9df157969b8b\/delivery-open-docx.png","sha256":"abe5fc26163c634a8779683016ac30139fbe821a4b254eec5d46a09fd749310f","bytes":72355,"reusedSyntheticInput":false},{"name":"qa-evidence\/ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\/9caae376-4dd6-4eea-89ca-9df157969b8b\/delivery-send-docx.png","sha256":"c246356c4eff9d1cff5dc4afa1437b981863b55984377dccca4cac63a654dde1","bytes":73969,"reusedSyntheticInput":false},{"name":"qa-evidence\/ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\/9caae376-4dd6-4eea-89ca-9df157969b8b\/source-xlsx.xlsx","sha256":"5295865aec02fdfa3728edd434c34109e1a91e00187e79ab2bf407e4edb6e529","bytes":2398,"reusedSyntheticInput":false},{"name":"qa-evidence\/ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\/9caae376-4dd6-4eea-89ca-9df157969b8b\/delivery-open-xlsx.png","sha256":"51ea7866f0a16a62e9c2fa25920794b1e03cd52df49c08980ac4d316373db5e4","bytes":72254,"reusedSyntheticInput":false},{"name":"qa-evidence\/ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\/9caae376-4dd6-4eea-89ca-9df157969b8b\/delivery-send-xlsx.png","sha256":"ee5e19968d6c17b981af8d3ff494fac32d29a029a364567a7fab853021897ad0","bytes":73819,"reusedSyntheticInput":false},{"name":"qa-evidence\/ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\/9caae376-4dd6-4eea-89ca-9df157969b8b\/source-pptx.pptx","sha256":"051eb22ff4112f3e2218824cf5b39ead8bfed292d013a3a335ea91b00e5b91fa","bytes":2533,"reusedSyntheticInput":false},{"name":"qa-evidence\/ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\/9caae376-4dd6-4eea-89ca-9df157969b8b\/delivery-open-pptx.png","sha256":"f7156bf57948769c796c2068c671a098c7239e6571e6fcf733e7d2997edab53c","bytes":79773,"reusedSyntheticInput":false},{"name":"qa-evidence\/ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\/9caae376-4dd6-4eea-89ca-9df157969b8b\/delivery-send-pptx.png","sha256":"2f5ee86bb0641d20ef57d4b48474e0d3198a26bb21069b1689c4df84bcf7de10","bytes":81714,"reusedSyntheticInput":false},{"name":"qa-evidence\/ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\/9caae376-4dd6-4eea-89ca-9df157969b8b\/source-pdf.pdf","sha256":"357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a","bytes":29097,"reusedSyntheticInput":false},{"name":"qa-evidence\/ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\/9caae376-4dd6-4eea-89ca-9df157969b8b\/delivery-open-pdf.png","sha256":"1d2ab5f3619f2ee2f4f49cc1e86e9acfd9458139cd0e94dc8a6a0970581fbd00","bytes":71376,"reusedSyntheticInput":false},{"name":"qa-evidence\/ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\/9caae376-4dd6-4eea-89ca-9df157969b8b\/delivery-send-pdf.png","sha256":"2315f4f65758979fe8157fd5ddd885bee5bbf77283bc627e04ee39df2a63cc30","bytes":73285,"reusedSyntheticInput":false},{"name":"qa-evidence\/ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\/9caae376-4dd6-4eea-89ca-9df157969b8b\/delivery-receipts.txt","sha256":"6f3b69b35f2b29bda61a8235cb52c9510b4073e7ebf8afc1c565f0fc04c0a659","bytes":4778,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ProjectReviewDeliveryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=everyFormatOpensSavesAndArrivesInOtherUid
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 42.937
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

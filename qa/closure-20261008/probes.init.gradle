@@ -1,0 +1,29 @@
+gradle.beforeProject { project ->
+    project.plugins.withId('com.android.application') {
+        project.androidComponents.finalizeDsl { android ->
+            android.defaultConfig.testInstrumentationRunner = 'me.rerere.rikkahub.service.ClosureTestRunner'
+        }
+    }
+}
+gradle.projectsEvaluated {
+    def app = gradle.rootProject.findProject(':app')
+    if (app == null) return
+    def qa = new File('D:/Office/Study/code/MathStudyAgent/qa/closure-20261008')
+    app.android.sourceSets.getByName('androidTest').java.srcDir(new File(qa, 'android'))
+    app.android.sourceSets.getByName('test').java.srcDir(new File(qa, 'unit'))
+    app.tasks.named('compileDebugAndroidTestKotlin').configure { source(new File(qa, 'android')) }
+    app.tasks.named('compileDebugUnitTestKotlin').configure {
+        source(new File(qa, 'unit'))
+    }
+    def base = app.tasks.named('testDebugUnitTest').get()
+    base.systemProperty('qa.root', new File(qa, 'word-negative').absolutePath)
+    app.tasks.register('qaIndependentProbes', Test) {
+        dependsOn('compileDebugUnitTestKotlin', 'compileDebugUnitTestJavaWithJavac')
+        testClassesDirs = base.testClassesDirs
+        classpath = base.classpath
+        systemProperty('qa.root', new File(qa, 'word-negative').absolutePath)
+        filter { includeTestsMatching('me.rerere.rikkahub.service.IndependentAssertionProbeTest') }
+        reports.junitXml.outputLocation = new File(qa, 'probe-xml')
+    }
+}
+

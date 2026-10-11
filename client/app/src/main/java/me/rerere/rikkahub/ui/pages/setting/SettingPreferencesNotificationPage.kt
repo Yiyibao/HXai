@@ -21,11 +21,13 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -52,7 +54,7 @@ fun SettingPreferencesNotificationPage(vm: SettingVM = koinViewModel()) {
     val settings by vm.settings.collectAsStateWithLifecycle()
     var displaySetting by remember(settings) { mutableStateOf(settings.displaySetting) }
     var showUpdatePauseDialog by remember { mutableStateOf(false) }
-    var selectedUpdatePauseDays by remember { mutableStateOf(UPDATE_PAUSE_DAY_OPTIONS.first()) }
+    var selectedUpdatePauseDays by remember { mutableIntStateOf(UPDATE_PAUSE_DAY_OPTIONS.first()) }
 
     fun updateDisplaySetting(setting: DisplaySetting) {
         displaySetting = setting
@@ -171,7 +173,7 @@ fun SettingPreferencesNotificationPage(vm: SettingVM = koinViewModel()) {
                                     count = UPDATE_PAUSE_DAY_OPTIONS.size,
                                 ),
                             ) {
-                                Text(stringResource(R.string.setting_update_reminder_pause_days, days))
+                                Text(pluralStringResource(R.plurals.setting_update_reminder_pause_days, days, days))
                             }
                         }
                     }

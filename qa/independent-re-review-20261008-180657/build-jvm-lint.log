@@ -1,0 +1,178 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+Calculating task graph as no cached configuration is available for tasks: :app:testDebugUnitTest :app:assembleDebug :app:assembleDebugAndroidTest :app:lintDebug
+> Task :build-logic:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:compileKotlin UP-TO-DATE
+> Task :build-logic:compileJava NO-SOURCE
+> Task :build-logic:pluginDescriptors UP-TO-DATE
+> Task :build-logic:processResources UP-TO-DATE
+> Task :build-logic:classes UP-TO-DATE
+> Task :build-logic:jar UP-TO-DATE
+> Task :document:generateDebugAssets UP-TO-DATE
+> Task :search:preBuild UP-TO-DATE
+> Task :highlight:preBuild UP-TO-DATE
+> Task :speech:preBuild UP-TO-DATE
+> Task :document:preBuild UP-TO-DATE
+> Task :workspace:preBuild UP-TO-DATE
+> Task :highlight:generateDebugAssets UP-TO-DATE
+> Task :ai:generateDebugAssets UP-TO-DATE
+> Task :videogen:preBuild UP-TO-DATE
+> Task :oauth:preBuild UP-TO-DATE
+> Task :common:generateDebugAssets UP-TO-DATE
+> Task :ai:preBuild UP-TO-DATE
+> Task :app:preBuild UP-TO-DATE
+> Task :material3:preBuild UP-TO-DATE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :common:preBuild UP-TO-DATE
+> Task :search:preDebugBuild UP-TO-DATE
+> Task :document:preDebugBuild UP-TO-DATE
+> Task :speech:preDebugBuild UP-TO-DATE
+> Task :workspace:preDebugBuild UP-TO-DATE
+> Task :videogen:preDebugBuild UP-TO-DATE
+> Task :oauth:preDebugBuild UP-TO-DATE
+> Task :highlight:preDebugBuild UP-TO-DATE
+> Task :ai:preDebugBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :material3:preDebugBuild UP-TO-DATE
+> Task :common:preDebugBuild UP-TO-DATE
+> Task :common:javaPreCompileDebug UP-TO-DATE
+> Task :app:injectCrashlyticsVersionControlInfoDebug UP-TO-DATE
+> Task :highlight:extractDebugSupportedLocales UP-TO-DATE
+> Task :common:extractDebugSupportedLocales UP-TO-DATE
+> Task :speech:extractDebugSupportedLocales UP-TO-DATE
+> Task :ai:extractDebugSupportedLocales UP-TO-DATE
+> Task :common:processDebugNavigationResources UP-TO-DATE
+> Task :ai:javaPreCompileDebug UP-TO-DATE
+> Task :ai:processDebugNavigationResources UP-TO-DATE
+> Task :common:generateDebugResources UP-TO-DATE
+> Task :ai:generateDebugResources UP-TO-DATE
+> Task :videogen:extractDebugSupportedLocales UP-TO-DATE
+> Task :material3:extractDebugSupportedLocales UP-TO-DATE
+> Task :app:generateDebugBuildConfig UP-TO-DATE
+> Task :workspace:extractDebugSupportedLocales UP-TO-DATE
+> Task :app:injectCrashlyticsMappingFileIdDebug UP-TO-DATE
+> Task :search:extractDebugSupportedLocales UP-TO-DATE
+> Task :search:processDebugNavigationResources UP-TO-DATE
+> Task :oauth:extractDebugSupportedLocales UP-TO-DATE
+> Task :document:extractDebugSupportedLocales UP-TO-DATE
+> Task :search:generateDebugResources UP-TO-DATE
+> Task :document:processDebugNavigationResources UP-TO-DATE
+> Task :highlight:processDebugNavigationResources UP-TO-DATE
+> Task :speech:processDebugNavigationResources UP-TO-DATE
+> Task :material3:processDebugNavigationResources UP-TO-DATE
+> Task :oauth:processDebugNavigationResources UP-TO-DATE
+> Task :workspace:processDebugNavigationResources UP-TO-DATE
+> Task :videogen:processDebugNavigationResources UP-TO-DATE
+> Task :document:javaPreCompileDebug UP-TO-DATE
+> Task :document:generateDebugResources UP-TO-DATE
+> Task :highlight:generateDebugResources UP-TO-DATE
+> Task :highlight:javaPreCompileDebug UP-TO-DATE
+> Task :oauth:javaPreCompileDebug UP-TO-DATE
+> Task :search:javaPreCompileDebug UP-TO-DATE
+> Task :speech:javaPreCompileDebug UP-TO-DATE
+> Task :material3:javaPreCompileDebug UP-TO-DATE
+> Task :material3:generateDebugResources UP-TO-DATE
+> Task :oauth:generateDebugResources UP-TO-DATE
+> Task :videogen:generateDebugResources UP-TO-DATE
+> Task :workspace:generateDebugResources UP-TO-DATE
+> Task :videogen:javaPreCompileDebug UP-TO-DATE
+> Task :workspace:javaPreCompileDebug UP-TO-DATE
+> Task :speech:generateDebugResources UP-TO-DATE
+> Task :ai:mapDebugSourceSetPaths UP-TO-DATE
+> Task :ai:packageDebugResources UP-TO-DATE
+> Task :common:packageDebugResources UP-TO-DATE
+> Task :material3:writeDebugAarMetadata UP-TO-DATE
+> Task :speech:writeDebugAarMetadata UP-TO-DATE
+> Task :search:writeDebugAarMetadata UP-TO-DATE
+> Task :highlight:writeDebugAarMetadata UP-TO-DATE
+> Task :common:writeDebugAarMetadata UP-TO-DATE
+> Task :ai:writeDebugAarMetadata UP-TO-DATE
+> Task :document:writeDebugAarMetadata UP-TO-DATE
+> Task :oauth:writeDebugAarMetadata UP-TO-DATE
+> Task :material3:packageDebugResources UP-TO-DATE
+> Task :videogen:packageDebugResources UP-TO-DATE
+> Task :videogen:writeDebugAarMetadata UP-TO-DATE
+> Task :workspace:writeDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :document:packageDebugResources UP-TO-DATE
+> Task :highlight:packageDebugResources UP-TO-DATE
+> Task :common:extractDeepLinksDebug UP-TO-DATE
+> Task :document:extractDeepLinksDebug UP-TO-DATE
+> Task :ai:compileDebugLibraryResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :ai:extractDeepLinksDebug UP-TO-DATE
+> Task :search:packageDebugResources UP-TO-DATE
+> Task :oauth:packageDebugResources UP-TO-DATE
+> Task :highlight:extractDeepLinksDebug UP-TO-DATE
+> Task :material3:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugGoogleServices FAILED
+> Task :oauth:extractDeepLinksDebug UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :document:processDebugManifest UP-TO-DATE
+> Task :ai:processDebugManifest UP-TO-DATE
+> Task :speech:packageDebugResources UP-TO-DATE
+> Task :common:processDebugManifest UP-TO-DATE
+> Task :search:extractDeepLinksDebug UP-TO-DATE
+> Task :speech:extractDeepLinksDebug UP-TO-DATE
+> Task :material3:processDebugManifest UP-TO-DATE
+> Task :videogen:extractDeepLinksDebug UP-TO-DATE
+> Task :highlight:processDebugManifest UP-TO-DATE
+> Task :workspace:extractDeepLinksDebug UP-TO-DATE
+> Task :search:processDebugManifest UP-TO-DATE
+> Task :oauth:processDebugManifest UP-TO-DATE
+> Task :common:mapDebugSourceSetPaths UP-TO-DATE
+> Task :document:mapDebugSourceSetPaths UP-TO-DATE
+> Task :highlight:mapDebugSourceSetPaths UP-TO-DATE
+> Task :speech:processDebugManifest UP-TO-DATE
+> Task :videogen:processDebugManifest UP-TO-DATE
+> Task :oauth:mapDebugSourceSetPaths UP-TO-DATE
+> Task :material3:mapDebugSourceSetPaths UP-TO-DATE
+> Task :workspace:processDebugManifest UP-TO-DATE
+> Task :document:compileDebugLibraryResources UP-TO-DATE
+> Task :common:compileDebugLibraryResources UP-TO-DATE
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :search:mapDebugSourceSetPaths UP-TO-DATE
+> Task :speech:mapDebugSourceSetPaths UP-TO-DATE
+> Task :common:parseDebugLocalResources UP-TO-DATE
+> Task :oauth:parseDebugLocalResources UP-TO-DATE
+> Task :search:parseDebugLocalResources UP-TO-DATE
+> Task :videogen:parseDebugLocalResources UP-TO-DATE
+> Task :ai:parseDebugLocalResources UP-TO-DATE
+> Task :material3:compileDebugLibraryResources UP-TO-DATE
+> Task :highlight:parseDebugLocalResources UP-TO-DATE
+> Task :document:parseDebugLocalResources UP-TO-DATE
+> Task :oauth:compileDebugLibraryResources UP-TO-DATE
+> Task :highlight:compileDebugLibraryResources UP-TO-DATE
+> Task :material3:parseDebugLocalResources UP-TO-DATE
+> Task :speech:parseDebugLocalResources UP-TO-DATE
+> Task :videogen:mapDebugSourceSetPaths UP-TO-DATE
+> Task :workspace:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebugUnitTest UP-TO-DATE
+> Task :speech:compileDebugLibraryResources UP-TO-DATE
+> Task :search:compileDebugLibraryResources UP-TO-DATE
+> Task :speech:generateDebugRFile UP-TO-DATE
+> Task :common:generateDebugRFile UP-TO-DATE
+> Task :document:generateDebugRFile UP-TO-DATE
+> Task :videogen:generateDebugRFile UP-TO-DATE
+> Task :ai:generateDebugRFile UP-TO-DATE
+> Task :workspace:packageDebugResources UP-TO-DATE
+> Task :web:buildWebUi UP-TO-DATE
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:processDebugGoogleServices' (registered by plugin 'com.android.internal.application').
+> File google-services.json is missing.
+  The Google Services Plugin cannot function without it.
+  Searched locations: D:\Office\Study\code\MathStudyAgent\client\app\src\debug\google-services.json, D:\Office\Study\code\MathStudyAgent\client\app\src\debug\google-services.json, D:\Office\Study\code\MathStudyAgent\client\app\src\google-services.json, D:\Office\Study\code\MathStudyAgent\client\app\src\debug\google-services.json, D:\Office\Study\code\MathStudyAgent\client\app\src\Debug\google-services.json, D:\Office\Study\code\MathStudyAgent\client\app\google-services.json
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 28s
+125 actionable tasks: 1 executed, 124 up-to-date
+Configuration cache entry stored.

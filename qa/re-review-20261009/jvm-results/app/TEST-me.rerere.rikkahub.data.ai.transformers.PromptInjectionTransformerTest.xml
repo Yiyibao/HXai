@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" tests="40" skipped="0" failures="0" errors="0" timestamp="2026-10-09T03:00:14.706Z" hostname="DESKTOP-QH4J0RS" time="0.025">
+  <properties/>
+  <testcase name="multiple AT_DEPTH injections with same depth should be merged" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.009"/>
+  <testcase name="mode injection with AFTER_SYSTEM_PROMPT should append to system message" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.001"/>
+  <testcase name="applyInjections should handle messages without system message" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="mode injection with AT_DEPTH should insert at specified depth from end" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.001"/>
+  <testcase name="assistant mode injection should be ignored when conversation injection is allowed" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="multiple AT_DEPTH injections with different depths should all apply" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.001"/>
+  <testcase name="mode injection with TOP_OF_CHAT should insert before first user message" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="different entries should use their own scanDepth" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.003"/>
+  <testcase name="no injections should return original messages" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="assistant lorebook should be ignored when conversation injection is allowed" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="AT_DEPTH with depth larger than message count should insert at beginning" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="mode injection with BEFORE_SYSTEM_PROMPT should prepend to system message" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="disabled world book should not trigger" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="combined mode injection and world book should both apply" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="findSafeInsertIndex should not insert between USER and ASSISTANT with tools" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.002"/>
+  <testcase name="collectInjections should return empty for no matching conditions" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="AT_DEPTH with depth 1 should insert before last message" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="disabled mode injection should not be applied" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.001"/>
+  <testcase name="lorebook without keyword match should not trigger injection" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="conversation lorebook should apply only when assistant allows it" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="injections should be ordered by priority descending" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="conversation mode injection should apply only when assistant allows it" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="findSafeInsertIndex should return original index when no tools" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="applyInjections with empty map should return original messages" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="lorebook with case sensitive match should not trigger on different case" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="lorebook with constantActive should always trigger" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="injection without existing system message should create new system message" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="lorebook with keyword match should trigger injection" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="unlinked mode injection should not be applied" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="BOTTOM_OF_CHAT should not inject between USER and ASSISTANT with tools" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.001"/>
+  <testcase name="findSafeInsertIndex should allow insert before ASSISTANT without tools" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="scanDepth should limit message scanning range" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="lorebook with case insensitive match should trigger" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="injection after ASSISTANT with tools should work normally" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="mode injection with BOTTOM_OF_CHAT should insert before last message" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.001"/>
+  <testcase name="collectInjections should collect linked and enabled mode injections" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="scanDepth should trigger when keyword is within range" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="lorebook with regex pattern should match" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.001"/>
+  <testcase name="multiple injections at different positions should all apply" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <testcase name="AT_DEPTH should not inject between USER and ASSISTANT with tools" classname="me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

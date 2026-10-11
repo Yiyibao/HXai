@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.asr.ASRVoiceTurnTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-09T03:00:10.180Z" hostname="DESKTOP-QH4J0RS" time="0.004">
+  <properties/>
+  <testcase name="final text can arrive before stopped event" classname="me.rerere.asr.ASRVoiceTurnTest" time="0.001"/>
+  <testcase name="only adapters with integrated server endpoint detection support voice mode" classname="me.rerere.asr.ASRVoiceTurnTest" time="0.002"/>
+  <testcase name="blank final result still completes and missing ids do not" classname="me.rerere.asr.ASRVoiceTurnTest" time="0.0"/>
+  <testcase name="speech stop waits for final text" classname="me.rerere.asr.ASRVoiceTurnTest" time="0.001"/>
+  <testcase name="another utterance cannot overwrite first turn" classname="me.rerere.asr.ASRVoiceTurnTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

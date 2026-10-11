@@ -1,0 +1,128 @@
+{
+  "schema": 2,
+  "contextSha256": "45825c71c742428e626ed70820906d0c35427c39b8fc8b52095d37fff68034ab",
+  "appSha256": "a9b22b310e5ed5f91d5c97ad0988d9e7c4fa4337dff698eff58597e10384d8f8",
+  "testSha256": "0483c9e4a0fa0ab2ab27f719dc740d8df40c87add6728afcd8c21f15cb594efc",
+  "records": [
+    {
+      "name": "qa-evidence/WordFormulaAssertionTest.tableCellsRejectDeletionReorderingAndValueChanges/c0c58e2a-997e-4a64-9a53-8128f4f4a436/source.docx",
+      "sha256": "bc234a3259fadd5d2a55736b64cb72076b34fd8f236124b8d2bb8d61648d5a1e",
+      "bytes": 1583,
+      "reusedSyntheticInput": false,
+      "method": "WordFormulaAssertionTest.tableCellsRejectDeletionReorderingAndValueChanges",
+      "runId": "c0c58e2a-997e-4a64-9a53-8128f4f4a436",
+      "status": "PASS",
+      "deviceMtime": 1791461900,
+      "startedAt": 1791461900127,
+      "finishedAt": 1791461900335
+    },
+    {
+      "name": "qa-evidence/WordFormulaAssertionTest.tableCellsRejectDeletionReorderingAndValueChanges/c0c58e2a-997e-4a64-9a53-8128f4f4a436/value.docx",
+      "sha256": "7bf3178693e9646b6adb7f1ca645211c05a660ff797a978a277e9114d6510c92",
+      "bytes": 1584,
+      "reusedSyntheticInput": false,
+      "method": "WordFormulaAssertionTest.tableCellsRejectDeletionReorderingAndValueChanges",
+      "runId": "c0c58e2a-997e-4a64-9a53-8128f4f4a436",
+      "status": "PASS",
+      "deviceMtime": 1791461900,
+      "startedAt": 1791461900127,
+      "finishedAt": 1791461900335
+    },
+    {
+      "name": "qa-evidence/WordFormulaAssertionTest.tableCellsRejectDeletionReorderingAndValueChanges/c0c58e2a-997e-4a64-9a53-8128f4f4a436/deleted-row.docx",
+      "sha256": "00b9b1c386021e3ebbc0b8de177a174961f289130c0f0f26da1dcf9151f5d4e8",
+      "bytes": 1535,
+      "reusedSyntheticInput": false,
+      "method": "WordFormulaAssertionTest.tableCellsRejectDeletionReorderingAndValueChanges",
+      "runId": "c0c58e2a-997e-4a64-9a53-8128f4f4a436",
+      "status": "PASS",
+      "deviceMtime": 1791461900,
+      "startedAt": 1791461900127,
+      "finishedAt": 1791461900335
+    },
+    {
+      "name": "qa-evidence/WordFormulaAssertionTest.tableCellsRejectDeletionReorderingAndValueChanges/c0c58e2a-997e-4a64-9a53-8128f4f4a436/reordered.docx",
+      "sha256": "26547913777e04591d890e3e4267e421987618fa0df0fa482e9fad8b536696c6",
+      "bytes": 1584,
+      "reusedSyntheticInput": false,
+      "method": "WordFormulaAssertionTest.tableCellsRejectDeletionReorderingAndValueChanges",
+      "runId": "c0c58e2a-997e-4a64-9a53-8128f4f4a436",
+      "status": "PASS",
+      "deviceMtime": 1791461900,
+      "startedAt": 1791461900127,
+      "finishedAt": 1791461900335
+    },
+    {
+      "name": "qa-evidence/WordFormulaAssertionTest.tableCellsRejectDeletionReorderingAndValueChanges/c0c58e2a-997e-4a64-9a53-8128f4f4a436/empty.docx",
+      "sha256": "a9f77100b7b8be61c65a8d03a2c2223e80d5f1714e6fa5f7da61eb714c4a95e9",
+      "bytes": 1339,
+      "reusedSyntheticInput": false,
+      "method": "WordFormulaAssertionTest.tableCellsRejectDeletionReorderingAndValueChanges",
+      "runId": "c0c58e2a-997e-4a64-9a53-8128f4f4a436",
+      "status": "PASS",
+      "deviceMtime": 1791461900,
+      "startedAt": 1791461900127,
+      "finishedAt": 1791461900335
+    },
+    {
+      "name": "qa-evidence/WordFormulaAssertionTest.perRunMaterialSamplesExistAndContainSyntheticContent/c0c58e2a-997e-4a64-9a53-8128f4f4a436/sample.md",
+      "sha256": "9e82c4c8608f892e3e677e2a51aa2fc5efbfbd2a4bb74ccde176a786d8af9e06",
+      "bytes": 58,
+      "reusedSyntheticInput": false,
+      "method": "WordFormulaAssertionTest.perRunMaterialSamplesExistAndContainSyntheticContent",
+      "runId": "c0c58e2a-997e-4a64-9a53-8128f4f4a436",
+      "status": "PASS",
+      "deviceMtime": 1791461900,
+      "startedAt": 1791461900439,
+      "finishedAt": 1791461900679
+    },
+    {
+      "name": "qa-evidence/WordFormulaAssertionTest.perRunMaterialSamplesExistAndContainSyntheticContent/c0c58e2a-997e-4a64-9a53-8128f4f4a436/sample.docx",
+      "sha256": "e881a3f13f78a3dd310c6b9e4456f27bdb470cc4d81d50e392689950f4d3b737",
+      "bytes": 1597,
+      "reusedSyntheticInput": false,
+      "method": "WordFormulaAssertionTest.perRunMaterialSamplesExistAndContainSyntheticContent",
+      "runId": "c0c58e2a-997e-4a64-9a53-8128f4f4a436",
+      "status": "PASS",
+      "deviceMtime": 1791461900,
+      "startedAt": 1791461900439,
+      "finishedAt": 1791461900679
+    },
+    {
+      "name": "qa-evidence/WordFormulaAssertionTest.perRunMaterialSamplesExistAndContainSyntheticContent/c0c58e2a-997e-4a64-9a53-8128f4f4a436/sample.xlsx",
+      "sha256": "d6be2ae32ef73423f0e1a0a3eeb471c885f547ba981ab796d4a900ec1cd61b2c",
+      "bytes": 2400,
+      "reusedSyntheticInput": false,
+      "method": "WordFormulaAssertionTest.perRunMaterialSamplesExistAndContainSyntheticContent",
+      "runId": "c0c58e2a-997e-4a64-9a53-8128f4f4a436",
+      "status": "PASS",
+      "deviceMtime": 1791461900,
+      "startedAt": 1791461900439,
+      "finishedAt": 1791461900679
+    },
+    {
+      "name": "qa-evidence/WordFormulaAssertionTest.perRunMaterialSamplesExistAndContainSyntheticContent/c0c58e2a-997e-4a64-9a53-8128f4f4a436/sample.pptx",
+      "sha256": "e37ef6baab66fff001ed249f9e6ef01c5ad7044fd11c3935f47bac17c2f79a23",
+      "bytes": 1933,
+      "reusedSyntheticInput": false,
+      "method": "WordFormulaAssertionTest.perRunMaterialSamplesExistAndContainSyntheticContent",
+      "runId": "c0c58e2a-997e-4a64-9a53-8128f4f4a436",
+      "status": "PASS",
+      "deviceMtime": 1791461900,
+      "startedAt": 1791461900439,
+      "finishedAt": 1791461900679
+    },
+    {
+      "name": "qa-evidence/WordFormulaAssertionTest.perRunMaterialSamplesExistAndContainSyntheticContent/c0c58e2a-997e-4a64-9a53-8128f4f4a436/sample.pdf",
+      "sha256": "4b5cd6da715095d55bb7ed447f0f9bcc44076c188821292a6c2c6511f08980d0",
+      "bytes": 47993,
+      "reusedSyntheticInput": false,
+      "method": "WordFormulaAssertionTest.perRunMaterialSamplesExistAndContainSyntheticContent",
+      "runId": "c0c58e2a-997e-4a64-9a53-8128f4f4a436",
+      "status": "PASS",
+      "deviceMtime": 1791461900,
+      "startedAt": 1791461900439,
+      "finishedAt": 1791461900679
+    }
+  ]
+}

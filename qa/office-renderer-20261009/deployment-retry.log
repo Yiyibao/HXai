@@ -1,0 +1,3 @@
+active
+active
+{"deployed": true, "rendererVersion": "25.2.3.2", "imageId": "sha256:eded0fd5c86acab9e38840128f24b6fb22af6724dd7568c90caad51681d07e2c", "idleQueueBeforeRestart": true, "rollbackDirectory": "/opt/mathdoc/office-backups/20261009-1"}

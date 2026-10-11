@@ -1,0 +1,23 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_bridge_test.dart
+00:00 +0: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_bridge_test.dart: Bridge load errors do not silently replace saved state with defaults
+00:00 +1: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_bridge_test.dart: Bridge load errors do not silently replace saved state with defaults
+00:00 +2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:01 +3: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:01 +4: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:01 +5: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:01 +6: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:01 +7: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:01 +8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:01 +9: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +10: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +11: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:02 +12: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_v4_test.dart: Rich semantics render on narrow dark screens with large text
+00:02 +13: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_v4_test.dart: Rich semantics render on narrow dark screens with large text
+00:02 +14: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_v4_test.dart: Rich semantics render on narrow dark screens with large text
+00:02 +15: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Inline and display math render while fenced math stays code
+00:02 +16: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Inline and display math render while fenced math stays code
+00:02 +17: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: A slow autosave keeps later edits dirty and sends the latest snapshot
+00:02 +18: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Unfinished stream preserves raw expression
+00:02 +19: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Autosave failure is visible and retry preserves the edited value
+00:02 +20: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Expanded view saves before closing and updates the inline controls
+00:02 +21: All tests passed!

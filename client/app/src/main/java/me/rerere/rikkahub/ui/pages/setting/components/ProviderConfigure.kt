@@ -258,7 +258,7 @@ private fun ProviderConfigureOpenAI(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(stringResource(R.string.setting_provider_page_enable))
+        Text(stringResource(R.string.setting_provider_page_enable), modifier = Modifier.weight(1f))
         Switch(
             checked = provider.enabled,
             onCheckedChange = { onEdit(provider.copy(enabled = it)) }
@@ -271,7 +271,7 @@ private fun ProviderConfigureOpenAI(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(stringResource(R.string.setting_provider_page_response_api))
+        Text(stringResource(R.string.setting_provider_page_response_api), modifier = Modifier.weight(1f))
         Switch(
             checked = provider.useResponseApi,
             onCheckedChange = {
@@ -288,7 +288,7 @@ private fun ProviderConfigureOpenAI(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(stringResource(R.string.setting_provider_page_include_history_reasoning))
+        Text(stringResource(R.string.setting_provider_page_include_history_reasoning), modifier = Modifier.weight(1f))
         Switch(
             checked = provider.includeHistoryReasoning,
             onCheckedChange = { onEdit(provider.copy(includeHistoryReasoning = it)) }
@@ -339,7 +339,7 @@ private fun ProviderConfigureClaude(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(stringResource(R.string.setting_provider_page_enable))
+        Text(stringResource(R.string.setting_provider_page_enable), modifier = Modifier.weight(1f))
         Switch(
             checked = provider.enabled,
             onCheckedChange = { onEdit(provider.copy(enabled = it)) }
@@ -351,7 +351,7 @@ private fun ProviderConfigureClaude(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(stringResource(R.string.setting_provider_page_claude_prompt_caching))
+        Text(stringResource(R.string.setting_provider_page_claude_prompt_caching), modifier = Modifier.weight(1f))
         Switch(
             checked = provider.promptCaching,
             onCheckedChange = { onEdit(provider.copy(promptCaching = it)) }
@@ -459,7 +459,7 @@ private fun ProviderConfigureGoogle(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(stringResource(R.string.setting_provider_page_enable))
+        Text(stringResource(R.string.setting_provider_page_enable), modifier = Modifier.weight(1f))
         Switch(
             checked = provider.enabled,
             onCheckedChange = { onEdit(provider.copy(enabled = it)) }
@@ -471,7 +471,7 @@ private fun ProviderConfigureGoogle(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(stringResource(R.string.setting_provider_page_vertex_ai))
+        Text(stringResource(R.string.setting_provider_page_vertex_ai), modifier = Modifier.weight(1f))
         Switch(
             checked = provider.vertexAI,
             onCheckedChange = { onEdit(provider.copy(vertexAI = it)) }
@@ -484,7 +484,7 @@ private fun ProviderConfigureGoogle(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text("Interactions API (Beta)")
+            Text("Interactions API (Beta)", modifier = Modifier.weight(1f))
             Switch(
                 checked = provider.useInteractionsApi,
                 onCheckedChange = { onEdit(provider.copy(useInteractionsApi = it)) }
@@ -498,7 +498,7 @@ private fun ProviderConfigureGoogle(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(stringResource(R.string.setting_provider_page_use_service_account))
+            Text(stringResource(R.string.setting_provider_page_use_service_account), modifier = Modifier.weight(1f))
             Switch(
                 checked = provider.useServiceAccount,
                 onCheckedChange = { onEdit(provider.copy(useServiceAccount = it)) }

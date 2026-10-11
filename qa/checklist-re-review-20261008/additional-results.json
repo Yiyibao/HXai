@@ -1,0 +1,170 @@
+[
+  {
+    "name": "StudyNavigationTest",
+    "passed": true,
+    "started": "2026-10-08T14:47:34.2200827+08:00",
+    "seconds": 10.8,
+    "log": "StudyNavigationTest.log"
+  },
+  {
+    "name": "CredentialVaultTest",
+    "passed": true,
+    "started": "2026-10-08T14:47:45.0672403+08:00",
+    "seconds": 9.5,
+    "log": "CredentialVaultTest.log"
+  },
+  {
+    "name": "LearningMemoryPageTest",
+    "passed": true,
+    "started": "2026-10-08T14:47:54.5513453+08:00",
+    "seconds": 20.1,
+    "log": "LearningMemoryPageTest.log"
+  },
+  {
+    "name": "LegacyMemoryEntryTest",
+    "passed": true,
+    "started": "2026-10-08T14:48:14.6384477+08:00",
+    "seconds": 4.8,
+    "log": "LegacyMemoryEntryTest.log"
+  },
+  {
+    "name": "LearningLoopPersistenceTest",
+    "passed": true,
+    "started": "2026-10-08T14:48:19.4516536+08:00",
+    "seconds": 4.0,
+    "log": "LearningLoopPersistenceTest.log"
+  },
+  {
+    "name": "MaterialPaginationTest",
+    "passed": true,
+    "started": "2026-10-08T14:48:23.4795832+08:00",
+    "seconds": 10.6,
+    "log": "MaterialPaginationTest.log"
+  },
+  {
+    "name": "DocumentServicePageTest",
+    "passed": true,
+    "started": "2026-10-08T14:48:34.1051994+08:00",
+    "seconds": 11.6,
+    "log": "DocumentServicePageTest.log"
+  },
+  {
+    "name": "BackupPageTest",
+    "passed": true,
+    "started": "2026-10-08T14:48:45.7181189+08:00",
+    "seconds": 9.4,
+    "log": "BackupPageTest.log"
+  },
+  {
+    "name": "DiagnosticsTest",
+    "passed": true,
+    "started": "2026-10-08T14:48:55.0720842+08:00",
+    "seconds": 6.6,
+    "log": "DiagnosticsTest.log"
+  },
+  {
+    "name": "DiagnosticsPageTest",
+    "passed": true,
+    "started": "2026-10-08T14:49:01.6506805+08:00",
+    "seconds": 16.3,
+    "log": "DiagnosticsPageTest.log"
+  },
+  {
+    "name": "FrontendModelPickerTest",
+    "passed": true,
+    "started": "2026-10-08T14:49:17.9081028+08:00",
+    "seconds": 6.3,
+    "log": "FrontendModelPickerTest.log"
+  },
+  {
+    "name": "FrontendDeliveryRoutesTest",
+    "passed": true,
+    "started": "2026-10-08T14:49:24.2237280+08:00",
+    "seconds": 17.6,
+    "log": "FrontendDeliveryRoutesTest.log"
+  },
+  {
+    "name": "WarningFixGalleryTest",
+    "passed": true,
+    "started": "2026-10-08T14:49:41.8554460+08:00",
+    "seconds": 8.3,
+    "log": "WarningFixGalleryTest.log"
+  },
+  {
+    "name": "WarningFixSliderTest",
+    "passed": true,
+    "started": "2026-10-08T14:49:50.1423180+08:00",
+    "seconds": 5.0,
+    "log": "WarningFixSliderTest.log"
+  },
+  {
+    "name": "WarningReviewBoundaryTest",
+    "passed": true,
+    "started": "2026-10-08T14:49:55.1311798+08:00",
+    "seconds": 3.1,
+    "log": "WarningReviewBoundaryTest.log"
+  },
+  {
+    "name": "memory-seed",
+    "passed": true,
+    "started": "2026-10-08T14:49:58.2185381+08:00",
+    "seconds": 3.0,
+    "log": "memory-seed.log"
+  },
+  {
+    "name": "memory-verify",
+    "passed": true,
+    "started": "2026-10-08T14:50:01.2932026+08:00",
+    "seconds": 3.0,
+    "log": "memory-verify.log"
+  },
+  {
+    "name": "feedback-seed",
+    "passed": true,
+    "started": "2026-10-08T14:50:04.3057595+08:00",
+    "seconds": 2.8,
+    "log": "feedback-seed.log"
+  },
+  {
+    "name": "feedback-verify",
+    "passed": true,
+    "started": "2026-10-08T14:50:07.1872664+08:00",
+    "seconds": 2.8,
+    "log": "feedback-verify.log"
+  },
+  {
+    "name": "StudyRealModelTest",
+    "passed": true,
+    "started": "2026-10-08T14:50:09.9612990+08:00",
+    "seconds": 181.9,
+    "log": "StudyRealModelTest.log"
+  },
+  {
+    "name": "ProjectReviewTeachingTest",
+    "passed": false,
+    "started": "2026-10-08T14:53:11.9067793+08:00",
+    "seconds": 32.2,
+    "log": "ProjectReviewTeachingTest.log"
+  },
+  {
+    "name": "LearningLoopRealModelTest",
+    "passed": true,
+    "started": "2026-10-08T14:53:44.0714367+08:00",
+    "seconds": 144.5,
+    "log": "LearningLoopRealModelTest.log"
+  },
+  {
+    "name": "LearningMemoryRealModelTest",
+    "passed": true,
+    "started": "2026-10-08T14:56:08.6082272+08:00",
+    "seconds": 305.9,
+    "log": "LearningMemoryRealModelTest.log"
+  },
+  {
+    "name": "MaterialRealModelTest",
+    "passed": false,
+    "started": "2026-10-08T15:01:14.5114701+08:00",
+    "seconds": 45.6,
+    "log": "MaterialRealModelTest.log"
+  }
+]

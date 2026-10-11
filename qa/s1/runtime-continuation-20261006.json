@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-06",
+  "status": "PASS",
+  "environment": "AOSP API 34 emulator; synthetic inputs and tools; not Mate 50",
+  "serial": "emulator-5554",
+  "apk_sha256": "4d97a9605c82e0c497c1af2a72cbebb9dc19e6fc5d0b1b2f8390ce21d2de6199",
+  "android_fault_tests": 16,
+  "process_recovery_phases": 2,
+  "process_ids": {
+    "seed": "11078",
+    "verify": "11177"
+  },
+  "jvm": {
+    "ai": {
+      "errors": 0,
+      "failures": 0,
+      "tests": 197
+    },
+    "app": {
+      "errors": 0,
+      "failures": 0,
+      "tests": 245
+    }
+  },
+  "cases": [
+    "real airplane-mode loss and manual queue resume",
+    "Wi-Fi to mobile default route switch",
+    "atomic durable queue submission",
+    "tool start/result commit before next execution",
+    "unknown effect never replayed; explicit skip and continuation",
+    "Room 27 to 28 migration",
+    "force-stop between checkpoint seed and recovery; stable message and queue IDs; paused queue; unknown tool state"
+  ],
+  "limitations": [
+    "Not target Mate 50",
+    "Local SSE fixture observes real route changes; no remote-provider dual-route test",
+    "Process fixture force-stops after durable checkpoints, not while a real external tool produces effects"
+  ]
+}

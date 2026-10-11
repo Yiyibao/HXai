@@ -1,0 +1,290 @@
+ M README.md
+ M client/ai/src/main/java/me/rerere/ai/provider/providers/claude/ClaudeProvider.kt
+ M client/ai/src/main/java/me/rerere/ai/provider/providers/google/GoogleProvider.kt
+ M client/ai/src/main/java/me/rerere/ai/provider/providers/google/InteractionsAPI.kt
+ M client/ai/src/main/java/me/rerere/ai/provider/providers/google/vertex/ServiceAccountTokenProvider.kt
+ M client/ai/src/main/java/me/rerere/ai/provider/providers/openai/ChatCompletionsAPI.kt
+ M client/ai/src/main/java/me/rerere/ai/provider/providers/openai/OpenAIProvider.kt
+ M client/ai/src/main/java/me/rerere/ai/provider/providers/openai/ResponseAPI.kt
+ M client/ai/src/main/java/me/rerere/ai/ui/Message.kt
+ M client/ai/src/main/java/me/rerere/ai/ui/UIMessagePart.kt
+ M client/ai/src/main/java/me/rerere/ai/util/ErrorParser.kt
+ M client/ai/src/test/java/me/rerere/ai/provider/providers/google/InteractionsApiTest.kt
+ M client/ai/src/test/java/me/rerere/ai/provider/providers/openai/ResponseApiStreamDecoderTest.kt
+ M client/app/build.gradle.kts
+ D client/app/src/debug/res/mipmap-anydpi-v26/ic_launcher.xml
+ M client/app/src/main/AndroidManifest.xml
+ M client/app/src/main/java/me/rerere/rikkahub/RikkaHubApp.kt
+ M client/app/src/main/java/me/rerere/rikkahub/RouteActivity.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/ai/GenerationLoop.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/ai/RequestLoggingInterceptor.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/ai/mcp/McpSessionRegistry.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/ai/tools/ChatToolFactory.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/ai/tools/ConversationTools.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/ai/transformers/DocumentAsPromptTransformer.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/datastore/PreferencesStore.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/db/AppDatabase.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/db/AppDatabaseFactory.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/db/dao/ConversationDAO.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/db/dao/FavoriteDAO.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/db/dao/FolderDAO.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/db/entity/ConversationEntity.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/db/entity/FolderEntity.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/db/fts/MessageFtsManager.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/db/migrations/MigrationUtils.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/db/migrations/Migration_11_12.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/files/FilesManager.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/model/Conversation.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/model/Folder.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/repository/ConversationRepository.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/repository/FavoriteRepository.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/repository/FolderRepository.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/sync/BackupManager.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/sync/PendingRestore.kt
+ M client/app/src/main/java/me/rerere/rikkahub/data/sync/webdav/WebDavClient.kt
+ M client/app/src/main/java/me/rerere/rikkahub/di/AppModule.kt
+ M client/app/src/main/java/me/rerere/rikkahub/di/DataSourceModule.kt
+ M client/app/src/main/java/me/rerere/rikkahub/di/RepositoryModule.kt
+ M client/app/src/main/java/me/rerere/rikkahub/service/ChatService.kt
+ M client/app/src/main/java/me/rerere/rikkahub/service/ConversationSession.kt
+ M client/app/src/main/java/me/rerere/rikkahub/service/MessageQueue.kt
+ M client/app/src/main/java/me/rerere/rikkahub/service/WebServerService.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/activity/SafeModeActivity.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ChatInput.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/FilesPicker.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/components/easteregg/EmojiBurst.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/components/message/ChatMessage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/components/message/ChatMessageReasoning.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/components/message/ChatMessageTools.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/components/message/ChatMessageTranslation.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/components/message/tools/BuiltinToolUIs.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/components/richtext/Mermaid.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/components/table/DataTable.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/BackupReminderCard.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/ChainOfThought.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/ShareSheet.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/Switch.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/TextArea.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/Tooltip.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/UpdateCard.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/ViewText.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/assistant/AssistantPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/assistant/detail/AssistantBasicPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/assistant/detail/AssistantImporter.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/assistant/detail/AssistantMemoryPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/assistant/detail/PropertyEditor.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/backup/BackupPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/backup/BackupVM.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/backup/tabs/ImportExportTab.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/backup/tabs/ReminderTab.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/backup/tabs/S3Tab.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/backup/tabs/WebDavTab.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/ChatDrawer.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/ChatDrawerVM.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/ChatList.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/ChatPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/ChatVM.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/VoiceSessionController.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/extensions/PromptPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/extensions/skills/SkillsPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/extensions/workspace/WorkspaceDetailPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/history/HistoryVM.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/imggen/ImgGenPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/search/SearchVM.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingFilesPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingPreferencesGeneralPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingPreferencesNotificationPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingPreferencesUIPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingProviderDetailPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingProviderPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingThemePage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingWebPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/components/ProviderConfigure.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/components/ProviderConnectionTester.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/stats/StatsPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/pages/translator/TranslatorPage.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/theme/PresetTheme.kt
+ M client/app/src/main/java/me/rerere/rikkahub/ui/theme/Theme.kt
+ M client/app/src/main/java/me/rerere/rikkahub/utils/ChatUtil.kt
+ M client/app/src/main/java/me/rerere/rikkahub/utils/ContextUtil.kt
+ M client/app/src/main/java/me/rerere/rikkahub/utils/CrashHandler.kt
+ M client/app/src/main/java/me/rerere/rikkahub/utils/NotificationUtil.kt
+ M client/app/src/main/java/me/rerere/rikkahub/utils/UpdateChecker.kt
+ M client/app/src/main/java/me/rerere/rikkahub/web/WebServerManager.kt
+ M client/app/src/main/java/me/rerere/rikkahub/web/routes/EventsRoutes.kt
+ M client/app/src/main/java/me/rerere/rikkahub/web/routes/FilesRoutes.kt
+ D client/app/src/main/res/drawable/kofi.webp
+ D client/app/src/main/res/drawable/patreon.xml
+ D client/app/src/main/res/drawable/placeholder.png
+ D client/app/src/main/res/drawable/placeholder_dark.png
+ D client/app/src/main/res/drawable/siliconflow_dark.png
+ D client/app/src/main/res/drawable/siliconflow_light.png
+ D client/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+ D client/app/src/main/res/mipmap-hdpi/ic_launcher.png
+ D client/app/src/main/res/mipmap-hdpi/ic_launcher_monochrome.png
+ D client/app/src/main/res/mipmap-mdpi/ic_launcher.png
+ D client/app/src/main/res/mipmap-mdpi/ic_launcher_monochrome.png
+ D client/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+ D client/app/src/main/res/mipmap-xhdpi/ic_launcher_monochrome.png
+ D client/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+ D client/app/src/main/res/mipmap-xxhdpi/ic_launcher_monochrome.png
+ D client/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+ D client/app/src/main/res/mipmap-xxxhdpi/ic_launcher_monochrome.png
+ M client/app/src/main/res/values-ar/strings.xml
+ M client/app/src/main/res/values-ja/strings.xml
+ M client/app/src/main/res/values-ko-rKR/strings.xml
+ M client/app/src/main/res/values-ru/strings.xml
+ M client/app/src/main/res/values-zh-rTW/strings.xml
+ M client/app/src/main/res/values-zh/strings.xml
+ M client/app/src/main/res/values/colors.xml
+ M client/app/src/main/res/values/strings.xml
+ M client/app/src/main/res/xml/data_extraction_rules.xml
+ M client/app/src/test/java/me/rerere/rikkahub/ShareSheetTest.kt
+ M client/app/src/test/java/me/rerere/rikkahub/data/sync/PendingRestoreTest.kt
+ M client/app/src/test/java/me/rerere/rikkahub/service/ChatServiceTest.kt
+ M client/app/src/test/java/me/rerere/rikkahub/service/ConversationSessionTest.kt
+ M client/common/src/main/java/me/rerere/common/http/AcceptLang.kt
+ M client/common/src/main/java/me/rerere/common/http/JsonExpression.kt
+ M client/material3/material-color-utilities/kotlin/dynamiccolor/ColorSpec2025.kt
+ M client/oauth/src/main/java/me/rerere/oauth/OAuthLoopbackCallbackServer.kt
+ M client/search/src/main/java/me/rerere/search/BochaSearchService.kt
+ M client/search/src/main/java/me/rerere/search/DoubaoSearchService.kt
+ M client/search/src/main/java/me/rerere/search/ExaSearchService.kt
+ M client/search/src/main/java/me/rerere/search/GrokSearchService.kt
+ M client/search/src/main/java/me/rerere/search/JinaSearchService.kt
+ M client/search/src/main/java/me/rerere/search/LinkUpService.kt
+ M client/search/src/main/java/me/rerere/search/MetasoSearchService.kt
+ M client/search/src/main/java/me/rerere/search/OllamaSearchService.kt
+ M client/search/src/main/java/me/rerere/search/PerplexitySearchService.kt
+ M client/search/src/main/java/me/rerere/search/RikkaHubSearchService.kt
+ M client/search/src/main/java/me/rerere/search/SearXNGService.kt
+ M client/search/src/main/java/me/rerere/search/ZhipuSearchService.kt
+ M client/speech/src/main/java/me/rerere/asr/providers/DashScopeASRController.kt
+ M client/speech/src/main/java/me/rerere/asr/providers/MiMoASRController.kt
+ M client/speech/src/main/java/me/rerere/asr/providers/OpenAIRealtimeASRController.kt
+ M client/speech/src/main/java/me/rerere/asr/providers/StepASRController.kt
+ M client/speech/src/main/java/me/rerere/asr/providers/VolcengineASRController.kt
+ M client/speech/src/main/java/me/rerere/tts/controller/TtsController.kt
+ M client/speech/src/main/java/me/rerere/tts/provider/TTSProviderException.kt
+ M client/speech/src/main/java/me/rerere/tts/provider/providers/ElevenLabsTTSProvider.kt
+ M client/speech/src/main/java/me/rerere/tts/provider/providers/FishAudioTTSProvider.kt
+ M client/speech/src/main/java/me/rerere/tts/provider/providers/GeminiTTSProvider.kt
+ M client/speech/src/main/java/me/rerere/tts/provider/providers/GroqTTSProvider.kt
+ M client/speech/src/main/java/me/rerere/tts/provider/providers/MiniMaxTTSProvider.kt
+ M client/speech/src/main/java/me/rerere/tts/provider/providers/OpenAITTSProvider.kt
+ M client/speech/src/main/java/me/rerere/tts/provider/providers/QwenTTSProvider.kt
+ M client/speech/src/main/java/me/rerere/tts/provider/providers/StepTTSProvider.kt
+ M client/speech/src/main/java/me/rerere/tts/provider/providers/SystemTTSProvider.kt
+ M client/speech/src/main/java/me/rerere/tts/provider/providers/XAITTSProvider.kt
+ M client/speech/src/test/java/me/rerere/asr/providers/VolcengineASRProtocolTest.kt
+ M client/web-ui/app/components/extended/conversation.tsx
+ M client/web-ui/app/components/ui/checkbox.tsx
+ M client/web-ui/app/components/ui/drawer.tsx
+ M client/web-ui/app/components/ui/select.tsx
+ M client/web-ui/app/components/ui/sheet.tsx
+ M client/web-ui/app/components/ui/sidebar.tsx
+ M client/web-ui/app/components/ui/sonner.tsx
+ M client/web-ui/app/components/ui/tooltip.tsx
+ M docs/acceptance-matrix.md
+ M docs/data-contract-v1.md
+ M docs/implementation-plan.md
+ M docs/project-context.md
+ M docs/s0-execution.md
+ M qa/s0/README.md
+ M qa/s0/google-services.example.json
+ M qa/s0/local-validation.log
+ M scripts/build_baseline.ps1
+?? client/ai/src/test/java/me/rerere/ai/util/ErrorPrivacyTest.kt
+?? client/app/schemas/me.rerere.rikkahub.data.db.AppDatabase/26.json
+?? client/app/schemas/me.rerere.rikkahub.data.db.AppDatabase/27.json
+?? client/app/schemas/me.rerere.rikkahub.data.db.AppDatabase/28.json
+?? client/app/schemas/me.rerere.rikkahub.data.db.AppDatabase/29.json
+?? client/app/schemas/me.rerere.rikkahub.data.db.AppDatabase/30.json
+?? client/app/src/androidTest/java/me/rerere/rikkahub/service/
+?? client/app/src/debug/res/mipmap-anydpi/
+?? client/app/src/main/java/me/rerere/rikkahub/data/datastore/CredentialPreferences.kt
+?? client/app/src/main/java/me/rerere/rikkahub/data/datastore/CredentialVault.kt
+?? client/app/src/main/java/me/rerere/rikkahub/data/datastore/SettingsExport.kt
+?? client/app/src/main/java/me/rerere/rikkahub/data/db/migrations/Migration_26_27.kt
+?? client/app/src/main/java/me/rerere/rikkahub/data/model/ConversationQueue.kt
+?? client/app/src/main/java/me/rerere/rikkahub/data/sync/BackupDeletionMerge.kt
+?? client/app/src/main/java/me/rerere/rikkahub/data/sync/BackupManifest.kt
+?? client/app/src/main/java/me/rerere/rikkahub/data/sync/BackupPaths.kt
+?? client/app/src/main/java/me/rerere/rikkahub/data/sync/EncryptedBackup.kt
+?? client/app/src/main/java/me/rerere/rikkahub/data/sync/MemoryRestore.kt
+?? client/app/src/main/java/me/rerere/rikkahub/feature/
+?? client/app/src/main/java/me/rerere/rikkahub/service/DeviceNetworkMonitor.kt
+?? client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/ControlledSlider.kt
+?? client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/CredentialRecoveryScreen.kt
+?? client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/LearnerProfilePicker.kt
+?? client/app/src/main/java/me/rerere/rikkahub/ui/theme/presets/StudyWhitePinkTheme.kt
+?? client/app/src/main/res/drawable-nodpi/
+?? client/app/src/main/res/mipmap-anydpi/
+?? client/app/src/main/res/values/icon_aliases.xml
+?? client/app/src/test/java/me/rerere/rikkahub/data/sync/BackupIntegrityTest.kt
+?? client/app/src/test/java/me/rerere/rikkahub/data/sync/BackupPathsTest.kt
+?? client/app/src/test/java/me/rerere/rikkahub/data/sync/EncryptedBackupTest.kt
+?? client/app/src/test/java/me/rerere/rikkahub/data/sync/MemoryRestoreTest.kt
+?? client/app/src/test/java/me/rerere/rikkahub/feature/
+?? client/app/src/test/java/me/rerere/rikkahub/service/GenerationRecoveryTest.kt
+?? client/app/src/test/java/me/rerere/rikkahub/service/LearnerProfileCompatibilityTest.kt
+?? client/app/src/test/java/me/rerere/rikkahub/service/SettingsCredentialExportTest.kt
+?? client/app/src/test/java/me/rerere/rikkahub/service/TTSPrivacyTest.kt
+?? client/common/src/main/java/me/rerere/common/util/
+?? docs/diagnostics-feedback.md
+?? docs/document-service-execution.md
+?? docs/document-service-plan.md
+?? docs/frontend-delivery/
+?? docs/imagegen-page-prompts.md
+?? docs/material-execution.md
+?? docs/motion-design-reference.md
+?? docs/s1-execution.md
+?? docs/s2-execution.md
+?? docs/s3-execution.md
+?? docs/s5-execution.md
+?? docs/ui-design/
+?? qa/diagnostics/
+?? qa/document-service/
+?? qa/fixes-20261008/
+?? qa/full-review-20261008/
+?? qa/material/
+?? qa/s0/baseline-build-20261006.json
+?? qa/s0/emulator-baseline-20261006.json
+?? qa/s0/test_responses.py
+?? qa/s1/
+?? qa/s2/
+?? qa/s3/
+?? qa/s5/
+?? qa/warnings-review-20261008/
+?? scripts/audit_document_model_sources.py
+?? scripts/audit_review_native.py
+?? scripts/build_material_receiver.ps1
+?? scripts/collect_material_evidence.py
+?? scripts/collect_project_review.py
+?? scripts/collect_warning_delivery.py
+?? scripts/finish_review_resources.py
+?? scripts/fix_compiler_review.py
+?? scripts/fix_module_compiler_review.py
+?? scripts/fix_review_warnings.py
+?? scripts/probe_responses.py
+?? scripts/review_project_20261008.ps1
+?? scripts/review_warnings_20261008.ps1
+?? scripts/summarize_compiler_review.py
+?? scripts/summarize_material_completion.py
+?? scripts/summarize_warning_review.py
+?? scripts/test_diagnostics.ps1
+?? scripts/test_document_service.ps1
+?? scripts/test_frontend_review_fixes.ps1
+?? scripts/test_material_completion.ps1
+?? scripts/test_s1_completion.ps1
+?? scripts/test_s1_credentials.ps1
+?? scripts/test_s1_network_faults.ps1
+?? scripts/test_s1_runtime_continuation.ps1
+?? scripts/test_s2_completion.ps1
+?? scripts/test_s3_completion.ps1
+?? scripts/test_s5_completion.ps1
+?? scripts/validate_material_fidelity.py
+?? scripts/validate_material_outputs.py
+?? scripts/write_warning_feature_matrix.py
+?? server/

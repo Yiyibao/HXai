@@ -1,0 +1,42 @@
+[
+  {
+    "name": "seed",
+    "started": "2026-10-08T18:08:20.6846293+08:00",
+    "ended": "2026-10-08T18:08:26.8527585+08:00",
+    "ok": true,
+    "exit": 0,
+    "class": "ChecklistSupplementTest#controlledBoundariesSurviveIndependentProcess"
+  },
+  {
+    "name": "verify",
+    "started": "2026-10-08T18:08:26.9183976+08:00",
+    "ended": "2026-10-08T18:08:31.6861808+08:00",
+    "ok": true,
+    "exit": 0,
+    "class": "ChecklistSupplementTest#controlledBoundariesSurviveIndependentProcess"
+  },
+  {
+    "name": "skills-install",
+    "started": "2026-10-08T18:08:31.6896408+08:00",
+    "ended": "2026-10-08T18:08:34.5906476+08:00",
+    "ok": true,
+    "exit": 0,
+    "class": "ChecklistSupplementTest#skillsInstallWorksWhileAuthoringAndEditingAreDisabled"
+  },
+  {
+    "name": "skills-use",
+    "started": "2026-10-08T18:08:34.5922353+08:00",
+    "ended": "2026-10-08T18:08:38.0863091+08:00",
+    "ok": true,
+    "exit": 0,
+    "class": "ChecklistSupplementTest#installedSkillsCanBeUsedOnlyWhenEnabled"
+  },
+  {
+    "name": "word-negative",
+    "started": "2026-10-08T18:08:38.0978489+08:00",
+    "ended": "2026-10-08T18:08:41.0984681+08:00",
+    "ok": true,
+    "exit": 0,
+    "class": "WordFormulaAssertionTest"
+  }
+]

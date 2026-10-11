@@ -1,0 +1,17 @@
+[
+  {
+    "apk": "app-arm64-v8a-debug.apk",
+    "binaries": 14,
+    "elf16kbIncompatible": 0
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "binaries": 28,
+    "elf16kbIncompatible": 0
+  },
+  {
+    "apk": "app-x86_64-debug.apk",
+    "binaries": 14,
+    "elf16kbIncompatible": 0
+  }
+]

@@ -124,6 +124,12 @@ class ChatDrawerVM(
     val scrollOffset: Int get() = savedStateHandle["scrollOffset"] ?: 0
 
     init {
+        viewModelScope.launch {
+            settingsStore.settingsFlow.map { it.activeProfileId }.distinctUntilChanged().collect {
+                _selectedFolderId.value = null
+                saveScrollPosition(0, 0)
+            }
+        }
         // 助手切换时重置文件夹筛选，回到「聊天」视图，
         // 避免继续显示上一个助手文件夹内的会话（文件夹是助手内分组）
         viewModelScope.launch {

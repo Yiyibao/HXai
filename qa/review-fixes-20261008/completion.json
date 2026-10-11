@@ -1,0 +1,11 @@
+{
+  "completedAt": "2026-10-08T18:02:55.1063213+08:00",
+  "skillsAuthoring": "DISABLED",
+  "skillsEditing": "DISABLED",
+  "skillsInstallation": "ENABLED",
+  "historyRemoteFailureCause": "UNKNOWN",
+  "imageGeneration": "MISSING_CONFIGURATION",
+  "latestApkHashes": "gate-fixed-apk-hashes.json",
+  "latestSummary": "summary.json",
+  "placeholderFirebaseRemoved": true
+}

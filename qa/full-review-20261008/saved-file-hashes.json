@@ -1,0 +1,27 @@
+[
+  {
+    "file": "/sdcard/Download/QA交付-287c932f-cdba-4ecc-87a1-9ffc7ca928d5.md",
+    "sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+    "matches_original": true
+  },
+  {
+    "file": "/sdcard/Download/QA交付-df07c08d-4e7f-46d1-bca7-0b62e1e52511.docx",
+    "sha256": "54ead319201cebfea76b570e02eb963492d5111bfaf6e4e22132cc79f186bc6e",
+    "matches_original": true
+  },
+  {
+    "file": "/sdcard/Download/QA交付-a8fa9724-b561-479c-b90a-956057b8c547.xlsx",
+    "sha256": "119f9d15633ba17901cef53ad72c30bc276d1659efeffdee16700cfa1cc607a0",
+    "matches_original": true
+  },
+  {
+    "file": "/sdcard/Download/QA交付-8a17b268-7c8c-458f-8895-fd4171d4720b.pptx",
+    "sha256": "1560493e6c588df31c1861438c2d33dbed0793738e1d32c406a2541741e27f45",
+    "matches_original": true
+  },
+  {
+    "file": "/sdcard/Download/QA交付-dd9dacb8-5aae-42c4-8d96-58ca4d142709.pdf",
+    "sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+    "matches_original": true
+  }
+]

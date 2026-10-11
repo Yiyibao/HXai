@@ -1,0 +1,4 @@
+crossConversation=true
+lastReferenceIoFailurePreserved=true
+retryRemoved=true
+sourceSha256=acfa8979e09cead665c621ffb16f12ab79a1abf0cac949fc93b72c68be040b56

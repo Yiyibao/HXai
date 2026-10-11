@@ -1,0 +1,85 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ClosureBoundaryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ClosureBoundaryTest:
+INSTRUMENTATION_STATUS: test=approvalEveryTransactionStepRollsBackBeforePublication
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"ClosureBoundaryTest.approvalEveryTransactionStepRollsBackBeforePublication","runId":"c1c7f733-7be3-422b-8031-9369c250095e","startedAt":1791464559397,"finishedAt":1791464561106,"status":"FAILED","entries":[{"name":"qa-evidence\/ClosureBoundaryTest.approvalEveryTransactionStepRollsBackBeforePublication\/c1c7f733-7be3-422b-8031-9369c250095e\/assertions.txt","sha256":"fdf6fa1ef14a028b558feb7ff67ded960c1d8bdf60ad0f8433b0cb71f544fd50","bytes":465,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ClosureBoundaryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: memory/approve must fail
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at me.rerere.rikkahub.service.ClosureBoundaryTest$approvalEveryTransactionStepRollsBackBeforePublication$1.invokeSuspend(ClosureBoundaryTest.kt:111)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.UndispatchedCoroutine.afterResume(CoroutineContext.kt:278)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:101)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:47)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ClosureBoundaryTest.approvalEveryTransactionStepRollsBackBeforePublication(ClosureBoundaryTest.kt:85)
+
+INSTRUMENTATION_STATUS: stream=
+Error in approvalEveryTransactionStepRollsBackBeforePublication(me.rerere.rikkahub.service.ClosureBoundaryTest):
+java.lang.AssertionError: memory/approve must fail
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at me.rerere.rikkahub.service.ClosureBoundaryTest$approvalEveryTransactionStepRollsBackBeforePublication$1.invokeSuspend(ClosureBoundaryTest.kt:111)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.UndispatchedCoroutine.afterResume(CoroutineContext.kt:278)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:101)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:47)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ClosureBoundaryTest.approvalEveryTransactionStepRollsBackBeforePublication(ClosureBoundaryTest.kt:85)
+
+INSTRUMENTATION_STATUS: test=approvalEveryTransactionStepRollsBackBeforePublication
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 1.912
+There was 1 failure:
+1) approvalEveryTransactionStepRollsBackBeforePublication(me.rerere.rikkahub.service.ClosureBoundaryTest)
+java.lang.AssertionError: memory/approve must fail
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at me.rerere.rikkahub.service.ClosureBoundaryTest$approvalEveryTransactionStepRollsBackBeforePublication$1.invokeSuspend(ClosureBoundaryTest.kt:111)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.UndispatchedCoroutine.afterResume(CoroutineContext.kt:278)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:101)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:47)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ClosureBoundaryTest.approvalEveryTransactionStepRollsBackBeforePublication(ClosureBoundaryTest.kt:85)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

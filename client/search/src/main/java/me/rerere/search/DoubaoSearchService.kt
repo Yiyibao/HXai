@@ -85,7 +85,7 @@ object DoubaoSearchService : SearchService<SearchServiceOptions.DoubaoOptions> {
             httpClient.newCall(request).await().use { response ->
                 val responseBody = response.body.string()
                 if (!response.isSuccessful) {
-                    error("Doubao search failed #${response.code}: $responseBody")
+                    error("Doubao search failed HTTP ${response.code}")
                 }
                 parseResponse(serviceOptions.mode, responseBody)
             }
@@ -106,7 +106,7 @@ object DoubaoSearchService : SearchService<SearchServiceOptions.DoubaoOptions> {
                 response.metadata.error?.let { error(it.message ?: it.code ?: "Doubao API error") }
                 val result = response.result ?: error("Doubao response does not contain Result")
                 if (result.errorCode != null && result.errorCode != 0) {
-                    error(result.errorMsg ?: "Doubao API error #${result.errorCode}")
+                    error("Doubao service rejected the request")
                 }
                 SearchResult(
                     items = result.documents.map { document ->
@@ -118,7 +118,10 @@ object DoubaoSearchService : SearchService<SearchServiceOptions.DoubaoOptions> {
                     },
                     images = result.documents.flatMap { document ->
                         document.snippet.mapNotNull { it.image?.imageUrl }
-                    }.distinct()
+                    }.distinct(),
+                    imageDetails = result.documents.flatMap { document -> document.snippet.mapNotNull {
+                        it.image?.imageUrl?.let { url -> SearchImage(url, document.url, document.title) }
+                    } }.distinctBy { it.url }
                 )
             }
 

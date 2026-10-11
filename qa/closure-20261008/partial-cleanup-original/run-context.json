@@ -1,0 +1,14 @@
+{
+  "appSha256": "3ab86b1bcaea77917fe354a8930a26c676377543f11697c9c98d9800ded86343",
+  "testSha256": "110c939d66063010f34e1489a15fb30e3b488fe2a3b806e43a0887037738e6ff",
+  "runs": [
+    {
+      "method": "SkillClosureTest.partialUninstallCleanupFailureRestoresEntireSkill",
+      "runId": "57fa4536-2661-43e7-acea-9033782bdeb1",
+      "log": "focused.log",
+      "logSha256": "ec69f5f8f7cba87ea6a995c25d5a65392b89046a09c419c4e646a39dd13bba85",
+      "notBefore": 1791465695247,
+      "notAfter": 1791465710278
+    }
+  ]
+}

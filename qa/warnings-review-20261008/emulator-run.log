@@ -1,0 +1,42 @@
+Performing Streamed Install
+Success
+Performing Streamed Install
+Success
+StudyNavigationTest : True
+StudyChatCompletionTest : True
+ChatNetworkFaultTest : True
+CredentialVaultTest : True
+LearningMemoryPersistenceTest : True
+LearningMemoryPageTest : True
+LegacyMemoryEntryTest : True
+LearningLoopPersistenceTest : True
+MaterialFilesTest : True
+MaterialFidelityTest : True
+MaterialPageTest : True
+MaterialPaginationTest : True
+MaterialDeliveryTest : True
+DocumentServicePageTest : True
+BackupReliabilityTest : True
+BackupPageTest : True
+DiagnosticsTest : True
+DiagnosticsPageTest : True
+FrontendModelPickerTest : True
+FrontendDeliveryRoutesTest : True
+ProjectReviewAuditTest : True
+ProjectReviewDeliveryTest : True
+runtime-seed : True
+runtime-verify : True
+memory-seed : True
+memory-verify : True
+Review run completed; inspect all logs including skipped tests and failures.
+gallery-final : True
+slider-final : True
+workspace-boundary-final : True
+feedback-seed : True
+feedback-verify : True
+StudyRealModelTest : False
+ProjectReviewTeachingTest : True
+LearningLoopRealModelTest : True
+LearningMemoryRealModelTest : True
+MaterialRealModelTest : True
+Complete run finished. All raw results, including failures and skipped placeholders, are retained.

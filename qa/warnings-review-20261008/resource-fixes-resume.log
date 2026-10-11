@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from pathlib import Path; p=Path('scripts/fix_review_warnings.py');t=p.read_text(encoding='utf-8');head=t[:t.index('base = ')];tail=t[t.index('# Lint plus repository-wide'):];exec(head+'issues = ET.parse(QA/\'before-lint.xml\').getroot()\n'+tail,{'__file__':str(p.resolve())})
+                                                                                                                                                                                   ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 47, in <module>
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 746, in unlink
+    os.unlink(self)
+    ~~~~~~~~~^^^^^^
+FileNotFoundError: [WinError 2] ϵͳ�Ҳ���ָ�����ļ���: 'D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\res\\drawable\\patreon.xml'

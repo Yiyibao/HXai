@@ -18,7 +18,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.LargeFlexibleTopAppBar
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Slider
+import me.rerere.rikkahub.ui.components.ui.ControlledSlider as Slider
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
@@ -128,6 +128,15 @@ fun SettingPreferencesUIPage(vm: SettingVM = koinViewModel()) {
                     modifier = Modifier.padding(horizontal = 8.dp),
                     title = { Text(stringResource(R.string.setting_page_message_display_settings)) },
                 ) {
+                    item(
+                        headlineContent = { Text("减少动画") },
+                        supportingContent = { Text("关闭页面位移和缩放；伙伴保持静态，操作和状态仍可用。") },
+                        trailingContent = {
+                            Switch(checked = displaySetting.reduceMotion, onCheckedChange = {
+                                updateDisplaySetting(displaySetting.copy(reduceMotion = it))
+                            })
+                        },
+                    )
                     item(
                         headlineContent = { Text(stringResource(R.string.setting_display_page_show_user_avatar_title)) },
                         supportingContent = { Text(stringResource(R.string.setting_display_page_show_user_avatar_desc)) },

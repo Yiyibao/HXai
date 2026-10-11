@@ -1,0 +1,77 @@
+{
+  "android": {
+    "PASS": 60,
+    "FAIL": 0,
+    "ERROR": 0,
+    "SKIP": 2
+  },
+  "jvm": {
+    "app": {
+      "tests": 322,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "ai": {
+      "tests": 200,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "document": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "common": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "oauth": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "search": {
+      "tests": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "speech": {
+      "tests": 43,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "highlight": {
+      "tests": 53,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "web": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "workspace": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "lint": {
+    "Error": 0,
+    "Fatal": 0,
+    "Warning": 42,
+    "Information": 0
+  },
+  "delivery_passed": 10
+}

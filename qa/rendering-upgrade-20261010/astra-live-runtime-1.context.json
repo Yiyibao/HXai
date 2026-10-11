@@ -1,0 +1,14 @@
+{
+  "appSha256": "ddb777db0982cb2db1b969c58252e58a5f47bfdf43936f645452bc51f8ea6e5a",
+  "testSha256": "e19ca03ddc789b25fd38b59eab3aad283b49d850d3c2f720107cfd4699da67d0",
+  "runs": [
+    {
+      "method": "ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels",
+      "runId": "1d09beb5-7cd3-4407-9f68-ddbc88299e9f",
+      "log": "astra-live-runtime-1.log",
+      "logSha256": "58d5f809db059f41c5aa1f81de95530234387cb751942df53d81c8977597cca1",
+      "notBefore": 1791617305880,
+      "notAfter": 1791617508532
+    }
+  ]
+}

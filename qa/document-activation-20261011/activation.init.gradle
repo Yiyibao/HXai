@@ -1,0 +1,7 @@
+gradle.projectsEvaluated {
+    def app = gradle.rootProject.findProject(':app')
+    if (app == null) return
+    def probeDir = new File('D:/Office/Study/code/MathStudyAgent/qa/document-activation-20261011/android')
+    app.android.sourceSets.getByName('androidTest').java.srcDir(probeDir)
+    app.tasks.named('compileDebugAndroidTestKotlin').configure { source(probeDir) }
+}

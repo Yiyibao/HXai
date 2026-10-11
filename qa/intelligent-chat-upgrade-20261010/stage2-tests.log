@@ -1,0 +1,77 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage2_test.dart
+test/chat_upgrade_stage2_test.dart:51:35: Error: Required named parameter 'messageId' must be provided.
+            body: EnhancedToolCard(
+                                  ^
+lib/widgets/enhanced_cards.dart:154:9: Context: Found this candidate, but the arguments don't match.
+  const EnhancedToolCard({
+        ^^^^^^^^^^^^^^^^
+00:00 +0 -1: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage2_test.dart [E]
+  Failed to load "D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage2_test.dart":
+  Compilation failed for testPath=D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage2_test.dart: test/chat_upgrade_stage2_test.dart:51:35: Error: Required named parameter 'messageId' must be provided.
+              body: EnhancedToolCard(
+                                    ^
+  lib/widgets/enhanced_cards.dart:154:9: Context: Found this candidate, but the arguments don't match.
+    const EnhancedToolCard({
+          ^^^^^^^^^^^^^^^^
+  .
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+00:00 +0 -1: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/reasoning_view_test.dart: Collapsed reasoning expands and stays open through stream completion
+00:00 +0 -1: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/search_reliability_test.dart: search failure is visible even though tool execution completed
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextContainingWidgetFinder:<Found 0 widgets with text containing 搜索暂不可用: []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/search_reliability_test.dart:30:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/search_reliability_test.dart line 30
+The test description was:
+  search failure is visible even though tool execution completed
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +0 -2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/reasoning_view_test.dart: Collapsed reasoning expands and stays open through stream completion
+00:00 +0 -2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/search_reliability_test.dart: search failure is visible even though tool execution completed [E]
+  Test failed. See exception logs above.
+  The test description was: search failure is visible even though tool execution completed
+  
+00:00 +1 -2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:00 +2 -2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:00 +3 -2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:00 +4 -2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +5 -2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/reasoning_view_test.dart: Long expanded reasoning remains bounded without overflow
+00:01 +6 -2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/reasoning_view_test.dart: Long expanded reasoning remains bounded without overflow
+00:01 +7 -2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/reasoning_view_test.dart: Long expanded reasoning remains bounded without overflow
+00:01 +8 -2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/reasoning_view_test.dart: Reasoning status follows host state and subsequent answer or tool
+00:01 +9 -2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/reasoning_view_test.dart: One message groups reasoning segments in provider order
+00:01 +10 -2: Some tests failed.
+
+Failing tests:
+  D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage2_test.dart: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage2_test.dart
+  D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/search_reliability_test.dart: search failure is visible even though tool execution completed

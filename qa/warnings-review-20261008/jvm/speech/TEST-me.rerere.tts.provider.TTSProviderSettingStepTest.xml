@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.tts.provider.TTSProviderSettingStepTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-07T22:19:28.224Z" hostname="DESKTOP-QH4J0RS" time="0.003">
+  <properties/>
+  <testcase name="step_defaults_are_expected" classname="me.rerere.tts.provider.TTSProviderSettingStepTest" time="0.001"/>
+  <testcase name="step_copyProvider_preserves_id_and_name" classname="me.rerere.tts.provider.TTSProviderSettingStepTest" time="0.001"/>
+  <testcase name="step_is_registered_in_provider_types" classname="me.rerere.tts.provider.TTSProviderSettingStepTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

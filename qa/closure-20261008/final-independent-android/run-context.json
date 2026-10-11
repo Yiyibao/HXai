@@ -1,0 +1,134 @@
+{
+  "appSha256": "f8f8ab311ecabb051cb296bd9660bdfa460dea8dfacf465aa4918a324685ac82",
+  "testSha256": "9c694f7c902d2b53911c92f01b4c1948a09562ee3c369140ac88ec49d243a11f",
+  "runs": [
+    {
+      "method": "IndependentPostfixProbeTest.deletedConversationMustRejectStaleSaveAfterSessionEviction",
+      "runId": "1e360ed3-8ca4-4c43-8c01-c88b5413bd25",
+      "log": "eviction.log",
+      "logSha256": "7d78ea3a8a2a466772f7ed44e22bd9ee149145630a98637e498c5c918c11a0c3",
+      "notBefore": 1791467990256,
+      "notAfter": 1791468005555
+    },
+    {
+      "method": "ClosureBoundaryTest.deletionCreationRestoreAndIndependentIncarnation",
+      "runId": "6b423f07-04f7-4b54-b78f-932a575e9551",
+      "log": "lifecycle-seed.log",
+      "logSha256": "5cd1f64ae5f3893b4c25835163b9035a76f7acc882350e7686af38d0616fee1c",
+      "notBefore": 1791467995557,
+      "notAfter": 1791468010887
+    },
+    {
+      "method": "ClosureBoundaryTest.deletionCreationRestoreAndIndependentIncarnation",
+      "runId": "889cea54-faac-49d6-b75b-0378c8ea8929",
+      "log": "lifecycle-verify.log",
+      "logSha256": "5c0d7791e3f73f6cf3760e2c6055cfd1321aebc07089bbb8ae9b1de043611ecd",
+      "notBefore": 1791468000948,
+      "notAfter": 1791468016531
+    },
+    {
+      "method": "ClosureBoundaryTest.approvalEveryTransactionStepRollsBackBeforePublication",
+      "runId": "8b0751a9-9ef8-4f9f-9ac2-b68249b82078",
+      "log": "transaction.log",
+      "logSha256": "b629f20418b1250106fa7af015e9bc1544284e81102dafb5698dc5bf6d95d732",
+      "notBefore": 1791468006532,
+      "notAfter": 1791468024625
+    },
+    {
+      "method": "ClosureBoundaryTest.crossConversationReferencesAndDeleteIoRetry",
+      "runId": "9f3f9389-8de8-41ee-86a3-1b793e0cbf07",
+      "log": "attachments.log",
+      "logSha256": "616a97471dd7709f40c55378e157f682198593b1f34ccedf8ca3b3db9bc1ab26",
+      "notBefore": 1791468014626,
+      "notAfter": 1791468029759
+    },
+    {
+      "method": "IndependentPostfixProbeTest.completeServiceFactoryContinuationUsesSyntheticProviderAndFirstDecision",
+      "runId": "ea294b17-2543-4757-bb08-50ee502311a3",
+      "log": "factory.log",
+      "logSha256": "76a9260d18edeeb45a932ed9c5ed945df4e49d2b43cf7d0537642b8d8d947b23",
+      "notBefore": 1791468019760,
+      "notAfter": 1791468037323
+    },
+    {
+      "method": "WordFormulaAssertionTest.tableCellsRejectDeletionReorderingAndValueChanges",
+      "runId": "552ac11f-7cc0-494f-82fa-0a1d52279d50",
+      "log": "word.log",
+      "logSha256": "cef56705369bc6bca3b3531d5974ebd5e2abb3cae69ff44020e4415aa4541a2e",
+      "notBefore": 1791468027324,
+      "notAfter": 1791468042315
+    },
+    {
+      "method": "WordFormulaAssertionTest.perRunMaterialSamplesExistAndContainSyntheticContent",
+      "runId": "552ac11f-7cc0-494f-82fa-0a1d52279d50",
+      "log": "word.log",
+      "logSha256": "cef56705369bc6bca3b3531d5974ebd5e2abb3cae69ff44020e4415aa4541a2e",
+      "notBefore": 1791468027324,
+      "notAfter": 1791468042315
+    },
+    {
+      "method": "SkillClosureTest.nestedBrokenLinksAndSiblingReplacement",
+      "runId": "b6fb83e1-aa0d-4886-abd4-f637ff24b670",
+      "log": "skills-links.log",
+      "logSha256": "fc1ea004c1d9af2f32bde70f9afc80c737535bc06d54dc3fc5eb7805148e7171",
+      "notBefore": 1791468096659,
+      "notAfter": 1791468109856
+    },
+    {
+      "method": "SkillClosureTest.replacementAndRollbackFailureKeepOriginalContentAndEnabledState",
+      "runId": "daf8ac90-5932-4afb-8590-46ed9e1fe5ec",
+      "log": "skills-rollback.log",
+      "logSha256": "60e2fe7e86968a8b8e91aeb9a2133ff8bfd52600394bd188dbcbc3cab2f01c1c",
+      "notBefore": 1791468099857,
+      "notAfter": 1791468113244
+    },
+    {
+      "method": "SkillClosureTest.partialUninstallCleanupFailureRestoresEntireSkill",
+      "runId": "a4d1e564-d610-46db-ad80-293183dbee84",
+      "log": "skills-partial-cleanup.log",
+      "logSha256": "275f8d72ca6aba758725a182a6232302f7985b25f41eba4ed0441291e202d67b",
+      "notBefore": 1791468103245,
+      "notAfter": 1791468116685
+    },
+    {
+      "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+      "runId": "8d654e57-df38-4b6d-834f-f32bc6abf97e",
+      "log": "delivery-1.log",
+      "logSha256": "c814ef8ccdd11593f47829b23aa9173680e4b9465dd1ff39e5ce5318ecda5e43",
+      "notBefore": 1791468106686,
+      "notAfter": 1791468164437
+    },
+    {
+      "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+      "runId": "e345fb95-2eff-4a92-8309-aaee14a2b2ae",
+      "log": "delivery-2.log",
+      "logSha256": "c703ee40f123ccc103a1419c8114c727089dcbf65b0741c4849b9a94cfd97273",
+      "notBefore": 1791468154440,
+      "notAfter": 1791468212288
+    },
+    {
+      "method": "DeliveryClosureTest.cancellationCorruptionAndTargetRereadRejectFalseSuccess",
+      "runId": "c5bcdd43-573d-4260-a79e-410391104643",
+      "log": "delivery-failure.log",
+      "logSha256": "a26764ea5093fb478e8d11769520257a169a207d5eb6fa94b0495fd807d1324e",
+      "notBefore": 1791468202289,
+      "notAfter": 1791468216016
+    },
+    {
+      "method": "DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource",
+      "runId": "b32c2752-b6d2-4d24-a5a4-30cbdcb067a8",
+      "log": "delivery-ui.log",
+      "logSha256": "67905bd2c20fdeebca9d324c54190300b65d31c86cd9d74b462e87612a2dacdc",
+      "notBefore": 1791468206018,
+      "notAfter": 1791468239188
+    },
+    {
+      "method": "DeliveryUiClosureTest.listPickerRejectsProfileChange",
+      "runId": "b32c2752-b6d2-4d24-a5a4-30cbdcb067a8",
+      "log": "delivery-ui.log",
+      "logSha256": "67905bd2c20fdeebca9d324c54190300b65d31c86cd9d74b462e87612a2dacdc",
+      "notBefore": 1791468206018,
+      "notAfter": 1791468239188
+    }
+  ]
+}

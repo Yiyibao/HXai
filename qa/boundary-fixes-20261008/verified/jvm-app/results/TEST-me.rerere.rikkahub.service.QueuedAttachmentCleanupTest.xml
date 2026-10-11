@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.service.QueuedAttachmentCleanupTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-08T05:12:36.758Z" hostname="DESKTOP-QH4J0RS" time="0.006">
+  <properties/>
+  <testcase name="revoking a message cleans only local attachments and deduplicates URLs" classname="me.rerere.rikkahub.service.QueuedAttachmentCleanupTest" time="0.002"/>
+  <testcase name="saving edits cleans removed attachments but retains unchanged ones" classname="me.rerere.rikkahub.service.QueuedAttachmentCleanupTest" time="0.0"/>
+  <testcase name="shared queued attachments are retained until the last reference is revoked" classname="me.rerere.rikkahub.service.QueuedAttachmentCleanupTest" time="0.001"/>
+  <testcase name="text-only edits keep all attachment files" classname="me.rerere.rikkahub.service.QueuedAttachmentCleanupTest" time="0.0"/>
+  <testcase name="unselected history branches and nested tool results retain attachments" classname="me.rerere.rikkahub.service.QueuedAttachmentCleanupTest" time="0.001"/>
+  <testcase name="a dequeued message retains attachments before history is saved" classname="me.rerere.rikkahub.service.QueuedAttachmentCleanupTest" time="0.0"/>
+  <testcase name="cancelled and rejected edits do not return attachments for cleanup" classname="me.rerere.rikkahub.service.QueuedAttachmentCleanupTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

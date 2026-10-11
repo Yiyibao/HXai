@@ -1,0 +1,22 @@
+
+s_glBindAttribLocation: bind attrib 0 name position
+s_glBindAttribLocation: bind attrib 1 name color
+s_glBindAttribLocation: bind attrib 2 name localCoord
+me.rerere.rikkahub.service.FlutterChatBridgeTest:..........
+Error in actualFlutterSurfaceRestoresEditsClosesAndContinues(me.rerere.rikkahub.service.FlutterChatBridgeTest):
+java.lang.IllegalStateException: Visible control missing: 继续分析
+	at me.rerere.rikkahub.service.FlutterChatBridgeTest.actualFlutterSurfaceRestoresEditsClosesAndContinues$click(FlutterChatBridgeTest.kt:259)
+	at me.rerere.rikkahub.service.FlutterChatBridgeTest.actualFlutterSurfaceRestoresEditsClosesAndContinues(FlutterChatBridgeTest.kt:292)
+.
+
+Time: 73.412
+There was 1 failure:
+1) actualFlutterSurfaceRestoresEditsClosesAndContinues(me.rerere.rikkahub.service.FlutterChatBridgeTest)
+java.lang.IllegalStateException: Visible control missing: 继续分析
+	at me.rerere.rikkahub.service.FlutterChatBridgeTest.actualFlutterSurfaceRestoresEditsClosesAndContinues$click(FlutterChatBridgeTest.kt:259)
+	at me.rerere.rikkahub.service.FlutterChatBridgeTest.actualFlutterSurfaceRestoresEditsClosesAndContinues(FlutterChatBridgeTest.kt:292)
+
+FAILURES!!!
+Tests run: 12,  Failures: 1
+
+

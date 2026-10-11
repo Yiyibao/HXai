@@ -1,0 +1,1 @@
+cat: cache/image-entry-diagnostic.txt: No such file or directory

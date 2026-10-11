@@ -25,15 +25,52 @@ data class WorkspaceShellContext(
 
 class HostShellRunner : WorkspaceShellRunner {
     override fun execute(context: WorkspaceShellContext): WorkspaceCommandResult {
-        val process = ProcessBuilder(defaultShell(), "-c", context.command)
-            .directory(context.workingDir)
-            .redirectErrorStream(false)
-            .start()
-        return process.readResult(context.timeoutMillis, context.stdin)
+        val shell = defaultShell()
+        // Windows argument quoting can strip quotes inside an awk/program command.
+        // A script preserves the exact POSIX source and leaves stdin for tool input.
+        val script = if (isWindows()) {
+            context.tempDir.mkdirs()
+            File.createTempFile("workspace-command-", ".sh", context.tempDir).apply {
+                writeText(context.command, Charsets.UTF_8)
+            }
+        } else null
+        try {
+            val arguments = if (script == null) listOf(shell, "-c", context.command)
+                else listOf(shell, script.absolutePath.replace('\\', '/'))
+            val process = ProcessBuilder(arguments)
+                .directory(context.workingDir)
+                .redirectErrorStream(false)
+                .start()
+            return process.readResult(context.timeoutMillis, context.stdin)
+        } finally {
+            script?.delete()
+        }
     }
 
-    private fun defaultShell(): String =
-        if (File("/system/bin/sh").exists()) "/system/bin/sh" else "/bin/sh"
+    private fun isWindows() = System.getProperty("os.name").orEmpty().startsWith("Windows", ignoreCase = true)
+
+    private fun defaultShell(): String {
+        // Commands use POSIX syntax on every host; cmd.exe cannot preserve that contract.
+        System.getenv("WORKSPACE_POSIX_SHELL")?.takeIf { it.isNotBlank() }?.let {
+            require(File(it).isFile) { "WORKSPACE_POSIX_SHELL must point to a POSIX shell" }
+            return it
+        }
+        if (File("/system/bin/sh").isFile) return "/system/bin/sh"
+        if (File("/bin/sh").isFile) return "/bin/sh"
+        if (isWindows()) {
+            val candidates = buildList {
+                listOf("ProgramFiles", "ProgramFiles(x86)", "LOCALAPPDATA").forEach { name ->
+                    System.getenv(name)?.let { add(File(it, "Git/bin/sh.exe")) }
+                }
+                System.getenv("PATH").orEmpty().split(File.pathSeparator).forEach { path ->
+                    add(File(path, "sh.exe"))
+                    add(File(path, "../bin/sh.exe")) // Git's cmd directory
+                }
+            }
+            candidates.firstOrNull { it.isFile }?.let { return it.absolutePath }
+        }
+        throw IOException("No POSIX shell found; install Git for Windows or set WORKSPACE_POSIX_SHELL")
+    }
 }
 
 // 单个流保留的最大字符数, 防止命令疯狂输出导致 OOM 或撑爆 LLM 上下文

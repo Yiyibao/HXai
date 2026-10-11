@@ -1,0 +1,82 @@
+[
+  {
+    "suite": "material-evidence-delivery-receipts.txt",
+    "extension": "md",
+    "source_name": "QA交付-78621e30-27e9-4999-b8a0-7f583b45932d.md",
+    "sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+    "view_send_sha256_match": true,
+    "save_reread_assertion": "PASS"
+  },
+  {
+    "suite": "material-evidence-delivery-receipts.txt",
+    "extension": "docx",
+    "source_name": "QA交付-467101f8-0e24-4a84-a5ab-82b661c63f6e.docx",
+    "sha256": "90246d3c329b2c8dafb521276af7830727af20e87ea71b272c0eef544dc5919e",
+    "view_send_sha256_match": true,
+    "save_reread_assertion": "PASS"
+  },
+  {
+    "suite": "material-evidence-delivery-receipts.txt",
+    "extension": "xlsx",
+    "source_name": "QA交付-04fcae6a-419b-40ac-a512-2df0a28509e4.xlsx",
+    "sha256": "fea3414a0977460eaa27d6ef0beefdf2270ff300a0d3bd92bded2e4a75effe33",
+    "view_send_sha256_match": true,
+    "save_reread_assertion": "PASS"
+  },
+  {
+    "suite": "material-evidence-delivery-receipts.txt",
+    "extension": "pptx",
+    "source_name": "QA交付-a493281b-cfd6-409c-a3f2-35ac251854b1.pptx",
+    "sha256": "939ffee8b5b001edcfb14e07330e7b0b963123027a7f08bdf85b08eec6efae80",
+    "view_send_sha256_match": true,
+    "save_reread_assertion": "PASS"
+  },
+  {
+    "suite": "material-evidence-delivery-receipts.txt",
+    "extension": "pdf",
+    "source_name": "QA交付-ca1bc2da-89aa-4fcc-9721-0b04c29ee5de.pdf",
+    "sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+    "view_send_sha256_match": true,
+    "save_reread_assertion": "PASS"
+  },
+  {
+    "suite": "review-delivery-delivery-receipts.txt",
+    "extension": "md",
+    "source_name": "QA交付-9474e16a-0bfc-431c-9df8-dfcbd968516e.md",
+    "sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+    "view_send_sha256_match": true,
+    "save_reread_assertion": "PASS"
+  },
+  {
+    "suite": "review-delivery-delivery-receipts.txt",
+    "extension": "docx",
+    "source_name": "QA交付-10a6fdfd-a750-40e9-8142-11b62ea4d28c.docx",
+    "sha256": "49a3d7697cd004c1536ac1709a7d75eee8f7293dbf38845fe9cec41339e58d8b",
+    "view_send_sha256_match": true,
+    "save_reread_assertion": "PASS"
+  },
+  {
+    "suite": "review-delivery-delivery-receipts.txt",
+    "extension": "xlsx",
+    "source_name": "QA交付-6df56b9f-58f9-438a-b479-ee27e7f832dd.xlsx",
+    "sha256": "3ea2d315bc17fa0380b811af6e9a69b734983d8745772f765ffe31ada92f5d5b",
+    "view_send_sha256_match": true,
+    "save_reread_assertion": "PASS"
+  },
+  {
+    "suite": "review-delivery-delivery-receipts.txt",
+    "extension": "pptx",
+    "source_name": "QA交付-734805ff-cef9-44d0-8018-9ada5a86424f.pptx",
+    "sha256": "67ada348fe66f5197fdd4b1e720349b4a4cdec0aa8e09bd1f63c8b233137f570",
+    "view_send_sha256_match": true,
+    "save_reread_assertion": "PASS"
+  },
+  {
+    "suite": "review-delivery-delivery-receipts.txt",
+    "extension": "pdf",
+    "source_name": "QA交付-e65416cd-9058-4ff2-8a1b-461ae24a3a5e.pdf",
+    "sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+    "view_send_sha256_match": true,
+    "save_reread_assertion": "PASS"
+  }
+]

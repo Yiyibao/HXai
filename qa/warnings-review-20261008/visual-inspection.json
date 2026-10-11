@@ -1,0 +1,10 @@
+{
+  "checked_screenshots": [
+    "screenshots/artifact-owner-switch.png",
+    "screenshots/docx-preview.png"
+  ],
+  "findings": [
+    "After profile switch no previous content is visible and delivery controls are disabled.",
+    "DOCX preview displays the actual synthetic unique marker and an explicit format-fidelity limitation; no ZIP byte garbage is visible."
+  ]
+}

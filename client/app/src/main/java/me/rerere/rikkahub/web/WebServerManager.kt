@@ -55,6 +55,10 @@ class WebServerManager(
         serviceName: String = DEFAULT_SERVICE_NAME,
         localhostOnly: Boolean = false
     ) {
+        if (!me.rerere.rikkahub.feature.studychat.StudyCapabilities.WEB_ACCESS_ENABLED) {
+            reportError("当前版本尚未开放 Web 访问，请使用手机聊天。")
+            return
+        }
         if (server != null) {
             Log.w(TAG, "Server already running")
             return

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.utils.VersionTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-07T16:36:03.566Z" hostname="DESKTOP-QH4J0RS" time="0.002">
+  <properties/>
+  <testcase name="prerelease ordering" classname="me.rerere.rikkahub.utils.VersionTest" time="0.001"/>
+  <testcase name="prerelease has lower precedence than release" classname="me.rerere.rikkahub.utils.VersionTest" time="0.0"/>
+  <testcase name="numeric identifiers have lower precedence than string" classname="me.rerere.rikkahub.utils.VersionTest" time="0.0"/>
+  <testcase name="different length versions" classname="me.rerere.rikkahub.utils.VersionTest" time="0.0"/>
+  <testcase name="numeric prerelease identifiers compared as numbers" classname="me.rerere.rikkahub.utils.VersionTest" time="0.0"/>
+  <testcase name="semver full precedence chain" classname="me.rerere.rikkahub.utils.VersionTest" time="0.0"/>
+  <testcase name="companion compare function" classname="me.rerere.rikkahub.utils.VersionTest" time="0.0"/>
+  <testcase name="prerelease with more fields has higher precedence" classname="me.rerere.rikkahub.utils.VersionTest" time="0.001"/>
+  <testcase name="string extension operators" classname="me.rerere.rikkahub.utils.VersionTest" time="0.0"/>
+  <testcase name="build metadata is ignored" classname="me.rerere.rikkahub.utils.VersionTest" time="0.0"/>
+  <testcase name="basic version comparison" classname="me.rerere.rikkahub.utils.VersionTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

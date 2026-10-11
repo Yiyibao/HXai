@@ -35,7 +35,7 @@ class SkillDetailVM(
     private val _tree = MutableStateFlow<List<SkillFileNode>>(emptyList())
     val tree = _tree.asStateFlow()
 
-    private val _readOnly = MutableStateFlow(false)
+    private val _readOnly = MutableStateFlow(true)
     val readOnly = _readOnly.asStateFlow()
 
     private var skillName = ""
@@ -51,7 +51,7 @@ class SkillDetailVM(
         viewModelScope.launch(Dispatchers.IO) {
             val skill = skillManager.findSkill(skillName) ?: return@launch
             this@SkillDetailVM.skill = skill
-            _readOnly.value = skill.builtin
+            _readOnly.value = true
             val files = skill.skillDir.walkTopDown()
                 .filter { it.isFile }
                 .map { SkillFile(it.relativeTo(skill.skillDir).invariantSeparatorsPath, it.length()) }

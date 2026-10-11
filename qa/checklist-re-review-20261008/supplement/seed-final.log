@@ -1,0 +1,133 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChecklistSupplementTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ChecklistSupplementTest:
+INSTRUMENTATION_STATUS: test=controlledBoundariesSurviveIndependentProcess
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_pid=9610
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"441f62ec-160b-4fff-b607-16954e7b552e","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_5e653b88-6538-4858-9c4e-a176606b9bf8_title_stream","messageNodes":[{"id":"15dda7ed-cef2-4e9c-b782-2ed6abfd4717","messages":[{"id":"f266fdfa-9ce0-41cb-9d19-0f096c9a8166","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:11:44.781568","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:11:44.790257Z","updateAt":"2026-10-08T09:11:44.790268Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2bde1707-d31b-498e-9caf-de8e13033b7b","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-read-title-stream
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9610
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"441f62ec-160b-4fff-b607-16954e7b552e","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_5e653b88-6538-4858-9c4e-a176606b9bf8_title_stream","messageNodes":[{"id":"15dda7ed-cef2-4e9c-b782-2ed6abfd4717","messages":[{"id":"f266fdfa-9ce0-41cb-9d19-0f096c9a8166","role":"assistant","parts":[{"type":"text","text":"new stream body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:11:44.781568","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":"COMPLETED","generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:11:44.790Z","updateAt":"2026-10-08T09:11:44.790Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2bde1707-d31b-498e-9caf-de8e13033b7b","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-released-title-stream
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9610
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"bc51ffc4-c3fc-4b29-8b0f-75d5b1d8185c","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_5e653b88-6538-4858-9c4e-a176606b9bf8_title_edit","messageNodes":[{"id":"079d852c-36c0-4b78-bea6-3a01767ae806","messages":[{"id":"ddc927cd-3266-456a-abf8-b76712dec2ad","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:11:44.918290","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:11:44.918392Z","updateAt":"2026-10-08T09:11:44.918402Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2bde1707-d31b-498e-9caf-de8e13033b7b","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-read-title-edit
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9610
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"bc51ffc4-c3fc-4b29-8b0f-75d5b1d8185c","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_5e653b88-6538-4858-9c4e-a176606b9bf8_title_edit","messageNodes":[{"id":"079d852c-36c0-4b78-bea6-3a01767ae806","messages":[{"id":"ddc927cd-3266-456a-abf8-b76712dec2ad","role":"assistant","parts":[{"type":"text","text":"new edit body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:11:44.918290","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:11:44.918392Z","updateAt":"2026-10-08T09:11:44.918402Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2bde1707-d31b-498e-9caf-de8e13033b7b","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-released-title-edit
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9610
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"6d00ad27-c29f-4be8-b4fb-45c72e9150ce","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_5e653b88-6538-4858-9c4e-a176606b9bf8_title_branch","messageNodes":[{"id":"e318da34-0d31-4db8-bd43-ce4b02d9a062","messages":[{"id":"80747977-0455-4ec8-9ec2-695e5cfe7f10","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:11:44.970997","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:11:44.971100Z","updateAt":"2026-10-08T09:11:44.971115Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2bde1707-d31b-498e-9caf-de8e13033b7b","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-read-title-branch
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9610
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"6d00ad27-c29f-4be8-b4fb-45c72e9150ce","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_5e653b88-6538-4858-9c4e-a176606b9bf8_title_branch","messageNodes":[{"id":"e318da34-0d31-4db8-bd43-ce4b02d9a062","messages":[{"id":"80747977-0455-4ec8-9ec2-695e5cfe7f10","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:11:44.970997","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null},{"id":"706aeb43-c9db-42a9-9ed8-27ed4e3551b5","role":"assistant","parts":[{"type":"text","text":"new branch body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:11:44.970997","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":1}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:11:44.971100Z","updateAt":"2026-10-08T09:11:44.971115Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2bde1707-d31b-498e-9caf-de8e13033b7b","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-released-title-branch
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9610
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"9f3f5206-4db8-466e-8b5a-5d45a26a0cd1","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_5e653b88-6538-4858-9c4e-a176606b9bf8_suggestions_stream","messageNodes":[{"id":"882e7ad6-a4e6-4592-ae67-b97a6a03f38a","messages":[{"id":"b6e5cb54-2bb2-401b-b1f5-2434db1b45a3","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:11:45.021252","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:11:45.021362Z","updateAt":"2026-10-08T09:11:45.021370Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2bde1707-d31b-498e-9caf-de8e13033b7b","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-read-suggestions-stream
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9610
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"9f3f5206-4db8-466e-8b5a-5d45a26a0cd1","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_5e653b88-6538-4858-9c4e-a176606b9bf8_suggestions_stream","messageNodes":[{"id":"882e7ad6-a4e6-4592-ae67-b97a6a03f38a","messages":[{"id":"b6e5cb54-2bb2-401b-b1f5-2434db1b45a3","role":"assistant","parts":[{"type":"text","text":"new stream body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:11:45.021252","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":"COMPLETED","generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:11:45.021Z","updateAt":"2026-10-08T09:11:45.021Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2bde1707-d31b-498e-9caf-de8e13033b7b","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-released-suggestions-stream
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9610
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"682e00ef-310f-4b0c-9581-6402b3ef4ba1","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_5e653b88-6538-4858-9c4e-a176606b9bf8_suggestions_edit","messageNodes":[{"id":"61b12507-b0b8-4706-82b0-3533a716ebba","messages":[{"id":"325a83fa-bbe6-476f-9141-1a689bf89cad","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:11:45.072724","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:11:45.072839Z","updateAt":"2026-10-08T09:11:45.072881Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2bde1707-d31b-498e-9caf-de8e13033b7b","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-read-suggestions-edit
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9610
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"682e00ef-310f-4b0c-9581-6402b3ef4ba1","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_5e653b88-6538-4858-9c4e-a176606b9bf8_suggestions_edit","messageNodes":[{"id":"61b12507-b0b8-4706-82b0-3533a716ebba","messages":[{"id":"325a83fa-bbe6-476f-9141-1a689bf89cad","role":"assistant","parts":[{"type":"text","text":"new edit body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:11:45.072724","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:11:45.072839Z","updateAt":"2026-10-08T09:11:45.072881Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2bde1707-d31b-498e-9caf-de8e13033b7b","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-released-suggestions-edit
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9610
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"0bb30b06-1049-4b57-b671-8c7695c9f0ae","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_5e653b88-6538-4858-9c4e-a176606b9bf8_suggestions_branch","messageNodes":[{"id":"571f5e88-742c-4e90-a11f-af3a6fa1dac6","messages":[{"id":"b7ddb245-f912-440d-a051-92ef0a92c935","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:11:45.127651","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:11:45.127886Z","updateAt":"2026-10-08T09:11:45.127944Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2bde1707-d31b-498e-9caf-de8e13033b7b","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-read-suggestions-branch
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9610
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"0bb30b06-1049-4b57-b671-8c7695c9f0ae","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_5e653b88-6538-4858-9c4e-a176606b9bf8_suggestions_branch","messageNodes":[{"id":"571f5e88-742c-4e90-a11f-af3a6fa1dac6","messages":[{"id":"b7ddb245-f912-440d-a051-92ef0a92c935","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:11:45.127651","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null},{"id":"6c59b04e-e70d-43c4-aabf-2b7e28ab7530","role":"assistant","parts":[{"type":"text","text":"new branch body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:11:45.127651","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":1}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:11:45.127886Z","updateAt":"2026-10-08T09:11:45.127944Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2bde1707-d31b-498e-9caf-de8e13033b7b","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-released-suggestions-branch
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9610
+INSTRUMENTATION_STATUS: qa_snapshot=
+INSTRUMENTATION_STATUS: qa_stage=A02-late-rejected-history
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9610
+INSTRUMENTATION_STATUS: qa_snapshot=
+INSTRUMENTATION_STATUS: qa_stage=A02-late-rejected-chat
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChecklistSupplementTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at me.rerere.rikkahub.service.ChecklistSupplementTest$controlledBoundariesSurviveIndependentProcess$1$8.invokeSuspend(ChecklistSupplementTest.kt:151)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ChecklistSupplementTest.controlledBoundariesSurviveIndependentProcess(ChecklistSupplementTest.kt:56)
+
+INSTRUMENTATION_STATUS: stream=
+Error in controlledBoundariesSurviveIndependentProcess(me.rerere.rikkahub.service.ChecklistSupplementTest):
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at me.rerere.rikkahub.service.ChecklistSupplementTest$controlledBoundariesSurviveIndependentProcess$1$8.invokeSuspend(ChecklistSupplementTest.kt:151)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ChecklistSupplementTest.controlledBoundariesSurviveIndependentProcess(ChecklistSupplementTest.kt:56)
+
+INSTRUMENTATION_STATUS: test=controlledBoundariesSurviveIndependentProcess
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 2.189
+There was 1 failure:
+1) controlledBoundariesSurviveIndependentProcess(me.rerere.rikkahub.service.ChecklistSupplementTest)
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at me.rerere.rikkahub.service.ChecklistSupplementTest$controlledBoundariesSurviveIndependentProcess$1$8.invokeSuspend(ChecklistSupplementTest.kt:151)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ChecklistSupplementTest.controlledBoundariesSurviveIndependentProcess(ChecklistSupplementTest.kt:56)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

@@ -1,0 +1,148 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ClosureBoundaryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ClosureBoundaryTest:
+INSTRUMENTATION_STATUS: test=approvalEveryTransactionStepRollsBackBeforePublication
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"ClosureBoundaryTest.approvalEveryTransactionStepRollsBackBeforePublication","runId":"1480c57b-8fcb-4dd9-867f-90c3099a1a7b","startedAt":1791465227252,"finishedAt":1791465228570,"status":"FAILED","entries":[{"name":"qa-evidence\/ClosureBoundaryTest.approvalEveryTransactionStepRollsBackBeforePublication\/1480c57b-8fcb-4dd9-867f-90c3099a1a7b\/assertions.txt","sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","bytes":0,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ClosureBoundaryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=android.database.sqlite.SQLiteException: trigger qa_closure_fault already exists (code 1): , while compiling: CREATE TRIGGER qa_closure_fault BEFORE UPDATE ON ConversationEntity WHEN OLD.id='5e963a25-a2c1-4135-a445-7c39fbb55705' BEGIN SELECT RAISE(ABORT, 'QA row'); END
+	at io.requery.android.database.sqlite.SQLiteConnection.nativePrepareStatement(Native Method)
+	at io.requery.android.database.sqlite.SQLiteConnection.acquirePreparedStatement(SQLiteConnection.java:944)
+	at io.requery.android.database.sqlite.SQLiteConnection.prepare(SQLiteConnection.java:551)
+	at io.requery.android.database.sqlite.SQLiteSession.prepare(SQLiteSession.java:598)
+	at io.requery.android.database.sqlite.SQLiteProgram.<init>(SQLiteProgram.java:60)
+	at io.requery.android.database.sqlite.SQLiteStatement.<init>(SQLiteStatement.java:38)
+	at io.requery.android.database.sqlite.SQLiteDatabase.executeSql(SQLiteDatabase.java:1934)
+	at io.requery.android.database.sqlite.SQLiteDatabase.execSQL(SQLiteDatabase.java:1877)
+	at me.rerere.rikkahub.service.ClosureBoundaryTest$approvalEveryTransactionStepRollsBackBeforePublication$1$sql$2.invokeSuspend(ClosureBoundaryTest.kt:89)
+	at me.rerere.rikkahub.service.ClosureBoundaryTest$approvalEveryTransactionStepRollsBackBeforePublication$1$sql$2.invoke(Unknown Source:8)
+	at me.rerere.rikkahub.service.ClosureBoundaryTest$approvalEveryTransactionStepRollsBackBeforePublication$1$sql$2.invoke(Unknown Source:2)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$withTransaction$2.invokeSuspend(RoomDatabase.android.kt:2045)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$withTransaction$2.invoke(Unknown Source:8)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$withTransaction$2.invoke(Unknown Source:2)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$withTransactionContext$transactionBlock$1.invokeSuspend(RoomDatabase.android.kt:2059)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$withTransactionContext$transactionBlock$1.invoke(Unknown Source:8)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$withTransactionContext$transactionBlock$1.invoke(Unknown Source:4)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatched(Undispatched.kt:66)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:43)
+	at kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:497)
+	at kotlinx.coroutines.BuildersKt.withContext(Unknown Source:1)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$startTransactionCoroutine$2$1$1.invokeSuspend(RoomDatabase.android.kt:2088)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:22)
+	at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source:1)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$startTransactionCoroutine$2$1.run(RoomDatabase.android.kt:2085)
+	at androidx.room.TransactionExecutor.execute$lambda$1$lambda$0(TransactionExecutor.android.kt:38)
+	at androidx.room.TransactionExecutor$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+	at java.lang.Thread.run(Thread.java:1012)
+
+INSTRUMENTATION_STATUS: stream=
+Error in approvalEveryTransactionStepRollsBackBeforePublication(me.rerere.rikkahub.service.ClosureBoundaryTest):
+android.database.sqlite.SQLiteException: trigger qa_closure_fault already exists (code 1): , while compiling: CREATE TRIGGER qa_closure_fault BEFORE UPDATE ON ConversationEntity WHEN OLD.id='5e963a25-a2c1-4135-a445-7c39fbb55705' BEGIN SELECT RAISE(ABORT, 'QA row'); END
+	at io.requery.android.database.sqlite.SQLiteConnection.nativePrepareStatement(Native Method)
+	at io.requery.android.database.sqlite.SQLiteConnection.acquirePreparedStatement(SQLiteConnection.java:944)
+	at io.requery.android.database.sqlite.SQLiteConnection.prepare(SQLiteConnection.java:551)
+	at io.requery.android.database.sqlite.SQLiteSession.prepare(SQLiteSession.java:598)
+	at io.requery.android.database.sqlite.SQLiteProgram.<init>(SQLiteProgram.java:60)
+	at io.requery.android.database.sqlite.SQLiteStatement.<init>(SQLiteStatement.java:38)
+	at io.requery.android.database.sqlite.SQLiteDatabase.executeSql(SQLiteDatabase.java:1934)
+	at io.requery.android.database.sqlite.SQLiteDatabase.execSQL(SQLiteDatabase.java:1877)
+	at me.rerere.rikkahub.service.ClosureBoundaryTest$approvalEveryTransactionStepRollsBackBeforePublication$1$sql$2.invokeSuspend(ClosureBoundaryTest.kt:89)
+	at me.rerere.rikkahub.service.ClosureBoundaryTest$approvalEveryTransactionStepRollsBackBeforePublication$1$sql$2.invoke(Unknown Source:8)
+	at me.rerere.rikkahub.service.ClosureBoundaryTest$approvalEveryTransactionStepRollsBackBeforePublication$1$sql$2.invoke(Unknown Source:2)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$withTransaction$2.invokeSuspend(RoomDatabase.android.kt:2045)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$withTransaction$2.invoke(Unknown Source:8)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$withTransaction$2.invoke(Unknown Source:2)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$withTransactionContext$transactionBlock$1.invokeSuspend(RoomDatabase.android.kt:2059)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$withTransactionContext$transactionBlock$1.invoke(Unknown Source:8)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$withTransactionContext$transactionBlock$1.invoke(Unknown Source:4)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatched(Undispatched.kt:66)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:43)
+	at kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:497)
+	at kotlinx.coroutines.BuildersKt.withContext(Unknown Source:1)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$startTransactionCoroutine$2$1$1.invokeSuspend(RoomDatabase.android.kt:2088)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:22)
+	at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source:1)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$startTransactionCoroutine$2$1.run(RoomDatabase.android.kt:2085)
+	at androidx.room.TransactionExecutor.execute$lambda$1$lambda$0(TransactionExecutor.android.kt:38)
+	at androidx.room.TransactionExecutor$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+	at java.lang.Thread.run(Thread.java:1012)
+
+INSTRUMENTATION_STATUS: test=approvalEveryTransactionStepRollsBackBeforePublication
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 1.634
+There was 1 failure:
+1) approvalEveryTransactionStepRollsBackBeforePublication(me.rerere.rikkahub.service.ClosureBoundaryTest)
+android.database.sqlite.SQLiteException: trigger qa_closure_fault already exists (code 1): , while compiling: CREATE TRIGGER qa_closure_fault BEFORE UPDATE ON ConversationEntity WHEN OLD.id='5e963a25-a2c1-4135-a445-7c39fbb55705' BEGIN SELECT RAISE(ABORT, 'QA row'); END
+	at io.requery.android.database.sqlite.SQLiteConnection.nativePrepareStatement(Native Method)
+	at io.requery.android.database.sqlite.SQLiteConnection.acquirePreparedStatement(SQLiteConnection.java:944)
+	at io.requery.android.database.sqlite.SQLiteConnection.prepare(SQLiteConnection.java:551)
+	at io.requery.android.database.sqlite.SQLiteSession.prepare(SQLiteSession.java:598)
+	at io.requery.android.database.sqlite.SQLiteProgram.<init>(SQLiteProgram.java:60)
+	at io.requery.android.database.sqlite.SQLiteStatement.<init>(SQLiteStatement.java:38)
+	at io.requery.android.database.sqlite.SQLiteDatabase.executeSql(SQLiteDatabase.java:1934)
+	at io.requery.android.database.sqlite.SQLiteDatabase.execSQL(SQLiteDatabase.java:1877)
+	at me.rerere.rikkahub.service.ClosureBoundaryTest$approvalEveryTransactionStepRollsBackBeforePublication$1$sql$2.invokeSuspend(ClosureBoundaryTest.kt:89)
+	at me.rerere.rikkahub.service.ClosureBoundaryTest$approvalEveryTransactionStepRollsBackBeforePublication$1$sql$2.invoke(Unknown Source:8)
+	at me.rerere.rikkahub.service.ClosureBoundaryTest$approvalEveryTransactionStepRollsBackBeforePublication$1$sql$2.invoke(Unknown Source:2)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$withTransaction$2.invokeSuspend(RoomDatabase.android.kt:2045)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$withTransaction$2.invoke(Unknown Source:8)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$withTransaction$2.invoke(Unknown Source:2)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$withTransactionContext$transactionBlock$1.invokeSuspend(RoomDatabase.android.kt:2059)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$withTransactionContext$transactionBlock$1.invoke(Unknown Source:8)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$withTransactionContext$transactionBlock$1.invoke(Unknown Source:4)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatched(Undispatched.kt:66)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:43)
+	at kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:497)
+	at kotlinx.coroutines.BuildersKt.withContext(Unknown Source:1)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$startTransactionCoroutine$2$1$1.invokeSuspend(RoomDatabase.android.kt:2088)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:22)
+	at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source:1)
+	at androidx.room.RoomDatabaseKt__RoomDatabase_androidKt$startTransactionCoroutine$2$1.run(RoomDatabase.android.kt:2085)
+	at androidx.room.TransactionExecutor.execute$lambda$1$lambda$0(TransactionExecutor.android.kt:38)
+	at androidx.room.TransactionExecutor$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+	at java.lang.Thread.run(Thread.java:1012)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

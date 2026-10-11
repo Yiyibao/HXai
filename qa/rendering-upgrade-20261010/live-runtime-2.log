@@ -1,0 +1,76 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatRenderingRealModelTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ChatRenderingRealModelTest:
+INSTRUMENTATION_STATUS: test=configuredModelStreamsRendersEditsRestoresContinuesAndCancels
+INSTRUMENTATION_STATUS_CODE: 1
+s_glBindAttribLocation: bind attrib 0 name position
+s_glBindAttribLocation: bind attrib 1 name color
+s_glBindAttribLocation: bind attrib 2 name localCoord
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels","runId":"4c3a4c71-9c2f-4f68-8f9a-21c343e7f159","startedAt":1791613402794,"finishedAt":1791613527219,"status":"FAILED","entries":[{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/4c3a4c71-9c2f-4f68-8f9a-21c343e7f159\/stream-preview.png","sha256":"38b84e3981de8b44c9bf69fd264bfdae2f6323b6620ce22342fa2de0d3a9ca28","bytes":210463,"reusedSyntheticInput":false},{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/4c3a4c71-9c2f-4f68-8f9a-21c343e7f159\/result.json","sha256":"9419a9424c90142d9262dc4f497c1c48d088971b7a2cb05b156e638d1e5be778","bytes":165,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatRenderingRealModelTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=org.junit.ComparisonFailure: Real generation did not complete expected:<[COMPLET]ED> but was:<[FAIL]ED>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest$configuredModelStreamsRendersEditsRestoresContinuesAndCancels$1$finish$2.invokeSuspend(ChatRenderingRealModelTest.kt:123)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels(ChatRenderingRealModelTest.kt:67)
+
+INSTRUMENTATION_STATUS: stream=
+Error in configuredModelStreamsRendersEditsRestoresContinuesAndCancels(me.rerere.rikkahub.service.ChatRenderingRealModelTest):
+org.junit.ComparisonFailure: Real generation did not complete expected:<[COMPLET]ED> but was:<[FAIL]ED>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest$configuredModelStreamsRendersEditsRestoresContinuesAndCancels$1$finish$2.invokeSuspend(ChatRenderingRealModelTest.kt:123)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels(ChatRenderingRealModelTest.kt:67)
+
+INSTRUMENTATION_STATUS: test=configuredModelStreamsRendersEditsRestoresContinuesAndCancels
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 124.617
+There was 1 failure:
+1) configuredModelStreamsRendersEditsRestoresContinuesAndCancels(me.rerere.rikkahub.service.ChatRenderingRealModelTest)
+org.junit.ComparisonFailure: Real generation did not complete expected:<[COMPLET]ED> but was:<[FAIL]ED>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest$configuredModelStreamsRendersEditsRestoresContinuesAndCancels$1$finish$2.invokeSuspend(ChatRenderingRealModelTest.kt:123)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels(ChatRenderingRealModelTest.kt:67)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

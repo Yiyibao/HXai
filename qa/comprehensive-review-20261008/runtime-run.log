@@ -1,0 +1,31 @@
+Performing Streamed Install
+Success
+Performing Streamed Install
+Success
+StudyNavigationTest : True
+StudyChatCompletionTest : True
+ChatNetworkFaultTest : True
+CredentialVaultTest : True
+LearningMemoryPersistenceTest : True
+LearningMemoryPageTest : True
+LegacyMemoryEntryTest : True
+LearningLoopPersistenceTest : True
+MaterialFilesTest : True
+MaterialFidelityTest : True
+MaterialPageTest : False
+MaterialPaginationTest : True
+MaterialDeliveryTest : True
+DocumentServicePageTest : True
+BackupReliabilityTest : True
+BackupPageTest : True
+DiagnosticsTest : True
+DiagnosticsPageTest : True
+FrontendModelPickerTest : True
+FrontendDeliveryRoutesTest : True
+ProjectReviewAuditTest : True
+ProjectReviewDeliveryTest : True
+runtime-seed : True
+runtime-verify : True
+memory-seed : True
+memory-verify : True
+Review run completed; inspect all logs including skipped tests and failures.

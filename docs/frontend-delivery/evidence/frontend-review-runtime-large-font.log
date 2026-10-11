@@ -1,0 +1,55 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FrontendModelPickerTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=3
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.FrontendModelPickerTest:
+INSTRUMENTATION_STATUS: test=waitsForDurableSaveAndKeepsPickerOnFailure
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FrontendModelPickerTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=3
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=waitsForDurableSaveAndKeepsPickerOnFailure
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FrontendDeliveryRoutesTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=3
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.FrontendDeliveryRoutesTest:
+INSTRUMENTATION_STATUS: test=memoryEditorKeepsDraftAndRejectsConcurrentRevision
+INSTRUMENTATION_STATUS_CODE: 1
+s_glBindAttribLocation: bind attrib 0 name position
+s_glBindAttribLocation: bind attrib 1 name color
+s_glBindAttribLocation: bind attrib 2 name localCoord
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FrontendDeliveryRoutesTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=3
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=memoryEditorKeepsDraftAndRejectsConcurrentRevision
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FrontendDeliveryRoutesTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=3
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=providerRoutesUseRealModelRequestAndProtectUnsavedDraft
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FrontendDeliveryRoutesTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=3
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=providerRoutesUseRealModelRequestAndProtectUnsavedDraft
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 23.049
+
+OK (3 tests)
+
+
+INSTRUMENTATION_CODE: -1

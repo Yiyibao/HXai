@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-06",
+  "commit": "447bb7e89710d31f1204d7a2973baa19fdbd5b28",
+  "build": "PASS",
+  "variant": "debug",
+  "application_id": "me.rerere.rikkahub.debug",
+  "placeholder_firebase": true,
+  "log": ".local/baseline-build-20261006-resume.log",
+  "apks": [
+    {
+      "path": "client/app/build/outputs/apk/debug/app-arm64-v8a-debug.apk",
+      "bytes": 83735789,
+      "sha256": "9525c3570cc9a447a5b417bc67c6d9e965744963e5f57f6b470d025737838b22",
+      "signature_verified": true,
+      "retained_path": ".local/s0-baseline-apks/app-arm64-v8a-debug.apk"
+    },
+    {
+      "path": "client/app/build/outputs/apk/debug/app-universal-debug.apk",
+      "bytes": 94404555,
+      "sha256": "90183f025c347557f2726197e040d4526db26452e49731fd5b8fb2912d5efd98",
+      "signature_verified": true,
+      "retained_path": ".local/s0-baseline-apks/app-universal-debug.apk"
+    },
+    {
+      "path": "client/app/build/outputs/apk/debug/app-x86_64-debug.apk",
+      "bytes": 84564403,
+      "sha256": "275dc9a2bb1777ce9bd682471f2b4040c9953b22a45c96927e4edd2a3371aed9",
+      "signature_verified": true,
+      "retained_path": ".local/s0-baseline-apks/app-x86_64-debug.apk"
+    }
+  ]
+}

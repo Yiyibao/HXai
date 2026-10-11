@@ -1,0 +1,132 @@
+{
+  "unit_tests": {
+    "tests": 364,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "flutter_tests": 173,
+  "math_jvm_tests": 10,
+  "math_flutter_tests": 9,
+  "lint_errors": 0,
+  "lint_warnings": 56,
+  "real_cases_final_runs": [
+    {
+      "case": 0,
+      "model": "gpt-6.1-sol",
+      "automatic_skill": true,
+      "automatic_plot": true,
+      "definition": {
+        "version": 3,
+        "title": "抛物线及其关键点",
+        "components": [
+          {
+            "id": "note",
+            "type": "text",
+            "text": "题目函数：f(x)=x²−2x−3。配方得 (x−1)²−4，因式分解得 (x+1)(x−3)；以下标注由这些代数结果得到。"
+          },
+          {
+            "id": "plot",
+            "type": "math_plot",
+            "xMin": -3,
+            "xMax": 5,
+            "yMin": -5,
+            "yMax": 6,
+            "equalAspect": true,
+            "curves": [
+              {
+                "kind": "function",
+                "label": "f(x)=x²−2x−3",
+                "expression": "x^2-2*x-3"
+              }
+            ],
+            "points": [
+              {
+                "x": 1,
+                "y": -4,
+                "label": "顶点 (1,−4)"
+              },
+              {
+                "x": -1,
+                "y": 0,
+                "label": "(−1,0)"
+              },
+              {
+                "x": 3,
+                "y": 0,
+                "label": "(3,0)"
+              }
+            ]
+          }
+        ]
+      },
+      "elapsed_ms": 110587
+    },
+    {
+      "case": 1,
+      "model": "gpt-6.1-sol",
+      "automatic_skill": true,
+      "automatic_plot": true,
+      "network_resumed": true,
+      "definition": {
+        "version": 3,
+        "title": "椭圆与直线",
+        "components": [
+          {
+            "id": "note",
+            "type": "text",
+            "text": "题目方程：x²/9+y²/4=1，y=kx+1。拖动斜率观察，固定点为 P(0,1)。"
+          },
+          {
+            "id": "k",
+            "type": "slider",
+            "label": "斜率 k",
+            "min": -2,
+            "max": 2,
+            "value": 0
+          },
+          {
+            "id": "graph",
+            "type": "math_plot",
+            "xMin": -4,
+            "xMax": 4,
+            "yMin": -4,
+            "yMax": 4,
+            "equalAspect": true,
+            "curves": [
+              {
+                "kind": "parametric",
+                "label": "椭圆",
+                "x": "3*cos(t)",
+                "y": "2*sin(t)",
+                "min": 0,
+                "max": 6.283185307179586
+              },
+              {
+                "kind": "function",
+                "label": "直线",
+                "expression": "k*x+1"
+              }
+            ],
+            "points": [
+              {
+                "x": 0,
+                "y": 1,
+                "label": "P"
+              }
+            ]
+          }
+        ]
+      },
+      "elapsed_ms": 189293
+    }
+  ],
+  "artifacts_sha256": {
+    "hxsi-agent-math-visual-arm64-debug.apk": "c9f634d13cb79931f3171701f5fad5bddae8cc0509b4bd9faad116e15b76b42a",
+    "math-visual-chat-delivery.png": "61f3ee948fdf3a3ebceaef9ddae52d7bfee53d2b3391c0aa71591b61004aab4f",
+    "math-visual-chat.png": "61f3ee948fdf3a3ebceaef9ddae52d7bfee53d2b3391c0aa71591b61004aab4f",
+    "math-visual-default.png": "994471d224cf98ab9d03c0ca156660f3f04411da98f9eb98565c5530bc438d11",
+    "math-visual-live-0.png": "60fdf5d87a664378efd801dd3cddc3c4a38e592b51223b0b98ec8dbbd9bc8ab7",
+    "math-visual-live-1.png": "59831c24908f001feed87775ef2d03126d9008d1a748933f786943499f367b0f"
+  }
+}

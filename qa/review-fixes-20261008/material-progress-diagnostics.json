@@ -1,0 +1,744 @@
+[
+  {
+    "time": 1791451960949,
+    "stage": "STARTUP",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791451961333,
+    "stage": "STARTUP",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791451962390,
+    "stage": "MATERIAL",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791451962407,
+    "stage": "MATERIAL",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791451962545,
+    "stage": "CHAT",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791451962845,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791451979521,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791451983842,
+    "stage": "RESPONSE_BODY",
+    "result": "CANCELLED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791451983972,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791451990652,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452001617,
+    "stage": "RESPONSE_BODY",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452001645,
+    "stage": "MATERIAL",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452001657,
+    "stage": "MATERIAL",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452001769,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452010599,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452018450,
+    "stage": "RESPONSE_BODY",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452018467,
+    "stage": "CHAT",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452018570,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452018631,
+    "stage": "MATERIAL",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452018650,
+    "stage": "MATERIAL",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452018700,
+    "stage": "CHAT",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452018846,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452024774,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452024850,
+    "stage": "RESPONSE_BODY",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452035673,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452038532,
+    "stage": "RESPONSE_BODY",
+    "result": "CANCELLED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452038645,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452050483,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452070968,
+    "stage": "RESPONSE_BODY",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452070991,
+    "stage": "MATERIAL",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452071029,
+    "stage": "MATERIAL",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452071096,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452074626,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452080164,
+    "stage": "RESPONSE_BODY",
+    "result": "CANCELLED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452080183,
+    "stage": "CHAT",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452080256,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452080316,
+    "stage": "MATERIAL",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452080335,
+    "stage": "MATERIAL",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452080382,
+    "stage": "CHAT",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452080531,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452084341,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452085612,
+    "stage": "RESPONSE_BODY",
+    "result": "CANCELLED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452085727,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452089201,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452099800,
+    "stage": "RESPONSE_BODY",
+    "result": "CANCELLED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452099819,
+    "stage": "MATERIAL",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452099824,
+    "stage": "MATERIAL",
+    "result": "FAILED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452099923,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452101789,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452101868,
+    "stage": "RESPONSE_BODY",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452102844,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452109967,
+    "stage": "RESPONSE_BODY",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452109985,
+    "stage": "MATERIAL",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452110015,
+    "stage": "MATERIAL",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452110103,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452112273,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452117223,
+    "stage": "RESPONSE_BODY",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452117249,
+    "stage": "CHAT",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452117329,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452117377,
+    "stage": "MATERIAL",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452117394,
+    "stage": "MATERIAL",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452117448,
+    "stage": "CHAT",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452117631,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452120574,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452120981,
+    "stage": "RESPONSE_BODY",
+    "result": "CANCELLED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452121130,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452124238,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452132215,
+    "stage": "RESPONSE_BODY",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452132331,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452135488,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452141872,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452141947,
+    "stage": "RESPONSE_BODY",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452146102,
+    "stage": "RESPONSE_BODY",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452146142,
+    "stage": "MATERIAL",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452146153,
+    "stage": "MATERIAL",
+    "result": "FAILED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452146520,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452163315,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452175385,
+    "stage": "RESPONSE_BODY",
+    "result": "CANCELLED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452175445,
+    "stage": "MATERIAL",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452175654,
+    "stage": "MATERIAL",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452176180,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452194927,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452201726,
+    "stage": "RESPONSE_BODY",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452201759,
+    "stage": "CHAT",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452201859,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452201912,
+    "stage": "MATERIAL",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452201938,
+    "stage": "MATERIAL",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452202006,
+    "stage": "CHAT",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452202389,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452209343,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452209415,
+    "stage": "RESPONSE_BODY",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452227826,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452255313,
+    "stage": "RESPONSE_BODY",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452255377,
+    "stage": "MATERIAL",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452255818,
+    "stage": "MATERIAL",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452255958,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452281420,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452311057,
+    "stage": "RESPONSE_BODY",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452311078,
+    "stage": "CHAT",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452311165,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452311222,
+    "stage": "MATERIAL",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452311246,
+    "stage": "MATERIAL",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452311306,
+    "stage": "CHAT",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452311539,
+    "stage": "NETWORK",
+    "result": "STARTED",
+    "httpStatus": null,
+    "failure": null
+  },
+  {
+    "time": 1791452317527,
+    "stage": "NETWORK",
+    "result": "COMPLETED",
+    "httpStatus": 200,
+    "failure": null
+  },
+  {
+    "time": 1791452317606,
+    "stage": "RESPONSE_BODY",
+    "result": "COMPLETED",
+    "httpStatus": null,
+    "failure": null
+  }
+]

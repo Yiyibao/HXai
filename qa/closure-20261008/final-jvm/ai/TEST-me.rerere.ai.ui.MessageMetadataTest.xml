@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.ui.MessageMetadataTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-10-08T13:56:56.358Z" hostname="DESKTOP-QH4J0RS" time="0.009">
+  <properties/>
+  <testcase name="written metadata uses legacy keys" classname="me.rerere.ai.ui.MessageMetadataTest" time="0.0"/>
+  <testcase name="legacy json null thought signature does not survive rewrite" classname="me.rerere.ai.ui.MessageMetadataTest" time="0.001"/>
+  <testcase name="metadata round trip via persistence is stable" classname="me.rerere.ai.ui.MessageMetadataTest" time="0.007"/>
+  <testcase name="cross provider metadata does not interfere" classname="me.rerere.ai.ui.MessageMetadataTest" time="0.0"/>
+  <testcase name="null fields are omitted when writing" classname="me.rerere.ai.ui.MessageMetadataTest" time="0.0"/>
+  <testcase name="parses legacy openai metadata" classname="me.rerere.ai.ui.MessageMetadataTest" time="0.0"/>
+  <testcase name="diff metadata round trip" classname="me.rerere.ai.ui.MessageMetadataTest" time="0.001"/>
+  <testcase name="malformed metadata returns null instead of throwing" classname="me.rerere.ai.ui.MessageMetadataTest" time="0.0"/>
+  <testcase name="parses legacy openai metadata with json null encrypted content" classname="me.rerere.ai.ui.MessageMetadataTest" time="0.0"/>
+  <testcase name="parses legacy google metadata with json null thought signature" classname="me.rerere.ai.ui.MessageMetadataTest" time="0.0"/>
+  <testcase name="returns null when metadata is absent" classname="me.rerere.ai.ui.MessageMetadataTest" time="0.0"/>
+  <testcase name="parses legacy claude metadata" classname="me.rerere.ai.ui.MessageMetadataTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

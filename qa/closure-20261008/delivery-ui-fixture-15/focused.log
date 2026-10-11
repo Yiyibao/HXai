@@ -1,0 +1,40 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DeliveryUiClosureTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.DeliveryUiClosureTest:
+INSTRUMENTATION_STATUS: test=pickerCancelAndProfileChangeDoNotDeliverOldSource
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource","runId":"6656e3f2-f67a-40f9-b4d7-8e501b855b32","startedAt":1791466956711,"finishedAt":1791466964908,"status":"FAILED","entries":[{"name":"qa-evidence\/DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource\/6656e3f2-f67a-40f9-b4d7-8e501b855b32\/picker-before-save.png","sha256":"739d897e4a8468f3c9dd86283d4b0e9ac89d81ff505e92b5eb6be5718bf7b5bf","bytes":90246,"reusedSyntheticInput":false},{"name":"qa-evidence\/DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource\/6656e3f2-f67a-40f9-b4d7-8e501b855b32\/assertions.txt","sha256":"e08fe7421f4cc893908250f38f912873709275507eb1d4a51fab0fabe36316ab","bytes":238,"reusedSyntheticInput":false},{"name":"qa-evidence\/DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource\/6656e3f2-f67a-40f9-b4d7-8e501b855b32\/screen.png","sha256":"553a9e5d06c6fcb1182024b5f3c4d19b9215490418475f8d758b64e40451a953","bytes":104714,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DeliveryUiClosureTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=org.junit.ComparisonFailure: Rejected callback writes no source bytes expected:<[0]> but was:<[]>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at me.rerere.rikkahub.service.DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource(DeliveryUiClosureTest.kt:61)
+
+INSTRUMENTATION_STATUS: stream=
+Error in pickerCancelAndProfileChangeDoNotDeliverOldSource(me.rerere.rikkahub.service.DeliveryUiClosureTest):
+org.junit.ComparisonFailure: Rejected callback writes no source bytes expected:<[0]> but was:<[]>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at me.rerere.rikkahub.service.DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource(DeliveryUiClosureTest.kt:61)
+
+INSTRUMENTATION_STATUS: test=pickerCancelAndProfileChangeDoNotDeliverOldSource
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 12.319
+There was 1 failure:
+1) pickerCancelAndProfileChangeDoNotDeliverOldSource(me.rerere.rikkahub.service.DeliveryUiClosureTest)
+org.junit.ComparisonFailure: Rejected callback writes no source bytes expected:<[0]> but was:<[]>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at me.rerere.rikkahub.service.DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource(DeliveryUiClosureTest.kt:61)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

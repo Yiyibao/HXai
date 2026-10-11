@@ -1,0 +1,114 @@
+{
+  "word_reopened": true,
+  "ppt_reopened": true,
+  "excel_reopened": true,
+  "formula_recalculation": "required_in_office",
+  "live_workbook_rows": [
+    [
+      "Item",
+      "Quantity",
+      "Price"
+    ],
+    [
+      "PAGE_1",
+      3,
+      7
+    ],
+    [
+      "PAGE_2",
+      6,
+      14
+    ],
+    [
+      "PAGE_3",
+      9,
+      21
+    ],
+    [
+      "PAGE_4",
+      12,
+      28
+    ],
+    [
+      "PAGE_5",
+      15,
+      35
+    ],
+    [
+      "PAGE_6",
+      18,
+      42
+    ],
+    [
+      "PAGE_7",
+      21,
+      49
+    ]
+  ],
+  "mixed_visual_workbook_rows": [
+    [
+      "Item",
+      "Quantity",
+      "Price"
+    ],
+    [
+      "PAGE_1",
+      3,
+      7
+    ],
+    [
+      "PAGE_2",
+      6,
+      14
+    ],
+    [
+      "PAGE_3",
+      9,
+      21
+    ],
+    [
+      "PAGE_4",
+      12,
+      28
+    ],
+    [
+      "PAGE_5",
+      15,
+      35
+    ],
+    [
+      "PAGE_6",
+      18,
+      42
+    ],
+    [
+      "PAGE_7",
+      21,
+      49
+    ]
+  ],
+  "all_quantities_and_prices_match_source": true,
+  "hashes": {
+    "collected\\p0-live-dispatch\\conversation.json": "eb99f9f0edf194bcb54ac9c7421da62f7c8f4907c0848f33005f2c6e4cf16eaf",
+    "collected\\p0-live-dispatch\\output.xlsx": "eff06e8cbdafe1a7d529fa9626fa8def2dcb08dd1f41a3c85ff4589f53749a2b",
+    "collected\\p0-live-dispatch\\result.json": "2630f6e8285606868931d628128287e9bed2641caf85d91fc5ce130ee1bcd80d",
+    "collected\\p0-live-dispatch\\source-seven-scanned.pdf": "07debef4fe99f30f155c4cf440825b1f5b28e2e206718c0d17d528872ab1d7bc",
+    "collected\\p0-live-mixed\\conversation.json": "40d822cf40c355d2966e097ff0de957cd9e4fe4c079a9ab7b69c2455f63b9f2f",
+    "collected\\p0-live-mixed\\output.xlsx": "3032b4f4dcac95a6515affba66d434febb4232e1ecb01136292a5ccd7ed7dac9",
+    "collected\\p0-live-mixed\\result.json": "395c9194029244837cad93151528ab7de2b94a0043bb495baaf9e6a2c4dc3d9e",
+    "collected\\p0-live-mixed\\source-seven-scanned.pdf": "3bfd2a552a298ae5b94857c962f53a8ad9d9f0c4f608252f1510a2bc8484f355",
+    "collected\\p0-live-mixed\\tasks.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "collected\\p0-rich-output\\image-preserved.pdf": "be040b41d9759bf4871bfe0f70e663ed626318f21fd76d30beef4d230e42e83a",
+    "collected\\p0-rich-output\\image-preserved.png": "d74ecb616a63eced4e4307a8a280df8d28c6b5cc8a7d1c382c36c09c19a887e4",
+    "collected\\p0-rich-output\\result.json": "13ebe5ed201a66c38269927ed0b21a49871eb2ab27d01204157ea79f9d172905",
+    "collected\\p0-rich-output\\rich-output.docx": "5283b1ff495e5e4b1cad805bf2a3c49c3ab0ea1ec3d82a5f304e38f17493f1b3",
+    "collected\\p0-rich-output\\rich-output.pptx": "41a4a23c2d07e8dd8656022f9ed4201eb7e5adb6542fd0fef57f0907db5e3fc9",
+    "collected\\p0-rich-output\\rich-output.xlsx": "0ade014a7e7f92e9a1013a0739844283699cebb780a53eff78c9f823a4c9059f",
+    "collected\\p0-routing\\FD01.json": "b2100766a34f0e820cbadc299cd37023e9d50dcdac3161e66bfa6392a16be2ba",
+    "collected\\p0-routing\\FD04.json": "d9ad0f5e74ced46ad5ca4ce8c97c8dae3949dc45c29f8a1ffeec24b976120590",
+    "collected\\p0-routing\\FD05.json": "d62a5368def6177ea1f2ec1d484a33e07bc324480ffcf6a8a6fd76bb1f13be13",
+    "collected\\p0-routing\\FD08.json": "74895bf276170472036ef96f3c727e89ee916d449e56456afb606b75433161bc",
+    "collected\\p0-routing\\FD09.json": "6445bf22fa4955c471ae0618ae790e98f85aa839fb51bcccae993a7c5a11ed4f",
+    "collected\\p0-routing\\result.json": "b1f40303d420b89d37f9658524a60382d3fb60e94dd2039863b5729e970e3bef"
+  }
+}

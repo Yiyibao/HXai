@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.provider.providers.openai.ChatCompletionsRequestMessageTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-10-07T22:19:49.534Z" hostname="DESKTOP-QH4J0RS" time="0.033">
+  <properties/>
+  <testcase name="latest assistant with reasoning and empty text should keep reasoning content" classname="me.rerere.ai.provider.providers.openai.ChatCompletionsRequestMessageTest" time="0.007"/>
+  <testcase name="multi-round reasoning and tool calls should be correctly ordered" classname="me.rerere.ai.provider.providers.openai.ChatCompletionsRequestMessageTest" time="0.004"/>
+  <testcase name="non streaming OpenRouter response should preserve reasoning details for tool continuation" classname="me.rerere.ai.provider.providers.openai.ChatCompletionsRequestMessageTest" time="0.004"/>
+  <testcase name="assistant should not send OpenRouter reasoning details to other hosts" classname="me.rerere.ai.provider.providers.openai.ChatCompletionsRequestMessageTest" time="0.002"/>
+  <testcase name="assistant with only reasoning and empty text should be filtered out when history reasoning disabled" classname="me.rerere.ai.provider.providers.openai.ChatCompletionsRequestMessageTest" time="0.003"/>
+  <testcase name="assistant should preserve OpenRouter reasoning details" classname="me.rerere.ai.provider.providers.openai.ChatCompletionsRequestMessageTest" time="0.002"/>
+  <testcase name="reasoning should be excluded from all assistant messages when history reasoning disabled" classname="me.rerere.ai.provider.providers.openai.ChatCompletionsRequestMessageTest" time="0.003"/>
+  <testcase name="complex multi-round conversation with interleaved reasoning and tools" classname="me.rerere.ai.provider.providers.openai.ChatCompletionsRequestMessageTest" time="0.002"/>
+  <testcase name="reasoning should be included for all assistant messages when history reasoning enabled" classname="me.rerere.ai.provider.providers.openai.ChatCompletionsRequestMessageTest" time="0.002"/>
+  <testcase name="assistant with only reasoning and empty text should be kept when history reasoning enabled" classname="me.rerere.ai.provider.providers.openai.ChatCompletionsRequestMessageTest" time="0.001"/>
+  <testcase name="parallel tool calls should be grouped together" classname="me.rerere.ai.provider.providers.openai.ChatCompletionsRequestMessageTest" time="0.001"/>
+  <testcase name="tool_call followed by tool result should maintain correct order" classname="me.rerere.ai.provider.providers.openai.ChatCompletionsRequestMessageTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

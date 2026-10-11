@@ -1,0 +1,36 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+Calculating task graph as configuration cache cannot be reused because file 'app\build.gradle.kts' has changed.
+> Task :build-logic:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:pluginDescriptors
+> Task :build-logic:processResources
+> Task :build-logic:compileKotlin
+> Task :build-logic:compileJava NO-SOURCE
+> Task :build-logic:classes
+> Task :build-logic:jar
+
+> Configure project :app
+e: file:///D:/Office/Study/code/MathStudyAgent/client/app/build.gradle.kts:100:57: Argument type mismatch: actual type is 'File', but 'String' was expected.
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file 'D:\Office\Study\code\MathStudyAgent\client\app\build.gradle.kts' line: 100
+
+* What went wrong:
+Script compilation error:
+
+  Line 100:         getByName("androidTest").assets.directories.add(file("$projectDir/schemas"))
+                                                                    ^ Argument type mismatch: actual type is 'File', but 'String' was expected.
+
+1 error
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 37s
+4 actionable tasks: 4 executed
+Configuration cache entry stored.

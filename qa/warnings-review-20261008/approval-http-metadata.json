@@ -1,0 +1,81 @@
+{
+  "window_host_start_epoch": 1791413422.2065945,
+  "window_host_end_epoch": 1791413467.1032012,
+  "diagnostic_fixture_errors": [
+    {
+      "time": 1791413463618,
+      "stage": "NETWORK",
+      "result": "HTTP_ERROR",
+      "httpStatus": 400,
+      "durationMs": 440
+    }
+  ],
+  "method": "Only failed HTTP metadata during this isolated QA invocation is retained. Raw diagnostics, operation/session identifiers, body, endpoint and credentials are not exported.",
+  "qa_network_timeline": [
+    {
+      "time": 1791413437022,
+      "stage": "NETWORK",
+      "result": "STARTED",
+      "durationMs": 0
+    },
+    {
+      "time": 1791413443085,
+      "stage": "NETWORK",
+      "result": "COMPLETED",
+      "httpStatus": 200,
+      "durationMs": 6063
+    },
+    {
+      "time": 1791413449754,
+      "stage": "NETWORK",
+      "result": "STARTED",
+      "durationMs": 0
+    },
+    {
+      "time": 1791413452509,
+      "stage": "NETWORK",
+      "result": "COMPLETED",
+      "httpStatus": 200,
+      "durationMs": 2755
+    },
+    {
+      "time": 1791413455635,
+      "stage": "NETWORK",
+      "result": "STARTED",
+      "durationMs": 0
+    },
+    {
+      "time": 1791413456218,
+      "stage": "NETWORK",
+      "result": "COMPLETED",
+      "httpStatus": 200,
+      "durationMs": 583
+    },
+    {
+      "time": 1791413459360,
+      "stage": "NETWORK",
+      "result": "STARTED",
+      "durationMs": 0
+    },
+    {
+      "time": 1791413460320,
+      "stage": "NETWORK",
+      "result": "COMPLETED",
+      "httpStatus": 200,
+      "durationMs": 960
+    },
+    {
+      "time": 1791413463178,
+      "stage": "NETWORK",
+      "result": "STARTED",
+      "durationMs": 0
+    },
+    {
+      "time": 1791413463618,
+      "stage": "NETWORK",
+      "result": "HTTP_ERROR",
+      "httpStatus": 400,
+      "durationMs": 440
+    }
+  ]
+}

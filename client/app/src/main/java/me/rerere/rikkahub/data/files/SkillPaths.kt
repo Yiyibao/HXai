@@ -10,6 +10,8 @@ internal object SkillPaths {
 
         val canonicalRoot = skillsRoot.canonicalFile
         val canonicalDir = canonicalRoot.resolve(skillName).canonicalFile
+        // A sibling alias must not let uninstall/replace target another installed skill.
+        if (canonicalDir != canonicalRoot.resolve(skillName)) return null
         val parent = canonicalDir.parentFile ?: return null
 
         if (parent != canonicalRoot) return null

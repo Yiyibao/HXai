@@ -1,0 +1,42 @@
+[
+  {
+    "file": "client\\web-ui\\app\\components\\ui\\sonner.tsx",
+    "removed": "use client directive at original line 1",
+    "reason": "React Router project explicitly uses ssr:false; this Next.js/RSC marker is ignored by its Rollup pipeline and triggers source-map diagnostic lookup errors."
+  },
+  {
+    "file": "client\\web-ui\\app\\components\\ui\\drawer.tsx",
+    "removed": "use client directive at original line 1",
+    "reason": "React Router project explicitly uses ssr:false; this Next.js/RSC marker is ignored by its Rollup pipeline and triggers source-map diagnostic lookup errors."
+  },
+  {
+    "file": "client\\web-ui\\app\\components\\extended\\conversation.tsx",
+    "removed": "use client directive at original line 1",
+    "reason": "React Router project explicitly uses ssr:false; this Next.js/RSC marker is ignored by its Rollup pipeline and triggers source-map diagnostic lookup errors."
+  },
+  {
+    "file": "client\\web-ui\\app\\components\\ui\\sidebar.tsx",
+    "removed": "use client directive at original line 1",
+    "reason": "React Router project explicitly uses ssr:false; this Next.js/RSC marker is ignored by its Rollup pipeline and triggers source-map diagnostic lookup errors."
+  },
+  {
+    "file": "client\\web-ui\\app\\components\\ui\\tooltip.tsx",
+    "removed": "use client directive at original line 1",
+    "reason": "React Router project explicitly uses ssr:false; this Next.js/RSC marker is ignored by its Rollup pipeline and triggers source-map diagnostic lookup errors."
+  },
+  {
+    "file": "client\\web-ui\\app\\components\\ui\\sheet.tsx",
+    "removed": "use client directive at original line 1",
+    "reason": "React Router project explicitly uses ssr:false; this Next.js/RSC marker is ignored by its Rollup pipeline and triggers source-map diagnostic lookup errors."
+  },
+  {
+    "file": "client\\web-ui\\app\\components\\ui\\checkbox.tsx",
+    "removed": "use client directive at original line 1",
+    "reason": "React Router project explicitly uses ssr:false; this Next.js/RSC marker is ignored by its Rollup pipeline and triggers source-map diagnostic lookup errors."
+  },
+  {
+    "file": "client\\web-ui\\app\\components\\ui\\select.tsx",
+    "removed": "use client directive at original line 1",
+    "reason": "React Router project explicitly uses ssr:false; this Next.js/RSC marker is ignored by its Rollup pipeline and triggers source-map diagnostic lookup errors."
+  }
+]

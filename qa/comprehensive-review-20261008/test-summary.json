@@ -1,0 +1,16 @@
+{
+  "jvm_passed": 638,
+  "server_passed": 20,
+  "workspace_windows_passed": 4,
+  "workspace_linux_passed": 20,
+  "emulator_terminal_passed": 87.0,
+  "emulator_terminal_failed": 1.0,
+  "emulator_terminal_errors": 0.0,
+  "emulator_terminal_skipped": 2.0,
+  "first_material_page_failure_retained": true,
+  "material_page_retest_passed": true,
+  "real_material_failure_retained": true,
+  "findings_p1": 2,
+  "findings_p2": 4,
+  "business_code_modified": false
+}

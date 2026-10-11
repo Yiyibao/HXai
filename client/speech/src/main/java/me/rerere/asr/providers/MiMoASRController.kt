@@ -9,7 +9,7 @@ import android.media.AudioRecord
 import android.media.MediaRecorder
 import android.os.SystemClock
 import android.util.Base64
-import android.util.Log
+import me.rerere.common.util.ServicePrivacyLog as Log
 import androidx.core.content.ContextCompat
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -253,7 +253,7 @@ class MiMoASRController(
 
         val text = withContext(Dispatchers.IO) {
             httpClient.newCall(request).execute().use { resp ->
-                val respBody = resp.body?.string().orEmpty()
+                val respBody = resp.body.string().orEmpty()
                 if (!resp.isSuccessful) {
                     throw IOException("MiMo ASR HTTP ${resp.code}: $respBody")
                 }

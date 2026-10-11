@@ -1,0 +1,1372 @@
+[
+  {
+    "apk": "app-arm64-v8a-debug.apk",
+    "apk_sha256": "497044d436b1ff206e61932fd4eb16bfd0e27b9cb762a0e0aca696577be31d49",
+    "entry": "lib/arm64-v8a/libandroidx.graphics.path.so",
+    "sha256": "41e9a793c43a0f4fddb19e33f346bace464f30f888ba7b9eaf96294ea115bfb6",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 7232,
+        "vaddr": 23616,
+        "align": 16384
+      },
+      {
+        "offset": 8144,
+        "vaddr": 40912,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-arm64-v8a-debug.apk",
+    "apk_sha256": "497044d436b1ff206e61932fd4eb16bfd0e27b9cb762a0e0aca696577be31d49",
+    "entry": "lib/arm64-v8a/libbarhopper_v3.so",
+    "sha256": "ec09597e9eb3aee0eb55ae3366da0d4ba416f5aa35a1af0b3811f50ff46743a1",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 4866048,
+        "vaddr": 4866048,
+        "align": 16384
+      },
+      {
+        "offset": 4911488,
+        "vaddr": 4927872,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-arm64-v8a-debug.apk",
+    "apk_sha256": "497044d436b1ff206e61932fd4eb16bfd0e27b9cb762a0e0aca696577be31d49",
+    "entry": "lib/arm64-v8a/libdatastore_shared_counter.so",
+    "sha256": "178f89a2c6c9234ddf980dd4cd1f3616186a46b2b932aafa6707abd04c5fd76a",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 3304,
+        "vaddr": 19688,
+        "align": 16384
+      },
+      {
+        "offset": 5184,
+        "vaddr": 37952,
+        "align": 16384
+      },
+      {
+        "offset": 5776,
+        "vaddr": 54928,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-arm64-v8a-debug.apk",
+    "apk_sha256": "497044d436b1ff206e61932fd4eb16bfd0e27b9cb762a0e0aca696577be31d49",
+    "entry": "lib/arm64-v8a/libimage_processing_util_jni.so",
+    "sha256": "0292b063fafccf734472cbb59588e756c2dbca907c72021ba6fbf126385508a2",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 29472,
+        "vaddr": 45856,
+        "align": 16384
+      },
+      {
+        "offset": 30464,
+        "vaddr": 63232,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-arm64-v8a-debug.apk",
+    "apk_sha256": "497044d436b1ff206e61932fd4eb16bfd0e27b9cb762a0e0aca696577be31d49",
+    "entry": "lib/arm64-v8a/libmupdf_java.so",
+    "sha256": "7d4e1481abff22624396853863fd71e86349411d443dd0ae7335582e0d3fd3fb",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 9208848,
+        "vaddr": 9225232,
+        "align": 16384
+      },
+      {
+        "offset": 9332248,
+        "vaddr": 9365016,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-arm64-v8a-debug.apk",
+    "apk_sha256": "497044d436b1ff206e61932fd4eb16bfd0e27b9cb762a0e0aca696577be31d49",
+    "entry": "lib/arm64-v8a/libproot_exec.so",
+    "sha256": "06c4b8d620c960e2ae873786e81dc04d797b5af47967819b5ec4cbb7635590c9",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 252560,
+        "vaddr": 268944,
+        "align": 16384
+      },
+      {
+        "offset": 258232,
+        "vaddr": 291000,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-arm64-v8a-debug.apk",
+    "apk_sha256": "497044d436b1ff206e61932fd4eb16bfd0e27b9cb762a0e0aca696577be31d49",
+    "entry": "lib/arm64-v8a/libproot_loader.so",
+    "sha256": "44ef39c1e1a18c09f6e4c4b5d6f8bba82d30596598bd155ec162d05c5122ff04",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 2097152,
+        "align": 16384
+      },
+      {
+        "offset": 16384,
+        "vaddr": 137438953472,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-arm64-v8a-debug.apk",
+    "apk_sha256": "497044d436b1ff206e61932fd4eb16bfd0e27b9cb762a0e0aca696577be31d49",
+    "entry": "lib/arm64-v8a/libquickjs.so",
+    "sha256": "53c9987c219fa171415445d3f9b927a88c8c12646789a701351afd749c1c1da9",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 763344,
+        "vaddr": 779728,
+        "align": 16384
+      },
+      {
+        "offset": 788360,
+        "vaddr": 821128,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-arm64-v8a-debug.apk",
+    "apk_sha256": "497044d436b1ff206e61932fd4eb16bfd0e27b9cb762a0e0aca696577be31d49",
+    "entry": "lib/arm64-v8a/libsimple.so",
+    "sha256": "4c3797853c678f72ac899eea9813929b5c358ff3b9c02bd91bc89503fe80b539",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 1666128,
+        "vaddr": 1682512,
+        "align": 16384
+      },
+      {
+        "offset": 1702712,
+        "vaddr": 1735480,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-arm64-v8a-debug.apk",
+    "apk_sha256": "497044d436b1ff206e61932fd4eb16bfd0e27b9cb762a0e0aca696577be31d49",
+    "entry": "lib/arm64-v8a/libsqlite3x.so",
+    "sha256": "9098815a85ecaf72661a6da8a4608967aea402fbd5955e13b3291dedf81905eb",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 1816896,
+        "vaddr": 1833280,
+        "align": 16384
+      },
+      {
+        "offset": 1828936,
+        "vaddr": 1861704,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-arm64-v8a-debug.apk",
+    "apk_sha256": "497044d436b1ff206e61932fd4eb16bfd0e27b9cb762a0e0aca696577be31d49",
+    "entry": "lib/arm64-v8a/libsurface_util_jni.so",
+    "sha256": "a5c9d1928ea92ec7a94dff8cf666e7739cd734198b9f0ae1d4e28ea3c86516ba",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 2480,
+        "vaddr": 18864,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-arm64-v8a-debug.apk",
+    "apk_sha256": "497044d436b1ff206e61932fd4eb16bfd0e27b9cb762a0e0aca696577be31d49",
+    "entry": "lib/arm64-v8a/libtermux.so",
+    "sha256": "ccc1de53c81c6e97630652f72860de2e9c82ff3a8e68b279c6aa63b31ffa3321",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 266528,
+        "vaddr": 282912,
+        "align": 16384
+      },
+      {
+        "offset": 283264,
+        "vaddr": 316032,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-arm64-v8a-debug.apk",
+    "apk_sha256": "497044d436b1ff206e61932fd4eb16bfd0e27b9cb762a0e0aca696577be31d49",
+    "entry": "lib/arm64-v8a/libucrop.so",
+    "sha256": "605dc8a08c878483783f773e01296f20ba071fa4bae66b922c185a171915c73e",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 1137344,
+        "vaddr": 1153728,
+        "align": 16384
+      },
+      {
+        "offset": 1160048,
+        "vaddr": 1192816,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-arm64-v8a-debug.apk",
+    "apk_sha256": "497044d436b1ff206e61932fd4eb16bfd0e27b9cb762a0e0aca696577be31d49",
+    "entry": "lib/arm64-v8a/libworkspace.so",
+    "sha256": "8194ee2333a9c6414f8170abd4aefe0b98cb0697ec6d58078414dbf78ff6682e",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 1536,
+        "vaddr": 17920,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/arm64-v8a/libandroidx.graphics.path.so",
+    "sha256": "41e9a793c43a0f4fddb19e33f346bace464f30f888ba7b9eaf96294ea115bfb6",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 7232,
+        "vaddr": 23616,
+        "align": 16384
+      },
+      {
+        "offset": 8144,
+        "vaddr": 40912,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/arm64-v8a/libbarhopper_v3.so",
+    "sha256": "ec09597e9eb3aee0eb55ae3366da0d4ba416f5aa35a1af0b3811f50ff46743a1",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 4866048,
+        "vaddr": 4866048,
+        "align": 16384
+      },
+      {
+        "offset": 4911488,
+        "vaddr": 4927872,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/arm64-v8a/libdatastore_shared_counter.so",
+    "sha256": "178f89a2c6c9234ddf980dd4cd1f3616186a46b2b932aafa6707abd04c5fd76a",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 3304,
+        "vaddr": 19688,
+        "align": 16384
+      },
+      {
+        "offset": 5184,
+        "vaddr": 37952,
+        "align": 16384
+      },
+      {
+        "offset": 5776,
+        "vaddr": 54928,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/arm64-v8a/libimage_processing_util_jni.so",
+    "sha256": "0292b063fafccf734472cbb59588e756c2dbca907c72021ba6fbf126385508a2",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 29472,
+        "vaddr": 45856,
+        "align": 16384
+      },
+      {
+        "offset": 30464,
+        "vaddr": 63232,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/arm64-v8a/libmupdf_java.so",
+    "sha256": "7d4e1481abff22624396853863fd71e86349411d443dd0ae7335582e0d3fd3fb",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 9208848,
+        "vaddr": 9225232,
+        "align": 16384
+      },
+      {
+        "offset": 9332248,
+        "vaddr": 9365016,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/arm64-v8a/libproot_exec.so",
+    "sha256": "06c4b8d620c960e2ae873786e81dc04d797b5af47967819b5ec4cbb7635590c9",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 252560,
+        "vaddr": 268944,
+        "align": 16384
+      },
+      {
+        "offset": 258232,
+        "vaddr": 291000,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/arm64-v8a/libproot_loader.so",
+    "sha256": "44ef39c1e1a18c09f6e4c4b5d6f8bba82d30596598bd155ec162d05c5122ff04",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 2097152,
+        "align": 16384
+      },
+      {
+        "offset": 16384,
+        "vaddr": 137438953472,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/arm64-v8a/libquickjs.so",
+    "sha256": "53c9987c219fa171415445d3f9b927a88c8c12646789a701351afd749c1c1da9",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 763344,
+        "vaddr": 779728,
+        "align": 16384
+      },
+      {
+        "offset": 788360,
+        "vaddr": 821128,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/arm64-v8a/libsimple.so",
+    "sha256": "4c3797853c678f72ac899eea9813929b5c358ff3b9c02bd91bc89503fe80b539",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 1666128,
+        "vaddr": 1682512,
+        "align": 16384
+      },
+      {
+        "offset": 1702712,
+        "vaddr": 1735480,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/arm64-v8a/libsqlite3x.so",
+    "sha256": "9098815a85ecaf72661a6da8a4608967aea402fbd5955e13b3291dedf81905eb",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 1816896,
+        "vaddr": 1833280,
+        "align": 16384
+      },
+      {
+        "offset": 1828936,
+        "vaddr": 1861704,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/arm64-v8a/libsurface_util_jni.so",
+    "sha256": "a5c9d1928ea92ec7a94dff8cf666e7739cd734198b9f0ae1d4e28ea3c86516ba",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 2480,
+        "vaddr": 18864,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/arm64-v8a/libtermux.so",
+    "sha256": "ccc1de53c81c6e97630652f72860de2e9c82ff3a8e68b279c6aa63b31ffa3321",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 266528,
+        "vaddr": 282912,
+        "align": 16384
+      },
+      {
+        "offset": 283264,
+        "vaddr": 316032,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/arm64-v8a/libucrop.so",
+    "sha256": "605dc8a08c878483783f773e01296f20ba071fa4bae66b922c185a171915c73e",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 1137344,
+        "vaddr": 1153728,
+        "align": 16384
+      },
+      {
+        "offset": 1160048,
+        "vaddr": 1192816,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/arm64-v8a/libworkspace.so",
+    "sha256": "8194ee2333a9c6414f8170abd4aefe0b98cb0697ec6d58078414dbf78ff6682e",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 1536,
+        "vaddr": 17920,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/x86_64/libandroidx.graphics.path.so",
+    "sha256": "4e56c996f13670e70082658de7880c4020eabf4f25e43387f88ed78a713fc9f0",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 7872,
+        "vaddr": 24256,
+        "align": 16384
+      },
+      {
+        "offset": 8808,
+        "vaddr": 41576,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/x86_64/libbarhopper_v3.so",
+    "sha256": "6c5deea87d962af008fd48c3229db13ab68eef2e9feeccb2df5b33a920c0579a",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 5832704,
+        "vaddr": 5832704,
+        "align": 16384
+      },
+      {
+        "offset": 5873856,
+        "vaddr": 5890240,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/x86_64/libdatastore_shared_counter.so",
+    "sha256": "ccd1862ef8f854d2322f3ee07adebd107890ded3b7c96b8f3528ac99aab4a4f6",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 3376,
+        "vaddr": 19760,
+        "align": 16384
+      },
+      {
+        "offset": 4736,
+        "vaddr": 37504,
+        "align": 16384
+      },
+      {
+        "offset": 5328,
+        "vaddr": 54480,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/x86_64/libimage_processing_util_jni.so",
+    "sha256": "112703727717651e69e91f3ea2c3c2311737ee5809a909c9d342a811b6c7c069",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 46672,
+        "vaddr": 63056,
+        "align": 16384
+      },
+      {
+        "offset": 47352,
+        "vaddr": 80120,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/x86_64/libmupdf_java.so",
+    "sha256": "9eb4973bcbc1633173c6cbfa1823f6a4d277a025d4610ef823ade9f5a555f8e4",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 9582320,
+        "vaddr": 9598704,
+        "align": 16384
+      },
+      {
+        "offset": 9705840,
+        "vaddr": 9738608,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/x86_64/libproot_exec.so",
+    "sha256": "29ad3f63f5a1a030d0db8a58c6f14124386ce4a2fc31c24003b8fac3febe5a02",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 267888,
+        "vaddr": 284272,
+        "align": 16384
+      },
+      {
+        "offset": 273440,
+        "vaddr": 306208,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/x86_64/libproot_loader.so",
+    "sha256": "914564ea1c66f50b38f18cac857fcf814c6b1ab027789178880fca1d530599b3",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 2097152,
+        "align": 16384
+      },
+      {
+        "offset": 16384,
+        "vaddr": 105553116266496,
+        "align": 16384
+      },
+      {
+        "offset": 17512,
+        "vaddr": 105553116284008,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/x86_64/libquickjs.so",
+    "sha256": "8ea65d8b3efbd8d19a003691ff329c5483d18f3b59547cd8f8e1cac69470079e",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 805856,
+        "vaddr": 822240,
+        "align": 16384
+      },
+      {
+        "offset": 830840,
+        "vaddr": 863608,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/x86_64/libsimple.so",
+    "sha256": "5cba29c016ddd7105f0c172a07a5107fb3860d397ff43497b73997952357dad4",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 1654736,
+        "vaddr": 1671120,
+        "align": 16384
+      },
+      {
+        "offset": 1691200,
+        "vaddr": 1723968,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/x86_64/libsqlite3x.so",
+    "sha256": "ad6a702654731fdbd3686f6af06fa1701ff2648579cea6e62ef93b791833d8c2",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 1820560,
+        "vaddr": 1836944,
+        "align": 16384
+      },
+      {
+        "offset": 1832704,
+        "vaddr": 1865472,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/x86_64/libsurface_util_jni.so",
+    "sha256": "e5311942b4fce0f7f2505d41150cf9921e558a6368929cb73127450f74dd4fe4",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 2496,
+        "vaddr": 18880,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/x86_64/libtermux.so",
+    "sha256": "1aa432f210f448e5f0b335b8211d02afb372df5ae4d575046ae15853ebefffa2",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 262320,
+        "vaddr": 278704,
+        "align": 16384
+      },
+      {
+        "offset": 278888,
+        "vaddr": 311656,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/x86_64/libucrop.so",
+    "sha256": "42eef0e1fe742811c367e82e40ce8a2697122b8b90e25c6cf1f70fc52a654746",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 1268032,
+        "vaddr": 1284416,
+        "align": 16384
+      },
+      {
+        "offset": 1290472,
+        "vaddr": 1323240,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "113c53707b53d66a6323cca7ba2cc0b469d0b43652a85e6aeceb810db2450055",
+    "entry": "lib/x86_64/libworkspace.so",
+    "sha256": "d9a01bd66837db1e21bce93601cb631be1390e910babe92f44209b96853b11b6",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 1536,
+        "vaddr": 17920,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-x86_64-debug.apk",
+    "apk_sha256": "96b5b93defb3a444a9c5f62f484db0f1e07446f6c9324cb89e416ce0c04a96a8",
+    "entry": "lib/x86_64/libandroidx.graphics.path.so",
+    "sha256": "4e56c996f13670e70082658de7880c4020eabf4f25e43387f88ed78a713fc9f0",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 7872,
+        "vaddr": 24256,
+        "align": 16384
+      },
+      {
+        "offset": 8808,
+        "vaddr": 41576,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-x86_64-debug.apk",
+    "apk_sha256": "96b5b93defb3a444a9c5f62f484db0f1e07446f6c9324cb89e416ce0c04a96a8",
+    "entry": "lib/x86_64/libbarhopper_v3.so",
+    "sha256": "6c5deea87d962af008fd48c3229db13ab68eef2e9feeccb2df5b33a920c0579a",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 5832704,
+        "vaddr": 5832704,
+        "align": 16384
+      },
+      {
+        "offset": 5873856,
+        "vaddr": 5890240,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-x86_64-debug.apk",
+    "apk_sha256": "96b5b93defb3a444a9c5f62f484db0f1e07446f6c9324cb89e416ce0c04a96a8",
+    "entry": "lib/x86_64/libdatastore_shared_counter.so",
+    "sha256": "ccd1862ef8f854d2322f3ee07adebd107890ded3b7c96b8f3528ac99aab4a4f6",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 3376,
+        "vaddr": 19760,
+        "align": 16384
+      },
+      {
+        "offset": 4736,
+        "vaddr": 37504,
+        "align": 16384
+      },
+      {
+        "offset": 5328,
+        "vaddr": 54480,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-x86_64-debug.apk",
+    "apk_sha256": "96b5b93defb3a444a9c5f62f484db0f1e07446f6c9324cb89e416ce0c04a96a8",
+    "entry": "lib/x86_64/libimage_processing_util_jni.so",
+    "sha256": "112703727717651e69e91f3ea2c3c2311737ee5809a909c9d342a811b6c7c069",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 46672,
+        "vaddr": 63056,
+        "align": 16384
+      },
+      {
+        "offset": 47352,
+        "vaddr": 80120,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-x86_64-debug.apk",
+    "apk_sha256": "96b5b93defb3a444a9c5f62f484db0f1e07446f6c9324cb89e416ce0c04a96a8",
+    "entry": "lib/x86_64/libmupdf_java.so",
+    "sha256": "9eb4973bcbc1633173c6cbfa1823f6a4d277a025d4610ef823ade9f5a555f8e4",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 9582320,
+        "vaddr": 9598704,
+        "align": 16384
+      },
+      {
+        "offset": 9705840,
+        "vaddr": 9738608,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-x86_64-debug.apk",
+    "apk_sha256": "96b5b93defb3a444a9c5f62f484db0f1e07446f6c9324cb89e416ce0c04a96a8",
+    "entry": "lib/x86_64/libproot_exec.so",
+    "sha256": "29ad3f63f5a1a030d0db8a58c6f14124386ce4a2fc31c24003b8fac3febe5a02",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 267888,
+        "vaddr": 284272,
+        "align": 16384
+      },
+      {
+        "offset": 273440,
+        "vaddr": 306208,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-x86_64-debug.apk",
+    "apk_sha256": "96b5b93defb3a444a9c5f62f484db0f1e07446f6c9324cb89e416ce0c04a96a8",
+    "entry": "lib/x86_64/libproot_loader.so",
+    "sha256": "914564ea1c66f50b38f18cac857fcf814c6b1ab027789178880fca1d530599b3",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 2097152,
+        "align": 16384
+      },
+      {
+        "offset": 16384,
+        "vaddr": 105553116266496,
+        "align": 16384
+      },
+      {
+        "offset": 17512,
+        "vaddr": 105553116284008,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-x86_64-debug.apk",
+    "apk_sha256": "96b5b93defb3a444a9c5f62f484db0f1e07446f6c9324cb89e416ce0c04a96a8",
+    "entry": "lib/x86_64/libquickjs.so",
+    "sha256": "8ea65d8b3efbd8d19a003691ff329c5483d18f3b59547cd8f8e1cac69470079e",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 805856,
+        "vaddr": 822240,
+        "align": 16384
+      },
+      {
+        "offset": 830840,
+        "vaddr": 863608,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-x86_64-debug.apk",
+    "apk_sha256": "96b5b93defb3a444a9c5f62f484db0f1e07446f6c9324cb89e416ce0c04a96a8",
+    "entry": "lib/x86_64/libsimple.so",
+    "sha256": "5cba29c016ddd7105f0c172a07a5107fb3860d397ff43497b73997952357dad4",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 1654736,
+        "vaddr": 1671120,
+        "align": 16384
+      },
+      {
+        "offset": 1691200,
+        "vaddr": 1723968,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-x86_64-debug.apk",
+    "apk_sha256": "96b5b93defb3a444a9c5f62f484db0f1e07446f6c9324cb89e416ce0c04a96a8",
+    "entry": "lib/x86_64/libsqlite3x.so",
+    "sha256": "ad6a702654731fdbd3686f6af06fa1701ff2648579cea6e62ef93b791833d8c2",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 1820560,
+        "vaddr": 1836944,
+        "align": 16384
+      },
+      {
+        "offset": 1832704,
+        "vaddr": 1865472,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-x86_64-debug.apk",
+    "apk_sha256": "96b5b93defb3a444a9c5f62f484db0f1e07446f6c9324cb89e416ce0c04a96a8",
+    "entry": "lib/x86_64/libsurface_util_jni.so",
+    "sha256": "e5311942b4fce0f7f2505d41150cf9921e558a6368929cb73127450f74dd4fe4",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 2496,
+        "vaddr": 18880,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-x86_64-debug.apk",
+    "apk_sha256": "96b5b93defb3a444a9c5f62f484db0f1e07446f6c9324cb89e416ce0c04a96a8",
+    "entry": "lib/x86_64/libtermux.so",
+    "sha256": "1aa432f210f448e5f0b335b8211d02afb372df5ae4d575046ae15853ebefffa2",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 262320,
+        "vaddr": 278704,
+        "align": 16384
+      },
+      {
+        "offset": 278888,
+        "vaddr": 311656,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-x86_64-debug.apk",
+    "apk_sha256": "96b5b93defb3a444a9c5f62f484db0f1e07446f6c9324cb89e416ce0c04a96a8",
+    "entry": "lib/x86_64/libucrop.so",
+    "sha256": "42eef0e1fe742811c367e82e40ce8a2697122b8b90e25c6cf1f70fc52a654746",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 1268032,
+        "vaddr": 1284416,
+        "align": 16384
+      },
+      {
+        "offset": 1290472,
+        "vaddr": 1323240,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-x86_64-debug.apk",
+    "apk_sha256": "96b5b93defb3a444a9c5f62f484db0f1e07446f6c9324cb89e416ce0c04a96a8",
+    "entry": "lib/x86_64/libworkspace.so",
+    "sha256": "d9a01bd66837db1e21bce93601cb631be1390e910babe92f44209b96853b11b6",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 1536,
+        "vaddr": 17920,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  }
+]

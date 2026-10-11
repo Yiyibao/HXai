@@ -1,4 +1,4 @@
-param([switch]$UsePlaceholderFirebase, [string]$ProxyHost, [int]$ProxyPort = 0)
+param([switch]$UsePlaceholderFirebase, [string]$ProxyHost, [int]$ProxyPort = 0, [switch]$Info)
 $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path $PSScriptRoot -Parent
 $clientRoot = Join-Path $taskRoot 'client'
@@ -20,11 +20,15 @@ try {
         $env:JAVA_TOOL_OPTIONS = "$s0OriginalJavaOptions -Dhttps.proxyHost=$ProxyHost -Dhttps.proxyPort=$ProxyPort -Dhttp.proxyHost=$ProxyHost -Dhttp.proxyPort=$ProxyPort"
     }
     $localGradle = Join-Path $taskRoot '.local/gradle-9.6.0/bin/gradle.bat'
+    $buildArguments = @(':app:assembleDebug', '--no-daemon', '--console=plain',
+        '-Dorg.gradle.internal.http.connectionTimeout=30000',
+        '-Dorg.gradle.internal.http.socketTimeout=30000')
+    if ($Info) { $buildArguments += '--info' }
     if (Test-Path -LiteralPath $localGradle) {
-        & $localGradle -p $clientRoot :app:assembleDebug --no-daemon --console=plain
+        & $localGradle -p $clientRoot @buildArguments
     } else {
         Push-Location $clientRoot
-        try { & ./gradlew.bat :app:assembleDebug --no-daemon --console=plain } finally { Pop-Location }
+        try { & ./gradlew.bat @buildArguments } finally { Pop-Location }
     }
     if ($LASTEXITCODE -ne 0) { throw "Baseline build failed with exit code $LASTEXITCODE" }
 } finally {

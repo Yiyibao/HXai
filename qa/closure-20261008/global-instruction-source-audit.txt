@@ -1,0 +1,6 @@
+本次只检查生产源码，不导出已安装个人技能内容。
+ChatService.kt:147 的基础 inputTransformers 不含技能全文或 WorkspaceReminderTransformer。
+ChatService.kt:815-833 的学习 generation 输入只追加 DocumentAsPromptTransformer、templateTransformer；workspaceCwd=null、memories=emptyList()。workspaceReminderTransformer 仅构造，未加入该链。
+ChatToolFactory.kt:64-72 只在 assistant.enabledSkills 非空时调用 createSkillTools，后者再次按 enabledSkills 过滤；systemPrompt 只列名称与描述，正文需明确 use_skill 调用，未写入学习档案。
+Skills 制作、编辑、自动草稿关闭；安装、查看、显式启用、卸载由现有合同设备测试及资源单元测试确认。
+能力边界：此为调用链源码审计及合成技能测试，不是对用户真实全局包内容的审计。

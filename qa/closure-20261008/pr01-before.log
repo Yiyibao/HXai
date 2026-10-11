@@ -1,0 +1,79 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.IndependentPostfixProbeTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.IndependentPostfixProbeTest:
+INSTRUMENTATION_STATUS: test=deletedConversationMustRejectStaleSaveAfterSessionEviction
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"IndependentPostfixProbeTest.deletedConversationMustRejectStaleSaveAfterSessionEviction","runId":"f31810f8-25f9-4c76-95ae-08b7c3f8a122","startedAt":1791463857310,"finishedAt":1791463857815,"status":"FAILED","entries":[{"name":"qa-evidence\/IndependentPostfixProbeTest.deletedConversationMustRejectStaleSaveAfterSessionEviction\/f31810f8-25f9-4c76-95ae-08b7c3f8a122\/result.txt","sha256":"7fca9b1cf844e9474214656d1a4ecd3497ca68ed3ffe183f20f66e32a568c594","bytes":70,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.IndependentPostfixProbeTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Deleted row must not be reinserted by a stale save after eviction expected null, but was:<Conversation(id=c6243710-83c5-4c50-813b-85686438ef4c, assistantId=0950e2dc-9bd5-4801-afa3-aa887aa36b4e, title=QA_f31810f8-25f9-4c76-95ae-08b7c3f8a122_deleted, messageNodes=[MessageNode(id=05e1488e-4d0a-47bc-bb65-8e3e25de5cef, messages=[UIMessage(id=16803912-2965-449e-88e2-204c2828ec89, role=USER, parts=[Text(text=synthetic stale save, metadata=null)], annotations=[], createdAt=2026-10-08T12:50:57.371685, finishedAt=null, modelId=null, usage=null, translation=null, generationState=null, generationErrorCode=null, isSynthetic=false)], selectIndex=0, isFavorite=false)], chatSuggestions=[], isPinned=false, createAt=2026-10-08T12:50:57.360Z, updateAt=2026-10-08T12:50:57.360Z, customSystemPrompt=null, modeInjectionIds=[], lorebookIds=[], workspaceCwd=null, folderId=null, profileId=b8b82f75-faa0-469e-9064-c4d2f001dbc7, queue=ConversationQueue(messages=[], paused=false), studyMode=GUIDED, newConversation=false)>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotNull(Assert.java:756)
+	at org.junit.Assert.assertNull(Assert.java:738)
+	at me.rerere.rikkahub.service.IndependentPostfixProbeTest$deletedConversationMustRejectStaleSaveAfterSessionEviction$1.invokeSuspend(IndependentPostfixProbeTest.kt:40)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.IndependentPostfixProbeTest.deletedConversationMustRejectStaleSaveAfterSessionEviction(IndependentPostfixProbeTest.kt:21)
+
+INSTRUMENTATION_STATUS: stream=
+Error in deletedConversationMustRejectStaleSaveAfterSessionEviction(me.rerere.rikkahub.service.IndependentPostfixProbeTest):
+java.lang.AssertionError: Deleted row must not be reinserted by a stale save after eviction expected null, but was:<Conversation(id=c6243710-83c5-4c50-813b-85686438ef4c, assistantId=0950e2dc-9bd5-4801-afa3-aa887aa36b4e, title=QA_f31810f8-25f9-4c76-95ae-08b7c3f8a122_deleted, messageNodes=[MessageNode(id=05e1488e-4d0a-47bc-bb65-8e3e25de5cef, messages=[UIMessage(id=16803912-2965-449e-88e2-204c2828ec89, role=USER, parts=[Text(text=synthetic stale save, metadata=null)], annotations=[], createdAt=2026-10-08T12:50:57.371685, finishedAt=null, modelId=null, usage=null, translation=null, generationState=null, generationErrorCode=null, isSynthetic=false)], selectIndex=0, isFavorite=false)], chatSuggestions=[], isPinned=false, createAt=2026-10-08T12:50:57.360Z, updateAt=2026-10-08T12:50:57.360Z, customSystemPrompt=null, modeInjectionIds=[], lorebookIds=[], workspaceCwd=null, folderId=null, profileId=b8b82f75-faa0-469e-9064-c4d2f001dbc7, queue=ConversationQueue(messages=[], paused=false), studyMode=GUIDED, newConversation=false)>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotNull(Assert.java:756)
+	at org.junit.Assert.assertNull(Assert.java:738)
+	at me.rerere.rikkahub.service.IndependentPostfixProbeTest$deletedConversationMustRejectStaleSaveAfterSessionEviction$1.invokeSuspend(IndependentPostfixProbeTest.kt:40)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.IndependentPostfixProbeTest.deletedConversationMustRejectStaleSaveAfterSessionEviction(IndependentPostfixProbeTest.kt:21)
+
+INSTRUMENTATION_STATUS: test=deletedConversationMustRejectStaleSaveAfterSessionEviction
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 2.861
+There was 1 failure:
+1) deletedConversationMustRejectStaleSaveAfterSessionEviction(me.rerere.rikkahub.service.IndependentPostfixProbeTest)
+java.lang.AssertionError: Deleted row must not be reinserted by a stale save after eviction expected null, but was:<Conversation(id=c6243710-83c5-4c50-813b-85686438ef4c, assistantId=0950e2dc-9bd5-4801-afa3-aa887aa36b4e, title=QA_f31810f8-25f9-4c76-95ae-08b7c3f8a122_deleted, messageNodes=[MessageNode(id=05e1488e-4d0a-47bc-bb65-8e3e25de5cef, messages=[UIMessage(id=16803912-2965-449e-88e2-204c2828ec89, role=USER, parts=[Text(text=synthetic stale save, metadata=null)], annotations=[], createdAt=2026-10-08T12:50:57.371685, finishedAt=null, modelId=null, usage=null, translation=null, generationState=null, generationErrorCode=null, isSynthetic=false)], selectIndex=0, isFavorite=false)], chatSuggestions=[], isPinned=false, createAt=2026-10-08T12:50:57.360Z, updateAt=2026-10-08T12:50:57.360Z, customSystemPrompt=null, modeInjectionIds=[], lorebookIds=[], workspaceCwd=null, folderId=null, profileId=b8b82f75-faa0-469e-9064-c4d2f001dbc7, queue=ConversationQueue(messages=[], paused=false), studyMode=GUIDED, newConversation=false)>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotNull(Assert.java:756)
+	at org.junit.Assert.assertNull(Assert.java:738)
+	at me.rerere.rikkahub.service.IndependentPostfixProbeTest$deletedConversationMustRejectStaleSaveAfterSessionEviction$1.invokeSuspend(IndependentPostfixProbeTest.kt:40)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.IndependentPostfixProbeTest.deletedConversationMustRejectStaleSaveAfterSessionEviction(IndependentPostfixProbeTest.kt:21)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

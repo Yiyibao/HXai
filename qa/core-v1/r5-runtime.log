@@ -1,0 +1,15 @@
+
+me.rerere.rikkahub.service.FlutterChatBridgeTest:....
+me.rerere.rikkahub.service.MaterialEditWorkflowTest:.
+me.rerere.rikkahub.service.CoreSkillsWorkflowTest:..
+me.rerere.rikkahub.service.BackupReliabilityTest:...
+me.rerere.rikkahub.service.SkillsInstallBoundaryTest:..INSTRUMENTATION_STATUS: qa_skill_fixture=qa-bounded-affeb60b-e0a3-4c59-a770-8e5915aa942a
+INSTRUMENTATION_STATUS_CODE: 2
+.
+me.rerere.rikkahub.service.DocumentSubmissionRecoveryTest:.
+
+Time: 32.313
+
+OK (14 tests)
+
+

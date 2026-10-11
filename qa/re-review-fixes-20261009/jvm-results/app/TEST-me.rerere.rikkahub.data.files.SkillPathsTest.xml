@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.files.SkillPathsTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-09T03:27:32.504Z" hostname="DESKTOP-QH4J0RS" time="0.075">
+  <properties/>
+  <testcase name="resolve skill file rejects sibling prefix escape" classname="me.rerere.rikkahub.data.files.SkillPathsTest" time="0.058"/>
+  <testcase name="resolve skill dir rejects traversal and nested names" classname="me.rerere.rikkahub.data.files.SkillPathsTest" time="0.014"/>
+  <testcase name="parse supports CRLF frontmatter" classname="me.rerere.rikkahub.data.files.SkillPathsTest" time="0.001"/>
+  <testcase name="parse returns empty frontmatter for malformed YAML" classname="me.rerere.rikkahub.data.files.SkillPathsTest" time="0.002"/>
+  <testcase name="parse supports YAML syntax" classname="me.rerere.rikkahub.data.files.SkillPathsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,98 @@
+[
+  {
+    "apk": "app-arm64-v8a-debug.apk",
+    "entry": "lib/arm64-v8a/libtermux.so",
+    "sha256": "ccc1de53c81c6e97630652f72860de2e9c82ff3a8e68b279c6aa63b31ffa3321",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 266528,
+        "vaddr": 282912,
+        "align": 16384
+      },
+      {
+        "offset": 283264,
+        "vaddr": 316032,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "entry": "lib/arm64-v8a/libtermux.so",
+    "sha256": "ccc1de53c81c6e97630652f72860de2e9c82ff3a8e68b279c6aa63b31ffa3321",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 266528,
+        "vaddr": 282912,
+        "align": 16384
+      },
+      {
+        "offset": 283264,
+        "vaddr": 316032,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "entry": "lib/x86_64/libtermux.so",
+    "sha256": "1aa432f210f448e5f0b335b8211d02afb372df5ae4d575046ae15853ebefffa2",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 262320,
+        "vaddr": 278704,
+        "align": 16384
+      },
+      {
+        "offset": 278888,
+        "vaddr": 311656,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-x86_64-debug.apk",
+    "entry": "lib/x86_64/libtermux.so",
+    "sha256": "1aa432f210f448e5f0b335b8211d02afb372df5ae4d575046ae15853ebefffa2",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 262320,
+        "vaddr": 278704,
+        "align": 16384
+      },
+      {
+        "offset": 278888,
+        "vaddr": 311656,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  }
+]

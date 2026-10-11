@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.service.IndependentAssertionProbeTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-08T13:08:19.836Z" hostname="DESKTOP-QH4J0RS" time="0.465">
+  <properties/>
+  <testcase name="queueEditEnqueueAndPauseSerializeWithApproval" classname="me.rerere.rikkahub.service.IndependentAssertionProbeTest" time="0.173"/>
+  <testcase name="tableAssertionAcceptsRunFormattingAndOrderedControls" classname="me.rerere.rikkahub.service.IndependentAssertionProbeTest" time="0.198"/>
+  <testcase name="tableAssertionMustRejectInsertedTabAndLineBreak" classname="me.rerere.rikkahub.service.IndependentAssertionProbeTest" time="0.037"/>
+  <testcase name="approvalReadsQueueAfterBlockedMutationAndDoesNotPublishFailedCommit" classname="me.rerere.rikkahub.service.IndependentAssertionProbeTest" time="0.047"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

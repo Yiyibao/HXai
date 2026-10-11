@@ -33,6 +33,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -150,7 +151,11 @@ fun ChainOfThoughtScope.ChatMessageToolStep(
         },
         label = {
             Text(
-                text = renderer.title(context),
+                text = when {
+                    tool.isSkippedUnknown -> "已跳过 ${tool.toolName} · 结果未知"
+                    tool.isExecutionUncertain -> "${tool.toolName} · 执行结果未知"
+                    else -> renderer.title(context)
+                },
                 style = MaterialTheme.typography.titleSmall,
                 color = MaterialTheme.colorScheme.secondary,
                 modifier = Modifier.shimmer(isLoading = loading),
@@ -304,10 +309,7 @@ private fun ChainOfThoughtScope.AskUserToolStep(
         },
         label = {
             Text(
-                text = if (questions.size <= 1) firstQuestion else stringResource(
-                    R.string.chat_message_tool_ask_questions,
-                    questions.size
-                ),
+                text = if (questions.size <= 1) firstQuestion else pluralStringResource(R.plurals.chat_message_tool_ask_questions, questions.size, questions.size),
                 style = MaterialTheme.typography.titleSmall,
                 color = MaterialTheme.colorScheme.secondary,
                 modifier = Modifier.shimmer(isLoading = loading),

@@ -1,0 +1,80 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DocumentRevocationAuditTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.DocumentRevocationAuditTest:
+INSTRUMENTATION_STATUS: test=initializationError
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DocumentRevocationAuditTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.RuntimeException: Failed loading specified test class 'me.rerere.rikkahub.service.DocumentRevocationAuditTest'
+	at androidx.test.internal.runner.DirectTestLoader.doCreateRunner(DirectTestLoader.java:50)
+	at androidx.test.internal.runner.TestLoader.getRunnersFor(TestLoader.java:64)
+	at androidx.test.internal.runner.TestRequestBuilder.build(TestRequestBuilder.java:842)
+	at androidx.test.runner.AndroidJUnitRunner.buildRequest(AndroidJUnitRunner.java:672)
+	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:453)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2402)
+Caused by: java.lang.ClassNotFoundException: me.rerere.rikkahub.service.DocumentRevocationAuditTest
+	at java.lang.Class.classForName(Native Method)
+	at java.lang.Class.forName(Class.java:536)
+	at androidx.test.internal.runner.DirectTestLoader.doCreateRunner(DirectTestLoader.java:44)
+	... 5 more
+Caused by: java.lang.ClassNotFoundException: Didn't find class "me.rerere.rikkahub.service.DocumentRevocationAuditTest" on path: DexPathList[[zip file "/data/app/~~qq5IDu7zR0lMmtwCbh9XAg==/org.mathstudy.agent.debug.test-c-o-COF17pCxtB4c9brKbA==/base.apk", zip file "/data/app/~~vUquStWK8RAGNy8z4uKxdg==/org.mathstudy.agent.debug-FdaTxwrgsENkDXpYZTIBGQ==/base.apk"],nativeLibraryDirectories=[/data/app/~~qq5IDu7zR0lMmtwCbh9XAg==/org.mathstudy.agent.debug.test-c-o-COF17pCxtB4c9brKbA==/lib/x86_64, /data/app/~~vUquStWK8RAGNy8z4uKxdg==/org.mathstudy.agent.debug-FdaTxwrgsENkDXpYZTIBGQ==/lib/x86_64, /data/app/~~qq5IDu7zR0lMmtwCbh9XAg==/org.mathstudy.agent.debug.test-c-o-COF17pCxtB4c9brKbA==/base.apk!/lib/x86_64, /data/app/~~vUquStWK8RAGNy8z4uKxdg==/org.mathstudy.agent.debug-FdaTxwrgsENkDXpYZTIBGQ==/base.apk!/lib/x86_64, /system/lib64, /system_ext/lib64]]
+	at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:259)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:379)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:312)
+	... 8 more
+
+INSTRUMENTATION_STATUS: stream=
+Error in initializationError(me.rerere.rikkahub.service.DocumentRevocationAuditTest):
+java.lang.RuntimeException: Failed loading specified test class 'me.rerere.rikkahub.service.DocumentRevocationAuditTest'
+	at androidx.test.internal.runner.DirectTestLoader.doCreateRunner(DirectTestLoader.java:50)
+	at androidx.test.internal.runner.TestLoader.getRunnersFor(TestLoader.java:64)
+	at androidx.test.internal.runner.TestRequestBuilder.build(TestRequestBuilder.java:842)
+	at androidx.test.runner.AndroidJUnitRunner.buildRequest(AndroidJUnitRunner.java:672)
+	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:453)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2402)
+Caused by: java.lang.ClassNotFoundException: me.rerere.rikkahub.service.DocumentRevocationAuditTest
+	at java.lang.Class.classForName(Native Method)
+	at java.lang.Class.forName(Class.java:536)
+	at androidx.test.internal.runner.DirectTestLoader.doCreateRunner(DirectTestLoader.java:44)
+	... 5 more
+Caused by: java.lang.ClassNotFoundException: Didn't find class "me.rerere.rikkahub.service.DocumentRevocationAuditTest" on path: DexPathList[[zip file "/data/app/~~qq5IDu7zR0lMmtwCbh9XAg==/org.mathstudy.agent.debug.test-c-o-COF17pCxtB4c9brKbA==/base.apk", zip file "/data/app/~~vUquStWK8RAGNy8z4uKxdg==/org.mathstudy.agent.debug-FdaTxwrgsENkDXpYZTIBGQ==/base.apk"],nativeLibraryDirectories=[/data/app/~~qq5IDu7zR0lMmtwCbh9XAg==/org.mathstudy.agent.debug.test-c-o-COF17pCxtB4c9brKbA==/lib/x86_64, /data/app/~~vUquStWK8RAGNy8z4uKxdg==/org.mathstudy.agent.debug-FdaTxwrgsENkDXpYZTIBGQ==/lib/x86_64, /data/app/~~qq5IDu7zR0lMmtwCbh9XAg==/org.mathstudy.agent.debug.test-c-o-COF17pCxtB4c9brKbA==/base.apk!/lib/x86_64, /data/app/~~vUquStWK8RAGNy8z4uKxdg==/org.mathstudy.agent.debug-FdaTxwrgsENkDXpYZTIBGQ==/base.apk!/lib/x86_64, /system/lib64, /system_ext/lib64]]
+	at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:259)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:379)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:312)
+	... 8 more
+
+INSTRUMENTATION_STATUS: test=initializationError
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 0.281
+There was 1 failure:
+1) initializationError(me.rerere.rikkahub.service.DocumentRevocationAuditTest)
+java.lang.RuntimeException: Failed loading specified test class 'me.rerere.rikkahub.service.DocumentRevocationAuditTest'
+	at androidx.test.internal.runner.DirectTestLoader.doCreateRunner(DirectTestLoader.java:50)
+	at androidx.test.internal.runner.TestLoader.getRunnersFor(TestLoader.java:64)
+	at androidx.test.internal.runner.TestRequestBuilder.build(TestRequestBuilder.java:842)
+	at androidx.test.runner.AndroidJUnitRunner.buildRequest(AndroidJUnitRunner.java:672)
+	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:453)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2402)
+Caused by: java.lang.ClassNotFoundException: me.rerere.rikkahub.service.DocumentRevocationAuditTest
+	at java.lang.Class.classForName(Native Method)
+	at java.lang.Class.forName(Class.java:536)
+	at androidx.test.internal.runner.DirectTestLoader.doCreateRunner(DirectTestLoader.java:44)
+	... 5 more
+Caused by: java.lang.ClassNotFoundException: Didn't find class "me.rerere.rikkahub.service.DocumentRevocationAuditTest" on path: DexPathList[[zip file "/data/app/~~qq5IDu7zR0lMmtwCbh9XAg==/org.mathstudy.agent.debug.test-c-o-COF17pCxtB4c9brKbA==/base.apk", zip file "/data/app/~~vUquStWK8RAGNy8z4uKxdg==/org.mathstudy.agent.debug-FdaTxwrgsENkDXpYZTIBGQ==/base.apk"],nativeLibraryDirectories=[/data/app/~~qq5IDu7zR0lMmtwCbh9XAg==/org.mathstudy.agent.debug.test-c-o-COF17pCxtB4c9brKbA==/lib/x86_64, /data/app/~~vUquStWK8RAGNy8z4uKxdg==/org.mathstudy.agent.debug-FdaTxwrgsENkDXpYZTIBGQ==/lib/x86_64, /data/app/~~qq5IDu7zR0lMmtwCbh9XAg==/org.mathstudy.agent.debug.test-c-o-COF17pCxtB4c9brKbA==/base.apk!/lib/x86_64, /data/app/~~vUquStWK8RAGNy8z4uKxdg==/org.mathstudy.agent.debug-FdaTxwrgsENkDXpYZTIBGQ==/base.apk!/lib/x86_64, /system/lib64, /system_ext/lib64]]
+	at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:259)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:379)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:312)
+	... 8 more
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

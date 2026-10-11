@@ -1,0 +1,165 @@
+{
+  "version": "Unchanged final candidate APK; new independent runs only",
+  "sourceDelta": [],
+  "androidLocal": {
+    "records": [
+      {
+        "name": "seed",
+        "started": "2026-10-08T18:08:20.6846293+08:00",
+        "ended": "2026-10-08T18:08:26.8527585+08:00",
+        "ok": true,
+        "exit": 0,
+        "class": "ChecklistSupplementTest#controlledBoundariesSurviveIndependentProcess",
+        "tests": 1,
+        "status": "PASS",
+        "pids": [
+          "14457"
+        ]
+      },
+      {
+        "name": "verify",
+        "started": "2026-10-08T18:08:26.9183976+08:00",
+        "ended": "2026-10-08T18:08:31.6861808+08:00",
+        "ok": true,
+        "exit": 0,
+        "class": "ChecklistSupplementTest#controlledBoundariesSurviveIndependentProcess",
+        "tests": 1,
+        "status": "PASS",
+        "pids": [
+          "14550"
+        ]
+      },
+      {
+        "name": "skills-install",
+        "started": "2026-10-08T18:08:31.6896408+08:00",
+        "ended": "2026-10-08T18:08:34.5906476+08:00",
+        "ok": true,
+        "exit": 0,
+        "class": "ChecklistSupplementTest#skillsInstallWorksWhileAuthoringAndEditingAreDisabled",
+        "tests": 1,
+        "status": "PASS",
+        "pids": [
+          "14635"
+        ]
+      },
+      {
+        "name": "skills-use",
+        "started": "2026-10-08T18:08:34.5922353+08:00",
+        "ended": "2026-10-08T18:08:38.0863091+08:00",
+        "ok": true,
+        "exit": 0,
+        "class": "ChecklistSupplementTest#installedSkillsCanBeUsedOnlyWhenEnabled",
+        "tests": 1,
+        "status": "PASS",
+        "pids": [
+          "14719"
+        ]
+      },
+      {
+        "name": "word-negative",
+        "started": "2026-10-08T18:08:38.0978489+08:00",
+        "ended": "2026-10-08T18:08:41.0984681+08:00",
+        "ok": true,
+        "exit": 0,
+        "class": "WordFormulaAssertionTest",
+        "tests": 4,
+        "status": "PASS",
+        "pids": []
+      },
+      {
+        "name": "material-page",
+        "class": "MaterialPageTest",
+        "started": "2026-10-08T18:15:42.1351812+08:00",
+        "ended": "2026-10-08T18:15:55.9844973+08:00",
+        "ok": true,
+        "exit": 0,
+        "tests": 1,
+        "status": "PASS",
+        "pids": []
+      },
+      {
+        "name": "delivery-material",
+        "class": "MaterialDeliveryTest",
+        "started": "2026-10-08T18:15:56.0194565+08:00",
+        "ended": "2026-10-08T18:16:35.5341586+08:00",
+        "ok": true,
+        "exit": 0,
+        "tests": 1,
+        "status": "PASS",
+        "pids": []
+      },
+      {
+        "name": "delivery-artifact",
+        "class": "ProjectReviewDeliveryTest",
+        "started": "2026-10-08T18:16:35.5392117+08:00",
+        "ended": "2026-10-08T18:17:15.9678335+08:00",
+        "ok": true,
+        "exit": 0,
+        "tests": 1,
+        "status": "PASS",
+        "pids": []
+      }
+    ],
+    "tests": 11,
+    "skipped": 0
+  },
+  "jvmApp": {
+    "tests": 322,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "server": {
+    "tests": 27,
+    "passed": 27,
+    "skipped": 0
+  },
+  "lint": {
+    "Warning": 42
+  },
+  "controlled": {
+    "fixture": "4f0bb159-ecdc-45e5-bb99-afa90e41df13",
+    "owner": "fdb6f940-6db5-496f-aa00-5bc9110fc6c6",
+    "entries": 20,
+    "deleted": 2
+  },
+  "delivery": {
+    "checked": 10,
+    "passed": 10
+  },
+  "collectorProbe": [
+    {
+      "case": "existing-manifest-stale",
+      "expectation": "Reject yesterday evidence",
+      "rejected": false,
+      "status": "FAIL",
+      "error": null,
+      "adbCalls": 0,
+      "collectorSha256": "4a0dc77c5777248021646f7ce88172b4ca401bf6a3b0114951a477a975e75c92"
+    },
+    {
+      "case": "fresh-manifest-stale",
+      "expectation": "Reject yesterday evidence",
+      "rejected": true,
+      "status": "PASS",
+      "error": "Stale fixture: material-evidence/scan-input.pdf",
+      "adbCalls": 3,
+      "collectorSha256": "4a0dc77c5777248021646f7ce88172b4ca401bf6a3b0114951a477a975e75c92"
+    }
+  ],
+  "skillResourceProbe": {
+    "tests": 1,
+    "failures": 1,
+    "actual": "OutOfMemoryError",
+    "heapMb": 64,
+    "compressedBytes": 130787,
+    "expandedBytes": 134217728
+  },
+  "realModelCurrent": "NOT_RUN",
+  "imageGeneration": "MISSING_CONFIGURATION; no new probe in this independent run",
+  "diagnosticsRuntime": "NOT_RUN: existing isolation clears an entire diagnostics directory",
+  "web": {
+    "typecheck": 0,
+    "build": 0
+  }
+}

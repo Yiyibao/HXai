@@ -1,0 +1,647 @@
+Failed to find real location of C:\Users\Hfff\AppData\Local\Programs\Python\Python313\python.exe
+============================= test session starts =============================
+platform win32 -- Python 3.13.13, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\Office\Study\code\MathStudyAgent\server\document-service
+configfile: pytest.ini
+plugins: anyio-4.14.2, asyncio-1.4.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 26 items
+
+server\document-service\tests\test_service.py EEEEEEEEEEEEEEEEEEE.       [ 76%]
+server\document-service\tests\test_enqueue_recovery.py EEEEEE            [100%]
+
+=================================== ERRORS ====================================
+_____________ ERROR at setup of test_authentication_and_readiness _____________
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_authentication_and_readiness>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+____________ ERROR at setup of test_other_identity_cannot_access[] ____________
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_other_identity_cannot_access[]>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+_______ ERROR at setup of test_other_identity_cannot_access[/manifest] ________
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_other_identity_cannot_access[/manifest]>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+____ ERROR at setup of test_other_identity_cannot_access[/assets/document] ____
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_other_identity_cannot_access[/assets/document]>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+________ ERROR at setup of test_other_identity_cannot_access[/cancel] _________
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_other_identity_cannot_access[/cancel]>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+_________ ERROR at setup of test_other_identity_cannot_access[DELETE] _________
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_other_identity_cannot_access[DELETE]>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+____ ERROR at setup of test_idempotency_is_persistent_and_identity_scoped _____
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_idempotency_is_persistent_and_identity_scoped>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+_____________ ERROR at setup of test_queue_limit_and_cancel_race ______________
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_queue_limit_and_cancel_race>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+______________ ERROR at setup of test_invalid_options[options0] _______________
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_invalid_options[options0]>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+______________ ERROR at setup of test_invalid_options[options1] _______________
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_invalid_options[options1]>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+______________ ERROR at setup of test_invalid_options[options2] _______________
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_invalid_options[options2]>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+______________ ERROR at setup of test_invalid_options[options3] _______________
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_invalid_options[options3]>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+____________ ERROR at setup of test_signature_and_hash_validation _____________
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_signature_and_hash_validation>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+_______________ ERROR at setup of test_atomic_publish_and_hash ________________
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_atomic_publish_and_hash>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+_________ ERROR at setup of test_untrusted_output_rejected[traversal] _________
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_untrusted_output_rejected[traversal]>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+_________ ERROR at setup of test_untrusted_output_rejected[coverage] __________
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_untrusted_output_rejected[coverage]>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+_________ ERROR at setup of test_untrusted_output_rejected[complete] __________
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_untrusted_output_rejected[complete]>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+__________ ERROR at setup of test_untrusted_output_rejected[source] ___________
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_untrusted_output_rejected[source]>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+__________ ERROR at setup of test_untrusted_output_rejected[missing] __________
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_untrusted_output_rejected[missing]>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+_ ERROR at setup of test_failed_enqueue_compensates_files_and_allows_retry[metadata] _
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_failed_enqueue_compensates_files_and_allows_retry[metadata]>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+_ ERROR at setup of test_failed_enqueue_compensates_files_and_allows_retry[insert] _
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_failed_enqueue_compensates_files_and_allows_retry[insert]>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+_ ERROR at setup of test_failed_enqueue_compensates_files_and_allows_retry[commit] _
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_failed_enqueue_compensates_files_and_allows_retry[commit]>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+_ ERROR at setup of test_orphan_reconciliation_preserves_fresh_and_registered_jobs _
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_orphan_reconciliation_preserves_fresh_and_registered_jobs>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+_____ ERROR at setup of test_compensation_cannot_remove_outside_task_root _____
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_compensation_cannot_remove_outside_task_root>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+___ ERROR at setup of test_reconciliation_waits_for_inflight_enqueue_commit ___
+
+fixturedef = <FixtureDef argname='tmp_path' scope='function' baseid=''>
+request = <SubRequest 'tmp_path' for <Function test_reconciliation_waits_for_inflight_enqueue_commit>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               OSError: could not create numbered dir with prefix pytest- in C:\Users\Hfff\AppData\Local\Packages\sandbox.{97337f22-31e0-4d8f-84df-e2d9dff507ae}\AC\Temp\pytest-of-Hfff after 10 tries
+
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:924: OSError
+============================== warnings summary ===============================
+C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: D:\Office\Study\code\MathStudyAgent\qa\checklist-re-review-20261008\server-tests.xml -
+=========================== short test summary info ===========================
+ERROR server\document-service\tests\test_service.py::test_authentication_and_readiness
+ERROR server\document-service\tests\test_service.py::test_other_identity_cannot_access[]
+ERROR server\document-service\tests\test_service.py::test_other_identity_cannot_access[/manifest]
+ERROR server\document-service\tests\test_service.py::test_other_identity_cannot_access[/assets/document]
+ERROR server\document-service\tests\test_service.py::test_other_identity_cannot_access[/cancel]
+ERROR server\document-service\tests\test_service.py::test_other_identity_cannot_access[DELETE]
+ERROR server\document-service\tests\test_service.py::test_idempotency_is_persistent_and_identity_scoped
+ERROR server\document-service\tests\test_service.py::test_queue_limit_and_cancel_race
+ERROR server\document-service\tests\test_service.py::test_invalid_options[options0]
+ERROR server\document-service\tests\test_service.py::test_invalid_options[options1]
+ERROR server\document-service\tests\test_service.py::test_invalid_options[options2]
+ERROR server\document-service\tests\test_service.py::test_invalid_options[options3]
+ERROR server\document-service\tests\test_service.py::test_signature_and_hash_validation
+ERROR server\document-service\tests\test_service.py::test_atomic_publish_and_hash
+ERROR server\document-service\tests\test_service.py::test_untrusted_output_rejected[traversal]
+ERROR server\document-service\tests\test_service.py::test_untrusted_output_rejected[coverage]
+ERROR server\document-service\tests\test_service.py::test_untrusted_output_rejected[complete]
+ERROR server\document-service\tests\test_service.py::test_untrusted_output_rejected[source]
+ERROR server\document-service\tests\test_service.py::test_untrusted_output_rejected[missing]
+ERROR server\document-service\tests\test_enqueue_recovery.py::test_failed_enqueue_compensates_files_and_allows_retry[metadata]
+ERROR server\document-service\tests\test_enqueue_recovery.py::test_failed_enqueue_compensates_files_and_allows_retry[insert]
+ERROR server\document-service\tests\test_enqueue_recovery.py::test_failed_enqueue_compensates_files_and_allows_retry[commit]
+ERROR server\document-service\tests\test_enqueue_recovery.py::test_orphan_reconciliation_preserves_fresh_and_registered_jobs
+ERROR server\document-service\tests\test_enqueue_recovery.py::test_compensation_cannot_remove_outside_task_root
+ERROR server\document-service\tests\test_enqueue_recovery.py::test_reconciliation_waits_for_inflight_enqueue_commit
+=================== 1 passed, 1 warning, 25 errors in 6.69s ===================

@@ -1,0 +1,83 @@
+[
+  {
+    "contractVersion": 1,
+    "operation": "office_pdf",
+    "sourceSha256": "d029da91727b58f46371b3497667fab4b997a6b5fc578edf04d52cedb2f24cbb",
+    "sourceExtension": "docx",
+    "renderer": "LibreOffice",
+    "rendererVersion": "25.2.3.2",
+    "renderOptions": {
+      "scope": "print_layout",
+      "includeHiddenSlides": false,
+      "includeNotes": false
+    },
+    "pageCount": 1,
+    "warnings": [
+      "LibreOffice compatibility rendering; verify complex Office layout.",
+      "Font substitution: Calibri, Cambria, Courier, Symbol"
+    ],
+    "assets": [
+      {
+        "assetId": "pdf",
+        "path": "output.pdf",
+        "mediaType": "application/pdf",
+        "size": 43439,
+        "sha256": "5b0f66e536a8049793dc5b345003accdc82dfa9e772ec34885df0835aaa08bfd"
+      }
+    ]
+  },
+  {
+    "contractVersion": 1,
+    "operation": "office_pdf",
+    "sourceSha256": "5756607876525fd919453ae4e8eb4a57b8cc81111c7da06d3c8cff7ab9b45f99",
+    "sourceExtension": "xlsx",
+    "renderer": "LibreOffice",
+    "rendererVersion": "25.2.3.2",
+    "renderOptions": {
+      "scope": "print_layout",
+      "includeHiddenSlides": false,
+      "includeNotes": false
+    },
+    "pageCount": 1,
+    "warnings": [
+      "LibreOffice compatibility rendering; verify complex Office layout.",
+      "Font substitution: Calibri, Cambria"
+    ],
+    "assets": [
+      {
+        "assetId": "pdf",
+        "path": "output.pdf",
+        "mediaType": "application/pdf",
+        "size": 31617,
+        "sha256": "cb233c55f3f2c20c9ca65b80cc6a92f81a7a8f808be70e9a960fa375c6da34fb"
+      }
+    ]
+  },
+  {
+    "contractVersion": 1,
+    "operation": "office_pdf",
+    "sourceSha256": "86c04a6fd3f07cdaac20dfec6906bc8db88cc55a0fb9cf8fe8f6bfb50d92efac",
+    "sourceExtension": "pptx",
+    "renderer": "LibreOffice",
+    "rendererVersion": "25.2.3.2",
+    "renderOptions": {
+      "scope": "print_layout",
+      "includeHiddenSlides": false,
+      "includeNotes": false
+    },
+    "pageCount": 2,
+    "warnings": [
+      "LibreOffice compatibility rendering; verify complex Office layout.",
+      "Font substitution: Calibri"
+    ],
+    "assets": [
+      {
+        "assetId": "pdf",
+        "path": "output.pdf",
+        "mediaType": "application/pdf",
+        "size": 16958,
+        "sha256": "6f8d537c8e9535744cb81b08b3b58a939ff778bea49e389af25b6f45df2a097f"
+      }
+    ]
+  }
+]

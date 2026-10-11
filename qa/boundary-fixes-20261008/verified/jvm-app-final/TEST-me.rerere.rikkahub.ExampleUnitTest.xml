@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.ExampleUnitTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-08T05:30:04.457Z" hostname="DESKTOP-QH4J0RS" time="0.014">
+  <properties/>
+  <testcase name="addition_isCorrect" classname="me.rerere.rikkahub.ExampleUnitTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

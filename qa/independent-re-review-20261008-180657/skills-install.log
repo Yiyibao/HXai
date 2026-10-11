@@ -1,0 +1,27 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChecklistSupplementTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ChecklistSupplementTest:
+INSTRUMENTATION_STATUS: test=skillsInstallWorksWhileAuthoringAndEditingAreDisabled
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_pid=14635
+INSTRUMENTATION_STATUS: qa_snapshot=qa-install-73b5edb4-7b2f-41e1-89f2-d80ece46faa4
+INSTRUMENTATION_STATUS: qa_stage=skills-install-readonly-passed
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChecklistSupplementTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=skillsInstallWorksWhileAuthoringAndEditingAreDisabled
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 0.248
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

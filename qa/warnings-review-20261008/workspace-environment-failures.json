@@ -1,0 +1,47 @@
+[
+  {
+    "status": "failed",
+    "test": "me.rerere.workspace.ExampleUnitTest.commandRunsInsideWorkspaceFilesDirectory",
+    "location": "WorkspaceShellRunner.kt:31",
+    "impact": "Host test did not pass; no claim that workspace shell/rootfs is verified on this host.",
+    "reason": "/bin/sh process cannot be created on this Windows host.",
+    "checks": "Fresh --rerun-tasks full-module JVM run; original XML under jvm-full/workspace and first-jvm/workspace. No assumptions, skips or altered assertions added.",
+    "required_conditions": "Run unchanged tests on a supported POSIX CI/host; for symlink case use a Linux host or explicitly authorized Windows developer-mode/symlink privilege. Recheck shell truncation/stdin/EOF/rootfs integrity."
+  },
+  {
+    "status": "failed",
+    "test": "me.rerere.workspace.ExampleUnitTest.commandReceivesStdin",
+    "location": "WorkspaceShellRunner.kt:31",
+    "impact": "Host test did not pass; no claim that workspace shell/rootfs is verified on this host.",
+    "reason": "/bin/sh process cannot be created on this Windows host.",
+    "checks": "Fresh --rerun-tasks full-module JVM run; original XML under jvm-full/workspace and first-jvm/workspace. No assumptions, skips or altered assertions added.",
+    "required_conditions": "Run unchanged tests on a supported POSIX CI/host; for symlink case use a Linux host or explicitly authorized Windows developer-mode/symlink privilege. Recheck shell truncation/stdin/EOF/rootfs integrity."
+  },
+  {
+    "status": "failed",
+    "test": "me.rerere.workspace.ExampleUnitTest.rootfsInstallerDownloadsAndExtractsTarGz",
+    "location": "RootfsInstaller.kt:193",
+    "impact": "Host test did not pass; no claim that workspace shell/rootfs is verified on this host.",
+    "reason": "Windows symbolic-link creation rejected because the current process lacks the required privilege.",
+    "checks": "Fresh --rerun-tasks full-module JVM run; original XML under jvm-full/workspace and first-jvm/workspace. No assumptions, skips or altered assertions added.",
+    "required_conditions": "Run unchanged tests on a supported POSIX CI/host; for symlink case use a Linux host or explicitly authorized Windows developer-mode/symlink privilege. Recheck shell truncation/stdin/EOF/rootfs integrity."
+  },
+  {
+    "status": "failed",
+    "test": "me.rerere.workspace.ExampleUnitTest.commandOutputIsTruncatedAtLimit",
+    "location": "WorkspaceShellRunner.kt:31",
+    "impact": "Host test did not pass; no claim that workspace shell/rootfs is verified on this host.",
+    "reason": "/bin/sh process cannot be created on this Windows host.",
+    "checks": "Fresh --rerun-tasks full-module JVM run; original XML under jvm-full/workspace and first-jvm/workspace. No assumptions, skips or altered assertions added.",
+    "required_conditions": "Run unchanged tests on a supported POSIX CI/host; for symlink case use a Linux host or explicitly authorized Windows developer-mode/symlink privilege. Recheck shell truncation/stdin/EOF/rootfs integrity."
+  },
+  {
+    "status": "failed",
+    "test": "me.rerere.workspace.ExampleUnitTest.commandWithoutStdinGetsImmediateEof",
+    "location": "WorkspaceShellRunner.kt:31",
+    "impact": "Host test did not pass; no claim that workspace shell/rootfs is verified on this host.",
+    "reason": "/bin/sh process cannot be created on this Windows host.",
+    "checks": "Fresh --rerun-tasks full-module JVM run; original XML under jvm-full/workspace and first-jvm/workspace. No assumptions, skips or altered assertions added.",
+    "required_conditions": "Run unchanged tests on a supported POSIX CI/host; for symlink case use a Linux host or explicitly authorized Windows developer-mode/symlink privilege. Recheck shell truncation/stdin/EOF/rootfs integrity."
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "before_source_map_diagnostics": [
+    "app/components/ui/sonner.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.",
+    "app/components/ui/drawer.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.",
+    "app/components/extended/conversation.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.",
+    "app/components/ui/sidebar.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.",
+    "app/components/ui/tooltip.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.",
+    "app/components/ui/sheet.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.",
+    "app/components/ui/checkbox.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.",
+    "app/components/ui/select.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.",
+    "app/components/ui/sonner.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error."
+  ],
+  "after_source_map_diagnostics": [],
+  "remaining": [
+    {
+      "type": "Rollup large chunk",
+      "file": "client/web-ui/build/client/assets/wasm-CG6Dc4jp.js",
+      "impact": "Large optional embedded Web bundle increases APK/download size and browser startup parse cost. Web UI is not an enabled MathStudyAgent feature.",
+      "reason": "This individual generated chunk contains an existing highlighter grammar/WASM or Mermaid diagram dependency; build already emits separate chunks. Reducing it safely requires preserving full supported syntax/diagram behavior and browser lazy-loading/cache behavior. No size threshold change, warning filter, feature removal or dependency stack upgrade was made.",
+      "checks": "Production frontend build succeeds after directive repair; current chunk sizes and warning retained in web-build-after.log. Typecheck succeeds.",
+      "required_conditions": "Measure Web startup/route loading and migrate dynamic chunks with full Web UI/API/a11y regressions before reopening service.",
+      "size_kb": 622.34
+    },
+    {
+      "type": "Rollup large chunk",
+      "file": "client/web-ui/build/client/assets/cpp-CofmeUqb.js",
+      "impact": "Large optional embedded Web bundle increases APK/download size and browser startup parse cost. Web UI is not an enabled MathStudyAgent feature.",
+      "reason": "This individual generated chunk contains an existing highlighter grammar/WASM or Mermaid diagram dependency; build already emits separate chunks. Reducing it safely requires preserving full supported syntax/diagram behavior and browser lazy-loading/cache behavior. No size threshold change, warning filter, feature removal or dependency stack upgrade was made.",
+      "checks": "Production frontend build succeeds after directive repair; current chunk sizes and warning retained in web-build-after.log. Typecheck succeeds.",
+      "required_conditions": "Measure Web startup/route loading and migrate dynamic chunks with full Web UI/API/a11y regressions before reopening service.",
+      "size_kb": 626.08
+    },
+    {
+      "type": "Rollup large chunk",
+      "file": "client/web-ui/build/client/assets/emacs-lisp-C9XAeP06.js",
+      "impact": "Large optional embedded Web bundle increases APK/download size and browser startup parse cost. Web UI is not an enabled MathStudyAgent feature.",
+      "reason": "This individual generated chunk contains an existing highlighter grammar/WASM or Mermaid diagram dependency; build already emits separate chunks. Reducing it safely requires preserving full supported syntax/diagram behavior and browser lazy-loading/cache behavior. No size threshold change, warning filter, feature removal or dependency stack upgrade was made.",
+      "checks": "Production frontend build succeeds after directive repair; current chunk sizes and warning retained in web-build-after.log. Typecheck succeeds.",
+      "required_conditions": "Measure Web startup/route loading and migrate dynamic chunks with full Web UI/API/a11y regressions before reopening service.",
+      "size_kb": 779.85
+    },
+    {
+      "type": "Rollup large chunk",
+      "file": "client/web-ui/build/client/assets/mermaid-GHXKKRXX-BvJFkjit.js",
+      "impact": "Large optional embedded Web bundle increases APK/download size and browser startup parse cost. Web UI is not an enabled MathStudyAgent feature.",
+      "reason": "This individual generated chunk contains an existing highlighter grammar/WASM or Mermaid diagram dependency; build already emits separate chunks. Reducing it safely requires preserving full supported syntax/diagram behavior and browser lazy-loading/cache behavior. No size threshold change, warning filter, feature removal or dependency stack upgrade was made.",
+      "checks": "Production frontend build succeeds after directive repair; current chunk sizes and warning retained in web-build-after.log. Typecheck succeeds.",
+      "required_conditions": "Measure Web startup/route loading and migrate dynamic chunks with full Web UI/API/a11y regressions before reopening service.",
+      "size_kb": 1346.68
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "appSha256": "ddb777db0982cb2db1b969c58252e58a5f47bfdf43936f645452bc51f8ea6e5a",
+  "testSha256": "92317a20dcdecdaac66754dd96fdae194e6a52d2c9c260a57e813b5071e28bf1",
+  "runs": [
+    {
+      "method": "ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels",
+      "runId": "43d91508-7913-493f-90e0-986d986f7131",
+      "log": "live-runtime-3.log",
+      "logSha256": "38cef3c92e182c421bf3cfb50b5214d2f106c7c2b1afc48f1ea7b477168abdf8",
+      "notBefore": 1791613649969,
+      "notAfter": 1791613711271
+    }
+  ]
+}

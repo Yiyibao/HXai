@@ -1,6 +1,5 @@
 package me.rerere.rikkahub.data.db.fts
 
-import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import me.rerere.ai.ui.UIMessage
@@ -23,8 +22,6 @@ enum class MessageSearchSort(val orderBy: String) {
     NEWEST_FIRST("update_at DESC, rank"),
     OLDEST_FIRST("update_at ASC, rank"),
 }
-
-private const val TAG = "MessageFtsManager"
 
 class MessageFtsManager(private val database: AppDatabase) {
 
@@ -65,9 +62,13 @@ class MessageFtsManager(private val database: AppDatabase) {
         keyword: String,
         sort: MessageSearchSort = MessageSearchSort.RELEVANCE,
         assistantId: String? = null,
+        profileId: String = me.rerere.rikkahub.data.datastore.DEFAULT_PROFILE_ID,
     ): List<MessageSearchResult> = withContext(Dispatchers.IO) {
         val results = mutableListOf<MessageSearchResult>()
-        val assistantFilter = if (assistantId != null) {
+        val assistantFilter = """
+            AND EXISTS (SELECT 1 FROM conversationentity AS owner
+                WHERE owner.id = message_fts.conversation_id AND owner.profile_id = ?)
+        """.trimIndent() + if (assistantId != null) {
             """
             AND EXISTS (
                 SELECT 1 FROM conversationentity AS conversation
@@ -88,9 +89,9 @@ class MessageFtsManager(private val database: AppDatabase) {
             ORDER BY ${sort.orderBy}
             LIMIT 50
             """.trimIndent(),
-            if (assistantId != null) arrayOf(keyword, assistantId) else arrayOf(keyword)
+            if (assistantId != null) arrayOf(keyword, profileId, assistantId) else arrayOf(keyword, profileId)
         )
-        Log.i(TAG, "search: $keyword")
+
         cursor.use {
             while (it.moveToNext()) {
                 results.add(

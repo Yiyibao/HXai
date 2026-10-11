@@ -63,6 +63,12 @@ fun ResponseBody.stringSafe(): String? {
     }
 }
 
+fun ResponseBody.readModelErrorBody(): String? {
+    // Application interceptors wrap ResponseBody (for example diagnostics).
+    // Testing OkHttp's internal concrete type silently discarded rejection bodies.
+    return runCatching { string() }.getOrNull()
+}
+
 fun JsonObject.mergeCustomBody(bodies: List<CustomBody>): JsonObject {
     if (bodies.isEmpty()) return this
 

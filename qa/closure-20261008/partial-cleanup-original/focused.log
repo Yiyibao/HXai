@@ -1,0 +1,91 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.SkillClosureTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.SkillClosureTest:
+INSTRUMENTATION_STATUS: test=partialUninstallCleanupFailureRestoresEntireSkill
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"SkillClosureTest.partialUninstallCleanupFailureRestoresEntireSkill","runId":"57fa4536-2661-43e7-acea-9033782bdeb1","startedAt":1791465703314,"finishedAt":1791465703798,"status":"FAILED","entries":[{"name":"qa-evidence\/SkillClosureTest.partialUninstallCleanupFailureRestoresEntireSkill\/57fa4536-2661-43e7-acea-9033782bdeb1\/result.txt","sha256":"ec4b3a34be9a974492b05a7752661dbe7fdfc15c7b3df4350ae69636f7121ede","bytes":64,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.SkillClosureTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Failure after deleting SKILL.md must retain complete installed content expected:<---
+name: qa-57fa4536-2661-43e7-acea-9033782bdeb1
+description: QA
+---
+original> but was:<null>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at me.rerere.rikkahub.service.SkillClosureTest$partialUninstallCleanupFailureRestoresEntireSkill$1.invokeSuspend(SkillClosureTest.kt:64)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.SkillClosureTest.partialUninstallCleanupFailureRestoresEntireSkill(SkillClosureTest.kt:53)
+
+INSTRUMENTATION_STATUS: stream=
+Error in partialUninstallCleanupFailureRestoresEntireSkill(me.rerere.rikkahub.service.SkillClosureTest):
+java.lang.AssertionError: Failure after deleting SKILL.md must retain complete installed content expected:<---
+name: qa-57fa4536-2661-43e7-acea-9033782bdeb1
+description: QA
+---
+original> but was:<null>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at me.rerere.rikkahub.service.SkillClosureTest$partialUninstallCleanupFailureRestoresEntireSkill$1.invokeSuspend(SkillClosureTest.kt:64)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.SkillClosureTest.partialUninstallCleanupFailureRestoresEntireSkill(SkillClosureTest.kt:53)
+
+INSTRUMENTATION_STATUS: test=partialUninstallCleanupFailureRestoresEntireSkill
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 0.582
+There was 1 failure:
+1) partialUninstallCleanupFailureRestoresEntireSkill(me.rerere.rikkahub.service.SkillClosureTest)
+java.lang.AssertionError: Failure after deleting SKILL.md must retain complete installed content expected:<---
+name: qa-57fa4536-2661-43e7-acea-9033782bdeb1
+description: QA
+---
+original> but was:<null>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at me.rerere.rikkahub.service.SkillClosureTest$partialUninstallCleanupFailureRestoresEntireSkill$1.invokeSuspend(SkillClosureTest.kt:64)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.SkillClosureTest.partialUninstallCleanupFailureRestoresEntireSkill(SkillClosureTest.kt:53)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

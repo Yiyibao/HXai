@@ -1,0 +1,167 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MathStudyAgent · Gemini前端交接</title><style>
+*{box-sizing:border-box}body{margin:0;background:#fff;color:#29272b;font:16px/1.7 system-ui,"Microsoft YaHei",sans-serif}header,section{max-width:1280px;margin:0 auto;padding:28px 32px}header{border-bottom:1px solid #efecef}h1{font-size:28px}h2{font-size:23px;border-bottom:2px solid #f8d5de;padding-bottom:10px}h3{font-size:18px;color:#925568}p{margin:12px 0}nav{display:flex;flex-wrap:wrap;gap:10px}a{color:#925568}nav a,button{background:#fff1f5;border:1px solid #f8d5de;border-radius:10px;padding:8px 12px;color:#925568}button{font:inherit;cursor:pointer}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#fff7fa;border:1px solid #efecef;border-radius:14px;padding:18px;font:14px/1.8 Consolas,"Microsoft YaHei",monospace}table{width:100%;border-collapse:collapse}th,td{padding:12px;border:1px solid #efecef;text-align:left;vertical-align:top}th{background:#fff1f5}.pair{display:grid;grid-template-columns:minmax(240px,350px) 1fr;gap:30px;align-items:start}figure{margin:0}figure img{width:100%;border:1px solid #efecef;border-radius:14px}figcaption{font-size:13px;color:#777178}.refs{display:grid;grid-template-columns:1fr 1fr;gap:20px}.refs img{max-height:620px;object-fit:contain;width:100%}.badge{background:#fff1f5;color:#925568;padding:5px 10px;border-radius:10px}footer{text-align:center;color:#777178;padding:30px}@media(max-width:760px){header,section{padding:20px}.pair,.refs{grid-template-columns:1fr}.pair figure{max-width:350px;margin:auto}}@media print{button,nav{display:none}.page{break-before:page}.pair{grid-template-columns:32% 1fr}pre{font-size:11px}figure{break-inside:avoid}header,section{padding:15px}}
+</style></head><body>
+<header><h1>MathStudyAgent · Gemini前端交接</h1><p>2026-10-07 · 自包含文件：16张最终页面图＋采纳参考图＋逐页交互/动画设计＋实现提示词</p><span class="badge">白色背景 · 淡粉交互 · 粉色页芽 · 模型选择 · 多提供商</span><p>状态：设计交接完成；动画规格已补齐，本文件不表示动画已在应用实现。本轮交付仅文档，后端由后续任务补齐。</p><nav><a href="#brief">总执行提示词</a><a href="#references">采纳参考图</a><a href="#P01">P01</a><a href="#P02">P02</a><a href="#P03">P03</a><a href="#P04">P04</a><a href="#P05">P05</a><a href="#P06">P06</a><a href="#P07">P07</a><a href="#P08">P08</a><a href="#P09">P09</a><a href="#P10">P10</a><a href="#P11">P11</a><a href="#P12">P12</a><a href="#P13">P13</a><a href="#P14">P14</a><a href="#P15">P15</a><a href="#P16">P16</a></nav></header>
+<section id="brief"><h2>1 · 可直接复制给 Gemini 的总执行提示词</h2><button class="copy" data-target="master">复制总提示词</button><pre id="master">你是负责 MathStudyAgent 前端落地的 Gemini 工程师。请直接在现有 Android Kotlin / Jetpack Compose 项目中实现本文件的16个页面、统一白色淡粉色主题和动画交互，不停留在建议或截图展示。先读仓库AGENTS.md并检查git status，保留已有未提交工作。现有代码与数据合同优先复用；新的UI接口命名是建议，不代表已存在。
+工作目录 D:/Office/Study/code/MathStudyAgent；Android源码位于 client/app/src/main/java/me/rerere/rikkahub/。这是Android前端，不是React网页，也不是将整张设计图贴入WebView。逐页用真实Compose控件重建，数学沿用现有渲染器。
+范围：UI布局、主题、导航、模型选择与多提供商配置UI、页芽Canvas/矢量绘制、动画策略、UI状态adapter、Compose previews/debug演示fixtures、必要的已有客户端接口接线。复用已有model/provider配置、设置和安全存储。缺少后端的功能暴露明确回调与未接入态；模拟成功只可用于preview/debug独立入口，生产页面不默认注入假数据。本轮不新建后端、不改数据库业务合同、不替换AI协议、不引入新的付费图片服务。
+用户已采纳角色、白色背景和淡粉色交互，允许按本文件规格自行完成前端，不需逐页再询问颜色/布局。图片是视觉参考，本文状态、导航和可访问性规则优先于生成图中的偏差。当前请求的后端以后补，现有真实功能不可退化。
+完成后交付源码、构建结果、16页截图、动画开关演示/录屏、变更文件清单、真实接线与待后端接入清单；无法进行真机检查则诚实注明，不能把静态图作为运行通过证据。</pre></section>
+<section><h2>2 · 视觉与实现优先级</h2>
+<p>采纳的是用户给定的粉色页芽和带输入框模型框的聊天图。16页默认采纳；下列文字规则用于纠正生图中的局部偏差。所有数值为初始实现参数，设备调试可以小幅调整并记录。</p>
+<table><tr><th>Token</th><th>值与用途</th></tr><tr><td>background / surface</td><td>#FFFFFF：页面、顶栏、底栏；关闭本主题动态取色，避免系统壁纸把粉色替换。</td></tr><tr><td>actionContainer</td><td>#F8D5DE：主按钮、导航选中、选项选中底板</td></tr><tr><td>softContainer</td><td>#FFF1F5：用户消息、次级交互背景</td></tr><tr><td>onAction / accent</td><td>#925568：深玫瑰色按钮文字、选中图标；浅粉上不用低对比白字</td></tr><tr><td>text / secondary / border</td><td>#29272B / #777178 / #EFECEF；正文对比优先</td></tr><tr><td>页芽</td><td>参考图粉色纸片、暖杏折角、米白后页、细折痕、V缺口、小墨点眼睛；每页最多一个，正常36dp</td></tr><tr><td>尺寸</td><td>横向留白约20dp，4dp网格，卡片圆角16–20dp，正文起点16sp，点击区至少48×48dp</td></tr></table>
+<p>仅主页面 P01/P02/P03/P05/P07 显示四主入口；P10属于聊天状态。P04/P11是模态面板。P06/P08/P09/P12/P13/P14/P16为返回式子页，移除图中残留的主导航。键盘页P15隐藏主导航。Android系统栏和IME由系统提供，不画成固定图片。普通卡片不做大面积粉色铺底；文件图标统一中性或粉色，图片中的品牌色不是交互规范。</p>
+<p>采用已有主题系统增加/调整本项目主题，不直接选择现有Sakura预设就宣称完成：它当前背景为#FFF8F7而非纯白。保留既有深色设置，当前验收重点为浅色；不要全局反相。不引入Rive、Lottie、WebView或游戏循环作为前置依赖。</p>
+</section>
+<section><h2>3 · 现有代码接入点</h2><p>以下路径相对仓库根目录；动手前重新读取，不能根据本文假定现有签名不会变化。</p><pre>
+client/AGENTS.md
+client/app/src/main/java/me/rerere/rikkahub/feature/studychat/StudyChrome.kt
+  StudyCompanion / StudyStatusBar / StudyNavigation / StudySectionPage
+client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/ChatPage.kt
+client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ChatInput.kt
+client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ModelList.kt
+  ModelSelector / ModelSelectorButton
+client/app/src/main/java/me/rerere/rikkahub/feature/memory/LearningMemoryPage.kt
+client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialPage.kt
+client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingProviderPage.kt
+client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingProviderDetailPage.kt
+  配置/模型tab及既有设置操作
+client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingModelPage.kt
+client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingPage.kt
+client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingPreferencesUIPage.kt
+client/app/src/main/java/me/rerere/rikkahub/ui/theme/Theme.kt
+client/app/src/main/java/me/rerere/rikkahub/ui/theme/presets/SakuraTheme.kt
+client/app/src/main/java/me/rerere/rikkahub/data/datastore/PreferencesStore.kt
+  已有DisplaySetting.reduceMotion，默认true
+client/app/src/main/java/me/rerere/rikkahub/RouteActivity.kt
+</pre><p>聊天/记忆/材料/成果与多提供商基础逻辑已存在，不能以“后端以后补”为由删除或替换成假列表。先做UI adapter，复用档案隔离、加密凭据、运行取消、文件校验与分享。建议新建共享StudyTheme、StudyFileCard、ModelPickerSheet、CompanionVisualState、MotionPolicy、OneShotFeedback；这些是待实现命名。</p></section>
+<section><h2>4 · 通用动画合同</h2>
+<table><tr><th>动作</th><th>参数与触发</th><th>打断/减少动画</th></tr>
+<tr><td>状态切换</td><td>140–180ms淡变，图标位移≤2dp；固定状态槽，文案来自真实state</td><td>终态/错误/等待不可被debounce吞掉；reduceMotion即时切换</td></tr>
+<tr><td>新消息</td><td>首次插入100–140ms淡入</td><td>历史恢复、分支切换与流式token不重复入场；数学不拆字动画</td></tr>
+<tr><td>卡片/面板</td><td>展开220–280ms，关闭180–220ms；scrim约160ms</td><td>不把按钮禁用到动画结束；取消/返回立即执行；核对问题不自动消失</td></tr>
+<tr><td>模型选中/按钮反馈</td><td>颜色120–160ms，标准粉色ripple；不扩大图标或摇晃</td><td>实际选择提交后关面板；重复点击不创建多面板</td></tr>
+<tr><td>页芽待机</td><td>6–10s间隔，120–220ms眨眼/折页，幅度≤1.5dp</td><td>输入/滚动/长文阅读/不可见时停；默认reduceMotion开启，不运行</td></tr>
+<tr><td>处理姿态</td><td>有限折角≤2dp，状态点约2s一周期，不显示虚构进度</td><td>终态和取消立刻停止；不把动画周期当成业务等待</td></tr>
+<tr><td>记忆成功</td><td>真实commit后240–360ms一次舒展</td><td>零候选、冲突或未提交不庆祝；事件消费一次，恢复不补播</td></tr>
+<tr><td>文件成功</td><td>校验和登记后280–420ms轻抬≤4dp</td><td>草稿只能提示草稿保存；打开分享不表示接收成功</td></tr>
+<tr><td>来源跳转</td><td>180–240ms淡变/轻移≤8dp；共享元素不是必需</td><td>无来源给解释；导航不能等待装饰</td></tr>
+<tr><td>错误/取消</td><td>静态姿态或≤100ms淡变</td><td>无持续抖动、哭泣、闪烁、强烈红屏和自动重试</td></tr></table>
+<h3>MotionPolicy与生命周期</h3><p>允许装饰动画 = 应用reduceMotion关闭 ∧ 系统动画缩放非零 ∧ 生命周期处于前台RESUMED ∧ 页面可见；待机还需要未输入、未滚动、未长文阅读。系统动画关闭时所有装饰过渡直接终态，真实状态与操作保留。后台/锁屏/页面离开取消计时任务，不后台保活。回前台读取state，不续播旧动作。</p>
+<p>静态图的当前姿态不是运行状态源。页芽只持有绘制参数；用Canvas或矢量有限路径重建，缓存形状，让帧更新尽量只触发draw/layer，不带动消息列表和公式重组。动画取消后立即采用新状态，不能先播完旧庆祝。</p>
+<h3>状态映射与一次性事件</h3>
+<p>IDLE→静候；PREPARING→折角收拢；GENERATING/TOOL_RUNNING→专注；WAITING_USER→朝向核对卡并静止；COMPLETED→恢复安静；FAILED/INTERRUPTED→平静收拢；CANCELLED→停止循环、保留内容。它们是视觉映射，先检查现有实际字段，不能擅自新增业务枚举。</p>
+<p>主视觉优先级：当前档案/会话核对或错误 → 当前聊天运行 → 当前可见显式材料/成果任务 → 记忆后台任务 → 静候。事件建议包含profileId、taskId、conversationId或artifactId、version、eventKey；仅当前归属和版本匹配可驱动伙伴。用真实源唯一键去重；重组/旋转不重播。若缺少跨进程消费能力，恢复时仅呈现静态终态、不庆祝，不为装饰新加数据库字段。UI恢复绝不重新执行记忆写入或导出。</p>
+<h3>前端与待后端接口</h3>
+<p>新增UI adapter暴露StateFlow/UiState与明确onAction回调，不另造网络协议。UI可展示Idle/Loading/Success/Error/Unavailable，但Success必须来自现有真实结果；预览fixture与生产仓储隔离。测试连接和取模型是两个独立操作；编辑配置后丢弃旧版本响应。模型身份为providerId+modelId，不能用显示名称作主键。当前生成请求冻结模型，切换为下一轮生效，不自动取消当前请求。</p>
+</section>
+<section id="references"><h2>5 · 采纳参考图与逐页实现</h2><div class="refs"><figure><img src="[BASE64_IMAGE]" alt="用户采纳聊天图"><figcaption>用户采纳聊天：模型框位于输入区右侧</figcaption></figure><figure><img src="[BASE64_IMAGE]" alt="用户采纳粉色页芽"><figcaption>用户采纳角色：各姿态为绘制依据</figcaption></figure></div></section>
+<section class="page" id="P01"><h2>P01 · 聊天首页</h2><div class="pair"><figure><img src="[BASE64_IMAGE]" alt="聊天首页最终设计图"><figcaption>P01-v2.png · 视觉参考</figcaption></figure><div><h3>交互与状态</h3><p>点击拍题、选文件调用现有附件入口；近期会话进入现有会话；模型框打开 P11；教学方式调用现有选择逻辑。空输入发送禁用，空态没有停止按钮。</p><h3>动画规则</h3><p>进入空态标题与快捷入口仅首次淡入 120ms；不播成功动作。页芽可在满足 MotionPolicy 时每隔 6–10s 眨眼一次 160ms，位移≤1.5dp；触摸、输入、滚动或长文阅读时静止。</p><h3>Gemini实现提示词</h3><button class="copy" data-target="prompt-P01">复制本页提示词</button><pre id="prompt-P01">在MathStudyAgent现有Android Compose工程中完成P01页面。先遵守本文件总提示词、主题与通用动画合同，再实现以下要求：
+实现聊天空态，保留当前学习者、历史入口、输入框及模型框。白底，快捷按钮淡粉色。仅顶端一个36dp页芽；不保留中心空白装饰占位。近期会话来源于现有状态。空态可以继续提问，不能显示生成圆点与停止。
+交互：点击拍题、选文件调用现有附件入口；近期会话进入现有会话；模型框打开 P11；教学方式调用现有选择逻辑。空输入发送禁用，空态没有停止按钮。
+动画：进入空态标题与快捷入口仅首次淡入 120ms；不播成功动作。页芽可在满足 MotionPolicy 时每隔 6–10s 眨眼一次 160ms，位移≤1.5dp；触摸、输入、滚动或长文阅读时静止。
+不要用整张图片作为应用界面；需交付可操作控件、preview以及当前实际状态接线。</pre></div></div></section>
+<section class="page" id="P02"><h2>P02 · 教学聊天</h2><div class="pair"><figure><img src="[BASE64_IMAGE]" alt="教学聊天最终设计图"><figcaption>P02.png · 视觉参考</figcaption></figure><div><h3>交互与状态</h3><p>流式回复保留现有富文本、公式和分支逻辑；停止直接调用当前取消接口。教学方式生成中维持已有锁定规则。模型可浏览，当前请求使用启动时的模型快照；切换只作用于下一轮，显示下一轮使用该模型，不能自动取消或重启请求。</p><h3>动画规则</h3><p>状态文字同一槽位140–180ms淡变；新消息首次插入100–140ms淡入，逐token不触发入场。生成点周期约2s，页芽折角≤2dp，公式零装饰动画。浏览历史不强制滚到底。</p><h3>Gemini实现提示词</h3><button class="copy" data-target="prompt-P02">复制本页提示词</button><pre id="prompt-P02">在MathStudyAgent现有Android Compose工程中完成P02页面。先遵守本文件总提示词、主题与通用动画合同，再实现以下要求：
+按采纳聊天图重建Compose页面，用户浅粉气泡、助手白底正文。附件、输入、发送布局稳定，模型框在输入右侧。保留实际运行状态与停止按钮，不重写教学/流式业务。模型切换不改变当前在途请求。
+交互：流式回复保留现有富文本、公式和分支逻辑；停止直接调用当前取消接口。教学方式生成中维持已有锁定规则。模型可浏览，当前请求使用启动时的模型快照；切换只作用于下一轮，显示下一轮使用该模型，不能自动取消或重启请求。
+动画：状态文字同一槽位140–180ms淡变；新消息首次插入100–140ms淡入，逐token不触发入场。生成点周期约2s，页芽折角≤2dp，公式零装饰动画。浏览历史不强制滚到底。
+不要用整张图片作为应用界面；需交付可操作控件、preview以及当前实际状态接线。</pre></div></div></section>
+<section class="page" id="P03"><h2>P03 · 材料列表</h2><div class="pair"><figure><img src="[BASE64_IMAGE]" alt="材料列表最终设计图"><figcaption>P03.png · 视觉参考</figcaption></figure><div><h3>交互与状态</h3><p>上传沿用现有系统文件选择与导入；查看内容显示真实提取范围，选择页码只提交明确范围。每个文件拥有独立忙碌/失败/取消状态。导入成功不能等同解析成功。</p><h3>动画规则</h3><p>文件确实导入后，新增卡片240–320ms短距离淡入，位移≤8dp；无可靠起点则只淡入，不从屏幕外飞入。范围文本160ms淡变，取消立即停处理动画。筛选选中底板120ms切换，列表不批量跳动。</p><h3>Gemini实现提示词</h3><button class="copy" data-target="prompt-P03">复制本页提示词</button><pre id="prompt-P03">在MathStudyAgent现有Android Compose工程中完成P03页面。先遵守本文件总提示词、主题与通用动画合同，再实现以下要求：
+优化MaterialPage的材料分支，拆出可复用文件卡片。呈现文件名、实际处理范围与状态，将技术字段移至可展开次级信息。文件类型图标统一中性/粉色。禁止虚构文件条目与处理百分比。
+交互：上传沿用现有系统文件选择与导入；查看内容显示真实提取范围，选择页码只提交明确范围。每个文件拥有独立忙碌/失败/取消状态。导入成功不能等同解析成功。
+动画：文件确实导入后，新增卡片240–320ms短距离淡入，位移≤8dp；无可靠起点则只淡入，不从屏幕外飞入。范围文本160ms淡变，取消立即停处理动画。筛选选中底板120ms切换，列表不批量跳动。
+不要用整张图片作为应用界面；需交付可操作控件、preview以及当前实际状态接线。</pre></div></div></section>
+<section class="page" id="P04"><h2>P04 · 原图核对</h2><div class="pair"><figure><img src="[BASE64_IMAGE]" alt="原图核对最终设计图"><figcaption>P04.png · 视觉参考</figcaption></figure><div><h3>交互与状态</h3><p>核对卡保留原图回看，候选默认均未选；选择候选或有效手动输入后启用确认。稍后处理保留待核对状态；后台或重进不自动确认。不存在当前核对接口时由UI adapter暴露回调，演示fixture仅预览。</p><h3>动画规则</h3><p>底部面板220–280ms上移与淡入，scrim同步淡变；选项边框/单选状态120ms。展开后静止，不自动收起；系统返回或关闭180–220ms，关闭立即响应。原图不做缩放脉冲。</p><h3>Gemini实现提示词</h3><button class="copy" data-target="prompt-P04">复制本页提示词</button><pre id="prompt-P04">在MathStudyAgent现有Android Compose工程中完成P04页面。先遵守本文件总提示词、主题与通用动画合同，再实现以下要求：
+实现可复用符号核对BottomSheet，遮盖主导航，原图预览、两个未选候选、手动输入、确认与稍后处理齐全。等待核对内容优先于装饰，未知符号不可预选。
+交互：核对卡保留原图回看，候选默认均未选；选择候选或有效手动输入后启用确认。稍后处理保留待核对状态；后台或重进不自动确认。不存在当前核对接口时由UI adapter暴露回调，演示fixture仅预览。
+动画：底部面板220–280ms上移与淡入，scrim同步淡变；选项边框/单选状态120ms。展开后静止，不自动收起；系统返回或关闭180–220ms，关闭立即响应。原图不做缩放脉冲。
+不要用整张图片作为应用界面；需交付可操作控件、preview以及当前实际状态接线。</pre></div></div></section>
+<section class="page" id="P05"><h2>P05 · 记忆列表</h2><div class="pair"><figure><img src="[BASE64_IMAGE]" alt="记忆列表最终设计图"><figcaption>P05-v2.png · 视觉参考</figcaption></figure><div><h3>交互与状态</h3><p>自动记忆开关调用已有设置；卡片进入P06；事实、来源、证据、保存态分开。失败回滚开关或显示错误，以实际持久化为准。零候选不弹成功。</p><h3>动画规则</h3><p>实际保存commit事件后，页芽折角舒展240–360ms一次，提示实际新增/更新数量；提示可消失，条目与查看入口仍存在。后台抽取不能替换当前聊天生成状态。列表稳定key，只新增条目淡入120ms。</p><h3>Gemini实现提示词</h3><button class="copy" data-target="prompt-P05">复制本页提示词</button><pre id="prompt-P05">在MathStudyAgent现有Android Compose工程中完成P05页面。先遵守本文件总提示词、主题与通用动画合同，再实现以下要求：
+在LearningMemoryPage现有仓储与档案隔离上改造列表，每页一个页芽。保存/待核对/冲突清楚区分，不把一次观察写成经常出错。图片第一张卡的空粉色占位删除，按内容自适应。
+交互：自动记忆开关调用已有设置；卡片进入P06；事实、来源、证据、保存态分开。失败回滚开关或显示错误，以实际持久化为准。零候选不弹成功。
+动画：实际保存commit事件后，页芽折角舒展240–360ms一次，提示实际新增/更新数量；提示可消失，条目与查看入口仍存在。后台抽取不能替换当前聊天生成状态。列表稳定key，只新增条目淡入120ms。
+不要用整张图片作为应用界面；需交付可操作控件、preview以及当前实际状态接线。</pre></div></div></section>
+<section class="page" id="P06"><h2>P06 · 记忆详情</h2><div class="pair"><figure><img src="[BASE64_IMAGE]" alt="记忆详情最终设计图"><figcaption>P06.png · 视觉参考</figcaption></figure><div><h3>交互与状态</h3><p>来源回看跳到真实会话/锚点；失效来源给可理解解释。更正打开编辑表单；删除沿用当前业务确认与删除抑制逻辑，不新增自动撤销语义。</p><h3>动画规则</h3><p>详情180–240ms淡入/轻移≤8dp；来源回看180–240ms，无共享元素也可实现。编辑/删除反馈只发生在实际成功后，删除不播放庆祝。</p><h3>Gemini实现提示词</h3><button class="copy" data-target="prompt-P06">复制本页提示词</button><pre id="prompt-P06">在MathStudyAgent现有Android Compose工程中完成P06页面。先遵守本文件总提示词、主题与通用动画合同，再实现以下要求：
+重建记忆详情，事实、来源、类型、后续作答分层，底部更正/删除始终可达。用原始证据，不虚构跨会话统计。沿用后端删除与历史再抽取保护。
+交互：来源回看跳到真实会话/锚点；失效来源给可理解解释。更正打开编辑表单；删除沿用当前业务确认与删除抑制逻辑，不新增自动撤销语义。
+动画：详情180–240ms淡入/轻移≤8dp；来源回看180–240ms，无共享元素也可实现。编辑/删除反馈只发生在实际成功后，删除不播放庆祝。
+不要用整张图片作为应用界面；需交付可操作控件、preview以及当前实际状态接线。</pre></div></div></section>
+<section class="page" id="P07"><h2>P07 · 成果列表</h2><div class="pair"><figure><img src="[BASE64_IMAGE]" alt="成果列表最终设计图"><figcaption>P07.png · 视觉参考</figcaption></figure><div><h3>交互与状态</h3><p>仅列真实已登记成果；打开/另存/分享沿用验证与FileProvider。另存取消保留本地文件；打开只说明已请求外部应用。图片服务未配置提供设置入口，不能展示伪作品。</p><h3>动画规则</h3><p>文件登记完成后新增成果卡120ms淡入；页芽文件完成一次280–420ms轻抬≤4dp；失败不弹成功。按钮按压标准ripple，禁止全部卡片持续发光。</p><h3>Gemini实现提示词</h3><button class="copy" data-target="prompt-P07">复制本页提示词</button><pre id="prompt-P07">在MathStudyAgent现有Android Compose工程中完成P07页面。先遵守本文件总提示词、主题与通用动画合同，再实现以下要求：
+优化MaterialPage成果分支，真实文件名称/格式与打开另存分享清楚。未成功登记的任务显示任务态而非可打开文件。图中彩色品牌格式图标改为统一中性或粉色线条。
+交互：仅列真实已登记成果；打开/另存/分享沿用验证与FileProvider。另存取消保留本地文件；打开只说明已请求外部应用。图片服务未配置提供设置入口，不能展示伪作品。
+动画：文件登记完成后新增成果卡120ms淡入；页芽文件完成一次280–420ms轻抬≤4dp；失败不弹成功。按钮按压标准ripple，禁止全部卡片持续发光。
+不要用整张图片作为应用界面；需交付可操作控件、preview以及当前实际状态接线。</pre></div></div></section>
+<section class="page" id="P08"><h2>P08 · 成果预览</h2><div class="pair"><figure><img src="[BASE64_IMAGE]" alt="成果预览最终设计图"><figcaption>P08.png · 视觉参考</figcaption></figure><div><h3>交互与状态</h3><p>草稿/已导出状态明确分离；预览沿用现有能力，格式选项仅实际支持。编辑与导出缺少接入时提供明确不可用态及UI回调，不伪造下载。</p><h3>动画规则</h3><p>草稿保存240–360ms轻反馈，仅写草稿已保存。导出运行使用静态文案或允许的状态点；文件验证登记完成后280–420ms一次舒展。分享只是打开系统面板，不庆祝接收成功。</p><h3>Gemini实现提示词</h3><button class="copy" data-target="prompt-P08">复制本页提示词</button><pre id="prompt-P08">在MathStudyAgent现有Android Compose工程中完成P08页面。先遵守本文件总提示词、主题与通用动画合同，再实现以下要求：
+实现成果预览/详情UI，正文采用真实数学渲染器；示例定义域[1,2)∪(2,+∞)正确。从现有数据映射文件版本与状态，不为页面增加数据库合同。
+交互：草稿/已导出状态明确分离；预览沿用现有能力，格式选项仅实际支持。编辑与导出缺少接入时提供明确不可用态及UI回调，不伪造下载。
+动画：草稿保存240–360ms轻反馈，仅写草稿已保存。导出运行使用静态文案或允许的状态点；文件验证登记完成后280–420ms一次舒展。分享只是打开系统面板，不庆祝接收成功。
+不要用整张图片作为应用界面；需交付可操作控件、preview以及当前实际状态接线。</pre></div></div></section>
+<section class="page" id="P09"><h2>P09 · 设置</h2><div class="pair"><figure><img src="[BASE64_IMAGE]" alt="设置最终设计图"><figcaption>P09.png · 视觉参考</figcaption></figure><div><h3>交互与状态</h3><p>设置入口复用连接/档案/记忆/备份/诊断页面。减少动画默认开启，可关闭。主题只改变本方案对应浅色主题，不删除既有深色能力。Skills未开放禁用且说明。</p><h3>动画规则</h3><p>切换reduceMotion后立即取消循环/弹性与一次性动作，状态直接落终态；重新开启不补播旧成功。可减少动画时开关120ms，否则无装饰过渡。</p><h3>Gemini实现提示词</h3><button class="copy" data-target="prompt-P09">复制本页提示词</button><pre id="prompt-P09">在MathStudyAgent现有Android Compose工程中完成P09页面。先遵守本文件总提示词、主题与通用动画合同，再实现以下要求：
+原生分组设置列表，复用Setting页面。减少动画写入现有DisplaySetting.reduceMotion。模型与提供商进入P12。图片底部聊天选中导航删除，设置是返回式子页面；诊断行通过滚动可访问。
+交互：设置入口复用连接/档案/记忆/备份/诊断页面。减少动画默认开启，可关闭。主题只改变本方案对应浅色主题，不删除既有深色能力。Skills未开放禁用且说明。
+动画：切换reduceMotion后立即取消循环/弹性与一次性动作，状态直接落终态；重新开启不补播旧成功。可减少动画时开关120ms，否则无装饰过渡。
+不要用整张图片作为应用界面；需交付可操作控件、preview以及当前实际状态接线。</pre></div></div></section>
+<section class="page" id="P10"><h2>P10 · 错误与恢复</h2><div class="pair"><figure><img src="[BASE64_IMAGE]" alt="错误与恢复最终设计图"><figcaption>P10-v2.png · 视觉参考</figcaption></figure><div><h3>交互与状态</h3><p>中断、失败、停止是不同终态；保留已收到内容。重新生成走现有逻辑；无继续能力不放继续按钮。重试等待仅从实际调度时间展示，取消后不自动重试。</p><h3>动画规则</h3><p>出错静态图标，≤100ms淡变；立即停止循环，无摇晃/哭泣/全屏红色。状态与错误卡一致，不出现中断同时正在生成。</p><h3>Gemini实现提示词</h3><button class="copy" data-target="prompt-P10">复制本页提示词</button><pre id="prompt-P10">在MathStudyAgent现有Android Compose工程中完成P10页面。先遵守本文件总提示词、主题与通用动画合同，再实现以下要求：
+为ChatPage实现可复用ErrorRecoveryCard，用真实终态展示恢复入口。停止按钮只在请求运行时显示；中断后移除；不要用假的倒计时或动画掩盖故障。
+交互：中断、失败、停止是不同终态；保留已收到内容。重新生成走现有逻辑；无继续能力不放继续按钮。重试等待仅从实际调度时间展示，取消后不自动重试。
+动画：出错静态图标，≤100ms淡变；立即停止循环，无摇晃/哭泣/全屏红色。状态与错误卡一致，不出现中断同时正在生成。
+不要用整张图片作为应用界面；需交付可操作控件、preview以及当前实际状态接线。</pre></div></div></section>
+<section class="page" id="P11"><h2>P11 · 模型选择</h2><div class="pair"><figure><img src="[BASE64_IMAGE]" alt="模型选择最终设计图"><figcaption>P11.png · 视觉参考</figcaption></figure><div><h3>交互与状态</h3><p>从输入框模型框打开；按providerId分组，模型选择标识用(providerId,modelId)，同名不合并。搜索按名称/ID/提供商本地筛选；隐藏不可用模型或禁用并说明。选中持久化成功后收起，失败保留旧选择并提示。生成中切换仅下一轮有效。进入管理保存聊天草稿及滚动位置。</p><h3>动画规则</h3><p>BottomSheet展开240ms、关闭180–220ms，scrim160ms；高度稳定在约70%屏幕或按内容/IME适配。单选与选中底板120–160ms；搜索不重播全部行，只空态淡入100ms。滚动时角色静止；快速连续点击只打开一个面板。</p><h3>Gemini实现提示词</h3><button class="copy" data-target="prompt-P11">复制本页提示词</button><pre id="prompt-P11">在MathStudyAgent现有Android Compose工程中完成P11页面。先遵守本文件总提示词、主题与通用动画合同，再实现以下要求：
+复用现有ModelSelector可用逻辑，改为输入框右侧模型按钮与按提供商分组的ModalBottomSheet。提供搜索、已启用筛选、当前选择、无模型/无结果态、管理入口。名称过长省略但无障碍读完整。图片品牌与能力为示例，运行数据从真实配置取。
+交互：从输入框模型框打开；按providerId分组，模型选择标识用(providerId,modelId)，同名不合并。搜索按名称/ID/提供商本地筛选；隐藏不可用模型或禁用并说明。选中持久化成功后收起，失败保留旧选择并提示。生成中切换仅下一轮有效。进入管理保存聊天草稿及滚动位置。
+动画：BottomSheet展开240ms、关闭180–220ms，scrim160ms；高度稳定在约70%屏幕或按内容/IME适配。单选与选中底板120–160ms；搜索不重播全部行，只空态淡入100ms。滚动时角色静止；快速连续点击只打开一个面板。
+不要用整张图片作为应用界面；需交付可操作控件、preview以及当前实际状态接线。</pre></div></div></section>
+<section class="page" id="P12"><h2>P12 · 提供商管理</h2><div class="pair"><figure><img src="[BASE64_IMAGE]" alt="提供商管理最终设计图"><figcaption>P12.png · 视觉参考</figcaption></figure><div><h3>交互与状态</h3><p>提供商列表读现有配置；启停、编辑、管理模型复用已有操作。关闭当前选中提供商后标记模型不可用并要求显式选择，不擅自替换到另一收费接口。多提供商互不覆盖；默认连接与启用开关不是同一含义。</p><h3>动画规则</h3><p>toggle开关120ms色变（reduceMotion时即时），提交中保持pending防重复；实际失败回滚并淡入行内错误100ms。新增项120ms淡入；禁用项保持位置不突然消失。</p><h3>Gemini实现提示词</h3><button class="copy" data-target="prompt-P12">复制本页提示词</button><pre id="prompt-P12">在MathStudyAgent现有Android Compose工程中完成P12页面。先遵守本文件总提示词、主题与通用动画合同，再实现以下要求：
+在SettingProviderPage上实现连接卡片与粉色交互。provider稳定ID贯穿列表、编辑与模型管理。空态提供添加入口；编辑和启停不能触发聊天请求。删除保留现有确认与引用处理。返回式子页面移除图中底部导航。
+交互：提供商列表读现有配置；启停、编辑、管理模型复用已有操作。关闭当前选中提供商后标记模型不可用并要求显式选择，不擅自替换到另一收费接口。多提供商互不覆盖；默认连接与启用开关不是同一含义。
+动画：toggle开关120ms色变（reduceMotion时即时），提交中保持pending防重复；实际失败回滚并淡入行内错误100ms。新增项120ms淡入；禁用项保持位置不突然消失。
+不要用整张图片作为应用界面；需交付可操作控件、preview以及当前实际状态接线。</pre></div></div></section>
+<section class="page" id="P13"><h2>P13 · 提供商编辑</h2><div class="pair"><figure><img src="[BASE64_IMAGE]" alt="提供商编辑最终设计图"><figcaption>P13.png · 视觉参考</figcaption></figure><div><h3>交互与状态</h3><p>表单本地草稿，保存走现有配置存储，返回时未保存改动需确认。名称/地址/接口类型校验后启用保存；密钥默认遮蔽，不写日志。测试与获取模型只有已有接口才调用，缺失时显示未接入。状态独立：未测试/测试中/成功/失败。旧响应不得覆盖编辑后的新配置。</p><h3>动画规则</h3><p>焦点边线100–140ms粉色；校验错误100ms淡入不抖动。测试中允许取消（若实际支持），动画从busy状态驱动，无固定等待；完成160ms切换到真实结果。保存成功返回180–220ms。</p><h3>Gemini实现提示词</h3><button class="copy" data-target="prompt-P13">复制本页提示词</button><pre id="prompt-P13">在MathStudyAgent现有Android Compose工程中完成P13页面。先遵守本文件总提示词、主题与通用动画合同，再实现以下要求：
+复用SettingProviderDetailPage的配置tab及凭据安全逻辑。连接测试与取模型UI分别映射实际状态；未接入操作明确提示后续接入，不以delay模拟生产成功。地址example.com仅预览fixture。图中主连接开关不增加自动路由逻辑。移除主导航。
+交互：表单本地草稿，保存走现有配置存储，返回时未保存改动需确认。名称/地址/接口类型校验后启用保存；密钥默认遮蔽，不写日志。测试与获取模型只有已有接口才调用，缺失时显示未接入。状态独立：未测试/测试中/成功/失败。旧响应不得覆盖编辑后的新配置。
+动画：焦点边线100–140ms粉色；校验错误100ms淡入不抖动。测试中允许取消（若实际支持），动画从busy状态驱动，无固定等待；完成160ms切换到真实结果。保存成功返回180–220ms。
+不要用整张图片作为应用界面；需交付可操作控件、preview以及当前实际状态接线。</pre></div></div></section>
+<section class="page" id="P14"><h2>P14 · 提供商模型管理</h2><div class="pair"><figure><img src="[BASE64_IMAGE]" alt="提供商模型管理最终设计图"><figcaption>P14-v2.png · 视觉参考</figcaption></figure><div><h3>交互与状态</h3><p>管理当前provider模型列表；编辑/新增表单绑定该provider。modelId不能为空，按提供商内判重；能力是配置而非验证认证。未填写不能保存。可重复选择文本/图片/工具，用checkbox/chip而非互斥radio。</p><h3>动画规则</h3><p>展开新增表单220ms，折叠180ms；能力chip120ms；保存中禁用重复提交，成功追加120ms；失败留表单和草稿。不自动启用不可信模型能力。</p><h3>Gemini实现提示词</h3><button class="copy" data-target="prompt-P14">复制本页提示词</button><pre id="prompt-P14">在MathStudyAgent现有Android Compose工程中完成P14页面。先遵守本文件总提示词、主题与通用动画合同，再实现以下要求：
+复用提供商详情模型管理逻辑，列表与新增表单分别建组件。来源于真实provider模型配置，用中性图标代替角色。文本/图片/工具是独立可多选能力；能力不能由模型名猜测。无后端时本地UI演示状态只存在preview/debug。
+交互：管理当前provider模型列表；编辑/新增表单绑定该provider。modelId不能为空，按提供商内判重；能力是配置而非验证认证。未填写不能保存。可重复选择文本/图片/工具，用checkbox/chip而非互斥radio。
+动画：展开新增表单220ms，折叠180ms；能力chip120ms；保存中禁用重复提交，成功追加120ms；失败留表单和草稿。不自动启用不可信模型能力。
+不要用整张图片作为应用界面；需交付可操作控件、preview以及当前实际状态接线。</pre></div></div></section>
+<section class="page" id="P15"><h2>P15 · 键盘输入</h2><div class="pair"><figure><img src="[BASE64_IMAGE]" alt="键盘输入最终设计图"><figcaption>P15-v2.png · 视觉参考</figcaption></figure><div><h3>交互与状态</h3><p>使用真实系统IME与insets，输入区贴键盘上方，主导航隐藏，停止仍可达。模型选择时不丢草稿或焦点；面板搜索键盘与聊天输入键盘切换自然。小屏/横屏模型框可收成紧凑按钮但至少48dp可点。</p><h3>动画规则</h3><p>由系统IME过渡驱动布局，不叠加第二套键盘动画；装饰循环停止。聊天正文与公式不跟随键盘重复入场；维持阅读锚点。</p><h3>Gemini实现提示词</h3><button class="copy" data-target="prompt-P15">复制本页提示词</button><pre id="prompt-P15">在MathStudyAgent现有Android Compose工程中完成P15页面。先遵守本文件总提示词、主题与通用动画合同，再实现以下要求：
+验证ChatInput与ChatPage IME布局，不能把截图键盘绘成应用组件。顶部保留标题和状态；图中缺失会话顶栏属于生成偏差，应恢复。发送空态禁用，停止不被键盘或底栏遮挡。
+交互：使用真实系统IME与insets，输入区贴键盘上方，主导航隐藏，停止仍可达。模型选择时不丢草稿或焦点；面板搜索键盘与聊天输入键盘切换自然。小屏/横屏模型框可收成紧凑按钮但至少48dp可点。
+动画：由系统IME过渡驱动布局，不叠加第二套键盘动画；装饰循环停止。聊天正文与公式不跟随键盘重复入场；维持阅读锚点。
+不要用整张图片作为应用界面；需交付可操作控件、preview以及当前实际状态接线。</pre></div></div></section>
+<section class="page" id="P16"><h2>P16 · 大字体详情</h2><div class="pair"><figure><img src="[BASE64_IMAGE]" alt="大字体详情最终设计图"><figcaption>P16-v2.png · 视觉参考</figcaption></figure><div><h3>交互与状态</h3><p>200%系统字体时自然换行/滚动，按钮与来源入口可达；不按截图比例缩小文字。长公式横向滚动，读屏标题/按钮语义明确。</p><h3>动画规则</h3><p>大字体仍按MotionPolicy决定；不因尺寸变化重播入场或成功；若展开造成抖动直接静态布局，文本优先。</p><h3>Gemini实现提示词</h3><button class="copy" data-target="prompt-P16">复制本页提示词</button><pre id="prompt-P16">在MathStudyAgent现有Android Compose工程中完成P16页面。先遵守本文件总提示词、主题与通用动画合同，再实现以下要求：
+为详情组件验证fontScale=2.0和小屏，采用sp，拒绝固定文本卡高度；底部按钮允许纵向排布，不重叠。角色为装饰不重复播报。截图只是首屏参考，不要求全部内容同时可见。
+交互：200%系统字体时自然换行/滚动，按钮与来源入口可达；不按截图比例缩小文字。长公式横向滚动，读屏标题/按钮语义明确。
+动画：大字体仍按MotionPolicy决定；不因尺寸变化重播入场或成功；若展开造成抖动直接静态布局，文本优先。
+不要用整张图片作为应用界面；需交付可操作控件、preview以及当前实际状态接线。</pre></div></div></section>
+<section><h2>6 · 执行顺序与验收</h2><ol>
+<li>检查git状态、读取AGENTS及现有页面/设置/仓储。列出复用点和缺失adapter，不重写业务。</li>
+<li>先落白粉主题、页芽静态轮廓、公共卡片/按钮、稳定导航与输入区；完成16页静态Compose preview。</li>
+<li>接入模型选择与多提供商已有逻辑，再接聊天/记忆/文件现有状态；缺失接口使用未接入态。</li>
+<li>实现MotionPolicy、有限动画、事件去重与生命周期；默认减少动画，开启后才显示装饰。</li>
+<li>验证普通/键盘/大字体/错误/恢复/切档案/切模型；再完成构建与适当回归，整理截图和录屏。</li>
+</ol>
+<table><tr><th>验收场景</th><th>通过标准</th></tr>
+<tr><td>16页布局</td><td>纯白背景、淡粉交互、一个小伙伴、规范导航；无整图贴屏、假键盘或文字重叠</td></tr>
+<tr><td>流式与取消</td><td>正文公式不重播；停止立即响应；错误中断保留内容，状态互不矛盾</td></tr>
+<tr><td>模型选择</td><td>跨提供商同名不混淆；搜索/无结果/无模型可用；在途请求模型不变；切換下一轮有效</td></tr>
+<tr><td>提供商与模型</td><td>启停与验证分开；空表单不可保存；失败回滚；密钥遮蔽；旧响应不覆盖新配置；能力多选</td></tr>
+<tr><td>记忆与文件</td><td>成功基于真实提交/登记；零候选不庆祝；档案隔离；文件取消与分享取消保留本地成果</td></tr>
+<tr><td>减少动画</td><td>默认开启；应用开启减少动画或系统缩放为0，装饰全部静态且操作完整；重新开启不补播</td></tr>
+<tr><td>后台与恢复</td><td>无装饰后台循环；重进/旋转/强杀恢复不重播成功、不重复请求或写入</td></tr>
+<tr><td>大字与IME</td><td>200%字体及小屏可滚动可操作；输入/停止/来源可达；长公式可横滚；无固定高度裁切</td></tr>
+<tr><td>可访问性</td><td>状态图标+文字；读屏不播token和每帧参数；装饰角色不抢焦点；粉色按钮对比清楚</td></tr>
+</table>
+<p>构建从仓库根进入client，按当前环境使用 <code>.\gradlew.bat :app:assembleDebug</code>；现有仓库通用命令还有 <code>test</code> 与 <code>lint</code>。先查scripts/build_baseline.ps1及现有构建约束，不能为构建临时移除安全配置或业务模块。为模型分组身份、选择失败、配置版本防迟到、动画去重等新增行为做必要测试，不为每个动画数值写镜像测试。无需因本文交接在当前任务运行Android测试。</p>
+<p>真机性能目标待验证：Mate50发布构建，同场景预热后动效开/关各5分钟，超帧预算比例增幅≤2个百分点、帧时间P95增幅≤10%。这不是已完成结论；无目标设备时记录模拟器证据及待真机项。性能不足降级静态，不牺牲真实状态和操作。</p>
+<h3>Gemini最终交付格式</h3><pre>1. 已完成的页面与组件、改动路径。
+2. 原有接口已接线项与待后端接入项，分别列明。
+3. 构建/测试命令及真实结果；失败和未运行项保留。
+4. 16页实际应用截图；动效开/关与模型选择/提供商操作录屏。
+5. 重组/恢复不重复庆祝、后台停动画、档案隔离的验证说明。
+6. 已知限制与下一步接入建议。不得把preview数据、静态图或模拟结果说成生产完成。</pre>
+</section><footer>全部图片嵌入本文件，无外部图片依赖。请以文字规格修正生成图偏差。</footer><script>
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const t=document.getElementById(b.dataset.target);try{await navigator.clipboard.writeText(t.textContent);b.textContent='已复制'}catch(e){const r=document.createRange();r.selectNodeContents(t);const s=window.getSelection();s.removeAllRanges();s.addRange(r);b.textContent='已选中，请按 Ctrl+C'}}));
+</script></body></html>

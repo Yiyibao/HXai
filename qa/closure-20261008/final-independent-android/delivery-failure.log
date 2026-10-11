@@ -1,0 +1,25 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DeliveryClosureTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.DeliveryClosureTest:
+INSTRUMENTATION_STATUS: test=cancellationCorruptionAndTargetRereadRejectFalseSuccess
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"DeliveryClosureTest.cancellationCorruptionAndTargetRereadRejectFalseSuccess","runId":"c5bcdd43-573d-4260-a79e-410391104643","startedAt":1791468208943,"finishedAt":1791468209579,"status":"PASS","entries":[{"name":"qa-evidence\/DeliveryClosureTest.cancellationCorruptionAndTargetRereadRejectFalseSuccess\/c5bcdd43-573d-4260-a79e-410391104643\/assertions.txt","sha256":"fcd9fb7ce39dbf09a025aee7fea774c1b602b6d054a56d269b6ffd0c2ef8a67f","bytes":318,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DeliveryClosureTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=cancellationCorruptionAndTargetRereadRejectFalseSuccess
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 0.838
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

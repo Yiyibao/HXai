@@ -1,0 +1,74 @@
+{
+  "ai": {
+    "tests": 202,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "app": {
+    "tests": 381,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "common": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "document": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "highlight": {
+    "tests": 53,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "material3": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "oauth": {
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "search": {
+    "tests": 29,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "speech": {
+    "tests": 43,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "videogen": {
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "web": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "workspace": {
+    "tests": 20,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  }
+}

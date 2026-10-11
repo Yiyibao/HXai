@@ -27,7 +27,7 @@ APK 是上游 2.5.6，SHA256 为 `f0a2cbe2224a22f439921f66c65682f43e8a3009347754
 
 ## 真实中转
 
-先确认服务是否兼容 Chat Completions。脚本仅支持此已明确选择的协议，不自动尝试其他协议。API base URL 应包含实际前缀，例如 `https://服务域名/v1`，脚本追加 `/chat/completions`；自定义请求头、路径和其他协议需在确认后适配。
+旧 probe_provider.py 仅支持明确选择的 Chat Completions。本项目于 2026-10-06 提供 Responses 中转，使用新增 probe_responses.py，不自动切换协议或模型。API base URL 应包含实际前缀，例如 `https://服务域名/v1`，脚本追加 `/chat/completions`；自定义请求头、路径和其他协议需在确认后适配。
 
 在同一个本机 PowerShell 终端临时配置：
 
@@ -76,3 +76,20 @@ pwsh -File scripts/build_baseline.ps1 -UsePlaceholderFirebase
 ```
 
 脚本保留已有 Google Services 配置，不覆盖它；若指定占位参数但已有配置则拒绝运行。临时占位副本在构建结束后删除。S1 关闭非必要遥测时须单独核验真实运行路径，不借用别人或 MathStudy 的真实凭据。
+
+
+## Responses 中转与无真机开发（2026-10-06）
+
+用户选择 gpt-6.1-sol、medium；实际能力以每次探针结果为准。密钥用终端隐藏输入，不放命令参数、仓库、页面图或日志。需要自定义认证头时，在同一终端设置 MATHSTUDY_S0_HEADERS_JSON（JSON 字典），其值不写入文档。
+
+```powershell
+python scripts/probe_responses.py --base-url https://xinyue.mom/v1 --model gpt-6.1-sol --key-prompt
+```
+
+探针使用 store=false、medium；四个正常请求分别为文本、流式、加法调用与结果续答，只发送合成输入。无自动重试；首次失败后停止剩余请求；模型输出和认证信息不保存。结果写入忽略目录 qa/s0/private/provider-responses.json。请求 store=false 只是客户端请求设置，不构成第三方服务数据留存承诺。协议依据：[Responses 工具调用](https://developers.openai.com/api/docs/guides/function-calling)、[流式事件](https://developers.openai.com/api/docs/guides/streaming-responses)、[无服务端存储的推理接续](https://developers.openai.com/api/docs/guides/reasoning)。
+
+Responses 离线反例随现有 unittest discover 执行，覆盖截断流、错误终态、终态与 delta 内容不一致、伪工具正文、非法参数及 call_id、无存储的推理输出接续。它们不代替真实接口或 Android UI 验证。
+
+构建可增加 -Info；脚本设置单次 HTTP 连接和读取超时为 30 秒，避免依赖请求长时间无反馈。首次全量依赖/编译仍可能耗时；只有 BUILD SUCCESSFUL 和实际 APK 校验结果才能通过 G02。
+
+无 Mate 50 时用项目内 SDK 的不含 GMS 的 AOSP x86_64 模拟器验证安装、启动和基础页面。启动后记录镜像 API/版本、加速状态、APK 哈希、实际检查与截图。模拟器不是 HarmonyOS，也不能证明 Mate 50 后台、锁屏和文件兼容性；这些保留到交付前。首版导出 PDF + Markdown，Word 导出后置；DOCX 材料输入仍保留。

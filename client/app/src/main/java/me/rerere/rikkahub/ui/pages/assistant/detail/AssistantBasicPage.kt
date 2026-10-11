@@ -19,7 +19,7 @@ import androidx.compose.material3.LargeFlexibleTopAppBar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Slider
+import me.rerere.rikkahub.ui.components.ui.ControlledSlider as Slider
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
@@ -33,6 +33,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.input.ImeAction
@@ -513,7 +514,7 @@ internal fun AssistantBasicContent(
                     },
                     supportingText = {
                         if (assistant.maxTokens != null) {
-                            Text(stringResource(R.string.assistant_page_max_tokens_limit, assistant.maxTokens))
+                            Text(pluralStringResource(R.plurals.assistant_page_max_tokens_limit, assistant.maxTokens, assistant.maxTokens))
                         } else {
                             Text(stringResource(R.string.assistant_page_max_tokens_no_token_limit))
                         }

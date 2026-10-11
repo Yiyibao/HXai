@@ -1,0 +1,46 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+Calculating task graph as no cached configuration is available for tasks: :speech:testDebugUnitTest :common:testDebugUnitTest :app:lintDebug
+> Task :build-logic:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:compileKotlin UP-TO-DATE
+> Task :build-logic:compileJava NO-SOURCE
+> Task :build-logic:pluginDescriptors UP-TO-DATE
+> Task :build-logic:processResources UP-TO-DATE
+> Task :build-logic:classes UP-TO-DATE
+> Task :build-logic:jar UP-TO-DATE
+
+1 problem was found storing the configuration cache.
+- Task `:common:generateDebugUnitTestStubRFile` of type `com.android.build.gradle.internal.res.GenerateLibraryRFileTask`: error writing value of type 'org.gradle.api.internal.file.collections.DefaultConfigurableFileCollection'
+
+See the complete report at file:///D:/Office/Study/code/MathStudyAgent/client/build/reports/configuration-cache/b2gwictunn48nwa5cf0cxbvqb/98280m8or2vf0l6get8hrshpb/configuration-cache-report.html
+
+[Incubating] Problems report is available at: file:///D:/Office/Study/code/MathStudyAgent/client/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Configuration cache state could not be cached: field `__dependencies__` of task `:common:generateDebugUnitTestStubRFile` of type `com.android.build.gradle.internal.res.GenerateLibraryRFileTask`: error writing value of type 'org.gradle.api.internal.file.collections.DefaultConfigurableFileCollection'
+> Could not resolve all files for configuration ':common:debugUnitTestRuntimeClasspath'.
+   > Could not resolve androidx.transition:transition:1.6.0.
+     Required by:
+         project ':common' > com.google.android.material:material:1.14.0
+      > No cached version of androidx.transition:transition:1.6.0 available for offline mode.
+      > No cached version of androidx.transition:transition:1.6.0 available for offline mode.
+      > No cached version of androidx.transition:transition:1.6.0 available for offline mode.
+   > Could not resolve androidx.activity:activity-ktx:1.8.0.
+     Required by:
+         project ':common' > androidx.appcompat:appcompat:1.8.0 > androidx.activity:activity:1.8.0
+      > No cached version of androidx.activity:activity-ktx:1.8.0 available for offline mode.
+      > No cached version of androidx.activity:activity-ktx:1.8.0 available for offline mode.
+      > No cached version of androidx.activity:activity-ktx:1.8.0 available for offline mode.
+> There are 6 more failures with identical causes.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 34s
+4 actionable tasks: 4 up-to-date
+Configuration cache entry discarded due to serialization error.

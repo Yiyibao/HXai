@@ -1,0 +1,252 @@
+{
+  "instrumentation": [
+    {
+      "log": "BackupPageTest.log",
+      "modified": 1791394680.681771,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "BackupReliabilityTest.log",
+      "modified": 1791394670.1781142,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "ChatNetworkFaultTest.log",
+      "modified": 1791394519.4847057,
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "CredentialVaultTest.log",
+      "modified": 1791394531.6045644,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "DiagnosticsPageTest.log",
+      "modified": 1791394706.7825947,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "DiagnosticsTest.log",
+      "modified": 1791394687.5205755,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "DocumentServicePageTest.log",
+      "modified": 1791394649.8994057,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "FrontendDeliveryRoutesTest.log",
+      "modified": 1791394735.1242104,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "FrontendModelPickerTest.log",
+      "modified": 1791394713.605633,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "LearningLoopPersistenceTest.log",
+      "modified": 1791394571.4191997,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "LearningMemoryPageTest.log",
+      "modified": 1791394560.9091177,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "LearningMemoryPersistenceTest.log",
+      "modified": 1791394535.9558194,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 1
+    },
+    {
+      "log": "LegacyMemoryEntryTest.log",
+      "modified": 1791394567.0013075,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialDeliveryTest-final.log",
+      "modified": 1791394968.0036578,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialDeliveryTest.log",
+      "modified": 1791394635.5762463,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialFidelityTest.log",
+      "modified": 1791394581.1758413,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialFilesTest.log",
+      "modified": 1791394577.1985426,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialPageTest.log",
+      "modified": 1791394599.101362,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialPaginationTest-final.log",
+      "modified": 1791394917.7551472,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialPaginationTest.log",
+      "modified": 1791394612.165779,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0
+    },
+    {
+      "log": "memory-seed.log",
+      "modified": 1791394867.6023357,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "memory-verify.log",
+      "modified": 1791394870.5715487,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "ProjectReviewAuditTest.log",
+      "modified": 1791394802.4403367,
+      "passed": 11,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "ProjectReviewDeliveryTest-final.log",
+      "modified": 1791395022.0039468,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "ProjectReviewDeliveryTest.log",
+      "modified": 1791394858.0183501,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "real-model-final.log",
+      "modified": 1791395081.027102,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "runtime-seed.log",
+      "modified": 1791394861.3603225,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "runtime-verify.log",
+      "modified": 1791394864.542205,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "StudyChatCompletionTest.log",
+      "modified": 1791394455.3440194,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 1
+    },
+    {
+      "log": "StudyNavigationTest.log",
+      "modified": 1791394450.4389083,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    }
+  ],
+  "jvm": [
+    {
+      "module": "app",
+      "tests": 317,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "module": "ai",
+      "tests": 198,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "module": "search",
+      "tests": 16,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "module": "speech",
+      "tests": 43,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "module": "common",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "module": "document",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0
+    }
+  ]
+}

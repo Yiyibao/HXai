@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哆啦A梦骑自行车</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 100%);
+            overflow: hidden;
+        }
+
+        .ground {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: #90EE90;
+            border-top: 3px solid #228B22;
+        }
+
+        svg {
+            filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.3));
+        }
+    </style>
+</head>
+<body>
+    <div class="ground"></div>
+
+    <svg width="800" height="600" viewBox="0 0 800 600">
+        <defs>
+            <!-- 车轮旋转动画 -->
+            <animateTransform
+                id="wheelRotation"
+                attributeName="transform"
+                attributeType="XML"
+                type="rotate"
+                from="0 0 0"
+                to="360 0 0"
+                dur="1s"
+                repeatCount="indefinite"/>
+        </defs>
+
+        <!-- 整体移动的组 -->
+        <g id="bikeGroup">
+            <animateTransform
+                attributeName="transform"
+                attributeType="XML"
+                type="translate"
+                values="0,0; 400,0; 0,0"
+                dur="8s"
+                repeatCount="indefinite"/>
+
+            <!-- 自行车 -->
+            <g id="bicycle" transform="translate(200, 400)">
+                <!-- 后轮 -->
+                <g transform="translate(0, 0)">
+                    <circle cx="0" cy="0" r="35" fill="none" stroke="#333" stroke-width="3"/>
+                    <circle cx="0" cy="0" r="3" fill="#333"/>
+                    <g>
+                        <line x1="0" y1="0" x2="0" y2="-35" stroke="#333" stroke-width="2"/>
+                        <line x1="0" y1="0" x2="30" y2="20" stroke="#333" stroke-width="2"/>
+                        <line x1="0" y1="0" x2="-30" y2="20" stroke="#333" stroke-width="2"/>
+                        <line x1="0" y1="0" x2="30" y2="-20" stroke="#333" stroke-width="2"/>
+                        <line x1="0" y1="0" x2="-30" y2="-20" stroke="#333" stroke-width="2"/>
+                        <animateTransform
+                            attributeName="transform"
+                            attributeType="XML"
+                            type="rotate"
+                            from="0 0 0"
+                            to="360 0 0"
+                            dur="1s"
+                            repeatCount="indefinite"/>
+                    </g>
+                </g>
+
+                <!-- 前轮 -->
+                <g transform="translate(120, 0)">
+                    <circle cx="0" cy="0" r="35" fill="none" stroke="#333" stroke-width="3"/>
+                    <circle cx="0" cy="0" r="3" fill="#333"/>
+                    <g>
+                        <line x1="0" y1="0" x2="0" y2="-35" stroke="#333" stroke-width="2"/>
+                        <line x1="0" y1="0" x2="30" y2="20" stroke="#333" stroke-width="2"/>
+                        <line x1="0" y1="0" x2="-30" y2="20" stroke="#333" stroke-width="2"/>
+                        <line x1="0" y1="0" x2="30" y2="-20" stroke="#333" stroke-width="2"/>
+                        <line x1="0" y1="0" x2="-30" y2="-20" stroke="#333" stroke-width="2"/>
+                        <animateTransform
+                            attributeName="transform"
+                            attributeType="XML"
+                            type="rotate"
+                            from="0 0 0"
+                            to="360 0 0"
+                            dur="1s"
+                            repeatCount="indefinite"/>
+                    </g>
+                </g>
+
+                <!-- 车架 -->
+                <line x1="0" y1="0" x2="40" y2="-60" stroke="#ff4444" stroke-width="4"/>
+                <line x1="40" y1="-60" x2="80" y2="-60" stroke="#ff4444" stroke-width="4"/>
+                <line x1="80" y1="-60" x2="120" y2="0" stroke="#ff4444" stroke-width="4"/>
+                <line x1="40" y1="-60" x2="40" y2="-90" stroke="#ff4444" stroke-width="4"/>
+                <line x1="40" y1="-90" x2="100" y2="-70" stroke="#ff4444" stroke-width="4"/>
+
+                <!-- 座位 -->
+                <ellipse cx="40" cy="-90" rx="20" ry="8" fill="#333"/>
+
+                <!-- 车把 -->
+                <line x1="100" y1="-70" x2="110" y2="-80" stroke="#333" stroke-width="3"/>
+                <line x1="105" y1="-85" x2="115" y2="-85" stroke="#333" stroke-width="3"/>
+
+                <!-- 脚踏板（带动画） -->
+                <g transform="translate(60, -30)">
+                    <circle cx="0" cy="0" r="5" fill="#666"/>
+                    <g>
+                        <line x1="0" y1="0" x2="-15" y2="15" stroke="#666" stroke-width="3"/>
+                        <rect x="-20" y="12" width="10" height="6" rx="2" fill="#333"/>
+                        <line x1="0" y1="0" x2="15" y2="-15" stroke="#666" stroke-width="3"/>
+                        <rect x="15" y="-21" width="10" height="6" rx="2" fill="#333"/>
+                        <animateTransform
+                            attributeName="transform"
+                            attributeType="XML"
+                            type="rotate"
+                            from="0 0 0"
+                            to="360 0 0"
+                            dur="1s"
+                            repeatCount="indefinite"/>
+                    </g>
+                </g>
+            </g>
+
+            <!-- 哆啦A梦 -->
+            <g id="doraemon" transform="translate(240, 310)">
+                <!-- 腿部动画 -->
+                <g id="legs">
+                    <!-- 左腿 -->
+                    <g id="leftLeg">
+                        <ellipse cx="-15" cy="50" rx="12" ry="18" fill="#0080D0"/>
+                        <ellipse cx="-15" cy="68" rx="15" ry="10" fill="#white" stroke="#000" stroke-width="1.5"/>
+                        <animate
+                            attributeName="transform"
+                            values="rotate(0 -15 50); rotate(-20 -15 50); rotate(0 -15 50); rotate(20 -15 50); rotate(0 -15 50)"
+                            dur="1s"
+                            repeatCount="indefinite"/>
+                    </g>
+
+                    <!-- 右腿 -->
+                    <g id="rightLeg">
+                        <ellipse cx="15" cy="50" rx="12" ry="18" fill="#0080D0"/>
+                        <ellipse cx="15" cy="68" rx="15" ry="10" fill="#white" stroke="#000" stroke-width="1.5"/>
+                        <animate
+                            attributeName="transform"
+                            values="rotate(0 15 50); rotate(20 15 50); rotate(0 15 50); rotate(-20 15 50); rotate(0 15 50)"
+                            dur="1s"
+                            repeatCount="indefinite"/>
+                    </g>
+                </g>
+
+                <!-- 身体 -->
+                <ellipse cx="0" cy="20" rx="45" ry="50" fill="#0080D0"/>
+
+                <!-- 白色肚子 -->
+                <ellipse cx="0" cy="25" rx="35" ry="40" fill="white"/>
+
+                <!-- 口袋 -->
+                <ellipse cx="0" cy="35" rx="20" ry="18" fill="none" stroke="#000" stroke-width="2"/>
+                <path d="M -20 35 Q 0 45 20 35" fill="none" stroke="#000" stroke-width="2"/>
+
+                <!-- 头 -->
+                <circle cx="0" cy="-30" r="50" fill="#0080D0"/>
+
+                <!-- 脸（白色部分） -->
+                <ellipse cx="0" cy="-20" rx="40" ry="35" fill="white"/>
+
+                <!-- 眼睛 -->
+                <ellipse cx="-15" cy="-35" rx="14" ry="18" fill="white" stroke="#000" stroke-width="2"/>
+                <ellipse cx="15" cy="-35" rx="14" ry="18" fill="white" stroke="#000" stroke-width="2"/>
+                <circle cx="-12" cy="-32" r="6" fill="#000">
+                    <animate attributeName="cy" values="-32; -30; -32" dur="3s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="18" cy="-32" r="6" fill="#000">
+                    <animate attributeName="cy" values="-32; -30; -32" dur="3s" repeatCount="indefinite"/>
+                </circle>
+
+                <!-- 鼻子 -->
+                <circle cx="0" cy="-15" r="8" fill="#ff0000"/>
+                <ellipse cx="-2" cy="-17" rx="3" ry="2" fill="#ff6666" opacity="0.6"/>
+
+                <!-- 嘴巴 -->
+                <line x1="0" y1="-15" x2="0" y2="-5" stroke="#000" stroke-width="2"/>
+                <path d="M -20 -5 Q 0 5 20 -5" fill="none" stroke="#000" stroke-width="2"/>
+
+                <!-- 胡须 -->
+                <line x1="-40" y1="-20" x2="-60" y2="-22" stroke="#000" stroke-width="1.5"/>
+                <line x1="-40" y1="-15" x2="-60" y2="-15" stroke="#000" stroke-width="1.5"/>
+                <line x1="-40" y1="-10" x2="-60" y2="-8" stroke="#000" stroke-width="1.5"/>
+                <line x1="40" y1="-20" x2="60" y2="-22" stroke="#000" stroke-width="1.5"/>
+                <line x1="40" y1="-15" x2="60" y2="-15" stroke="#000" stroke-width="1.5"/>
+                <line x1="40" y1="-10" x2="60" y2="-8" stroke="#000" stroke-width="1.5"/>
+
+                <!-- 铃铛项圈 -->
+                <rect x="-25" y="-5" width="50" height="8" rx="4" fill="#ff0000"/>
+                <circle cx="0" cy="5" r="8" fill="#ffD700" stroke="#ff8C00" stroke-width="1.5"/>
+                <line x1="-3" y1="2" x2="3" y2="8" stroke="#ff8C00" stroke-width="1.5"/>
+
+                <!-- 手臂 -->
+                <g id="leftArm">
+                    <ellipse cx="-45" cy="15" rx="12" ry="30" fill="#0080D0">
+                        <animate
+                            attributeName="ry"
+                            values="30; 35; 30"
+                            dur="1s"
+                            repeatCount="indefinite"/>
+                    </ellipse>
+                    <circle cx="-50" cy="42" r="15" fill="white" stroke="#000" stroke-width="1.5"/>
+                </g>
+
+                <g id="rightArm">
+                    <ellipse cx="45" cy="15" rx="12" ry="30" fill="#0080D0">
+                        <animate
+                            attributeName="ry"
+                            values="30; 35; 30"
+                            dur="1s"
+                            repeatCount="indefinite"/>
+                    </ellipse>
+                    <circle cx="50" cy="42" r="15" fill="white" stroke="#000" stroke-width="1.5"/>
+                </g>
+            </g>
+        </g>
+
+        <!-- 云朵 -->
+        <g opacity="0.7">
+            <ellipse cx="100" cy="80" rx="30" ry="20" fill="white">
+                <animate attributeName="cx" values="100; 700; 100" dur="20s" repeatCount="indefinite"/>
+            </ellipse>
+            <ellipse cx="130" cy="80" rx="40" ry="25" fill="white">
+                <animate attributeName="cx" values="130; 730; 130" dur="20s" repeatCount="indefinite"/>
+            </ellipse>
+            <ellipse cx="115" cy="70" rx="25" ry="20" fill="white">
+                <animate attributeName="cx" values="115; 715; 115" dur="20s" repeatCount="indefinite"/>
+            </ellipse>
+        </g>
+
+        <g opacity="0.7">
+            <ellipse cx="600" cy="120" rx="35" ry="22" fill="white">
+                <animate attributeName="cx" values="600; 1200; 600" dur="25s" repeatCount="indefinite"/>
+            </ellipse>
+            <ellipse cx="640" cy="120" rx="45" ry="28" fill="white">
+                <animate attributeName="cx" values="640; 1240; 640" dur="25s" repeatCount="indefinite"/>
+            </ellipse>
+            <ellipse cx="620" cy="108" rx="28" ry="22" fill="white">
+                <animate attributeName="cx" values="620; 1220; 620" dur="25s" repeatCount="indefinite"/>
+            </ellipse>
+        </g>
+    </svg>
+</body>
+</html>

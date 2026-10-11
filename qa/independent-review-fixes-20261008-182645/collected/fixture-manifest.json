@@ -1,0 +1,32 @@
+{
+  "schema": 2,
+  "contextSha256": "d4aa9952106a1bdd86251c2194843b3b020e2d6fc4c833913c834e8ea6a731e6",
+  "appSha256": "8199a461e35a1b667b42ec98e617b6c423880b969f48a67a3b78db0e0957bb96",
+  "testSha256": "4f0e193e7c457290fd6ad9b09e6a3c91be5a7cfb602b0a22b715d1eedf3836a3",
+  "records": [
+    {
+      "name": "qa-evidence/QaEvidenceRunTest.freshSyntheticEvidence/b9e65a18-3232-40ed-97a1-b1d154392c02/transcript.md",
+      "sha256": "37cc3d51ba8f8cfe0cf6fe81bc30b6d68ac92e68c27c27855fbc282272f4dda5",
+      "bytes": 68,
+      "reusedSyntheticInput": false,
+      "method": "QaEvidenceRunTest.freshSyntheticEvidence",
+      "runId": "b9e65a18-3232-40ed-97a1-b1d154392c02",
+      "status": "PASS",
+      "deviceMtime": 1791458083,
+      "startedAt": 1791458083744,
+      "finishedAt": 1791458083746
+    },
+    {
+      "name": "qa-evidence/QaEvidenceRunTest.failureEvidenceIsRetainedInSeparateMethodDirectory/62e9605e-39ba-40d3-94ed-a342e7d9d948/transcript.md",
+      "sha256": "3d33da318bf437c12d7da18751befbac75b0ac98e87042b58653bb9a01a13415",
+      "bytes": 73,
+      "reusedSyntheticInput": false,
+      "method": "QaEvidenceRunTest.failureEvidenceIsRetainedInSeparateMethodDirectory",
+      "runId": "62e9605e-39ba-40d3-94ed-a342e7d9d948",
+      "status": "FAILED",
+      "deviceMtime": 1791458087,
+      "startedAt": 1791458087552,
+      "finishedAt": 1791458087554
+    }
+  ]
+}

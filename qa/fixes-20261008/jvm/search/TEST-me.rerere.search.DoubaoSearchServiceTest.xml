@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.search.DoubaoSearchServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-07T16:42:06.431Z" hostname="DESKTOP-QH4J0RS" time="0.017">
+  <properties/>
+  <testcase name="parseGlobalResponse" classname="me.rerere.search.DoubaoSearchServiceTest" time="0.013"/>
+  <testcase name="parseCustomResponsePrefersSummary" classname="me.rerere.search.DoubaoSearchServiceTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

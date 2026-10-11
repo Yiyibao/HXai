@@ -1,0 +1,100 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatRenderingRealModelTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ChatRenderingRealModelTest:
+INSTRUMENTATION_STATUS: test=configuredModelStreamsRendersEditsRestoresContinuesAndCancels
+INSTRUMENTATION_STATUS_CODE: 1
+s_glBindAttribLocation: bind attrib 0 name position
+s_glBindAttribLocation: bind attrib 1 name color
+s_glBindAttribLocation: bind attrib 2 name localCoord
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels","runId":"348b2f62-5d90-40e7-b37b-472557e8386f","startedAt":1791613998111,"finishedAt":1791614038141,"status":"FAILED","entries":[{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/348b2f62-5d90-40e7-b37b-472557e8386f\/stream-preview.png","sha256":"121cac69cf4a3fb2cbac28184616124aa21eb0735b955c9f26bf81e5aa2d8f30","bytes":289543,"reusedSyntheticInput":false},{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/348b2f62-5d90-40e7-b37b-472557e8386f\/generation-1.json","sha256":"42f6117b7e3aac821158712f7ed17f7ea5b97ed65f2cfb82a89f17af03f5330f","bytes":6883,"reusedSyntheticInput":false},{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/348b2f62-5d90-40e7-b37b-472557e8386f\/definition.json","sha256":"5afae99550988847e95831ee8607f0508a2f6fab08e26d6b6abf5cfcf04f8559","bytes":2537,"reusedSyntheticInput":false},{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/348b2f62-5d90-40e7-b37b-472557e8386f\/inline-light.png","sha256":"f7ed3eb02367acff556b7d7bcfbf8f88cb7a21c2fca93704fde3fdb827fa942c","bytes":284661,"reusedSyntheticInput":false},{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/348b2f62-5d90-40e7-b37b-472557e8386f\/expanded-light-top.png","sha256":"61ec83efb09a67e20bc2ed041d31dc447c4a6b14d1252de66a32b39788cd7aae","bytes":321301,"reusedSyntheticInput":false},{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/348b2f62-5d90-40e7-b37b-472557e8386f\/result.json","sha256":"57d548e04c98759ff7f3914cc31632d1b858380ca9f4cf92ded6afa0d161ac74","bytes":198,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatRenderingRealModelTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Actual Flutter slider missing
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest$configuredModelStreamsRendersEditsRestoresContinuesAndCancels$1.invokeSuspend(ChatRenderingRealModelTest.kt:192)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTaskKt.resume(DispatchedTask.kt:233)
+	at kotlinx.coroutines.DispatchedTaskKt.dispatch(DispatchedTask.kt:152)
+	at kotlinx.coroutines.CancellableContinuationImpl.dispatchResume(CancellableContinuationImpl.kt:470)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core(CancellableContinuationImpl.kt:504)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core$default(CancellableContinuationImpl.kt:493)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeUndispatched(CancellableContinuationImpl.kt:596)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedResumeTask.run(EventLoop.common.kt:490)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels(ChatRenderingRealModelTest.kt:77)
+
+INSTRUMENTATION_STATUS: stream=
+Error in configuredModelStreamsRendersEditsRestoresContinuesAndCancels(me.rerere.rikkahub.service.ChatRenderingRealModelTest):
+java.lang.AssertionError: Actual Flutter slider missing
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest$configuredModelStreamsRendersEditsRestoresContinuesAndCancels$1.invokeSuspend(ChatRenderingRealModelTest.kt:192)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTaskKt.resume(DispatchedTask.kt:233)
+	at kotlinx.coroutines.DispatchedTaskKt.dispatch(DispatchedTask.kt:152)
+	at kotlinx.coroutines.CancellableContinuationImpl.dispatchResume(CancellableContinuationImpl.kt:470)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core(CancellableContinuationImpl.kt:504)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core$default(CancellableContinuationImpl.kt:493)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeUndispatched(CancellableContinuationImpl.kt:596)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedResumeTask.run(EventLoop.common.kt:490)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels(ChatRenderingRealModelTest.kt:77)
+
+INSTRUMENTATION_STATUS: test=configuredModelStreamsRendersEditsRestoresContinuesAndCancels
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 40.162
+There was 1 failure:
+1) configuredModelStreamsRendersEditsRestoresContinuesAndCancels(me.rerere.rikkahub.service.ChatRenderingRealModelTest)
+java.lang.AssertionError: Actual Flutter slider missing
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest$configuredModelStreamsRendersEditsRestoresContinuesAndCancels$1.invokeSuspend(ChatRenderingRealModelTest.kt:192)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTaskKt.resume(DispatchedTask.kt:233)
+	at kotlinx.coroutines.DispatchedTaskKt.dispatch(DispatchedTask.kt:152)
+	at kotlinx.coroutines.CancellableContinuationImpl.dispatchResume(CancellableContinuationImpl.kt:470)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core(CancellableContinuationImpl.kt:504)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core$default(CancellableContinuationImpl.kt:493)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeUndispatched(CancellableContinuationImpl.kt:596)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedResumeTask.run(EventLoop.common.kt:490)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels(ChatRenderingRealModelTest.kt:77)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

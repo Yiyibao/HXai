@@ -23,6 +23,7 @@ import kotlin.uuid.Uuid
 fun createConversationTools(
     conversationRepo: ConversationRepository,
     assistantId: Uuid,
+    profileId: String,
 ): List<Tool> = listOf(
     Tool(
         name = "recent_chats",
@@ -50,6 +51,7 @@ fun createConversationTools(
             val recent = conversationRepo.getRecentConversations(
                 assistantId = assistantId,
                 limit = limit,
+                profileId = profileId,
             )
             val payload = buildJsonArray {
                 recent.forEach { conversation ->
@@ -93,7 +95,7 @@ fun createConversationTools(
                 ?: error("query is required")
             val limit = (it.jsonObject["limit"]?.jsonPrimitive?.intOrNull ?: 15).coerceIn(1, 50)
             val results = conversationRepo
-                .searchMessages(query, MessageSearchSort.RELEVANCE)
+                .searchMessages(query, MessageSearchSort.RELEVANCE, profileId = profileId)
                 .take(limit)
             val payload = buildJsonArray {
                 results.forEach { result ->

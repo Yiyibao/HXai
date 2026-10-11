@@ -19,12 +19,15 @@ import org.koin.dsl.module
 import java.io.File
 
 val repositoryModule = module {
+    single { me.rerere.rikkahub.feature.memory.MemoryFingerprints(get()) }
+    single { me.rerere.rikkahub.feature.memory.LearningMemoryStore(get(), get()) }
+    single { me.rerere.rikkahub.feature.memory.MemoryExtractionRunner(get(), get(), get(), get(), get()) }
     single {
-        ConversationRepository(get(), get(), get(), get(), get(), get())
+        ConversationRepository(get(), get(), get(), get(), get(), get(), get(), get())
     }
 
     single {
-        FolderRepository(get(), get())
+        FolderRepository(get(), get(), get(), get())
     }
 
     single {
@@ -40,7 +43,7 @@ val repositoryModule = module {
     }
 
     single {
-        FavoriteRepository(get())
+        FavoriteRepository(get(), get())
     }
 
     single {

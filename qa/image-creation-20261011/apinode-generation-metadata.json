@@ -1,0 +1,11 @@
+{
+  "provider": "https://apinode.ltd/v1",
+  "model": "gpt-image-2",
+  "n": 1,
+  "quality": "low",
+  "size": "1024x1024",
+  "httpStatus": 200,
+  "success": true,
+  "bytes": 1067544,
+  "artifact": "apinode-low-test.png"
+}

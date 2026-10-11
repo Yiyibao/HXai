@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.service.ChatServiceTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-10-08T11:50:04.873Z" hostname="DESKTOP-QH4J0RS" time="0.017">
+  <properties/>
+  <testcase name="built-in search suppresses enabled external web search" classname="me.rerere.rikkahub.service.ChatServiceTest" time="0.004"/>
+  <testcase name="fork conversation inherits folder and workspace context" classname="me.rerere.rikkahub.service.ChatServiceTest" time="0.005"/>
+  <testcase name="fork title increments existing numeric suffix instead of stacking" classname="me.rerere.rikkahub.service.ChatServiceTest" time="0.001"/>
+  <testcase name="external web search is enabled when assistant preference is enabled" classname="me.rerere.rikkahub.service.ChatServiceTest" time="0.0"/>
+  <testcase name="external web search is disabled when assistant preference is disabled" classname="me.rerere.rikkahub.service.ChatServiceTest" time="0.0"/>
+  <testcase name="built-in search remains exclusive when external web search is disabled" classname="me.rerere.rikkahub.service.ChatServiceTest" time="0.0"/>
+  <testcase name="unrelated built-in tools do not suppress external web search" classname="me.rerere.rikkahub.service.ChatServiceTest" time="0.001"/>
+  <testcase name="background generation params include model custom request configuration" classname="me.rerere.rikkahub.service.ChatServiceTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

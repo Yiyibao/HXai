@@ -1,0 +1,20 @@
+md SOURCE {"name":"QA交付-1c91f121-1a8e-420e-a7df-b04d4a7eac2e.md","sha256":"e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd"}
+md VIEW {"action":"android.intent.action.VIEW","mime":"text\/markdown","sha256":"e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd","size":32,"rendered":"<pre>中文真实交付_md\n公式 x²<\/pre>"}
+md SAVE actual DocumentsUI and application target URI hash PASS
+md SEND {"action":"android.intent.action.SEND","mime":"text\/markdown","sha256":"e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd","size":32,"rendered":"<pre>中文真实交付_md\n公式 x²<\/pre>"}
+docx SOURCE {"name":"QA交付-c5d0a68c-2106-415e-a3fa-0c33593d77f7.docx","sha256":"01d5f2717b667182dcfd8675819c6b36ef6b1fc841a30821c2179bb5849d62d9"}
+docx VIEW {"action":"android.intent.action.VIEW","mime":"application\/vnd.openxmlformats-officedocument.wordprocessingml.document","sha256":"01d5f2717b667182dcfd8675819c6b36ef6b1fc841a30821c2179bb5849d62d9","size":1563,"rendered":"<p>中文真实交付_docx<\/p><p>公式 x²<\/p><table><tr><td><p>名称<\/p><\/td><td><p>值<\/p><\/td><\/tr><tr><td><p>中文<\/p><\/td><td><p>19<\/p><\/td><\/tr><\/table>"}
+docx SAVE actual DocumentsUI and application target URI hash PASS
+docx SEND {"action":"android.intent.action.SEND","mime":"application\/vnd.openxmlformats-officedocument.wordprocessingml.document","sha256":"01d5f2717b667182dcfd8675819c6b36ef6b1fc841a30821c2179bb5849d62d9","size":1563,"rendered":"<p>中文真实交付_docx<\/p><p>公式 x²<\/p><table><tr><td><p>名称<\/p><\/td><td><p>值<\/p><\/td><\/tr><tr><td><p>中文<\/p><\/td><td><p>19<\/p><\/td><\/tr><\/table>"}
+xlsx SOURCE {"name":"QA交付-9c0ab877-b3df-444d-86c8-5f80b072d38a.xlsx","sha256":"0b9703bde45d518db7708b20b3a2d4f28ca50f1d1d6fabdcc72eb5aad9a4a551"}
+xlsx VIEW {"action":"android.intent.action.VIEW","mime":"application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet","sha256":"0b9703bde45d518db7708b20b3a2d4f28ca50f1d1d6fabdcc72eb5aad9a4a551","size":2398,"rendered":"<h2>Sheet1<\/h2><table><tr><td>名称 <small>[inlineStr]<\/small><\/td><td>值 <small>[inlineStr]<\/small><\/td><\/tr><tr><td>中文 <small>[inlineStr]<\/small><\/td><td>19 <small>[inlineStr]<\/small><\/td><\/tr><\/table>"}
+xlsx SAVE actual DocumentsUI and application target URI hash PASS
+xlsx SEND {"action":"android.intent.action.SEND","mime":"application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet","sha256":"0b9703bde45d518db7708b20b3a2d4f28ca50f1d1d6fabdcc72eb5aad9a4a551","size":2398,"rendered":"<h2>Sheet1<\/h2><table><tr><td>名称 <small>[inlineStr]<\/small><\/td><td>值 <small>[inlineStr]<\/small><\/td><\/tr><tr><td>中文 <small>[inlineStr]<\/small><\/td><td>19 <small>[inlineStr]<\/small><\/td><\/tr><\/table>"}
+pptx SOURCE {"name":"QA交付-f3ff126c-bf3b-4045-b62d-628da03d16d9.pptx","sha256":"482fb0a4030fb25a96926b44c9a82fefeca415218bf2e6910cb721a0e0acace0"}
+pptx VIEW {"action":"android.intent.action.VIEW","mime":"application\/vnd.openxmlformats-officedocument.presentationml.presentation","sha256":"482fb0a4030fb25a96926b44c9a82fefeca415218bf2e6910cb721a0e0acace0","size":2533,"rendered":"<h2>Slide 1<\/h2><p>第一页<\/p><p>中文真实交付_pptx<\/p><h2>Slide 2<\/h2><p>第二页<\/p><p>公式 x²<\/p>"}
+pptx SAVE actual DocumentsUI and application target URI hash PASS
+pptx SEND {"action":"android.intent.action.SEND","mime":"application\/vnd.openxmlformats-officedocument.presentationml.presentation","sha256":"482fb0a4030fb25a96926b44c9a82fefeca415218bf2e6910cb721a0e0acace0","size":2533,"rendered":"<h2>Slide 1<\/h2><p>第一页<\/p><p>中文真实交付_pptx<\/p><h2>Slide 2<\/h2><p>第二页<\/p><p>公式 x²<\/p>"}
+pdf SOURCE {"name":"QA交付-3cb1c09a-02cd-4733-bd0a-20fafdff35b0.pdf","sha256":"357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a"}
+pdf VIEW {"action":"android.intent.action.VIEW","mime":"application\/pdf","sha256":"357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a","size":29097,"rendered":"PDF pages=2"}
+pdf SAVE actual DocumentsUI and application target URI hash PASS
+pdf SEND {"action":"android.intent.action.SEND","mime":"application\/pdf","sha256":"357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a","size":29097,"rendered":"PDF pages=2"}

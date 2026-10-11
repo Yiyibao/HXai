@@ -1,0 +1,583 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :build-logic:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:compileKotlin UP-TO-DATE
+> Task :build-logic:compileJava NO-SOURCE
+> Task :build-logic:pluginDescriptors UP-TO-DATE
+> Task :build-logic:processResources UP-TO-DATE
+> Task :build-logic:classes UP-TO-DATE
+> Task :build-logic:jar UP-TO-DATE
+> Task :common:preBuild UP-TO-DATE
+> Task :common:preDebugBuild UP-TO-DATE
+> Task :common:generateDebugResources UP-TO-DATE
+> Task :common:packageDebugResources UP-TO-DATE
+> Task :common:processDebugNavigationResources UP-TO-DATE
+> Task :common:parseDebugLocalResources UP-TO-DATE
+> Task :common:generateDebugRFile UP-TO-DATE
+> Task :common:compileDebugKotlin UP-TO-DATE
+> Task :common:javaPreCompileDebug UP-TO-DATE
+> Task :common:compileDebugJavaWithJavac NO-SOURCE
+> Task :common:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :common:processDebugJavaRes UP-TO-DATE
+> Task :common:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :speech:preBuild UP-TO-DATE
+> Task :speech:preDebugBuild UP-TO-DATE
+> Task :speech:generateDebugResources UP-TO-DATE
+> Task :speech:packageDebugResources UP-TO-DATE
+> Task :speech:processDebugNavigationResources UP-TO-DATE
+> Task :speech:parseDebugLocalResources UP-TO-DATE
+> Task :speech:generateDebugRFile UP-TO-DATE
+> Task :speech:compileDebugKotlin UP-TO-DATE
+> Task :speech:javaPreCompileDebug UP-TO-DATE
+> Task :speech:compileDebugJavaWithJavac NO-SOURCE
+> Task :speech:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :speech:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :speech:preDebugUnitTestBuild UP-TO-DATE
+> Task :speech:processDebugJavaRes UP-TO-DATE
+> Task :common:preDebugUnitTestBuild UP-TO-DATE
+> Task :speech:javaPreCompileDebugUnitTest
+> Task :speech:generateDebugUnitTestStubRFile
+> Task :common:generateDebugUnitTestStubRFile
+> Task :document:preBuild UP-TO-DATE
+> Task :document:preDebugBuild UP-TO-DATE
+> Task :common:javaPreCompileDebugUnitTest
+> Task :document:generateDebugResources UP-TO-DATE
+> Task :document:packageDebugResources UP-TO-DATE
+> Task :document:processDebugNavigationResources UP-TO-DATE
+> Task :document:parseDebugLocalResources UP-TO-DATE
+> Task :document:generateDebugRFile UP-TO-DATE
+> Task :document:compileDebugKotlin UP-TO-DATE
+> Task :document:javaPreCompileDebug UP-TO-DATE
+> Task :document:compileDebugJavaWithJavac UP-TO-DATE
+> Task :document:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :document:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :document:preDebugUnitTestBuild UP-TO-DATE
+> Task :document:javaPreCompileDebugUnitTest
+> Task :document:processDebugJavaRes UP-TO-DATE
+> Task :ai:preBuild UP-TO-DATE
+> Task :ai:preDebugBuild UP-TO-DATE
+> Task :common:writeDebugAarMetadata UP-TO-DATE
+> Task :document:generateDebugUnitTestStubRFile
+> Task :ai:checkDebugAarMetadata
+> Task :ai:generateDebugResources UP-TO-DATE
+> Task :ai:packageDebugResources UP-TO-DATE
+> Task :ai:processDebugNavigationResources UP-TO-DATE
+> Task :ai:parseDebugLocalResources UP-TO-DATE
+> Task :ai:generateDebugRFile UP-TO-DATE
+> Task :document:compileDebugUnitTestKotlin
+> Task :common:compileDebugUnitTestKotlin
+
+> Task :speech:compileDebugUnitTestKotlin
+w: file:///D:/Office/Study/code/MathStudyAgent/client/speech/src/test/java/me/rerere/asr/providers/VolcengineASRProtocolTest.kt:60:34 Unnecessary non-null assertion (!!) on a non-null receiver of type 'String'.
+
+> Task :ai:extractDebugAnnotations
+> Task :speech:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :speech:processDebugUnitTestJavaRes
+> Task :speech:testDebugUnitTest
+> Task :common:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :common:processDebugUnitTestJavaRes
+> Task :common:testDebugUnitTest
+> Task :document:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :document:processDebugUnitTestJavaRes
+> Task :document:testDebugUnitTest
+> Task :ai:extractDeepLinksForAarDebug
+> Task :ai:generateDebugAssets UP-TO-DATE
+> Task :ai:mergeDebugAssets UP-TO-DATE
+> Task :ai:compileDebugKotlin UP-TO-DATE
+> Task :ai:javaPreCompileDebug UP-TO-DATE
+> Task :ai:compileDebugJavaWithJavac NO-SOURCE
+> Task :ai:mergeDebugGeneratedProguardFiles
+> Task :ai:mergeDebugConsumerProguardFiles
+> Task :ai:prepareDebugArtProfile
+> Task :ai:prepareLintJarForPublish
+> Task :ai:processDebugManifest UP-TO-DATE
+> Task :ai:processDebugJavaRes UP-TO-DATE
+> Task :ai:writeDebugAarMetadata UP-TO-DATE
+> Task :common:checkDebugAarMetadata
+> Task :ai:mergeDebugJavaResource
+> Task :common:extractDebugAnnotations
+> Task :ai:syncDebugLibJars
+> Task :ai:bundleDebugLocalLintAar
+> Task :common:extractDeepLinksForAarDebug
+> Task :common:generateDebugAssets UP-TO-DATE
+> Task :common:mergeDebugAssets UP-TO-DATE
+> Task :common:mergeDebugGeneratedProguardFiles
+> Task :common:mergeDebugConsumerProguardFiles
+> Task :common:prepareDebugArtProfile
+> Task :common:prepareLintJarForPublish
+> Task :common:processDebugManifest UP-TO-DATE
+> Task :ai:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :common:mergeDebugJavaResource
+> Task :ai:createFullJarDebug
+> Task :common:syncDebugLibJars
+> Task :common:bundleDebugLocalLintAar
+> Task :ai:preDebugAndroidTestBuild UP-TO-DATE
+> Task :ai:writeDebugLintModelMetadata
+> Task :common:createFullJarDebug
+> Task :common:writeDebugLintModelMetadata
+> Task :ai:extractProguardFiles
+> Task :common:extractProguardFiles
+> Task :common:generateDebugLintModel
+> Task :ai:generateDebugAndroidTestLintModel
+> Task :ai:generateDebugLintModel
+> Task :ai:preDebugUnitTestBuild UP-TO-DATE
+> Task :ai:generateDebugUnitTestLintModel
+> Task :web:buildWebUi UP-TO-DATE
+> Task :web:preBuild UP-TO-DATE
+> Task :web:preDebugBuild UP-TO-DATE
+> Task :web:generateDebugResources UP-TO-DATE
+> Task :web:packageDebugResources UP-TO-DATE
+> Task :web:processDebugNavigationResources UP-TO-DATE
+> Task :web:checkDebugAarMetadata
+> Task :web:parseDebugLocalResources UP-TO-DATE
+> Task :web:generateDebugRFile UP-TO-DATE
+> Task :web:extractDebugAnnotations
+> Task :web:extractDeepLinksForAarDebug
+> Task :web:generateDebugAssets UP-TO-DATE
+> Task :web:mergeDebugAssets UP-TO-DATE
+> Task :web:compileDebugKotlin UP-TO-DATE
+> Task :web:javaPreCompileDebug UP-TO-DATE
+> Task :web:compileDebugJavaWithJavac NO-SOURCE
+> Task :web:mergeDebugGeneratedProguardFiles
+> Task :web:mergeDebugConsumerProguardFiles
+> Task :web:prepareDebugArtProfile
+> Task :web:prepareLintJarForPublish
+> Task :web:processDebugManifest UP-TO-DATE
+> Task :web:processDebugJavaRes UP-TO-DATE
+> Task :web:writeDebugAarMetadata UP-TO-DATE
+> Task :document:checkDebugAarMetadata
+> Task :document:extractDebugAnnotations
+> Task :document:extractDeepLinksForAarDebug
+> Task :document:generateDebugAssets UP-TO-DATE
+> Task :document:mergeDebugAssets UP-TO-DATE
+> Task :document:mergeDebugGeneratedProguardFiles
+> Task :document:mergeDebugConsumerProguardFiles
+> Task :document:prepareDebugArtProfile
+> Task :document:prepareLintJarForPublish
+> Task :document:processDebugManifest UP-TO-DATE
+> Task :document:writeDebugAarMetadata UP-TO-DATE
+> Task :highlight:preBuild UP-TO-DATE
+> Task :highlight:preDebugBuild UP-TO-DATE
+> Task :document:mergeDebugJavaResource
+> Task :ai:lintAnalyzeDebugAndroidTest
+> Task :web:mergeDebugJavaResource
+> Task :highlight:checkDebugAarMetadata
+> Task :web:syncDebugLibJars
+> Task :web:bundleDebugLocalLintAar
+> Task :document:syncDebugLibJars
+> Task :document:bundleDebugLocalLintAar
+> Task :highlight:generateDebugResources UP-TO-DATE
+> Task :highlight:packageDebugResources UP-TO-DATE
+> Task :highlight:processDebugNavigationResources UP-TO-DATE
+> Task :highlight:parseDebugLocalResources UP-TO-DATE
+> Task :highlight:generateDebugRFile UP-TO-DATE
+> Task :highlight:extractDebugAnnotations
+> Task :highlight:extractDeepLinksForAarDebug
+> Task :highlight:generateDebugAssets UP-TO-DATE
+> Task :highlight:mergeDebugAssets UP-TO-DATE
+> Task :highlight:compileDebugKotlin UP-TO-DATE
+> Task :highlight:javaPreCompileDebug UP-TO-DATE
+> Task :highlight:compileDebugJavaWithJavac NO-SOURCE
+> Task :highlight:mergeDebugGeneratedProguardFiles
+> Task :highlight:mergeDebugConsumerProguardFiles
+> Task :highlight:prepareDebugArtProfile
+> Task :highlight:prepareLintJarForPublish
+> Task :highlight:processDebugManifest UP-TO-DATE
+> Task :highlight:processDebugJavaRes UP-TO-DATE
+> Task :highlight:writeDebugAarMetadata UP-TO-DATE
+> Task :search:preBuild UP-TO-DATE
+> Task :search:preDebugBuild UP-TO-DATE
+> Task :highlight:mergeDebugJavaResource
+> Task :search:checkDebugAarMetadata
+> Task :highlight:syncDebugLibJars
+> Task :highlight:bundleDebugLocalLintAar
+> Task :ai:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :search:generateDebugResources UP-TO-DATE
+> Task :search:packageDebugResources UP-TO-DATE
+> Task :search:processDebugNavigationResources UP-TO-DATE
+> Task :search:parseDebugLocalResources UP-TO-DATE
+> Task :search:generateDebugRFile UP-TO-DATE
+> Task :search:extractDebugAnnotations
+> Task :search:extractDeepLinksForAarDebug
+> Task :search:generateDebugAssets UP-TO-DATE
+> Task :search:mergeDebugAssets UP-TO-DATE
+> Task :search:compileDebugKotlin UP-TO-DATE
+> Task :search:javaPreCompileDebug UP-TO-DATE
+> Task :search:compileDebugJavaWithJavac NO-SOURCE
+> Task :search:mergeDebugGeneratedProguardFiles
+> Task :search:mergeDebugConsumerProguardFiles
+> Task :search:prepareDebugArtProfile
+> Task :search:prepareLintJarForPublish
+> Task :search:processDebugManifest UP-TO-DATE
+> Task :search:processDebugJavaRes UP-TO-DATE
+> Task :search:writeDebugAarMetadata UP-TO-DATE
+> Task :search:mergeDebugJavaResource
+> Task :speech:checkDebugAarMetadata
+> Task :search:syncDebugLibJars
+> Task :search:bundleDebugLocalLintAar
+> Task :speech:extractDebugAnnotations
+> Task :speech:extractDeepLinksForAarDebug
+> Task :speech:generateDebugAssets UP-TO-DATE
+> Task :speech:mergeDebugAssets UP-TO-DATE
+> Task :speech:mergeDebugGeneratedProguardFiles
+> Task :speech:mergeDebugConsumerProguardFiles
+> Task :speech:prepareDebugArtProfile
+> Task :speech:prepareLintJarForPublish
+> Task :speech:processDebugManifest UP-TO-DATE
+> Task :speech:writeDebugAarMetadata UP-TO-DATE
+> Task :videogen:preBuild UP-TO-DATE
+> Task :videogen:preDebugBuild UP-TO-DATE
+> Task :speech:mergeDebugJavaResource
+> Task :videogen:checkDebugAarMetadata
+> Task :speech:syncDebugLibJars
+> Task :speech:bundleDebugLocalLintAar
+> Task :videogen:generateDebugResources UP-TO-DATE
+> Task :videogen:packageDebugResources UP-TO-DATE
+> Task :videogen:processDebugNavigationResources UP-TO-DATE
+> Task :videogen:parseDebugLocalResources UP-TO-DATE
+> Task :videogen:generateDebugRFile UP-TO-DATE
+> Task :videogen:extractDebugAnnotations
+> Task :videogen:extractDeepLinksForAarDebug
+> Task :videogen:generateDebugAssets UP-TO-DATE
+> Task :videogen:mergeDebugAssets UP-TO-DATE
+> Task :videogen:compileDebugKotlin UP-TO-DATE
+> Task :videogen:javaPreCompileDebug UP-TO-DATE
+> Task :videogen:compileDebugJavaWithJavac NO-SOURCE
+> Task :videogen:mergeDebugGeneratedProguardFiles
+> Task :videogen:mergeDebugConsumerProguardFiles
+> Task :videogen:prepareDebugArtProfile
+> Task :videogen:prepareLintJarForPublish
+> Task :videogen:processDebugManifest UP-TO-DATE
+> Task :videogen:processDebugJavaRes UP-TO-DATE
+> Task :videogen:writeDebugAarMetadata UP-TO-DATE
+> Task :material3:preBuild UP-TO-DATE
+> Task :material3:preDebugBuild UP-TO-DATE
+> Task :videogen:mergeDebugJavaResource
+> Task :material3:checkDebugAarMetadata
+> Task :videogen:syncDebugLibJars
+> Task :videogen:bundleDebugLocalLintAar
+> Task :material3:generateDebugResources UP-TO-DATE
+> Task :material3:packageDebugResources UP-TO-DATE
+> Task :material3:processDebugNavigationResources UP-TO-DATE
+> Task :material3:parseDebugLocalResources UP-TO-DATE
+> Task :material3:generateDebugRFile UP-TO-DATE
+> Task :material3:extractDebugAnnotations
+> Task :material3:extractDeepLinksForAarDebug
+> Task :material3:generateDebugAssets UP-TO-DATE
+> Task :material3:mergeDebugAssets UP-TO-DATE
+> Task :material3:compileDebugKotlin UP-TO-DATE
+> Task :material3:javaPreCompileDebug UP-TO-DATE
+> Task :material3:compileDebugJavaWithJavac NO-SOURCE
+> Task :material3:mergeDebugGeneratedProguardFiles
+> Task :material3:mergeDebugConsumerProguardFiles
+> Task :material3:prepareDebugArtProfile
+> Task :material3:prepareLintJarForPublish
+> Task :material3:processDebugManifest UP-TO-DATE
+> Task :material3:processDebugJavaRes UP-TO-DATE
+> Task :material3:writeDebugAarMetadata UP-TO-DATE
+> Task :workspace:preBuild UP-TO-DATE
+> Task :workspace:preDebugBuild UP-TO-DATE
+> Task :material3:mergeDebugJavaResource
+> Task :workspace:checkDebugAarMetadata
+> Task :material3:syncDebugLibJars
+> Task :material3:bundleDebugLocalLintAar
+> Task :workspace:generateDebugResources UP-TO-DATE
+> Task :workspace:packageDebugResources UP-TO-DATE
+> Task :workspace:processDebugNavigationResources UP-TO-DATE
+> Task :workspace:parseDebugLocalResources UP-TO-DATE
+> Task :workspace:generateDebugRFile UP-TO-DATE
+> Task :workspace:extractDebugAnnotations
+> Task :workspace:extractDeepLinksForAarDebug
+> Task :workspace:generateDebugAssets UP-TO-DATE
+> Task :workspace:mergeDebugAssets UP-TO-DATE
+> Task :workspace:compileDebugKotlin UP-TO-DATE
+> Task :workspace:javaPreCompileDebug UP-TO-DATE
+> Task :workspace:compileDebugJavaWithJavac NO-SOURCE
+> Task :workspace:mergeDebugGeneratedProguardFiles
+> Task :workspace:mergeDebugConsumerProguardFiles
+> Task :workspace:prepareDebugArtProfile
+> Task :workspace:prepareLintJarForPublish
+> Task :workspace:processDebugManifest UP-TO-DATE
+> Task :workspace:processDebugJavaRes UP-TO-DATE
+> Task :workspace:writeDebugAarMetadata UP-TO-DATE
+> Task :oauth:preBuild UP-TO-DATE
+> Task :oauth:preDebugBuild UP-TO-DATE
+> Task :workspace:mergeDebugJavaResource
+> Task :oauth:checkDebugAarMetadata
+> Task :workspace:syncDebugLibJars
+> Task :workspace:bundleDebugLocalLintAar
+> Task :oauth:generateDebugResources UP-TO-DATE
+> Task :oauth:packageDebugResources UP-TO-DATE
+> Task :oauth:processDebugNavigationResources UP-TO-DATE
+> Task :oauth:parseDebugLocalResources UP-TO-DATE
+> Task :oauth:generateDebugRFile UP-TO-DATE
+> Task :oauth:extractDebugAnnotations
+> Task :oauth:extractDeepLinksForAarDebug
+> Task :oauth:generateDebugAssets UP-TO-DATE
+> Task :oauth:mergeDebugAssets UP-TO-DATE
+> Task :oauth:compileDebugKotlin UP-TO-DATE
+> Task :oauth:javaPreCompileDebug UP-TO-DATE
+> Task :oauth:compileDebugJavaWithJavac NO-SOURCE
+> Task :oauth:mergeDebugGeneratedProguardFiles
+> Task :oauth:mergeDebugConsumerProguardFiles
+> Task :oauth:prepareDebugArtProfile
+> Task :oauth:prepareLintJarForPublish
+> Task :oauth:processDebugManifest UP-TO-DATE
+> Task :oauth:processDebugJavaRes UP-TO-DATE
+> Task :oauth:writeDebugAarMetadata UP-TO-DATE
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:generateDebugBuildConfig UP-TO-DATE
+> Task :ai:extractDebugSupportedLocales UP-TO-DATE
+> Task :app:injectCrashlyticsMappingFileIdDebug UP-TO-DATE
+> Task :app:injectCrashlyticsVersionControlInfoDebug UP-TO-DATE
+> Task :app:processDebugGoogleServices UP-TO-DATE
+> Task :oauth:mergeDebugJavaResource
+> Task :app:extractDebugSupportedLocales UP-TO-DATE
+> Task :oauth:syncDebugLibJars
+> Task :oauth:bundleDebugLocalLintAar
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :common:extractDebugSupportedLocales UP-TO-DATE
+> Task :document:extractDebugSupportedLocales UP-TO-DATE
+> Task :highlight:extractDebugSupportedLocales UP-TO-DATE
+> Task :material3:extractDebugSupportedLocales UP-TO-DATE
+> Task :oauth:extractDebugSupportedLocales UP-TO-DATE
+> Task :search:extractDebugSupportedLocales UP-TO-DATE
+> Task :speech:extractDebugSupportedLocales UP-TO-DATE
+> Task :videogen:extractDebugSupportedLocales UP-TO-DATE
+> Task :web:extractDebugSupportedLocales UP-TO-DATE
+> Task :workspace:extractDebugSupportedLocales UP-TO-DATE
+> Task :app:generateDebugLocaleConfig UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:processDebugNavigationResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:generateDebugRFile UP-TO-DATE
+> Task :highlight:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :material3:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :oauth:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :search:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :videogen:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :web:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :workspace:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :common:lintAnalyzeDebug
+> Task :app:kspDebugKotlin UP-TO-DATE
+> Task :ai:lintAnalyzeDebugUnitTest
+> Task :app:compileDebugKotlin UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:compileDebugJavaWithJavac UP-TO-DATE
+> Task :ai:mapDebugSourceSetPaths UP-TO-DATE
+> Task :ai:compileDebugLibraryResources UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:compileDebugNavigationResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :ai:extractDeepLinksDebug UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :common:extractDeepLinksDebug UP-TO-DATE
+> Task :document:extractDeepLinksDebug UP-TO-DATE
+> Task :highlight:extractDeepLinksDebug UP-TO-DATE
+> Task :material3:extractDeepLinksDebug UP-TO-DATE
+> Task :oauth:extractDeepLinksDebug UP-TO-DATE
+> Task :search:extractDeepLinksDebug UP-TO-DATE
+> Task :speech:extractDeepLinksDebug UP-TO-DATE
+> Task :videogen:extractDeepLinksDebug UP-TO-DATE
+> Task :web:extractDeepLinksDebug UP-TO-DATE
+> Task :workspace:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :common:mapDebugSourceSetPaths UP-TO-DATE
+> Task :common:compileDebugLibraryResources UP-TO-DATE
+> Task :document:mapDebugSourceSetPaths UP-TO-DATE
+> Task :document:compileDebugLibraryResources UP-TO-DATE
+> Task :highlight:mapDebugSourceSetPaths UP-TO-DATE
+> Task :highlight:compileDebugLibraryResources UP-TO-DATE
+> Task :material3:mapDebugSourceSetPaths UP-TO-DATE
+> Task :material3:compileDebugLibraryResources UP-TO-DATE
+> Task :oauth:mapDebugSourceSetPaths UP-TO-DATE
+> Task :oauth:compileDebugLibraryResources UP-TO-DATE
+> Task :search:mapDebugSourceSetPaths UP-TO-DATE
+> Task :search:compileDebugLibraryResources UP-TO-DATE
+> Task :speech:mapDebugSourceSetPaths UP-TO-DATE
+> Task :speech:compileDebugLibraryResources UP-TO-DATE
+> Task :videogen:mapDebugSourceSetPaths UP-TO-DATE
+> Task :videogen:compileDebugLibraryResources UP-TO-DATE
+> Task :web:mapDebugSourceSetPaths UP-TO-DATE
+> Task :web:compileDebugLibraryResources UP-TO-DATE
+> Task :workspace:mapDebugSourceSetPaths UP-TO-DATE
+> Task :workspace:compileDebugLibraryResources UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :app:bundleDebugClassesToCompileJar UP-TO-DATE
+> Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :document:createFullJarDebug
+> Task :document:writeDebugLintModelMetadata
+> Task :highlight:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :highlight:createFullJarDebug
+> Task :highlight:writeDebugLintModelMetadata
+> Task :material3:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :material3:createFullJarDebug
+> Task :material3:writeDebugLintModelMetadata
+> Task :oauth:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :oauth:createFullJarDebug
+> Task :oauth:writeDebugLintModelMetadata
+> Task :search:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :search:createFullJarDebug
+> Task :search:writeDebugLintModelMetadata
+> Task :speech:createFullJarDebug
+> Task :speech:writeDebugLintModelMetadata
+> Task :videogen:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :videogen:createFullJarDebug
+> Task :videogen:writeDebugLintModelMetadata
+> Task :web:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :web:createFullJarDebug
+> Task :web:writeDebugLintModelMetadata
+> Task :workspace:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :workspace:createFullJarDebug
+> Task :workspace:writeDebugLintModelMetadata
+> Task :app:generateDebugAndroidTestLintModel
+> Task :app:extractProguardFiles
+> Task :document:extractProguardFiles
+> Task :document:generateDebugLintModel
+> Task :highlight:extractProguardFiles
+> Task :highlight:generateDebugLintModel
+> Task :material3:extractProguardFiles
+> Task :material3:generateDebugLintModel
+> Task :oauth:extractProguardFiles
+> Task :oauth:generateDebugLintModel
+> Task :search:extractProguardFiles
+> Task :search:generateDebugLintModel
+> Task :speech:extractProguardFiles
+> Task :speech:generateDebugLintModel
+> Task :videogen:extractProguardFiles
+> Task :videogen:generateDebugLintModel
+> Task :web:extractProguardFiles
+> Task :web:generateDebugLintModel
+> Task :workspace:extractProguardFiles
+> Task :workspace:generateDebugLintModel
+> Task :app:generateDebugLintReportModel
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:generateDebugUnitTestLintModel
+> Task :common:preDebugAndroidTestBuild UP-TO-DATE
+> Task :common:generateDebugAndroidTestLintModel
+> Task :common:generateDebugUnitTestLintModel
+> Task :document:preDebugAndroidTestBuild UP-TO-DATE
+> Task :document:generateDebugAndroidTestLintModel
+> Task :document:generateDebugUnitTestLintModel
+> Task :highlight:preDebugAndroidTestBuild UP-TO-DATE
+> Task :highlight:generateDebugAndroidTestLintModel
+> Task :highlight:preDebugUnitTestBuild UP-TO-DATE
+> Task :highlight:generateDebugUnitTestLintModel
+> Task :material3:preDebugAndroidTestBuild UP-TO-DATE
+> Task :material3:generateDebugAndroidTestLintModel
+> Task :material3:preDebugUnitTestBuild UP-TO-DATE
+> Task :material3:generateDebugUnitTestLintModel
+> Task :oauth:preDebugAndroidTestBuild UP-TO-DATE
+> Task :oauth:generateDebugAndroidTestLintModel
+> Task :oauth:preDebugUnitTestBuild UP-TO-DATE
+> Task :ai:lintAnalyzeDebug
+> Task :oauth:generateDebugUnitTestLintModel
+> Task :search:preDebugAndroidTestBuild UP-TO-DATE
+> Task :search:generateDebugAndroidTestLintModel
+> Task :search:preDebugUnitTestBuild UP-TO-DATE
+> Task :search:generateDebugUnitTestLintModel
+> Task :speech:preDebugAndroidTestBuild UP-TO-DATE
+> Task :speech:generateDebugAndroidTestLintModel
+> Task :speech:generateDebugUnitTestLintModel
+> Task :videogen:preDebugAndroidTestBuild UP-TO-DATE
+> Task :videogen:generateDebugAndroidTestLintModel
+> Task :videogen:preDebugUnitTestBuild UP-TO-DATE
+> Task :videogen:generateDebugUnitTestLintModel
+> Task :web:preDebugAndroidTestBuild UP-TO-DATE
+> Task :web:generateDebugAndroidTestLintModel
+> Task :web:preDebugUnitTestBuild UP-TO-DATE
+> Task :web:generateDebugUnitTestLintModel
+> Task :workspace:preDebugAndroidTestBuild UP-TO-DATE
+> Task :workspace:generateDebugAndroidTestLintModel
+> Task :workspace:preDebugUnitTestBuild UP-TO-DATE
+> Task :workspace:generateDebugUnitTestLintModel
+> Task :oauth:lintAnalyzeDebug
+> Task :document:lintAnalyzeDebug
+> Task :web:lintAnalyzeDebug
+> Task :videogen:lintAnalyzeDebug
+> Task :speech:lintAnalyzeDebug
+> Task :workspace:lintAnalyzeDebug
+> Task :material3:lintAnalyzeDebug
+> Task :common:lintAnalyzeDebugAndroidTest
+> Task :common:lintAnalyzeDebugUnitTest
+> Task :highlight:lintAnalyzeDebug
+> Task :document:lintAnalyzeDebugUnitTest
+> Task :document:lintAnalyzeDebugAndroidTest
+> Task :search:lintAnalyzeDebug
+> Task :highlight:lintAnalyzeDebugAndroidTest
+> Task :highlight:lintAnalyzeDebugUnitTest
+> Task :oauth:lintAnalyzeDebugAndroidTest
+> Task :oauth:lintAnalyzeDebugUnitTest
+> Task :material3:lintAnalyzeDebugAndroidTest
+> Task :material3:lintAnalyzeDebugUnitTest
+> Task :search:lintAnalyzeDebugAndroidTest
+> Task :speech:lintAnalyzeDebugAndroidTest
+> Task :search:lintAnalyzeDebugUnitTest
+> Task :videogen:lintAnalyzeDebugAndroidTest
+> Task :speech:lintAnalyzeDebugUnitTest
+> Task :videogen:lintAnalyzeDebugUnitTest
+> Task :app:lintAnalyzeDebugAndroidTest
+> Task :workspace:lintAnalyzeDebugAndroidTest
+> Task :web:lintAnalyzeDebugAndroidTest
+> Task :web:lintAnalyzeDebugUnitTest
+> Task :app:lintAnalyzeDebugUnitTest
+> Task :workspace:lintAnalyzeDebugUnitTest
+> Task :app:lintAnalyzeDebug
+
+> Task :app:lintReportDebug
+Wrote HTML report to file:///D:/Office/Study/code/MathStudyAgent/client/app/build/reports/lint-results-debug.html
+Wrote SARIF report to file:///D:/Office/Study/code/MathStudyAgent/client/app/build/reports/lint-results-debug.sarif
+Lint found 45 errors, 340 warnings and 3 hints. First failure:
+D:\Office\Study\code\MathStudyAgent\client\local.properties:1: Error: Windows file separators (\) and drive letter separators (':') must be escaped (\\) in property files; use D\:/Office/Study/code/MathStudyAgent/.local/android-sdk\r [PropertyEscape]
+This issue has been automatically fixed.
+sdk.dir=D:/Office/Study/code/MathStudyAgent/.local/android-sdk
+         ~
+
+
+> Task :app:lintDebug FAILED
+Lint found 45 errors, 340 warnings, 3 hints. First failure:
+
+D:\Office\Study\code\MathStudyAgent\client\local.properties:1: Error: Windows file separators (\) and drive letter separators (':') must be escaped (\\) in property files; use D\:/Office/Study/code/MathStudyAgent/.local/android-sdk\r [PropertyEscape]
+
+The full lint text report is located at:
+  D:\Office\Study\code\MathStudyAgent\client\app\build\intermediates\lint_intermediate_text_report\debug\lintReportDebug\lint-results-debug.txt
+
+[Incubating] Problems report is available at: file:///D:/Office/Study/code/MathStudyAgent/client/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:lintDebug' (registered by plugin 'com.android.internal.application').
+> Lint found errors in the project; aborting build.
+  
+  Fix the issues identified by lint, or create a baseline to see only new errors.
+  To create a baseline, run `gradlew updateLintBaseline` after adding the following to the module's build.gradle file:
+  ```
+  android {
+      lint {
+          baseline = file("lint-baseline.xml")
+      }
+  }
+  ```
+  For more details, see https://developer.android.com/studio/write/lint#snapshot
+  
+  Lint found 45 errors, 340 warnings, 3 hints. First failure:
+  
+  D:\Office\Study\code\MathStudyAgent\client\local.properties:1: Error: Windows file separators (\) and drive letter separators (':') must be escaped (\\) in property files; use D\:/Office/Study/code/MathStudyAgent/.local/android-sdk\r [PropertyEscape]
+  
+  The full lint text report is located at:
+    D:\Office\Study\code\MathStudyAgent\client\app\build\intermediates\lint_intermediate_text_report\debug\lintReportDebug\lint-results-debug.txt
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 10m 2s
+452 actionable tasks: 233 executed, 219 up-to-date

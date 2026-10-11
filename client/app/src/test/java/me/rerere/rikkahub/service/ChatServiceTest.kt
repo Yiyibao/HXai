@@ -22,6 +22,7 @@ class ChatServiceTest {
         val source = Conversation(
             assistantId = Uuid.random(),
             title = "Source conversation",
+            profileId = "learner-b",
             messageNodes = emptyList(),
             workspaceCwd = "/workspace/project",
             folderId = Uuid.random(),
@@ -31,6 +32,7 @@ class ChatServiceTest {
 
         assertNotEquals(source.id, fork.id)
         assertEquals(source.assistantId, fork.assistantId)
+        assertEquals("learner-b", fork.profileId)
         assertEquals(source.workspaceCwd, fork.workspaceCwd)
         assertEquals(source.folderId, fork.folderId)
         assertEquals("Source conversation(1)", fork.title)
@@ -67,11 +69,11 @@ class ChatServiceTest {
     }
 
     @Test
-    fun `external web search is disabled when assistant preference is disabled`() {
+    fun `legacy disabled flag no longer blocks default web search`() {
         val assistant = Assistant(enableWebSearch = false)
         val model = Model()
 
-        assertFalse(shouldUseExternalWebSearch(assistant, model))
+        assertTrue(shouldUseExternalWebSearch(assistant, model))
     }
 
     @Test
@@ -83,19 +85,19 @@ class ChatServiceTest {
     }
 
     @Test
-    fun `built-in search suppresses enabled external web search`() {
+    fun `built-in search coexists with enhanced web search`() {
         val assistant = Assistant(enableWebSearch = true)
         val model = Model(tools = setOf(BuiltInTools.Search))
 
-        assertFalse(shouldUseExternalWebSearch(assistant, model))
+        assertTrue(shouldUseExternalWebSearch(assistant, model))
     }
 
     @Test
-    fun `built-in search remains exclusive when external web search is disabled`() {
+    fun `legacy disabled flag with built-in search still exposes enhanced web search`() {
         val assistant = Assistant(enableWebSearch = false)
         val model = Model(tools = setOf(BuiltInTools.Search))
 
-        assertFalse(shouldUseExternalWebSearch(assistant, model))
+        assertTrue(shouldUseExternalWebSearch(assistant, model))
     }
 
     @Test

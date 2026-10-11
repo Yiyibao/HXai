@@ -1,0 +1,292 @@
+{
+  "date": "2026-10-06",
+  "environment": "AOSP Android 34 x86_64 emulator-5554; no GMS",
+  "package": "org.mathstudy.agent.debug",
+  "version": "0.1.0-dev (1)",
+  "installed_apk_sha256": "b588f82e4b7a43d3de22166929e29693530eaeb892d74f589da39705dc0ffd2c",
+  "provider": {
+    "base_url": "https://xinyue.mom/v1",
+    "path": "/responses",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "stream": true,
+    "store_requested": false
+  },
+  "checks": {
+    "real_responses_stream": "PASS",
+    "cancel_preserves_received_content": "PASS",
+    "cancelled_followup": "PASS",
+    "switch_during_text_stream": "PASS",
+    "profile_b_input_excludes_profile_a": "PASS",
+    "restart_preserves_already_saved_content": "PASS",
+    "restart_followup": "PASS",
+    "process_killed_midstream_preserves_received_content": "FAIL",
+    "manual_followup_after_process_kill": "PASS",
+    "fast_model_title_after_configuration": "PASS"
+  },
+  "cancelled_reply": {
+    "id": "7e003f71-6219-4cce-9202-eb9d264228c9",
+    "role": "assistant",
+    "characters": 3045,
+    "sha256": "a406d8fd277fc457fdd2ce1df2e6027be867235697cf635255f715d11c89d625",
+    "markers": [
+      "QA_CANCEL_A"
+    ]
+  },
+  "switched_reply": {
+    "id": "cf12dc28-bc58-4c98-ad63-8b29de21bc19",
+    "role": "assistant",
+    "characters": 4332,
+    "sha256": "09139db4ed74a62d719eb0fec227cd3f437ae69a3502ffb3ded6a01e5f1b9498",
+    "markers": [
+      "QA_SWITCH_A"
+    ]
+  },
+  "process_kill": {
+    "status": "PROCESS_STOPPED_DURING_TEXT_STREAM",
+    "text_delta_events_before_kill": 479,
+    "completed_events_before_kill": 0
+  },
+  "process_kill_persisted_messages": [
+    {
+      "id": "dca959bb-0472-4b90-afb4-10e59a1d6899",
+      "role": "user",
+      "characters": 171,
+      "sha256": "9938af66d91d0a1d5b5cb918ae03fba117419e01ff4dc6f6af54bd6eaf8aade3",
+      "markers": [
+        "QA_KILL_A"
+      ]
+    }
+  ],
+  "final_conversation_summaries": [
+    {
+      "id": "466599c7-f66a-41ba-a38f-02ffaf303861",
+      "profile_id": "default-learner",
+      "messages": [
+        {
+          "id": "a2039664-e1fb-4051-baa9-b6c66cc154f4",
+          "role": "user",
+          "characters": 185,
+          "sha256": "e9ba050a30b924a7129af9ce67c8243a3721c0a36a617880275f2aabd104e8d4",
+          "markers": [
+            "QA_CANCEL_A"
+          ]
+        },
+        {
+          "id": "7e003f71-6219-4cce-9202-eb9d264228c9",
+          "role": "assistant",
+          "characters": 3045,
+          "sha256": "a406d8fd277fc457fdd2ce1df2e6027be867235697cf635255f715d11c89d625",
+          "markers": [
+            "QA_CANCEL_A"
+          ]
+        },
+        {
+          "id": "1dde8fe2-a096-4b55-8325-236ed44291a5",
+          "role": "user",
+          "characters": 126,
+          "sha256": "50041ea0bcd0ff17c64938e64d414e0f5ee37700137f038472abc4f68d6045e4",
+          "markers": [
+            "QA_FOLLOWUP_A"
+          ]
+        },
+        {
+          "id": "a0d4317e-8a45-4d54-a8ce-af5de8607e21",
+          "role": "assistant",
+          "characters": 72,
+          "sha256": "a63130c8b0a4b2a502e7d9f2992fa39b772f3890d65973b05cb955973a6f5eeb",
+          "markers": [
+            "QA_FOLLOWUP_A"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2f206de2-b6d0-43ea-9c05-20da7395cc51",
+      "profile_id": "default-learner",
+      "messages": [
+        {
+          "id": "b58438a0-6390-4c3c-a88a-f7d0dbd158c1",
+          "role": "user",
+          "characters": 183,
+          "sha256": "056bd838dca92ac48be2c200503074558c8fd3c54d9773a330cf9400f31de1e0",
+          "markers": [
+            "QA_SWITCH_A"
+          ]
+        },
+        {
+          "id": "cf12dc28-bc58-4c98-ad63-8b29de21bc19",
+          "role": "assistant",
+          "characters": 4332,
+          "sha256": "09139db4ed74a62d719eb0fec227cd3f437ae69a3502ffb3ded6a01e5f1b9498",
+          "markers": [
+            "QA_SWITCH_A"
+          ]
+        },
+        {
+          "id": "ea38ef2c-dfec-4dc9-b223-614603fefcb9",
+          "role": "user",
+          "characters": 148,
+          "sha256": "c7f946f26afe29ad37a40fe7bd4cea6c91949c4dd127cdab766579dfb92bf7e8",
+          "markers": [
+            "QA_RESTART_A"
+          ]
+        },
+        {
+          "id": "ecae70b5-484b-47df-b485-9436fcb8c36e",
+          "role": "assistant",
+          "characters": 96,
+          "sha256": "597fae95e673a09e9978940a433124056ccd358bdda08b9894645bab33f95ceb",
+          "markers": [
+            "QA_RESTART_A"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "417b41bf-1a4b-44b4-8d5e-1efd44139a18",
+      "profile_id": "2c995bcb-a5a9-4ef9-9e16-f10eca7c756f",
+      "messages": [
+        {
+          "id": "74ee0dad-9d6b-4576-9f69-1cee3783d292",
+          "role": "user",
+          "characters": 70,
+          "sha256": "3eeaf2d9553c18587b01001f98a3ec3699693387c4bb522295d08c94daacf585",
+          "markers": [
+            "QA_B_ONLY"
+          ]
+        },
+        {
+          "id": "6e3034fb-4ae2-4516-8d60-6876d994d0b4",
+          "role": "assistant",
+          "characters": 12,
+          "sha256": "42a482f973153404cea42af19b57d624fd66b10acf219f0ef3cc36b04585760c",
+          "markers": [
+            "QA_B_ONLY"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e14bee16-a293-4e34-bf1c-78b3122e6d90",
+      "profile_id": "default-learner",
+      "messages": [
+        {
+          "id": "dca959bb-0472-4b90-afb4-10e59a1d6899",
+          "role": "user",
+          "characters": 171,
+          "sha256": "9938af66d91d0a1d5b5cb918ae03fba117419e01ff4dc6f6af54bd6eaf8aade3",
+          "markers": [
+            "QA_KILL_A"
+          ]
+        },
+        {
+          "id": "562c30ba-fc8d-4638-b5c9-5c64115079cd",
+          "role": "user",
+          "characters": 145,
+          "sha256": "b44319011e79a2544482a3c8415887467af497502e68e515eeabbf9155c304b2",
+          "markers": []
+        },
+        {
+          "id": "cfc72c06-4033-47a4-ad70-e303e7e46df3",
+          "role": "assistant",
+          "characters": 86,
+          "sha256": "ebd0a669da6af80a45e55d5e662afc1a98b4b517d6fb1fd2f195f8c2d998fa72",
+          "markers": []
+        }
+      ]
+    }
+  ],
+  "observed_event_counts": {
+    "response.created": 8,
+    "response.in_progress": 8,
+    "response.output_item.added": 11,
+    "response.content_part.added": 8,
+    "response.output_text.delta": 2843,
+    "response.output_text.done": 5,
+    "response.content_part.done": 5,
+    "response.output_item.done": 8,
+    "response.completed": 5
+  },
+  "parsed_requests": [
+    {
+      "model": "gpt-6.1-sol",
+      "stream": true,
+      "store": false,
+      "reasoning": {
+        "summary": "auto",
+        "effort": "none"
+      },
+      "input_markers": []
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "stream": true,
+      "store": false,
+      "reasoning": {
+        "summary": "auto",
+        "effort": "medium"
+      },
+      "input_markers": [
+        "QA_CANCEL_A"
+      ]
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "stream": true,
+      "store": false,
+      "reasoning": {
+        "summary": "auto",
+        "effort": "medium"
+      },
+      "input_markers": [
+        "QA_SWITCH_A"
+      ]
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "stream": true,
+      "store": false,
+      "reasoning": {
+        "summary": "auto",
+        "effort": "medium"
+      },
+      "input_markers": [
+        "QA_B_ONLY"
+      ]
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "stream": true,
+      "store": false,
+      "reasoning": {
+        "summary": "auto",
+        "effort": "medium"
+      },
+      "input_markers": [
+        "QA_KILL_A"
+      ]
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "stream": true,
+      "store": false,
+      "reasoning": {
+        "summary": "auto",
+        "effort": "medium"
+      },
+      "input_markers": [
+        "QA_KILL_A"
+      ]
+    }
+  ],
+  "crash_buffer_fatal_exceptions": 0,
+  "limits": [
+    "Mate 50/HarmonyOS not tested",
+    "Network failure, tool approval, queue recovery and full S1 not covered",
+    "No claim of resuming the original HTTP stream",
+    "Log lines may be truncated; only fully parsed request metadata retained",
+    "Host SQLite integrity_check unsupported for Android FTS; no integrity PASS claimed",
+    "Live database copies are observational; equality checks made after stopped generation"
+  ]
+}

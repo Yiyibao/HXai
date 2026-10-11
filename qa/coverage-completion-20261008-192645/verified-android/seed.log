@@ -1,0 +1,140 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChecklistSupplementTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ChecklistSupplementTest:
+INSTRUMENTATION_STATUS: test=controlledBoundariesSurviveIndependentProcess
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_pid=19074
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"cddac384-c529-4714-9ca4-7a9459a1b0c8","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_8d2231c3-3c2d-499b-8d40-ec4f378f5f33_title_stream","messageNodes":[{"id":"c97268f9-4e40-4f56-9af8-27ffe9f6453b","messages":[{"id":"cad0991f-6612-4263-b29a-5891a4dcccb0","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T11:57:59.896651","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T11:57:59.905644Z","updateAt":"2026-10-08T11:57:59.905655Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2212caef-a463-48e9-88bd-0e1a882d156f","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-read-title-stream
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=19074
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"cddac384-c529-4714-9ca4-7a9459a1b0c8","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_8d2231c3-3c2d-499b-8d40-ec4f378f5f33_title_stream","messageNodes":[{"id":"c97268f9-4e40-4f56-9af8-27ffe9f6453b","messages":[{"id":"cad0991f-6612-4263-b29a-5891a4dcccb0","role":"assistant","parts":[{"type":"text","text":"new stream body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T11:57:59.896651","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":"COMPLETED","generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T11:57:59.905Z","updateAt":"2026-10-08T11:57:59.905Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2212caef-a463-48e9-88bd-0e1a882d156f","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-released-title-stream
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=19074
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"4344d746-9e48-48ee-bd91-032140fdffbb","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_8d2231c3-3c2d-499b-8d40-ec4f378f5f33_title_edit","messageNodes":[{"id":"ff184d3f-d12f-4744-ade6-2e1a88bb8c00","messages":[{"id":"2d20a904-ce98-4772-82fa-7c3562b1e069","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T11:58:00.060891","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T11:58:00.061088Z","updateAt":"2026-10-08T11:58:00.061120Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2212caef-a463-48e9-88bd-0e1a882d156f","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-read-title-edit
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=19074
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"4344d746-9e48-48ee-bd91-032140fdffbb","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_8d2231c3-3c2d-499b-8d40-ec4f378f5f33_title_edit","messageNodes":[{"id":"ff184d3f-d12f-4744-ade6-2e1a88bb8c00","messages":[{"id":"2d20a904-ce98-4772-82fa-7c3562b1e069","role":"assistant","parts":[{"type":"text","text":"new edit body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T11:58:00.060891","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T11:58:00.061088Z","updateAt":"2026-10-08T11:58:00.061120Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2212caef-a463-48e9-88bd-0e1a882d156f","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-released-title-edit
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=19074
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"1c360200-e1ec-4799-bdc3-a1da0755cd24","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_8d2231c3-3c2d-499b-8d40-ec4f378f5f33_title_branch","messageNodes":[{"id":"fbf21456-9098-4fd0-9445-5510d203ffd9","messages":[{"id":"693fdbaf-a2c5-4a1b-bfb3-38b17c27333d","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T11:58:00.135025","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T11:58:00.135408Z","updateAt":"2026-10-08T11:58:00.135434Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2212caef-a463-48e9-88bd-0e1a882d156f","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-read-title-branch
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=19074
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"1c360200-e1ec-4799-bdc3-a1da0755cd24","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_8d2231c3-3c2d-499b-8d40-ec4f378f5f33_title_branch","messageNodes":[{"id":"fbf21456-9098-4fd0-9445-5510d203ffd9","messages":[{"id":"693fdbaf-a2c5-4a1b-bfb3-38b17c27333d","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T11:58:00.135025","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null},{"id":"56c57de8-82ee-44e5-a6ad-8115b0fe5a8f","role":"assistant","parts":[{"type":"text","text":"new branch body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T11:58:00.135025","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":1}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T11:58:00.135408Z","updateAt":"2026-10-08T11:58:00.135434Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2212caef-a463-48e9-88bd-0e1a882d156f","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-released-title-branch
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=19074
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"0be0a384-de1e-4788-a081-7b2acce8b47d","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_8d2231c3-3c2d-499b-8d40-ec4f378f5f33_suggestions_stream","messageNodes":[{"id":"bd4c1ae1-3d8b-4004-8641-5d3ad09bb530","messages":[{"id":"95378f66-8be6-47cf-ab89-4fc360eb5a2b","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T11:58:00.197385","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T11:58:00.197536Z","updateAt":"2026-10-08T11:58:00.197546Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2212caef-a463-48e9-88bd-0e1a882d156f","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-read-suggestions-stream
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=19074
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"0be0a384-de1e-4788-a081-7b2acce8b47d","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_8d2231c3-3c2d-499b-8d40-ec4f378f5f33_suggestions_stream","messageNodes":[{"id":"bd4c1ae1-3d8b-4004-8641-5d3ad09bb530","messages":[{"id":"95378f66-8be6-47cf-ab89-4fc360eb5a2b","role":"assistant","parts":[{"type":"text","text":"new stream body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T11:58:00.197385","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":"COMPLETED","generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T11:58:00.197Z","updateAt":"2026-10-08T11:58:00.197Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2212caef-a463-48e9-88bd-0e1a882d156f","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-released-suggestions-stream
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=19074
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"7cf652a8-7445-4fa1-b075-8a92af2be25a","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_8d2231c3-3c2d-499b-8d40-ec4f378f5f33_suggestions_edit","messageNodes":[{"id":"9de7c868-b955-4649-8b59-1a72c9e9011a","messages":[{"id":"5183e134-131d-4a23-addd-366835b733fa","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T11:58:00.248747","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T11:58:00.248863Z","updateAt":"2026-10-08T11:58:00.248875Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2212caef-a463-48e9-88bd-0e1a882d156f","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-read-suggestions-edit
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=19074
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"7cf652a8-7445-4fa1-b075-8a92af2be25a","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_8d2231c3-3c2d-499b-8d40-ec4f378f5f33_suggestions_edit","messageNodes":[{"id":"9de7c868-b955-4649-8b59-1a72c9e9011a","messages":[{"id":"5183e134-131d-4a23-addd-366835b733fa","role":"assistant","parts":[{"type":"text","text":"new edit body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T11:58:00.248747","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T11:58:00.248863Z","updateAt":"2026-10-08T11:58:00.248875Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2212caef-a463-48e9-88bd-0e1a882d156f","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-released-suggestions-edit
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=19074
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"e534ac40-4aee-4aa9-aa88-7c159fd7c0d7","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_8d2231c3-3c2d-499b-8d40-ec4f378f5f33_suggestions_branch","messageNodes":[{"id":"d727d2e3-3f53-41c7-8783-1845e1c9419e","messages":[{"id":"a621f24e-9b1c-478b-b5f4-8a0253b13a38","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T11:58:00.305914","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T11:58:00.306088Z","updateAt":"2026-10-08T11:58:00.306098Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2212caef-a463-48e9-88bd-0e1a882d156f","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-read-suggestions-branch
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=19074
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"e534ac40-4aee-4aa9-aa88-7c159fd7c0d7","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_8d2231c3-3c2d-499b-8d40-ec4f378f5f33_suggestions_branch","messageNodes":[{"id":"d727d2e3-3f53-41c7-8783-1845e1c9419e","messages":[{"id":"a621f24e-9b1c-478b-b5f4-8a0253b13a38","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T11:58:00.305914","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null},{"id":"6165da00-e08f-4f02-b7ff-f5d6ab72f7fe","role":"assistant","parts":[{"type":"text","text":"new branch body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T11:58:00.305914","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":1}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T11:58:00.306088Z","updateAt":"2026-10-08T11:58:00.306098Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"2212caef-a463-48e9-88bd-0e1a882d156f","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-released-suggestions-branch
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=19074
+INSTRUMENTATION_STATUS: qa_snapshot=
+INSTRUMENTATION_STATUS: qa_stage=A02-late-rejected-history
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=19074
+INSTRUMENTATION_STATUS: qa_snapshot=
+INSTRUMENTATION_STATUS: qa_stage=A02-late-rejected-chat
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=19074
+INSTRUMENTATION_STATUS: qa_snapshot=
+INSTRUMENTATION_STATUS: qa_stage=A03-failed-still-pending-approve
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChecklistSupplementTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: expected:<Conversation(id=82fef152-cfd9-43b4-befc-63d9d6a3d2e6, assistantId=0950e2dc-9bd5-4801-afa3-aa887aa36b4e, title=QA_8d2231c3-3c2d-499b-8d40-ec4f378f5f33_active_sibling_approve, messageNodes=[MessageNode(id=03492217-5a77-42ee-ae21-67dcb90f5c8d, messages=[UIMessage(id=4aac99e1-a2ba-44dd-a7d1-37e209e4694e, role=USER, parts=[Text(text=synthetic other active task, metadata=null)], annotations=[], createdAt=2026-10-08T11:58:01.281911, finishedAt=null, modelId=null, usage=null, translation=null, generationState=null, generationErrorCode=null, isSynthetic=false)], selectIndex=0, isFavorite=false)], chatSuggestions=[], isPinned=false, createAt=2026-10-08T11:58:01.282271Z, updateAt=2026-10-08T11:58:01.282430Z, customSystemPrompt=null, modeInjectionIds=[], lorebookIds=[], workspaceCwd=null, folderId=null, profileId=2212caef-a463-48e9-88bd-0e1a882d156f, queue=ConversationQueue(messages=[], paused=false), studyMode=GUIDED, newConversation=false)> but was:<Conversation(id=82fef152-cfd9-43b4-befc-63d9d6a3d2e6, assistantId=0950e2dc-9bd5-4801-afa3-aa887aa36b4e, title=QA_8d2231c3-3c2d-499b-8d40-ec4f378f5f33_active_sibling_approve, messageNodes=[MessageNode(id=03492217-5a77-42ee-ae21-67dcb90f5c8d, messages=[UIMessage(id=4aac99e1-a2ba-44dd-a7d1-37e209e4694e, role=USER, parts=[Text(text=synthetic other active task, metadata=null)], annotations=[], createdAt=2026-10-08T11:58:01.281911, finishedAt=null, modelId=null, usage=null, translation=null, generationState=null, generationErrorCode=null, isSynthetic=false)], selectIndex=0, isFavorite=false)], chatSuggestions=[], isPinned=false, createAt=2026-10-08T11:58:01.282Z, updateAt=2026-10-08T11:58:01.282Z, customSystemPrompt=null, modeInjectionIds=[], lorebookIds=[], workspaceCwd=null, folderId=null, profileId=2212caef-a463-48e9-88bd-0e1a882d156f, queue=ConversationQueue(messages=[], paused=false), studyMode=GUIDED, newConversation=false)>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at me.rerere.rikkahub.service.ChecklistSupplementTest$controlledBoundariesSurviveIndependentProcess$1.invokeSuspend(ChecklistSupplementTest.kt:194)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ChecklistSupplementTest.controlledBoundariesSurviveIndependentProcess(ChecklistSupplementTest.kt:56)
+
+INSTRUMENTATION_STATUS: stream=
+Error in controlledBoundariesSurviveIndependentProcess(me.rerere.rikkahub.service.ChecklistSupplementTest):
+java.lang.AssertionError: expected:<Conversation(id=82fef152-cfd9-43b4-befc-63d9d6a3d2e6, assistantId=0950e2dc-9bd5-4801-afa3-aa887aa36b4e, title=QA_8d2231c3-3c2d-499b-8d40-ec4f378f5f33_active_sibling_approve, messageNodes=[MessageNode(id=03492217-5a77-42ee-ae21-67dcb90f5c8d, messages=[UIMessage(id=4aac99e1-a2ba-44dd-a7d1-37e209e4694e, role=USER, parts=[Text(text=synthetic other active task, metadata=null)], annotations=[], createdAt=2026-10-08T11:58:01.281911, finishedAt=null, modelId=null, usage=null, translation=null, generationState=null, generationErrorCode=null, isSynthetic=false)], selectIndex=0, isFavorite=false)], chatSuggestions=[], isPinned=false, createAt=2026-10-08T11:58:01.282271Z, updateAt=2026-10-08T11:58:01.282430Z, customSystemPrompt=null, modeInjectionIds=[], lorebookIds=[], workspaceCwd=null, folderId=null, profileId=2212caef-a463-48e9-88bd-0e1a882d156f, queue=ConversationQueue(messages=[], paused=false), studyMode=GUIDED, newConversation=false)> but was:<Conversation(id=82fef152-cfd9-43b4-befc-63d9d6a3d2e6, assistantId=0950e2dc-9bd5-4801-afa3-aa887aa36b4e, title=QA_8d2231c3-3c2d-499b-8d40-ec4f378f5f33_active_sibling_approve, messageNodes=[MessageNode(id=03492217-5a77-42ee-ae21-67dcb90f5c8d, messages=[UIMessage(id=4aac99e1-a2ba-44dd-a7d1-37e209e4694e, role=USER, parts=[Text(text=synthetic other active task, metadata=null)], annotations=[], createdAt=2026-10-08T11:58:01.281911, finishedAt=null, modelId=null, usage=null, translation=null, generationState=null, generationErrorCode=null, isSynthetic=false)], selectIndex=0, isFavorite=false)], chatSuggestions=[], isPinned=false, createAt=2026-10-08T11:58:01.282Z, updateAt=2026-10-08T11:58:01.282Z, customSystemPrompt=null, modeInjectionIds=[], lorebookIds=[], workspaceCwd=null, folderId=null, profileId=2212caef-a463-48e9-88bd-0e1a882d156f, queue=ConversationQueue(messages=[], paused=false), studyMode=GUIDED, newConversation=false)>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at me.rerere.rikkahub.service.ChecklistSupplementTest$controlledBoundariesSurviveIndependentProcess$1.invokeSuspend(ChecklistSupplementTest.kt:194)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ChecklistSupplementTest.controlledBoundariesSurviveIndependentProcess(ChecklistSupplementTest.kt:56)
+
+INSTRUMENTATION_STATUS: test=controlledBoundariesSurviveIndependentProcess
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 2.981
+There was 1 failure:
+1) controlledBoundariesSurviveIndependentProcess(me.rerere.rikkahub.service.ChecklistSupplementTest)
+java.lang.AssertionError: expected:<Conversation(id=82fef152-cfd9-43b4-befc-63d9d6a3d2e6, assistantId=0950e2dc-9bd5-4801-afa3-aa887aa36b4e, title=QA_8d2231c3-3c2d-499b-8d40-ec4f378f5f33_active_sibling_approve, messageNodes=[MessageNode(id=03492217-5a77-42ee-ae21-67dcb90f5c8d, messages=[UIMessage(id=4aac99e1-a2ba-44dd-a7d1-37e209e4694e, role=USER, parts=[Text(text=synthetic other active task, metadata=null)], annotations=[], createdAt=2026-10-08T11:58:01.281911, finishedAt=null, modelId=null, usage=null, translation=null, generationState=null, generationErrorCode=null, isSynthetic=false)], selectIndex=0, isFavorite=false)], chatSuggestions=[], isPinned=false, createAt=2026-10-08T11:58:01.282271Z, updateAt=2026-10-08T11:58:01.282430Z, customSystemPrompt=null, modeInjectionIds=[], lorebookIds=[], workspaceCwd=null, folderId=null, profileId=2212caef-a463-48e9-88bd-0e1a882d156f, queue=ConversationQueue(messages=[], paused=false), studyMode=GUIDED, newConversation=false)> but was:<Conversation(id=82fef152-cfd9-43b4-befc-63d9d6a3d2e6, assistantId=0950e2dc-9bd5-4801-afa3-aa887aa36b4e, title=QA_8d2231c3-3c2d-499b-8d40-ec4f378f5f33_active_sibling_approve, messageNodes=[MessageNode(id=03492217-5a77-42ee-ae21-67dcb90f5c8d, messages=[UIMessage(id=4aac99e1-a2ba-44dd-a7d1-37e209e4694e, role=USER, parts=[Text(text=synthetic other active task, metadata=null)], annotations=[], createdAt=2026-10-08T11:58:01.281911, finishedAt=null, modelId=null, usage=null, translation=null, generationState=null, generationErrorCode=null, isSynthetic=false)], selectIndex=0, isFavorite=false)], chatSuggestions=[], isPinned=false, createAt=2026-10-08T11:58:01.282Z, updateAt=2026-10-08T11:58:01.282Z, customSystemPrompt=null, modeInjectionIds=[], lorebookIds=[], workspaceCwd=null, folderId=null, profileId=2212caef-a463-48e9-88bd-0e1a882d156f, queue=ConversationQueue(messages=[], paused=false), studyMode=GUIDED, newConversation=false)>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at me.rerere.rikkahub.service.ChecklistSupplementTest$controlledBoundariesSurviveIndependentProcess$1.invokeSuspend(ChecklistSupplementTest.kt:194)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ChecklistSupplementTest.controlledBoundariesSurviveIndependentProcess(ChecklistSupplementTest.kt:56)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

@@ -5,6 +5,9 @@ import android.content.ContextWrapper
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.flow.first
+import me.rerere.rikkahub.service.restoreAppDictionary
+import me.rerere.rikkahub.service.withIsolatedRestoreSettings
 import me.rerere.rikkahub.data.datastore.SettingsStore
 import me.rerere.rikkahub.data.db.AppDatabase
 import me.rerere.rikkahub.data.db.AppDatabaseFactory
@@ -19,9 +22,7 @@ import org.junit.runner.RunWith
 import org.koin.core.context.GlobalContext
 import java.io.File
 import java.nio.file.Files
-import java.util.zip.ZipEntry
 import java.util.zip.ZipFile
-import java.util.zip.ZipOutputStream
 
 @RunWith(AndroidJUnit4::class)
 class BackupManagerTest {
@@ -49,65 +50,62 @@ class BackupManagerTest {
 
     @After fun tearDown() {
         liveDatabase.close()
+        restoreAppDictionary()
         directory.deleteRecursively()
     }
 
-    @Test fun oldArchiveIgnoresShmAndLeavesLiveDatabaseUntouchedUntilStartup() = runBlocking {
-        val source = File(directory, "source")
-        val archive = File(directory, "legacy.zip")
-        withRoom(source) { room ->
-            val db = room.openHelper.writableDatabase
-            db.execSQL("CREATE TABLE backup_probe (text TEXT)")
-            DatabaseBackup.checkpoint(db)
-            db.query("PRAGMA wal_autocheckpoint=0").use { assertTrue(it.moveToFirst()) }
-            db.execSQL("INSERT INTO backup_probe VALUES ('archived')")
-            ZipOutputStream(archive.outputStream()).use { zip ->
-                addFile(zip, DatabaseBackup.ARCHIVE_DATABASE, source)
-                addFile(zip, DatabaseBackup.WAL, File(source.path + "-wal"))
-                zip.putNextEntry(ZipEntry(DatabaseBackup.SHM))
-                zip.write("deliberately invalid SHM".toByteArray())
-                zip.closeEntry()
-            }
-        }
-        manager.stageRestore(archive, includeDatabase = true, includeFiles = false)
-        assertEquals("live", probe(liveDatabase))
-        val staged = File(context.noBackupFilesDir, "backup-restore/pending/payload/database/rikka_hub")
-        assertTrue(staged.isFile)
-        assertFalse(File(staged.path + "-wal").exists())
-        assertFalse(File(staged.path + "-shm").exists())
+    @Test fun encryptedRestoreLeavesLiveDatabaseUntouchedUntilConfirmedStartup() = runBlocking {
+        val expected = GlobalContext.get().get<SettingsStore>().settingsFlowRaw.first { !it.init }
+        val archive = manager.createEncryptedBackup("encrypted backup fixture!".toCharArray())
+        liveDatabase.openHelper.writableDatabase.execSQL("UPDATE backup_probe SET text = 'changed after snapshot'")
+        val preview = manager.prepareEncryptedRestore(archive, "encrypted backup fixture!".toCharArray())
+        assertEquals("changed after snapshot", probe(liveDatabase))
+        assertFalse(File(context.noBackupFilesDir, "backup-restore/pending").exists())
+        manager.confirmRestore(preview)
+        assertEquals("changed after snapshot", probe(liveDatabase))
         liveDatabase.close()
-        BackupManager.applyPendingRestore(context, JsonInstant)
+        withIsolatedRestoreSettings(File(directory, "restored.preferences_pb")) { store ->
+            assertTrue(BackupManager.applyPendingRestore(context, JsonInstant))
+            val preferences = store.data.first()
+            assertEquals(expected.activeProfileId, preferences[SettingsStore.ACTIVE_PROFILE])
+            assertEquals(expected.learnerProfiles,
+                JsonInstant.decodeFromString<List<me.rerere.rikkahub.feature.studychat.LearnerProfile>>(
+                    preferences[SettingsStore.LEARNER_PROFILES]!!))
+        }
         liveDatabase = AppDatabaseFactory.create(context)
-        assertEquals("archived", probe(liveDatabase))
-        ZipFile(archive).use { assertTrue(it.getEntry(DatabaseBackup.SHM) != null) }
+        assertEquals("live", probe(liveDatabase))
+        assertFalse(BackupManager.applyPendingRestore(context, JsonInstant))
     }
 
-    @Test fun newArchiveContainsStandaloneDatabaseAndNoWalOrShm() = runBlocking {
-        val archive = manager.createBackup(includeDatabase = true, includeFiles = false)
-        ZipFile(archive).use { zip ->
+    @Test fun encryptedSnapshotContainsCommittedDatabaseWithoutWalOrShm() = runBlocking {
+        val archive = manager.createEncryptedBackup("encrypted backup fixture!".toCharArray())
+        val plain = File(directory, "authenticated.zip")
+        EncryptedBackup.decrypt(archive, plain, "encrypted backup fixture!".toCharArray())
+        BackupIntegrity.verify(plain)
+        ZipFile(plain).use { zip ->
             assertTrue(zip.getEntry("settings.json") != null)
             assertTrue(zip.getEntry(DatabaseBackup.ARCHIVE_DATABASE) != null)
             assertEquals(null, zip.getEntry(DatabaseBackup.WAL))
             assertEquals(null, zip.getEntry(DatabaseBackup.SHM))
         }
-        manager.stageRestore(archive, includeDatabase = true, includeFiles = false)
+        val preview = manager.prepareEncryptedRestore(archive, "encrypted backup fixture!".toCharArray())
         assertEquals("live", probe(liveDatabase))
+        manager.discardRestore(preview)
+        assertFalse(preview.staging.exists())
     }
 
-    @Test fun unsupportedSchemaIsRejectedBeforePublishing() = runBlocking {
-        val future = File(directory, "future")
-        withRoom(future) {
-            it.openHelper.writableDatabase.version = 9999
-        }
-        val archive = File(directory, "future.zip")
-        ZipOutputStream(archive.outputStream()).use { addFile(it, DatabaseBackup.ARCHIVE_DATABASE, future) }
-        var failed = false
-        try {
-            manager.stageRestore(archive, includeDatabase = true, includeFiles = false)
-        } catch (_: Exception) {
-            failed = true
-        }
-        assertTrue(failed)
+    @Test fun authenticatedFutureSchemaIsRejectedBeforePublishing() = runBlocking {
+        val database = liveDatabase.openHelper.writableDatabase
+        val version = database.version
+        val archive = try {
+            database.version = 9999
+            manager.createEncryptedBackup("encrypted backup fixture!".toCharArray())
+        } finally { database.version = version }
+        val failure = runCatching {
+            manager.prepareEncryptedRestore(archive, "encrypted backup fixture!".toCharArray())
+        }.exceptionOrNull()
+        assertTrue("Future schema must fail migration, not an obsolete entry point",
+            failure?.message?.contains("9999") == true)
         assertFalse(File(context.noBackupFilesDir, "backup-restore/pending").exists())
         assertEquals("live", probe(liveDatabase))
     }
@@ -115,18 +113,4 @@ class BackupManagerTest {
     private fun probe(database: AppDatabase): String = database.openHelper.readableDatabase
         .query("SELECT text FROM backup_probe").use { check(it.moveToFirst()); it.getString(0) }
 
-    private fun addFile(zip: ZipOutputStream, name: String, file: File) {
-        zip.putNextEntry(ZipEntry(name))
-        file.inputStream().use { it.copyTo(zip) }
-        zip.closeEntry()
-    }
-
-    private fun <T> withRoom(file: File, block: (AppDatabase) -> T): T {
-        val room = AppDatabaseFactory.create(context, file.path)
-        return try {
-            block(room)
-        } finally {
-            room.close()
-        }
-    }
 }

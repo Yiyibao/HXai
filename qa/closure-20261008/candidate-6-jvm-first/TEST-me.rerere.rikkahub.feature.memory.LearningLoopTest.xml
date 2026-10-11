@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.memory.LearningLoopTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-08T13:10:06.212Z" hostname="DESKTOP-QH4J0RS" time="0.005">
+  <properties/>
+  <testcase name="mixedInvalidSourcesAndDisputesAreNotProgress" classname="me.rerere.rikkahub.feature.memory.LearningLoopTest" time="0.003"/>
+  <testcase name="identicalTextCannotMergeDifferentEvidenceLevels" classname="me.rerere.rikkahub.feature.memory.LearningLoopTest" time="0.001"/>
+  <testcase name="wrongHintReattemptReadingAndReviewRemainTraceable" classname="me.rerere.rikkahub.feature.memory.LearningLoopTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

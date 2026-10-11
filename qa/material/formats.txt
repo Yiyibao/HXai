@@ -1,0 +1,1 @@
+md/docx/xlsx/pptx/pdf: generated, re-read, SHA256, FileProvider stream and owner rejection PASS. External viewer UI still requires separate evidence.

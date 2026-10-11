@@ -1,0 +1,118 @@
+[
+  {
+    "format": "docx",
+    "manifest": {
+      "contractVersion": 1,
+      "operation": "office_pdf",
+      "sourceSha256": "74ceabcb5a4dd2c5a7d063982a5d2b7ee6e6240235dab001b3ab8bbd03f412a9",
+      "sourceExtension": "docx",
+      "renderer": "LibreOffice",
+      "rendererVersion": "25.2.3.2",
+      "renderOptions": {
+        "scope": "print_layout",
+        "includeHiddenSlides": false,
+        "includeNotes": false
+      },
+      "pageCount": 2,
+      "warnings": [
+        "LibreOffice compatibility rendering; verify complex Office layout.",
+        "Font substitution: Calibri, Cambria, Courier, Symbol"
+      ],
+      "assets": [
+        {
+          "assetId": "pdf",
+          "path": "output.pdf",
+          "mediaType": "application/pdf",
+          "size": 29832,
+          "sha256": "eac65a0b78a341cfc3346cf82203dffb443a0342f6a73a17aef89423b625159f"
+        }
+      ]
+    },
+    "text": [
+      "Synthetic repeated header\nSynthetic repeated footer\n中文排版与分页验收\n第一页中文、表格与原始分页。\n项目 数值\n中文 42",
+      "Synthetic repeated header\nSynthetic repeated footer\n第二页中文\nExplicit second page."
+    ],
+    "originalUnchanged": true
+  },
+  {
+    "format": "xlsx",
+    "manifest": {
+      "contractVersion": 1,
+      "operation": "office_pdf",
+      "sourceSha256": "c864d77dca8dc9d18663eac7389d1445feea7de0faeac80c8ecb22032708397d",
+      "sourceExtension": "xlsx",
+      "renderer": "LibreOffice",
+      "rendererVersion": "25.2.3.2",
+      "renderOptions": {
+        "scope": "print_layout",
+        "includeHiddenSlides": false,
+        "includeNotes": false
+      },
+      "pageCount": 1,
+      "warnings": [
+        "LibreOffice compatibility rendering; verify complex Office layout.",
+        "Font substitution: Calibri, Cambria"
+      ],
+      "assets": [
+        {
+          "assetId": "pdf",
+          "path": "output.pdf",
+          "mediaType": "application/pdf",
+          "size": 13795,
+          "sha256": "594219c2eda2ae03e8eb681839ac5b190bf9e24cd3c0879019de5040b5c4acdf"
+        }
+      ]
+    },
+    "text": [
+      "中文项目 Recalculated\n合计 12"
+    ],
+    "originalUnchanged": true
+  },
+  {
+    "format": "pptx",
+    "manifest": {
+      "contractVersion": 1,
+      "operation": "office_pdf",
+      "sourceSha256": "411c16df71e7a4dfe5fbaec20e87393c2548e6e93a7044233575e2bdaefb6879",
+      "sourceExtension": "pptx",
+      "renderer": "LibreOffice",
+      "rendererVersion": "25.2.3.2",
+      "renderOptions": {
+        "scope": "print_layout",
+        "includeHiddenSlides": false,
+        "includeNotes": false
+      },
+      "pageCount": 2,
+      "warnings": [
+        "LibreOffice compatibility rendering; verify complex Office layout.",
+        "Font substitution: Calibri"
+      ],
+      "assets": [
+        {
+          "assetId": "pdf",
+          "path": "output.pdf",
+          "mediaType": "application/pdf",
+          "size": 12533,
+          "sha256": "340383cc908fb937fc9b262b2c0a5e9db4151bc8246deda16b4a1e98673f0ba6"
+        }
+      ]
+    },
+    "text": [
+      "VISIBLE_LAST",
+      "VISIBLE_FIRST"
+    ],
+    "originalUnchanged": true
+  },
+  {
+    "formulaErrorExplicitlyFailed": true
+  },
+  {
+    "cancelBeforeUploadRemainsCancelled": true
+  },
+  {
+    "existingMinerUParseStillWorks": true,
+    "processedPages": [
+      1
+    ]
+  }
+]

@@ -1,0 +1,25 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ClosureBoundaryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ClosureBoundaryTest:
+INSTRUMENTATION_STATUS: test=approvalEveryTransactionStepRollsBackBeforePublication
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"ClosureBoundaryTest.approvalEveryTransactionStepRollsBackBeforePublication","runId":"8b0751a9-9ef8-4f9f-9ac2-b68249b82078","startedAt":1791468013849,"finishedAt":1791468018205,"status":"PASS","entries":[{"name":"qa-evidence\/ClosureBoundaryTest.approvalEveryTransactionStepRollsBackBeforePublication\/8b0751a9-9ef8-4f9f-9ac2-b68249b82078\/exceptions.txt","sha256":"ae70b78b79a4de4d0170648eed3b2106476744bda2e95c53cae09a607b071703","bytes":95143,"reusedSyntheticInput":false},{"name":"qa-evidence\/ClosureBoundaryTest.approvalEveryTransactionStepRollsBackBeforePublication\/8b0751a9-9ef8-4f9f-9ac2-b68249b82078\/assertions.txt","sha256":"4e81a3c1d26fe1a4ed3762bd4f8914fa8c876c172f65d6bc54f7513dee6790b0","bytes":781,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ClosureBoundaryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=approvalEveryTransactionStepRollsBackBeforePublication
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 4.596
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

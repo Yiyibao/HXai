@@ -21,6 +21,7 @@ import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -44,6 +45,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.HorizontalFloatingToolbar
 import androidx.compose.material3.Icon
@@ -77,9 +79,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.util.fastCoerceAtLeast
 import androidx.compose.ui.zIndex
 import dev.chrisbanes.haze.HazeState
@@ -123,6 +128,7 @@ fun ChatList(
     onDismissError: (Uuid) -> Unit = {},
     onClearAllErrors: () -> Unit = {},
     onRegenerate: (UIMessage) -> Unit = {},
+    onResumeGeneration: (Boolean) -> Unit = {},
     onEdit: (UIMessage) -> Unit = {},
     onForkMessage: (UIMessage) -> Unit = {},
     onDelete: (UIMessage) -> Unit = {},
@@ -165,6 +171,7 @@ fun ChatList(
                 onDismissError = onDismissError,
                 onClearAllErrors = onClearAllErrors,
                 onRegenerate = onRegenerate,
+                onResumeGeneration = onResumeGeneration,
                 onEdit = onEdit,
                 onForkMessage = onForkMessage,
                 onDelete = onDelete,
@@ -195,6 +202,7 @@ private fun ChatListNormal(
     onDismissError: (Uuid) -> Unit,
     onClearAllErrors: () -> Unit,
     onRegenerate: (UIMessage) -> Unit,
+    onResumeGeneration: (Boolean) -> Unit,
     onEdit: (UIMessage) -> Unit,
     onForkMessage: (UIMessage) -> Unit,
     onDelete: (UIMessage) -> Unit,
@@ -213,7 +221,7 @@ private fun ChatListNormal(
     var isRecentScroll by remember { mutableStateOf(false) }
     val conversationUpdated by rememberUpdatedState(conversation)
     val density = LocalDensity.current
-    val activity = LocalContext.current as? me.rerere.rikkahub.RouteActivity
+    val activity = androidx.activity.compose.LocalActivity.current as? me.rerere.rikkahub.RouteActivity
 
     DisposableEffect(Unit) {
         val listener: (Boolean) -> Boolean = { isVolumeUp ->
@@ -312,6 +320,75 @@ private fun ChatListNormal(
                     .hazeSource(state = hazeState)
                     .padding(top = innerPadding.calculateTopPadding()),
             ) {
+            if (conversation.messageNodes.isEmpty()) {
+                item(key = "StudyEmptyState") {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 32.dp, horizontal = 16.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.spacedBy(16.dp)
+                    ) {
+                        me.rerere.rikkahub.feature.studychat.StudyCompanion(
+                            modifier = Modifier.size(64.dp),
+                            state = me.rerere.rikkahub.feature.studychat.CompanionVisualState.IDLE
+                        )
+                        Text(
+                            text = "高中数学答疑 · 页芽在身边",
+                            style = MaterialTheme.typography.titleMedium.copy(
+                                fontWeight = FontWeight.Bold,
+                                color = Color(0xFF29272B),
+                                fontSize = 17.sp
+                            )
+                        )
+                        Text(
+                            text = "拍题提问、导入资料或直接输入题目，支持公式解析与分步引导推导。",
+                            style = MaterialTheme.typography.bodySmall.copy(
+                                color = Color(0xFF777178),
+                                fontSize = 13.sp
+                            ),
+                            textAlign = TextAlign.Center
+                        )
+                        // Shortcut suggestions
+                        Row(
+                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                            modifier = Modifier.padding(top = 8.dp)
+                        ) {
+                            Surface(
+                                shape = RoundedCornerShape(20.dp),
+                                color = Color(0xFFFFF1F5),
+                                border = BorderStroke(1.dp, Color(0xFFF8D5DE)),
+                                modifier = Modifier.clickable {
+                                    onClickSuggestion("求函数 f(x) = x^3 - 3x 的单调区间与极值")
+                                }
+                            ) {
+                                Text(
+                                    text = "单调区间与极值",
+                                    color = Color(0xFF925568),
+                                    fontSize = 12.sp,
+                                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
+                                )
+                            }
+                            Surface(
+                                shape = RoundedCornerShape(20.dp),
+                                color = Color(0xFFFFF1F5),
+                                border = BorderStroke(1.dp, Color(0xFFF8D5DE)),
+                                modifier = Modifier.clickable {
+                                    onClickSuggestion("已知椭圆 x^2/4 + y^2/3 = 1，求焦点坐标及离心率")
+                                }
+                            ) {
+                                Text(
+                                    text = "圆锥曲线焦点",
+                                    color = Color(0xFF925568),
+                                    fontSize = 12.sp,
+                                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+
             itemsIndexed(
                 items = conversation.messageNodes,
                 key = { index, item -> item.id },
@@ -347,7 +424,7 @@ private fun ChatListNormal(
                                 onDelete(node.currentMessage)
                             },
                             onShare = {
-                                selecting = true  // 使用 CoroutineScope 延迟状态更新
+                                selecting = true
                                 selectedItems.clear()
                                 selectedItems.addAll(conversation.messageNodes.map { it.id }
                                     .subList(0, conversation.messageNodes.indexOf(node) + 1))
@@ -378,15 +455,43 @@ private fun ChatListNormal(
                 }
             }
 
+            val recoveryMessage = conversation.currentMessages.lastOrNull()
+            if (!loading && recoveryMessage?.generationState in setOf("INTERRUPTED", "CANCELLED", "FAILED", "RUNNING", "WAITING_TOOL")) {
+                item(key = "GenerationRecovery") {
+                    val normalizedState = me.rerere.rikkahub.feature.studychat.normalizeStudyRecoveryState(recoveryMessage?.generationState)
+                    me.rerere.rikkahub.feature.studychat.ui.StudyErrorRecoveryCard(
+                        state = normalizedState,
+                        errorMessage = when (recoveryMessage?.generationErrorCode) {
+                            401, 403 -> "接口认证失败，请检查 API 密钥与访问权限后重试。"
+                            429 -> "接口限流或额度已用尽，请稍候再试。"
+                            else -> null
+                        },
+                        onRetry = {
+                            val tools = recoveryMessage?.getTools().orEmpty()
+                            if (tools.any { it.isExecutionUncertain }) {
+                                onResumeGeneration(true)
+                            } else if (tools.isNotEmpty()) {
+                                onResumeGeneration(false)
+                            } else {
+                                recoveryMessage?.let(onRegenerate)
+                            }
+                        }
+                    )
+                }
+            }
+
             if (loading) {
                 item(LoadingIndicatorKey) {
                     Row(
-                        modifier = Modifier.padding(8.dp),
+                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
                     ) {
-                        RabbitLoadingIndicator(
-                            modifier = Modifier.size(28.dp)
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(18.dp),
+                            strokeWidth = 2.dp,
+                            color = Color(0xFF925568),
+                            trackColor = Color(0xFFF8D5DE)
                         )
                         AnimatedVisibility(
                             visible = processingStatus != null,
@@ -394,7 +499,7 @@ private fun ChatListNormal(
                             Text(
                                 text = processingStatus ?: "",
                                 style = MaterialTheme.typography.labelMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                color = Color(0xFF925568),
                             )
                         }
                     }

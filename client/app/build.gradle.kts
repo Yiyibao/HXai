@@ -23,11 +23,11 @@ android {
     }
 
     defaultConfig {
-        applicationId = "me.rerere.rikkahub"
+        applicationId = "org.hxsi.agent"
         minSdk = 26
         targetSdk = 37
-        versionCode = 191
-        versionName = "2.5.6"
+        versionCode = 1
+        versionName = "0.1.0-dev"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -97,7 +97,7 @@ android {
         buildConfig = true
     }
     sourceSets {
-        getByName("androidTest").assets.srcDirs("$projectDir/schemas")
+        getByName("androidTest").assets.directories.add("$projectDir/schemas")
     }
     androidResources {
         generateLocaleConfig = true
@@ -119,7 +119,6 @@ android {
         compilerOptions.optIn.add("kotlin.uuid.ExperimentalUuidApi")
         compilerOptions.optIn.add("kotlin.time.ExperimentalTime")
         compilerOptions.optIn.add("kotlinx.coroutines.ExperimentalCoroutinesApi")
-        compilerOptions.optIn.add("androidx.navigation3.runtime.ExperimentalNavigation3Api")
     }
 }
 
@@ -322,4 +321,7 @@ dependencies {
     androidTestImplementation(libs.androidx.room.testing)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Flutter Add-to-App
+    debugImplementation("me.rerere.rikkahub.flutter_ui:flutter_debug:1.0")
 }

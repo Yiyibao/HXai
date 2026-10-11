@@ -140,8 +140,7 @@ class GoogleProvider(private val client: OkHttpClient, context: Context? = null)
             )
             val response = client.newCall(request).await()
             if (response.isSuccessful) {
-                val body = response.body?.string() ?: error("empty body")
-                Log.d(TAG, "listModels: $body")
+                val body = response.body.string()
                 val bodyObject = json.parseToJsonElement(body).jsonObject
                 val models = bodyObject["models"]?.jsonArray ?: return@withContext emptyList()
 
@@ -202,10 +201,10 @@ class GoogleProvider(private val client: OkHttpClient, context: Context? = null)
 
         val response = client.newCall(request).await()
         if (!response.isSuccessful) {
-            throw Exception("Failed to get response: ${response.code} ${response.body?.string()}")
+            throw Exception("Failed to get response: ${response.code}")
         }
 
-        val bodyStr = response.body?.string() ?: ""
+        val bodyStr = response.body.string()
         val bodyJson = json.parseToJsonElement(bodyStr).jsonObject
 
         val candidate = bodyJson["candidates"]?.jsonArray?.firstOrNull()?.jsonObject
@@ -258,16 +257,12 @@ class GoogleProvider(private val client: OkHttpClient, context: Context? = null)
                 .build()
         )
 
-        Log.i(TAG, "streamText: ${json.encodeToString(requestBody)}")
-
         val responseId = Uuid.random().toString()
         val decoder = GoogleStreamDecoder(responseId, params.model.modelId)
 
         fun sendChunks(chunks: Iterable<StreamChunk>) {
             chunks.forEach { chunk ->
-                trySend(chunk).onFailure { e ->
-                    Log.w(TAG, "onEvent: chunk dropped (${e?.message})")
-                }
+                trySend(chunk).onFailure { Log.w(TAG, "Stream chunk dropped") }
             }
         }
 
@@ -278,14 +273,12 @@ class GoogleProvider(private val client: OkHttpClient, context: Context? = null)
                 type: String?,
                 data: String
             ) {
-                Log.i(TAG, "onEvent: $data")
 
                 try {
                     val result = decoder.accept(SseEvent(id = id, event = type, data = data))
                     sendChunks(result.chunks)
                     if (result.completed) close()
                 } catch (e: Throwable) {
-                    Log.e(TAG, "Failed to parse stream event: $data", e)
                     close(e)
                 }
             }
@@ -297,15 +290,11 @@ class GoogleProvider(private val client: OkHttpClient, context: Context? = null)
             ) {
                 var exception = t
 
-                t?.printStackTrace()
-                println("[onFailure] 发生错误: ${t?.message}")
-
                 try {
                     if (t == null && response != null) {
                         val bodyStr = response.body.stringSafe()
                         if (!bodyStr.isNullOrEmpty()) {
                             val bodyElement = json.parseToJsonElement(bodyStr)
-                            println(bodyElement)
                             if (bodyElement is JsonObject) {
                                 exception = Exception(
                                     bodyElement["error"]?.jsonObject?.get("message")?.jsonPrimitive?.content
@@ -317,7 +306,6 @@ class GoogleProvider(private val client: OkHttpClient, context: Context? = null)
                         }
                     }
                 } catch (e: Throwable) {
-                    e.printStackTrace()
                     exception = e
                 } finally {
                     close(exception ?: Exception("Stream failed"))
@@ -325,7 +313,6 @@ class GoogleProvider(private val client: OkHttpClient, context: Context? = null)
             }
 
             override fun onClosed(eventSource: EventSource) {
-                println("[onClosed] 连接已关闭")
                 sendChunks(decoder.onClosed())
                 close()
             }
@@ -335,7 +322,6 @@ class GoogleProvider(private val client: OkHttpClient, context: Context? = null)
                 .newEventSource(request, listener)
 
         awaitClose {
-            println("[awaitClose] 关闭eventSource")
             eventSource.cancel()
         }
         // trySend 在缓冲满时会静默丢弃 delta，导致回复中间缺字 (#1295)，因此缓冲必须无界
@@ -526,7 +512,6 @@ class GoogleProvider(private val client: OkHttpClient, context: Context? = null)
         val parts = parseMessageParts(content["parts"]?.jsonArray)
 
         val groundingMetadata = message["groundingMetadata"]?.jsonObject
-        Log.i(TAG, "parseMessage: $groundingMetadata")
         val annotations = parseSearchGroundingMetadata(groundingMetadata)
 
         return UIMessage(
@@ -548,7 +533,6 @@ class GoogleProvider(private val client: OkHttpClient, context: Context? = null)
                 url = uri
             )
         }
-        Log.i(TAG, "parseSearchGroundingMetadata: $chunks")
         return chunks
     }
 

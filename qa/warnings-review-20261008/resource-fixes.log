@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from pathlib import Path; p=Path('scripts/fix_review_warnings.py');t=p.read_text(encoding='utf-8');head=t[:t.index('base = ')];tail=t[t.index('# Lint plus repository-wide'):];exec(head+'issues = ET.parse(QA/\'before-lint.xml\').getroot()\n'+tail)
+                                                                                                                                                                                   ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 7, in <module>
+NameError: name '__file__' is not defined. Did you mean: '__name__'?

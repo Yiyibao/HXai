@@ -1,0 +1,26 @@
+[
+  {
+    "name": "material-page",
+    "class": "MaterialPageTest",
+    "started": "2026-10-08T18:15:42.1351812+08:00",
+    "ended": "2026-10-08T18:15:55.9844973+08:00",
+    "ok": true,
+    "exit": 0
+  },
+  {
+    "name": "delivery-material",
+    "class": "MaterialDeliveryTest",
+    "started": "2026-10-08T18:15:56.0194565+08:00",
+    "ended": "2026-10-08T18:16:35.5341586+08:00",
+    "ok": true,
+    "exit": 0
+  },
+  {
+    "name": "delivery-artifact",
+    "class": "ProjectReviewDeliveryTest",
+    "started": "2026-10-08T18:16:35.5392117+08:00",
+    "ended": "2026-10-08T18:17:15.9678335+08:00",
+    "ok": true,
+    "exit": 0
+  }
+]

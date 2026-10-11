@@ -1,0 +1,58 @@
+[
+  {
+    "name": "material-evidence/fidelity.docx",
+    "deviceMtime": 1791441885,
+    "reusedSyntheticInput": true,
+    "bytes": 5725,
+    "sha256": "8abad0af02ba6d930619aa2cd8a225ee7a0cda010991de0d6acd63128495515d"
+  },
+  {
+    "name": "material-evidence/scan-input.pdf",
+    "deviceMtime": 1791452324,
+    "reusedSyntheticInput": false,
+    "bytes": 6210,
+    "sha256": "c709e96e691624d85d39d27d9eef7164d7a7f5218e44d593830083c2f7961f3c"
+  },
+  {
+    "name": "material-evidence/scan-output.md",
+    "deviceMtime": 1791452369,
+    "reusedSyntheticInput": false,
+    "bytes": 652,
+    "sha256": "3786222cb34f09c9f1b078f207cd99a6f21b440145b7d429576e6fa215c28c13"
+  },
+  {
+    "name": "material-evidence/word-vision-output.docx",
+    "deviceMtime": 1791452409,
+    "reusedSyntheticInput": false,
+    "bytes": 6512,
+    "sha256": "0a36c7018c717a55f7bce3864b2e833be4178f2fbb3f720759d16030e118dac1"
+  },
+  {
+    "name": "material-real-model.md",
+    "deviceMtime": 1791452409,
+    "reusedSyntheticInput": false,
+    "bytes": 7263,
+    "sha256": "b94e5876c01dc7dbd7819e7571330490e3dc9dd8329b8497a6b2069dc623576f"
+  },
+  {
+    "name": "review-real-teaching.md",
+    "deviceMtime": 1791451937,
+    "reusedSyntheticInput": false,
+    "bytes": 1098,
+    "sha256": "f19a49fad23a2f7f9471c7d622beefd066d68362edab3e57fef681e904077161"
+  },
+  {
+    "name": "s1-real-approvals-3156e57d-b247-44d1-8c3b-2decbd982885.md",
+    "deviceMtime": 1791452884,
+    "reusedSyntheticInput": false,
+    "bytes": 300,
+    "sha256": "cfca29b20194ee3775e6403e2788e244cba3aea8a0486aef5d6d6318ac04f873"
+  },
+  {
+    "name": "s1-real-teaching-5cf080e7-34a1-456a-9791-1a3f2336d69e.md",
+    "deviceMtime": 1791452805,
+    "reusedSyntheticInput": false,
+    "bytes": 1501,
+    "sha256": "229cf2057c46b572868334d6998cf8a5ab9aeea5850deef0fbcb8b2033d4a95e"
+  }
+]

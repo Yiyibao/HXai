@@ -1,0 +1,76 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart
+00:00 +0: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Cold bootstrap settles empty chat and refresh preserves explicit selection
+00:00 +1: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:00 +2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +3: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +4: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +5: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +6: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +7: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +9: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +10: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +11: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +12: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +13: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +14: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +15: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:01 +16: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:01 +17: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:01 +18: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:02 +19: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:02 +20: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:02 +21: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:02 +22: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:02 +23: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:02 +24: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:02 +25: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:02 +26: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:02 +27: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:02 +28: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:02 +29: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:02 +30: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:02 +31: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:03 +32: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:03 +33: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:03 +34: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:03 +35: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:03 +36: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:03 +37: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:03 +38: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:03 +39: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:03 +40: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:03 +41: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:03 +42: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:03 +43: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:03 +44: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:03 +45: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:03 +46: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:04 +47: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:04 +48: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:04 +49: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:04 +50: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:04 +51: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:04 +52: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:04 +53: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:04 +54: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:04 +55: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:04 +56: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:04 +57: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:04 +58: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 24 renders without exception and preserves content
+00:04 +59: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Late mode acknowledgement preserves the newly selected conversation mode
+00:04 +60: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Late mode acknowledgement preserves the newly selected conversation mode
+00:04 +61: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Late mode acknowledgement preserves the newly selected conversation mode
+00:04 +62: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Late mode acknowledgement preserves the newly selected conversation mode
+00:04 +63: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Late mode acknowledgement preserves the newly selected conversation mode
+00:05 +64: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Late mode acknowledgement preserves the newly selected conversation mode
+00:05 +65: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Late mode acknowledgement preserves the newly selected conversation mode
+00:05 +66: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Send receipt after new chat preserves its new draft
+00:05 +67: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Send receipt after new chat preserves its new draft
+00:06 +68: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 32 renders without exception and preserves content
+00:06 +69: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Old send failure does not appear in a newly selected chat
+00:06 +70: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Refresh invalidates an outstanding pagination response
+00:06 +71: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Old pagination failure cannot escape after context changes
+00:06 +72: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: A current successful send selects its chat and clears the composer
+00:07 +73: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Late attachment failure is silent after epoch change
+00:08 +74: All tests passed!

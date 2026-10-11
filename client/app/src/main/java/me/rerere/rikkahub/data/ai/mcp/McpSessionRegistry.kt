@@ -336,7 +336,7 @@ internal class McpSessionRegistry(
             requestReconnect(config.id, sdkClient)
         }
         transport.onError { error ->
-            Log.e(TAG, "Transport error for ${config.id}: ${error.message}")
+            Log.e(TAG, "MCP transport failed")
             if (!isSseStreamGiveUpError(error)) requestReconnect(config.id, sdkClient)
         }
     }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.ui.MessageContextLimitTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-08T13:56:56.340Z" hostname="DESKTOP-QH4J0RS" time="0.015">
+  <properties/>
+  <testcase name="limitContext with negative limit should return original list" classname="me.rerere.ai.ui.MessageContextLimitTest" time="0.0"/>
+  <testcase name="limitContext with tool call at start should include corresponding user message" classname="me.rerere.ai.ui.MessageContextLimitTest" time="0.001"/>
+  <testcase name="limitContext should keep the same start message while within one step" classname="me.rerere.ai.ui.MessageContextLimitTest" time="0.005"/>
+  <testcase name="limitContext should only truncate once per step" classname="me.rerere.ai.ui.MessageContextLimitTest" time="0.001"/>
+  <testcase name="limitContext should never exceed the limit nor drop below the target" classname="me.rerere.ai.ui.MessageContextLimitTest" time="0.004"/>
+  <testcase name="limitContext within limit should return original list" classname="me.rerere.ai.ui.MessageContextLimitTest" time="0.0"/>
+  <testcase name="limitContext with empty list should return empty list" classname="me.rerere.ai.ui.MessageContextLimitTest" time="0.001"/>
+  <testcase name="limitContext with tiny limit should degrade gracefully" classname="me.rerere.ai.ui.MessageContextLimitTest" time="0.003"/>
+  <testcase name="limitContext with limit 0 should return original list" classname="me.rerere.ai.ui.MessageContextLimitTest" time="0.0"/>
+  <testcase name="limitContext should drop to about half when limit is first exceeded" classname="me.rerere.ai.ui.MessageContextLimitTest" time="0.0"/>
+  <testcase name="limitContext with executed tool at start should include corresponding tool call" classname="me.rerere.ai.ui.MessageContextLimitTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

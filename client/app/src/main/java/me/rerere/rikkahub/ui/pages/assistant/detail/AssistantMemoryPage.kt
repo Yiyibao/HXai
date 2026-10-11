@@ -59,40 +59,15 @@ import org.koin.core.parameter.parametersOf
 
 @Composable
 fun AssistantMemoryPage(id: String) {
-    val vm: AssistantDetailVM = koinViewModel(
-        parameters = {
-            parametersOf(id)
+    // Legacy assistant/global rows have no learner ownership or source evidence.
+    // Keep old deep links safe instead of exposing this shared store.
+    Scaffold(topBar = {
+        LargeFlexibleTopAppBar(title = { Text("学习记忆") }, navigationIcon = { BackButton() })
+    }) { padding ->
+        Column(Modifier.fillMaxSize().padding(padding).padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+            Text("学习记忆按当前学习者保存，不随助手共享。")
+            Text("请回到聊天页，打开底部“记忆”，查看来源、编辑或删除记录。")
         }
-    )
-    val assistant by vm.assistant.collectAsStateWithLifecycle()
-    val memories by vm.memories.collectAsStateWithLifecycle()
-    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
-
-    Scaffold(
-        topBar = {
-            LargeFlexibleTopAppBar(
-                title = {
-                    Text(stringResource(R.string.assistant_page_tab_memory))
-                },
-                navigationIcon = {
-                    BackButton()
-                },
-                scrollBehavior = scrollBehavior,
-                colors = CustomColors.topBarColors,
-            )
-        },
-        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
-        containerColor = CustomColors.topBarColors.containerColor,
-    ) { innerPadding ->
-        AssistantMemoryContent(
-            innerPadding = innerPadding,
-            assistant = assistant,
-            memories = memories,
-            onUpdateAssistant = { vm.update(it) },
-            onDeleteMemory = { vm.deleteMemory(it) },
-            onAddMemory = { vm.addMemory(it) },
-            onUpdateMemory = { vm.updateMemory(it) }
-        )
     }
 }
 

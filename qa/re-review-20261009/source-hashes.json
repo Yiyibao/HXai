@@ -1,0 +1,10 @@
+{
+  "client/flutter_ui/lib/providers/study_providers.dart": "9eb430cca8a20dfce6795e24a304a7b33bbd689e2275cb42e4d6f58f1043739a",
+  "client/flutter_ui/lib/pages/chat_page.dart": "af7445c7a16b00be69356e2fab69993b817bcdd7b0bd34b5496a8d978c2cf92a",
+  "client/flutter_ui/lib/pages/conversation_drawer.dart": "93ef78873ab77f5cec5223058ab7d63281ca5d3961982fe54d8a2ffd9bc31f5e",
+  "client/app/src/main/java/me/rerere/rikkahub/feature/material/DocumentServiceTools.kt": "ce83740bee9fff9ae420a1d475987d87cbf27dd7177fae2103d3eb55a88bc80a",
+  "client/app/src/main/java/me/rerere/rikkahub/feature/material/DocumentServiceRepository.kt": "88b01db9aee8e3911a088522a5edb58653fdb518a2494598bb60baa7d5c7ea8e",
+  "client/app/src/main/java/me/rerere/rikkahub/flutter/StudyHostFacade.kt": "eea397d0b2f78a97081718d4ed41b64196c009ed96780695fced202def645304",
+  "client/app/src/main/java/me/rerere/rikkahub/feature/memory/LearningMemoryStore.kt": "22f669e119ee2435002bd29b6f48d6e93da2995d03ed26ab438faa2262ebfec7",
+  "client/app/src/androidTest/java/me/rerere/rikkahub/service/BackupReliabilityTest.kt": "c18f41bfa75ebe29b8830eef272ba597766b4519d81f0438a90548e9299c815a"
+}

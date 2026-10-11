@@ -1,0 +1,8 @@
+gradle.beforeProject { project ->
+    if (project.path == ':app') {
+        project.afterEvaluate {
+            project.android.sourceSets.getByName('androidTest').kotlin.srcDir(
+                new File(project.rootDir, '../qa/re-review-20261009/android'))
+        }
+    }
+}

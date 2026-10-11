@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.provider.providers.ProviderMessageGroupingTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2026-10-09T03:00:10.134Z" hostname="DESKTOP-QH4J0RS" time="0.064">
+  <properties/>
+  <testcase name="empty parts should return empty groups" classname="me.rerere.ai.provider.providers.ProviderMessageGroupingTest" time="0.008"/>
+  <testcase name="tool then reasoning then text should preserve order" classname="me.rerere.ai.provider.providers.ProviderMessageGroupingTest" time="0.03"/>
+  <testcase name="unexecuted tool should be in Content group" classname="me.rerere.ai.provider.providers.ProviderMessageGroupingTest" time="0.012"/>
+  <testcase name="interleaved text and tools should create alternating groups" classname="me.rerere.ai.provider.providers.ProviderMessageGroupingTest" time="0.0"/>
+  <testcase name="only executed tools should return single Tools group" classname="me.rerere.ai.provider.providers.ProviderMessageGroupingTest" time="0.0"/>
+  <testcase name="text then tool should create Content then Tools groups" classname="me.rerere.ai.provider.providers.ProviderMessageGroupingTest" time="0.0"/>
+  <testcase name="image parts should be grouped with content" classname="me.rerere.ai.provider.providers.ProviderMessageGroupingTest" time="0.001"/>
+  <testcase name="only text parts should return single Content group" classname="me.rerere.ai.provider.providers.ProviderMessageGroupingTest" time="0.0"/>
+  <testcase name="verify tool_use followed by tool_result pattern for Claude" classname="me.rerere.ai.provider.providers.ProviderMessageGroupingTest" time="0.0"/>
+  <testcase name="complex multi-round tool call scenario" classname="me.rerere.ai.provider.providers.ProviderMessageGroupingTest" time="0.0"/>
+  <testcase name="parallel tool calls should stay in same Tools group" classname="me.rerere.ai.provider.providers.ProviderMessageGroupingTest" time="0.0"/>
+  <testcase name="multi-round reasoning should be preserved in correct positions" classname="me.rerere.ai.provider.providers.ProviderMessageGroupingTest" time="0.0"/>
+  <testcase name="verify reasoning stays with correct content group" classname="me.rerere.ai.provider.providers.ProviderMessageGroupingTest" time="0.001"/>
+  <testcase name="reasoning should be grouped with content" classname="me.rerere.ai.provider.providers.ProviderMessageGroupingTest" time="0.0"/>
+  <testcase name="tool then text should create Tools then Content groups" classname="me.rerere.ai.provider.providers.ProviderMessageGroupingTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

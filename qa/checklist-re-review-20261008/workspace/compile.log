@@ -1,0 +1,26 @@
+> Task :build-logic:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:compileKotlin UP-TO-DATE
+> Task :build-logic:compileJava NO-SOURCE
+> Task :build-logic:pluginDescriptors UP-TO-DATE
+> Task :build-logic:processResources UP-TO-DATE
+> Task :build-logic:classes UP-TO-DATE
+> Task :build-logic:jar UP-TO-DATE
+> Task :workspace:preBuild UP-TO-DATE
+> Task :workspace:preDebugBuild UP-TO-DATE
+> Task :workspace:generateDebugResources UP-TO-DATE
+> Task :workspace:packageDebugResources UP-TO-DATE
+> Task :workspace:processDebugNavigationResources UP-TO-DATE
+> Task :workspace:parseDebugLocalResources UP-TO-DATE
+> Task :workspace:generateDebugRFile UP-TO-DATE
+> Task :workspace:compileDebugKotlin UP-TO-DATE
+> Task :workspace:javaPreCompileDebug UP-TO-DATE
+> Task :workspace:compileDebugJavaWithJavac NO-SOURCE
+> Task :workspace:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :workspace:preDebugUnitTestBuild UP-TO-DATE
+> Task :workspace:generateDebugUnitTestStubRFile UP-TO-DATE
+> Task :workspace:compileDebugUnitTestKotlin UP-TO-DATE
+> Task :workspace:processDebugUnitTestJavaRes UP-TO-DATE
+> Task :workspace:exportHostTestClasspath
+
+BUILD SUCCESSFUL in 7s
+16 actionable tasks: 1 executed, 15 up-to-date

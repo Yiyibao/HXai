@@ -1,0 +1,490 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.P0RichFileTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.P0RichFileTest:
+INSTRUMENTATION_STATUS: test=genuineOfficePackagesPreserveUneditedStructureAndImagePdfPreservesPixels
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.P0RichFileTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=genuineOfficePackagesPreserveUneditedStructureAndImagePdfPreservesPixels
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.P0DocumentBatchTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.P0DocumentBatchTest:
+INSTRUMENTATION_STATUS: test=sevenPagesPersistCoverExactlyOnceAndRevokedUploadBlocksNextBatch
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.P0DocumentBatchTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=sevenPagesPersistCoverExactlyOnceAndRevokedUploadBlocksNextBatch
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FlutterChatBridgeTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.FlutterChatBridgeTest:
+INSTRUMENTATION_STATUS: test=surfaceStatePersistsAndRejectsStaleBranches
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FlutterChatBridgeTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=surfaceStatePersistsAndRejectsStaleBranches
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FlutterChatBridgeTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=committedSendStreamsAndDuplicateSurvivesFacadeRecreation
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FlutterChatBridgeTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=committedSendStreamsAndDuplicateSurvivesFacadeRecreation
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FlutterChatBridgeTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=versionThreeChartSelectionPersistsAndContinuesOnce
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FlutterChatBridgeTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalArgumentException: Missing existing conversation; explicit create or restore required
+	at me.rerere.rikkahub.service.ChatService.persistConversation(ChatService.kt:1326)
+	at me.rerere.rikkahub.service.ChatService.access$persistConversation(ChatService.kt:166)
+	at me.rerere.rikkahub.service.ChatService$persistConversation$1.invokeSuspend(Unknown Source:15)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.FlutterChatBridgeTest.versionThreeChartSelectionPersistsAndContinuesOnce(FlutterChatBridgeTest.kt:25)
+
+INSTRUMENTATION_STATUS: stream=
+Error in versionThreeChartSelectionPersistsAndContinuesOnce(me.rerere.rikkahub.service.FlutterChatBridgeTest):
+java.lang.IllegalArgumentException: Missing existing conversation; explicit create or restore required
+	at me.rerere.rikkahub.service.ChatService.persistConversation(ChatService.kt:1326)
+	at me.rerere.rikkahub.service.ChatService.access$persistConversation(ChatService.kt:166)
+	at me.rerere.rikkahub.service.ChatService$persistConversation$1.invokeSuspend(Unknown Source:15)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.FlutterChatBridgeTest.versionThreeChartSelectionPersistsAndContinuesOnce(FlutterChatBridgeTest.kt:25)
+
+INSTRUMENTATION_STATUS: test=versionThreeChartSelectionPersistsAndContinuesOnce
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FlutterChatBridgeTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=verifiedCachedDocumentResumesOnceAndCorruptCacheNeverResumes
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FlutterChatBridgeTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=verifiedCachedDocumentResumesOnceAndCorruptCacheNeverResumes
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FlutterChatBridgeTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=fullHistoryAndEditedBranchPersistAndIsolate
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FlutterChatBridgeTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=fullHistoryAndEditedBranchPersistAndIsolate
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FlutterChatBridgeTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=realArtifactInToolResultIsExposedAndSaveIsVerified
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FlutterChatBridgeTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=realArtifactInToolResultIsExposedAndSaveIsVerified
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DocumentPermissionRegressionTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.DocumentPermissionRegressionTest:
+INSTRUMENTATION_STATUS: test=revokedUploadPreservesApprovedTaskOperationsWithoutResubmission
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DocumentPermissionRegressionTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=revokedUploadPreservesApprovedTaskOperationsWithoutResubmission
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DocumentSubmissionRecoveryTest
+INSTRUMENTATION_STATUS: current=10
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.DocumentSubmissionRecoveryTest:
+INSTRUMENTATION_STATUS: test=lostAcknowledgementKeepsIntentAndRecoveryUsesSameKeyAndConfiguration
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DocumentSubmissionRecoveryTest
+INSTRUMENTATION_STATUS: current=10
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=lostAcknowledgementKeepsIntentAndRecoveryUsesSameKeyAndConfiguration
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.BackupReliabilityTest
+INSTRUMENTATION_STATUS: current=11
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.BackupReliabilityTest:
+INSTRUMENTATION_STATUS: test=legacyDeletedFactsArePreservedWithAutomaticExtractionBlocked
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.BackupReliabilityTest
+INSTRUMENTATION_STATUS: current=11
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=legacyDeletedFactsArePreservedWithAutomaticExtractionBlocked
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.BackupReliabilityTest
+INSTRUMENTATION_STATUS: current=12
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=encryptedSnapshotPortableKeyWrongPasswordAndPostConfirmationDeletion
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.BackupReliabilityTest
+INSTRUMENTATION_STATUS: current=12
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=encryptedSnapshotPortableKeyWrongPasswordAndPostConfirmationDeletion
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.BackupReliabilityTest
+INSTRUMENTATION_STATUS: current=13
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=twentyRequestBudgetLeaseRecoveryAndCompactionSurviveReopen
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.BackupReliabilityTest
+INSTRUMENTATION_STATUS: current=13
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=twentyRequestBudgetLeaseRecoveryAndCompactionSurviveReopen
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ConversationBoundaryFixTest
+INSTRUMENTATION_STATUS: current=14
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ConversationBoundaryFixTest:
+INSTRUMENTATION_STATUS: test=deleteAndUndoCannotResurrectOldBackgroundOrQueuedState
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ConversationBoundaryFixTest
+INSTRUMENTATION_STATUS: current=14
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=deleteAndUndoCannotResurrectOldBackgroundOrQueuedState
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ConversationBoundaryFixTest
+INSTRUMENTATION_STATUS: current=15
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=databaseFailureRetainsAttachmentAndCommittedDeletionPreservesOtherReferences
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ConversationBoundaryFixTest
+INSTRUMENTATION_STATUS: current=15
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=databaseFailureRetainsAttachmentAndCommittedDeletionPreservesOtherReferences
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ConversationBoundaryFixTest
+INSTRUMENTATION_STATUS: current=16
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=failedApprovalCanBeRetriedWithoutReplayingOrReplacingDecision
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ConversationBoundaryFixTest
+INSTRUMENTATION_STATUS: current=16
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=failedApprovalCanBeRetriedWithoutReplayingOrReplacingDecision
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ConversationBoundaryFixTest
+INSTRUMENTATION_STATUS: current=17
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=staleGeneratedMetadataDoesNotReplaceNewMessagesOrManualTitle
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ConversationBoundaryFixTest
+INSTRUMENTATION_STATUS: current=17
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=staleGeneratedMetadataDoesNotReplaceNewMessagesOrManualTitle
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FlutterMemoryToggleTest
+INSTRUMENTATION_STATUS: current=18
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.FlutterMemoryToggleTest:
+INSTRUMENTATION_STATUS: test=bridgeTogglePersistsAndRejectsOtherProfile
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FlutterMemoryToggleTest
+INSTRUMENTATION_STATUS: current=18
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=bridgeTogglePersistsAndRejectsOtherProfile
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DiagnosticsTest
+INSTRUMENTATION_STATUS: current=19
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.DiagnosticsTest:
+INSTRUMENTATION_STATUS: test=feedbackIsExplicitBoundedAndCancelledTasksAreDistinguished
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_diagnostics_fixture=a7458fc5-c082-4a38-8660-980007599253
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DiagnosticsTest
+INSTRUMENTATION_STATUS: current=19
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=feedbackIsExplicitBoundedAndCancelledTasksAreDistinguished
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DiagnosticsTest
+INSTRUMENTATION_STATUS: current=20
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=networkFailuresHttpErrorsAndTruncatedStreamsDoNotExposeRequestData
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_diagnostics_fixture=cd2bed5f-9177-4b63-908f-9587b29a99be
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DiagnosticsTest
+INSTRUMENTATION_STATUS: current=20
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=networkFailuresHttpErrorsAndTruncatedStreamsDoNotExposeRequestData
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DiagnosticsTest
+INSTRUMENTATION_STATUS: current=21
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=failureFingerprintDoesNotIncludeMessageOrPaths
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_diagnostics_fixture=d1e206ba-20dc-4df0-a7b7-03e4dddea51d
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DiagnosticsTest
+INSTRUMENTATION_STATUS: current=21
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=failureFingerprintDoesNotIncludeMessageOrPaths
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DiagnosticsTest
+INSTRUMENTATION_STATUS: current=22
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=corruptMetadataRecoversWithoutReadingLearningFiles
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_diagnostics_fixture=1ac935b5-ed9e-4324-82ec-b5eb6f51e194
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DiagnosticsTest
+INSTRUMENTATION_STATUS: current=22
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=corruptMetadataRecoversWithoutReadingLearningFiles
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DiagnosticsTest
+INSTRUMENTATION_STATUS: current=23
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=boundedDurableEventsAndSanitizedCrashSurviveSafeModeClearing
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_diagnostics_fixture=677864c3-dda8-43ae-bbe8-d48827470f45
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DiagnosticsTest
+INSTRUMENTATION_STATUS: current=23
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=boundedDurableEventsAndSanitizedCrashSurviveSafeModeClearing
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DiagnosticsTest
+INSTRUMENTATION_STATUS: current=24
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=largeFailureFramesRetainNewestEvidenceWithinByteCap
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_diagnostics_fixture=b9654f80-692a-4f26-9302-1072b4474c97
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DiagnosticsTest
+INSTRUMENTATION_STATUS: current=24
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=largeFailureFramesRetainNewestEvidenceWithinByteCap
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.SkillsInstallBoundaryTest
+INSTRUMENTATION_STATUS: current=25
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.SkillsInstallBoundaryTest:
+INSTRUMENTATION_STATUS: test=defaultSkillReadAndListingRejectOutsideSymlinks
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.SkillsInstallBoundaryTest
+INSTRUMENTATION_STATUS: current=25
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=defaultSkillReadAndListingRejectOutsideSymlinks
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.SkillsInstallBoundaryTest
+INSTRUMENTATION_STATUS: current=26
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=uninstallAndReplacementDoNotFollowDirectoryLinksOrSiblingAliases
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.SkillsInstallBoundaryTest
+INSTRUMENTATION_STATUS: current=26
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=uninstallAndReplacementDoNotFollowDirectoryLinksOrSiblingAliases
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.SkillsInstallBoundaryTest
+INSTRUMENTATION_STATUS: current=27
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=oversizedZipIsRejectedAndExistingSkillAndBinaryInstallArePreserved
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_skill_fixture=qa-bounded-0862a594-52fc-4a7f-97aa-17f9f53488c9
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.SkillsInstallBoundaryTest
+INSTRUMENTATION_STATUS: current=27
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=oversizedZipIsRejectedAndExistingSkillAndBinaryInstallArePreserved
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.CoreSkillsWorkflowTest
+INSTRUMENTATION_STATUS: current=28
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.CoreSkillsWorkflowTest:
+INSTRUMENTATION_STATUS: test=instructionsReferencesNativeAssetsAndEnabledBridgeWork
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.CoreSkillsWorkflowTest
+INSTRUMENTATION_STATUS: current=28
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=instructionsReferencesNativeAssetsAndEnabledBridgeWork
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.CoreSkillsWorkflowTest
+INSTRUMENTATION_STATUS: current=29
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=pinnedCommunityInstructionsAndReferencesLoadAndOfficeDependenciesAreExplicit
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.CoreSkillsWorkflowTest
+INSTRUMENTATION_STATUS: current=29
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=29
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=pinnedCommunityInstructionsAndReferencesLoadAndOfficeDependenciesAreExplicit
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 72.134
+There was 1 failure:
+1) versionThreeChartSelectionPersistsAndContinuesOnce(me.rerere.rikkahub.service.FlutterChatBridgeTest)
+java.lang.IllegalArgumentException: Missing existing conversation; explicit create or restore required
+	at me.rerere.rikkahub.service.ChatService.persistConversation(ChatService.kt:1326)
+	at me.rerere.rikkahub.service.ChatService.access$persistConversation(ChatService.kt:166)
+	at me.rerere.rikkahub.service.ChatService$persistConversation$1.invokeSuspend(Unknown Source:15)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.FlutterChatBridgeTest.versionThreeChartSelectionPersistsAndContinuesOnce(FlutterChatBridgeTest.kt:25)
+
+FAILURES!!!
+Tests run: 29,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

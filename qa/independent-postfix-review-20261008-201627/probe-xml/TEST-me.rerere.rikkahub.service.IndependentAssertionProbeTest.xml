@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.service.IndependentAssertionProbeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-08T12:28:33.797Z" hostname="DESKTOP-QH4J0RS" time="0.147">
+  <properties/>
+  <testcase name="approvalReadsQueueAfterBlockedMutationAndDoesNotPublishFailedCommit" classname="me.rerere.rikkahub.service.IndependentAssertionProbeTest" time="0.143"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

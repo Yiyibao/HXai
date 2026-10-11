@@ -1,0 +1,85 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ProjectReviewAuditTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ProjectReviewAuditTest:
+INSTRUMENTATION_STATUS: test=currentLongMaterialPreviewPagesReachTail
+INSTRUMENTATION_STATUS_CODE: 1
+s_glBindAttribLocation: bind attrib 0 name position
+s_glBindAttribLocation: bind attrib 1 name color
+s_glBindAttribLocation: bind attrib 2 name localCoord
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ProjectReviewAuditTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=currentLongMaterialPreviewPagesReachTail
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ProjectReviewAuditTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=artifactPreviewClearsContentAfterLearnerSwitch
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ProjectReviewAuditTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Failed: assertDoesNotExist.
+Reason: Did not expect any node but found '1' node that satisfies: (Text + InputText + EditableText contains 'AUDIT_UNIQUE_REAL_CONTENT' (ignoreCase: false) as substring)
+Node found:
+Node #746 at (l=106.0, t=525.0, r=751.0, b=588.0)px
+Text = '[AUDIT_UNIQUE_REAL_CONTENT]'
+Actions = [ClearTextSubstitution, GetTextLayoutResult, SetTextSubstitution, ShowTextSubstitution]
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertDoesNotExist(SemanticsNodeInteraction.kt:101)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.artifactPreviewClearsContentAfterLearnerSwitch$lambda$0(ProjectReviewAuditTest.kt:164)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest$$ExternalSyntheticLambda15.invoke(D8$$SyntheticClass:0)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture(ProjectReviewAuditTest.kt:70)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture$default(ProjectReviewAuditTest.kt:54)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.artifactPreviewClearsContentAfterLearnerSwitch(ProjectReviewAuditTest.kt:152)
+
+INSTRUMENTATION_STATUS: stream=
+Error in artifactPreviewClearsContentAfterLearnerSwitch(me.rerere.rikkahub.service.ProjectReviewAuditTest):
+java.lang.AssertionError: Failed: assertDoesNotExist.
+Reason: Did not expect any node but found '1' node that satisfies: (Text + InputText + EditableText contains 'AUDIT_UNIQUE_REAL_CONTENT' (ignoreCase: false) as substring)
+Node found:
+Node #746 at (l=106.0, t=525.0, r=751.0, b=588.0)px
+Text = '[AUDIT_UNIQUE_REAL_CONTENT]'
+Actions = [ClearTextSubstitution, GetTextLayoutResult, SetTextSubstitution, ShowTextSubstitution]
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertDoesNotExist(SemanticsNodeInteraction.kt:101)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.artifactPreviewClearsContentAfterLearnerSwitch$lambda$0(ProjectReviewAuditTest.kt:164)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest$$ExternalSyntheticLambda15.invoke(D8$$SyntheticClass:0)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture(ProjectReviewAuditTest.kt:70)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture$default(ProjectReviewAuditTest.kt:54)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.artifactPreviewClearsContentAfterLearnerSwitch(ProjectReviewAuditTest.kt:152)
+
+INSTRUMENTATION_STATUS: test=artifactPreviewClearsContentAfterLearnerSwitch
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 14.167
+There was 1 failure:
+1) artifactPreviewClearsContentAfterLearnerSwitch(me.rerere.rikkahub.service.ProjectReviewAuditTest)
+java.lang.AssertionError: Failed: assertDoesNotExist.
+Reason: Did not expect any node but found '1' node that satisfies: (Text + InputText + EditableText contains 'AUDIT_UNIQUE_REAL_CONTENT' (ignoreCase: false) as substring)
+Node found:
+Node #746 at (l=106.0, t=525.0, r=751.0, b=588.0)px
+Text = '[AUDIT_UNIQUE_REAL_CONTENT]'
+Actions = [ClearTextSubstitution, GetTextLayoutResult, SetTextSubstitution, ShowTextSubstitution]
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertDoesNotExist(SemanticsNodeInteraction.kt:101)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.artifactPreviewClearsContentAfterLearnerSwitch$lambda$0(ProjectReviewAuditTest.kt:164)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest$$ExternalSyntheticLambda15.invoke(D8$$SyntheticClass:0)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture(ProjectReviewAuditTest.kt:70)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture$default(ProjectReviewAuditTest.kt:54)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.artifactPreviewClearsContentAfterLearnerSwitch(ProjectReviewAuditTest.kt:152)
+
+FAILURES!!!
+Tests run: 2,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

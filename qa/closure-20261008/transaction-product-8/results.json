@@ -1,0 +1,12 @@
+[
+  {
+    "name": "focused",
+    "className": "ClosureBoundaryTest#approvalEveryTransactionStepRollsBackBeforePublication",
+    "runId": "ed6baedb-547c-4c6a-af31-ee27c7b8efa6",
+    "notBefore": 1791465554412,
+    "notAfter": 1791465558551,
+    "status": "FAIL",
+    "logSha256": "b6b925bbd5ac8dddf47dc1f63d2b91ffc702c0b8dd6adf8d13d3bda2b75218cd",
+    "extras": {}
+  }
+]

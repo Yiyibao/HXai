@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.service.MessageQueueTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2026-10-08T09:50:54.670Z" hostname="DESKTOP-QH4J0RS" time="0.011">
+  <properties/>
+  <testcase name="removing a message skips it without changing following input" classname="me.rerere.rikkahub.service.MessageQueueTest" time="0.001"/>
+  <testcase name="queues are isolated per conversation" classname="me.rerere.rikkahub.service.MessageQueueTest" time="0.0"/>
+  <testcase name="late edit cannot recreate a removed or dispatched message" classname="me.rerere.rikkahub.service.MessageQueueTest" time="0.0"/>
+  <testcase name="submission snapshots caller owned list" classname="me.rerere.rikkahub.service.MessageQueueTest" time="0.0"/>
+  <testcase name="editing the head blocks later messages and keeps its position" classname="me.rerere.rikkahub.service.MessageQueueTest" time="0.0"/>
+  <testcase name="editing a voice message preserves its reply observer and queue position" classname="me.rerere.rikkahub.service.MessageQueueTest" time="0.0"/>
+  <testcase name="new input and edits cannot silently resume a paused queue" classname="me.rerere.rikkahub.service.MessageQueueTest" time="0.0"/>
+  <testcase name="rejects empty input but accepts attachment only input" classname="me.rerere.rikkahub.service.MessageQueueTest" time="0.0"/>
+  <testcase name="editing a later message does not block earlier messages" classname="me.rerere.rikkahub.service.MessageQueueTest" time="0.0"/>
+  <testcase name="dispatches in submission order and preserves send without answer" classname="me.rerere.rikkahub.service.MessageQueueTest" time="0.0"/>
+  <testcase name="tool approval can release reply observers without removing or resuming messages" classname="me.rerere.rikkahub.service.MessageQueueTest" time="0.003"/>
+  <testcase name="cancelling an edit restores the original input and attachments" classname="me.rerere.rikkahub.service.MessageQueueTest" time="0.0"/>
+  <testcase name="pausing resolves voice observers but retains queued content for manual resume" classname="me.rerere.rikkahub.service.MessageQueueTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

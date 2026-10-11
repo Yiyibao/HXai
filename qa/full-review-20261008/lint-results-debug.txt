@@ -1,0 +1,1539 @@
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\backup\BackupVM.kt:54: Warning: No need to call super.onCleared; the super method is defined to be empty [EmptySuperCall]
+    override fun onCleared() { discardEncryptedRestore(); super.onCleared() }
+                                                                ~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\chat\ChatVM.kt:112: Warning: No need to call super.onCleared; the super method is defined to be empty [EmptySuperCall]
+        super.onCleared()
+              ~~~~~~~~~
+
+   Explanation for issues of type "EmptySuperCall":
+   For methods annotated with @EmptySuper, overriding methods should not also
+   call the super implementation, either because it is empty, or perhaps it
+   contains code not intended to be run when the method is overridden.
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\utils\DatabaseUtil.kt:11: Warning: Reflective access to sCursorWindowSize, which is not part of the public SDK and therefore likely to change in future Android releases [DiscouragedPrivateApi]
+            val field = CursorWindow::class.java.getDeclaredField("sCursorWindowSize")
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "DiscouragedPrivateApi":
+   Usage of restricted non-SDK interface may throw an exception at runtime.
+   Accessing non-SDK methods or fields through reflection has a high
+   likelihood to break your app between versions, and is being restricted to
+   facilitate future app compatibility.
+
+   https://developer.android.com/preview/restrictions-non-sdk-interfaces
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\utils\NotificationUtil.kt:47: Warning: Field requires API level 33 (current min is 26): android.Manifest.permission#POST_NOTIFICATIONS [InlinedApi]
+            Manifest.permission.POST_NOTIFICATIONS
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "InlinedApi":
+   This check scans through all the Android API field references in the
+   application and flags certain constants, such as static final integers and
+   Strings, which were introduced in later versions. These will actually be
+   copied into the class files rather than being referenced, which means that
+   the value is available even when running on older devices. In some cases
+   that's fine, and in other cases it can result in a runtime crash or
+   incorrect behavior. It depends on the context, so consider the code
+   carefully and decide whether it's safe and can be suppressed or whether the
+   code needs to be guarded.
+
+   If you really want to use this API and don't need to support older devices
+   just set the minSdkVersion in your build.gradle or AndroidManifest.xml
+   files.
+
+   If your code is deliberately accessing newer APIs, and you have ensured
+   (e.g. with conditional execution) that this code will only ever be called
+   on a supported platform, then you can annotate your class or method with
+   the @TargetApi annotation specifying the local minimum SDK to apply, such
+   as @TargetApi(11), such that this check considers 11 rather than your
+   manifest file's minimum SDK as the required API level.
+
+D:\Office\Study\code\MathStudyAgent\client\local.properties:1: Error: Windows file separators (\) and drive letter separators (':') must be escaped (\\) in property files; use D\:/Office/Study/code/MathStudyAgent/.local/android-sdk\r [PropertyEscape]
+sdk.dir=D:/Office/Study/code/MathStudyAgent/.local/android-sdk
+         ~
+
+   Explanation for issues of type "PropertyEscape":
+   All backslashes and colons in .property files must be escaped with a
+   backslash (). This means that when writing a Windows path, you must escape
+   the file separators, so the path MyFiles should be written as
+   key=\\My\\Files.
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\components\message\ChatMessageTranslation.kt:90: Error: Reading locale in a non-observable way in a composable function [NonObservableLocale from androidx.compose.ui]
+            else -> locale.getDisplayLanguage(Locale.getDefault())
+                                              ~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\stats\StatsPage.kt:222: Error: Reading locale in a non-observable way in a composable function [NonObservableLocale from androidx.compose.ui]
+                                    labelDate.month.getDisplayName(TextStyle.SHORT, Locale.getDefault())
+                                                                                    ~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\translator\TranslatorPage.kt:240: Error: Reading locale in a non-observable way in a composable function [NonObservableLocale from androidx.compose.ui]
+            else -> locale.getDisplayLanguage(Locale.getDefault())
+                                              ~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "NonObservableLocale":
+   Calling java.util.Locale.getDefault(),
+   android.os.LocaleList.getAdjustedDefault() or
+   androidx.core.os.LocaleListCompat.getAdjustedDefault() within a composable
+   function is not recommended. Calling these functions does not read
+   observable state and will not be updated if the user changes the locale.
+   This can lead to subtle bugs in your UI where the wrong locale is used for
+   formatting dates, times, numbers, and other locale-sensitive information.
+   To fix this, you should use
+   androidx.compose.ui.platform.LocalLocale.current.platformLocale instead.
+   This will ensure that your UI is always up-to-date with the current
+   locale.
+
+   Vendor: Jetpack Compose
+   Identifier: androidx.compose.ui
+   Feedback: https://issuetracker.google.com/issues/new?component=612128
+
+D:\Office\Study\code\MathStudyAgent\client\gradle\wrapper\gradle-wrapper.properties:4: Warning: A newer version of Gradle than 9.6.0 is available: 9.8.0 [AndroidGradlePluginVersion]
+distributionUrl=https\://services.gradle.org/distributions/gradle-9.6.0-bin.zip
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "AndroidGradlePluginVersion":
+   This detector looks for usage of the Android Gradle Plugin where the
+   version you are using is not the current stable release. Using older
+   versions is fine, and there are cases where you deliberately want to stick
+   with an older version. However, you may simply not be aware that a more
+   recent version is available, and that is what this lint check helps find.
+
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:43: Warning: A newer version of io.github.g00fy2.quickie:quickie-bundled than 1.11.0 is available: 1.12.0 [NewerVersionAvailable]
+quickie-bundled = "1.11.0"
+                  ~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:49: Warning: A newer version of io.pebbletemplates:pebble than 4.1.1 is available: 4.1.2 [NewerVersionAvailable]
+pebble = "4.1.1"
+         ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:55: Warning: A newer version of dev.chrisbanes.haze:haze than 2.0.0 is available: 2.0.1 [NewerVersionAvailable]
+haze = "2.0.0"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:55: Warning: A newer version of dev.chrisbanes.haze:haze-blur than 2.0.0 is available: 2.0.1 [NewerVersionAvailable]
+haze = "2.0.0"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:55: Warning: A newer version of dev.chrisbanes.haze:haze-blur-material3 than 2.0.0 is available: 2.0.1 [NewerVersionAvailable]
+haze = "2.0.0"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:55: Warning: A newer version of dev.chrisbanes.haze:haze-glass than 2.0.0 is available: 2.0.1 [NewerVersionAvailable]
+haze = "2.0.0"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:55: Warning: A newer version of dev.chrisbanes.haze:haze-glass-material3 than 2.0.0 is available: 2.0.1 [NewerVersionAvailable]
+haze = "2.0.0"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:60: Warning: A newer version of io.ktor:ktor-client-content-negotiation than 3.5.2 is available: 3.6.0 [NewerVersionAvailable]
+ktor = "3.5.2"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:60: Warning: A newer version of io.ktor:ktor-client-core than 3.5.2 is available: 3.6.0 [NewerVersionAvailable]
+ktor = "3.5.2"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:60: Warning: A newer version of io.ktor:ktor-client-okhttp than 3.5.2 is available: 3.6.0 [NewerVersionAvailable]
+ktor = "3.5.2"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:60: Warning: A newer version of io.ktor:ktor-serialization-kotlinx-json than 3.5.2 is available: 3.6.0 [NewerVersionAvailable]
+ktor = "3.5.2"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:60: Warning: A newer version of io.ktor:ktor-server-auth than 3.5.2 is available: 3.6.0 [NewerVersionAvailable]
+ktor = "3.5.2"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:60: Warning: A newer version of io.ktor:ktor-server-auth-jwt than 3.5.2 is available: 3.6.0 [NewerVersionAvailable]
+ktor = "3.5.2"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:60: Warning: A newer version of io.ktor:ktor-server-caching-headers than 3.5.2 is available: 3.6.0 [NewerVersionAvailable]
+ktor = "3.5.2"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:60: Warning: A newer version of io.ktor:ktor-server-cio than 3.5.2 is available: 3.6.0 [NewerVersionAvailable]
+ktor = "3.5.2"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:60: Warning: A newer version of io.ktor:ktor-server-compression than 3.5.2 is available: 3.6.0 [NewerVersionAvailable]
+ktor = "3.5.2"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:60: Warning: A newer version of io.ktor:ktor-server-conditional-headers than 3.5.2 is available: 3.6.0 [NewerVersionAvailable]
+ktor = "3.5.2"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:60: Warning: A newer version of io.ktor:ktor-server-content-negotiation than 3.5.2 is available: 3.6.0 [NewerVersionAvailable]
+ktor = "3.5.2"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:60: Warning: A newer version of io.ktor:ktor-server-core than 3.5.2 is available: 3.6.0 [NewerVersionAvailable]
+ktor = "3.5.2"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:60: Warning: A newer version of io.ktor:ktor-server-cors than 3.5.2 is available: 3.6.0 [NewerVersionAvailable]
+ktor = "3.5.2"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:60: Warning: A newer version of io.ktor:ktor-server-default-headers than 3.5.2 is available: 3.6.0 [NewerVersionAvailable]
+ktor = "3.5.2"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:60: Warning: A newer version of io.ktor:ktor-server-host-common than 3.5.2 is available: 3.6.0 [NewerVersionAvailable]
+ktor = "3.5.2"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:60: Warning: A newer version of io.ktor:ktor-server-sse than 3.5.2 is available: 3.6.0 [NewerVersionAvailable]
+ktor = "3.5.2"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:60: Warning: A newer version of io.ktor:ktor-server-status-pages than 3.5.2 is available: 3.6.0 [NewerVersionAvailable]
+ktor = "3.5.2"
+       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:61: Warning: A newer version of ai.sqlite:vector than 1.0.0 is available: 1.1.2 [NewerVersionAvailable]
+sqlite-vector = "1.0.0"
+                ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:63: Warning: A newer version of org.slf4j:slf4j-api than 2.0.18 is available: 2.0.20 [NewerVersionAvailable]
+slf4j = "2.0.18"
+        ~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\gradle\libs.versions.toml:183: Warning: A newer version of uk.uuid.slf4j:slf4j-android than 2.0.17-0 is available: 2.0.20-0 [NewerVersionAvailable]
+slf4j-android = { module = "uk.uuid.slf4j:slf4j-android", version = "2.0.17-0" }
+                                                                    ~~~~~~~~~~
+
+   Explanation for issues of type "NewerVersionAvailable":
+   This detector checks with a central repository to see if there are newer
+   versions available for the dependencies used by this project. This is
+   similar to the GradleDependency check, which checks for newer versions
+   available in the Android SDK tools and libraries, but this works with any
+   MavenCentral dependency, and connects to the library every time, which
+   makes it more flexible but also much slower.
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\chat\ChatList.kt:224: Error: LocalContext should not be cast to Activity, use LocalActivity instead [ContextCastToActivity from androidx.activity.compose]
+    val activity = LocalContext.current as? me.rerere.rikkahub.RouteActivity
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ContextCastToActivity":
+   Casting Context to Activity is an error as Contexts are not always
+   Activities. Use LocalActivity instead
+
+   Vendor: Jetpack Activity Compose
+   Identifier: androidx.activity.compose
+   Feedback: https://issuetracker.google.com/issues/new?component=612128
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\assistant\detail\AssistantImporter.kt:89: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                        toaster.show(exception.message ?: context.getString(R.string.assistant_importer_import_failed))
+                                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\assistant\detail\AssistantImporter.kt:115: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                        toaster.show(exception.message ?: context.getString(R.string.assistant_importer_import_failed))
+                                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\chat\ChatDrawer.kt:635: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                            toaster.show(context.getString(R.string.chat_page_delete_folder_generating), type = ToastType.Warning)
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\imggen\ImgGenPage.kt:574: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                message = if (failed.isEmpty()) context.getString(R.string.imggen_page_delete_images_success, images.size)
+                                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\imggen\ImgGenPage.kt:575: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                else context.getString(
+                                     ^
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\imggen\ImgGenPage.kt:741: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                                                message = context.getString(R.string.imggen_page_image_saved_success),
+                                                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\imggen\ImgGenPage.kt:746: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                                                message = context.getString(
+                                                                          ^
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\components\richtext\Mermaid.kt:74: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                        context.getString(R.string.mermaid_export_success),
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\components\richtext\Mermaid.kt:80: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                        context.getString(R.string.mermaid_export_failed),
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\assistant\detail\PropertyEditor.kt:197: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                            context.getString(
+                                            ^
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\setting\components\ProviderConnectionTester.kt:199: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                        context.getString(
+                                        ^
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\setting\components\ProviderConnectionTester.kt:208: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                        context.getString(
+                                        ^
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\backup\tabs\S3Tab.kt:257: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                context.getString(R.string.backup_page_connection_success),
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\backup\tabs\S3Tab.kt:263: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                context.getString(
+                                ^
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\backup\tabs\S3Tab.kt:292: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                context.getString(R.string.backup_page_backup_success),
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\backup\tabs\S3Tab.kt:298: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                it.message ?: context.getString(R.string.backup_page_unknown_error),
+                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\backup\tabs\S3Tab.kt:360: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                                context.getString(R.string.backup_page_delete_success),
+                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\backup\tabs\S3Tab.kt:367: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                                context.getString(
+                                                ^
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\backup\tabs\S3Tab.kt:382: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                                context.getString(R.string.backup_page_restore_success),
+                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\backup\tabs\S3Tab.kt:390: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                                context.getString(
+                                                ^
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\setting\SettingProviderDetailPage.kt:248: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                context.getString(R.string.setting_provider_page_save_success),
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\extensions\skills\SkillsPage.kt:103: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                toaster.show(context.getString(R.string.skills_page_import_success, message))
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\extensions\skills\SkillsPage.kt:105: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                toaster.show(context.getString(R.string.skills_page_import_failed, message))
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\extensions\skills\SkillsPage.kt:245: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                        toaster.show(context.getString(R.string.skills_page_save_failed))
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\extensions\skills\SkillsPage.kt:259: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                        toaster.show(context.getString(R.string.skills_page_import_success, message))
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\extensions\skills\SkillsPage.kt:261: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                        toaster.show(context.getString(R.string.skills_page_import_failed, message))
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\components\ui\TextArea.kt:99: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                    toaster.show(context.getString(R.string.text_area_import_success), type = ToastType.Success)
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\components\ui\TextArea.kt:102: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                    val errorMessage = e.message ?: context.getString(R.string.text_area_import_failed)
+                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\components\ui\UpdateCard.kt:128: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                toaster.show(context.getString(R.string.update_card_downloading), type = ToastType.Info)
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\backup\tabs\WebDavTab.kt:239: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                context.getString(R.string.backup_page_connection_success),
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\backup\tabs\WebDavTab.kt:245: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                context.getString(
+                                ^
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\backup\tabs\WebDavTab.kt:273: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                context.getString(R.string.backup_page_backup_success),
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\backup\tabs\WebDavTab.kt:279: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                it.message ?: context.getString(R.string.backup_page_unknown_error),
+                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\backup\tabs\WebDavTab.kt:341: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                                context.getString(R.string.backup_page_delete_success),
+                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\backup\tabs\WebDavTab.kt:348: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                                context.getString(
+                                                ^
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\backup\tabs\WebDavTab.kt:363: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                                context.getString(R.string.backup_page_restore_success),
+                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\backup\tabs\WebDavTab.kt:371: Error: Querying resource values using LocalContext.current is not configuration-aware and may return stale values if the Configuration changes [LocalContextGetResourceValueCall from androidx.compose.ui]
+                                                context.getString(
+                                                ^
+
+   Explanation for issues of type "LocalContextGetResourceValueCall":
+   Changes to the Configuration object will not cause LocalContext.current
+   reads to be invalidated, so calls to APIs such as Context.getString() will
+   not be updated when the Configuration changes, and so stale values might be
+   used. Instead, you can use Compose APIs such as stringResource,
+   colorResource, and painterResource - or LocalResources.current and query
+   properties from Resources directly. Using these APIs will invalidate
+   callers when the Configuration changes, to ensure that these calls reflect
+   the latest values.
+
+   Vendor: Jetpack Compose
+   Identifier: androidx.compose.ui
+   Feedback: https://issuetracker.google.com/issues/new?component=612128
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\components\ui\ReorderableDrag.kt:27: Warning: Modifier factory functions should be extensions on Modifier [ModifierFactoryExtensionFunction from androidx.compose.ui]
+fun ReorderableCollectionItemScope.longPressReorder(
+                                   ~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\components\ui\ReorderableDrag.kt:45: Warning: Modifier factory functions should be extensions on Modifier [ModifierFactoryExtensionFunction from androidx.compose.ui]
+fun ReorderableListItemScope.longPressReorder(
+                             ~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ModifierFactoryExtensionFunction":
+   Modifier factory functions should be defined as extension functions on
+   Modifier to allow modifiers to be fluently chained.
+
+   Vendor: Jetpack Compose
+   Identifier: androidx.compose.ui
+   Feedback: https://issuetracker.google.com/issues/new?component=612128
+
+C:\Users\Hfff\.gradle\caches\9.6.0\transforms\d5752d6441a49c9b57f8f1824c642e4c\transformed\terminal-emulator-0.118.0\jni\arm64-v8a\libtermux.so: Warning: The native library arm64-v8a/libtermux.so (from com.termux.termux-app:terminal-emulator:0.118.0) is not 16 KB aligned [Aligned16KB]
+C:\Users\Hfff\.gradle\caches\9.6.0\transforms\d5752d6441a49c9b57f8f1824c642e4c\transformed\terminal-emulator-0.118.0\jni\arm64-v8a\libtermux.so: Warning: The native library arm64-v8a/libtermux.so (from com.termux.termux-app:terminal-emulator:0.118.0) is not 16 KB aligned [Aligned16KB]
+C:\Users\Hfff\.gradle\caches\9.6.0\transforms\d5752d6441a49c9b57f8f1824c642e4c\transformed\terminal-emulator-0.118.0\jni\arm64-v8a\libtermux.so: Warning: The native library arm64-v8a/libtermux.so (from com.termux.termux-app:terminal-emulator:0.118.0) is not 16 KB aligned [Aligned16KB]
+
+   Explanation for issues of type "Aligned16KB":
+   Android has traditionally used 4 KB memory page sizes. However, to support
+   future devices that only work with 16 KB aligned libraries apps containing
+   native libraries need to be built with 16 KB alignment.
+
+   Apps with 4 KB aligned native libraries may not work correctly on devices
+   requiring 16 KB alignment. To ensure compatibility and future-proof your
+   app, it is strongly recommended that your native libraries are aligned to
+   16 KB boundaries.
+
+   If your app uses any NDK libraries, directly or indirectly through an SDK,
+   you should rebuild your app to meet this recommendation. Make sure all
+   native libraries within your application, including those from
+   dependencies, are built with 16 KB page alignment.
+
+   This lint check looks at all native libraries that your app depends on. If
+   any are found to be aligned to 4 KB instead of 16 KB, you will need to
+   address this.
+
+   When a library is flagged, first try to update to a newer version that
+   supports 16 KB alignment. If an updated version is not available, contact
+   the library vendor to ask about their plans for 16 KB support and request a
+   compatible version. Updating your libraries proactively will help ensure
+   your app works properly on a wider range of devices.
+
+   https://developer.android.com/guide/practices/page-sizes
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:176: Error: "backup_page_credentials_notice" is not translated in "ar" (Arabic), "ru" (Russian), "ko" (Korean), "ja" (Japanese) [MissingTranslation]
+  <string name="backup_page_credentials_notice">Backups exclude API keys, custom headers, endpoint addresses, and service credentials. Configure connections again after restoring. The Web server stays off after restore.</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:284: Error: "chat_page_export_include_reasoning" is not translated in "ar" (Arabic), "ru" (Russian), "ko" (Korean), "ja" (Japanese) [MissingTranslation]
+  <string name="chat_page_export_include_reasoning">Export Reasoning</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1259: Error: "common_delete_confirm_message" is not translated in "ar" (Arabic), "ru" (Russian), "ko" (Korean), "ja" (Japanese), "zh" (Chinese) [MissingTranslation]
+  <string name="common_delete_confirm_message">Are you sure you want to delete "%s"? This action cannot be undone.</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "MissingTranslation":
+   If an application has more than one locale, then all the strings declared
+   in one language should also be translated in all other languages.
+
+   If the string should not be translated, you can add the attribute
+   translatable="false" on the <string> element, or you can define all your
+   non-translatable strings in a resource file called donottranslate.xml. Or,
+   you can ignore the issue with a tools:ignore="MissingTranslation"
+   attribute.
+
+   You can tell lint (and other tools) which language is the default language
+   in your res/values/ folder by specifying tools:locale="languageCode" for
+   the root <resources> element in your resource file. (The tools prefix
+   refers to the namespace declaration http://schemas.android.com/tools.)
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:949: Warning: "Avaliable" is a common misspelling; did you mean "Available"? [Typos]
+  <string name="setting_provider_page_avaliable_models">Avaliable Models</string>
+                                                        ~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:978: Warning: Did you mean "central!" instead of "central1"? [Typos]
+  <string name="setting_provider_page_location">Location (e.g. us-central1)</string>
+                                                                  ~~~~~~~~
+
+   Explanation for issues of type "Typos":
+   This check looks through the string definitions, and if it finds any words
+   that look like likely misspellings, they are flagged.
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:95: Warning: Formatting %d followed by words ("tokens"): This should probably be a plural rather than a string [PluralsCandidate]
+  <string name="assistant_page_max_tokens_limit">Limit: %d tokens</string>
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:196: Warning: Formatting %d followed by words ("days"): This should probably be a plural rather than a string [PluralsCandidate]
+  <string name="backup_page_reminder_interval_days">%1$d days</string>
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:197: Warning: Formatting %d followed by words ("days"): This should probably be a plural rather than a string [PluralsCandidate]
+  <string name="backup_page_reminder_last_days">Last backup %1$d days ago</string>
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:231: Warning: Formatting %d followed by words ("more"): This should probably be a plural rather than a string [PluralsCandidate]
+  <string name="chain_of_thought_show_more_steps">Show %d more steps</string>
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:238: Warning: Formatting %d followed by words ("questions"): This should probably be a plural rather than a string [PluralsCandidate]
+  <string name="chat_message_tool_ask_questions">Ask %d questions</string>
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:256: Warning: Formatting %d followed by words ("results"): This should probably be a plural rather than a string [PluralsCandidate]
+  <string name="chat_message_tool_search_results_count">%1$d results</string>
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:293: Warning: Formatting %d followed by words ("messages"): This should probably be a plural rather than a string [PluralsCandidate]
+  <string name="chat_page_message_count">%d messages</string>
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:307: Warning: Formatting %d followed by words ("Citations"): This should probably be a plural rather than a string [PluralsCandidate]
+  <string name="citations_count">%1$d Citations</string>
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:500: Warning: Formatting %d followed by words ("entries"): This should probably be a plural rather than a string [PluralsCandidate]
+  <string name="prompt_page_entries_count_format">%d entries</string>
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:746: Warning: Formatting %d followed by words ("days"): This should probably be a plural rather than a string [PluralsCandidate]
+  <string name="setting_files_page_clean_older_than_days">Older than %1$d days</string>
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:827: Warning: Formatting %d followed by words ("files"): This should probably be a plural rather than a string [PluralsCandidate]
+  <string name="setting_page_chat_storage_desc">%1$d files, %2$.2f MB</string>
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:979: Warning: Formatting %d followed by words ("models"): This should probably be a plural rather than a string [PluralsCandidate]
+  <string name="setting_provider_page_model_count">%d models</string>
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1228: Warning: Formatting %d followed by words ("items"): This should probably be a plural rather than a string [PluralsCandidate]
+  <string name="workspace_detail_extracting">Extracting %1$d items%2$s</string>
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1272: Warning: Formatting %d followed by words ("items"): This should probably be a plural rather than a string [PluralsCandidate]
+  <string name="tool_ui_list_files_items">%1$d items: %2$s</string>
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1323: Warning: Formatting %d followed by words ("days"): This should probably be a plural rather than a string [PluralsCandidate]
+  <string name="setting_update_reminder_pause_days">%1$d days</string>
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "PluralsCandidate":
+   This lint check looks for potential errors in internationalization where
+   you have translated a message which involves a quantity and it looks like
+   other parts of the string may need grammatical changes.
+
+   For example, rather than something like this:
+     <string name="try_again">Try again in %d seconds.</string>
+   you should be using a plural:
+      <plurals name="try_again">
+           <item quantity="one">Try again in %d second</item>
+           <item quantity="other">Try again in %d seconds</item>
+       </plurals>
+   This will ensure that in other languages the right set of translations are
+   provided for the different quantity classes.
+
+   (This check depends on some heuristics, so it may not accurately determine
+   whether a string really should be a quantity. You can use tools:ignore to
+   filter out false positives.
+
+   https://developer.android.com/guide/topics/resources/string-resource.html#Plurals
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\debug\res\mipmap-anydpi-v26: Warning: This folder configuration (v26) is unnecessary; minSdkVersion is 26. Merge all the resources in this folder into mipmap-anydpi. [ObsoleteSdkInt]
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\mipmap-anydpi-v26: Warning: This folder configuration (v26) is unnecessary; minSdkVersion is 26. Merge all the resources in this folder into mipmap-anydpi. [ObsoleteSdkInt]
+
+   Explanation for issues of type "ObsoleteSdkInt":
+   This check flags version checks that are not necessary, because the
+   minSdkVersion (or surrounding known API level) is already at least as high
+   as the version checked for.
+
+   Similarly, it also looks for resources in -vNN folders, such as values-v14
+   where the version qualifier is less than or equal to the minSdkVersion,
+   where the contents should be merged into the best folder.
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\feature\diagnostics\Diagnostics.kt:19: Warning: Do not place Android context classes in static fields (static reference to Diagnostics which has field app pointing to Context); this is a memory leak [StaticFieldLeak]
+/** Deliberately accepts no free-form exception, URL, header, file name or user identifier. */
+^
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\feature\diagnostics\Diagnostics.kt:27: Warning: Do not place Android context classes in static fields; this is a memory leak [StaticFieldLeak]
+    private var app: Context? = null
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "StaticFieldLeak":
+   A static field will leak contexts.
+
+   Non-static inner classes have an implicit reference to their outer class.
+   If that outer class is for example a Fragment or Activity, then this
+   reference means that the long-running handler/loader/task will hold a
+   reference to the activity which prevents it from getting garbage
+   collected.
+
+   Similarly, direct field references to activities and fragments from these
+   longer running instances can cause leaks.
+
+   ViewModel classes should never point to Views or non-application Contexts.
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\components\table\DataTable.kt:81: Hint: This initialization lambda ({ 0 }) is unnecessary and is less efficient [UnnecessaryArrayInit]
+            val colWidths = IntArray(columnCount) { 0 }
+                                                  ~~~~~
+
+   Explanation for issues of type "UnnecessaryArrayInit":
+   When constructing an array in Kotlin, you don't need to pass a lambda to
+   set the initial value if it's identical to the default or if you're going
+   to overwrite all the values without reading them anyway.
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\components\easteregg\EmojiBurst.kt:37: Hint: Prefer mutableLongStateOf instead of mutableStateOf [AutoboxingStateCreation from androidx.compose.runtime]
+    var nextId by remember { mutableStateOf(0L) }
+                             ~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\pages\setting\SettingPreferencesNotificationPage.kt:55: Hint: Prefer mutableIntStateOf instead of mutableStateOf [AutoboxingStateCreation from androidx.compose.runtime]
+    var selectedUpdatePauseDays by remember { mutableStateOf(UPDATE_PAUSE_DAY_OPTIONS.first()) }
+                                              ~~~~~~~~~~~~~~
+
+   Explanation for issues of type "AutoboxingStateCreation":
+   Calling mutableStateOf<T>() when T is either backed by a primitive type on
+   the JVM or is a value class results in a state implementation that requires
+   all state values to be boxed. This usually causes an additional allocation
+   for each state write, and adds some additional work to auto-unbox values
+   when reading the value of the state. Instead, prefer to use a specialized
+   primitive state implementation for Int, Long, Float, and Double when the
+   state does not need to track null values and does not override the default
+   SnapshotMutationPolicy. See mutableIntStateOf(), mutableLongStateOf(),
+   mutableFloatStateOf(), and mutableDoubleStateOf() for more information.
+
+   Vendor: Jetpack Compose
+   Identifier: androidx.compose.runtime
+   Feedback: https://issuetracker.google.com/issues/new?component=612128
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\colors.xml:3: Warning: The resource R.color.purple_200 appears to be unused [UnusedResources]
+  <color name="purple_200">#FFBB86FC</color>
+         ~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\colors.xml:4: Warning: The resource R.color.purple_500 appears to be unused [UnusedResources]
+  <color name="purple_500">#FF6200EE</color>
+         ~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\colors.xml:5: Warning: The resource R.color.purple_700 appears to be unused [UnusedResources]
+  <color name="purple_700">#FF3700B3</color>
+         ~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\colors.xml:6: Warning: The resource R.color.teal_200 appears to be unused [UnusedResources]
+  <color name="teal_200">#FF03DAC5</color>
+         ~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\colors.xml:7: Warning: The resource R.color.teal_700 appears to be unused [UnusedResources]
+  <color name="teal_700">#FF018786</color>
+         ~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\colors.xml:9: Warning: The resource R.color.white appears to be unused [UnusedResources]
+  <color name="white">#FFFFFFFF</color>
+         ~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\drawable\patreon.xml:1: Warning: The resource R.drawable.patreon appears to be unused [UnusedResources]
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+^
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:41: Warning: The resource R.string.assistant_page_actions appears to be unused [UnusedResources]
+  <string name="assistant_page_actions">Actions</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:54: Warning: The resource R.string.assistant_page_balanced appears to be unused [UnusedResources]
+  <string name="assistant_page_balanced">Balanced</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:59: Warning: The resource R.string.assistant_page_chaotic appears to be unused [UnusedResources]
+  <string name="assistant_page_chaotic">Chaotic (Dangerous)</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:66: Warning: The resource R.string.assistant_page_creative appears to be unused [UnusedResources]
+  <string name="assistant_page_creative">Creative</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:99: Warning: The resource R.string.assistant_page_memory_count appears to be unused [UnusedResources]
+  <string name="assistant_page_memory_count">Memory: %d</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:127: Warning: The resource R.string.assistant_page_strict appears to be unused [UnusedResources]
+  <string name="assistant_page_strict">Strict</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:150: Warning: The resource R.string.assistant_page_top_p_value appears to be unused [UnusedResources]
+  <string name="assistant_page_top_p_value">Top P: %s</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:175: Warning: The resource R.string.backup_page_export_desc appears to be unused [UnusedResources]
+  <string name="backup_page_export_desc">Export app data to a file</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:177: Warning: The resource R.string.backup_page_exporting appears to be unused [UnusedResources]
+  <string name="backup_page_exporting">Exporting...</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:179: Warning: The resource R.string.backup_page_import_chatbox_desc appears to be unused [UnusedResources]
+  <string name="backup_page_import_chatbox_desc">Import ChatBox provider configurations and full chat history</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:180: Warning: The resource R.string.backup_page_import_cherry_studio_desc appears to be unused [UnusedResources]
+  <string name="backup_page_import_cherry_studio_desc">Import Cherry Studio provider configurations</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:181: Warning: The resource R.string.backup_page_import_desc appears to be unused [UnusedResources]
+  <string name="backup_page_import_desc">Import local backup file</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:183: Warning: The resource R.string.backup_page_import_from_chatbox appears to be unused [UnusedResources]
+  <string name="backup_page_import_from_chatbox">Import from ChatBox</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:184: Warning: The resource R.string.backup_page_import_from_cherry_studio appears to be unused [UnusedResources]
+  <string name="backup_page_import_from_cherry_studio">Import from Cherry Studio</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:185: Warning: The resource R.string.backup_page_import_from_other_app appears to be unused [UnusedResources]
+  <string name="backup_page_import_from_other_app">Import from other app</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:186: Warning: The resource R.string.backup_page_importing appears to be unused [UnusedResources]
+  <string name="backup_page_importing">Importing...</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:188: Warning: The resource R.string.backup_page_local_backup_export appears to be unused [UnusedResources]
+  <string name="backup_page_local_backup_export">Export to File</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:189: Warning: The resource R.string.backup_page_local_backup_import appears to be unused [UnusedResources]
+  <string name="backup_page_local_backup_import">Import from File</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:225: Warning: The resource R.string.built_in_search_description appears to be unused [UnusedResources]
+  <string name="built_in_search_description">Enable model\'s built-in search functionality</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:226: Warning: The resource R.string.built_in_search_title appears to be unused [UnusedResources]
+  <string name="built_in_search_title">Built-in Search</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:389: Warning: The resource R.string.imggen_page_aspect_ratio appears to be unused [UnusedResources]
+  <string name="imggen_page_aspect_ratio">Image Aspect Ratio</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:390: Warning: The resource R.string.imggen_page_aspect_ratio_desc appears to be unused [UnusedResources]
+  <string name="imggen_page_aspect_ratio_desc">Select aspect ratio for generated images</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:391: Warning: The resource R.string.imggen_page_aspect_ratio_landscape appears to be unused [UnusedResources]
+  <string name="imggen_page_aspect_ratio_landscape">16:9 Landscape</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:392: Warning: The resource R.string.imggen_page_aspect_ratio_portrait appears to be unused [UnusedResources]
+  <string name="imggen_page_aspect_ratio_portrait">9:16 Portrait</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:393: Warning: The resource R.string.imggen_page_aspect_ratio_square appears to be unused [UnusedResources]
+  <string name="imggen_page_aspect_ratio_square">1:1 Square</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:404: Warning: The resource R.string.imggen_page_model_selection appears to be unused [UnusedResources]
+  <string name="imggen_page_model_selection">Model Selection</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:405: Warning: The resource R.string.imggen_page_model_selection_desc appears to be unused [UnusedResources]
+  <string name="imggen_page_model_selection_desc">Select AI model for image generation</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:494: Warning: The resource R.string.prompt_page_edit appears to be unused [UnusedResources]
+  <string name="prompt_page_edit">Edit</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:538: Warning: The resource R.string.reasoning_auto_desc appears to be unused [UnusedResources]
+  <string name="reasoning_auto_desc">Let the model automatically determine reasoning level.</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:539: Warning: The resource R.string.reasoning_custom appears to be unused [UnusedResources]
+  <string name="reasoning_custom">Custom reasoning budget</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:541: Warning: The resource R.string.reasoning_heavy_desc appears to be unused [UnusedResources]
+  <string name="reasoning_heavy_desc">The model will use a large amount of reasoning to answer questions.</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:543: Warning: The resource R.string.reasoning_light_desc appears to be unused [UnusedResources]
+  <string name="reasoning_light_desc">The model will use a small amount of reasoning to answer questions.</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:545: Warning: The resource R.string.reasoning_medium_desc appears to be unused [UnusedResources]
+  <string name="reasoning_medium_desc">The model will use more reasoning to answer questions.</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:548: Warning: The resource R.string.reasoning_off_desc appears to be unused [UnusedResources]
+  <string name="reasoning_off_desc">Turn off reasoning functionality, the model will directly answer questions.</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:555: Warning: The resource R.string.rikkahub_provider_description appears to be unused [UnusedResources]
+  <string name="rikkahub_provider_description">Official free AI service, using user sponsorship funds to provide some free models for new users as fallback, no API key required. Has strict rate limits, if you have purchased your own provider, please use your own provider as much as possible.</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:691: Warning: The resource R.string.setting_display_page_enable_blur_effect_desc appears to be unused [UnusedResources]
+  <string name="setting_display_page_enable_blur_effect_desc">Enable blur effect on chat input bar</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:692: Warning: The resource R.string.setting_display_page_enable_blur_effect_title appears to be unused [UnusedResources]
+  <string name="setting_display_page_enable_blur_effect_title">Enable Blur Effect</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:724: Warning: The resource R.string.setting_display_page_show_updates_desc appears to be unused [UnusedResources]
+  <string name="setting_display_page_show_updates_desc">Whether to display app update notifications</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:730: Warning: The resource R.string.setting_display_page_title appears to be unused [UnusedResources]
+  <string name="setting_display_page_title">Display Settings</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:743: Warning: The resource R.string.setting_files_page_clean_confirmation appears to be unused [UnusedResources]
+  <string name="setting_files_page_clean_confirmation">All files in this category will be permanently deleted. This action cannot be undone.</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:805: Warning: The resource R.string.setting_model_page_suggestion_model appears to be unused [UnusedResources]
+  <string name="setting_model_page_suggestion_model">Chat Suggestion Model</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:806: Warning: The resource R.string.setting_model_page_suggestion_model_desc appears to be unused [UnusedResources]
+  <string name="setting_model_page_suggestion_model_desc">Model used to generate conversation suggestions. If not set, uses the fast model</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:809: Warning: The resource R.string.setting_model_page_title_model appears to be unused [UnusedResources]
+  <string name="setting_model_page_title_model">Title Summary Model</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:810: Warning: The resource R.string.setting_model_page_title_model_desc appears to be unused [UnusedResources]
+  <string name="setting_model_page_title_model_desc">Model used to summarize conversation titles. If not set, uses the fast model</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:841: Warning: The resource R.string.setting_page_display_setting appears to be unused [UnusedResources]
+  <string name="setting_page_display_setting">Display Settings</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:842: Warning: The resource R.string.setting_page_display_setting_desc appears to be unused [UnusedResources]
+  <string name="setting_page_display_setting_desc">Manage display settings</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:871: Warning: The resource R.string.setting_page_interaction_notification_settings appears to be unused [UnusedResources]
+  <string name="setting_page_interaction_notification_settings">Interaction &amp;amp; Notifications</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:884: Warning: The resource R.string.setting_page_search_delete_provider appears to be unused [UnusedResources]
+  <string name="setting_page_search_delete_provider">Delete Provider</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1030: Warning: The resource R.string.setting_tts_page_emotion appears to be unused [UnusedResources]
+  <string name="setting_tts_page_emotion">Emotion</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1031: Warning: The resource R.string.setting_tts_page_emotion_description appears to be unused [UnusedResources]
+  <string name="setting_tts_page_emotion_description">Emotion style for speech synthesis</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1036: Warning: The resource R.string.setting_tts_page_more_options_content_description appears to be unused [UnusedResources]
+  <string name="setting_tts_page_more_options_content_description">More options</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1060: Warning: The resource R.string.setting_tts_page_title appears to be unused [UnusedResources]
+  <string name="setting_tts_page_title">Text-to-Speech</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1094: Warning: The resource R.string.skills_page_more_actions appears to be unused [UnusedResources]
+  <string name="skills_page_more_actions">More actions</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1211: Warning: The resource R.string.workspace_detail_tool_list_files appears to be unused [UnusedResources]
+  <string name="workspace_detail_tool_list_files">List Files</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1215: Warning: The resource R.string.workspace_detail_tool_delete_file appears to be unused [UnusedResources]
+  <string name="workspace_detail_tool_delete_file">Delete File</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1216: Warning: The resource R.string.workspace_detail_tool_move_file appears to be unused [UnusedResources]
+  <string name="workspace_detail_tool_move_file">Move File</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1230: Warning: The resource R.string.workspace_terminal_title appears to be unused [UnusedResources]
+  <string name="workspace_terminal_title">Terminal</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1231: Warning: The resource R.string.workspace_terminal_title_with_name appears to be unused [UnusedResources]
+  <string name="workspace_terminal_title_with_name">%s · Terminal</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1269: Warning: The resource R.string.tool_ui_list_files appears to be unused [UnusedResources]
+  <string name="tool_ui_list_files">List: %s</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1270: Warning: The resource R.string.tool_ui_list_files_default appears to be unused [UnusedResources]
+  <string name="tool_ui_list_files_default">List files</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1271: Warning: The resource R.string.tool_ui_list_files_empty appears to be unused [UnusedResources]
+  <string name="tool_ui_list_files_empty">Empty</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1272: Warning: The resource R.string.tool_ui_list_files_items appears to be unused [UnusedResources]
+  <string name="tool_ui_list_files_items">%1$d items: %2$s</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1273: Warning: The resource R.string.tool_ui_delete_file appears to be unused [UnusedResources]
+  <string name="tool_ui_delete_file">Delete: %s</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1274: Warning: The resource R.string.tool_ui_delete_file_default appears to be unused [UnusedResources]
+  <string name="tool_ui_delete_file_default">Delete file</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1275: Warning: The resource R.string.tool_ui_deleted appears to be unused [UnusedResources]
+  <string name="tool_ui_deleted">Deleted %s</string>
+          ~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1276: Warning: The resource R.string.tool_ui_delete_failed appears to be unused [UnusedResources]
+  <string name="tool_ui_delete_failed">Failed to delete %s</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1277: Warning: The resource R.string.tool_ui_move_file appears to be unused [UnusedResources]
+  <string name="tool_ui_move_file">Move file</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1314: Warning: The resource R.string.assistant_page_context_message_limit_count appears to be unused [UnusedResources]
+  <string name="assistant_page_context_message_limit_count">Context message limit: %d</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1315: Warning: The resource R.string.assistant_page_context_message_limit_unlimited appears to be unused [UnusedResources]
+  <string name="assistant_page_context_message_limit_unlimited">Unlimited context messages</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1317: Warning: The resource R.string.assistant_page_context_message_limit_too_small appears to be unused [UnusedResources]
+  <string name="assistant_page_context_message_limit_too_small">The context message limit cannot be less than %1$d. It has been reset to %1$d.</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1325: Warning: The resource R.string.backup_page_import_overwrite_confirm appears to be unused [UnusedResources]
+  <string name="backup_page_import_overwrite_confirm">Importing a backup will overwrite app data. Continue?</string>
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests=true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests=true.
+
+   Available options:
+
+   **skip-libraries** (default is true):
+   Whether the unused resource check should skip reporting unused resources in libraries.
+
+   Many libraries will declare resources that are part of the library surface; other modules depending on the library will also reference the resources. To avoid reporting all these resources as unused (in the context of a library), the unused resource check normally skips reporting unused resources in libraries. Instead, run the unused resource check on the consuming app module (along with `checkDependencies=true`).
+
+   However, there are cases where you want to check that all the resources declared in a library are used; in that case, you can disable the skip option.
+
+   To configure this option, use a `lint.xml` file with an <option> like this:
+
+   ```xml
+   <lint>
+       <issue id="UnusedResources">
+           <option name="skip-libraries" value="true" />
+       </issue>
+   </lint>
+   ```
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\feature\diagnostics\Diagnostics.kt:154: Warning: Consider also using StorageManager#getAllocatableBytes and allocateBytes which will consider clearable cached data [UsableSpace]
+                    .put("freeStorageBytes", context.filesDir.usableSpace)
+                                                              ~~~~~~~~~~~
+
+   Explanation for issues of type "UsableSpace":
+   When you need to allocate disk space for large files, consider using the
+   new allocateBytes(FileDescriptor, long) API, which will automatically clear
+   cached files belonging to other apps (as needed) to meet your request.
+
+   When deciding if the device has enough disk space to hold your new data,
+   call getAllocatableBytes(UUID) instead of using getUsableSpace(), since the
+   former will consider any cached data that the system is willing to clear on
+   your behalf.
+
+   Note that these methods require API level 26. If your app is running on
+   older devices, you will probably need to use both APIs, conditionally
+   switching on Build.VERSION.SDK_INT. Lint only looks in the same compilation
+   unit to see if you are already using both APIs, so if it warns even though
+   you are already using the new API, consider moving the calls to the same
+   file or suppressing the warning.
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\components\ui\Switch.kt:112: Warning: State backed values should use the lambda overload of Modifier.offset [UseOfNonLambdaOffsetOverload from androidx.compose.foundation]
+                .offset(x = thumbOffset)
+                 ~~~~~~
+
+   Explanation for issues of type "UseOfNonLambdaOffsetOverload":
+   Modifier.offset() is recommended to be used with static arguments only to
+   avoid unnecessary recompositions. Modifier.offset{ } is preferred in the
+   cases where the arguments are backed by a State.
+
+   Vendor: Jetpack Compose
+   Identifier: androidx.compose.foundation
+   Feedback: https://issuetracker.google.com/issues/new?component=612128
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:618: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_asr_configure_vad_desc">서버 VAD 민감도, 보통 0.3 - 0.8</string>
+                                                ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:618: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_asr_configure_vad_desc">伺服器 VAD 靈敏度，通常為 0.3 - 0.8</string>
+                                                ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:628: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_asr_configure_vad_desc">服务器 VAD 灵敏度，通常为 0.3 - 0.8</string>
+                                                ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:635: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_asr_configure_vad_desc">Server VAD sensitivity, usually 0.3 - 0.8</string>
+                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:860: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_page_web_server_port_desc">網頁伺服器監聽連接埠（1024-65535）</string>
+                                                   ~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:862: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_page_web_server_port_desc">Webサーバーリスンポート（1024-65535）</string>
+                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:862: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_page_web_server_port_desc">웹 서버 수신 포트(1024-65535)</string>
+                                                   ~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ru\strings.xml:862: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_page_web_server_port_desc">Порт веб-сервера (1024-65535)</string>
+                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:905: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_page_web_server_port_desc">Web服务器监听端口（1024-65535）</string>
+                                                   ~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:935: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_page_web_server_port_desc">Web server listen port (1024-65535)</string>
+                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:964: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_pitch_description">控制語音音調高低 (0.1 - 2.0，1.0為正常音調)</string>
+                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:966: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_pitch_description">音声のピッチを制御 (0.1 - 2.0、1.0が標準)</string>
+                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:966: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_pitch_description">말하기 피치 제어 (0.1 - 2.0, 1.0은 일반)</string>
+                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:972: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_similarity_boost_description">控制語音與原始聲音的匹配程度（0.0 - 1.0）</string>
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:974: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_similarity_boost_description">元の声との一致度を制御（0.0 - 1.0）</string>
+                                                               ~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:974: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_similarity_boost_description">음성이 원본과 얼마나 일치하는지 제어 (0.0 - 1.0)</string>
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ru\strings.xml:974: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_similarity_boost_description">Управление степенью совпадения голоса с оригиналом (0.0 - 1.0)</string>
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:975: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_stability_description">控制語音的穩定度（0.0 - 1.0，越低越有表現力）</string>
+                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:976: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_speech_rate_description">控制語音播放速度 (0.1 - 3.0，1.0為正常速度)</string>
+                                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:977: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_stability_description">音声の安定性を制御（0.0 - 1.0、低いほど表現力豊か）</string>
+                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:977: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_stability_description">음성의 안정성 제어 (0.0 - 1.0, 낮을수록 더 표현력 풍부)</string>
+                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ru\strings.xml:977: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_stability_description">Контроль стабильности голоса (0.0 - 1.0, ниже — выразительнее)</string>
+                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:978: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_speech_rate_description">音声の再生速度を制御 (0.1 - 3.0、1.0が標準)</string>
+                                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:978: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_speech_rate_description">말하기 속도 제어 (0.1 - 3.0, 1.0은 일반)</string>
+                                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:978: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_speed_description">語音合成速度 (0.25 - 4.0)</string>
+                                                    ~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:980: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_speed_description">音声合成の速度 (0.25 - 4.0)</string>
+                                                    ~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:980: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_speed_description">말하기 속도 (0.25 - 4.0)</string>
+                                                    ~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:1009: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_pitch_description">控制语音音调高低 (0.1 - 2.0，1.0为正常音调)</string>
+                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:1017: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_similarity_boost_description">控制语音与原始声音的匹配程度（0.0 - 1.0）</string>
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:1020: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_stability_description">控制语音的稳定度（0.0 - 1.0，越低越有表现力）</string>
+                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:1022: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_temperature_description">控制语音的随机性（0.0 - 1.0，越高越有表现力）</string>
+                                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:1023: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_fish_audio_speed_description">语音速度（0.5 - 2.0，1.0 为正常语速）</string>
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:1024: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_speech_rate_description">控制语音播放速度 (0.1 - 3.0，1.0为正常速度)</string>
+                                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:1026: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_speed_description">语音合成速度 (0.25 - 4.0)</string>
+                                                    ~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:1032: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_page_web_server_port_desc">منفذ استماع خادم الويب (1024-65535)</string>
+                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1041: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_pitch_description">Control the pitch of speech (0.1 - 2.0, 1.0 is normal)</string>
+                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1049: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_similarity_boost_description">Control how closely the voice matches the original (0.0 - 1.0)</string>
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1052: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_stability_description">Control the stability of the voice (0.0 - 1.0, lower is more expressive)</string>
+                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1054: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_temperature_description">Control the randomness of the voice (0.0 - 1.0, higher is more expressive)</string>
+                                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1055: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_fish_audio_speed_description">Speech speed (0.5 - 2.0, 1.0 is normal)</string>
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1056: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_speech_rate_description">Control the speed of speech (0.1 - 3.0, 1.0 is normal)</string>
+                                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1058: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_speed_description">Speech speed (0.25 - 4.0)</string>
+                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:1153: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_fish_audio_speed_description">سرعة الكلام (0.5 - 2.0، 1.0 عادي)</string>
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:1163: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_pitch_description">التحكم في طبقة الصوت للنطق (0.1 - 2.0، 1.0 هو الوضع الطبيعي)</string>
+                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:1171: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_similarity_boost_description">تحكم في مدى تطابق الصوت مع الأصل (0.0 - 1.0)</string>
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:1173: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_speech_rate_description">التحكم في سرعة الكلام (0.1 - 3.0، 1.0 عادي)</string>
+                                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:1175: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_speed_description">سرعة الكلام (0.25 - 4.0)</string>
+                                                    ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:1177: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_stability_description">تحكم في استقرار الصوت (0.0 - 1.0، القيمة الأقل أكثر تعبيرًا)</string>
+                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:1179: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_temperature_description">تحكم في عشوائية الصوت (0.0 - 1.0، القيمة الأعلى أكثر تعبيرًا)</string>
+                                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:1383: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_temperature_description">控制語音的隨機性（0.0 - 1.0，數值越高越有表現力）</string>
+                                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:1384: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_fish_audio_speed_description">語速（0.5 - 2.0，1.0 為正常）</string>
+                                                               ~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:1385: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_temperature_description">音声のランダム性を制御します（0.0 - 1.0、大きいほど表現豊かになります）</string>
+                                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:1385: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_temperature_description">음성의 무작위성을 제어합니다 (0.0 - 1.0, 높을수록 더 표현력이 풍부합니다)</string>
+                                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:1386: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_fish_audio_speed_description">話速（0.5 - 2.0、1.0が標準）</string>
+                                                               ~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:1386: Warning: Replace "-" with an "en dash" character (–, &#8211;) ? [TypographyDashes]
+  <string name="setting_tts_page_fish_audio_speed_description">음성 속도 (0.5 - 2.0, 1.0이 기본)</string>
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "TypographyDashes":
+   The "n dash" (u2013, &#8211;) and the "m dash" (u2014, &#8212;) characters
+   are used for ranges (n dash) and breaks (m dash). Using these instead of
+   plain hyphens can make text easier to read and your application will look
+   more polished.
+
+   https://en.wikipedia.org/wiki/Dash
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:34: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="assistant_importer_importing">جارٍ الاستيراد...</string>
+                                              ~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:34: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="assistant_importer_importing">インポート中...</string>
+                                              ~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:34: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="assistant_importer_importing">가져오는 중...</string>
+                                              ~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:34: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="assistant_importer_importing">匯入中...</string>
+                                              ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:34: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="assistant_importer_importing">导入中...</string>
+                                              ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:34: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="assistant_importer_importing">Importing...</string>
+                                              ~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:165: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_backing_up">バックアップ中...</string>
+                                        ~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:165: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_backing_up">백업 중...</string>
+                                        ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:165: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_backing_up">備份中...</string>
+                                        ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:165: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_backing_up">备份中...</string>
+                                        ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:165: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_backing_up">Backing up...</string>
+                                        ~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:176: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_exporting">エクスポート中...</string>
+                                       ~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:176: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_exporting">내보내는 중...</string>
+                                       ~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:176: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_exporting">正在導出...</string>
+                                       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:177: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_exporting">正在导出...</string>
+                                       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:177: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_exporting">Exporting...</string>
+                                       ~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:185: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_importing">インポート中...</string>
+                                       ~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:185: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_importing">가져오는 중...</string>
+                                       ~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:185: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_importing">正在恢復...</string>
+                                       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:186: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_importing">正在恢复...</string>
+                                       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:186: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_importing">Importing...</string>
+                                       ~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:187: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_backing_up">جارٍ النسخ الاحتياطي...</string>
+                                        ~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:198: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_exporting">جارٍ التصدير...</string>
+                                       ~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:207: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_restoring">復元中...</string>
+                                       ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:207: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_restoring">복원 중...</string>
+                                       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ru\strings.xml:207: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_restoring">Восстановление...</string>
+                                       ~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:207: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_restoring">恢復中...</string>
+                                       ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:208: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_importing">جارٍ الاستيراد...</string>
+                                       ~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:208: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_restoring">恢复中...</string>
+                                       ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:208: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_restoring">Restoring...</string>
+                                       ~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:224: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="calculating">計算中...</string>
+                             ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:224: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="calculating">계산 중...</string>
+                             ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ru\strings.xml:224: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="calculating">Вычисление...</string>
+                             ~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:224: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="calculating">計算中...</string>
+                             ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:227: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="calculating">计算中...</string>
+                             ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:227: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="calculating">Calculating...</string>
+                             ~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:230: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="backup_page_restoring">جارٍ الاستعادة...</string>
+                                       ~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:249: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="calculating">جارٍ الحساب...</string>
+                             ~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:268: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="chat_page_compressing">압축 중...</string>
+                                       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ru\strings.xml:268: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="chat_page_compressing">Сжатие...</string>
+                                       ~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:268: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="chat_page_compressing">正在壓縮...</string>
+                                       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:271: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="chat_page_compressing">正在压缩...</string>
+                                       ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:271: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="chat_page_compressing">Compressing...</string>
+                                       ~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:303: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="chat_page_compressing">جارٍ الضغط...</string>
+                                       ~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:315: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="db_migrating">데이터베이스 마이그레이션 중...</string>
+                              ~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:315: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="db_migrating">正在移轉資料庫...</string>
+                              ~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:319: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="db_migrating">Migrating database...</string>
+                              ~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:326: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="emoji_picker_search_placeholder">絵文字を検索...</string>
+                                                 ~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:326: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="emoji_picker_search_placeholder">이모지 검색...</string>
+                                                 ~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ru\strings.xml:326: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="emoji_picker_search_placeholder">Поиск эмодзи...</string>
+                                                 ~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:326: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="emoji_picker_search_placeholder">搜尋表情符號...</string>
+                                                 ~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:330: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="emoji_picker_search_placeholder">搜索表情符号...</string>
+                                                 ~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:330: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="emoji_picker_search_placeholder">Search emojis...</string>
+                                                 ~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:402: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="db_migrating">جارٍ ترحيل قاعدة البيانات...</string>
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:402: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="imggen_page_prompt_placeholder">生成したい画像を説明してください...</string>
+                                                ~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:402: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="imggen_page_prompt_placeholder">생성하고 싶은 이미지를 설명하세요...</string>
+                                                ~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:402: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="imggen_page_prompt_placeholder">描述您想要生成的圖片...</string>
+                                                ~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:406: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="imggen_page_prompt_placeholder">描述您想要生成的图片...</string>
+                                                ~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:407: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="imggen_page_prompt_placeholder">Describe the image you want to generate...</string>
+                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:413: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="emoji_picker_search_placeholder">ابحث عن الرموز التعبيرية...</string>
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:416: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="mcp_picker_syncing">MCPサーバーを同期中...</string>
+                                    ~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:416: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="mcp_picker_syncing">MCP 서버 동기화 중...</string>
+                                    ~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:416: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="mcp_picker_syncing">正在同步MCP伺服器...</string>
+                                    ~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:420: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="mcp_picker_syncing">正在同步MCP服务器...</string>
+                                    ~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:421: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="mcp_picker_syncing">Syncing MCP servers...</string>
+                                    ~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:438: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="notification_live_update_thinking">생각 중...</string>
+                                                   ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:438: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="notification_live_update_thinking">思考中...</string>
+                                                   ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:441: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="notification_live_update_writing">응답 작성 중...</string>
+                                                  ~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:443: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="notification_web_server_starting">시작 중...</string>
+                                                  ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:443: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="notification_live_update_thinking">Thinking...</string>
+                                                   ~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:444: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="notification_live_update_title">Generating response...</string>
+                                                ~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:446: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="notification_live_update_writing">Writing response...</string>
+                                                  ~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:447: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="notification_web_server_starting">正在启动...</string>
+                                                  ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:448: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="notification_web_server_starting">Starting...</string>
+                                                  ~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:497: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="imggen_page_prompt_placeholder">صف الصورة التي تريد توليدها...</string>
+                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:515: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="mcp_picker_syncing">جارٍ مزامنة خوادم MCP...</string>
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:537: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="notification_live_update_thinking">جارٍ التفكير...</string>
+                                                   ~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:538: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="notification_live_update_title">جارٍ توليد الرد...</string>
+                                                ~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:540: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="notification_live_update_writing">جارٍ كتابة الرد...</string>
+                                                  ~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:542: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="notification_web_server_starting">جارٍ البدء...</string>
+                                                  ~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:580: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="search_page_placeholder">메시지 내용 검색...</string>
+                                         ~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:584: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="search_page_rebuilding">색인 재구성 중 (%1$d / %2$d)...</string>
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:585: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="search_page_rebuilding_simple">색인 재구성 중...</string>
+                                               ~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:591: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="search_page_placeholder">Search message content...</string>
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:595: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="search_page_rebuilding">Rebuilding index (%1$d / %2$d)...</string>
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:596: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="search_page_rebuilding_simple">Rebuilding index...</string>
+                                               ~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:685: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="search_page_placeholder">ابحث في محتوى الرسائل...</string>
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:689: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="search_page_rebuilding">جارٍ إعادة بناء الفهرس (%1$d / %2$d)...</string>
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:690: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="search_page_rebuilding_simple">جارٍ إعادة بناء الفهرس...</string>
+                                               ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:946: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="setting_tts_page_api_key_placeholder_gemini">AIza...</string>
+                                                             ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:947: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="setting_tts_page_api_key_placeholder_openai">sk-...</string>
+                                                             ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:948: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="setting_tts_page_api_key_placeholder_gemini">AIza...</string>
+                                                             ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:948: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="setting_tts_page_api_key_placeholder_gemini">AIza...</string>
+                                                             ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ru\strings.xml:948: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="setting_tts_page_api_key_placeholder_gemini">AIza...</string>
+                                                             ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:949: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="setting_tts_page_api_key_placeholder_openai">sk-...</string>
+                                                             ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:949: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="setting_tts_page_api_key_placeholder_openai">sk-...</string>
+                                                             ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ru\strings.xml:949: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="setting_tts_page_api_key_placeholder_openai">sk-...</string>
+                                                             ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:991: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="setting_tts_page_api_key_placeholder_gemini">AIza...</string>
+                                                             ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:992: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="setting_tts_page_api_key_placeholder_openai">sk-...</string>
+                                                             ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:1008: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="skills_page_downloading">다운로드 중...</string>
+                                         ~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ru\strings.xml:1008: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="skills_page_downloading">Загрузка...</string>
+                                         ~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1021: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="setting_tts_page_api_key_placeholder_gemini">AIza...</string>
+                                                             ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1022: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="setting_tts_page_api_key_placeholder_openai">sk-...</string>
+                                                             ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:1044: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="tag_input_dialog_placeholder">請輸入標籤名稱...</string>
+                                              ~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:1046: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="tag_input_dialog_placeholder">タグ名を入力...</string>
+                                              ~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:1046: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="tag_input_dialog_placeholder">태그 이름 입력...</string>
+                                              ~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ru\strings.xml:1046: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="tag_input_dialog_placeholder">Введите имя тега...</string>
+                                              ~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:1054: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="skills_page_downloading">正在下载...</string>
+                                         ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:1063: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="translating">翻譯中...</string>
+                             ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:1065: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="translating">翻訳中...</string>
+                             ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:1065: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="translating">번역 중...</string>
+                             ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ru\strings.xml:1065: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="translating">Перевод...</string>
+                             ~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh-rTW\strings.xml:1068: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="translator_page_input_placeholder">請輸入要翻譯的文字...</string>
+                                                   ~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ja\strings.xml:1070: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="translator_page_input_placeholder">翻訳するテキストを入力してください...</string>
+                                                   ~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ko-rKR\strings.xml:1070: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="translator_page_input_placeholder">번역할 텍스트를 입력하세요...</string>
+                                                   ~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ru\strings.xml:1070: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="translator_page_input_placeholder">Введите текст для перевода...</string>
+                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1086: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="skills_page_downloading">Downloading...</string>
+                                         ~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:1092: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="tag_input_dialog_placeholder">请输入标签名称...</string>
+                                              ~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:1111: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="translating">翻译中...</string>
+                             ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-zh\strings.xml:1116: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="translator_page_input_placeholder">请输入要翻译的文本...</string>
+                                                   ~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1124: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="tag_input_dialog_placeholder">Enter tag name...</string>
+                                              ~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:1142: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="setting_tts_page_api_key_placeholder_gemini">AIza...</string>
+                                                             ~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:1143: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="setting_tts_page_api_key_placeholder_openai">sk-...</string>
+                                                             ~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1144: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="translating">Translating...</string>
+                             ~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values\strings.xml:1149: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="translator_page_input_placeholder">Enter text to translate...</string>
+                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:1214: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="skills_page_downloading">جارٍ التنزيل...</string>
+                                         ~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:1253: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="tag_input_dialog_placeholder">أدخل اسم الوسم...</string>
+                                              ~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:1297: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="translating">جارٍ الترجمة...</string>
+                             ~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\values-ar\strings.xml:1302: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+  <string name="translator_page_input_placeholder">أدخل النص للترجمة...</string>
+                                                   ~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "TypographyEllipsis":
+   You can replace the string "..." with a dedicated ellipsis character,
+   ellipsis character (u2026, &#8230;). This can help make the text more
+   readable.
+
+   https://en.wikipedia.org/wiki/Ellipsis
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\drawable\kofi.webp: Warning: Found bitmap drawable res/drawable/kofi.webp in densityless folder [IconLocation]
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\drawable\placeholder.png: Warning: Found bitmap drawable res/drawable/placeholder.png in densityless folder [IconLocation]
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\drawable\placeholder_dark.png: Warning: Found bitmap drawable res/drawable/placeholder_dark.png in densityless folder [IconLocation]
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\drawable\siliconflow_dark.png: Warning: Found bitmap drawable res/drawable/siliconflow_dark.png in densityless folder [IconLocation]
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\drawable\siliconflow_light.png: Warning: Found bitmap drawable res/drawable/siliconflow_light.png in densityless folder [IconLocation]
+
+   Explanation for issues of type "IconLocation":
+   The res/drawable folder is intended for density-independent graphics such
+   as shapes defined in XML. For bitmaps, move it to drawable-mdpi and
+   consider providing higher and lower resolution versions in drawable-ldpi,
+   drawable-hdpi and drawable-xhdpi. If the icon really is density independent
+   (for example a solid color) you can place it in drawable-nodpi.
+
+   https://developer.android.com/guide/practices/screens_support.html
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\mipmap-hdpi\ic_launcher_monochrome.png: Warning: The following unrelated icon files have identical contents: ic_launcher_foreground.png, ic_launcher_monochrome.png [IconDuplicates]
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\mipmap-mdpi\ic_launcher_monochrome.png: Warning: The following unrelated icon files have identical contents: ic_launcher_foreground.png, ic_launcher_monochrome.png [IconDuplicates]
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\mipmap-xhdpi\ic_launcher_monochrome.png: Warning: The following unrelated icon files have identical contents: ic_launcher_foreground.png, ic_launcher_monochrome.png [IconDuplicates]
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\mipmap-xxhdpi\ic_launcher_monochrome.png: Warning: The following unrelated icon files have identical contents: ic_launcher_foreground.png, ic_launcher_monochrome.png [IconDuplicates]
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\res\mipmap-xxxhdpi\ic_launcher_monochrome.png: Warning: The following unrelated icon files have identical contents: ic_launcher_foreground.png, ic_launcher_monochrome.png [IconDuplicates]
+
+   Explanation for issues of type "IconDuplicates":
+   If an icon is repeated under different names, you can consolidate and just
+   use one of the icons and delete the others to make your application
+   smaller. However, duplicated icons usually are not intentional and can
+   sometimes point to icons that were accidentally overwritten or accidentally
+   not updated.
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\feature\material\MaterialPdfPages.kt:27: Warning: Use the KTX function createBitmap instead? [UseKtx]
+                val bitmap = Bitmap.createBitmap(maxOf(1, (page.width * scale).toInt()), maxOf(1, (page.height * scale).toInt()), Bitmap.Config.ARGB_8888)
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\feature\material\MaterialWriter.kt:89: Warning: Use the KTX extension function Canvas.withClip instead? [UseKtx]
+                        canvas.save(); canvas.clipRect(x + 6, y + 6, x + width - 6, y + height - 6)
+                        ~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\feature\studychat\OneShotFeedback.kt:38: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
+            override fun record(key: String) = preferences.edit().putBoolean(key, true).commit()
+                                               ~~~~~~~~~~~~~~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\feature\studychat\OneShotFeedback.kt:39: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
+            override fun clear() { check(preferences.edit().clear().commit()) }
+                                         ~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UseKtx":
+   The Android KTX libraries decorates the Android platform SDK as well as
+   various libraries with more convenient extension functions available from
+   Kotlin, allowing you to use default parameters, named parameters, and
+   more.
+
+   Available options:
+
+   **remove-defaults** (default is true):
+   Whether to skip arguments that match the defaults provided by the extension.
+
+   Extensions often provide default values for some of the parameters. For example:
+   ```kotlin
+   fun Path.readLines(charset: Charset = Charsets.UTF_8): List<String> { return Files.readAllLines(this, charset) }
+   ```
+   This lint check will by default automatically omit parameters that match the default, so if your code was calling
+
+   ```kotlin
+   Files.readAllLines(file, Charset.UTF_8)
+   ```
+   lint would replace this with
+   ```kotlin
+   file.readLines()
+   ```
+   rather than
+
+   ```kotlin
+   file.readLines(Charset.UTF_8
+   ```
+   You can turn this behavior off using this option.
+
+   To configure this option, use a `lint.xml` file with an <option> like this:
+
+   ```xml
+   <lint>
+       <issue id="UseKtx">
+           <option name="remove-defaults" value="true" />
+       </issue>
+   </lint>
+   ```
+
+   **require-present** (default is true):
+   Whether to only offer extensions already available.
+
+   This option lets you only have lint suggest extension replacements if those extensions are already available on the class path (in other words, you're already depending on the library containing the extension method.)
+
+   To configure this option, use a `lint.xml` file with an <option> like this:
+
+   ```xml
+   <lint>
+       <issue id="UseKtx">
+           <option name="require-present" value="true" />
+       </issue>
+   </lint>
+   ```
+
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\components\ui\ViewText.kt:157: Warning: Use "Gravity.START" instead of "Gravity.LEFT" to ensure correct behavior in right-to-left locales [RtlHardcoded]
+                TextAlign.Left -> Gravity.LEFT
+                                          ~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\components\ui\ViewText.kt:157: Warning: Use "Gravity.START" instead of "Gravity.LEFT" to ensure correct behavior in right-to-left locales [RtlHardcoded]
+                TextAlign.Left -> Gravity.LEFT
+                                          ~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\components\ui\ViewText.kt:158: Warning: Use "Gravity.END" instead of "Gravity.RIGHT" to ensure correct behavior in right-to-left locales [RtlHardcoded]
+                TextAlign.Right -> Gravity.RIGHT
+                                           ~~~~~
+D:\Office\Study\code\MathStudyAgent\client\app\src\main\java\me\rerere\rikkahub\ui\components\ui\ViewText.kt:158: Warning: Use "Gravity.END" instead of "Gravity.RIGHT" to ensure correct behavior in right-to-left locales [RtlHardcoded]
+                TextAlign.Right -> Gravity.RIGHT
+                                           ~~~~~
+
+   Explanation for issues of type "RtlHardcoded":
+   Using Gravity#LEFT and Gravity#RIGHT can lead to problems when a layout is
+   rendered in locales where text flows from right to left. Use Gravity#START
+   and Gravity#END instead. Similarly, in XML gravity and layout_gravity
+   attributes, use start rather than left.
+
+   For XML attributes such as paddingLeft and layout_marginLeft, use
+   paddingStart and layout_marginStart. NOTE: If your minSdkVersion is less
+   than 17, you should add both the older left/right attributes as well as the
+   new start/end attributes. On older platforms, where RTL is not supported
+   and the start/end attributes are unknown and therefore ignored, you need
+   the older left/right attributes. There is a separate lint check which
+   catches that type of error.
+
+   (Note: For Gravity#LEFT and Gravity#START, you can use these constants even
+   when targeting older platforms, because the start bitmask is a superset of
+   the left bitmask. Therefore, you can use gravity="start" rather than
+   gravity="left|start".)
+
+45 errors, 340 warnings, 3 hints

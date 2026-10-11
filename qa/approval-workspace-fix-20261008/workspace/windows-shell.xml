@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.workspace.ExampleUnitTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-08T01:30:05.803Z" hostname="DESKTOP-QH4J0RS" time="0.686">
+  <properties/>
+  <testcase name="commandRunsInsideWorkspaceFilesDirectory" classname="me.rerere.workspace.ExampleUnitTest" time="0.185"/>
+  <testcase name="commandReceivesStdin" classname="me.rerere.workspace.ExampleUnitTest" time="0.147"/>
+  <testcase name="commandOutputIsTruncatedAtLimit" classname="me.rerere.workspace.ExampleUnitTest" time="0.211"/>
+  <testcase name="commandWithoutStdinGetsImmediateEof" classname="me.rerere.workspace.ExampleUnitTest" time="0.138"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,39 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.SkillsInstallBoundaryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.SkillsInstallBoundaryTest:
+INSTRUMENTATION_STATUS: test=defaultSkillReadAndListingRejectOutsideSymlinks
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.SkillsInstallBoundaryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=defaultSkillReadAndListingRejectOutsideSymlinks
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.SkillsInstallBoundaryTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=oversizedZipIsRejectedAndExistingSkillAndBinaryInstallArePreserved
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_skill_fixture=qa-bounded-cec4ec58-a50d-4209-bc94-591cb0b7d612
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.SkillsInstallBoundaryTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=oversizedZipIsRejectedAndExistingSkillAndBinaryInstallArePreserved
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 0.656
+
+OK (2 tests)
+
+
+INSTRUMENTATION_CODE: -1

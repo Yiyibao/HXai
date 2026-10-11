@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.provider.stream.StreamTraceReplayTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-08T06:42:55.373Z" hostname="DESKTOP-QH4J0RS" time="0.431">
+  <properties/>
+  <testcase name="replay OpenRouter Claude protocol trace" classname="me.rerere.ai.provider.stream.StreamTraceReplayTest" time="0.064"/>
+  <testcase name="replay DeepSeek Responses API trace" classname="me.rerere.ai.provider.stream.StreamTraceReplayTest" time="0.029"/>
+  <testcase name="replay DeepSeek Chat Completions trace" classname="me.rerere.ai.provider.stream.StreamTraceReplayTest" time="0.038"/>
+  <testcase name="replay OpenRouter Chat Completions trace" classname="me.rerere.ai.provider.stream.StreamTraceReplayTest" time="0.045"/>
+  <testcase name="replay OpenAI Responses API trace" classname="me.rerere.ai.provider.stream.StreamTraceReplayTest" time="0.026"/>
+  <testcase name="replay OpenRouter Responses API trace" classname="me.rerere.ai.provider.stream.StreamTraceReplayTest" time="0.021"/>
+  <testcase name="replay DeepSeek Claude mixed tool trace" classname="me.rerere.ai.provider.stream.StreamTraceReplayTest" time="0.031"/>
+  <testcase name="replay Gemini protocol trace" classname="me.rerere.ai.provider.stream.StreamTraceReplayTest" time="0.011"/>
+  <testcase name="replay DeepSeek Responses API server tool trace" classname="me.rerere.ai.provider.stream.StreamTraceReplayTest" time="0.038"/>
+  <testcase name="replay Gemini image generation trace" classname="me.rerere.ai.provider.stream.StreamTraceReplayTest" time="0.127"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

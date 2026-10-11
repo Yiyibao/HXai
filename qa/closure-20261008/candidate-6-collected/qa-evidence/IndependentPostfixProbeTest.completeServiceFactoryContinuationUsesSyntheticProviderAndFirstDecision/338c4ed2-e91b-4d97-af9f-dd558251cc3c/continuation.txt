@@ -1,0 +1,3 @@
+approve firstDecisionPreserved=true factoryToolExecutions=1 syntheticProviderCalls=1 siblingJobPreserved=true
+deny firstDecisionPreserved=true factoryToolExecutions=0 syntheticProviderCalls=1 siblingJobPreserved=true
+answer firstDecisionPreserved=true factoryToolExecutions=0 syntheticProviderCalls=1 siblingJobPreserved=true

@@ -1,0 +1,92 @@
+{
+  "schema": 2,
+  "contextSha256": "53eb640e747b0d42665a0b6a7a02ebd186c00d6d103a625395317ac919a195de",
+  "appSha256": "ddb777db0982cb2db1b969c58252e58a5f47bfdf43936f645452bc51f8ea6e5a",
+  "testSha256": "aa3d81bb9144578c8594d70a87cff1530dfa3b9ebaaa97f4d0a3b515d34c7a85",
+  "records": [
+    {
+      "name": "qa-evidence/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels/348b2f62-5d90-40e7-b37b-472557e8386f/stream-preview.png",
+      "sha256": "121cac69cf4a3fb2cbac28184616124aa21eb0735b955c9f26bf81e5aa2d8f30",
+      "bytes": 289543,
+      "reusedSyntheticInput": false,
+      "method": "ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels",
+      "runId": "348b2f62-5d90-40e7-b37b-472557e8386f",
+      "status": "FAILED",
+      "actualClass": "me.rerere.rikkahub.service.ChatRenderingRealModelTest",
+      "actualTest": "configuredModelStreamsRendersEditsRestoresContinuesAndCancels",
+      "deviceMtime": 1791614010,
+      "startedAt": 1791613998111,
+      "finishedAt": 1791614038141
+    },
+    {
+      "name": "qa-evidence/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels/348b2f62-5d90-40e7-b37b-472557e8386f/generation-1.json",
+      "sha256": "42f6117b7e3aac821158712f7ed17f7ea5b97ed65f2cfb82a89f17af03f5330f",
+      "bytes": 6883,
+      "reusedSyntheticInput": false,
+      "method": "ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels",
+      "runId": "348b2f62-5d90-40e7-b37b-472557e8386f",
+      "status": "FAILED",
+      "actualClass": "me.rerere.rikkahub.service.ChatRenderingRealModelTest",
+      "actualTest": "configuredModelStreamsRendersEditsRestoresContinuesAndCancels",
+      "deviceMtime": 1791614030,
+      "startedAt": 1791613998111,
+      "finishedAt": 1791614038141
+    },
+    {
+      "name": "qa-evidence/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels/348b2f62-5d90-40e7-b37b-472557e8386f/definition.json",
+      "sha256": "5afae99550988847e95831ee8607f0508a2f6fab08e26d6b6abf5cfcf04f8559",
+      "bytes": 2537,
+      "reusedSyntheticInput": false,
+      "method": "ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels",
+      "runId": "348b2f62-5d90-40e7-b37b-472557e8386f",
+      "status": "FAILED",
+      "actualClass": "me.rerere.rikkahub.service.ChatRenderingRealModelTest",
+      "actualTest": "configuredModelStreamsRendersEditsRestoresContinuesAndCancels",
+      "deviceMtime": 1791614030,
+      "startedAt": 1791613998111,
+      "finishedAt": 1791614038141
+    },
+    {
+      "name": "qa-evidence/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels/348b2f62-5d90-40e7-b37b-472557e8386f/inline-light.png",
+      "sha256": "f7ed3eb02367acff556b7d7bcfbf8f88cb7a21c2fca93704fde3fdb827fa942c",
+      "bytes": 284661,
+      "reusedSyntheticInput": false,
+      "method": "ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels",
+      "runId": "348b2f62-5d90-40e7-b37b-472557e8386f",
+      "status": "FAILED",
+      "actualClass": "me.rerere.rikkahub.service.ChatRenderingRealModelTest",
+      "actualTest": "configuredModelStreamsRendersEditsRestoresContinuesAndCancels",
+      "deviceMtime": 1791614032,
+      "startedAt": 1791613998111,
+      "finishedAt": 1791614038141
+    },
+    {
+      "name": "qa-evidence/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels/348b2f62-5d90-40e7-b37b-472557e8386f/expanded-light-top.png",
+      "sha256": "61ec83efb09a67e20bc2ed041d31dc447c4a6b14d1252de66a32b39788cd7aae",
+      "bytes": 321301,
+      "reusedSyntheticInput": false,
+      "method": "ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels",
+      "runId": "348b2f62-5d90-40e7-b37b-472557e8386f",
+      "status": "FAILED",
+      "actualClass": "me.rerere.rikkahub.service.ChatRenderingRealModelTest",
+      "actualTest": "configuredModelStreamsRendersEditsRestoresContinuesAndCancels",
+      "deviceMtime": 1791614033,
+      "startedAt": 1791613998111,
+      "finishedAt": 1791614038141
+    },
+    {
+      "name": "qa-evidence/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels/348b2f62-5d90-40e7-b37b-472557e8386f/result.json",
+      "sha256": "57d548e04c98759ff7f3914cc31632d1b858380ca9f4cf92ded6afa0d161ac74",
+      "bytes": 198,
+      "reusedSyntheticInput": false,
+      "method": "ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels",
+      "runId": "348b2f62-5d90-40e7-b37b-472557e8386f",
+      "status": "FAILED",
+      "actualClass": "me.rerere.rikkahub.service.ChatRenderingRealModelTest",
+      "actualTest": "configuredModelStreamsRendersEditsRestoresContinuesAndCancels",
+      "deviceMtime": 1791614037,
+      "startedAt": 1791613998111,
+      "finishedAt": 1791614038141
+    }
+  ]
+}

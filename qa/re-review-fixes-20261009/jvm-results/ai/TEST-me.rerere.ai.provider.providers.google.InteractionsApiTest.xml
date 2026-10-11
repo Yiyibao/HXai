@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.provider.providers.google.InteractionsApiTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-09T03:26:53.063Z" hostname="DESKTOP-QH4J0RS" time="0.08">
+  <properties/>
+  <testcase name="stream finishes once and tolerates unknown events" classname="me.rerere.ai.provider.providers.google.InteractionsApiTest" time="0.009"/>
+  <testcase name="history is replayed as steps with signatures" classname="me.rerere.ai.provider.providers.google.InteractionsApiTest" time="0.007"/>
+  <testcase name="reasoning level maps to thinking level only" classname="me.rerere.ai.provider.providers.google.InteractionsApiTest" time="0.027"/>
+  <testcase name="request body uses stateless interactions schema" classname="me.rerere.ai.provider.providers.google.InteractionsApiTest" time="0.005"/>
+  <testcase name="stream error event is surfaced" classname="me.rerere.ai.provider.providers.google.InteractionsApiTest" time="0.006"/>
+  <testcase name="stream decodes server tool and function call steps and replays them" classname="me.rerere.ai.provider.providers.google.InteractionsApiTest" time="0.01"/>
+  <testcase name="stream decodes interleaved text and images" classname="me.rerere.ai.provider.providers.google.InteractionsApiTest" time="0.003"/>
+  <testcase name="stream decodes thought and text steps" classname="me.rerere.ai.provider.providers.google.InteractionsApiTest" time="0.003"/>
+  <testcase name="server tools from other protocols and unpaired calls are not replayed" classname="me.rerere.ai.provider.providers.google.InteractionsApiTest" time="0.002"/>
+  <testcase name="image output model requests text and image response formats" classname="me.rerere.ai.provider.providers.google.InteractionsApiTest" time="0.002"/>
+  <testcase name="non-streaming interaction is parsed from steps" classname="me.rerere.ai.provider.providers.google.InteractionsApiTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

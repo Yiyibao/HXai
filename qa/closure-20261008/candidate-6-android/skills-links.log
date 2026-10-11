@@ -1,0 +1,25 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.SkillClosureTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.SkillClosureTest:
+INSTRUMENTATION_STATUS: test=nestedBrokenLinksAndSiblingReplacement
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"SkillClosureTest.nestedBrokenLinksAndSiblingReplacement","runId":"ca40a4b4-a0fa-410a-9f17-9047ff3ab148","startedAt":1791465031462,"finishedAt":1791465031575,"status":"PASS","entries":[{"name":"qa-evidence\/SkillClosureTest.nestedBrokenLinksAndSiblingReplacement\/ca40a4b4-a0fa-410a-9f17-9047ff3ab148\/outside\/sentinel.txt","sha256":"83765fd869ed4d0ac25fd41110ca53b3361b4fef02a7745b4d7e4ab8152fef33","bytes":21,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.SkillClosureTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=nestedBrokenLinksAndSiblingReplacement
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 0.181
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

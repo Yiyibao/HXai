@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "date": "2026-10-08",
+  "scope": "independent review findings IR01-IR03",
+  "findings": [
+    {
+      "id": "IR01",
+      "status": "FIXED_VERIFIED",
+      "priority": "P2",
+      "type": "production"
+    },
+    {
+      "id": "IR02",
+      "status": "FIXED_VERIFIED",
+      "priority": "P2",
+      "type": "test_evidence"
+    },
+    {
+      "id": "IR03",
+      "status": "FIXED_VERIFIED",
+      "priority": "P3",
+      "type": "test_isolation"
+    }
+  ],
+  "batches": {
+    "appJvm": {
+      "errors": 0.0,
+      "tests": 327.0,
+      "skipped": 0.0,
+      "failures": 0.0
+    },
+    "lint": {
+      "errors": 0,
+      "warnings": 42
+    },
+    "android": {
+      "invocations": 8,
+      "fail": 0,
+      "skip": 0,
+      "pass": 14
+    },
+    "original64MbProbe": {
+      "pass": 1,
+      "fail": 0
+    },
+    "collectorPython": {
+      "pass": 6,
+      "fail": 0
+    }
+  },
+  "artifactHashesStable": true,
+  "syntheticFailedEvidenceStatus": "FAILED",
+  "notRun": [
+    "remote teaching/material",
+    "image generation: missing model configuration",
+    "server/Web/delivery this repair",
+    "remaining independent review subscenarios"
+  ],
+  "historicalRootCause": "unknown",
+  "firstFailurePreserved": "build-final.log: new Android test compilation, fixed named arguments; prior OOM and environment logs preserved in independent review directory",
+  "commit": false,
+  "push": false,
+  "deploy": false
+}

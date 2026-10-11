@@ -1,0 +1,16 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart
+00:00 +0: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:00 +1: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:00 +2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:01 +3: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:01 +4: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:01 +5: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart: Reading history survives new chunks and viewport changes
+00:01 +6: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_bridge_test.dart: Switching surface identity flushes only to its original conversation
+00:01 +7: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart: Returning to latest resumes following subsequent chunks
+00:01 +8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart: Keyboard resizing keeps the latest answer visible
+00:01 +9: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart: Disabled auto-follow allows explicit return without enabling it
+00:01 +10: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart: New conversation identity resets history-reading state
+00:01 +11: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart: Pending layout callback is safe after leaving chat
+00:01 +12: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart: Scrolling inside a card does not pause the chat timeline
+00:01 +13: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart: User gesture wins over a queued streaming layout check
+00:01 +14: All tests passed!

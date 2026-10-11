@@ -1,0 +1,94 @@
+[
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\DiagnosticsTest.kt",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\MaterialPageTest.kt",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\MaterialRealModelTest.kt",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\ProjectReviewTeachingTest.kt",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\StudyRealModelTest.kt",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\WordFormulaAssertionTest.kt",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\WordFormulaAssertions.kt",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\feature\\diagnostics\\Diagnostics.kt",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\scripts\\collect_boundary_fixtures.py",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\scripts\\collect_project_review.py",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\README.md",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\service\\ChatService.kt",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\ui\\pages\\extensions\\skills\\SkillDetailVM.kt",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\ui\\pages\\extensions\\skills\\SkillsPage.kt",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\ui\\pages\\extensions\\skills\\SkillsVM.kt",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\res\\values-ar\\strings.xml",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\res\\values-ja\\strings.xml",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\res\\values-ko-rKR\\strings.xml",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\res\\values-ru\\strings.xml",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\res\\values-zh-rTW\\strings.xml",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\res\\values-zh\\strings.xml",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\res\\values\\strings.xml",
+    "matchesLastRecordedAfter": true
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\docs\\acceptance-matrix.md",
+    "matchesLastRecordedAfter": true
+  }
+]

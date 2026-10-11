@@ -1,0 +1,6 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/reasoning_view_test.dart
+00:00 +0: Collapsed reasoning expands and stays open through stream completion
+00:00 +1: Empty completed reasoning is hidden and interruptions are honest
+00:00 +2: Long expanded reasoning remains bounded without overflow
+00:00 +3: Reasoning status follows host state and subsequent answer or tool
+00:01 +4: All tests passed!

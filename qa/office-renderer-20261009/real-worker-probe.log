@@ -1,0 +1,9 @@
+docx   {"errorCode": "active_conversion_pdf"}
+Traceback (most recent call last):
+  File "D:\Office\Study\code\MathStudyAgent\qa\office-renderer-20261009\probe_worker.py", line 28, in <module>
+    subprocess.run(['ssh','-i',key,'ubuntu@154.222.25.150','sudo python3 -'],input=script.encode(),check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['ssh', '-i', 'C:\\Users\\Hfff\\.ssh\\id_ed25519_tencent_blog', 'ubuntu@154.222.25.150', 'sudo python3 -']' returned non-zero exit status 1.

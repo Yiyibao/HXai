@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-07",
+  "emulator": "emulator-5554 / API34 x86_64",
+  "jvm": {
+    "tests": 287,
+    "failures": 0,
+    "errors": 0
+  },
+  "android": {
+    "android-final.log": 16,
+    "fidelity-android.log": 4,
+    "delivery-android.log": 1,
+    "real-model.log": 1
+  },
+  "delivery": {
+    "md": {
+      "VIEW": "PASS",
+      "SAVE": "PASS",
+      "SEND": "PASS",
+      "sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+      "bytes": 32
+    },
+    "docx": {
+      "VIEW": "PASS",
+      "SAVE": "PASS",
+      "SEND": "PASS",
+      "sha256": "e0bd539a0e1bdda8df299f9d50fda1a1764246626c0f86178eceb916668cb18d",
+      "bytes": 5725
+    },
+    "xlsx": {
+      "VIEW": "PASS",
+      "SAVE": "PASS",
+      "SEND": "PASS",
+      "sha256": "ba8759c41d6e4e63a3c986c5725371a7d665cfbd0378f61b9299b2ae2ac4869e",
+      "bytes": 2495
+    },
+    "pptx": {
+      "VIEW": "PASS",
+      "SAVE": "PASS",
+      "SEND": "PASS",
+      "sha256": "8c21cf62353c1a93a332043344c0e86f5dec903e96d18e812a169a175448160f",
+      "bytes": 2533
+    },
+    "pdf": {
+      "VIEW": "PASS",
+      "SAVE": "PASS",
+      "SEND": "PASS",
+      "sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+      "bytes": 29097
+    }
+  },
+  "apk_sha256": {
+    "client/app/build/outputs/apk/debug/app-x86_64-debug.apk": "717381fa5ce4db1248c8a17b1d454d05d29edd1bf21fa9b339a4e8766dee049c",
+    "client/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk": "d928bc42d148802a77a2d8fd9a7c68c2e8e02e9bf46ce8088613eab36027901a",
+    ".local/material-receiver/receiver.apk": "37abbbd0bbf553ff659794f5fed3a09e69b4f6de1bb2d1b53885be847e8515d3"
+  }
+}

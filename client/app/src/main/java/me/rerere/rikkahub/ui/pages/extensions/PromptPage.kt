@@ -70,6 +70,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
@@ -739,10 +740,7 @@ private fun LorebookCard(
                 ) {
                     Tag(type = TagType.INFO) {
                         Text(
-                            stringResource(
-                                R.string.prompt_page_entries_count_format,
-                                book.entries.size
-                            )
+                            pluralStringResource(R.plurals.prompt_page_entries_count_format, book.entries.size, book.entries.size)
                         )
                     }
                     if (!book.enabled) {

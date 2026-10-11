@@ -89,6 +89,7 @@ class SafeModeActivity : ComponentActivity() {
                             .padding(16.dp),
                         verticalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
+                        me.rerere.rikkahub.feature.diagnostics.DiagnosticsPanel()
                         Text(
                             text = stringResource(R.string.safe_mode_description),
                             style = MaterialTheme.typography.bodyMedium,

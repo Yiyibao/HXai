@@ -1,0 +1,330 @@
+Failed to find real location of C:\Users\Hfff\AppData\Local\Programs\Python\Python313\python.exe
+test_changed_device_and_local_bytes_are_rejected (test_collect_run_evidence.RunEvidenceTests.test_changed_device_and_local_bytes_are_rejected) ... ERROR
+test_changed_device_and_local_bytes_are_rejected (test_collect_run_evidence.RunEvidenceTests.test_changed_device_and_local_bytes_are_rejected) ... ERROR
+test_cross_method_path_and_failed_status_are_not_success (test_collect_run_evidence.RunEvidenceTests.test_cross_method_path_and_failed_status_are_not_success) ... ERROR
+test_cross_method_path_and_failed_status_are_not_success (test_collect_run_evidence.RunEvidenceTests.test_cross_method_path_and_failed_status_are_not_success) ... ERROR
+test_current_and_repeat_collection_recheck_device (test_collect_run_evidence.RunEvidenceTests.test_current_and_repeat_collection_recheck_device) ... ERROR
+test_current_and_repeat_collection_recheck_device (test_collect_run_evidence.RunEvidenceTests.test_current_and_repeat_collection_recheck_device) ... ERROR
+test_existing_manifest_does_not_bypass_stale_device (test_collect_run_evidence.RunEvidenceTests.test_existing_manifest_does_not_bypass_stale_device) ... ERROR
+test_existing_manifest_does_not_bypass_stale_device (test_collect_run_evidence.RunEvidenceTests.test_existing_manifest_does_not_bypass_stale_device) ... ERROR
+test_legacy_manifest_and_changed_log_are_rejected (test_collect_run_evidence.RunEvidenceTests.test_legacy_manifest_and_changed_log_are_rejected) ... ERROR
+test_legacy_manifest_and_changed_log_are_rejected (test_collect_run_evidence.RunEvidenceTests.test_legacy_manifest_and_changed_log_are_rejected) ... ERROR
+test_other_run_wrong_apk_and_old_window_are_rejected (test_collect_run_evidence.RunEvidenceTests.test_other_run_wrong_apk_and_old_window_are_rejected) ... ERROR
+test_other_run_wrong_apk_and_old_window_are_rejected (test_collect_run_evidence.RunEvidenceTests.test_other_run_wrong_apk_and_old_window_are_rejected) ... ERROR
+
+======================================================================
+ERROR: test_changed_device_and_local_bytes_are_rejected (test_collect_run_evidence.RunEvidenceTests.test_changed_device_and_local_bytes_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Office\Study\code\MathStudyAgent\scripts\tests\test_collect_run_evidence.py", line 29, in setUp
+    self.write_context()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Office\Study\code\MathStudyAgent\scripts\tests\test_collect_run_evidence.py", line 32, in write_context
+    (self.root/'run.log').write_bytes(log)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py", line 641, in write_bytes
+    with self.open(mode='wb') as f:
+         ~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{ee4f3d32-8c39-4bce-bd29-851f3c55769e}\\AC\\Temp\\tmpaygr5bfd\\run.log'
+
+======================================================================
+ERROR: test_changed_device_and_local_bytes_are_rejected (test_collect_run_evidence.RunEvidenceTests.test_changed_device_and_local_bytes_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{ee4f3d32-8c39-4bce-bd29-851f3c55769e}\\AC\\Temp\\tmpaygr5bfd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{ee4f3d32-8c39-4bce-bd29-851f3c55769e}\\AC\\Temp\\tmpaygr5bfd'
+
+======================================================================
+ERROR: test_cross_method_path_and_failed_status_are_not_success (test_collect_run_evidence.RunEvidenceTests.test_cross_method_path_and_failed_status_are_not_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Office\Study\code\MathStudyAgent\scripts\tests\test_collect_run_evidence.py", line 29, in setUp
+    self.write_context()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Office\Study\code\MathStudyAgent\scripts\tests\test_collect_run_evidence.py", line 32, in write_context
+    (self.root/'run.log').write_bytes(log)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py", line 641, in write_bytes
+    with self.open(mode='wb') as f:
+         ~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{ee4f3d32-8c39-4bce-bd29-851f3c55769e}\\AC\\Temp\\tmpku_89lli\\run.log'
+
+======================================================================
+ERROR: test_cross_method_path_and_failed_status_are_not_success (test_collect_run_evidence.RunEvidenceTests.test_cross_method_path_and_failed_status_are_not_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{ee4f3d32-8c39-4bce-bd29-851f3c55769e}\\AC\\Temp\\tmpku_89lli'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{ee4f3d32-8c39-4bce-bd29-851f3c55769e}\\AC\\Temp\\tmpku_89lli'
+
+======================================================================
+ERROR: test_current_and_repeat_collection_recheck_device (test_collect_run_evidence.RunEvidenceTests.test_current_and_repeat_collection_recheck_device)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Office\Study\code\MathStudyAgent\scripts\tests\test_collect_run_evidence.py", line 29, in setUp
+    self.write_context()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Office\Study\code\MathStudyAgent\scripts\tests\test_collect_run_evidence.py", line 32, in write_context
+    (self.root/'run.log').write_bytes(log)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py", line 641, in write_bytes
+    with self.open(mode='wb') as f:
+         ~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{ee4f3d32-8c39-4bce-bd29-851f3c55769e}\\AC\\Temp\\tmpletasmkv\\run.log'
+
+======================================================================
+ERROR: test_current_and_repeat_collection_recheck_device (test_collect_run_evidence.RunEvidenceTests.test_current_and_repeat_collection_recheck_device)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{ee4f3d32-8c39-4bce-bd29-851f3c55769e}\\AC\\Temp\\tmpletasmkv'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{ee4f3d32-8c39-4bce-bd29-851f3c55769e}\\AC\\Temp\\tmpletasmkv'
+
+======================================================================
+ERROR: test_existing_manifest_does_not_bypass_stale_device (test_collect_run_evidence.RunEvidenceTests.test_existing_manifest_does_not_bypass_stale_device)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Office\Study\code\MathStudyAgent\scripts\tests\test_collect_run_evidence.py", line 29, in setUp
+    self.write_context()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Office\Study\code\MathStudyAgent\scripts\tests\test_collect_run_evidence.py", line 32, in write_context
+    (self.root/'run.log').write_bytes(log)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py", line 641, in write_bytes
+    with self.open(mode='wb') as f:
+         ~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{ee4f3d32-8c39-4bce-bd29-851f3c55769e}\\AC\\Temp\\tmpm3xis3v7\\run.log'
+
+======================================================================
+ERROR: test_existing_manifest_does_not_bypass_stale_device (test_collect_run_evidence.RunEvidenceTests.test_existing_manifest_does_not_bypass_stale_device)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{ee4f3d32-8c39-4bce-bd29-851f3c55769e}\\AC\\Temp\\tmpm3xis3v7'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{ee4f3d32-8c39-4bce-bd29-851f3c55769e}\\AC\\Temp\\tmpm3xis3v7'
+
+======================================================================
+ERROR: test_legacy_manifest_and_changed_log_are_rejected (test_collect_run_evidence.RunEvidenceTests.test_legacy_manifest_and_changed_log_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Office\Study\code\MathStudyAgent\scripts\tests\test_collect_run_evidence.py", line 29, in setUp
+    self.write_context()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Office\Study\code\MathStudyAgent\scripts\tests\test_collect_run_evidence.py", line 32, in write_context
+    (self.root/'run.log').write_bytes(log)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py", line 641, in write_bytes
+    with self.open(mode='wb') as f:
+         ~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{ee4f3d32-8c39-4bce-bd29-851f3c55769e}\\AC\\Temp\\tmpyl6y_evd\\run.log'
+
+======================================================================
+ERROR: test_legacy_manifest_and_changed_log_are_rejected (test_collect_run_evidence.RunEvidenceTests.test_legacy_manifest_and_changed_log_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{ee4f3d32-8c39-4bce-bd29-851f3c55769e}\\AC\\Temp\\tmpyl6y_evd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{ee4f3d32-8c39-4bce-bd29-851f3c55769e}\\AC\\Temp\\tmpyl6y_evd'
+
+======================================================================
+ERROR: test_other_run_wrong_apk_and_old_window_are_rejected (test_collect_run_evidence.RunEvidenceTests.test_other_run_wrong_apk_and_old_window_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Office\Study\code\MathStudyAgent\scripts\tests\test_collect_run_evidence.py", line 29, in setUp
+    self.write_context()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Office\Study\code\MathStudyAgent\scripts\tests\test_collect_run_evidence.py", line 32, in write_context
+    (self.root/'run.log').write_bytes(log)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py", line 641, in write_bytes
+    with self.open(mode='wb') as f:
+         ~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{ee4f3d32-8c39-4bce-bd29-851f3c55769e}\\AC\\Temp\\tmprj_8q1xz\\run.log'
+
+======================================================================
+ERROR: test_other_run_wrong_apk_and_old_window_are_rejected (test_collect_run_evidence.RunEvidenceTests.test_other_run_wrong_apk_and_old_window_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{ee4f3d32-8c39-4bce-bd29-851f3c55769e}\\AC\\Temp\\tmprj_8q1xz'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{ee4f3d32-8c39-4bce-bd29-851f3c55769e}\\AC\\Temp\\tmprj_8q1xz'
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.060s
+
+FAILED (errors=12)

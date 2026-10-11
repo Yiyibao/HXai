@@ -1,0 +1,3 @@
+docx 1 ['LibreOffice compatibility rendering; verify complex Office layout.', 'Font substitution: Calibri, Cambria, Courier, Symbol']
+xlsx 1 ['LibreOffice compatibility rendering; verify complex Office layout.', 'Font substitution: Calibri, Cambria']
+pptx 2 ['LibreOffice compatibility rendering; verify complex Office layout.', 'Font substitution: Calibri']

@@ -1,0 +1,50 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart
+00:00 +0: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Cold bootstrap settles empty chat and refresh preserves explicit selection
+00:00 +1: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:00 +2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +3: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:01 +4: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:01 +5: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:01 +6: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:01 +7: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:01 +8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:01 +9: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:01 +10: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:01 +11: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:01 +12: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:02 +13: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:02 +14: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:02 +15: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/skills_page_test.dart: Shows dependency limits and awaits confirmed skill enable
+00:02 +16: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Failed send retains draft and startup failure renders retry
+00:02 +17: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Failed send retains draft and startup failure renders retry
+00:02 +18: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Failed send retains draft and startup failure renders retry
+00:02 +19: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Failed send retains draft and startup failure renders retry
+00:02 +20: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Failed send retains draft and startup failure renders retry
+00:02 +21: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Failed send retains draft and startup failure renders retry
+00:02 +22: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 8 renders without exception and preserves content
+00:02 +23: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Chat delivers artifact actions and displays native failure
+00:02 +24: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Chat delivers artifact actions and displays native failure
+00:02 +25: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Chat delivers artifact actions and displays native failure
+00:02 +26: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Chat delivers artifact actions and displays native failure
+00:03 +27: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Chat delivers artifact actions and displays native failure
+00:03 +28: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 13 renders without exception and preserves content
+00:03 +29: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 14 renders without exception and preserves content
+00:03 +30: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 15 renders without exception and preserves content
+00:03 +31: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 16 renders without exception and preserves content
+00:03 +32: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 17 renders without exception and preserves content
+00:03 +33: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 18 renders without exception and preserves content
+00:03 +34: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 19 renders without exception and preserves content
+00:03 +35: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 20 renders without exception and preserves content
+00:03 +36: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 21 renders without exception and preserves content
+00:03 +37: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 22 renders without exception and preserves content
+00:03 +38: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 23 renders without exception and preserves content
+00:03 +39: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 24 renders without exception and preserves content
+00:03 +40: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 25 renders without exception and preserves content
+00:03 +41: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 26 renders without exception and preserves content
+00:03 +42: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 27 renders without exception and preserves content
+00:03 +43: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 28 renders without exception and preserves content
+00:04 +44: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 29 renders without exception and preserves content
+00:04 +45: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 30 renders without exception and preserves content
+00:04 +46: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 31 renders without exception and preserves content
+00:04 +47: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 32 renders without exception and preserves content
+00:04 +48: All tests passed!

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.ai.tools.local.JavascriptToolTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-07T17:33:19Z" hostname="DESKTOP-QH4J0RS" time="0.998">
+  <properties/>
+  <testcase name="bounds logs and output" classname="me.rerere.rikkahub.data.ai.tools.local.JavascriptToolTest" time="0.353"/>
+  <testcase name="interrupts infinite loops including during serialization" classname="me.rerere.rikkahub.data.ai.tools.local.JavascriptToolTest" time="0.338"/>
+  <testcase name="preserves completion values and logs" classname="me.rerere.rikkahub.data.ai.tools.local.JavascriptToolTest" time="0.015"/>
+  <testcase name="cancellation stops native execution" classname="me.rerere.rikkahub.data.ai.tools.local.JavascriptToolTest" time="0.274"/>
+  <testcase name="memory and stack exhaustion return errors" classname="me.rerere.rikkahub.data.ai.tools.local.JavascriptToolTest" time="0.017"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

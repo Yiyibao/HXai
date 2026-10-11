@@ -42,6 +42,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
@@ -58,7 +59,6 @@ import me.rerere.hugeicons.stroke.Download01
 import me.rerere.hugeicons.stroke.FileImport
 import me.rerere.hugeicons.stroke.Puzzle
 import me.rerere.hugeicons.stroke.Search01
-import me.rerere.rikkahub.data.files.SkillFrontmatterParser
 import me.rerere.rikkahub.data.files.SkillMetadata
 import me.rerere.rikkahub.Screen
 import me.rerere.rikkahub.ui.components.nav.BackButton
@@ -78,9 +78,9 @@ fun SkillsPage() {
     val skills by vm.skills.collectAsStateWithLifecycle()
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     val toaster = LocalToaster.current
+    val resources = LocalResources.current
     val context = LocalContext.current
     var showImportSheet by rememberSaveable { mutableStateOf(false) }
-    var showAddDialog by rememberSaveable { mutableStateOf(false) }
     var showImportDialog by rememberSaveable { mutableStateOf(false) }
     var deleteTarget by remember { mutableStateOf<SkillMetadata?>(null) }
     var searchQuery by rememberSaveable { mutableStateOf("") }
@@ -100,9 +100,9 @@ fun SkillsPage() {
         uri ?: return@rememberLauncherForActivityResult
         vm.importSkillFromFile(context, uri) { success, message ->
             if (success) {
-                toaster.show(context.getString(R.string.skills_page_import_success, message))
+                toaster.show(resources.getString(R.string.skills_page_import_success, message))
             } else {
-                toaster.show(context.getString(R.string.skills_page_import_failed, message))
+                toaster.show(resources.getString(R.string.skills_page_import_failed, message))
             }
         }
     }
@@ -118,7 +118,7 @@ fun SkillsPage() {
         },
         floatingActionButton = {
             FloatingActionButton(onClick = { showImportSheet = true }) {
-                Icon(HugeIcons.Add01, contentDescription = null)
+                Icon(HugeIcons.Add01, contentDescription = stringResource(R.string.skills_page_install_title))
             }
         },
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
@@ -213,10 +213,6 @@ fun SkillsPage() {
     if (showImportSheet) {
         SkillImportSheet(
             onDismiss = { showImportSheet = false },
-            onAddManually = {
-                showImportSheet = false
-                showAddDialog = true
-            },
             onImportFromFile = {
                 showImportSheet = false
                 fileImportLauncher.launch(
@@ -235,20 +231,6 @@ fun SkillsPage() {
         )
     }
 
-    if (showAddDialog) {
-        AddSkillDialog(
-            onDismiss = { showAddDialog = false },
-            onConfirm = { name, content ->
-                vm.saveSkill(name, content) { success ->
-                    showAddDialog = false
-                    if (!success) {
-                        toaster.show(context.getString(R.string.skills_page_save_failed))
-                    }
-                }
-            },
-        )
-    }
-
     if (showImportDialog) {
         ImportSkillDialog(
             onDismiss = { showImportDialog = false },
@@ -256,9 +238,9 @@ fun SkillsPage() {
                 vm.importSkillFromGitHub(repoUrl) { success, message ->
                     showImportDialog = false
                     if (success) {
-                        toaster.show(context.getString(R.string.skills_page_import_success, message))
+                        toaster.show(resources.getString(R.string.skills_page_import_success, message))
                     } else {
-                        toaster.show(context.getString(R.string.skills_page_import_failed, message))
+                        toaster.show(resources.getString(R.string.skills_page_import_failed, message))
                     }
                 }
             },
@@ -354,7 +336,6 @@ private fun SkillCard(
 @Composable
 private fun SkillImportSheet(
     onDismiss: () -> Unit,
-    onAddManually: () -> Unit,
     onImportFromFile: () -> Unit,
     onImportFromGitHub: () -> Unit,
 ) {
@@ -369,14 +350,9 @@ private fun SkillImportSheet(
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Text(
-                text = stringResource(R.string.skills_page_add_title),
+                text = stringResource(R.string.skills_page_install_title),
                 style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-            )
-            SkillImportSheetItem(
-                icon = { Icon(HugeIcons.Add01, contentDescription = null) },
-                text = stringResource(R.string.skills_page_add_manually),
-                onClick = onAddManually,
             )
             SkillImportSheetItem(
                 icon = { Icon(HugeIcons.FileImport, contentDescription = null) },
@@ -404,61 +380,6 @@ private fun SkillImportSheetItem(
         modifier = Modifier
             .clip(MaterialTheme.shapes.large)
             .clickable(onClick = onClick),
-    )
-}
-
-@Composable
-private fun AddSkillDialog(
-    onDismiss: () -> Unit,
-    onConfirm: (name: String, content: String) -> Unit,
-) {
-    var content by rememberSaveable { mutableStateOf("") }
-
-    val name = remember(content) {
-        SkillFrontmatterParser.parse(content)["name"]?.trim() ?: ""
-    }
-    val nameError = content.isNotBlank() && name.isBlank()
-
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(stringResource(R.string.skills_page_add_title)) },
-        text = {
-            OutlinedTextField(
-                value = content,
-                onValueChange = { content = it },
-                label = { Text(stringResource(R.string.skills_page_skill_content_label)) },
-                placeholder = {
-                    Text(
-                        "---\nname: my-skill\ndescription: \"...\"\n---\n\n指令内容...",
-                        fontFamily = FontFamily.Monospace,
-                    )
-                },
-                supportingText = {
-                    if (nameError) Text(
-                        stringResource(R.string.skills_page_name_error),
-                        color = MaterialTheme.colorScheme.error
-                    )
-                    else if (name.isNotBlank()) Text(stringResource(R.string.skills_page_skill_name, name))
-                    else Text(stringResource(R.string.skills_page_paste_hint))
-                },
-                isError = nameError,
-                minLines = 8,
-                maxLines = 14,
-                textStyle = MaterialTheme.typography.bodySmall.copy(fontFamily = FontFamily.Monospace),
-                modifier = Modifier.fillMaxWidth(),
-            )
-        },
-        confirmButton = {
-            TextButton(
-                onClick = { onConfirm(name, content) },
-                enabled = name.isNotBlank() && !nameError,
-            ) {
-                Text(stringResource(R.string.skills_page_save))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) { Text(stringResource(R.string.cancel)) }
-        },
     )
 }
 

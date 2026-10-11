@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.ui.StreamChunkHandlerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-08T06:42:55.855Z" hostname="DESKTOP-QH4J0RS" time="0.003">
+  <properties/>
+  <testcase name="reasoning tool and usage events should preserve semantic order" classname="me.rerere.ai.ui.StreamChunkHandlerTest" time="0.0"/>
+  <testcase name="non streaming result should keep image data url intact" classname="me.rerere.ai.ui.StreamChunkHandlerTest" time="0.0"/>
+  <testcase name="interleaved text chunks should be merged by id" classname="me.rerere.ai.ui.StreamChunkHandlerTest" time="0.0"/>
+  <testcase name="image snapshots should replace previous image data" classname="me.rerere.ai.ui.StreamChunkHandlerTest" time="0.001"/>
+  <testcase name="non streaming result appended to assistant turn should not merge images" classname="me.rerere.ai.ui.StreamChunkHandlerTest" time="0.001"/>
+  <testcase name="server tool lifecycle should merge streamed input result and metadata" classname="me.rerere.ai.ui.StreamChunkHandlerTest" time="0.0"/>
+  <testcase name="text lifecycle should create and update assistant message" classname="me.rerere.ai.ui.StreamChunkHandlerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -25,12 +25,14 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
     repositories {
         google()
         mavenCentral()
         maven("https://jitpack.io")
         mavenLocal()
+        maven("https://storage.googleapis.com/download.flutter.io")
+        maven(File(settingsDir, "flutter_ui/build/host/outputs/repo"))
     }
 }
 
@@ -48,3 +50,4 @@ include(":workspace")
 include(":app:baselineprofile")
 include(":videogen")
 include(":oauth")
+

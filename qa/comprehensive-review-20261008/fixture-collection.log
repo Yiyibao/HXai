@@ -1,0 +1,37 @@
+[
+  {
+    "name": "s1-real-teaching.md",
+    "source_log": "teaching-and-approval.log",
+    "bytes": 1395,
+    "device_modified_epoch": 1791433056,
+    "sha256": "477db1a16a61b6ffc7e869577f9729ba95456885da244a30bf74c79076f62ffb"
+  },
+  {
+    "name": "s2-real-memory.json",
+    "source_log": "memory-real.log",
+    "bytes": 21583,
+    "device_modified_epoch": 1791433193,
+    "sha256": "82e4b97eda1b1721e6b500f2580d0149193515d19e1095dcbe089cc7957f40be"
+  },
+  {
+    "name": "s2-real-followup.md",
+    "source_log": "memory-real.log",
+    "bytes": 47,
+    "device_modified_epoch": 1791433198,
+    "sha256": "d11d2dbbad0c416cf294ee93f39665323ab525467cae241221ffac70ea7c8c45"
+  },
+  {
+    "name": "material-evidence-delivery-receipts.txt",
+    "source_log": "runtime/MaterialDeliveryTest.log",
+    "bytes": 15623,
+    "device_modified_epoch": 1791432682,
+    "sha256": "e6f2ed2731f1ed1f1b81edd6b5c9a84d8022c0b15ceacd01a5e7e0fabb3370ad"
+  },
+  {
+    "name": "review-delivery-delivery-receipts.txt",
+    "source_log": "runtime/ProjectReviewDeliveryTest.log",
+    "bytes": 4303,
+    "device_modified_epoch": 1791432884,
+    "sha256": "c08c89ef2e8d37b79f1d982bfb2ddc786291fae352236712fe1984a44f2a63de"
+  }
+]

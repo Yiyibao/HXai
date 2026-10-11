@@ -9,6 +9,9 @@ import kotlin.time.Clock
 import kotlin.time.Instant
 
 @Serializable
+enum class ToolExecutionState { NOT_STARTED, RUNNING, INTERRUPTED, COMPLETED, SKIPPED_UNKNOWN }
+
+@Serializable
 sealed class ToolApprovalState {
     @Serializable
     @SerialName("auto")
@@ -135,6 +138,7 @@ sealed class UIMessagePart {
         val toolName: String,
         val arguments: String,
         val approvalState: ToolApprovalState = ToolApprovalState.Auto,
+        val executionState: ToolExecutionState = ToolExecutionState.NOT_STARTED,
         override var metadata: JsonObject? = null
     ) : UIMessagePart() {
         fun merge(other: ToolCall): ToolCall {
@@ -143,6 +147,7 @@ sealed class UIMessagePart {
                 toolName = toolName + other.toolName,
                 arguments = arguments + other.arguments,
                 approvalState = approvalState,
+                executionState = executionState,
                 metadata = if (other.metadata != null) other.metadata else metadata,
             )
         }
@@ -179,6 +184,19 @@ sealed class UIMessagePart {
             get() = status == ServerToolStatus.COMPLETED || status == ServerToolStatus.FAILED
     }
 
+    /**
+     * 智能交互界面 - 引用 InteractiveSurface.kt 中的完整定义
+     * 这里保留类型声明以便消息系统识别
+     */
+    @Serializable
+    @SerialName("interactive_surface")
+    data class InteractiveSurfaceRef(
+        val surfaceId: String,
+        val title: String,
+        val definitionJson: String,
+        override var metadata: JsonObject? = null
+    ) : UIMessagePart()
+
     @Serializable
     @SerialName("tool")
     data class Tool(
@@ -187,16 +205,21 @@ sealed class UIMessagePart {
         val input: String,
         val output: List<UIMessagePart> = emptyList(),
         val approvalState: ToolApprovalState = ToolApprovalState.Auto,
+        val executionState: ToolExecutionState = ToolExecutionState.NOT_STARTED,
         override var metadata: JsonObject? = null
     ) : UIMessagePart() {
-        /** Whether the tool has been executed (has output) */
-        val isExecuted: Boolean get() = output.isNotEmpty()
+        /** Resolved for continuation, including an explicit skip; not proof of successful effects. */
+        val isExecuted: Boolean get() = output.isNotEmpty() || executionState in setOf(ToolExecutionState.COMPLETED, ToolExecutionState.SKIPPED_UNKNOWN)
+
+        val isSkippedUnknown: Boolean get() = executionState == ToolExecutionState.SKIPPED_UNKNOWN
+
+        val isExecutionUncertain: Boolean get() = !isExecuted && executionState in setOf(ToolExecutionState.RUNNING, ToolExecutionState.INTERRUPTED)
 
         /** Whether the tool is pending user approval */
-        val isPending: Boolean get() = !isExecuted && approvalState is ToolApprovalState.Pending
+        val isPending: Boolean get() = !isExecuted && executionState == ToolExecutionState.NOT_STARTED && approvalState is ToolApprovalState.Pending
 
         /** Whether generation can resume and handle this tool immediately */
-        val canResumeExecution: Boolean get() = !isExecuted && approvalState.canResumeToolExecution()
+        val canResumeExecution: Boolean get() = !isExecuted && executionState == ToolExecutionState.NOT_STARTED && approvalState.canResumeToolExecution()
 
         /** Parse input string as JsonElement */
         fun inputAsJson(): JsonElement = runCatching {
@@ -210,6 +233,7 @@ sealed class UIMessagePart {
                 input = input + other.input,
                 output = output + other.output,
                 approvalState = approvalState,
+                executionState = executionState,
                 metadata = if (other.metadata != null) other.metadata else metadata,
             )
         }

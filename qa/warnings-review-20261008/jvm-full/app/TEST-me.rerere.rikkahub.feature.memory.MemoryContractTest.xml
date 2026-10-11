@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.memory.MemoryContractTest" tests="37" skipped="0" failures="0" errors="0" timestamp="2026-10-07T22:31:15.116Z" hostname="DESKTOP-QH4J0RS" time="0.026">
+  <properties/>
+  <testcase name="chineseMathematicalAliases" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.0"/>
+  <testcase name="validButOutOfJobSourceRejected" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.001"/>
+  <testcase name="deletionEpochRejectsLateResult" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.001"/>
+  <testcase name="humanCorrectionWinsConflict" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.001"/>
+  <testcase name="expiredLeaseClaimRejectsPreviousAttempt" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.001"/>
+  <testcase name="duplicateRootKeys" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.0"/>
+  <testcase name="truncation" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.0"/>
+  <testcase name="userEditRejectsStaleRevisionWithoutChangingRecord" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.001"/>
+  <testcase name="sourceDeletionInvalidatesDerivedAndPending" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.001"/>
+  <testcase name="humanRevisionRaceRejectsBatch" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.001"/>
+  <testcase name="sourceEditInvalidatesOldVersion" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.0"/>
+  <testcase name="inventedSource" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.003"/>
+  <testcase name="deletedMessageAllEditedVersionsSuppressed" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.0"/>
+  <testcase name="emptyBatchSuccess" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.0"/>
+  <testcase name="duplicateEscapedKeys" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.0"/>
+  <testcase name="serializationRetainsProvenanceAndJobs" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.003"/>
+  <testcase name="badEnum" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.001"/>
+  <testcase name="unknownTopLevelField" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.001"/>
+  <testcase name="activeSelfReportWithEvidence" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.0"/>
+  <testcase name="readOnlyCandidate" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.001"/>
+  <testcase name="duplicateFacts" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.0"/>
+  <testcase name="otherConversationUnchanged" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.0"/>
+  <testcase name="withHintCandidate" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.0"/>
+  <testcase name="factSuppressionPreventsOtherSource" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.0"/>
+  <testcase name="performanceNeverMastery" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.001"/>
+  <testcase name="invalidSourceRejectsEntireBatch" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.0"/>
+  <testcase name="sensitiveContentRejected" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.001"/>
+  <testcase name="inferenceCandidate" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.0"/>
+  <testcase name="suppressionPreventsOldSourceWithNewFactKey" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.0"/>
+  <testcase name="completedJobCannotReplay" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.001"/>
+  <testcase name="unknownCandidateField" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.001"/>
+  <testcase name="topicSuppression" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.0"/>
+  <testcase name="codeFenceRejected" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.001"/>
+  <testcase name="absentEvidence" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.001"/>
+  <testcase name="strictValidBatch" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.0"/>
+  <testcase name="duplicateFactNoDuplicateRow" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.001"/>
+  <testcase name="automaticConflictWithdrawsBothFromFactRetrieval" classname="me.rerere.rikkahub.feature.memory.MemoryContractTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

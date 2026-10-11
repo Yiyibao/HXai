@@ -1,0 +1,25 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.IndependentPostfixProbeTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.IndependentPostfixProbeTest:
+INSTRUMENTATION_STATUS: test=completeServiceFactoryContinuationUsesSyntheticProviderAndFirstDecision
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"IndependentPostfixProbeTest.completeServiceFactoryContinuationUsesSyntheticProviderAndFirstDecision","runId":"9881907c-aa9e-483f-90d9-5ee6cf17a6ed","startedAt":1791464569119,"finishedAt":1791464570814,"status":"PASS","entries":[{"name":"qa-evidence\/IndependentPostfixProbeTest.completeServiceFactoryContinuationUsesSyntheticProviderAndFirstDecision\/9881907c-aa9e-483f-90d9-5ee6cf17a6ed\/continuation.txt","sha256":"847d0a042f3ce6b1070aa76f101ee2977fccad606da531e02924c76e60262ff9","bytes":313,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.IndependentPostfixProbeTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=completeServiceFactoryContinuationUsesSyntheticProviderAndFirstDecision
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 3.094
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

@@ -1,0 +1,11 @@
+{
+  "baseline": "test-summary.json",
+  "supplement": "supplement/report.md",
+  "productionApkUnchanged": true,
+  "partialRestartRecordsPassed": 8,
+  "skillsToolBoundary": "FAIL",
+  "approvalSupplement": "FAIL_UNCLASSIFIED",
+  "attachmentsSupplement": "NOT_RUN",
+  "remoteReplays": 0,
+  "completedAt": "2026-10-08T17:18:58.7997745+08:00"
+}

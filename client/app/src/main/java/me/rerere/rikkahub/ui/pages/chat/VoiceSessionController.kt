@@ -128,7 +128,7 @@ class VoiceSessionController(
                 }
                 when (val event = events.receive()) {
                     is Event.Utterance -> {
-                        capture?.join()
+                        capture.join()
                         capture = null
                         asr = null
                         if (event.text.isNotBlank()) {

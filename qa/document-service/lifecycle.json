@@ -1,0 +1,10 @@
+{
+  "sameKeySameJob": true,
+  "crossIdentityDenied": true,
+  "cancelStopsContainer": true,
+  "cancelCannotSucceed": true,
+  "deleteActuallyClearsFiles": true,
+  "restartExplicitFailure": true,
+  "restartStopsOldContainer": true,
+  "existingServicesActive": true
+}

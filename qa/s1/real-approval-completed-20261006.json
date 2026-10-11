@@ -1,0 +1,35 @@
+{
+  "id": "8fe80e09-a364-4b36-a8bc-029328fee950",
+  "title": "[QA] real approval",
+  "messages": [
+    {
+      "id": "1daed936-a12f-4042-b4d5-ece88ca7b30e",
+      "role": "user",
+      "state": null,
+      "characters": 57,
+      "sha256": "a70da31ec31df7efd887bbb368f04b96d5ebeb4cfacb3eb5a27504e061377359",
+      "tools": []
+    },
+    {
+      "id": "28905fa8-ca3c-4232-851e-4c64946d7027",
+      "role": "assistant",
+      "state": "COMPLETED",
+      "characters": 4,
+      "sha256": "31bb45a98ae446931bf22ab8758fa0fe40ec15f0d40c0ac0a4ce5866731139a9",
+      "tools": [
+        {
+          "call_id": "call_klpwi9vv3edf8sDYmug47d0s",
+          "name": "ask_user",
+          "execution_state": "COMPLETED",
+          "approval_type": "answered",
+          "output_sha256": "2f4ef7e03bf1168b0e02779175c5a18a6d9ba0efb3e01e32233668a68c1ec85d",
+          "unknown": false
+        }
+      ]
+    }
+  ],
+  "queue": {
+    "paused": false,
+    "inputs": []
+  }
+}

@@ -1,0 +1,116 @@
+[
+  {
+    "test": "ProjectReviewTeachingTest",
+    "started": "2026-10-08T14:53:11.9067793+08:00",
+    "seconds": 32.2,
+    "events": [
+      {
+        "time": 1791442392782,
+        "stage": "STARTUP",
+        "result": "STARTED"
+      },
+      {
+        "time": 1791442393153,
+        "stage": "STARTUP",
+        "result": "COMPLETED"
+      },
+      {
+        "time": 1791442394249,
+        "stage": "CHAT",
+        "result": "STARTED"
+      },
+      {
+        "time": 1791442394488,
+        "stage": "NETWORK",
+        "result": "STARTED",
+        "durationMs": 0
+      },
+      {
+        "time": 1791442421283,
+        "stage": "NETWORK",
+        "result": "COMPLETED",
+        "durationMs": 26795
+      },
+      {
+        "time": 1791442422361,
+        "stage": "RESPONSE_BODY",
+        "result": "COMPLETED",
+        "durationMs": 27873
+      },
+      {
+        "time": 1791442422364,
+        "stage": "CHAT",
+        "result": "FAILED"
+      },
+      {
+        "time": 1791442422439,
+        "stage": "CHAT",
+        "result": "FAILED"
+      }
+    ],
+    "collection_status": "collected",
+    "reason": "HTTP status is evidence; no response body or provider cause inferred"
+  },
+  {
+    "test": "MaterialRealModelTest",
+    "started": "2026-10-08T15:01:14.5114701+08:00",
+    "seconds": 45.6,
+    "events": [
+      {
+        "time": 1791442875285,
+        "stage": "STARTUP",
+        "result": "STARTED"
+      },
+      {
+        "time": 1791442875670,
+        "stage": "STARTUP",
+        "result": "COMPLETED"
+      },
+      {
+        "time": 1791442876719,
+        "stage": "MATERIAL",
+        "result": "STARTED"
+      },
+      {
+        "time": 1791442876737,
+        "stage": "MATERIAL",
+        "result": "COMPLETED"
+      },
+      {
+        "time": 1791442876865,
+        "stage": "CHAT",
+        "result": "STARTED"
+      },
+      {
+        "time": 1791442877163,
+        "stage": "NETWORK",
+        "result": "STARTED",
+        "durationMs": 0
+      },
+      {
+        "time": 1791442913458,
+        "stage": "NETWORK",
+        "result": "COMPLETED",
+        "durationMs": 36295
+      },
+      {
+        "time": 1791442918398,
+        "stage": "RESPONSE_BODY",
+        "result": "CANCELLED",
+        "durationMs": 41235
+      },
+      {
+        "time": 1791442918400,
+        "stage": "CHAT",
+        "result": "FAILED"
+      },
+      {
+        "time": 1791442918475,
+        "stage": "CHAT",
+        "result": "FAILED"
+      }
+    ],
+    "collection_status": "collected",
+    "reason": "HTTP status is evidence; no response body or provider cause inferred"
+  }
+]

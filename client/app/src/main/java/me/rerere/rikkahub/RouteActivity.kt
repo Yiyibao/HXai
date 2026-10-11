@@ -226,7 +226,13 @@ class RouteActivity : ComponentActivity() {
             Intent.ACTION_PROCESS_TEXT -> Screen.ShareHandler(
                 text = intent.getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT)?.toString().orEmpty(),
             )
-            else -> intent.getStringExtra("conversationId")?.let { Screen.Chat(it) }
+            else -> when (intent.getStringExtra("nativePage")) {
+                "providers" -> Screen.SettingProvider
+                "files" -> Screen.SettingFiles
+                "skills" -> Screen.Skills
+                "backup" -> Screen.Backup
+                else -> intent.getStringExtra("conversationId")?.let { Screen.Chat(it) }
+            }
         }
         if (destination != null && backStack.lastOrNull() != destination) {
             backStack.add(destination)
@@ -238,6 +244,11 @@ class RouteActivity : ComponentActivity() {
     fun AppRoutes() {
         val toastState = rememberToasterState()
         val settings by settingsStore.settingsFlow.collectAsStateWithLifecycle()
+        val recoveryRequired by settingsStore.credentialRecoveryRequired.collectAsStateWithLifecycle()
+        if (recoveryRequired) {
+            me.rerere.rikkahub.ui.components.ui.CredentialRecoveryScreen(settingsStore)
+            return
+        }
         val tts = rememberCustomTtsState()
         val asr = rememberCustomAsrState()
         val eventBus = koinInject<AppEventBus>()
@@ -304,24 +315,47 @@ class RouteActivity : ComponentActivity() {
                         modifier = Modifier.fillMaxSize(),
                         onBack = { backStack.removeLastOrNull() },
                         transitionSpec = {
-                            if (backStack.size == 1) fadeIn() togetherWith fadeOut()
+                            if (settings.displaySetting.reduceMotion) androidx.compose.animation.EnterTransition.None togetherWith androidx.compose.animation.ExitTransition.None
+                            else if (backStack.size == 1) fadeIn() togetherWith fadeOut()
                             else {
                                 slideInHorizontally { it } togetherWith
                                     slideOutHorizontally { -it / 2 } + scaleOut(targetScale = 0.7f) + fadeOut()
                             }
                         },
                         popTransitionSpec = {
-                            slideInHorizontally { -it / 2 } + scaleIn(initialScale = 0.7f) + fadeIn() togetherWith
+                            if (settings.displaySetting.reduceMotion) androidx.compose.animation.EnterTransition.None togetherWith androidx.compose.animation.ExitTransition.None
+                            else slideInHorizontally { -it / 2 } + scaleIn(initialScale = 0.7f) + fadeIn() togetherWith
                                 slideOutHorizontally { it }
                         },
                         predictivePopTransitionSpec = {
-                            slideInHorizontally { -it / 2 } + scaleIn(initialScale = 0.7f) + fadeIn() togetherWith
+                            if (settings.displaySetting.reduceMotion) androidx.compose.animation.EnterTransition.None togetherWith androidx.compose.animation.ExitTransition.None
+                            else slideInHorizontally { -it / 2 } + scaleIn(initialScale = 0.7f) + fadeIn() togetherWith
                                 slideOutHorizontally { it }
                         },
                         entryProvider = entryProvider {
+                            entry<Screen.StudySection> { key ->
+                                me.rerere.rikkahub.feature.studychat.StudySectionPage(key.section, key.conversationId)
+                            }
+                            entry<Screen.StudyMemoryDetail> { key ->
+                                me.rerere.rikkahub.feature.memory.ui.StudyMemoryDetailPage(key.memoryId, key.conversationId)
+                            }
+                            entry<Screen.StudyArtifactPreview> { key ->
+                                me.rerere.rikkahub.feature.material.ui.StudyArtifactPreviewPage(key.fileId, key.conversationId)
+                            }
+                            entry<Screen.StudyProviderModels> { key ->
+                                me.rerere.rikkahub.feature.studychat.ui.StudyProviderModelsPage(key.providerId)
+                            }
+                            entry<Screen.StudyHandoffGallery> {
+                                me.rerere.rikkahub.feature.studychat.ui.StudyHandoffGalleryPage()
+                            }
                             entry<Screen.Chat>(
-                                metadata = NavDisplay.transitionSpec { fadeIn() togetherWith fadeOut() }
-                                    + NavDisplay.popTransitionSpec { fadeIn() togetherWith fadeOut() }
+                                metadata = NavDisplay.transitionSpec {
+                                    if (settings.displaySetting.reduceMotion) androidx.compose.animation.EnterTransition.None togetherWith androidx.compose.animation.ExitTransition.None
+                                    else fadeIn() togetherWith fadeOut()
+                                } + NavDisplay.popTransitionSpec {
+                                    if (settings.displaySetting.reduceMotion) androidx.compose.animation.EnterTransition.None togetherWith androidx.compose.animation.ExitTransition.None
+                                    else fadeIn() togetherWith fadeOut()
+                                }
                             ) { key ->
                                 ChatPage(
                                     id = Uuid.parse(key.id),
@@ -431,10 +465,14 @@ class RouteActivity : ComponentActivity() {
                             }
 
                             entry<Screen.SettingProvider> {
-                                SettingProviderPage()
+                                me.rerere.rikkahub.feature.studychat.ui.StudyProviderPage()
                             }
 
                             entry<Screen.SettingProviderDetail> { key ->
+                                me.rerere.rikkahub.feature.studychat.ui.StudyProviderDetailPage(key.providerId)
+                            }
+
+                            entry<Screen.SettingProviderAdvanced> { key ->
                                 val id = Uuid.parse(key.providerId)
                                 SettingProviderDetailPage(id = id)
                             }
@@ -583,6 +621,16 @@ class RouteActivity : ComponentActivity() {
 
 sealed interface Screen : NavKey {
     @Serializable
+    data class StudySection(val section: String, val conversationId: String) : Screen
+    @Serializable
+    data class StudyMemoryDetail(val memoryId: String, val conversationId: String) : Screen
+    @Serializable
+    data class StudyArtifactPreview(val fileId: String, val conversationId: String) : Screen
+    @Serializable
+    data class StudyProviderModels(val providerId: String) : Screen
+    @Serializable
+    data object StudyHandoffGallery : Screen
+    @Serializable
     data class Chat(
         val id: String,
         val text: String? = null,
@@ -667,6 +715,9 @@ sealed interface Screen : NavKey {
 
     @Serializable
     data class SettingProviderDetail(val providerId: String) : Screen
+
+    @Serializable
+    data class SettingProviderAdvanced(val providerId: String) : Screen
 
     @Serializable
     data object SettingModels : Screen

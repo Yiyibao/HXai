@@ -1,0 +1,12 @@
+{
+  "model": "gpt-image-2.5-flare",
+  "quality": "low",
+  "size": "1024x1024",
+  "count": 0,
+  "usage": null,
+  "error": {
+    "message": "Upstream service temporarily unavailable",
+    "type": "upstream_error"
+  },
+  "endpoint": "images/generations"
+}

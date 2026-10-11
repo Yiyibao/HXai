@@ -16,7 +16,7 @@ internal object SQLiteConfiguration {
         return configuration
     }
 
-    fun openHelperFactory(context: Context) = RequerySQLiteOpenHelperFactory(
+    fun openHelperFactory(context: Context) = RollbackSafeOpenHelperFactory(RequerySQLiteOpenHelperFactory(
         listOf(RequerySQLiteOpenHelperFactory.ConfigurationOptions { configure(context, it) })
-    )
+    ))
 }

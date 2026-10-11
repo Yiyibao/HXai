@@ -1,0 +1,195 @@
+{
+  "date": "2026-10-06",
+  "environment": "AOSP Android 34 x86_64 emulator-5554, no GMS",
+  "package": "org.mathstudy.agent.debug",
+  "apk_sha256": "d6ae759d9cd1aaf6aadbce295e3fc491449a6ad547c278f61815e6d29de9768a",
+  "provider": {
+    "base_url": "https://xinyue.mom/v1",
+    "path": "/responses",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "stream": true,
+    "store_requested": false
+  },
+  "checks": {
+    "process_kill_content_recovery": "PASS",
+    "saved_message_id_and_hash_stability": "PASS",
+    "manual_followup_after_kill": "PASS",
+    "cancel_regression": "PASS",
+    "profile_switch_regression": "PASS",
+    "old_test_conversations_preserved": "PASS"
+  },
+  "process_kill_action": {
+    "status": "PROCESS_STOPPED_DURING_TEXT_STREAM",
+    "text_delta_events_before_kill": 83,
+    "completed_events_before_kill": 0
+  },
+  "recovered_reply": {
+    "id": "acf97e6c-e337-4f62-9ce4-b81aeb76ed05",
+    "role": "assistant",
+    "characters": 446,
+    "sha256": "09d1dbcc99627bf1aec2ece6fd2de47803ac7e14e02a4500b48aa6c9221593ef",
+    "markers": [
+      "QA_KILL_A"
+    ]
+  },
+  "cancel_action": {
+    "marker": "QA_CANCEL_A_FIX",
+    "target": "Stop",
+    "text_delta_events_before_action": 453,
+    "completed_events_before_action": 0
+  },
+  "cancel_reply": {
+    "id": "01ec846c-a8af-4c0b-afaa-2179ca422c05",
+    "role": "assistant",
+    "characters": 2454,
+    "sha256": "586941d6d4da31377235df5d0e27b4797197d777c6463f276f644628103864b7",
+    "markers": [
+      "QA_CANCEL_A"
+    ]
+  },
+  "switch_action": {
+    "marker": "QA_SWITCH_A_FIX",
+    "target": "Learner-B",
+    "text_delta_events_before_action": 782,
+    "completed_events_before_action": 0
+  },
+  "switch_reply": {
+    "id": "7b920e0a-83b2-4f00-8cea-5204b4caf93b",
+    "role": "assistant",
+    "characters": 3311,
+    "sha256": "e52d947c85a6cdc24c7ea0e9cae15a6c4935dd98899159edc0f3066148541e8f",
+    "markers": [
+      "QA_SWITCH_A"
+    ]
+  },
+  "unit_tests": [
+    {
+      "name": "me.rerere.rikkahub.service.ChatServiceTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "me.rerere.rikkahub.service.ConversationSessionManagerTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "me.rerere.rikkahub.service.ConversationSessionTest",
+      "tests": "18",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "me.rerere.rikkahub.service.LearnerProfileCompatibilityTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "final_test_conversations": [
+    {
+      "id": "f3c9f904-051a-436a-8c7f-68947084940a",
+      "profile_id": "default-learner",
+      "messages": [
+        {
+          "id": "8aa6182c-7fea-451c-aec4-bf6ffe6e59dc",
+          "role": "user",
+          "characters": 180,
+          "sha256": "e964789f67de071576247fa43894b1ea82ce50b66c4aa12f7e3f881e46ce08c4",
+          "markers": [
+            "QA_KILL_A"
+          ]
+        },
+        {
+          "id": "acf97e6c-e337-4f62-9ce4-b81aeb76ed05",
+          "role": "assistant",
+          "characters": 446,
+          "sha256": "09d1dbcc99627bf1aec2ece6fd2de47803ac7e14e02a4500b48aa6c9221593ef",
+          "markers": [
+            "QA_KILL_A"
+          ]
+        },
+        {
+          "id": "53964b3e-f584-491f-9d5b-f7ca2d8eb900",
+          "role": "user",
+          "characters": 150,
+          "sha256": "3c3c1d65dc559ec428e90a297506740a5d6e6f385b76a22c112350d0e70b8c5c",
+          "markers": [
+            "QA_RESTART_A"
+          ]
+        },
+        {
+          "id": "9a8e321b-76a9-4719-8944-51c4d80cf603",
+          "role": "assistant",
+          "characters": 111,
+          "sha256": "3aeb122f21a7794046acbab8bd65fb2320c3a1b5e57a874e6ef4dab5a1e6dcff",
+          "markers": [
+            "QA_RESTART_A"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "92ae5260-1a45-4b58-a3fc-d93841821111",
+      "profile_id": "default-learner",
+      "messages": [
+        {
+          "id": "5c8731eb-c539-49fb-8f89-5ac09a04d681",
+          "role": "user",
+          "characters": 172,
+          "sha256": "04cb5a2ee63632d236f92338f43d3fbb380fa0100365ef84be106de102989409",
+          "markers": [
+            "QA_CANCEL_A"
+          ]
+        },
+        {
+          "id": "01ec846c-a8af-4c0b-afaa-2179ca422c05",
+          "role": "assistant",
+          "characters": 2454,
+          "sha256": "586941d6d4da31377235df5d0e27b4797197d777c6463f276f644628103864b7",
+          "markers": [
+            "QA_CANCEL_A"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6eca2a22-8221-4b66-a5dc-5440c622071f",
+      "profile_id": "default-learner",
+      "messages": [
+        {
+          "id": "5a37616b-3fec-4f27-93c5-08605f0b3a78",
+          "role": "user",
+          "characters": 173,
+          "sha256": "01943a425f69ccd0f99fa5eb333e5852d3ab5e6c625822d3c68a531636543f7e",
+          "markers": [
+            "QA_SWITCH_A"
+          ]
+        },
+        {
+          "id": "7b920e0a-83b2-4f00-8cea-5204b4caf93b",
+          "role": "assistant",
+          "characters": 3311,
+          "sha256": "e52d947c85a6cdc24c7ea0e9cae15a6c4935dd98899159edc0f3066148541e8f",
+          "markers": [
+            "QA_SWITCH_A"
+          ]
+        }
+      ]
+    }
+  ],
+  "fatal_exceptions": 0,
+  "limitations": [
+    "No automatic resumption of the original HTTP stream",
+    "No explicit persisted interruption/task status or recovery of queued messages/tools in this patch",
+    "FTS rebuilt by normal final save, not per streaming checkpoint; interrupted-only text search not validated",
+    "Mate 50/HarmonyOS, network failures and full R01/C04 remain unverified"
+  ]
+}

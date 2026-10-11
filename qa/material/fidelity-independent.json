@@ -1,0 +1,62 @@
+{
+  "word": {
+    "image_count": 1,
+    "editable_omml_fraction_and_power": "PASS",
+    "table": "PASS"
+  },
+  "excel": {
+    "names_and_relationship_order": "PASS",
+    "number_boolean_string_null": "PASS",
+    "formula_string": "PASS",
+    "wrap_and_print_width": "PASS"
+  },
+  "pdf": {
+    "pages": 26,
+    "table_pages": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26
+    ],
+    "tail_row_and_repeated_header": "PASS",
+    "visual_review": "separate PNG inspection required"
+  },
+  "long_text": {
+    "characters": 52902,
+    "tail": "PASS"
+  },
+  "scan": {
+    "no_text_layer": "PASS",
+    "model_output_identifier_and_fraction": "PASS"
+  },
+  "word_model": {
+    "actual_digit_8642": "PASS by Android assertion",
+    "image_bytes_preserved": "PASS",
+    "editable_omml_preserved": "PASS"
+  },
+  "sha256": {
+    "fidelity.docx": "e0bd539a0e1bdda8df299f9d50fda1a1764246626c0f86178eceb916668cb18d",
+    "fidelity.xlsx": "ba8759c41d6e4e63a3c986c5725371a7d665cfbd0378f61b9299b2ae2ac4869e",
+    "table-long.pdf": "b268f39a9334957fb173381d4b2cfe6f65bbc38b4d34b5b9d8b8be075129072a",
+    "long.md": "9418615b86d93048112db43662ac3dab781082b8985b7053cd9226e654d02bca"
+  }
+}

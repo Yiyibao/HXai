@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.ui.pages.setting.components.ProviderConfigureConvertToTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-07T22:31:19.812Z" hostname="DESKTOP-QH4J0RS" time="0.006">
+  <properties/>
+  <testcase name="convertTo should keep original base url when source url is invalid" classname="me.rerere.rikkahub.ui.pages.setting.components.ProviderConfigureConvertToTest" time="0.003"/>
+  <testcase name="convertTo should preserve third-party host and replace version suffix" classname="me.rerere.rikkahub.ui.pages.setting.components.ProviderConfigureConvertToTest" time="0.001"/>
+  <testcase name="convertTo should keep common fields and switch official endpoint to target default" classname="me.rerere.rikkahub.ui.pages.setting.components.ProviderConfigureConvertToTest" time="0.001"/>
+  <testcase name="convertTo should preserve third-party host and append target path when needed" classname="me.rerere.rikkahub.ui.pages.setting.components.ProviderConfigureConvertToTest" time="0.0"/>
+  <testcase name="convertTo should preserve third-party host when switching to claude" classname="me.rerere.rikkahub.ui.pages.setting.components.ProviderConfigureConvertToTest" time="0.001"/>
+  <testcase name="convertTo should return same instance for same type" classname="me.rerere.rikkahub.ui.pages.setting.components.ProviderConfigureConvertToTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

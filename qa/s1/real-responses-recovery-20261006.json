@@ -1,0 +1,146 @@
+{
+  "date": "2026-10-06",
+  "environment": "AOSP API 34 x86_64 emulator; existing Responses provider; gpt-6.1-sol / medium",
+  "status": "PASS for listed subcases; complete S1 remains incomplete",
+  "pre_fix_installed_apk_sha256": "cb997b80e57c8701dc6f487a128f675dda726600912f50ddbf84b4ecb100bc68",
+  "final_apk_sha256": "4d97a9605c82e0c497c1af2a72cbebb9dc19e6fc5d0b1b2f8390ce21d2de6199",
+  "phases": {
+    "airplane": {
+      "fields": {
+        "qa_id": "003a7cc5-83bc-483d-a493-50ce0283c270",
+        "qa_message_id": "837a859f-4526-41d6-af3a-492a36d3d0d0",
+        "qa_phase": "network",
+        "qa_pid": "8431",
+        "qa_queued_id": "4d222d00-27e0-4bdd-b431-74a9693ab383",
+        "qa_partial_chars": "188",
+        "qa_result": "PASS",
+        "qa_route": "airplane"
+      },
+      "junit_pass": true,
+      "host_killed": false
+    },
+    "switch": {
+      "fields": {
+        "qa_id": "7af5c01b-772a-4f94-9222-4b93f4e71496",
+        "qa_message_id": "c189559c-f64b-4284-a7c3-81ee4e9d650e",
+        "qa_phase": "network",
+        "qa_pid": "8733",
+        "qa_queued_id": "36f95810-1c55-4179-9066-542ce736a9ca",
+        "qa_partial_chars": "202",
+        "qa_result": "PASS",
+        "qa_route": "switch"
+      },
+      "junit_pass": true,
+      "host_killed": false
+    },
+    "kill": {
+      "fields": {
+        "qa_id": "98ae6937-7b4e-47be-800f-f61be21af35e",
+        "qa_message_id": "94564fe7-52a3-4d89-8e9b-4881a2fd60d6",
+        "qa_phase": "kill",
+        "qa_pid": "8934",
+        "qa_queued_id": "8175d717-3b30-4ece-9cb1-5ceec90e3169",
+        "qa_kill_ready": "true"
+      },
+      "junit_pass": false,
+      "host_killed": true
+    },
+    "verify": {
+      "fields": {
+        "qa_message_id": "94564fe7-52a3-4d89-8e9b-4881a2fd60d6",
+        "qa_partial_chars": "596",
+        "qa_phase": "verify",
+        "qa_pid": "9306",
+        "qa_result": "PASS",
+        "qa_sha256": "df58e7c4862314e5a8623b80c2c86940f4881d19545a33ffdb7bdfa9d1cfde6d"
+      },
+      "junit_pass": true,
+      "host_killed": false
+    },
+    "approval": {
+      "fields": {
+        "qa_id": "8fe80e09-a364-4b36-a8bc-029328fee950",
+        "qa_phase": "approval",
+        "qa_pid": "9610",
+        "qa_result": "PASS"
+      },
+      "junit_pass": true,
+      "host_killed": false
+    },
+    "tools_before_fix": {
+      "fields": {
+        "qa_executions": "2",
+        "qa_id": "4cd5b754-173c-4865-8f11-83069ef57526",
+        "qa_phase": "tools",
+        "qa_pid": "10345",
+        "qa_tool_kill_ready": "true"
+      },
+      "junit_pass": false,
+      "host_killed": true
+    },
+    "tools_after_fix": {
+      "fields": {
+        "qa_executions": "2",
+        "qa_id": "07d52c46-dbf0-4a48-8371-526b04ba2cd9",
+        "qa_phase": "tools",
+        "qa_pid": "11305",
+        "qa_tool_kill_ready": "true"
+      },
+      "junit_pass": false,
+      "host_killed": true
+    }
+  },
+  "jvm": {
+    "app": {
+      "tests": 245,
+      "failures": 0,
+      "errors": 0
+    },
+    "ai": {
+      "tests": 197,
+      "failures": 0,
+      "errors": 0
+    }
+  },
+  "android_fault_tests": 16,
+  "process_recovery_phases": 2,
+  "post_fix_skip": {
+    "tool_execution_events": 0,
+    "responses_requests": 1,
+    "fatal_exceptions": 0
+  },
+  "assertions": {
+    "stable_message_and_call_ids": true,
+    "completed_tool_result_preserved": true,
+    "queue_input_submitted_once": true,
+    "skipped_unknown_state_survives_cold_restart": true,
+    "approval_answer_continues_real_model": true
+  },
+  "repaired_failure": "Unknown skipped tool was incorrectly marked COMPLETED; now SKIPPED_UNKNOWN with visible label",
+  "limitations": [
+    "Emulator Wi-Fi/cellular routes share host egress; not independent public links",
+    "Network no-replay observation window is 3 seconds plus paused queue and no generation job",
+    "No external write effects; second no-side-effect tool held at execution entry",
+    "Not exhaustive kill timing/background/branch races or real generic approval deny/late-response combinations",
+    "Production ten-minute timeout and full credential/log/backup gate not covered"
+  ],
+  "artifact_sha256": {
+    "real-approval-completed-20261006.json": "acf79ab79aaef195b13424ea1a9c107b927699b4f7d6aaee8ce364dd81e44fee",
+    "real-approval-waiting-20261006.json": "0f6092349a9e786e1740f59d032204acdbd9e3ef17c7a6a0b48f664cfdf8f13b",
+    "real-kill-recovered-20261006.json": "c443062ae17088a7caf16fe227a6d5691b3da38250809943cfa7c3dedf1c865b",
+    "real-kill-ui-resumed-20261006.json": "c4daf22edb5dc657fefd745808b79d3b6fa027dbaa0d02adf796c9765d9112b9",
+    "real-tools-fixed-log-counts-20261006.json": "0b944cc0ab490587d6b8688e6f82a4a47db6dee8a8162017bf480a84c5ffcb60",
+    "real-tools-fixed-recovered-20261006.json": "811fdf45d1b01607a3ed656f0772f51e5b644b0fb29a4143849dbdb7a2a67be9",
+    "real-tools-fixed-reopened-20261006.json": "7808f665f4f8f628ba6ab04d4f33526bd02efd89479d00c59fe03773645cefe9",
+    "real-tools-fixed-resumed-20261006.json": "7808f665f4f8f628ba6ab04d4f33526bd02efd89479d00c59fe03773645cefe9",
+    "real-tools-fixed-stopped-20261006.json": "bbb505e5392228be24ca735cd454ad71dff0aa1fe7a7ff094823a84bb918a973",
+    "real-tools-recovered-20261006.json": "8f5cb8128584a923b0312c4ebea93cf17cb8191f0889d4a05ac5ab579ac04e3f",
+    "real-tools-resumed-20261006.json": "35ecaff52de97369ed54bc270ce2843f983a9ad73c55b0390f089e3a97486552",
+    "real-tools-stopped-20261006.json": "4ced5a327f9b3098faf82c817603cc2bb34d545099c69f736b4ff2429372f0ee",
+    "real-approval-20261006.png": "29358ffb7df565e524afe075dd2fcd379340f871a15807840d7713f6bb90fdeb",
+    "real-kill-queue-20261006.png": "2ef19533509a56b8574981c8f448f164953ce2d4a54caffc9341e3e433bf0d72",
+    "real-tools-fixed-skipped-20261006.png": "bc6e3c8486fb56d30bd69143427ea9c51fcbd3808447826e6dbb8aa20d28aa82",
+    "real-tools-fixed-unknown-20261006.png": "ce0375e31cd46d933d03b0717a8018846ec2bd2109a5a40d4ba4b6e77d5ff9f4",
+    "real-tools-unknown-20261006.png": "2172f4049da1ca2afc09f9bde0787c67476e24c776bba921e7c33015d9259b54"
+  }
+}

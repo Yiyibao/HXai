@@ -1,0 +1,36 @@
+Resolving dependencies...
+Downloading packages...
+  cupertino_icons 1.0.9 (2.0.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  petitparser 7.0.2 (7.1.0 available)
+  test_api 0.7.12 (0.7.14 available)
+  vector_math 2.4.0 (2.4.3 available)
+  xml 7.0.1 (7.1.0 available)
+Got dependencies!
+7 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleAarDebug'...                          92.2s
+√ Built build\host\outputs\repo
+
+Consuming the Module
+  1. Open <host>\app\build.gradle
+  2. Ensure you have the repositories configured, otherwise add them:
+
+      String storageUrl = System.env.FLUTTER_STORAGE_BASE_URL ?: "https://storage.googleapis.com"
+      repositories {
+        maven {
+            url 'D:\Office\Study\code\MathStudyAgent\client\flutter_ui\build\host\outputs\repo'
+        }
+        maven {
+            url "$storageUrl/download.flutter.io"
+        }
+      }
+
+  3. Make the host app depend on the Flutter module:
+
+    dependencies {
+      debugImplementation 'me.rerere.rikkahub.flutter_ui:flutter_debug:1.0'
+    }
+
+To learn more, visit https://flutter.dev/to/integrate-android-archive

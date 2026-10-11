@@ -1,0 +1,168 @@
+
+me.rerere.rikkahub.service.FlutterChatBridgeTest:
+Error in surfaceStatePersistsAndRejectsStaleBranches(me.rerere.rikkahub.service.FlutterChatBridgeTest):
+kotlinx.coroutines.TimeoutCancellationException: Timed out waiting for 30000 ms
+	at kotlinx.coroutines.TimeoutKt.TimeoutCancellationException(Timeout.kt:281)
+	at kotlinx.coroutines.TimeoutCoroutine.run(Timeout.kt:243)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedRunnableTask.run(EventLoop.common.kt:498)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.DefaultExecutor.run(DefaultExecutor.kt:105)
+	at java.lang.Thread.run(Thread.java:1012)
+s_glBindAttribLocation: bind attrib 0 name position
+s_glBindAttribLocation: bind attrib 1 name color
+s_glBindAttribLocation: bind attrib 2 name localCoord
+.
+Error in committedSendStreamsAndDuplicateSurvivesFacadeRecreation(me.rerere.rikkahub.service.FlutterChatBridgeTest):
+kotlinx.coroutines.TimeoutCancellationException: Timed out waiting for 30000 ms
+	at kotlinx.coroutines.TimeoutKt.TimeoutCancellationException(Timeout.kt:281)
+	at kotlinx.coroutines.TimeoutCoroutine.run(Timeout.kt:243)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedRunnableTask.run(EventLoop.common.kt:498)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.DefaultExecutor.run(DefaultExecutor.kt:105)
+	at java.lang.Thread.run(Thread.java:1012)
+
+Error in failedSummaryPreservesHistoryAndNeverStartsFinalGeneration(me.rerere.rikkahub.service.FlutterChatBridgeTest):
+java.lang.AssertionError: expected:<1> but was:<0>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at me.rerere.rikkahub.service.FlutterChatBridgeTest$failedSummaryPreservesHistoryAndNeverStartsFinalGeneration$1.invokeSuspend(FlutterChatBridgeTest.kt:106)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:35)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:101)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:47)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:98)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.FlutterChatBridgeTest.failedSummaryPreservesHistoryAndNeverStartsFinalGeneration(FlutterChatBridgeTest.kt:94)
+.
+Error in longContextSummarizesCachesAndInvalidatesWithoutChangingHistory(me.rerere.rikkahub.service.FlutterChatBridgeTest):
+me.rerere.ai.util.HttpException: Model service HTTP 502
+	at me.rerere.ai.util.ErrorParserKt.modelRejection(ErrorParser.kt:53)
+	at me.rerere.ai.util.ErrorParserKt.parseModelHttpError(ErrorParser.kt:27)
+	at me.rerere.ai.provider.providers.openai.ResponseAPI$generateText$2.invokeSuspend(ResponseAPI.kt:107)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+
+Error in versionThreeChartSelectionPersistsAndContinuesOnce(me.rerere.rikkahub.service.FlutterChatBridgeTest):
+kotlinx.coroutines.TimeoutCancellationException: Timed out waiting for 30000 ms
+	at kotlinx.coroutines.TimeoutKt.TimeoutCancellationException(Timeout.kt:281)
+	at kotlinx.coroutines.TimeoutCoroutine.run(Timeout.kt:243)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedRunnableTask.run(EventLoop.common.kt:498)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.DefaultExecutor.run(DefaultExecutor.kt:105)
+	at java.lang.Thread.run(Thread.java:1012)
+
+Error in legacyReferencePersistsAndContinuesThroughSharedProtocol(me.rerere.rikkahub.service.FlutterChatBridgeTest):
+kotlinx.coroutines.TimeoutCancellationException: Timed out waiting for 30000 ms
+	at kotlinx.coroutines.TimeoutKt.TimeoutCancellationException(Timeout.kt:281)
+	at kotlinx.coroutines.TimeoutCoroutine.run(Timeout.kt:243)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedRunnableTask.run(EventLoop.common.kt:498)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.DefaultExecutor.run(DefaultExecutor.kt:105)
+	at java.lang.Thread.run(Thread.java:1012)
+
+Error in verifiedCachedDocumentResumesOnceAndCorruptCacheNeverResumes(me.rerere.rikkahub.service.FlutterChatBridgeTest):
+kotlinx.coroutines.TimeoutCancellationException: Timed out waiting for 30000 ms
+	at kotlinx.coroutines.TimeoutKt.TimeoutCancellationException(Timeout.kt:281)
+	at kotlinx.coroutines.TimeoutCoroutine.run(Timeout.kt:243)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedRunnableTask.run(EventLoop.common.kt:498)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.DefaultExecutor.run(DefaultExecutor.kt:105)
+	at java.lang.Thread.run(Thread.java:1012)
+...
+
+Time: 181.027
+There were 7 failures:
+1) surfaceStatePersistsAndRejectsStaleBranches(me.rerere.rikkahub.service.FlutterChatBridgeTest)
+kotlinx.coroutines.TimeoutCancellationException: Timed out waiting for 30000 ms
+	at kotlinx.coroutines.TimeoutKt.TimeoutCancellationException(Timeout.kt:281)
+	at kotlinx.coroutines.TimeoutCoroutine.run(Timeout.kt:243)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedRunnableTask.run(EventLoop.common.kt:498)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.DefaultExecutor.run(DefaultExecutor.kt:105)
+	at java.lang.Thread.run(Thread.java:1012)
+2) committedSendStreamsAndDuplicateSurvivesFacadeRecreation(me.rerere.rikkahub.service.FlutterChatBridgeTest)
+kotlinx.coroutines.TimeoutCancellationException: Timed out waiting for 30000 ms
+	at kotlinx.coroutines.TimeoutKt.TimeoutCancellationException(Timeout.kt:281)
+	at kotlinx.coroutines.TimeoutCoroutine.run(Timeout.kt:243)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedRunnableTask.run(EventLoop.common.kt:498)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.DefaultExecutor.run(DefaultExecutor.kt:105)
+	at java.lang.Thread.run(Thread.java:1012)
+3) failedSummaryPreservesHistoryAndNeverStartsFinalGeneration(me.rerere.rikkahub.service.FlutterChatBridgeTest)
+java.lang.AssertionError: expected:<1> but was:<0>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at me.rerere.rikkahub.service.FlutterChatBridgeTest$failedSummaryPreservesHistoryAndNeverStartsFinalGeneration$1.invokeSuspend(FlutterChatBridgeTest.kt:106)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:35)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:101)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:47)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:98)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.FlutterChatBridgeTest.failedSummaryPreservesHistoryAndNeverStartsFinalGeneration(FlutterChatBridgeTest.kt:94)
+4) longContextSummarizesCachesAndInvalidatesWithoutChangingHistory(me.rerere.rikkahub.service.FlutterChatBridgeTest)
+me.rerere.ai.util.HttpException: Model service HTTP 502
+	at me.rerere.ai.util.ErrorParserKt.modelRejection(ErrorParser.kt:53)
+	at me.rerere.ai.util.ErrorParserKt.parseModelHttpError(ErrorParser.kt:27)
+	at me.rerere.ai.provider.providers.openai.ResponseAPI$generateText$2.invokeSuspend(ResponseAPI.kt:107)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+5) versionThreeChartSelectionPersistsAndContinuesOnce(me.rerere.rikkahub.service.FlutterChatBridgeTest)
+kotlinx.coroutines.TimeoutCancellationException: Timed out waiting for 30000 ms
+	at kotlinx.coroutines.TimeoutKt.TimeoutCancellationException(Timeout.kt:281)
+	at kotlinx.coroutines.TimeoutCoroutine.run(Timeout.kt:243)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedRunnableTask.run(EventLoop.common.kt:498)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.DefaultExecutor.run(DefaultExecutor.kt:105)
+	at java.lang.Thread.run(Thread.java:1012)
+6) legacyReferencePersistsAndContinuesThroughSharedProtocol(me.rerere.rikkahub.service.FlutterChatBridgeTest)
+kotlinx.coroutines.TimeoutCancellationException: Timed out waiting for 30000 ms
+	at kotlinx.coroutines.TimeoutKt.TimeoutCancellationException(Timeout.kt:281)
+	at kotlinx.coroutines.TimeoutCoroutine.run(Timeout.kt:243)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedRunnableTask.run(EventLoop.common.kt:498)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.DefaultExecutor.run(DefaultExecutor.kt:105)
+	at java.lang.Thread.run(Thread.java:1012)
+7) verifiedCachedDocumentResumesOnceAndCorruptCacheNeverResumes(me.rerere.rikkahub.service.FlutterChatBridgeTest)
+kotlinx.coroutines.TimeoutCancellationException: Timed out waiting for 30000 ms
+	at kotlinx.coroutines.TimeoutKt.TimeoutCancellationException(Timeout.kt:281)
+	at kotlinx.coroutines.TimeoutCoroutine.run(Timeout.kt:243)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedRunnableTask.run(EventLoop.common.kt:498)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.DefaultExecutor.run(DefaultExecutor.kt:105)
+	at java.lang.Thread.run(Thread.java:1012)
+
+FAILURES!!!
+Tests run: 12,  Failures: 7
+
+

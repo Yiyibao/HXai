@@ -1,0 +1,199 @@
+{
+  "extension": "png",
+  "requestedRange": [
+    1,
+    1
+  ],
+  "samples": [
+    {
+      "elapsed": 3.2,
+      "memory": "36.19MiB / 4GiB",
+      "cpu": "100.69%"
+    },
+    {
+      "elapsed": 5.2,
+      "memory": "356.7MiB / 4GiB",
+      "cpu": "129.89%"
+    },
+    {
+      "elapsed": 7.3,
+      "memory": "534.4MiB / 4GiB",
+      "cpu": "109.40%"
+    },
+    {
+      "elapsed": 9.3,
+      "memory": "693.7MiB / 4GiB",
+      "cpu": "365.16%"
+    },
+    {
+      "elapsed": 11.4,
+      "memory": "1.255GiB / 4GiB",
+      "cpu": "100.22%"
+    },
+    {
+      "elapsed": 13.4,
+      "memory": "1.537GiB / 4GiB",
+      "cpu": "101.45%"
+    },
+    {
+      "elapsed": 15.4,
+      "memory": "1.552GiB / 4GiB",
+      "cpu": "100.41%"
+    },
+    {
+      "elapsed": 17.5,
+      "memory": "1.569GiB / 4GiB",
+      "cpu": "101.16%"
+    },
+    {
+      "elapsed": 19.5,
+      "memory": "1.589GiB / 4GiB",
+      "cpu": "100.45%"
+    },
+    {
+      "elapsed": 21.6,
+      "memory": "1.608GiB / 4GiB",
+      "cpu": "100.30%"
+    },
+    {
+      "elapsed": 23.6,
+      "memory": "1.704GiB / 4GiB",
+      "cpu": "400.30%"
+    },
+    {
+      "elapsed": 25.7,
+      "memory": "1.769GiB / 4GiB",
+      "cpu": "238.41%"
+    },
+    {
+      "elapsed": 27.7,
+      "memory": "1.069GiB / 4GiB",
+      "cpu": "100.96%"
+    }
+  ],
+  "result": {
+    "taskId": "d1e1cf19-e741-4f7f-8aee-1b4021d512a1",
+    "state": "SUCCEEDED",
+    "errorCode": null,
+    "resultRevision": 1,
+    "expiresAt": 1791451874.7264001,
+    "requestedRange": [
+      1,
+      1
+    ]
+  },
+  "elapsedSeconds": 28.75,
+  "manifest": {
+    "contractVersion": 1,
+    "sourceSha256": "0dc808e0d4f5869a97d59521c9c24f81f6a7c762b014096ffeabfe034835cdaf",
+    "resultRevision": 1,
+    "parserVersion": "4.0.10",
+    "adapterVersion": "1",
+    "tier": "basic",
+    "totalPages": 1,
+    "requestedRange": [
+      1,
+      1
+    ],
+    "processedPages": [
+      1
+    ],
+    "blankPages": [],
+    "failedPages": [],
+    "complete": true,
+    "warnings": [
+      "OCR and formula recognition require checking the original page; geometry unavailable."
+    ],
+    "assets": [
+      {
+        "assetId": "document",
+        "path": "document.json",
+        "mediaType": "application/json",
+        "size": 1055,
+        "sha256": "010bd061588b22aa786f4f7da3f769fa79c80fbb1c9ac7dedd84a0fe63de7438"
+      },
+      {
+        "assetId": "image-a3c86f63fe1ba8f3fedfd217",
+        "path": "image-a3c86f63fe1ba8f3fedfd217.png",
+        "mediaType": "image/png",
+        "size": 4347,
+        "sha256": "ee1151ef5c642638651b68c060e71329f9b317d7d08872a3af493a2d2eb133d7"
+      },
+      {
+        "assetId": "image-880616daf01108371fe00cb1",
+        "path": "image-880616daf01108371fe00cb1.png",
+        "mediaType": "image/png",
+        "size": 29833,
+        "sha256": "0cb862b04da8365b6385b52822a055ddfa32f07cac5bf6920409d137aa5242aa"
+      },
+      {
+        "assetId": "text",
+        "path": "content.txt",
+        "mediaType": "text/plain",
+        "size": 286,
+        "sha256": "b152b136d3a1eb4f481e401c5155771cbda9d83ee4f2c4a59b4c5a0d5f14f43d"
+      }
+    ]
+  },
+  "document": {
+    "contractVersion": 1,
+    "sourceSha256": "0dc808e0d4f5869a97d59521c9c24f81f6a7c762b014096ffeabfe034835cdaf",
+    "resultRevision": 1,
+    "parserVersion": "4.0.10",
+    "adapterVersion": "1",
+    "tier": "basic",
+    "totalPages": 1,
+    "requestedRange": [
+      1,
+      1
+    ],
+    "processedPages": [
+      1
+    ],
+    "blankPages": [],
+    "failedPages": [],
+    "complete": true,
+    "warnings": [
+      "OCR and formula recognition require checking the original page; geometry unavailable."
+    ],
+    "blocks": [
+      {
+        "blockId": "p1-b0",
+        "page": 1,
+        "type": "text",
+        "text": "数学解析合成测试（非私人文件）"
+      },
+      {
+        "blockId": "p1-b1",
+        "page": 1,
+        "type": "text",
+        "text": "函数 f(x) = x^{2} + 2x + 1"
+      },
+      {
+        "blockId": "p1-b2",
+        "page": 1,
+        "type": "text",
+        "text": "\\mathsf{X} = 2 时， f(x) = 9"
+      },
+      {
+        "blockId": "p1-b3",
+        "page": 1,
+        "type": "equation",
+        "text": "\\frac { x + 1 } { 2 }",
+        "latex": "\\frac { x + 1 } { 2 }",
+        "assetId": "image-a3c86f63fe1ba8f3fedfd217"
+      },
+      {
+        "blockId": "p1-b4.0",
+        "page": 1,
+        "type": "table_body",
+        "text": "项目\t数量\t结果\n\t样本A\t2\t9\n\t样本B\t3\t16",
+        "assetId": "image-880616daf01108371fe00cb1"
+      }
+    ]
+  },
+  "existingServices": [
+    "active",
+    "active"
+  ]
+}

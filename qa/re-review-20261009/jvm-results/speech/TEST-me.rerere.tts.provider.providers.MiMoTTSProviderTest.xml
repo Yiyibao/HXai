@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.tts.provider.providers.MiMoTTSProviderTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-09T03:00:10.280Z" hostname="DESKTOP-QH4J0RS" time="0.038">
+  <properties/>
+  <testcase name="throws_when_stream_closed_without_audio" classname="me.rerere.tts.provider.providers.MiMoTTSProviderTest" time="0.015"/>
+  <testcase name="ignore_sse_chunk_without_audio_data" classname="me.rerere.tts.provider.providers.MiMoTTSProviderTest" time="0.011"/>
+  <testcase name="decode_audio_data_from_sse_chunk" classname="me.rerere.tts.provider.providers.MiMoTTSProviderTest" time="0.006"/>
+  <testcase name="emits_single_terminal_chunk_on_done_and_closed" classname="me.rerere.tts.provider.providers.MiMoTTSProviderTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

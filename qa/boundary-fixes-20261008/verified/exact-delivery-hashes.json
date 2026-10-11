@@ -1,0 +1,112 @@
+[
+  {
+    "group": "artifact",
+    "extension": "md",
+    "exact_name": "QA交付-b7ebf2b7-effd-4a80-83ff-a9f23a63976d.md",
+    "source_sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+    "delivered_sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+    "view_sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+    "send_sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+    "recorded_sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+    "passed": true
+  },
+  {
+    "group": "artifact",
+    "extension": "docx",
+    "exact_name": "QA交付-2992f6f1-34a8-4e02-b509-755c41f7dc8c.docx",
+    "source_sha256": "e6c9ebacc1ca51a15e05f8332e02ce96480b795736e119a2764d83be1c8207ae",
+    "delivered_sha256": "e6c9ebacc1ca51a15e05f8332e02ce96480b795736e119a2764d83be1c8207ae",
+    "view_sha256": "e6c9ebacc1ca51a15e05f8332e02ce96480b795736e119a2764d83be1c8207ae",
+    "send_sha256": "e6c9ebacc1ca51a15e05f8332e02ce96480b795736e119a2764d83be1c8207ae",
+    "recorded_sha256": "e6c9ebacc1ca51a15e05f8332e02ce96480b795736e119a2764d83be1c8207ae",
+    "passed": true
+  },
+  {
+    "group": "artifact",
+    "extension": "xlsx",
+    "exact_name": "QA交付-0f18a5c0-808c-4ab1-9dfe-55f32dd43f7d.xlsx",
+    "source_sha256": "a17d7c076452b863d2f85cbaed4f98f1916dd63b778ad3ae7f14f522b850a787",
+    "delivered_sha256": "a17d7c076452b863d2f85cbaed4f98f1916dd63b778ad3ae7f14f522b850a787",
+    "view_sha256": "a17d7c076452b863d2f85cbaed4f98f1916dd63b778ad3ae7f14f522b850a787",
+    "send_sha256": "a17d7c076452b863d2f85cbaed4f98f1916dd63b778ad3ae7f14f522b850a787",
+    "recorded_sha256": "a17d7c076452b863d2f85cbaed4f98f1916dd63b778ad3ae7f14f522b850a787",
+    "passed": true
+  },
+  {
+    "group": "artifact",
+    "extension": "pptx",
+    "exact_name": "QA交付-4211a86c-8924-4a62-87a1-cbefdcc33572.pptx",
+    "source_sha256": "705bd4b8bc167976f27587437f5cddd35c4e9e9c5cbddb719c062ed883872ac3",
+    "delivered_sha256": "705bd4b8bc167976f27587437f5cddd35c4e9e9c5cbddb719c062ed883872ac3",
+    "view_sha256": "705bd4b8bc167976f27587437f5cddd35c4e9e9c5cbddb719c062ed883872ac3",
+    "send_sha256": "705bd4b8bc167976f27587437f5cddd35c4e9e9c5cbddb719c062ed883872ac3",
+    "recorded_sha256": "705bd4b8bc167976f27587437f5cddd35c4e9e9c5cbddb719c062ed883872ac3",
+    "passed": true
+  },
+  {
+    "group": "artifact",
+    "extension": "pdf",
+    "exact_name": "QA交付-7f895d4f-96a5-4cc9-b363-d60800dd9c0d.pdf",
+    "source_sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+    "delivered_sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+    "view_sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+    "send_sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+    "recorded_sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+    "passed": true
+  },
+  {
+    "group": "material",
+    "extension": "md",
+    "exact_name": "QA交付-06e1398e-16d0-4aa3-a123-c030f009a44b.md",
+    "source_sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+    "delivered_sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+    "view_sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+    "send_sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+    "recorded_sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+    "passed": true
+  },
+  {
+    "group": "material",
+    "extension": "docx",
+    "exact_name": "QA交付-9d9391d3-2985-4157-872f-d9f54f93b539.docx",
+    "source_sha256": "290a065ba5f0c5f81fb514a2a99c76294ab0240c2008434d9b8de818d3bb8c6e",
+    "delivered_sha256": "290a065ba5f0c5f81fb514a2a99c76294ab0240c2008434d9b8de818d3bb8c6e",
+    "view_sha256": "290a065ba5f0c5f81fb514a2a99c76294ab0240c2008434d9b8de818d3bb8c6e",
+    "send_sha256": "290a065ba5f0c5f81fb514a2a99c76294ab0240c2008434d9b8de818d3bb8c6e",
+    "recorded_sha256": "290a065ba5f0c5f81fb514a2a99c76294ab0240c2008434d9b8de818d3bb8c6e",
+    "passed": true
+  },
+  {
+    "group": "material",
+    "extension": "xlsx",
+    "exact_name": "QA交付-556b7e2d-9b82-4397-9a5b-cf32a8168e49.xlsx",
+    "source_sha256": "0d9859032bbc354d1093ff3315ee8bcf84c16851ff5b80734784f24c49341af1",
+    "delivered_sha256": "0d9859032bbc354d1093ff3315ee8bcf84c16851ff5b80734784f24c49341af1",
+    "view_sha256": "0d9859032bbc354d1093ff3315ee8bcf84c16851ff5b80734784f24c49341af1",
+    "send_sha256": "0d9859032bbc354d1093ff3315ee8bcf84c16851ff5b80734784f24c49341af1",
+    "recorded_sha256": "0d9859032bbc354d1093ff3315ee8bcf84c16851ff5b80734784f24c49341af1",
+    "passed": true
+  },
+  {
+    "group": "material",
+    "extension": "pptx",
+    "exact_name": "QA交付-fb6df07b-d0dc-4d9b-a347-ba8ea75c4e3c.pptx",
+    "source_sha256": "45568afae2deeb61edf90d5f9a6dffa18d609081a56fb992872fb0433d32727e",
+    "delivered_sha256": "45568afae2deeb61edf90d5f9a6dffa18d609081a56fb992872fb0433d32727e",
+    "view_sha256": "45568afae2deeb61edf90d5f9a6dffa18d609081a56fb992872fb0433d32727e",
+    "send_sha256": "45568afae2deeb61edf90d5f9a6dffa18d609081a56fb992872fb0433d32727e",
+    "recorded_sha256": "45568afae2deeb61edf90d5f9a6dffa18d609081a56fb992872fb0433d32727e",
+    "passed": true
+  },
+  {
+    "group": "material",
+    "extension": "pdf",
+    "exact_name": "QA交付-6d272cae-31db-47f7-90b6-10c0dd94cea1.pdf",
+    "source_sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+    "delivered_sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+    "view_sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+    "send_sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+    "recorded_sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+    "passed": true
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "contractVersion": 1,
+  "parser": "MinerU",
+  "parserVersion": "4.0.10",
+  "adapterVersion": "1",
+  "tiers": [
+    "basic"
+  ],
+  "formats": [
+    "pdf",
+    "png",
+    "jpg",
+    "jpeg",
+    "webp"
+  ],
+  "offline": true,
+  "ready": true,
+  "maxUploadBytes": 31457280,
+  "maxDocumentPages": 200,
+  "maxRequestPages": 5,
+  "maxConcurrentJobs": 1,
+  "taskTimeoutSeconds": 900,
+  "retentionSeconds": 86400
+}

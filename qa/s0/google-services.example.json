@@ -7,16 +7,54 @@
     {
       "client_info": {
         "mobilesdk_app_id": "1:123456789012:android:0000000000000000",
-        "android_client_info": {"package_name": "me.rerere.rikkahub"}
+        "android_client_info": {
+          "package_name": "me.rerere.rikkahub"
+        }
       },
-      "api_key": [{"current_key": "s0-placeholder-not-a-real-key"}]
+      "api_key": [
+        {
+          "current_key": "s0-placeholder-not-a-real-key"
+        }
+      ]
     },
     {
       "client_info": {
         "mobilesdk_app_id": "1:123456789012:android:0000000000000001",
-        "android_client_info": {"package_name": "me.rerere.rikkahub.debug"}
+        "android_client_info": {
+          "package_name": "me.rerere.rikkahub.debug"
+        }
       },
-      "api_key": [{"current_key": "s0-placeholder-not-a-real-key"}]
+      "api_key": [
+        {
+          "current_key": "s0-placeholder-not-a-real-key"
+        }
+      ]
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123456789012:android:0000000000000002",
+        "android_client_info": {
+          "package_name": "org.hxsi.agent"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "s0-placeholder-not-a-real-key"
+        }
+      ]
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123456789012:android:0000000000000003",
+        "android_client_info": {
+          "package_name": "org.hxsi.agent.debug"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "s0-placeholder-not-a-real-key"
+        }
+      ]
     }
   ],
   "configuration_version": "1"

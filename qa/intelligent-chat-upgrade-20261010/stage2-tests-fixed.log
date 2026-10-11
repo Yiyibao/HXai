@@ -1,0 +1,16 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage2_test.dart
+00:00 +0: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage2_test.dart: Waiting content clears as soon as text arrives
+00:00 +1: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/reasoning_view_test.dart: Collapsed reasoning expands and stays open through stream completion
+00:00 +2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/reasoning_view_test.dart: Collapsed reasoning expands and stays open through stream completion
+00:00 +3: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/reasoning_view_test.dart: Collapsed reasoning expands and stays open through stream completion
+00:00 +4: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/reasoning_view_test.dart: Collapsed reasoning expands and stays open through stream completion
+00:00 +5: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:00 +6: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:00 +7: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:00 +8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +9: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/reasoning_view_test.dart: Long expanded reasoning remains bounded without overflow
+00:01 +10: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/reasoning_view_test.dart: Long expanded reasoning remains bounded without overflow
+00:01 +11: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/reasoning_view_test.dart: Long expanded reasoning remains bounded without overflow
+00:01 +12: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/reasoning_view_test.dart: Reasoning status follows host state and subsequent answer or tool
+00:01 +13: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/reasoning_view_test.dart: One message groups reasoning segments in provider order
+00:01 +14: All tests passed!

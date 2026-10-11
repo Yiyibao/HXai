@@ -75,14 +75,14 @@ internal fun migratePartsArray(partsElement: JsonArray): JsonArray {
             val typeValue = partObject["type"]?.jsonPrimitiveOrNull?.contentOrNull
             val mappedType = typeValue?.let { partTypeMapping[it] } ?: typeValue
 
-            var updatedPart: JsonElement = part
+            var updatedPart: JsonObject = partObject
             if (mappedType != null && mappedType != typeValue) {
                 updatedPart = JsonObject(partObject.toMutableMap().apply {
                     put("type", JsonPrimitive(mappedType))
                 })
             }
 
-            val updatedObject = updatedPart as? JsonObject ?: return@map updatedPart
+            val updatedObject = updatedPart
             val outputElement = updatedObject["output"] as? JsonArray ?: return@map updatedPart
             val migratedOutput = migratePartsArray(outputElement)
             if (migratedOutput == outputElement) {

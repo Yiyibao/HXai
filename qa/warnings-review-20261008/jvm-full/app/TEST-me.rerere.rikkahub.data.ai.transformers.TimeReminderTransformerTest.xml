@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-07T22:31:10.478Z" hostname="DESKTOP-QH4J0RS" time="0.014">
+  <properties/>
+  <testcase name="custom interval should use strict threshold and format minutes" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.01"/>
+  <testcase name="gap less than 1 hour should not inject" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.0"/>
+  <testcase name="gap more than 1 hour should inject time reminder before second message" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.0"/>
+  <testcase name="empty messages should return empty" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.0"/>
+  <testcase name="gap in days should format correctly" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.0"/>
+  <testcase name="multiple large gaps should inject multiple reminders" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.001"/>
+  <testcase name="single message should inject current time before first user message" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.0"/>
+  <testcase name="large interval should not overflow or inject prematurely" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.0"/>
+  <testcase name="injected message should contain day of week and gap in hours" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.0"/>
+  <testcase name="gap exactly 1 hour should not inject" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

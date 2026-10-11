@@ -1,0 +1,12 @@
+[
+  {
+    "name": "focused",
+    "className": "DeliveryUiClosureTest",
+    "runId": "32a341ab-5973-4b31-9acf-9b15ab2921dd",
+    "notBefore": 1791467724981,
+    "notAfter": 1791467748339,
+    "status": "PASS",
+    "logSha256": "ddb0c736b1813aa710096e24aea82b859ab4b55743b94a7c903ff37f5e271489",
+    "extras": {}
+  }
+]

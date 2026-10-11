@@ -1,0 +1,9 @@
+sh: 1: set: Illegal option -
+Traceback (most recent call last):
+  File "D:\Office\Study\code\MathStudyAgent\qa\office-renderer-20261009\build_renderer.py", line 26, in <module>
+    subprocess.run(['ssh','-i',key,host,'sh','-s'],input=script,text=True,check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['ssh', '-i', 'C:\\Users\\Hfff\\.ssh\\id_ed25519_tencent_blog', 'ubuntu@154.222.25.150', 'sh', '-s']' returned non-zero exit status 2.

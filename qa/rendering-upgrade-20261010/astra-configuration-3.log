@@ -1,0 +1,25 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatRenderingRealModelTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ChatRenderingRealModelTest:
+INSTRUMENTATION_STATUS: test=configureAuthorizedProvider
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: provider_configuration=model=gpt-6-astra; host=xinyue.mom; protocol=responses; reasoning=low; store=false; private_input_deleted=true
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatRenderingRealModelTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=configureAuthorizedProvider
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 0.218
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

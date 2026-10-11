@@ -1,0 +1,29 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :build-logic:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:compileKotlin UP-TO-DATE
+> Task :build-logic:compileJava NO-SOURCE
+> Task :build-logic:pluginDescriptors UP-TO-DATE
+> Task :build-logic:processResources UP-TO-DATE
+> Task :build-logic:classes UP-TO-DATE
+> Task :build-logic:jar UP-TO-DATE
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Initialization script 'D:\Office\Study\code\MathStudyAgent\qa\closure-20261008\probes.init.gradle' line: 5
+
+* What went wrong:
+It is too late to set testInstrumentationRunner
+It has already been read to configure this project.
+Consider either moving this call to be during evaluation,
+or using the variant API.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 21s
+4 actionable tasks: 4 up-to-date

@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.mathstudy.qa.delivery">
+    <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="34"/>
+    <application android:label="QA 文件交付" android:debuggable="true" android:theme="@android:style/Theme.Material.Light.NoActionBar">
+        <activity android:name=".ViewerActivity" android:exported="true" android:label="QA 文件查看器">
+            <intent-filter><action android:name="android.intent.action.VIEW"/><category android:name="android.intent.category.DEFAULT"/><data android:mimeType="*/*"/></intent-filter>
+        </activity>
+        <activity android:name=".ReceiverActivity" android:exported="true" android:label="QA 分享接收">
+            <intent-filter><action android:name="android.intent.action.SEND"/><category android:name="android.intent.category.DEFAULT"/><data android:mimeType="*/*"/></intent-filter>
+        </activity>
+    </application>
+</manifest>

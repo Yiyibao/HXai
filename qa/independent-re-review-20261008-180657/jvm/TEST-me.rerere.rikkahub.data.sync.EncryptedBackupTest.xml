@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.sync.EncryptedBackupTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-08T10:11:04.728Z" hostname="DESKTOP-QH4J0RS" time="2.599">
+  <properties/>
+  <testcase name="rejectsWeakPasswordAndCancelsWithoutLeavingOutput" classname="me.rerere.rikkahub.data.sync.EncryptedBackupTest" time="0.161"/>
+  <testcase name="multipleChunksRoundTripAndRandomize" classname="me.rerere.rikkahub.data.sync.EncryptedBackupTest" time="0.501"/>
+  <testcase name="tamperInLastChunkCannotExposePartialRestore" classname="me.rerere.rikkahub.data.sync.EncryptedBackupTest" time="0.316"/>
+  <testcase name="rejectsWrongPasswordAndRemovesPartialOutput" classname="me.rerere.rikkahub.data.sync.EncryptedBackupTest" time="0.302"/>
+  <testcase name="rejectsTruncationAppendedBytesHeaderMutationAndChunkSwap" classname="me.rerere.rikkahub.data.sync.EncryptedBackupTest" time="0.747"/>
+  <testcase name="supportsExactChunkBoundaryAndMinimumPayload" classname="me.rerere.rikkahub.data.sync.EncryptedBackupTest" time="0.572"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

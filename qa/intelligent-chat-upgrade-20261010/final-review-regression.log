@@ -1,0 +1,15 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart
+00:00 +0: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Cumulative patches preserve old rows, never duplicate text, reject wrong branch
+00:00 +1: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:01 +2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:01 +3: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:01 +4: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:01 +5: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:01 +6: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:01 +7: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:01 +8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:01 +9: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:01 +10: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:01 +11: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:02 +12: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:02 +13: All tests passed!

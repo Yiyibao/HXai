@@ -1,0 +1,3 @@
+pickerCancel sourceUnchanged=true noSuccess=true
+profileChanged latePickerResult exactTarget=/sdcard/Download/QA-8a9751cd-9845-44f5-a5ff-220a25f8379c.md bytes=0 sourceSha256=d6ef811197bda8a6bd555683db8867fa38c2001d78679bc8ad11c47ff6cef498
+profileChanged latePickerResult rejected=true exactTarget=/sdcard/Download/QA-8a9751cd-9845-44f5-a5ff-220a25f8379c.md bytes=0 sourceUnchanged=true

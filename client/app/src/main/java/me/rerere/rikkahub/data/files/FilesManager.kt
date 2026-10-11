@@ -205,10 +205,16 @@ class FilesManager(
         val relativePaths = mutableSetOf<String>()
         uris.filter { it.toString().startsWith("file:") }.forEach { uri ->
             val file = uri.toFile()
-            getRelativePathInFilesDir(file)?.let { relativePaths.add(it) }
-            if (file.exists()) {
-                file.delete()
+            // Material library files outlive a chat, its queue and its edited branches.
+            // Never treat a user's original external file as disposable chat storage either.
+            val canonical = file.canonicalPath
+            if (!canonical.startsWith(context.filesDir.canonicalPath + File.separator) ||
+                canonical.startsWith(context.filesDir.resolve("materials").canonicalPath + File.separator)) return@forEach
+            if (file.exists() && !file.delete()) {
+                Log.w(TAG, "Attachment cleanup deferred; managed record retained")
+                return@forEach
             }
+            getRelativePathInFilesDir(file)?.let { relativePaths.add(it) }
         }
         if (relativePaths.isNotEmpty()) {
             appScope.launch(Dispatchers.IO) {

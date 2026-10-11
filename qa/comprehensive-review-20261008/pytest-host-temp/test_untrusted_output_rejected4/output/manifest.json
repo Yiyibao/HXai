@@ -1,0 +1,1 @@
+{"contractVersion": 1, "sourceSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "tier": "basic", "parserVersion": "4.0.10", "requestedRange": [2, 2], "processedPages": [2], "failedPages": [], "totalPages": 3, "complete": false, "assets": [{"assetId": "document", "path": "document.json", "mediaType": "application/json"}]}

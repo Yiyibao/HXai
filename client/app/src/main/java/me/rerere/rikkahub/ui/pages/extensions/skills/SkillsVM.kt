@@ -4,11 +4,9 @@ import android.content.Context
 import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import java.io.ByteArrayInputStream
 import java.net.HttpURLConnection
 import java.net.URL
 import java.util.LinkedHashMap
-import java.util.zip.ZipInputStream
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -18,6 +16,7 @@ import me.rerere.rikkahub.data.files.FileUtils
 import me.rerere.rikkahub.data.files.SkillFrontmatterParser
 import me.rerere.rikkahub.data.files.SkillManager
 import me.rerere.rikkahub.data.files.SkillMetadata
+import me.rerere.rikkahub.data.files.SkillImportLimits
 import org.json.JSONArray
 import kotlin.collections.iterator
 
@@ -38,13 +37,8 @@ class SkillsVM(
     }
 
     fun saveSkill(name: String, content: String, onResult: (Boolean) -> Unit) {
-        viewModelScope.launch(Dispatchers.IO) {
-            val result = skillManager.saveSkill(name, content)
-            _skills.value = skillManager.listSkills()
-            withContext(Dispatchers.Main) {
-                onResult(result != null)
-            }
-        }
+        // Authoring is temporarily disabled; import methods remain available.
+        onResult(false)
     }
 
     fun deleteSkill(name: String) {
@@ -61,7 +55,7 @@ class SkillsVM(
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val fileName = FileUtils.getFileNameFromUri(appContext, uri).orEmpty()
-                val bytes = appContext.contentResolver.openInputStream(uri)?.use { it.readBytes() }
+                val bytes = appContext.contentResolver.openInputStream(uri)?.use { SkillImportLimits.read(it, SkillImportLimits.INPUT_BYTES) }
                     ?: run {
                         withContext(Dispatchers.Main) { onResult(false, "无法读取文件") }
                         return@launch
@@ -104,7 +98,7 @@ class SkillsVM(
                     return@launch
                 }
 
-                val skillMdBytes = downloadBytes(skillMdEntry.second) ?: run {
+                val skillMdBytes = downloadBytes(skillMdEntry.second, SkillImportLimits.MARKDOWN_BYTES) ?: run {
                     withContext(Dispatchers.Main) { onResult(false, "下载 SKILL.md 失败，请检查链接或网络") }
                     return@launch
                 }
@@ -118,12 +112,16 @@ class SkillsVM(
 
                 // 按字节下载保存，避免图片等二进制附属文件被当作 UTF-8 文本解码而损坏
                 val fileContents = LinkedHashMap<String, ByteArray>()
+                var totalBytes = 0
                 for ((relativePath, downloadUrl) in files) {
-                    val content = if (relativePath == "SKILL.md") skillMdBytes else downloadBytes(downloadUrl)
+                    val content = if (relativePath == "SKILL.md") skillMdBytes else downloadBytes(downloadUrl,
+                        minOf(SkillImportLimits.FILE_BYTES, SkillImportLimits.TOTAL_BYTES - totalBytes))
                     if (content == null) {
                         withContext(Dispatchers.Main) { onResult(false, "下载文件失败：$relativePath") }
                         return@launch
                     }
+                    totalBytes += content.size
+                    if (totalBytes > SkillImportLimits.TOTAL_BYTES) throw SkillImportLimits.LimitException()
                     fileContents[relativePath] = content
                 }
 
@@ -136,13 +134,13 @@ class SkillsVM(
                 _skills.value = skillManager.listSkills()
                 withContext(Dispatchers.Main) { onResult(true, name) }
             } catch (e: Exception) {
-                e.printStackTrace()
                 withContext(Dispatchers.Main) { onResult(false, e.message ?: "未知错误") }
             }
         }
     }
 
     private fun importSkillMarkdown(bytes: ByteArray): List<String> {
+        if (bytes.size > SkillImportLimits.MARKDOWN_BYTES) throw SkillImportLimits.LimitException()
         val content = bytes.toString(Charsets.UTF_8)
         val frontmatter = SkillFrontmatterParser.parse(content)
         val name = frontmatter["name"]?.trim()
@@ -157,22 +155,7 @@ class SkillsVM(
     }
 
     private fun importSkillsFromZip(bytes: ByteArray): List<String> {
-        val files = LinkedHashMap<String, ByteArray>()
-        ZipInputStream(ByteArrayInputStream(bytes)).use { zipInput ->
-            while (true) {
-                val entry = zipInput.nextEntry ?: break
-                try {
-                    if (!entry.isDirectory) {
-                        val path = normalizeZipEntryPath(entry.name)
-                        if (path != null) {
-                            files[path] = zipInput.readBytes()
-                        }
-                    }
-                } finally {
-                    zipInput.closeEntry()
-                }
-            }
-        }
+        val files = SkillImportLimits.zip(bytes)
 
         val skillMdPaths = files.keys
             .filter { it.substringAfterLast('/').equals("SKILL.md", ignoreCase = true) }
@@ -237,15 +220,6 @@ class SkillsVM(
         return path.removePrefix("$basePath/").takeIf { it != path }
     }
 
-    private fun normalizeZipEntryPath(path: String): String? {
-        val parts = path.replace('\\', '/')
-            .trimStart('/')
-            .split('/')
-            .filter { it.isNotBlank() && it != "." }
-        if (parts.isEmpty() || parts.any { it == ".." }) return null
-        return parts.joinToString("/")
-    }
-
     private fun isZipFile(fileName: String, bytes: ByteArray): Boolean {
         return fileName.endsWith(".zip", ignoreCase = true) ||
             bytes.startsWithBytes(0x50, 0x4B, 0x03, 0x04) ||
@@ -265,24 +239,33 @@ class SkillsVM(
         dirPath: String,
         basePath: String,
         result: MutableList<Pair<String, String>>,
+        depth: Int = 0,
+        visited: MutableSet<String> = mutableSetOf(),
     ): Boolean {
+        if (depth > SkillImportLimits.DEPTH || visited.size >= SkillImportLimits.ENTRIES) throw SkillImportLimits.LimitException()
+        require(visited.add(dirPath)) { "技能目录存在循环" }
         val apiUrl = "https://api.github.com/repos/$owner/$repo/contents/$dirPath?ref=$branch"
-        val json = downloadBytes(apiUrl)?.toString(Charsets.UTF_8) ?: return false
+        val json = downloadBytes(apiUrl, SkillImportLimits.API_BYTES)?.toString(Charsets.UTF_8) ?: return false
         val array = JSONArray(json)
+        if (array.length() > SkillImportLimits.ENTRIES) throw SkillImportLimits.LimitException()
         for (i in 0 until array.length()) {
             val item = array.getJSONObject(i)
             val type = item.getString("type")
             val itemPath = item.getString("path")
-            val relativePath = itemPath.removePrefix("$basePath/").removePrefix(basePath)
+            val relativePath = relativeToSkillBase(itemPath, basePath) ?: error("技能目录路径无效")
+            val safePath = SkillImportLimits.path(relativePath)
             when (type) {
                 "file" -> {
                     val downloadUrl = item.optString("download_url").takeIf { it.isNotBlank() }
                         ?: return false
-                    result.add(relativePath to downloadUrl)
+                    if (downloadUrl.length > 4096) throw SkillImportLimits.LimitException()
+                    if (result.size >= SkillImportLimits.ENTRIES) throw SkillImportLimits.LimitException()
+                    require(result.none { it.first == safePath }) { "技能目录包含重复文件" }
+                    result.add(safePath to downloadUrl)
                 }
 
                 "dir" -> {
-                    val ok = listFilesRecursively(owner, repo, branch, itemPath, basePath, result)
+                    val ok = listFilesRecursively(owner, repo, branch, itemPath, basePath, result, depth + 1, visited)
                     if (!ok) return false
                 }
             }
@@ -311,7 +294,7 @@ class SkillsVM(
         return GitHubRepoInfo(owner, repo, branch, subPath)
     }
 
-    private fun downloadBytes(url: String): ByteArray? {
+    private fun downloadBytes(url: String, limit: Int): ByteArray? {
         val connection = URL(url).openConnection() as HttpURLConnection
         connection.connectTimeout = 10_000
         connection.readTimeout = 30_000
@@ -322,7 +305,10 @@ class SkillsVM(
             if ((code == 403 || code == 429) && connection.getHeaderField("X-RateLimit-Remaining") == "0") {
                 error("GitHub API 请求次数已达上限，请稍后再试")
             }
-            if (code == 200) connection.inputStream.use { it.readBytes() } else null
+            if (code == 200) {
+                if (connection.contentLengthLong > limit) throw SkillImportLimits.LimitException()
+                connection.inputStream.use { SkillImportLimits.read(it, limit) }
+            } else null
         } finally {
             connection.disconnect()
         }

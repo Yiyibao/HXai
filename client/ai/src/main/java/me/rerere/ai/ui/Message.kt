@@ -25,6 +25,9 @@ data class UIMessage(
     val modelId: Uuid? = null,
     val usage: TokenUsage? = null,
     val translation: String? = null,
+    // Local lifecycle metadata; provider DTOs only consume message content.
+    val generationState: String? = null,
+    val generationErrorCode: Int? = null,
     // 请求期间生成的内部消息；该标记仅在内存中使用
     @Transient
     val isSynthetic: Boolean = false,
@@ -239,6 +242,8 @@ fun List<UIMessagePart>.toSortedMessageParts(): List<UIMessagePart> {
             is UIMessagePart.ToolCall -> 0
             is UIMessagePart.ToolResult -> 0
             is UIMessagePart.Search -> 0
+            is InteractiveSurface -> 0
+            is UIMessagePart.InteractiveSurfaceRef -> 0
             is UIMessagePart.Image -> 1
             is UIMessagePart.Video -> 1
             is UIMessagePart.Audio -> 1

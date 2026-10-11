@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.files.SkillImportLimitsTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-08T12:18:45.223Z" hostname="DESKTOP-QH4J0RS" time="3.861">
+  <properties/>
+  <testcase name="rejectsCompressedBombBeforeAllocationAndPreservesNormalBinaryBytes" classname="me.rerere.rikkahub.data.files.SkillImportLimitsTest" time="0.451"/>
+  <testcase name="inputReaderStopsAtLimitPlusOneWithoutTrustingLengthMetadata" classname="me.rerere.rikkahub.data.files.SkillImportLimitsTest" time="0.001"/>
+  <testcase name="rejectsMetadataEntryCountAndDepthLimits" classname="me.rerere.rikkahub.data.files.SkillImportLimitsTest" time="0.007"/>
+  <testcase name="rejectsTotalInflationEvenWhenEachFileFits" classname="me.rerere.rikkahub.data.files.SkillImportLimitsTest" time="0.038"/>
+  <testcase name="rejectsTraversalAliasesAndMalformedDirectoriesWithoutDraining" classname="me.rerere.rikkahub.data.files.SkillImportLimitsTest" time="3.364"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,421 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart
+lib/providers/study_providers.dart:320:9: Error: The method 'listenSelf' isn't defined for the type 'Ref'.
+ - 'Ref' is from 'package:riverpod/src/framework.dart' ('/C:/Users/Hfff/AppData/Local/Pub/Cache/hosted/pub.dev/riverpod-3.4.3/lib/src/framework.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'listenSelf'.
+    ref.listenSelf((_, next) {
+        ^^^^^^^^^^
+00:00 +0 -1: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart [E]
+  Failed to load "D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart":
+  Compilation failed for testPath=D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: lib/providers/study_providers.dart:320:9: Error: The method 'listenSelf' isn't defined for the type 'Ref'.
+   - 'Ref' is from 'package:riverpod/src/framework.dart' ('/C:/Users/Hfff/AppData/Local/Pub/Cache/hosted/pub.dev/riverpod-3.4.3/lib/src/framework.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'listenSelf'.
+      ref.listenSelf((_, next) {
+          ^^^^^^^^^^
+  .
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/providers/study_providers.dart:320:9: Error: The method 'listenSelf' isn't defined for the type 'Ref'.
+ - 'Ref' is from 'package:riverpod/src/framework.dart' ('/C:/Users/Hfff/AppData/Local/Pub/Cache/hosted/pub.dev/riverpod-3.4.3/lib/src/framework.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'listenSelf'.
+    ref.listenSelf((_, next) {
+        ^^^^^^^^^^
+00:00 +0 -2: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_image_test.dart [E]
+  Failed to load "D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_image_test.dart":
+  Compilation failed for testPath=D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_image_test.dart: lib/providers/study_providers.dart:320:9: Error: The method 'listenSelf' isn't defined for the type 'Ref'.
+   - 'Ref' is from 'package:riverpod/src/framework.dart' ('/C:/Users/Hfff/AppData/Local/Pub/Cache/hosted/pub.dev/riverpod-3.4.3/lib/src/framework.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'listenSelf'.
+      ref.listenSelf((_, next) {
+          ^^^^^^^^^^
+  .
+00:00 +0 -2: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/providers/study_providers.dart:320:9: Error: The method 'listenSelf' isn't defined for the type 'Ref'.
+ - 'Ref' is from 'package:riverpod/src/framework.dart' ('/C:/Users/Hfff/AppData/Local/Pub/Cache/hosted/pub.dev/riverpod-3.4.3/lib/src/framework.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'listenSelf'.
+    ref.listenSelf((_, next) {
+        ^^^^^^^^^^
+00:00 +0 -3: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart [E]
+  Failed to load "D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart":
+  Compilation failed for testPath=D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart: lib/providers/study_providers.dart:320:9: Error: The method 'listenSelf' isn't defined for the type 'Ref'.
+   - 'Ref' is from 'package:riverpod/src/framework.dart' ('/C:/Users/Hfff/AppData/Local/Pub/Cache/hosted/pub.dev/riverpod-3.4.3/lib/src/framework.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'listenSelf'.
+      ref.listenSelf((_, next) {
+          ^^^^^^^^^^
+  .
+00:00 +0 -3: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+00:00 +0 -3: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart: Opens a long conversation at the actual lazy-list bottom
+00:00 +1 -3: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart: Follows streamed growth and delayed image layout
+00:00 +2 -3: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart: Reading history survives new chunks and viewport changes
+00:01 +3 -3: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart: Returning to latest resumes following subsequent chunks
+00:01 +4 -3: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart: Keyboard resizing keeps the latest answer visible
+lib/providers/study_providers.dart:320:9: Error: The method 'listenSelf' isn't defined for the type 'Ref'.
+ - 'Ref' is from 'package:riverpod/src/framework.dart' ('/C:/Users/Hfff/AppData/Local/Pub/Cache/hosted/pub.dev/riverpod-3.4.3/lib/src/framework.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'listenSelf'.
+    ref.listenSelf((_, next) {
+        ^^^^^^^^^^
+00:01 +5 -3: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart: Disabled auto-follow allows explicit return without enabling it
+00:01 +6 -3: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart: New conversation identity resets history-reading state
+00:01 +6 -4: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage2_test.dart [E]
+  Failed to load "D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage2_test.dart":
+  Compilation failed for testPath=D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage2_test.dart: lib/providers/study_providers.dart:320:9: Error: The method 'listenSelf' isn't defined for the type 'Ref'.
+   - 'Ref' is from 'package:riverpod/src/framework.dart' ('/C:/Users/Hfff/AppData/Local/Pub/Cache/hosted/pub.dev/riverpod-3.4.3/lib/src/framework.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'listenSelf'.
+      ref.listenSelf((_, next) {
+          ^^^^^^^^^^
+  .
+00:01 +6 -4: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+00:02 +7 -4: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart: Pending layout callback is safe after leaving chat
+00:02 +8 -4: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart: Scrolling inside a card does not pause the chat timeline
+00:02 +9 -4: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart: User gesture wins over a queued streaming layout check
+lib/providers/study_providers.dart:320:9: Error: The method 'listenSelf' isn't defined for the type 'Ref'.
+ - 'Ref' is from 'package:riverpod/src/framework.dart' ('/C:/Users/Hfff/AppData/Local/Pub/Cache/hosted/pub.dev/riverpod-3.4.3/lib/src/framework.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'listenSelf'.
+    ref.listenSelf((_, next) {
+        ^^^^^^^^^^
+00:15 +10 -5: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart [E]
+  Failed to load "D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart":
+  Compilation failed for testPath=D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: lib/providers/study_providers.dart:320:9: Error: The method 'listenSelf' isn't defined for the type 'Ref'.
+   - 'Ref' is from 'package:riverpod/src/framework.dart' ('/C:/Users/Hfff/AppData/Local/Pub/Cache/hosted/pub.dev/riverpod-3.4.3/lib/src/framework.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'listenSelf'.
+      ref.listenSelf((_, next) {
+          ^^^^^^^^^^
+  .
+00:16 +10 -5: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/providers/study_providers.dart:320:9: Error: The method 'listenSelf' isn't defined for the type 'Ref'.
+ - 'Ref' is from 'package:riverpod/src/framework.dart' ('/C:/Users/Hfff/AppData/Local/Pub/Cache/hosted/pub.dev/riverpod-3.4.3/lib/src/framework.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'listenSelf'.
+    ref.listenSelf((_, next) {
+        ^^^^^^^^^^
+00:26 +10 -6: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/interactive_surface_test.dart [E]
+  Failed to load "D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/interactive_surface_test.dart":
+  Compilation failed for testPath=D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/interactive_surface_test.dart: lib/providers/study_providers.dart:320:9: Error: The method 'listenSelf' isn't defined for the type 'Ref'.
+   - 'Ref' is from 'package:riverpod/src/framework.dart' ('/C:/Users/Hfff/AppData/Local/Pub/Cache/hosted/pub.dev/riverpod-3.4.3/lib/src/framework.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'listenSelf'.
+      ref.listenSelf((_, next) {
+          ^^^^^^^^^^
+  .
+00:26 +10 -6: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/providers/study_providers.dart:320:9: Error: The method 'listenSelf' isn't defined for the type 'Ref'.
+ - 'Ref' is from 'package:riverpod/src/framework.dart' ('/C:/Users/Hfff/AppData/Local/Pub/Cache/hosted/pub.dev/riverpod-3.4.3/lib/src/framework.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'listenSelf'.
+    ref.listenSelf((_, next) {
+        ^^^^^^^^^^
+00:34 +10 -7: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart [E]
+  Failed to load "D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart":
+  Compilation failed for testPath=D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: lib/providers/study_providers.dart:320:9: Error: The method 'listenSelf' isn't defined for the type 'Ref'.
+   - 'Ref' is from 'package:riverpod/src/framework.dart' ('/C:/Users/Hfff/AppData/Local/Pub/Cache/hosted/pub.dev/riverpod-3.4.3/lib/src/framework.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'listenSelf'.
+      ref.listenSelf((_, next) {
+          ^^^^^^^^^^
+  .
+00:34 +10 -7: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/providers/study_providers.dart:320:9: Error: The method 'listenSelf' isn't defined for the type 'Ref'.
+ - 'Ref' is from 'package:riverpod/src/framework.dart' ('/C:/Users/Hfff/AppData/Local/Pub/Cache/hosted/pub.dev/riverpod-3.4.3/lib/src/framework.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'listenSelf'.
+    ref.listenSelf((_, next) {
+        ^^^^^^^^^^
+00:41 +10 -8: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_plot_test.dart [E]
+  Failed to load "D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_plot_test.dart":
+  Compilation failed for testPath=D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_plot_test.dart: lib/providers/study_providers.dart:320:9: Error: The method 'listenSelf' isn't defined for the type 'Ref'.
+   - 'Ref' is from 'package:riverpod/src/framework.dart' ('/C:/Users/Hfff/AppData/Local/Pub/Cache/hosted/pub.dev/riverpod-3.4.3/lib/src/framework.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'listenSelf'.
+      ref.listenSelf((_, next) {
+          ^^^^^^^^^^
+  .
+00:41 +10 -8: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+00:49 +10 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:49 +11 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:49 +12 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:50 +13 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:50 +14 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:50 +15 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:50 +16 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:50 +17 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:50 +18 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:50 +19 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:50 +20 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:50 +21 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:50 +22 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:50 +23 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:50 +24 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:50 +25 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:51 +26 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:51 +27 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:51 +28 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:51 +29 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:51 +30 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:51 +31 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:51 +32 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:51 +33 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:51 +34 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:51 +35 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:52 +36 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:52 +37 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:52 +38 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:52 +39 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:52 +40 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:52 +41 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:52 +42 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:52 +43 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:52 +44 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:52 +45 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:52 +46 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:52 +47 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:52 +48 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:52 +49 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:52 +50 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:53 +51 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:53 +52 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:53 +53 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:53 +54 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:53 +55 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:53 +56 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:53 +57 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:53 +58 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:53 +59 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:53 +60 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:53 +61 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:53 +62 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:53 +63 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:53 +64 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:53 +65 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:53 +66 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:53 +67 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:53 +68 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:54 +69 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:54 +70 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:54 +71 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:54 +72 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:54 +73 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:54 +74 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:54 +75 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:54 +76 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:54 +77 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:54 +78 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:54 +79 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:54 +80 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:54 +81 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:54 +82 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:54 +83 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:54 +84 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:55 +85 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:55 +86 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:55 +87 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:55 +88 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:55 +89 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:55 +90 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:55 +91 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:55 +92 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:55 +93 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:55 +94 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:55 +95 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:55 +96 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:55 +97 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:55 +98 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:55 +99 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:55 +100 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:55 +101 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:55 +102 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:55 +103 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:55 +104 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:55 +105 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:55 +106 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:55 +107 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:55 +108 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +109 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +110 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +111 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +112 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +113 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +114 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +115 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +116 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +117 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +118 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +119 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +120 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +121 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +122 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +123 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +124 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +125 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +126 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +127 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +128 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +129 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +130 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:56 +131 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:57 +132 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:57 +133 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:57 +134 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:57 +135 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:57 +136 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:57 +137 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:57 +138 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:57 +139 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:57 +140 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:57 +141 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:57 +142 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:57 +143 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:57 +144 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:57 +145 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:57 +146 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: Follow-up keeps draft when conversation changes during preparation
+00:57 +147 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: Source links and empty citations cannot manufacture references
+00:57 +148 -8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: Appearance preferences survive a provider recreation
+00:57 +149 -8: Some tests failed.
+
+Failing tests:
+  D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart
+  D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_image_test.dart: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_image_test.dart
+  D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart
+  D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage2_test.dart: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage2_test.dart
+  ... and 4 more

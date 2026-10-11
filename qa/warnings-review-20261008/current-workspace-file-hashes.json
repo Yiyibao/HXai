@@ -1,0 +1,1810 @@
+[
+  {
+    "file": "README.md",
+    "sha256": "3beec3c3a42f6173e66266dcb0a1e048c6929c2cfc3d9a09b5dcdf64352ee28d"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/provider/providers/claude/ClaudeProvider.kt",
+    "sha256": "6b9f96dcb81cc1f510fd898759b760b500330ae481661abe728ee978e8c3707f"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/provider/providers/google/GoogleProvider.kt",
+    "sha256": "046da7dd6de1dcc3a82106408d3c8ce9f28d8e6579d31905a061b023958af169"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/provider/providers/google/InteractionsAPI.kt",
+    "sha256": "01c1a8eb6607946123105756205f6305758f235035e35bcce4798d1e8fd124b1"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/provider/providers/google/vertex/ServiceAccountTokenProvider.kt",
+    "sha256": "716295fd559aa541e7c95e56fe720198b40193fe8af1994ac1f1e20ed596e893"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/provider/providers/openai/ChatCompletionsAPI.kt",
+    "sha256": "cdcee64c13446e9637e663ed15f3e9c1197436fddc1958eaf93d527d4179c8b8"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/provider/providers/openai/OpenAIProvider.kt",
+    "sha256": "238d7280e96b8a8e847a1f6b770d27c8567dd5febe1b06d5e0bcd69c6e7288f0"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/provider/providers/openai/ResponseAPI.kt",
+    "sha256": "0f969bc732df6181722507aeba969c73b42b49e903252ffbf3d5a5b74322b574"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/ui/Message.kt",
+    "sha256": "dcb511fda78e8c3a9942adc5a099764d3900aa0017e3f28216ef15b1624f9d86"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/ui/UIMessagePart.kt",
+    "sha256": "1282e26bf575e56f4688c1ac54049900f57fafe49cfb3079c8ad9a7a2708db84"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/util/ErrorParser.kt",
+    "sha256": "a04f9766cdf9f318d9069100ccce66ff0aae5db5ded011a99db45a83a2db9a70"
+  },
+  {
+    "file": "client/ai/src/test/java/me/rerere/ai/provider/providers/google/InteractionsApiTest.kt",
+    "sha256": "0e88ce5c76b6d7ad1aa1a203447efe3795f55b5d611e0edd1b8dbac4a6417c95"
+  },
+  {
+    "file": "client/ai/src/test/java/me/rerere/ai/provider/providers/openai/ResponseApiStreamDecoderTest.kt",
+    "sha256": "fe42b56f09a5badd719cef36bba913ab6d388db9d71467fa911aa323def653f4"
+  },
+  {
+    "file": "client/ai/src/test/java/me/rerere/ai/util/ErrorPrivacyTest.kt",
+    "sha256": "73e55f5f730fdaafd0b125eb98140d0edc2724ae82cbed494dcdd34fb738bb6e"
+  },
+  {
+    "file": "client/app/build.gradle.kts",
+    "sha256": "d94ae200d0e5868ae30f60f8933e83c7c7b8ac22833ee8d3bfe262256c8f96ee"
+  },
+  {
+    "file": "client/app/schemas/me.rerere.rikkahub.data.db.AppDatabase/26.json",
+    "sha256": "d50c5a5ce28b3a027cf37b63b2d0fd0016b8037572bcd076573da18ba5b1ab36"
+  },
+  {
+    "file": "client/app/schemas/me.rerere.rikkahub.data.db.AppDatabase/27.json",
+    "sha256": "396f2f0c342b2bcb878e4375ce109c88b45ee41ca6f8df127a5ccdd73f1d88f1"
+  },
+  {
+    "file": "client/app/schemas/me.rerere.rikkahub.data.db.AppDatabase/28.json",
+    "sha256": "06533d27c2f33134a6646a672b4b6bd82b5fdcd71586f927bfc04b6d00d69011"
+  },
+  {
+    "file": "client/app/schemas/me.rerere.rikkahub.data.db.AppDatabase/29.json",
+    "sha256": "5804bb8875628de4e42f5975c5e0c8d3efba7b32fe53008311004740e15503dc"
+  },
+  {
+    "file": "client/app/schemas/me.rerere.rikkahub.data.db.AppDatabase/30.json",
+    "sha256": "6ac50d5de90517309d01fce3ccba5164808b0fb3c9a114e3ce5dee4d8768b402"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/BackupPageTest.kt",
+    "sha256": "cef068a1e1491861b74f145925b98199ed46447fb8d320bb35d9416c84b208b9"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/BackupReliabilityTest.kt",
+    "sha256": "0cc0aa9ad2747a9b5a6660580dfc09b14e529d49bc81b8bbb0072778cdc6c705"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/ChatNetworkFaultTest.kt",
+    "sha256": "2c51399d135d346a1d894d432baa6e6c28a49e976b4ca907eaf5aa4703c3763b"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/CredentialVaultTest.kt",
+    "sha256": "5092fe4f3c9d17641b1dd57894ad99ec366b9ae99bf6eeec91d679864093ab41"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/DiagnosticsPageTest.kt",
+    "sha256": "3e9f372db4af252f3a13a5aab5bf3241b44e90f6b57be0d6a859b6cf4b3e0823"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/DiagnosticsTest.kt",
+    "sha256": "c4e26c04e110f439a96f9d74b9f41fbb99d282a6b2e6ff0dbcedc65c5d2a5168"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/DocumentServiceLiveTest.kt",
+    "sha256": "1959e094dd0d5b6370918a4f9c047cd9b0a56cb2da58b8c8034120a637304bd0"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/DocumentServicePageTest.kt",
+    "sha256": "8b5c617d57e8d1f935b2636f94a704825479129e87665edf5ff0aeefeec5709b"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/FrontendDeliveryRoutesTest.kt",
+    "sha256": "c2aa4eba95ac2a8585b318e4540c5a3b0a21dd5b2fd238d8ef2d4d6a0ecf42a1"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/FrontendFeedbackProcessTest.kt",
+    "sha256": "3a78d1a9f35975e505bcc7d2a6abfd87d76f6a2f811a563a63e90165f4cc1c43"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/FrontendModelPickerTest.kt",
+    "sha256": "c3d7f9fff2d7e21a834b58982193c54d1a191b44e419589c5c9d146d490ac705"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/LearningLoopPersistenceTest.kt",
+    "sha256": "980ee4e431e1b2d12e1e9210dae04c1e332504a61c5ffe624f1a227784e2b046"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/LearningLoopRealModelTest.kt",
+    "sha256": "8a7add5c6035786c3a0cdcf9d547038c46c1f379a2b6f5891d6579639b2adbed"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/LearningMemoryPageTest.kt",
+    "sha256": "f2bdc9408dd141397446efaa8e5321693ab33ed1bb44eec1545d9d7f3b0856e9"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/LearningMemoryPersistenceTest.kt",
+    "sha256": "e44638bc0cf586614edb5969a5cd6bb9bd788875f0106ab06578a3a2bc4bf83e"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/LearningMemoryRealModelTest.kt",
+    "sha256": "115a17896c971bd0d34705b8591ec8f073717bf8822375b0b675ab8cb5d0585a"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/LegacyMemoryEntryTest.kt",
+    "sha256": "0191c926266151d2a33442ea5d06a0684422f40f7c9b5f26f4ba8028d420bd58"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/MaterialDeliveryTest.kt",
+    "sha256": "f460c6d744cb5e5f432647212080f0fb48d187720ea6b2578195334f406159ad"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/MaterialFidelityTest.kt",
+    "sha256": "9e5bb33a3b14bebfb3242bb4ceae188eddc1cb5b9138b6b086eae9e955710795"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/MaterialFilesTest.kt",
+    "sha256": "1f4cf2d8bdd40df662619e6f66423b0954f66645107bb2d4c684f602fb88fc32"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/MaterialPageTest.kt",
+    "sha256": "dba4d311e37f9a18ef4cdd9ca03307a6062fe887653f53a328cc38b06938f6fb"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/MaterialPaginationTest.kt",
+    "sha256": "722ec3b7c56ff957744a61b3a910d63d09e7164f530da0349667c6c2b6d65dec"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/MaterialRealModelTest.kt",
+    "sha256": "951ea80a4c2608de15d77cb0a82c59e08cf6b041603ce3875d2f846b6cd29879"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/MemoryProfileFixture.kt",
+    "sha256": "e816316c960dee6823c02da050c1659a2404b9b7834ad75564747621f9a0f492"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/ProjectReviewAuditTest.kt",
+    "sha256": "a2c1cc470c94bd4f6060fe28a6c5319b604ba04e34cdbff1155721f3922e433e"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/ProjectReviewDeliveryTest.kt",
+    "sha256": "ec40fea2444e2266b00d7ecff75cd603b3520554804081da402a235487bf283b"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/ProjectReviewTeachingTest.kt",
+    "sha256": "1c765d7ad48901f716d8ce4c2201eceb7733beae8b277a4db59d8c7b5f890c00"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/RealResponsesRecoveryTest.kt",
+    "sha256": "582dbf13b5e9234f8a2f0f8e63520fc7cafc7fe6a9a49c7ef6bf0702da39441e"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/RuntimeProcessRecoveryTest.kt",
+    "sha256": "f093e4878a1c1ba7a9ed1677baa6d3d9e635b2c59d96b65b3a079d0ec8d83d2b"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/StudyChatCompletionTest.kt",
+    "sha256": "b05520d193a7f1a66234860726a900b0d186c1d052390302f60fbc243cbbe625"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/StudyNavigationTest.kt",
+    "sha256": "53e2325578d3d484f6dca55fe88f55616cf96ea15d77aa0b291ef6fcd63bd274"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/StudyRealModelTest.kt",
+    "sha256": "a003c64116df9df14d702088a2112750a2b5d36c256f0ad6c51e05932f5da712"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/WarningFixGalleryTest.kt",
+    "sha256": "a24afa9ac4293fed4b17a8cf21e4f81ff5b26dbc9c1053546efdb3ccb335c25d"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/WarningFixSliderTest.kt",
+    "sha256": "aa3cc0c4ea1380a5122b9f5a5bef58b5e8393c1be39be1831abf650fdb5e616f"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/WarningReviewBoundaryTest.kt",
+    "sha256": "bd03e62445caaa6cb84ccbc617e69194a90de6c36469cbb3347ecc9dde70af87"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/WarningReviewContextPrivacyTest.kt",
+    "sha256": "ede3228826e3baf962114e9d4a6be441fe3557f26971b99a2b254cd99b8d784f"
+  },
+  {
+    "file": "client/app/src/debug/res/mipmap-anydpi/ic_launcher.xml",
+    "sha256": "ad935dc4dcda91be46438ba3bf1f87cd5e2240af7ad24ae02e65f213a3ade550"
+  },
+  {
+    "file": "client/app/src/main/AndroidManifest.xml",
+    "sha256": "89701fc2f0cafe1b0342e5794073a7ea87750ab456fc6ceb8b41a448066377ec"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/RikkaHubApp.kt",
+    "sha256": "976d60ecd134f2849d4d24684e7b828e39771110cac96d6606526e82ed59aa4c"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/RouteActivity.kt",
+    "sha256": "298ecbd82b0e5994cd12b40c342f5624c116f5b8f8f5a81ca2b6e5b62f85c15f"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/ai/GenerationLoop.kt",
+    "sha256": "e9c563c6870204fd4d0f0cddcb59ceefdb91619328519124bbbe5a39426f4eae"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/ai/RequestLoggingInterceptor.kt",
+    "sha256": "8d94eb772b8f531d8f5c9f29f51bd4a517ff82264c054f16ef6b2daa7b87fd06"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/ai/mcp/McpSessionRegistry.kt",
+    "sha256": "8c053103a32e687323487abfc7ff48ffc8173a301d376e9a5d1e136cd324bcfb"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/ai/tools/ChatToolFactory.kt",
+    "sha256": "598ecf18aa0a8ce74c0855a1f2bc2ca2970175aab1bcbdee9fc0b894df9162d9"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/ai/tools/ConversationTools.kt",
+    "sha256": "3ed58a2f5f5e94a6bce36d1dc852a80d8c31cc049b5ee55be41aed0be31f2ac2"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/ai/transformers/DocumentAsPromptTransformer.kt",
+    "sha256": "785e09fe812fd53d7e33c9016ec870a18ec89ab556b1f037988a830696d0e42d"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/datastore/CredentialPreferences.kt",
+    "sha256": "a300ce102eda56568d7d9f5f74d5c7eb7e12ca4d5d481bc8db6a240f9147c36b"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/datastore/CredentialVault.kt",
+    "sha256": "ed03c454e0e371b4d497bb35d8dfd7d932f07dd21c91921e968ac5024f145641"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/datastore/PreferencesStore.kt",
+    "sha256": "87c027edd8d0243ef45f0b066848d87e94a3fd7b2e3457e75e4446a0657d47c7"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/datastore/SettingsExport.kt",
+    "sha256": "556f44550d51003671d96c4728314102ba7e2d2262e881c09d435c61e21769dc"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/db/AppDatabase.kt",
+    "sha256": "17460318c72497d66e96ce608ed5dbe920f8a1762cc93fdbc81f553b5e410e6e"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/db/AppDatabaseFactory.kt",
+    "sha256": "da2002d69f55bbd435e511c82fe813885e7b5e8d7362226f1f44bbf04903ab0d"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/db/dao/ConversationDAO.kt",
+    "sha256": "2a7ff2b641571e89baa1d4c7511fb70ecc963628fdfc44e69bf1e73e62573dd1"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/db/dao/FavoriteDAO.kt",
+    "sha256": "daeaf2327adea50f0ba3dc3704407479a45fae7e2c121e3fab96fa893b99c4e6"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/db/dao/FolderDAO.kt",
+    "sha256": "24cea87a72eb0029f8efe8c38d5c731df55b9dd687f54ec29729bbc91af8d865"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/db/entity/ConversationEntity.kt",
+    "sha256": "66edc1b4dc3b18460402219a68d614fa7dc76759b3c3c519859d4139b231484d"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/db/entity/FolderEntity.kt",
+    "sha256": "49b84ea3acbaa889d43192c34eb7e0c41364ca88d26d1f760dacc85764de83f3"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/db/fts/MessageFtsManager.kt",
+    "sha256": "6a10613ad781e3590414cc4ff4a4f52d1d879645c2cdc76e4d7e7357d34396c2"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/db/migrations/MigrationUtils.kt",
+    "sha256": "36f927c8947e2d4edcc4e3155bef016bd497e4c8416c1ff4b0ddff515aa0fa40"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/db/migrations/Migration_11_12.kt",
+    "sha256": "0d68fd93051387ec14639d9a8147d2c7bdf5e6c2253cb08b3287c7ebb0c67889"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/db/migrations/Migration_26_27.kt",
+    "sha256": "0ff80bb2585f5349dc4a7b6c9acda41291dc82691d484fa121a9305e471d4a02"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/files/FilesManager.kt",
+    "sha256": "5246aef84ba70196164840e3be13244500aa0fdc7757986b12198854778e5ed5"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/model/Conversation.kt",
+    "sha256": "358057688a340a1511d87ce9f34ad3accd6e73e52a022e3a05673b5bc798b6b7"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/model/ConversationQueue.kt",
+    "sha256": "cab8788f72b5219edf93e3cf8acfab3df36f5dfe327489c18d423cc0ffb947a5"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/model/Folder.kt",
+    "sha256": "5052bd30f32ac0f05cacd047efbafa97d298945ca7bdfbb2c70b7e662befd3ae"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/repository/ConversationRepository.kt",
+    "sha256": "c9df7a48483616444d1d97f81a835a5c11c2c89c7233e7b6e37e58aef161a67e"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/repository/FavoriteRepository.kt",
+    "sha256": "f291465bdbdac96d240e45d1160263a635f1a92a5b8ca3fde2e85031ca2168b5"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/repository/FolderRepository.kt",
+    "sha256": "0bc4614b640e64e15c04158ba73c5ba1fe3c838168f0d5babb56747a109b9a51"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/sync/BackupDeletionMerge.kt",
+    "sha256": "4aa2688cfdb6b55f6d9c08568def27280e9b0d16854b8f5341ea085a96fdb504"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/sync/BackupManager.kt",
+    "sha256": "366d4ae1c685c55938b6ea08231a300675a0e035c7f1454eda540948bf414d6a"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/sync/BackupManifest.kt",
+    "sha256": "bd1f9332edf48866edfef4abe055a2c0a3966ac3c6fec239efdfd7d55e4fce3f"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/sync/BackupPaths.kt",
+    "sha256": "5c108a24dae90024f13a06d244a5cc5c35f5e69e7d55fc0b4d6ff1c73fcbd828"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/sync/EncryptedBackup.kt",
+    "sha256": "7aeffabdffd0e616a011f18aaa12474f858699b1189a85e0fcb8583d829eeeaf"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/sync/MemoryRestore.kt",
+    "sha256": "e59ddd145f13e022c8a7803e989341cc44e5af1b410798bd589537cb6d6aa6f9"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/sync/PendingRestore.kt",
+    "sha256": "ff03fd232907aaf5e02e7e39a2649dccfbdd33ca4ffec86a72ad0dd033d3b250"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/sync/webdav/WebDavClient.kt",
+    "sha256": "06209c16d537685742eb5774465c5574734f57150b68ff11d1562a71f37add62"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/di/AppModule.kt",
+    "sha256": "8a4fdd88eef339a585b3063991128d282c72c1e233e5c2d1da7c0f963e32ee82"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/di/DataSourceModule.kt",
+    "sha256": "e24653a84fa01f0bfac48bbbe040827cbd37eefdea7880c2c4d8189ce9a6af1d"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/di/RepositoryModule.kt",
+    "sha256": "0554338dc2efae60e07d85f97b40e0a556e6f2a2f3743039ccd011954d3a4d6e"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/diagnostics/Diagnostics.kt",
+    "sha256": "b60335c502ea5f859b638fd565acb5ec5a7086ef5863f9e24e25e4d458952ceb"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/diagnostics/DiagnosticsNetworkInterceptor.kt",
+    "sha256": "2df1851f86780b46e534f079f406626a6e6e84a15882a24cd2989f28b09f5ff8"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/diagnostics/DiagnosticsPanel.kt",
+    "sha256": "bd648579f1378697142591217fb8c40a8accb160174e5a28d122e09f30d2956e"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/DocumentContracts.kt",
+    "sha256": "f1fcaf6d2f2b1f9a96db12402cd865d6a935448d8ea41def1e94c297e3823226"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/DocumentServicePanel.kt",
+    "sha256": "87952fe96bf89e9e73db49d256f6e99080ea74a80111f60441f73ca7c322ab05"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/DocumentServiceRepository.kt",
+    "sha256": "3ac55ab1a89a47d1c93f99d2c9180ed10c160027cd453c52a7c1a9945b0b5a68"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/DocumentServiceTools.kt",
+    "sha256": "735efd148ad3f6e7c8721b48ccda361c34fa35495f124474feb27c3d9333ba71"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/DocumentSyncWorker.kt",
+    "sha256": "ab8fd4422a44dc20cbfb4896a92fda9dd6b2dcff0bed648714ef1f07527670e6"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialFiles.kt",
+    "sha256": "8f96fa43af83c3590d57ac5598a632ea106ab2cb9e3653b6162bc8726d9cad0f"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialPage.kt",
+    "sha256": "5535b0ff174db6aefafc6030238880afdc67a061737b2aa24758a8931ae4a53a"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialPdfPages.kt",
+    "sha256": "e789aaddfa396e832289c27714a194f3f1e19b2b67e8d15be4e89005c8ef72a3"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialReader.kt",
+    "sha256": "876b42473e91feaffdadf1de15ca9ca7410fee14227f4e4b40d8a12be324c841"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialTools.kt",
+    "sha256": "65bb5dc873da5711b79cbffb5ce774f593fa14f9c43cba59f1536e48bd55eac2"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialWordContent.kt",
+    "sha256": "e34a965640125816f42abde5e449bdedf6ce1efaeaf7f4ce59f2cbacc41e7fe7"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialWriter.kt",
+    "sha256": "3bbc14ef680b3ef71c463bf4fb991a461214564d1f1792adea686af5c3906f35"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/ui/StudyArtifactPreviewPage.kt",
+    "sha256": "37f3b097b8a2d849b116413a1d7c6e66fc3628a0f441d1b2fccaae53fc15a63b"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/ui/StudyFileCard.kt",
+    "sha256": "b5decdd1801c022650071ba201387377d11685fdabe23cfea94006963dc4b7b3"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/memory/LearningMemoryPage.kt",
+    "sha256": "77a5abface50ed2a7a22139fa40f24bfa49b4e814b4a8e7702da696cdd6404d5"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/memory/LearningMemoryStore.kt",
+    "sha256": "22f669e119ee2435002bd29b6f48d6e93da2995d03ed26ab438faa2262ebfec7"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/memory/LearningProgress.kt",
+    "sha256": "34bc1dce520d96280219b9ba9b54e5e764d240005f51a1c429df9ea39d23d2ba"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/memory/MemoryExtractionRunner.kt",
+    "sha256": "2d1cd86aed8c6c8f57006ebf0214b7a6a39329ec43733229fa438d619432cd96"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/memory/MemoryMaintenanceWorker.kt",
+    "sha256": "f754c046dd3de3031e1e9336c6d0624cacd5922572225c38cf35eb80c61446ea"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/memory/MemoryState.kt",
+    "sha256": "a8b84b00463587d2f443796c4860efd2f6cceb2de9b82a57e162618904afa8e8"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/memory/MemoryTools.kt",
+    "sha256": "105a8aaa3370abf679bf61d25c3d616f04e5a8b2f6b063bdb7d00f42b1bc52cb"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/memory/PortableMemoryKey.kt",
+    "sha256": "710ccaaeb48327b6dc9050c88e87d7f278eaba95ad73c2cc5b4ce410a632fbae"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/memory/ui/StudyMemoryDetailPage.kt",
+    "sha256": "147384a3d4ce87822431af61dc3ad80b5776d9808f908d51865cc5ae429c3b7f"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/studychat/CompanionVisualState.kt",
+    "sha256": "cbd82cb007aaa48f40f3b93370709b5c18b4ea57b1611022ff88a65625fb184a"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/studychat/LearnerProfile.kt",
+    "sha256": "1988b39e9820c793f4957768fab9d6965f7cc42da900be107b4da91fa9f4eb6c"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/studychat/MotionPolicy.kt",
+    "sha256": "48998caca4a733c5e03272f5b599359fdbf96b648c72a17b596383a955fc4a1f"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/studychat/OneShotFeedback.kt",
+    "sha256": "faeb76f65f0b518c402a600c75e2427d08785eca2e2c8609a8a6a1344d53bfc9"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/studychat/StudyCapabilities.kt",
+    "sha256": "0b86b2995e9cc59b92fd8f85aa4df5cfc5dc235578518e458fb9362f15262a58"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/studychat/StudyChatContracts.kt",
+    "sha256": "4145568ef9d14722c8d550311317173de6ac3a500519422eacdf6850e5f80f3a"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/studychat/StudyChrome.kt",
+    "sha256": "618de6bcb4d938b67d371106f4ca90e5bd0535514005b4e4fadf0e071f7b3ab5"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/studychat/StudyLearningLoop.kt",
+    "sha256": "dc769d615ed680528238f40400c9e9fa3903356e6c663794242de381deaf51b5"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/studychat/StudyMode.kt",
+    "sha256": "393cb19a89eabd702e078b0a0c176d5abe7ce089bb696caf4aa2b21d80247503"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/studychat/StudyTheme.kt",
+    "sha256": "1d859183c87f9e51dfe2dba5dffd6d42fc23d829a5b90d9ea5ed968542dc5171"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/studychat/StudyTutorDefaults.kt",
+    "sha256": "5d6ce10ce62a7cbe487df8d26fe815976ae409770aac7b9e8140447272ba0ba2"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/studychat/ui/StudyErrorRecoveryCard.kt",
+    "sha256": "23f7666353774a58e6cae41b93c1fc796dd2ef3d5c1df41a9cfead70c128eed1"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/studychat/ui/StudyHandoffGalleryPage.kt",
+    "sha256": "d044723683453716d110bd90a94b152b80228db52c127ea29cefe69ae6416bc5"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/studychat/ui/StudyModelPickerSheet.kt",
+    "sha256": "7aab5d54146f268511db91a1f962b3d9c96d833807b05ec3f9d7a0a2ba7ff5c0"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/studychat/ui/StudyProviderPages.kt",
+    "sha256": "58138837859d127a487d0f45aac6c75064aded470bc4042b41ed9694d5cc2461"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/studychat/ui/StudySymbolCheckSheet.kt",
+    "sha256": "5f88f697f44dbef5204dbc8711173eabe73839cdc2f8e2c9e1ba525a4e038aeb"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/service/ChatService.kt",
+    "sha256": "327b274080d6b90ea306c26174578935580289d88c3b66efa7e595f5d3d5d820"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/service/ConversationSession.kt",
+    "sha256": "4458c087f7a3cdb0580a9138c61b1c42974e006cbcc025c2cf6e5c091fc43f73"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/service/DeviceNetworkMonitor.kt",
+    "sha256": "f1ce166bb0378946b8c36fc92e13ff9f83bd56771d51f5c95a9abca5a28dda8a"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/service/MessageQueue.kt",
+    "sha256": "8bee2ab7a28d781a33479e95beb4ac5d4545f2efe1c80dfe509741928174488f"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/service/WebServerService.kt",
+    "sha256": "443165e48f5b2a36e3bf55b11c96b1e331f731e6b84fcbcff376f0ecc5d43ecc"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/activity/SafeModeActivity.kt",
+    "sha256": "be673271cfedba463409f427be8bd182a65a2079e0d9b809ead87ec73b8ea794"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ChatInput.kt",
+    "sha256": "0f8ba868f7a9c2bcbbc9968827032fd10d1e4868b2b1043d623c13335c4deb69"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/FilesPicker.kt",
+    "sha256": "9c376b63d62346a5fc77df63283320f874cac7eb647e64e7d6a4ca7044b914b0"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/easteregg/EmojiBurst.kt",
+    "sha256": "20f40c516e5b7e27bd0505f55b5671026f3a5374efc9fe4ce66a1b322a1c320c"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/message/ChatMessage.kt",
+    "sha256": "89df2c57858709943d123c2069259ae3603dd16962f4a1cf961193fd99eea2c6"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/message/ChatMessageReasoning.kt",
+    "sha256": "b1b92ad7ceb8fb2fe582e9824ae3a3d3f687cdb55db189043cf7de4ebf9126f1"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/message/ChatMessageTools.kt",
+    "sha256": "5b536d0d1158c883d53179c32a3659882ff3c7109f71ea1bceb0fdbec0f07da9"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/message/ChatMessageTranslation.kt",
+    "sha256": "6eefb49e478d635e18f0aa65d9b43772576b903ae21227420c62e7c18778345a"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/message/tools/BuiltinToolUIs.kt",
+    "sha256": "6961ac83bf348cec1af0912b9440537ca30a39a15b4f3b7976baaf2a5651f819"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/richtext/Mermaid.kt",
+    "sha256": "15f3b02e93c7b3a87bfb512268068f5037a328b1a918a3e7fac3306ae014ffdc"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/table/DataTable.kt",
+    "sha256": "e584075fc5307068b02b2a882d183070591b95407f41b447686db0512b966d34"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/BackupReminderCard.kt",
+    "sha256": "4937a1f1ba3c46220e99e8b0081c88b6364812b9e2956907b3b0aa354d382a97"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/ChainOfThought.kt",
+    "sha256": "c10f3cce724faf421a265f7f6ef178e0a386dc2dc711c03499582da1947ea658"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/ControlledSlider.kt",
+    "sha256": "6edb55510c4b1f25c1f8f1582554bcf705e2906b071a5ab28eaee6edbc069298"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/CredentialRecoveryScreen.kt",
+    "sha256": "8409c2e7b8f77f8c60b87d73a3e2997b718f633458d5d34300bd2c9d74de5ed8"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/ShareSheet.kt",
+    "sha256": "d7ed3af722424aa2b22123e1f4c5431dc4a276b147194bf6bb88526924a734aa"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/Switch.kt",
+    "sha256": "a038ea9c0d47f32847a912e0e0b1aca2e25149b923e24e8a6964acfb591197ef"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/TextArea.kt",
+    "sha256": "e352080b7bf6bb7ccc72e08fc666556bbfa585c67bb7e81028492cb2be3719d3"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/Tooltip.kt",
+    "sha256": "33dea2684c6ddeb78a41cbbaaf56a4fc7dbe4c6f867ec8dc8575c345681b5ed0"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/UpdateCard.kt",
+    "sha256": "2685a22ca43c01f3cc4d8e8e0d353cf062902172550e2fe3be04c349b1ef0bdf"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/ViewText.kt",
+    "sha256": "323eebe06d6c2ef2e6b5cf7b4e69cceb4aedf2d2d2ea824d692b35f0ccb6c1a5"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/assistant/AssistantPage.kt",
+    "sha256": "cdf775b781b32ebd1ff3f35e5d8f468810661b501e3697a1b8a71a7424dcd7a2"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/assistant/detail/AssistantBasicPage.kt",
+    "sha256": "473f3897727fac932edc25fcf6b8a8249601ddcdca23b8bfc6054647c7b26fb5"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/assistant/detail/AssistantImporter.kt",
+    "sha256": "1258a4c70ed3d3aca28127154a3cdda85ecccf93b22113ce7af12970f565e695"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/assistant/detail/AssistantMemoryPage.kt",
+    "sha256": "b0d591cb830165bafe27cb93b05424efff054d266bc66bd1fcec511583cf3031"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/assistant/detail/PropertyEditor.kt",
+    "sha256": "35b20d9205ed6926e2503b055ee601fbfa5c8273ba301cc58c37de620b95f262"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/backup/BackupPage.kt",
+    "sha256": "2103770d8bca242ad8becde15536f8584fdec0c1389adcaced6348da4f7ab124"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/backup/BackupVM.kt",
+    "sha256": "c7b9a0d87a78a29e1ffd15277bf33021a5216a36f5bf08771d84b2956481badb"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/backup/tabs/ImportExportTab.kt",
+    "sha256": "8d381dc8c281c4ef3607c794992699b358005ea1e3f9c385b3cae9b1644d432c"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/backup/tabs/ReminderTab.kt",
+    "sha256": "2062beac241e0bf980986a4062328b9ffe0abe43937dd86486ffae7c36e12f1f"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/backup/tabs/S3Tab.kt",
+    "sha256": "74025cb6a3861a668131eb046555c6b4b9da3a1de10a18dd11686cdf3111382f"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/backup/tabs/WebDavTab.kt",
+    "sha256": "42aca20dbd4564f62ab9b29dada56db1e49bcfe09a050d24fac275150cbb0e81"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/ChatDrawer.kt",
+    "sha256": "52a3bb25441dafaf527f22406b8ff7cd57bd845a506fd9352edd3d7c49471111"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/ChatDrawerVM.kt",
+    "sha256": "6e9351b3c45bae28101102e582891067262b2ecfd2b2d4d5b77b2f80143a4e62"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/ChatList.kt",
+    "sha256": "1a1db4fc0d73c99505a763e15d1a954fe8f985b339e45c348169a3017858c1a8"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/ChatPage.kt",
+    "sha256": "3efefd7c14f3207538b0fced64585d7b0423edf67f5d5343a7d644b8febf135f"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/ChatVM.kt",
+    "sha256": "6963f3d495bcce9520fccc2dc2fdc7d9b6b913df7b73ba97d1f4f9d456fc6447"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/LearnerProfilePicker.kt",
+    "sha256": "1755ff4f7009ccd31a46548f68a2709b8a9b67c8284f97fdce46685d3b996dcb"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/VoiceSessionController.kt",
+    "sha256": "ebfd5ade151fb51bc73a01161e45d042891b002dbd8d08df4a5b40d1707a42ac"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/extensions/PromptPage.kt",
+    "sha256": "f36d84d0d513426f15cb298f7494c0e2a9417ce3d1d02f72f919e28a3c2e138c"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/extensions/skills/SkillsPage.kt",
+    "sha256": "309ea4e38aa67c4fa25e8fb675364330d3ae64e0a86a521f3f15ea126132f946"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/extensions/workspace/WorkspaceDetailPage.kt",
+    "sha256": "456c62ef4445d2eac91a78d20ecfc240681a2342a4ff8ab539c995528822e0d5"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/history/HistoryVM.kt",
+    "sha256": "997090248081bd22e70c6a2d3d8a58ef1cd865c1cd731d59fe9fae90a42b7e2a"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/imggen/ImgGenPage.kt",
+    "sha256": "d23f106091eed354ebb3025c4f38e61895af8e3db01597b6bbd991b071e962ea"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/search/SearchVM.kt",
+    "sha256": "ee34de4994b42067a9769e9222920af46e306c0cb1aeeadba388a31b37638473"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingFilesPage.kt",
+    "sha256": "3f19363aaf43bfc0590c4de440c690ff164efc00270faea48510ad75b467a985"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingPage.kt",
+    "sha256": "5f759dd9fa17de50cab700418d161141efe7c29657021adac5256bea4edebd45"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingPreferencesGeneralPage.kt",
+    "sha256": "b0d07f014f8547f7b7480d8c0f71230866035758317634506db11f1781a19bb2"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingPreferencesNotificationPage.kt",
+    "sha256": "d82c19b472640e93e913aacea0d74a3c1e804bfe4c72ede2a3e81457896d71ce"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingPreferencesUIPage.kt",
+    "sha256": "6d8a067e16abb4128a1be7e2fb5b4bb926e8cc9902f41720e73bdb424a713435"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingProviderDetailPage.kt",
+    "sha256": "3b355ac436148f85f62b4e3f476e2ac10c61f06cb49f69fa885cd11c7d243ac4"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingProviderPage.kt",
+    "sha256": "775ae9bea53ffdd5a5bc380ca08dad469184054df4828a61c3a0c5996b98d23e"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingThemePage.kt",
+    "sha256": "1f31afc2077a18655f74ad2a2f34e030ae94016f573717476182b84b2973af4f"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingWebPage.kt",
+    "sha256": "c2dc9dabbe17a6830a9080a388dfc1942819ac3812642e659d816c86ab449f10"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/components/ProviderConfigure.kt",
+    "sha256": "cbea2da931a514b06e2abb54861385082a74a4c73110c0ad96ef44f465e04b7f"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/components/ProviderConnectionTester.kt",
+    "sha256": "0586ce31b2576297bfc6fb36dee5ccb5a5e9bb4645b1377d69d15b21fe9ec371"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/stats/StatsPage.kt",
+    "sha256": "3d894e939013bf83b62af6ce8dd1d09aa512edf172d783523389a8f1e740e8d4"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/translator/TranslatorPage.kt",
+    "sha256": "65c38f8fe4c041bdf4080226920ace8852b84a25239abd5616926dccb2ad2857"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/theme/PresetTheme.kt",
+    "sha256": "f6e89bd829be6e0987e93620d10427f0b97df3454022df31fdfdcaa009202086"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/theme/Theme.kt",
+    "sha256": "669718da9a5071c2971fdc0065d3bff636ea40d3be4d79ba8dc936d01621ecb8"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/theme/presets/StudyWhitePinkTheme.kt",
+    "sha256": "6220d0ffe23eb7466e74cab3f60eb3ca7275753a044b1f50d9c3cbe87fef337a"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/utils/ChatUtil.kt",
+    "sha256": "498a15ac526a9ca45a8750e7b99670a6981984709b2fb6f4d18cb9ecd849e59d"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/utils/ContextUtil.kt",
+    "sha256": "eed9365eee711151bfe2fe99551a5b03990234d3ba3200fba72ef1fb77a0b22b"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/utils/CrashHandler.kt",
+    "sha256": "4ba9bbc4e9e2fb83fe2c8c669ec6abefb7a781e19f60fa2a6ca148a26e7614b8"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/utils/NotificationUtil.kt",
+    "sha256": "31599e53c7725a9500f115d7a33f53d2347b6a9213296298eb2e78fa12db6a7f"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/utils/UpdateChecker.kt",
+    "sha256": "10abb962b21c5b73e9163133bcda55ad42006de45f3776197bdc7deb1cde94d6"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/web/WebServerManager.kt",
+    "sha256": "b91babf2b3b4569adb7e170f4352db377a9884558bd86d03bd8df8785271e68c"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/web/routes/EventsRoutes.kt",
+    "sha256": "81ce5ec6b8460fd5667a36012e34a18c23bf49ebc24b3bf2bd198642e29308ec"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/web/routes/FilesRoutes.kt",
+    "sha256": "d1cc71838b1d68ae5eaeb37dd77ca5a6055ec501633579775b8be39b1bbf4870"
+  },
+  {
+    "file": "client/app/src/main/res/drawable-nodpi/kofi.webp",
+    "sha256": "30945735ed5304474ae44de9bba36242f34df4a347fdbb402e5830a869f2051a"
+  },
+  {
+    "file": "client/app/src/main/res/drawable-nodpi/placeholder.png",
+    "sha256": "ba149cbb40f2565a39d1c6bc21b235890e51217a8c0fde0e639dc0b2d859084c"
+  },
+  {
+    "file": "client/app/src/main/res/drawable-nodpi/placeholder_dark.png",
+    "sha256": "449cf4cd32af1055162be8db89d388474e2019f1b6f75250cb14ae9d066e81d5"
+  },
+  {
+    "file": "client/app/src/main/res/drawable-nodpi/siliconflow_dark.png",
+    "sha256": "1ecac209cde89b8c7c1a412ad99ec751aae44e3ac405e7713173aa0e9162af16"
+  },
+  {
+    "file": "client/app/src/main/res/drawable-nodpi/siliconflow_light.png",
+    "sha256": "34254dd6840daca1e692edc3f1ccd913b5108c79729da11f4441d2dac93602e6"
+  },
+  {
+    "file": "client/app/src/main/res/mipmap-anydpi/ic_launcher.xml",
+    "sha256": "26310833a35076dfe3bdcd9fa469c5c7e36c26623eaf6009bf2d450f779189a3"
+  },
+  {
+    "file": "client/app/src/main/res/values-ar/strings.xml",
+    "sha256": "01bc63b9a7636ba1fb48f3c0688053e64aec8c6b8bb62a48768746261b1cfe4f"
+  },
+  {
+    "file": "client/app/src/main/res/values-ja/strings.xml",
+    "sha256": "96691f12f50b464578796391b4add1dcfdd5091d66a8fc363f990840559152e0"
+  },
+  {
+    "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+    "sha256": "ffca1103acbb92f392488d2de82b60a45907ab6e869ddb4a813a17e1d403dbaa"
+  },
+  {
+    "file": "client/app/src/main/res/values-ru/strings.xml",
+    "sha256": "ef6ea4c5f9e5999a43d08c180f37bee9a55db74fa331127470739f40d710e875"
+  },
+  {
+    "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+    "sha256": "5e95353f319eccf3cec9cb68f797d3ed60fd388620af9d83a317085b80c06f35"
+  },
+  {
+    "file": "client/app/src/main/res/values-zh/strings.xml",
+    "sha256": "9c651b3140bf155b75d6d0d89214b1e103228e75024be77db2c4d5f2071cdd08"
+  },
+  {
+    "file": "client/app/src/main/res/values/colors.xml",
+    "sha256": "ab3f5393e1f51eed81b79586300760b4518c7f9a565391a4b0cfdfcb68152638"
+  },
+  {
+    "file": "client/app/src/main/res/values/icon_aliases.xml",
+    "sha256": "0ea1915ec743d3c0cf1a2bb5cd1f298d1d6d55a320d90f27010e8fdc634ae80d"
+  },
+  {
+    "file": "client/app/src/main/res/values/strings.xml",
+    "sha256": "0e4784ab0f8d937095a84f7efbb4bc969d3be9712c21c99cfa5c7d11ef171f68"
+  },
+  {
+    "file": "client/app/src/main/res/xml/data_extraction_rules.xml",
+    "sha256": "bf2e59bc3345d52fe07968e32a6705208a466984e107550cd110b323021e9aa9"
+  },
+  {
+    "file": "client/app/src/test/java/me/rerere/rikkahub/ShareSheetTest.kt",
+    "sha256": "e11c26ee50c14d596040d0b2db90cf90b80a58d9bca1f896aefc1a5aa5dad9b1"
+  },
+  {
+    "file": "client/app/src/test/java/me/rerere/rikkahub/data/sync/BackupIntegrityTest.kt",
+    "sha256": "f21a27630e99877e2724ffa47ea4ff3cb0f5940c3d9ccea57886456b5dfc14d3"
+  },
+  {
+    "file": "client/app/src/test/java/me/rerere/rikkahub/data/sync/BackupPathsTest.kt",
+    "sha256": "966b53b205d5acf9f51fd0f577d4d7463fe27691e502326216213138733eebbd"
+  },
+  {
+    "file": "client/app/src/test/java/me/rerere/rikkahub/data/sync/EncryptedBackupTest.kt",
+    "sha256": "b627659a880601bf61addd46855cb9fb3559080c82259d604c50dbdc4b6f69c1"
+  },
+  {
+    "file": "client/app/src/test/java/me/rerere/rikkahub/data/sync/MemoryRestoreTest.kt",
+    "sha256": "8f272e8f46164c460badace7c804ff2beca5e75fff9f958d898aa1508e0093e1"
+  },
+  {
+    "file": "client/app/src/test/java/me/rerere/rikkahub/data/sync/PendingRestoreTest.kt",
+    "sha256": "3eff40ae41e723e8be6770e39fe818026eef81d12aa946c3f1c9bfbc46ae38d6"
+  },
+  {
+    "file": "client/app/src/test/java/me/rerere/rikkahub/feature/material/DocumentContractTest.kt",
+    "sha256": "4510abc99dcd6226a6423706601898edc29fd733a93efa10d13aabbd60785190"
+  },
+  {
+    "file": "client/app/src/test/java/me/rerere/rikkahub/feature/memory/LearningLoopTest.kt",
+    "sha256": "7efa1040e94497b7100b08e204f1e5199b346f20148b50b934a420afa53e6a09"
+  },
+  {
+    "file": "client/app/src/test/java/me/rerere/rikkahub/feature/memory/MemoryContractTest.kt",
+    "sha256": "0188e67c8eb1bca1079b0def9ac3b839ecf9dd15a8f7e724c311e2dfb30809a8"
+  },
+  {
+    "file": "client/app/src/test/java/me/rerere/rikkahub/feature/studychat/StudyChatContractTest.kt",
+    "sha256": "4017e6d874d92dd67fb46869f4dac3a088acebbe9740a06a9f2a76db895217a4"
+  },
+  {
+    "file": "client/app/src/test/java/me/rerere/rikkahub/service/ChatServiceTest.kt",
+    "sha256": "22770ae952adf5e034af8dc0a3599a26f1822d33de8b1e0a620d9667ae7a2102"
+  },
+  {
+    "file": "client/app/src/test/java/me/rerere/rikkahub/service/ConversationSessionTest.kt",
+    "sha256": "315fde1681ebef7d72800e3fde99a5fa670ecc099289b6b733e3a7cac31a6399"
+  },
+  {
+    "file": "client/app/src/test/java/me/rerere/rikkahub/service/GenerationRecoveryTest.kt",
+    "sha256": "be3c8f6767cb3bb6b601d6f32de7ad375df66ddc2ca089adb2a4d5aafd6dca9a"
+  },
+  {
+    "file": "client/app/src/test/java/me/rerere/rikkahub/service/LearnerProfileCompatibilityTest.kt",
+    "sha256": "ced7e9dd5597f44041de312956ecf56974ff6d4174b9cfc8f1387544a11919f9"
+  },
+  {
+    "file": "client/app/src/test/java/me/rerere/rikkahub/service/SettingsCredentialExportTest.kt",
+    "sha256": "b3335d40389cb5b60bd64c23baa8e80417a2dfade0ce1406cf08660d27d63bc3"
+  },
+  {
+    "file": "client/app/src/test/java/me/rerere/rikkahub/service/TTSPrivacyTest.kt",
+    "sha256": "9c2e8ccb2ad30d5c7e21a53c0926b3f140eb0ba197de8dd778db4780b7d46145"
+  },
+  {
+    "file": "client/common/src/main/java/me/rerere/common/http/AcceptLang.kt",
+    "sha256": "0de05c0c5958b87c98ce960bd0fe563c8edd938132d285ab7539a4c3040d40ee"
+  },
+  {
+    "file": "client/common/src/main/java/me/rerere/common/http/JsonExpression.kt",
+    "sha256": "53cab94e3683aeeba56a03f09618b8d2e2d96949f9b8f676a1f4f0a966e057f0"
+  },
+  {
+    "file": "client/common/src/main/java/me/rerere/common/util/ServicePrivacyLog.kt",
+    "sha256": "f92619d7d61faa607cd73d4e5c0faabfd2b4c2a55448617a38a70dbe191b83cc"
+  },
+  {
+    "file": "client/material3/material-color-utilities/kotlin/dynamiccolor/ColorSpec2025.kt",
+    "sha256": "0681e83301919ce16eb3c499c11c36a06d1201addec8a272999ea4d0a4cab92f"
+  },
+  {
+    "file": "client/oauth/src/main/java/me/rerere/oauth/OAuthLoopbackCallbackServer.kt",
+    "sha256": "f1d0a62b2354ddc29e06be70712c57439db5da4672f7818abacde40197601f34"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/BochaSearchService.kt",
+    "sha256": "03459b5fa449820d01c511ec3086986153252a3fe4e1dfc9bc34b7d9c99777bf"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/DoubaoSearchService.kt",
+    "sha256": "4b2b74c7a4dbe9560edd05bb37c235f82b3e79c2028ac544ec2e1a682fdd53b0"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/ExaSearchService.kt",
+    "sha256": "a24179b838f4e356f96148304c3520d190613a2a275c427a1a64228f877e0389"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/GrokSearchService.kt",
+    "sha256": "9364e64a7ebc43d09ec5fa907d82b0fc467bab6edead45a32edd2563ed5ce20a"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/JinaSearchService.kt",
+    "sha256": "1ba5b9bf1086aa07a4c976a0884a2f45e11274cbef2d97f567927960d5a56b3c"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/LinkUpService.kt",
+    "sha256": "7d30f1ad17cd452ee8ab9cb1b3f950851b8c710f58499662c41027b5a9856628"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/MetasoSearchService.kt",
+    "sha256": "426ddf36801b899404a6017b5db70c4c9f7cb2d3348bcf6b45f40436c0dd13a2"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/OllamaSearchService.kt",
+    "sha256": "2d3548d48fdf1f5f75a7454de8c846b17d98977918a736d7d7419f4d49f9f47c"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/PerplexitySearchService.kt",
+    "sha256": "1039d7ac238e4c9cd2e363f601118067d798ab4098931e02f9757593ed473c32"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/RikkaHubSearchService.kt",
+    "sha256": "f2124f6a00737b6efac289f2f21130e0ecfceb1651c6058c9acb0a23bb55e016"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/SearXNGService.kt",
+    "sha256": "70d439205ba1bb13ef35364a617929dd11f2ae5b2a98c35838de5a3859e5bd96"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/ZhipuSearchService.kt",
+    "sha256": "4d0eaff4c29d1c55db688dca588602912e81c0c3e9dd17c14df3d56279311dff"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/asr/providers/DashScopeASRController.kt",
+    "sha256": "77164db7af63feea444f8cb0180cfd99cc98f24f3819da245692cbc3cb83afad"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/asr/providers/MiMoASRController.kt",
+    "sha256": "6e00394efc7bc6efc92a0bc6c0e15e927491117d1bfa321a2c3036a32a38b219"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/asr/providers/OpenAIRealtimeASRController.kt",
+    "sha256": "9e06ed7f3ac28f78896bb01384aa0e548ddab36ce33b0933eab047fbc3621c66"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/asr/providers/StepASRController.kt",
+    "sha256": "d066fba097537636ac699a290d7c616a9478627fa12489cdcbd6784749999444"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/asr/providers/VolcengineASRController.kt",
+    "sha256": "995f4e1372f0dbfa94ad85b5a38a35abd216e8321e069002bb6f017b4f2cbe6c"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/controller/TtsController.kt",
+    "sha256": "4d4ebe35defe6c5dec4b7b840c673546bbc5f3f426df080288511ea4f8a55ae0"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/TTSProviderException.kt",
+    "sha256": "3334ed8f1142b27356337025e8dbc69bf1245c85d82077ed1c14d39d6af47360"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/providers/ElevenLabsTTSProvider.kt",
+    "sha256": "f0c94960842401f589c3d2054a289240c38de43c9909fd0a00c629faf057b80b"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/providers/FishAudioTTSProvider.kt",
+    "sha256": "e8338c73a5ae5ffa384f3c74ce41fcd8c7e035bf5442013f98d8ba7dac63a95e"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/providers/GeminiTTSProvider.kt",
+    "sha256": "0fee5d2e8266891d9cf6f83155c4b1c07d6fc02571ae6a40603488568f2a299d"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/providers/GroqTTSProvider.kt",
+    "sha256": "d98fc0a07a4a13f4de547aa03053038fccd9e209efd7579c5f01766c1c008cbf"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/providers/MiniMaxTTSProvider.kt",
+    "sha256": "2ef3ef531648ca137901a50868ad70d14bc452c6c51989d289ace5aeedff9273"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/providers/OpenAITTSProvider.kt",
+    "sha256": "86b21dca82a95ff5e27e7b62388f97de3bf5d6d22ddf65e4846be1b650adcc62"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/providers/QwenTTSProvider.kt",
+    "sha256": "1330b3bb12e5d39282f32f5456ca09f6aa3952dd4b60737ba13330d0c871c8af"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/providers/StepTTSProvider.kt",
+    "sha256": "ba32284bf90df1ce902ff7e6bf804afee639f170122e46eb79b344df5efd9b23"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/providers/SystemTTSProvider.kt",
+    "sha256": "d04b6d72496781f63018efad0b0b45fee6b27e6b378c069f83f805124cc53acc"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/providers/XAITTSProvider.kt",
+    "sha256": "51d9c6b6b4f9ed1fc1c20a48f09f3fba0fe381f6f05a4bcb3f0c22180968a04c"
+  },
+  {
+    "file": "client/speech/src/test/java/me/rerere/asr/providers/VolcengineASRProtocolTest.kt",
+    "sha256": "d773a87883c66be9d51986db043e32605a1e37d49301acfa77889d448e10c54a"
+  },
+  {
+    "file": "client/web-ui/app/components/extended/conversation.tsx",
+    "sha256": "df526928177c59a28c6628dd120c7d7846235bd890a89a3c524f7fa86a5b3cf0"
+  },
+  {
+    "file": "client/web-ui/app/components/ui/checkbox.tsx",
+    "sha256": "93a3efca587ea00d0e68a61469fa5a1eb61e69b9c8f3300ad30cd63d2cfa8110"
+  },
+  {
+    "file": "client/web-ui/app/components/ui/drawer.tsx",
+    "sha256": "b845fca23d0052d68287d85bda7daac5a41f9c3ae5cfa0e7277eac3471d836ca"
+  },
+  {
+    "file": "client/web-ui/app/components/ui/select.tsx",
+    "sha256": "cd35c9cc55da54090e701076227fc9cf65926c0911f66622755eaa7f13c19f91"
+  },
+  {
+    "file": "client/web-ui/app/components/ui/sheet.tsx",
+    "sha256": "553409751e10c168396c43c21e53276bd8d3f0b2afa99c2559a09319f154cc84"
+  },
+  {
+    "file": "client/web-ui/app/components/ui/sidebar.tsx",
+    "sha256": "67d1a2a33140f42b715ef365d7972c1ca7d1c664b606cf1cee96836c2cc4260e"
+  },
+  {
+    "file": "client/web-ui/app/components/ui/sonner.tsx",
+    "sha256": "eaa24c381f6eaddeea9a7d8b67445e8f4e7a755b91cd2f3a10498a74cecd1347"
+  },
+  {
+    "file": "client/web-ui/app/components/ui/tooltip.tsx",
+    "sha256": "b3f46f6893c8ab34169e0e9b8db43779c497e155bd4e96ec4bc6d30e64cf8688"
+  },
+  {
+    "file": "docs/acceptance-matrix.md",
+    "sha256": "5caa707151dff908b42a687974e1f80a337629b26f48e7728cae2236c46fc1f1"
+  },
+  {
+    "file": "docs/data-contract-v1.md",
+    "sha256": "c0d23b023d7551fa6c2fd883476bd97ea44fdbe4e74a2ab5b865c908ec3cb250"
+  },
+  {
+    "file": "docs/diagnostics-feedback.md",
+    "sha256": "d15398afcf84f47fc743e866bf5066d8ceb66123f2436854545782f226cc5f82"
+  },
+  {
+    "file": "docs/document-service-execution.md",
+    "sha256": "74c9afde4950dfcf5298ce927691ef78e468cb5a70d0fd0a267ff762cfe83eeb"
+  },
+  {
+    "file": "docs/document-service-plan.md",
+    "sha256": "a1b063563ab83975540e66012d6d9e6c0ca2db1e9010ebd7d731b629a04c0bd2"
+  },
+  {
+    "file": "docs/frontend-delivery/backend-handoff.md",
+    "sha256": "5eac708827831c0e92bc5ab44cc6a6684c235e0b4302792bf618b65e3237a78f"
+  },
+  {
+    "file": "docs/frontend-delivery/delivery.md",
+    "sha256": "655a0ed84cc111035f3b52c4ec7d8d6890a2b20d87f53b75fbd026ff6a151156"
+  },
+  {
+    "file": "docs/frontend-delivery/evidence/TEST-me.rerere.rikkahub.feature.material.DocumentContractTest.xml",
+    "sha256": "055939f9096a2c94543fda749965f5ababc09c363a155328925deb7f82a0f720"
+  },
+  {
+    "file": "docs/frontend-delivery/evidence/TEST-me.rerere.rikkahub.feature.memory.MemoryContractTest.xml",
+    "sha256": "eb3a6b77ed581260847cefc37dc31afa35cfcf6476e242dd4e235adac37f9be9"
+  },
+  {
+    "file": "docs/frontend-delivery/evidence/TEST-me.rerere.rikkahub.feature.studychat.StudyChatContractTest.xml",
+    "sha256": "c953c85b4fdfc9b1a5d1faafd97dc925bb3feb2407ce776ab3d832472715937b"
+  },
+  {
+    "file": "docs/frontend-delivery/evidence/frontend-review-feedback-seed.log",
+    "sha256": "63f585f733da8096ccf682ab5de137aa354207d858eec0a26c2c3b83e75c4045"
+  },
+  {
+    "file": "docs/frontend-delivery/evidence/frontend-review-feedback-verify.log",
+    "sha256": "19d268c3ac72d065537863ca4b6aad4bbee1b92879291609bcb10a4360721def"
+  },
+  {
+    "file": "docs/frontend-delivery/evidence/frontend-review-fixes-validation.log",
+    "sha256": "0f5baeae8e882d3a4ddd4fd762260fd678351289f5287283094b7af2f8abead1"
+  },
+  {
+    "file": "docs/frontend-delivery/evidence/frontend-review-runtime-large-font.log",
+    "sha256": "7c511e98f3de6b9149d78636c62b9a23053a72a58ff9196a5ea5724cc2335dcf"
+  },
+  {
+    "file": "docs/frontend-delivery/evidence/frontend-review-runtime.log",
+    "sha256": "2bfac01835817b56374d0ec3cfd2f93145a43b2615a25062010c032a00b034b0"
+  },
+  {
+    "file": "docs/frontend-delivery/evidence/summary.json",
+    "sha256": "1f4bb782f11f0755ffb596bfc04a867b63f94a9f5590e880fe1d1532c462a178"
+  },
+  {
+    "file": "docs/frontend-delivery/page-status.md",
+    "sha256": "983ea2afb84645d78d31bdd6ef55686fdfc5da20e3888ca29c112fbf9d3acf23"
+  },
+  {
+    "file": "docs/frontend-delivery/recordings/README.md",
+    "sha256": "416028a2c0a18f9438cf2957912a15f74535e8ebdf843ed6080d854f0bee61e6"
+  },
+  {
+    "file": "docs/frontend-delivery/recordings/frontend-review-large-font.mp4",
+    "sha256": "52e9b9c0d359166cb3131b51011e33fe99e5b5e9185136e58df470f3c2fc9575"
+  },
+  {
+    "file": "docs/frontend-delivery/runtime-screenshots/README.md",
+    "sha256": "72d30f5ef09753a5b8c80a9211ca73e7fdb7775105b91bf2bfcbc77f9d90bab4"
+  },
+  {
+    "file": "docs/frontend-delivery/runtime-screenshots/frontend-P06-revision-conflict-font200.png",
+    "sha256": "78b886bd445e7e8ae9fdf279e9a66763750ed0fbd61abe3b47484058165f6ec8"
+  },
+  {
+    "file": "docs/frontend-delivery/runtime-screenshots/frontend-P06-revision-conflict.png",
+    "sha256": "15552415eb62decfd65fb61b3689bde451abdefdae1959e374606c574cda90a4"
+  },
+  {
+    "file": "docs/frontend-delivery/runtime-screenshots/frontend-P12-runtime-font200.png",
+    "sha256": "cb3382e3e44a69b59c690dd908c06a6970042cb84ce76464898050f739952351"
+  },
+  {
+    "file": "docs/frontend-delivery/runtime-screenshots/frontend-P12-runtime.png",
+    "sha256": "a4cbb0aab088efec0ed3fcca68dfe1fdfd65fd0b97dbff8d04b7ca1f02c39a5f"
+  },
+  {
+    "file": "docs/frontend-delivery/runtime-screenshots/frontend-P13-real-request-font200.png",
+    "sha256": "88e263dc69b12fa7b703901f09ad4b043c40c091b3b1d6ff6991e2442a23f1ef"
+  },
+  {
+    "file": "docs/frontend-delivery/runtime-screenshots/frontend-P13-real-request.png",
+    "sha256": "29af9a4f767aa58404a794010f1596b7a356f29b38e23c50aba584de5cf71da5"
+  },
+  {
+    "file": "docs/frontend-delivery/runtime-screenshots/frontend-P14-runtime-font200.png",
+    "sha256": "c6f6a1a52aa6b1e91d3f8b2636f9231c41bf41c5b8e52d5182fdbfca8074b89e"
+  },
+  {
+    "file": "docs/frontend-delivery/runtime-screenshots/frontend-P14-runtime.png",
+    "sha256": "270185aa13fe10ff5e8ff9f0c0ea554d39dc5e600fb934ad0d15c76e273a001e"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P01-v2.png",
+    "sha256": "cb7aef4850d6c4d8e437807eece2d04f67bf3720d6e859f74b9766d9bea26eab"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P01.png",
+    "sha256": "a7429a95a6b026cea16d5d22e08e55e60ba80dd9043afcf16cd027095c2c81aa"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P02.png",
+    "sha256": "ec759d3b9db8a27996104435b0ec07390ecd43e4a2457ec7729cb1fe37244ab4"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P03.png",
+    "sha256": "d97aff0a4c55952ef271acf808440e14aed025f9c36168693dad7f31ecca1352"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P04.png",
+    "sha256": "9c02a25c1d3b21fa5d2d2b33dd8f0e95e4c5ca8217f96767ee36b6e8d37d561b"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P05-v2.png",
+    "sha256": "04965d40b5ad374474ccc5ec45cf7310daa0cd2a85bee1d3660ecb7a481db983"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P05.png",
+    "sha256": "f09647c158d53147c90d0d021709a12159ac9968c323bf57c77711c5b01f8d76"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P06.png",
+    "sha256": "2152117919f7f13d483b0c1018ca43d2ba920dad752ee3149601814e8421f15f"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P07.png",
+    "sha256": "c925d19a12c6dccf75e0bd312635721eaedd8e3c6928b98cb352708cc393967c"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P08.png",
+    "sha256": "906ab7ec6637c8f2f2c43b453f5b7fc38414549fb875976773f3950ce6b5f146"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P09.png",
+    "sha256": "ee8cfc7eb532e3c4dd23fe56ee458554373e07388e4814af4f7609cbff4180f2"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P10-v2.png",
+    "sha256": "d66814b30f6c5efef2085db1d3e6ad2940cf89289c091f3972941ab34c334be2"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P10.png",
+    "sha256": "e0567e91e431bc3fbf54b1f9dad5c8af420ce9f24936279f8e1ff4a3a2a6ab46"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P11.png",
+    "sha256": "6c7e66d06b9d4476c822d87b43f35f729026469d20d289268073ec37f0ae84c8"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P12.png",
+    "sha256": "65ffe9e5a0fe126d9050520c3e77d77ca472a6939bf1ddca58a0eb260f434934"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P13.png",
+    "sha256": "7ae573ee642688a1f26c2b15b6bb30e08d9efa950e0754d7b3cfe6b19032b6d3"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P14-v2.png",
+    "sha256": "78765d4e1e1af72eead36d13d9f08c8e6075cc98441f21a50c3d85f16182b089"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P14.png",
+    "sha256": "edf44e07fe7b0787a58044e6262da4ddd62fd2d6585b009835b741718d0f24c7"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P15-v2.png",
+    "sha256": "dcb939b07f8b5b82801805b78ad18d117d778b1d9ed66f15710aeeb24d6dea48"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P15.png",
+    "sha256": "0cafe57334db76612b4cd01a7006eaf41cf3bac37ad96fceea5354fc02e647e4"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P16-v2.png",
+    "sha256": "81235d1d43af5d34d0b4880d0d1cf05f814dd07a6a2ff68a91276884ca4fd567"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/P16.png",
+    "sha256": "a6c5563fde5f473a2701c06bd74097512a990a9b03635434a7aad6ce395afcee"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/accepted-chat.png",
+    "sha256": "8cd372eba3e9b9ae746d105be90592fabd7e6c33229eb78aa2e74b785fe934b5"
+  },
+  {
+    "file": "docs/frontend-delivery/screenshots/accepted-mascot.png",
+    "sha256": "b1c4e4c99cac602650f97c8eb0ea96722d5a68ffefa9341b91b6e6c0583506ea"
+  },
+  {
+    "file": "docs/frontend-delivery/self-review.md",
+    "sha256": "4dc0927de8f8abe9c75402d1956632ff777f9ac12ffb5cf11fa4f8215909c520"
+  },
+  {
+    "file": "docs/frontend-delivery/validation.md",
+    "sha256": "c7470a4721368cafa336b5cdc53a3a062ad7f5bd9cd30910fc35c99d919d0761"
+  },
+  {
+    "file": "docs/imagegen-page-prompts.md",
+    "sha256": "080b333864c1f838cf48be9c8a0265a4cd2c635d79afaa63f005e0b4ab175a68"
+  },
+  {
+    "file": "docs/implementation-plan.md",
+    "sha256": "025b6b50432f36b58f5e38bd8ab7aec9166ad2d6fa139f9fc6f1ad7803e9faba"
+  },
+  {
+    "file": "docs/material-execution.md",
+    "sha256": "ac6dc7bb62ebfc7b00c725dc036138c7ec68acd58e0735738fa8e52bdfb29f27"
+  },
+  {
+    "file": "docs/motion-design-reference.md",
+    "sha256": "33d35f40ee3d2f875ea4f5bd4cbac48e5fda6f0dee26130431180c2981285c47"
+  },
+  {
+    "file": "docs/project-context.md",
+    "sha256": "1d0c18c94a5af45a3220c0cf02bcf6413f671fe2fe67ebe0747cbcd2d0964c7d"
+  },
+  {
+    "file": "docs/s0-execution.md",
+    "sha256": "2afb5d0be6ed9b9d57126f43dbb3db5b87eaee0464aa6cb71a0012c6ddfe1f3d"
+  },
+  {
+    "file": "docs/s1-execution.md",
+    "sha256": "14fefb2e43344acafd58bb1db22c371dca1f1f858145056371b72bdc87b500a1"
+  },
+  {
+    "file": "docs/s2-execution.md",
+    "sha256": "776ec69cd164cfb322f8e13ea5eeef654fed3e38cd0e0d8941cc3fcd695eecef"
+  },
+  {
+    "file": "docs/s3-execution.md",
+    "sha256": "f77f6be53623af41189be9819f491ebef42e940451b0e1e8667d44aa2510faaf"
+  },
+  {
+    "file": "docs/s5-execution.md",
+    "sha256": "255137e63d1f4fed737dc9d3a014cbb4ec7fa1a1fd0d3c846ddd8379d7cb8f09"
+  },
+  {
+    "file": "docs/ui-design/gemini-frontend-handoff-clean.txt",
+    "sha256": "ed065271fead6be94457ae9074d56e2d97791f77bde5d6253b51ca2a3f9d8d8e"
+  },
+  {
+    "file": "docs/ui-design/gemini-frontend-handoff.html",
+    "sha256": "f0be64dbadaba90a4d2e8221a93169a71654bc656ca7ee3257c29ade3350be47"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1-final.zip",
+    "sha256": "23fcab5d5ca9cafd55ca21b10686b757c986e87f04e168e30490b016148efa95"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P01-v2.png",
+    "sha256": "cb7aef4850d6c4d8e437807eece2d04f67bf3720d6e859f74b9766d9bea26eab"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P01.png",
+    "sha256": "a7429a95a6b026cea16d5d22e08e55e60ba80dd9043afcf16cd027095c2c81aa"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P02.png",
+    "sha256": "ec759d3b9db8a27996104435b0ec07390ecd43e4a2457ec7729cb1fe37244ab4"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P03.png",
+    "sha256": "d97aff0a4c55952ef271acf808440e14aed025f9c36168693dad7f31ecca1352"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P04.png",
+    "sha256": "9c02a25c1d3b21fa5d2d2b33dd8f0e95e4c5ca8217f96767ee36b6e8d37d561b"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P05-v2.png",
+    "sha256": "04965d40b5ad374474ccc5ec45cf7310daa0cd2a85bee1d3660ecb7a481db983"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P05.png",
+    "sha256": "f09647c158d53147c90d0d021709a12159ac9968c323bf57c77711c5b01f8d76"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P06.png",
+    "sha256": "2152117919f7f13d483b0c1018ca43d2ba920dad752ee3149601814e8421f15f"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P07.png",
+    "sha256": "c925d19a12c6dccf75e0bd312635721eaedd8e3c6928b98cb352708cc393967c"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P08.png",
+    "sha256": "906ab7ec6637c8f2f2c43b453f5b7fc38414549fb875976773f3950ce6b5f146"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P09.png",
+    "sha256": "ee8cfc7eb532e3c4dd23fe56ee458554373e07388e4814af4f7609cbff4180f2"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P10-v2.png",
+    "sha256": "d66814b30f6c5efef2085db1d3e6ad2940cf89289c091f3972941ab34c334be2"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P10.png",
+    "sha256": "e0567e91e431bc3fbf54b1f9dad5c8af420ce9f24936279f8e1ff4a3a2a6ab46"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P11.png",
+    "sha256": "6c7e66d06b9d4476c822d87b43f35f729026469d20d289268073ec37f0ae84c8"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P12.png",
+    "sha256": "65ffe9e5a0fe126d9050520c3e77d77ca472a6939bf1ddca58a0eb260f434934"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P13.png",
+    "sha256": "7ae573ee642688a1f26c2b15b6bb30e08d9efa950e0754d7b3cfe6b19032b6d3"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P14-v2.png",
+    "sha256": "78765d4e1e1af72eead36d13d9f08c8e6075cc98441f21a50c3d85f16182b089"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P14.png",
+    "sha256": "edf44e07fe7b0787a58044e6262da4ddd62fd2d6585b009835b741718d0f24c7"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P15-v2.png",
+    "sha256": "dcb939b07f8b5b82801805b78ad18d117d778b1d9ed66f15710aeeb24d6dea48"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P15.png",
+    "sha256": "0cafe57334db76612b4cd01a7006eaf41cf3bac37ad96fceea5354fc02e647e4"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P16-v2.png",
+    "sha256": "81235d1d43af5d34d0b4880d0d1cf05f814dd07a6a2ff68a91276884ca4fd567"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/P16.png",
+    "sha256": "a6c5563fde5f473a2701c06bd74097512a990a9b03635434a7aad6ce395afcee"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/README.md",
+    "sha256": "859fd21d10f6d1eff6872c2de87462925e23b7dfdc139b68a1a3140b6bea190a"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/accepted-chat.png",
+    "sha256": "8cd372eba3e9b9ae746d105be90592fabd7e6c33229eb78aa2e74b785fe934b5"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/accepted-mascot.png",
+    "sha256": "b1c4e4c99cac602650f97c8eb0ea96722d5a68ffefa9341b91b6e6c0583506ea"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/index.html",
+    "sha256": "cc983bd83c53f52b9358831548ed310e8915c35d41d149f1bcc510521ec50ab7"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/manifest.json",
+    "sha256": "c4831e874ee2ec446d325be204583d8c4f8074661e9cd4a3ba5fb008adbf50e0"
+  },
+  {
+    "file": "docs/ui-design/white-pink-v1/prompts.md",
+    "sha256": "e464d5645476e5bdc22c69973508f9591fc177858e3baa27ab1500e5be870279"
+  },
+  {
+    "file": "scripts/audit_document_model_sources.py",
+    "sha256": "854555419db2e5ae3d64df4dde5b3b7dfb708be72f597a1c3c987b73bc248666"
+  },
+  {
+    "file": "scripts/audit_review_native.py",
+    "sha256": "412eee974a5ac5b20ed2c80e195e7e40d233618edefd05cf34d82cb4ee8ea51d"
+  },
+  {
+    "file": "scripts/build_baseline.ps1",
+    "sha256": "129ed779cc59433dee887d23b6f4c0bfc9830fcee958fbccfd63a797f0badeaa"
+  },
+  {
+    "file": "scripts/build_material_receiver.ps1",
+    "sha256": "85212201e6e6925050ada91a6de0708447392a8b1832fd0bc4398d7db50278d5"
+  },
+  {
+    "file": "scripts/collect_material_evidence.py",
+    "sha256": "e8587d291eb729021317b24b317c1053b3c6a9a16a98a8c8625501a83cde9ed3"
+  },
+  {
+    "file": "scripts/collect_project_review.py",
+    "sha256": "85f7547924e071213a61138d52e67c647bdb1810dc065159d3783b1bbba1771a"
+  },
+  {
+    "file": "scripts/collect_warning_delivery.py",
+    "sha256": "1fb7b7be2941fd80447baedc5607547661319e6709eee13d00ed2e813e18ec46"
+  },
+  {
+    "file": "scripts/finish_review_resources.py",
+    "sha256": "c7b5a447ca7819b934f2ad8c078d694855802791cbc49cbb09f433bc521c5529"
+  },
+  {
+    "file": "scripts/fix_compiler_review.py",
+    "sha256": "337e839401e82b192e0df45dc8865814279789dbe06ef1cfa0e4b294091d46f3"
+  },
+  {
+    "file": "scripts/fix_module_compiler_review.py",
+    "sha256": "3085dbfdd0be316c3b671486d68969fab60d3d7ca04b8ea6646fb0ea53e39037"
+  },
+  {
+    "file": "scripts/fix_review_warnings.py",
+    "sha256": "3c3f7745e443c2d59679fe8db6a2d3e697df32e2bab88251e87ac3cd1d5bf595"
+  },
+  {
+    "file": "scripts/probe_responses.py",
+    "sha256": "2cd669ed46ebc27f3dbbf79b97ac361486e99ad384309e82d3458416701241d6"
+  },
+  {
+    "file": "scripts/review_project_20261008.ps1",
+    "sha256": "7011cb8d8b7acc009f99b940c7cdeccf97c7b3b67021d7097b2b5c5c766ec0c7"
+  },
+  {
+    "file": "scripts/review_warnings_20261008.ps1",
+    "sha256": "4388a5230e569f694997f540966449c2ffae20934f97785ced6b2e8caabc117a"
+  },
+  {
+    "file": "scripts/summarize_compiler_review.py",
+    "sha256": "c0c2079f04d696fa8267a4f58c10615b9d5e313656bb1479aa3eb5a7441aeecc"
+  },
+  {
+    "file": "scripts/summarize_material_completion.py",
+    "sha256": "26c04f499d11960309bd7e0074c27d6665d922a39f4e3b028713cc343f2210ef"
+  },
+  {
+    "file": "scripts/summarize_warning_review.py",
+    "sha256": "b89db0993ec06a821c25c66dbf48e7ce5a597014c823ac40fb530c866493e0b0"
+  },
+  {
+    "file": "scripts/test_diagnostics.ps1",
+    "sha256": "c1dea3d1c9c216abe08a609a010297fa83018c90d5b4eee992f7c7ea84cff3c7"
+  },
+  {
+    "file": "scripts/test_document_service.ps1",
+    "sha256": "3b1ad0b115702eed949ecd0586c9f4714fa6d45a491c538de3751a62ead5d404"
+  },
+  {
+    "file": "scripts/test_frontend_review_fixes.ps1",
+    "sha256": "6ef44d5571b187cb1b56b04c5501a33da98c91e85f83e70e6618d1148027698a"
+  },
+  {
+    "file": "scripts/test_material_completion.ps1",
+    "sha256": "9ce338e3692400c188ee027ee50341578e1552af08e5082fd78882cc904966fd"
+  },
+  {
+    "file": "scripts/test_s1_completion.ps1",
+    "sha256": "ef8da3df9e14c7216bb4eee27603f69363e8e0bb329c8f616f5a043410b59d94"
+  },
+  {
+    "file": "scripts/test_s1_credentials.ps1",
+    "sha256": "06617cdfdb17b51d04ce0d65cb95ec414bfb286719d4a11b34b178442d1813e4"
+  },
+  {
+    "file": "scripts/test_s1_network_faults.ps1",
+    "sha256": "bcb369a79fe62ba6fcf444ebffc6ee18d67d15b76e8d90fbdadb08c61b69914d"
+  },
+  {
+    "file": "scripts/test_s1_runtime_continuation.ps1",
+    "sha256": "81ecda49396449582621c463d5ea42f022dedd33e1c8073208d6b12ecaf45a0b"
+  },
+  {
+    "file": "scripts/test_s2_completion.ps1",
+    "sha256": "f0bcc7903015f19a87da92bf4899b8e8f8156d8f817dbd0b1b7f2282acaec1ec"
+  },
+  {
+    "file": "scripts/test_s3_completion.ps1",
+    "sha256": "306cbe100a708e1264c5f389ac797fec5a069d8b8521852fa9f091387faba79e"
+  },
+  {
+    "file": "scripts/test_s5_completion.ps1",
+    "sha256": "b2a72c602366d133b1b30242c6a2c696894ac68be5abd49d9429975a2f89aa14"
+  },
+  {
+    "file": "scripts/validate_material_fidelity.py",
+    "sha256": "ca69f8f5d4db55aa978c8051f2d20ec5a6b496d1301c2a870203040ec85b23d4"
+  },
+  {
+    "file": "scripts/validate_material_outputs.py",
+    "sha256": "d763ae11032b2c941848951274842dff173766464e41541a97d21aeeb2e7bed1"
+  },
+  {
+    "file": "scripts/write_warning_feature_matrix.py",
+    "sha256": "0cdb04fdb3104f0b97fa98b487157ab7921bbeed153da270b4db42757f24347d"
+  },
+  {
+    "file": "server/document-service/.dockerignore",
+    "sha256": "487b9147632499fa361cf5c212ec3f6c596f186cfc5cce05c5bc115f894eee63"
+  },
+  {
+    "file": "server/document-service/README.md",
+    "sha256": "f8bd0933a9958c01e94192cdb642712697a4d2209e5656e41b23c5d4631a1483"
+  },
+  {
+    "file": "server/document-service/THIRD_PARTY.md",
+    "sha256": "c0da881241309154321a35750cb55079badfb0c8ae9ce6691784319ebcd4cfcb"
+  },
+  {
+    "file": "server/document-service/api/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "server/document-service/api/admin.py",
+    "sha256": "586227fc03099366cf508d59106841f743aaef6b83091d8c0cd0191333cebf14"
+  },
+  {
+    "file": "server/document-service/api/main.py",
+    "sha256": "426e834c78313c7e5dbb7adc967efd1d510c461262c0266438a768dc616e8267"
+  },
+  {
+    "file": "server/document-service/api/output.py",
+    "sha256": "0e6c47fad6ef4f6db32e78cf034258dc0cd4e87d52feb46d34849de01c9bf60b"
+  },
+  {
+    "file": "server/document-service/api/store.py",
+    "sha256": "5b2982590d56483d2423301cca82adbd3d2b733efbe290b6eb03f6ea445946a5"
+  },
+  {
+    "file": "server/document-service/deploy/Dockerfile",
+    "sha256": "bcb875c715428531058f5c1967d407ff50ac9dd2ddd76327aa9d32e8afa4bdc6"
+  },
+  {
+    "file": "server/document-service/deploy/install_nginx.py",
+    "sha256": "1676b5a2102dbb37b6d7f26aec6eb36f3d4787c73170dd8ad30d4d32a0f2158a"
+  },
+  {
+    "file": "server/document-service/deploy/mathdoc-api.service",
+    "sha256": "58bad81b35f190ff2324cf03d15bba4a81f5c179c3e68160b6bd59f63f381384"
+  },
+  {
+    "file": "server/document-service/deploy/mathdoc-dispatcher.service",
+    "sha256": "ea57f55b184272cdd5d8c0a05b732256958bbe533dcd88dda6d3b9a5071e817c"
+  },
+  {
+    "file": "server/document-service/deploy/mineru.yaml",
+    "sha256": "abbfaf647deae3e91ec2740579b11e139f5794be731e05f0234a02125e9ee9c5"
+  },
+  {
+    "file": "server/document-service/deploy/nginx-entry.conf",
+    "sha256": "cdfae8b78eda0cda4935c6678340abceb66bf009bb01f2f329c76e9a85d2168a"
+  },
+  {
+    "file": "server/document-service/deploy/nginx-limits.conf",
+    "sha256": "b92ff43248694f271ada0aadfc65abf38ac4ae2b3021f406ea32097b61cd2082"
+  },
+  {
+    "file": "server/document-service/deploy/nginx-origin.conf",
+    "sha256": "e4b90434457d9d1b9df316c32f1c1b95bd46d3f9e4437fa1d50ea4c2aa6ee91b"
+  },
+  {
+    "file": "server/document-service/deploy/prepare.sh",
+    "sha256": "fc79e0402260fec3a81260d0366670197095b28e1149b1372ba508a4f2804659"
+  },
+  {
+    "file": "server/document-service/dispatcher/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "server/document-service/dispatcher/main.py",
+    "sha256": "ac7e44d08be23009612b42e4df8cc390f5c08857001d825bb0c236721146f58a"
+  },
+  {
+    "file": "server/document-service/pytest.ini",
+    "sha256": "b160d82f7811555051f8966d8e02750a985227c1d022208c784e606946f2eada"
+  },
+  {
+    "file": "server/document-service/requirements-api.in",
+    "sha256": "6783715463de5e52eb0c160078e1ac9e17e641720e43346bf4ff22cc25cd9649"
+  },
+  {
+    "file": "server/document-service/requirements-api.lock",
+    "sha256": "429d5edb04079e74955dacb971be4be3659ed0bdfdeafe2c13f1cff18da981fe"
+  },
+  {
+    "file": "server/document-service/requirements-worker.in",
+    "sha256": "fe9cbd44c19740f35be9308ba74cd9ecd32f44aa86b830014736df7e589eab96"
+  },
+  {
+    "file": "server/document-service/requirements-worker.lock",
+    "sha256": "808fd1ac9d3925666c67bb9f5d7f5b1bcfc33d831f35b1b65b5d8e652267c8ee"
+  },
+  {
+    "file": "server/document-service/tests/capacity_probe.py",
+    "sha256": "ee41ecf900b74208d59bd04470ffb4979218b6afb5916c7f018d6801654a9870"
+  },
+  {
+    "file": "server/document-service/tests/debug_synthetic.sh",
+    "sha256": "54b999d2d3b5c0285440cf6947eb14315c75d7f9a5a2243acb017397d14ea599"
+  },
+  {
+    "file": "server/document-service/tests/deployment_snapshot.py",
+    "sha256": "8ebf7431818943fe92b3bf2d3c376311bc511218683df3fab2d89afefb908cf6"
+  },
+  {
+    "file": "server/document-service/tests/finalize_live.py",
+    "sha256": "8d811d122354d559ebd549cb1337dfe7397540737f3cd1d2f2e5a29226ca4c1d"
+  },
+  {
+    "file": "server/document-service/tests/isolation_probe.py",
+    "sha256": "423a9e22c1876df365aa0e9b4961ccd9fe647181faa7781fe67bee3e3804efac"
+  },
+  {
+    "file": "server/document-service/tests/lifecycle_probe.py",
+    "sha256": "1ebcb36d993e762dc63b4eb216b9ff69a9fbfa9489b163d0eec64c29fc6ee88e"
+  },
+  {
+    "file": "server/document-service/tests/model_provenance.py",
+    "sha256": "fda99ba463293d286a67d4d1451767c5d667e5b9c6f4aa60a77fae33e70625e5"
+  },
+  {
+    "file": "server/document-service/tests/prepare_live.py",
+    "sha256": "45482b70467783cb3d9015941470f271f9cca19222039eb6a92baa72e7efc4bf"
+  },
+  {
+    "file": "server/document-service/tests/test_service.py",
+    "sha256": "a88b42a9cf7f831e4fdf241fd63d8d4e74945b09cdaf95e404fa748950f8ae09"
+  },
+  {
+    "file": "server/document-service/worker/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "server/document-service/worker/check_output.py",
+    "sha256": "0814c83aea2e152ee487e3549ed996b7a9aff3aaba4e9770e5e3a5a5bdc6a227"
+  },
+  {
+    "file": "server/document-service/worker/run.py",
+    "sha256": "07afc69bc6eb8073f06ea572692c658cb238d7effc5bf0536ac5e2e899713000"
+  }
+]

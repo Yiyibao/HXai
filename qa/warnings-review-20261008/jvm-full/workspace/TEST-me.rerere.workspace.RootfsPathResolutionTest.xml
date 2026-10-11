@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.workspace.RootfsPathResolutionTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-10-07T22:19:07.735Z" hostname="DESKTOP-QH4J0RS" time="1.026">
+  <properties/>
+  <testcase name="workspacePathStillResolvesToFilesArea" classname="me.rerere.workspace.RootfsPathResolutionTest" time="0.123"/>
+  <testcase name="unknownAbsolutePathFallsBackToRootfsInterior" classname="me.rerere.workspace.RootfsPathResolutionTest" time="0.244"/>
+  <testcase name="traversalOutOfBindMountIsRejected" classname="me.rerere.workspace.RootfsPathResolutionTest" time="0.198"/>
+  <testcase name="readsFileWrittenThroughBindMountPath" classname="me.rerere.workspace.RootfsPathResolutionTest" time="0.152"/>
+  <testcase name="directoryPathIsNotReadableAsFile" classname="me.rerere.workspace.RootfsPathResolutionTest" time="0.07"/>
+  <testcase name="bindMountTargetDoesNotMatchLongerSiblingPrefix" classname="me.rerere.workspace.RootfsPathResolutionTest" time="0.116"/>
+  <testcase name="missingFileReportsOriginalAbsolutePath" classname="me.rerere.workspace.RootfsPathResolutionTest" time="0.078"/>
+  <testcase name="kernelFilesystemPathIsRejectedWithHint" classname="me.rerere.workspace.RootfsPathResolutionTest" time="0.043"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="independent.review.IndependentReviewProbeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-08T11:15:05.134Z" hostname="DESKTOP-QH4J0RS" time="0.479">
+  <properties/>
+  <testcase name="oversizedCompressedSkillMustRejectWithoutExhaustingHeap" classname="independent.review.IndependentReviewProbeTest" time="0.474"/>
+  <system-out><![CDATA[QA_COMPRESSED_BYTES=130787 QA_EXPANDED_BYTES=134217728 QA_FAILURE=me.rerere.rikkahub.data.files.SkillImportLimits$LimitException
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

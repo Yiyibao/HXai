@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.ui.MessageToolMigrationTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2026-10-07T16:42:07.808Z" hostname="DESKTOP-QH4J0RS" time="0.006">
+  <properties/>
+  <testcase name="migrateToolNodes should not affect nodes without TOOL role" classname="me.rerere.ai.ui.MessageToolMigrationTest" time="0.001"/>
+  <testcase name="migrateToolNodes should handle consecutive TOOL nodes" classname="me.rerere.ai.ui.MessageToolMigrationTest" time="0.001"/>
+  <testcase name="migrateToolMessages should sort parts after merging ToolResult" classname="me.rerere.ai.ui.MessageToolMigrationTest" time="0.0"/>
+  <testcase name="migrateToolMessages should convert ToolCall to Tool" classname="me.rerere.ai.ui.MessageToolMigrationTest" time="0.0"/>
+  <testcase name="migrateToolMessages should handle multiple tool calls and results" classname="me.rerere.ai.ui.MessageToolMigrationTest" time="0.0"/>
+  <testcase name="migrateToolMessages should merge TOOL message into previous ASSISTANT" classname="me.rerere.ai.ui.MessageToolMigrationTest" time="0.0"/>
+  <testcase name="migrateToolMessages should sort parts with Tool and Reasoning" classname="me.rerere.ai.ui.MessageToolMigrationTest" time="0.001"/>
+  <testcase name="migrateToolNodes should sort parts after merging" classname="me.rerere.ai.ui.MessageToolMigrationTest" time="0.0"/>
+  <testcase name="migrateToolMessages should sort parts by priority - Reasoning before Text" classname="me.rerere.ai.ui.MessageToolMigrationTest" time="0.0"/>
+  <testcase name="migrateToolMessages should not affect new Tool format" classname="me.rerere.ai.ui.MessageToolMigrationTest" time="0.0"/>
+  <testcase name="migrateToolNodes should merge TOOL node into previous ASSISTANT node" classname="me.rerere.ai.ui.MessageToolMigrationTest" time="0.001"/>
+  <testcase name="migrateToolNodes should handle TOOL node without preceding ASSISTANT" classname="me.rerere.ai.ui.MessageToolMigrationTest" time="0.0"/>
+  <testcase name="migrateToolNodes should handle multiple branches in ASSISTANT node" classname="me.rerere.ai.ui.MessageToolMigrationTest" time="0.0"/>
+  <testcase name="migrateToolMessages should handle Image parts with correct priority" classname="me.rerere.ai.ui.MessageToolMigrationTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

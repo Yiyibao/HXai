@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.ai.mcp.McpToolSchemaTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-08T11:05:38.236Z" hostname="DESKTOP-QH4J0RS" time="0.009">
+  <properties/>
+  <testcase name="refs are inlined and sibling keywords override the definition" classname="me.rerere.rikkahub.data.ai.mcp.McpToolSchemaTest" time="0.008"/>
+  <testcase name="properties named like keywords are still treated as schemas" classname="me.rerere.rikkahub.data.ai.mcp.McpToolSchemaTest" time="0.0"/>
+  <testcase name="schema without refs is kept as is" classname="me.rerere.rikkahub.data.ai.mcp.McpToolSchemaTest" time="0.001"/>
+  <testcase name="cyclic refs are cut instead of expanding forever" classname="me.rerere.rikkahub.data.ai.mcp.McpToolSchemaTest" time="0.0"/>
+  <testcase name="unresolvable refs are dropped so no dangling ref is sent" classname="me.rerere.rikkahub.data.ai.mcp.McpToolSchemaTest" time="0.0"/>
+  <testcase name="literal data containing a ref field is kept as is" classname="me.rerere.rikkahub.data.ai.mcp.McpToolSchemaTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,164 @@
+[
+  {
+    "name": "eviction",
+    "className": "IndependentPostfixProbeTest#deletedConversationMustRejectStaleSaveAfterSessionEviction",
+    "runId": "d32cddf6-5725-4bd6-a6fb-1d6609778db7",
+    "notBefore": 1791464544980,
+    "notAfter": 1791464549135,
+    "status": "PASS",
+    "logSha256": "1d2550db68a13d12d5963530a4d354baeb4c35a207b73ba0f3e12f794a3045e8",
+    "extras": {}
+  },
+  {
+    "name": "lifecycle-seed",
+    "className": "ClosureBoundaryTest#deletionCreationRestoreAndIndependentIncarnation",
+    "runId": "f0582e8c-8bc2-454a-8972-b623a3e5c755",
+    "notBefore": 1791464549137,
+    "notAfter": 1791464553552,
+    "status": "PASS",
+    "logSha256": "25406cb859e055671c7c1254e8d4136c347b714d8c0d78a013f5725e1a1f6c8c",
+    "extras": {
+      "fixtureId": "b8b9158c-f55e-4708-af39-d53a0631c4a1",
+      "phase": "seed"
+    }
+  },
+  {
+    "name": "lifecycle-verify",
+    "className": "ClosureBoundaryTest#deletionCreationRestoreAndIndependentIncarnation",
+    "runId": "59d55dd9-4689-44d3-aa12-88aa2e7d43a1",
+    "notBefore": 1791464553601,
+    "notAfter": 1791464557783,
+    "status": "PASS",
+    "logSha256": "c5c3018b926b90b097386f0e7ac35d59fbde8929f3aeaa8b9ceb1a177d8f1735",
+    "extras": {
+      "fixtureId": "b8b9158c-f55e-4708-af39-d53a0631c4a1",
+      "phase": "verify"
+    }
+  },
+  {
+    "name": "transaction",
+    "className": "ClosureBoundaryTest#approvalEveryTransactionStepRollsBackBeforePublication",
+    "runId": "c1c7f733-7be3-422b-8031-9369c250095e",
+    "notBefore": 1791464557784,
+    "notAfter": 1791464562530,
+    "status": "FAIL",
+    "logSha256": "4f72b6e45241b1a75e1ef0d9f4486e1f27d5898a7d3823cf4549abae5c7e48ea",
+    "extras": {}
+  },
+  {
+    "name": "attachments",
+    "className": "ClosureBoundaryTest#crossConversationReferencesAndDeleteIoRetry",
+    "runId": "7dba6870-422c-4230-8429-0c8303e29c2a",
+    "notBefore": 1791464562531,
+    "notAfter": 1791464566819,
+    "status": "PASS",
+    "logSha256": "ca2e4571a3a34a66879a3022e099d07b717e9513045c6a6f5ba7ee768c33cbf1",
+    "extras": {}
+  },
+  {
+    "name": "factory",
+    "className": "IndependentPostfixProbeTest#completeServiceFactoryContinuationUsesSyntheticProviderAndFirstDecision",
+    "runId": "9881907c-aa9e-483f-90d9-5ee6cf17a6ed",
+    "notBefore": 1791464566820,
+    "notAfter": 1791464572768,
+    "status": "PASS",
+    "logSha256": "618e2fcdf79d55768fdff4f577854bf6d35ae25f8e92c2f6084ba098db9e1f16",
+    "extras": {}
+  },
+  {
+    "name": "word",
+    "className": "WordFormulaAssertionTest",
+    "runId": "1bdbaee0-c487-4731-817c-ac5fb57d2dff",
+    "notBefore": 1791464572770,
+    "notAfter": 1791464576995,
+    "status": "PASS",
+    "logSha256": "cba8fedbc7807193f53b9b6478a9ab89a67733a6b24562d35524b4a91b234b74",
+    "extras": {}
+  },
+  {
+    "name": "diagnostics",
+    "className": "DiagnosticsTest",
+    "runId": "c815b35f-ad10-410b-a0fb-1c8b51249d57",
+    "notBefore": 1791464576996,
+    "notAfter": 1791464588231,
+    "status": "PASS",
+    "logSha256": "f4bbb295edcaa6634f1c6e8ec376e833dd34b3302e6525dc133cc43396fca4f5",
+    "extras": {}
+  },
+  {
+    "name": "skills-existing",
+    "className": "SkillsInstallBoundaryTest",
+    "runId": "82089276-309c-4903-821e-d5c0f2e6d0bb",
+    "notBefore": 1791464588232,
+    "notAfter": 1791464591889,
+    "status": "PASS",
+    "logSha256": "35c3c9ab9d9c0bdeb6489e372a4d79d5d58fb1876cd2deb37a9db4b3039c3a40",
+    "extras": {}
+  },
+  {
+    "name": "skills-install",
+    "className": "ChecklistSupplementTest#skillsInstallWorksWhileAuthoringAndEditingAreDisabled",
+    "runId": "7663dc5d-920f-4907-bd37-fdb5f79ec5eb",
+    "notBefore": 1791464591890,
+    "notAfter": 1791464594934,
+    "status": "PASS",
+    "logSha256": "383a24f8dfd88da0ab1b19007ed070d368ea6792b5940f0e1ba6d49c5604b0fd",
+    "extras": {}
+  },
+  {
+    "name": "skills-enabled",
+    "className": "ChecklistSupplementTest#installedSkillsCanBeUsedOnlyWhenEnabled",
+    "runId": "3df83691-675c-4889-b03b-1cca120d1716",
+    "notBefore": 1791464594936,
+    "notAfter": 1791464598709,
+    "status": "PASS",
+    "logSha256": "51feddf6a5f365664869572edd3e613704bcec77bc07c70bd75a4b9c1e496e3e",
+    "extras": {}
+  },
+  {
+    "name": "checklist-seed",
+    "className": "ChecklistSupplementTest#controlledBoundariesSurviveIndependentProcess",
+    "runId": "48f8c469-8bf0-4b8f-bbb3-27eea67245b1",
+    "notBefore": 1791464598710,
+    "notAfter": 1791464606394,
+    "status": "PASS",
+    "logSha256": "7dba23b8c3731ccb06f9be79f1872b06d2086f013f5d1d8c18d17d0c6cc3d317",
+    "extras": {
+      "fixtureId": "5cffc745-b672-462f-a989-aecfde54620c",
+      "phase": "seed"
+    }
+  },
+  {
+    "name": "checklist-verify",
+    "className": "ChecklistSupplementTest#controlledBoundariesSurviveIndependentProcess",
+    "runId": "9dc454a4-10cb-4c26-ae5e-7fe8781270b6",
+    "notBefore": 1791464606444,
+    "notAfter": 1791464611742,
+    "status": "PASS",
+    "logSha256": "8367f2f95954cf1a5e4c92749c9885125c45d281da1446f48a1883553f835db5",
+    "extras": {
+      "fixtureId": "5cffc745-b672-462f-a989-aecfde54620c",
+      "phase": "verify"
+    }
+  },
+  {
+    "name": "skills-links",
+    "className": "SkillClosureTest#nestedBrokenLinksAndSiblingReplacement",
+    "runId": "268acea2-206d-4e0b-82ad-803643f49f48",
+    "notBefore": 1791464611744,
+    "notAfter": 1791464615078,
+    "status": "FAIL",
+    "logSha256": "6fcdf58eea8a46442fb817254186413a3a1e37f00c62e122c68e6aa23a248297",
+    "extras": {}
+  },
+  {
+    "name": "skills-rollback",
+    "className": "SkillClosureTest#replacementAndRollbackFailureKeepOriginalContentAndEnabledState",
+    "runId": "027b44c2-130a-4113-8d0b-178d05e27d81",
+    "notBefore": 1791464615079,
+    "notAfter": 1791464618344,
+    "status": "FAIL",
+    "logSha256": "a91b358fda56f9c11940d88d765538f4b0d7ded81e8c681bc7f41909944f5873",
+    "extras": {}
+  }
+]

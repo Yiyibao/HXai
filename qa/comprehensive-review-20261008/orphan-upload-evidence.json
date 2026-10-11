@@ -1,0 +1,7 @@
+{
+  "scenario": "enqueue request metadata write failure",
+  "database_job_rows": 0,
+  "orphan_source_files": 1,
+  "staged_source_exists": false,
+  "finding_reproduced": true
+}

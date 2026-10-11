@@ -31,12 +31,17 @@ data class Conversation(
     val workspaceCwd: String? = null,
     // 所属文件夹（助手内分组），null 表示未归入任何文件夹
     val folderId: Uuid? = null,
+    val profileId: String = me.rerere.rikkahub.data.datastore.DEFAULT_PROFILE_ID,
+    val queue: ConversationQueue = ConversationQueue(),
+    val lifecycleRevision: Long = 0,
+    val studyMode: me.rerere.rikkahub.feature.studychat.StudyMode = me.rerere.rikkahub.feature.studychat.StudyMode.CHAT,
+    val isArchived: Boolean = false,
     @Transient
     val newConversation: Boolean = false
 ) {
     val files: List<Uri>
         get() = messageNodes
-            .flatMap { node -> node.messages.flatMap { it.parts } }
+            .flatMap { node -> node.messages.flatMap { it.parts } }.plus(queue.messages.flatMap { it.parts })
             .localFileUrls()
             .map { it.toUri() }
 

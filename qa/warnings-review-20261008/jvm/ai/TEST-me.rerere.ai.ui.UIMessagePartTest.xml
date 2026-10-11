@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.ui.UIMessagePartTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-07T22:19:50.280Z" hostname="DESKTOP-QH4J0RS" time="0.003">
+  <properties/>
+  <testcase name="server tool tracks in progress state" classname="me.rerere.ai.ui.UIMessagePartTest" time="0.001"/>
+  <testcase name="server tool round trip preserves provider payload" classname="me.rerere.ai.ui.UIMessagePartTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,80 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.P0ProcessStateTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.P0ProcessStateTest:
+INSTRUMENTATION_STATUS: test=initializationError
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.P0ProcessStateTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=org.junit.runners.model.InvalidTestClassError: Invalid test class 'me.rerere.rikkahub.service.P0ProcessStateTest':
+  1. Method editedBranchSearchAndChartSurviveActualProcessRestart() should be void
+	at org.junit.runners.ParentRunner.validate(ParentRunner.java:525)
+	at org.junit.runners.ParentRunner.<init>(ParentRunner.java:92)
+	at org.junit.runners.BlockJUnit4ClassRunner.<init>(BlockJUnit4ClassRunner.java:74)
+	at androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner.<init>(AndroidJUnit4ClassRunner.java:50)
+	at androidx.test.internal.runner.junit4.AndroidJUnit4Builder.runnerForClass(AndroidJUnit4Builder.java:81)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:70)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:37)
+	at androidx.test.internal.runner.AndroidRunnerBuilder.runnerForClass(AndroidRunnerBuilder.java:152)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:70)
+	at androidx.test.internal.runner.DirectTestLoader.doCreateRunner(DirectTestLoader.java:45)
+	at androidx.test.internal.runner.TestLoader.getRunnersFor(TestLoader.java:64)
+	at androidx.test.internal.runner.TestRequestBuilder.build(TestRequestBuilder.java:842)
+	at androidx.test.runner.AndroidJUnitRunner.buildRequest(AndroidJUnitRunner.java:672)
+	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:453)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2402)
+
+INSTRUMENTATION_STATUS: stream=
+Error in initializationError(me.rerere.rikkahub.service.P0ProcessStateTest):
+org.junit.runners.model.InvalidTestClassError: Invalid test class 'me.rerere.rikkahub.service.P0ProcessStateTest':
+  1. Method editedBranchSearchAndChartSurviveActualProcessRestart() should be void
+	at org.junit.runners.ParentRunner.validate(ParentRunner.java:525)
+	at org.junit.runners.ParentRunner.<init>(ParentRunner.java:92)
+	at org.junit.runners.BlockJUnit4ClassRunner.<init>(BlockJUnit4ClassRunner.java:74)
+	at androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner.<init>(AndroidJUnit4ClassRunner.java:50)
+	at androidx.test.internal.runner.junit4.AndroidJUnit4Builder.runnerForClass(AndroidJUnit4Builder.java:81)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:70)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:37)
+	at androidx.test.internal.runner.AndroidRunnerBuilder.runnerForClass(AndroidRunnerBuilder.java:152)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:70)
+	at androidx.test.internal.runner.DirectTestLoader.doCreateRunner(DirectTestLoader.java:45)
+	at androidx.test.internal.runner.TestLoader.getRunnersFor(TestLoader.java:64)
+	at androidx.test.internal.runner.TestRequestBuilder.build(TestRequestBuilder.java:842)
+	at androidx.test.runner.AndroidJUnitRunner.buildRequest(AndroidJUnitRunner.java:672)
+	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:453)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2402)
+
+INSTRUMENTATION_STATUS: test=initializationError
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 0.046
+There was 1 failure:
+1) initializationError(me.rerere.rikkahub.service.P0ProcessStateTest)
+org.junit.runners.model.InvalidTestClassError: Invalid test class 'me.rerere.rikkahub.service.P0ProcessStateTest':
+  1. Method editedBranchSearchAndChartSurviveActualProcessRestart() should be void
+	at org.junit.runners.ParentRunner.validate(ParentRunner.java:525)
+	at org.junit.runners.ParentRunner.<init>(ParentRunner.java:92)
+	at org.junit.runners.BlockJUnit4ClassRunner.<init>(BlockJUnit4ClassRunner.java:74)
+	at androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner.<init>(AndroidJUnit4ClassRunner.java:50)
+	at androidx.test.internal.runner.junit4.AndroidJUnit4Builder.runnerForClass(AndroidJUnit4Builder.java:81)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:70)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:37)
+	at androidx.test.internal.runner.AndroidRunnerBuilder.runnerForClass(AndroidRunnerBuilder.java:152)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:70)
+	at androidx.test.internal.runner.DirectTestLoader.doCreateRunner(DirectTestLoader.java:45)
+	at androidx.test.internal.runner.TestLoader.getRunnersFor(TestLoader.java:64)
+	at androidx.test.internal.runner.TestRequestBuilder.build(TestRequestBuilder.java:842)
+	at androidx.test.runner.AndroidJUnitRunner.buildRequest(AndroidJUnitRunner.java:672)
+	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:453)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2402)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

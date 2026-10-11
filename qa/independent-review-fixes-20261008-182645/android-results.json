@@ -1,0 +1,74 @@
+[
+  {
+    "name": "diagnostics",
+    "class": "DiagnosticsTest",
+    "runId": "f2503df9-3434-4a4e-a9ac-ba8525167e5f",
+    "started": 1791458052477,
+    "ended": 1791458066820,
+    "ok": true,
+    "exit": 0
+  },
+  {
+    "name": "skills-bounds",
+    "class": "SkillsInstallBoundaryTest",
+    "runId": "64228de7-0973-4950-96e6-d2b3ee8208cc",
+    "started": 1791458066853,
+    "ended": 1791458071264,
+    "ok": true,
+    "exit": 0
+  },
+  {
+    "name": "skills-install",
+    "class": "ChecklistSupplementTest#skillsInstallWorksWhileAuthoringAndEditingAreDisabled",
+    "runId": "32733dd2-798b-482b-a642-652ed5d35114",
+    "started": 1791458071278,
+    "ended": 1791458076083,
+    "ok": true,
+    "exit": 0
+  },
+  {
+    "name": "skills-use",
+    "class": "ChecklistSupplementTest#installedSkillsCanBeUsedOnlyWhenEnabled",
+    "runId": "a1263f62-1564-4fb8-9cd8-4fd630d62352",
+    "started": 1791458076094,
+    "ended": 1791458081042,
+    "ok": true,
+    "exit": 0
+  },
+  {
+    "name": "evidence-fresh",
+    "class": "QaEvidenceRunTest#freshSyntheticEvidence",
+    "runId": "b9e65a18-3232-40ed-97a1-b1d154392c02",
+    "started": 1791458081057,
+    "ended": 1791458085193,
+    "ok": true,
+    "exit": 0
+  },
+  {
+    "name": "evidence-failed-status",
+    "class": "QaEvidenceRunTest#failureEvidenceIsRetainedInSeparateMethodDirectory",
+    "runId": "62e9605e-39ba-40d3-94ed-a342e7d9d948",
+    "started": 1791458085220,
+    "ended": 1791458088980,
+    "ok": true,
+    "exit": 0
+  },
+  {
+    "name": "seed",
+    "class": "ChecklistSupplementTest#controlledBoundariesSurviveIndependentProcess",
+    "runId": "968d866d-2007-4108-a92e-c093d759a884",
+    "started": 1791458089105,
+    "ended": 1791458097414,
+    "ok": true,
+    "exit": 0
+  },
+  {
+    "name": "verify",
+    "class": "ChecklistSupplementTest#controlledBoundariesSurviveIndependentProcess",
+    "runId": "74b9cec9-2094-4939-815f-613655626b3c",
+    "started": 1791458097503,
+    "ended": 1791458104844,
+    "ok": true,
+    "exit": 0
+  }
+]

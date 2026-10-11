@@ -1,0 +1,142 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChecklistSupplementTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ChecklistSupplementTest:
+INSTRUMENTATION_STATUS: test=controlledBoundariesSurviveIndependentProcess
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_pid=9319
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"6dba11b5-8964-402e-98e5-b15d749660d0","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_7c530802-8645-44bc-9673-34977237881e_title_stream","messageNodes":[{"id":"574992f3-2f02-40e4-a411-b758755819f4","messages":[{"id":"ba25e425-3ae6-4281-81c4-c6bbfb077983","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:04:27.359934","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:04:27.369567Z","updateAt":"2026-10-08T09:04:27.369577Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"0622eff6-5847-4b48-ae62-24b66868228d","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-read-title-stream
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9319
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"6dba11b5-8964-402e-98e5-b15d749660d0","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_7c530802-8645-44bc-9673-34977237881e_title_stream","messageNodes":[{"id":"574992f3-2f02-40e4-a411-b758755819f4","messages":[{"id":"ba25e425-3ae6-4281-81c4-c6bbfb077983","role":"assistant","parts":[{"type":"text","text":"new stream body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:04:27.359934","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":"COMPLETED","generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:04:27.369Z","updateAt":"2026-10-08T09:04:27.369Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"0622eff6-5847-4b48-ae62-24b66868228d","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-released-title-stream
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9319
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"a4fabb0f-49b3-4562-a069-4bcb78b619f7","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_7c530802-8645-44bc-9673-34977237881e_title_edit","messageNodes":[{"id":"31b86b5b-af5c-4426-8722-9c05abe4584d","messages":[{"id":"980ff463-67ae-4cca-8f12-a2349735c83f","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:04:27.502329","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:04:27.502447Z","updateAt":"2026-10-08T09:04:27.502457Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"0622eff6-5847-4b48-ae62-24b66868228d","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-read-title-edit
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9319
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"a4fabb0f-49b3-4562-a069-4bcb78b619f7","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_7c530802-8645-44bc-9673-34977237881e_title_edit","messageNodes":[{"id":"31b86b5b-af5c-4426-8722-9c05abe4584d","messages":[{"id":"980ff463-67ae-4cca-8f12-a2349735c83f","role":"assistant","parts":[{"type":"text","text":"new edit body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:04:27.502329","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:04:27.502447Z","updateAt":"2026-10-08T09:04:27.502457Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"0622eff6-5847-4b48-ae62-24b66868228d","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-released-title-edit
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9319
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"13bb96be-16d8-4b87-9950-99d6433222ce","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_7c530802-8645-44bc-9673-34977237881e_title_branch","messageNodes":[{"id":"d7e72c72-893f-4f6b-a2f9-bd1334e7abe4","messages":[{"id":"d8d896eb-e905-4e88-ac2a-26c039bc54f7","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:04:27.553082","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:04:27.553218Z","updateAt":"2026-10-08T09:04:27.553229Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"0622eff6-5847-4b48-ae62-24b66868228d","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-read-title-branch
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9319
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"13bb96be-16d8-4b87-9950-99d6433222ce","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_7c530802-8645-44bc-9673-34977237881e_title_branch","messageNodes":[{"id":"d7e72c72-893f-4f6b-a2f9-bd1334e7abe4","messages":[{"id":"d8d896eb-e905-4e88-ac2a-26c039bc54f7","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:04:27.553082","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null},{"id":"5e644083-a853-43a2-9b51-2404ede2ed69","role":"assistant","parts":[{"type":"text","text":"new branch body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:04:27.553082","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":1}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:04:27.553218Z","updateAt":"2026-10-08T09:04:27.553229Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"0622eff6-5847-4b48-ae62-24b66868228d","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-released-title-branch
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9319
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"c8261bab-d11e-44a5-9f07-95c1b88912b1","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_7c530802-8645-44bc-9673-34977237881e_suggestions_stream","messageNodes":[{"id":"b362b278-9a5b-4374-a5e4-21cf249a9045","messages":[{"id":"b18df087-4c96-4ac3-a6f3-9ffee2562ec4","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:04:27.611671","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:04:27.611779Z","updateAt":"2026-10-08T09:04:27.611797Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"0622eff6-5847-4b48-ae62-24b66868228d","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-read-suggestions-stream
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9319
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"c8261bab-d11e-44a5-9f07-95c1b88912b1","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_7c530802-8645-44bc-9673-34977237881e_suggestions_stream","messageNodes":[{"id":"b362b278-9a5b-4374-a5e4-21cf249a9045","messages":[{"id":"b18df087-4c96-4ac3-a6f3-9ffee2562ec4","role":"assistant","parts":[{"type":"text","text":"new stream body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:04:27.611671","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":"COMPLETED","generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:04:27.611Z","updateAt":"2026-10-08T09:04:27.611Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"0622eff6-5847-4b48-ae62-24b66868228d","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-released-suggestions-stream
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9319
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"326345e7-bd66-460b-afeb-aecdfd196855","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_7c530802-8645-44bc-9673-34977237881e_suggestions_edit","messageNodes":[{"id":"29e255be-aa34-4d9a-a9bb-ad1ff23a8828","messages":[{"id":"65f45567-a6d9-4405-aabe-b81cecaf8bda","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:04:27.662621","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:04:27.662786Z","updateAt":"2026-10-08T09:04:27.662800Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"0622eff6-5847-4b48-ae62-24b66868228d","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-read-suggestions-edit
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9319
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"326345e7-bd66-460b-afeb-aecdfd196855","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_7c530802-8645-44bc-9673-34977237881e_suggestions_edit","messageNodes":[{"id":"29e255be-aa34-4d9a-a9bb-ad1ff23a8828","messages":[{"id":"65f45567-a6d9-4405-aabe-b81cecaf8bda","role":"assistant","parts":[{"type":"text","text":"new edit body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:04:27.662621","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:04:27.662786Z","updateAt":"2026-10-08T09:04:27.662800Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"0622eff6-5847-4b48-ae62-24b66868228d","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-released-suggestions-edit
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9319
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"74743712-6af9-42c7-a635-a49735f3c1e6","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_7c530802-8645-44bc-9673-34977237881e_suggestions_branch","messageNodes":[{"id":"467ba07b-3a63-4172-92e5-7edb60250c87","messages":[{"id":"48b62a6f-7777-4eb5-a404-7243035eeb2f","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:04:27.714175","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":0}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:04:27.714314Z","updateAt":"2026-10-08T09:04:27.714325Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"0622eff6-5847-4b48-ae62-24b66868228d","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-read-suggestions-branch
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9319
+INSTRUMENTATION_STATUS: qa_snapshot={"id":"74743712-6af9-42c7-a635-a49735f3c1e6","assistantId":"0950e2dc-9bd5-4801-afa3-aa887aa36b4e","title":"QA_7c530802-8645-44bc-9673-34977237881e_suggestions_branch","messageNodes":[{"id":"467ba07b-3a63-4172-92e5-7edb60250c87","messages":[{"id":"48b62a6f-7777-4eb5-a404-7243035eeb2f","role":"assistant","parts":[{"type":"text","text":"old body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:04:27.714175","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null},{"id":"f14250de-75db-48bd-b895-159cb6b810e9","role":"assistant","parts":[{"type":"text","text":"new branch body","metadata":null}],"annotations":[],"createdAt":"2026-10-08T09:04:27.714175","finishedAt":null,"modelId":null,"usage":null,"translation":null,"generationState":null,"generationErrorCode":null}],"selectIndex":1}],"chatSuggestions":[],"isPinned":false,"createAt":"2026-10-08T09:04:27.714314Z","updateAt":"2026-10-08T09:04:27.714325Z","customSystemPrompt":null,"modeInjectionIds":[],"lorebookIds":[],"workspaceCwd":null,"folderId":null,"profileId":"0622eff6-5847-4b48-ae62-24b66868228d","queue":{"messages":[],"paused":false},"studyMode":"GUIDED"}
+INSTRUMENTATION_STATUS: qa_stage=A01-released-suggestions-branch
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9319
+INSTRUMENTATION_STATUS: qa_snapshot=
+INSTRUMENTATION_STATUS: qa_stage=A02-late-rejected-history
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: qa_pid=9319
+INSTRUMENTATION_STATUS: qa_snapshot=
+INSTRUMENTATION_STATUS: qa_stage=A02-late-rejected-service
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChecklistSupplementTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=android.database.sqlite.SQLiteException: Cannot execute this statement because it might modify the database but the connection is read-only.
+	at io.requery.android.database.sqlite.SQLiteConnection.throwIfStatementForbidden(SQLiteConnection.java:1111)
+	at io.requery.android.database.sqlite.SQLiteConnection.executeForChangedRowCount(SQLiteConnection.java:780)
+	at io.requery.android.database.sqlite.SQLiteSession.executeForChangedRowCount(SQLiteSession.java:764)
+	at io.requery.android.database.sqlite.SQLiteStatement.executeUpdateDelete(SQLiteStatement.java:71)
+	at io.requery.android.database.sqlite.SQLiteDatabase.executeSql(SQLiteDatabase.java:1936)
+	at io.requery.android.database.sqlite.SQLiteDatabase.execSQL(SQLiteDatabase.java:1877)
+	at me.rerere.rikkahub.service.ChecklistSupplementTest$controlledBoundariesSurviveIndependentProcess$1.invokeSuspend(ChecklistSupplementTest.kt:180)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ChecklistSupplementTest.controlledBoundariesSurviveIndependentProcess(ChecklistSupplementTest.kt:53)
+
+INSTRUMENTATION_STATUS: stream=
+Error in controlledBoundariesSurviveIndependentProcess(me.rerere.rikkahub.service.ChecklistSupplementTest):
+android.database.sqlite.SQLiteException: Cannot execute this statement because it might modify the database but the connection is read-only.
+	at io.requery.android.database.sqlite.SQLiteConnection.throwIfStatementForbidden(SQLiteConnection.java:1111)
+	at io.requery.android.database.sqlite.SQLiteConnection.executeForChangedRowCount(SQLiteConnection.java:780)
+	at io.requery.android.database.sqlite.SQLiteSession.executeForChangedRowCount(SQLiteSession.java:764)
+	at io.requery.android.database.sqlite.SQLiteStatement.executeUpdateDelete(SQLiteStatement.java:71)
+	at io.requery.android.database.sqlite.SQLiteDatabase.executeSql(SQLiteDatabase.java:1936)
+	at io.requery.android.database.sqlite.SQLiteDatabase.execSQL(SQLiteDatabase.java:1877)
+	at me.rerere.rikkahub.service.ChecklistSupplementTest$controlledBoundariesSurviveIndependentProcess$1.invokeSuspend(ChecklistSupplementTest.kt:180)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ChecklistSupplementTest.controlledBoundariesSurviveIndependentProcess(ChecklistSupplementTest.kt:53)
+
+INSTRUMENTATION_STATUS: test=controlledBoundariesSurviveIndependentProcess
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 2.003
+There was 1 failure:
+1) controlledBoundariesSurviveIndependentProcess(me.rerere.rikkahub.service.ChecklistSupplementTest)
+android.database.sqlite.SQLiteException: Cannot execute this statement because it might modify the database but the connection is read-only.
+	at io.requery.android.database.sqlite.SQLiteConnection.throwIfStatementForbidden(SQLiteConnection.java:1111)
+	at io.requery.android.database.sqlite.SQLiteConnection.executeForChangedRowCount(SQLiteConnection.java:780)
+	at io.requery.android.database.sqlite.SQLiteSession.executeForChangedRowCount(SQLiteSession.java:764)
+	at io.requery.android.database.sqlite.SQLiteStatement.executeUpdateDelete(SQLiteStatement.java:71)
+	at io.requery.android.database.sqlite.SQLiteDatabase.executeSql(SQLiteDatabase.java:1936)
+	at io.requery.android.database.sqlite.SQLiteDatabase.execSQL(SQLiteDatabase.java:1877)
+	at me.rerere.rikkahub.service.ChecklistSupplementTest$controlledBoundariesSurviveIndependentProcess$1.invokeSuspend(ChecklistSupplementTest.kt:180)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ChecklistSupplementTest.controlledBoundariesSurviveIndependentProcess(ChecklistSupplementTest.kt:53)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

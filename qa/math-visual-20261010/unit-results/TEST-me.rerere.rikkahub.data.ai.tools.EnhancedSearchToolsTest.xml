@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.ai.tools.EnhancedSearchToolsTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-09T20:20:18.628Z" hostname="DESKTOP-QH4J0RS" time="0.079">
+  <properties/>
+  <testcase name="emptyImagesDoNotDiscardWebEvidence" classname="me.rerere.rikkahub.data.ai.tools.EnhancedSearchToolsTest" time="0.014"/>
+  <testcase name="imageUrlsAreBoundedDeduplicatedAndNeverAssignedGuessedProvenance" classname="me.rerere.rikkahub.data.ai.tools.EnhancedSearchToolsTest" time="0.002"/>
+  <testcase name="actualSearchEntryPointUsesEnhancedContractAndPreservesProviderSchema" classname="me.rerere.rikkahub.data.ai.tools.EnhancedSearchToolsTest" time="0.063"/>
+  <testcase name="provenanceSummaryAndDatesSurviveEnhancement" classname="me.rerere.rikkahub.data.ai.tools.EnhancedSearchToolsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

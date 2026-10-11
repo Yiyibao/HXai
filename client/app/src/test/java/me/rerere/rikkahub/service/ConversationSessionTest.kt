@@ -27,6 +27,144 @@ import org.junit.Test
 import kotlin.uuid.Uuid
 
 class ConversationSessionTest {
+    @Test fun `approval retry commits current safety pause and concurrent queued input atomically`() = runBlocking {
+        val initial = Conversation.ofId(Uuid.random())
+        val session = ConversationSession(initial.id, initial, this, {})
+        session.initialize { initial }
+        session.updateQueue({}) { it.enqueue(listOf(UIMessagePart.Text("queued before failure"))) }
+        session.messageQueue.pause()
+        val persisted = mutableListOf<Conversation>()
+        val accepted = requireNotNull(session.commitToolApproval({ it.copy(title = "accepted") }, { persisted += it }))
+        assertTrue(accepted.queue.paused)
+        assertEquals(session.messageQueue.persisted(), persisted.single().queue)
+        assertEquals(persisted.single(), session.state.value)
+        val before = session.state.value
+        val failure = runCatching { session.commitToolApproval({ it.copy(title = "must not publish") }, { error("synthetic save failure") }) }
+        assertTrue(failure.isFailure)
+        assertEquals(before, session.state.value)
+        assertEquals(null, session.commitToolApproval({ null }, { error("A stale decision must not persist") }))
+        assertEquals(before, session.state.value)
+    }
+    @Test fun `first direct conversation save restores pending input paused`() = runBlocking {
+        val initial = Conversation.ofId(Uuid.random())
+        val queued = me.rerere.rikkahub.data.model.PendingInput(Uuid.random(), listOf(UIMessagePart.Text("pending")))
+        val session = ConversationSession(initial.id, initial, this, {})
+        session.updateConversation(initial.copy(queue = me.rerere.rikkahub.data.model.ConversationQueue(listOf(queued))))
+        assertEquals(queued.id, session.messageQueue.state.value.messages.single().id)
+        assertTrue(session.messageQueue.state.value.paused)
+        assertEquals(session.messageQueue.persisted(), session.state.value.queue)
+    }
+
+    @Test fun `queue commits before publication and restores paused with stable IDs`() = runBlocking {
+        val initial = Conversation.ofId(Uuid.random())
+        val session = ConversationSession(initial.id, initial, this, {})
+        var stored = initial
+        session.updateQueue({ stored = it }) { it.enqueue(listOf(UIMessagePart.Text("queued"))) }
+        val queued = session.messageQueue.state.value.messages.single()
+        val reopened = ConversationSession(initial.id, initial, this, {})
+        reopened.initialize(persistRecovery = { stored = it }) { stored }
+        assertTrue(reopened.messageQueue.state.value.paused)
+        assertEquals(queued.id, reopened.messageQueue.state.value.messages.single().id)
+        assertEquals(stored.queue, reopened.state.value.queue)
+        reopened.updateQueue({ stored = it }) { it.resume() }
+        reopened.commitQueuedInput(reopened.messageQueue.state.value.messages.single(), queued.parts) { stored = it }
+        assertTrue(stored.queue.messages.isEmpty())
+        assertEquals(queued.id, stored.currentMessages.single().id)
+    }
+
+    @Test fun `failed queue commit preserves item and does not publish user input`() = runBlocking {
+        val initial = Conversation.ofId(Uuid.random())
+        val session = ConversationSession(initial.id, initial, this, {})
+        session.updateQueue({}) { it.enqueue(listOf(UIMessagePart.Text("queued"))) }
+        val queued = session.messageQueue.state.value.messages.single()
+        assertTrue(runCatching { session.commitQueuedInput(queued, queued.parts) { error("disk full") } }.isFailure)
+        assertEquals(queued.id, session.messageQueue.state.value.messages.single().id)
+        assertTrue(session.state.value.currentMessages.isEmpty())
+        assertTrue(runCatching { session.updateQueue({ error("disk full") }) { it.remove(queued.id) } }.isFailure)
+        assertEquals(queued.id, session.messageQueue.state.value.messages.single().id)
+    }
+
+    @Test fun `running tool is recovered unknown while empty completed result is retained`() = runBlocking {
+        val initial = Conversation.ofId(Uuid.random())
+        val session = ConversationSession(initial.id, initial, this, {})
+        val reply = UIMessage(role = MessageRole.ASSISTANT, parts = listOf(
+            UIMessagePart.Tool("done", "tool", "{}", executionState = me.rerere.ai.ui.ToolExecutionState.COMPLETED),
+            UIMessagePart.Tool("running", "tool", "{}", executionState = me.rerere.ai.ui.ToolExecutionState.RUNNING),
+        ))
+        var stored = initial
+        session.checkpointGeneration(listOf(reply)) { stored = it }
+        val reopened = ConversationSession(initial.id, initial, this, {})
+        reopened.initialize(persistRecovery = { stored = it }) { stored }
+        val tools = stored.currentMessages.single().getTools()
+        assertTrue(tools.first().isExecuted)
+        assertTrue(tools.last().isExecutionUncertain)
+        assertFalse(tools.last().canResumeExecution)
+        assertEquals("INTERRUPTED", stored.currentMessages.single().generationState)
+    }
+
+    @Test
+    fun `checkpoint commits before publication and survives a new session`() = runBlocking {
+        val initial = Conversation.ofId(Uuid.random()).copy(profileId = "learner-a")
+        val session = ConversationSession(initial.id, initial, this, {})
+        val reply = partialReply()
+        var stored = initial
+        val entered = CompletableDeferred<Unit>()
+        val commit = CompletableDeferred<Unit>()
+        val writer = launch {
+            session.checkpointGeneration(listOf(reply)) {
+                entered.complete(Unit)
+                commit.await()
+                stored = it
+            }
+        }
+        entered.await()
+        assertTrue(session.state.value.messageNodes.isEmpty())
+        commit.complete(Unit)
+        writer.join()
+        val reopened = ConversationSession(initial.id, initial, this, {})
+        reopened.initialize { stored }
+        assertEquals(session.state.value.withGenerationState("INTERRUPTED", onlyRunning = true), reopened.state.value)
+        assertEquals("learner-a", reopened.state.value.profileId)
+        assertEquals(reply.id, reopened.state.value.currentMessages.single().id)
+    }
+
+    @Test
+    fun `failed checkpoint does not publish uncommitted text`() = runBlocking {
+        val initial = Conversation.ofId(Uuid.random())
+        val session = ConversationSession(initial.id, initial, this, {})
+        val result = runCatching {
+            session.checkpointGeneration(listOf(partialReply())) { error("disk full") }
+        }
+        assertTrue(result.isFailure)
+        assertEquals(initial, session.state.value)
+    }
+
+    @Test
+    fun `metadata edit waits for checkpoint and preserves its messages`() = runBlocking {
+        val initial = Conversation.ofId(Uuid.random())
+        val session = ConversationSession(initial.id, initial, this, {})
+        val entered = CompletableDeferred<Unit>()
+        val commit = CompletableDeferred<Unit>()
+        var stored = initial
+        val checkpoint = launch {
+            session.checkpointGeneration(listOf(partialReply())) {
+                entered.complete(Unit)
+                commit.await()
+                stored = it
+            }
+        }
+        entered.await()
+        val edit = launch {
+            session.updateMetadata({ it.copy(isPinned = true) }) { stored = it }
+        }
+        commit.complete(Unit)
+        checkpoint.join()
+        edit.join()
+        assertTrue(stored.isPinned)
+        assertEquals(session.state.value.messageNodes, stored.messageNodes)
+        assertEquals(1, stored.currentMessages.size)
+    }
+
     @Test
     fun `metadata edits survive reopening and final generation save`() = runBlocking {
         val id = Uuid.random()

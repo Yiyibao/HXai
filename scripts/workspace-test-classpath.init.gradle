@@ -1,0 +1,19 @@
+import groovy.json.JsonOutput
+
+gradle.projectsEvaluated {
+    def workspace = gradle.rootProject.findProject(':workspace')
+    if (workspace == null) return
+    workspace.tasks.register('exportHostTestClasspath') {
+        dependsOn workspace.tasks.named('compileDebugUnitTestKotlin')
+        dependsOn workspace.tasks.named('processDebugUnitTestJavaRes')
+        doLast {
+            def testTask = workspace.tasks.named('testDebugUnitTest').get()
+            def output = new File(gradle.startParameter.projectProperties['workspaceClasspathOutput'])
+            output.parentFile.mkdirs()
+            output.text = JsonOutput.toJson([
+                classpath: testTask.classpath.files.collect { it.absolutePath },
+                classes: testTask.testClassesDirs.files.collect { it.absolutePath }
+            ])
+        }
+    }
+}

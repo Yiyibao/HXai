@@ -1,0 +1,58 @@
+[
+  {
+    "module": "app",
+    "tests": 341,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": "ai",
+    "tests": 202,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": "common",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": "document",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": "oauth",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": "search",
+    "tests": 16,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": "speech",
+    "tests": 43,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": "workspace",
+    "tests": 20,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0
+  }
+]

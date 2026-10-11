@@ -1,0 +1,433 @@
+{
+  "generatedAt": "2026-10-08T20:39:00.659394+08:00",
+  "classification": {
+    "production": [
+      {
+        "id": "PR01",
+        "priority": "P1",
+        "status": "FAIL"
+      }
+    ],
+    "test_or_evidence": [
+      {
+        "id": "PR02",
+        "priority": "P2",
+        "status": "FAIL"
+      },
+      {
+        "id": "PR03",
+        "priority": "P2",
+        "status": "FAIL"
+      }
+    ]
+  },
+  "productionChanged": false,
+  "originalInputFilesChecked": 946,
+  "originalInputHashChanges": [],
+  "jvmCore": {
+    "suites": 44,
+    "tests": 328,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "androidCore": {
+    "invocations": 8,
+    "pass": 21,
+    "runs": [
+      {
+        "name": "skills",
+        "class": "SkillsInstallBoundaryTest",
+        "runId": "83ec97ad-d10f-4d50-a087-3bac349e78e1",
+        "started": 1791461894824,
+        "ended": 1791461898495,
+        "ok": true,
+        "exit": 0,
+        "tests": 3,
+        "logSha256": "907d13104f98f43210af74f91ecd917b9d95f4f35afa8e1c9bf522a41f18bbbb"
+      },
+      {
+        "name": "word",
+        "class": "WordFormulaAssertionTest",
+        "runId": "c0c58e2a-997e-4a64-9a53-8128f4f4a436",
+        "started": 1791461898529,
+        "ended": 1791461902609,
+        "ok": true,
+        "exit": 0,
+        "tests": 7,
+        "logSha256": "9b53fb26bb457467235bb60488822a76933eaa06b61796c56d5ee9550b432574"
+      },
+      {
+        "name": "diagnostics",
+        "class": "DiagnosticsTest",
+        "runId": "d9cedadd-f08c-4d95-9cd1-3e98ba311c1c",
+        "started": 1791461902649,
+        "ended": 1791461919610,
+        "ok": true,
+        "exit": 0,
+        "tests": 6,
+        "logSha256": "f0dea026a674ea15fe499766ade01a667c7bb61b551d955ab6081b585b75711a"
+      },
+      {
+        "name": "context-privacy",
+        "class": "WarningReviewContextPrivacyTest",
+        "runId": "0d156319-6477-4546-afe5-04d3f9e1c791",
+        "started": 1791461919627,
+        "ended": 1791461932363,
+        "ok": true,
+        "exit": 0,
+        "tests": 1,
+        "logSha256": "3dfb0a022d96c7666293dd7bc3adadda71441c488fe25a30d300e3d3d7ea5906"
+      },
+      {
+        "name": "skills-install",
+        "class": "ChecklistSupplementTest#skillsInstallWorksWhileAuthoringAndEditingAreDisabled",
+        "runId": "45f8956f-c74f-4c70-a206-f7212dcd79e2",
+        "started": 1791461932387,
+        "ended": 1791461936311,
+        "ok": true,
+        "exit": 0,
+        "tests": 1,
+        "logSha256": "7617f821f40749843cd7f4088d2ac86fada44ed3292f7895d42912a1805f440c"
+      },
+      {
+        "name": "skills-enabled",
+        "class": "ChecklistSupplementTest#installedSkillsCanBeUsedOnlyWhenEnabled",
+        "runId": "0e48ef1d-4413-416c-a896-9e2a9836956b",
+        "started": 1791461936328,
+        "ended": 1791461940311,
+        "ok": true,
+        "exit": 0,
+        "tests": 1,
+        "logSha256": "6d0f08c1f8cdc3339e3231232bd4d25f21f5be51a246fee6e78766621d197274"
+      },
+      {
+        "name": "seed",
+        "class": "ChecklistSupplementTest#controlledBoundariesSurviveIndependentProcess",
+        "runId": "838812c3-2fe5-49cc-8580-a48f8d1a29bf",
+        "started": 1791461940326,
+        "ended": 1791461947899,
+        "ok": true,
+        "exit": 0,
+        "tests": 1,
+        "logSha256": "bb101469518e2193b18fdae0ad5af6fc4b083c66ffc54ce85a21943c864a69ee"
+      },
+      {
+        "name": "verify",
+        "class": "ChecklistSupplementTest#controlledBoundariesSurviveIndependentProcess",
+        "runId": "fe5c2816-0824-449c-a499-5b0d12154294",
+        "started": 1791461947970,
+        "ended": 1791461953188,
+        "ok": true,
+        "exit": 0,
+        "tests": 1,
+        "logSha256": "262a30950c30a39a1f37fe589dc3523014b5522cc6b744c1287b017c5e3794f5"
+      }
+    ]
+  },
+  "delivery": {
+    "methods": 1,
+    "runs": [
+      {
+        "name": "delivery-1",
+        "runId": "c549393e-52be-41bd-839a-436e111d730b",
+        "started": 1791461999696,
+        "ended": 1791462046523,
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "delivery-2",
+        "runId": "8cb8c86f-8039-4bd4-a69f-693c3baec8e9",
+        "started": 1791462046584,
+        "ended": 1791462092895,
+        "ok": true,
+        "exit": 0
+      }
+    ],
+    "exactGroups": [
+      {
+        "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+        "runId": "c549393e-52be-41bd-839a-436e111d730b",
+        "name": "QA交付-987febfd-51f3-4eb9-8395-eb18c6edb014.md",
+        "profileId": "6af37f1d-e62e-4221-a58a-cc92c1c0c06a",
+        "materialId": "56246537-a767-4cd6-9e3c-2e4f87dd8f5f",
+        "status": "PASS",
+        "hashes": {
+          "source": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+          "target": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+          "view": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+          "send": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+          "recorded": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd"
+        }
+      },
+      {
+        "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+        "runId": "c549393e-52be-41bd-839a-436e111d730b",
+        "name": "QA交付-1cffa141-118e-4066-8fa7-30f1684e151b.docx",
+        "profileId": "03066b0f-5449-4489-81e6-20f94c78504b",
+        "materialId": "646eb4a6-bf80-4f9f-b14f-fd1ebba1f2f0",
+        "status": "PASS",
+        "hashes": {
+          "source": "a3606b76b5208667d12e733855a45cba29c1511960e5ed8a54641531140b0d0e",
+          "target": "a3606b76b5208667d12e733855a45cba29c1511960e5ed8a54641531140b0d0e",
+          "view": "a3606b76b5208667d12e733855a45cba29c1511960e5ed8a54641531140b0d0e",
+          "send": "a3606b76b5208667d12e733855a45cba29c1511960e5ed8a54641531140b0d0e",
+          "recorded": "a3606b76b5208667d12e733855a45cba29c1511960e5ed8a54641531140b0d0e"
+        }
+      },
+      {
+        "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+        "runId": "c549393e-52be-41bd-839a-436e111d730b",
+        "name": "QA交付-8ba2aff9-bd5e-4e18-96ec-d019f7cb57c8.xlsx",
+        "profileId": "22c9d7cb-0cf8-4bbf-bd9f-03de19742f5e",
+        "materialId": "3a095096-4312-4b72-ba00-8da0be2a088d",
+        "status": "PASS",
+        "hashes": {
+          "source": "6258e1d56e48db48e015710727f3ff9090c3ab3e84bf873937a9923ba9c237ad",
+          "target": "6258e1d56e48db48e015710727f3ff9090c3ab3e84bf873937a9923ba9c237ad",
+          "view": "6258e1d56e48db48e015710727f3ff9090c3ab3e84bf873937a9923ba9c237ad",
+          "send": "6258e1d56e48db48e015710727f3ff9090c3ab3e84bf873937a9923ba9c237ad",
+          "recorded": "6258e1d56e48db48e015710727f3ff9090c3ab3e84bf873937a9923ba9c237ad"
+        }
+      },
+      {
+        "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+        "runId": "c549393e-52be-41bd-839a-436e111d730b",
+        "name": "QA交付-d52e9018-31f8-4af1-a65b-68e80d8b2e03.pptx",
+        "profileId": "1b287bb2-58d7-43eb-8c81-64258d5f83ef",
+        "materialId": "d077d06b-b9a3-48f0-89c5-a7f6ae8f765d",
+        "status": "PASS",
+        "hashes": {
+          "source": "a69b2a30f4496d157a5bde1eb4fe08339ead076250c84ca89318f25bc5c84eab",
+          "target": "a69b2a30f4496d157a5bde1eb4fe08339ead076250c84ca89318f25bc5c84eab",
+          "view": "a69b2a30f4496d157a5bde1eb4fe08339ead076250c84ca89318f25bc5c84eab",
+          "send": "a69b2a30f4496d157a5bde1eb4fe08339ead076250c84ca89318f25bc5c84eab",
+          "recorded": "a69b2a30f4496d157a5bde1eb4fe08339ead076250c84ca89318f25bc5c84eab"
+        }
+      },
+      {
+        "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+        "runId": "c549393e-52be-41bd-839a-436e111d730b",
+        "name": "QA交付-4580d010-cb51-4c27-a45f-a39670b880d3.pdf",
+        "profileId": "5c701775-ea98-4817-9d3b-6f6c2fbcee65",
+        "materialId": "9e2ee1d3-5d6e-43a3-8001-1be1e563a9a7",
+        "status": "PASS",
+        "hashes": {
+          "source": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+          "target": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+          "view": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+          "send": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+          "recorded": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a"
+        }
+      },
+      {
+        "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+        "runId": "8cb8c86f-8039-4bd4-a69f-693c3baec8e9",
+        "name": "QA交付-be7d6020-2ec7-4a0b-a4f4-32c6ec8da2a7.md",
+        "profileId": "2efe1e4c-4424-4c7f-aa2d-0528a68180ca",
+        "materialId": "bcb9886a-09d1-4ff1-b015-dfb8b76a3ba2",
+        "status": "PASS",
+        "hashes": {
+          "source": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+          "target": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+          "view": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+          "send": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+          "recorded": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd"
+        }
+      },
+      {
+        "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+        "runId": "8cb8c86f-8039-4bd4-a69f-693c3baec8e9",
+        "name": "QA交付-25163f99-991f-4642-b76e-630d5de6f99f.docx",
+        "profileId": "c187f906-d25f-4040-b8ad-8772da55ff3f",
+        "materialId": "babde9a7-4696-4fe8-ba5a-ca41fb1f42aa",
+        "status": "PASS",
+        "hashes": {
+          "source": "e463e69e507cf33078d531055700fb1327b1ffb32d93ab6af46e0d7f3e3ee448",
+          "target": "e463e69e507cf33078d531055700fb1327b1ffb32d93ab6af46e0d7f3e3ee448",
+          "view": "e463e69e507cf33078d531055700fb1327b1ffb32d93ab6af46e0d7f3e3ee448",
+          "send": "e463e69e507cf33078d531055700fb1327b1ffb32d93ab6af46e0d7f3e3ee448",
+          "recorded": "e463e69e507cf33078d531055700fb1327b1ffb32d93ab6af46e0d7f3e3ee448"
+        }
+      },
+      {
+        "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+        "runId": "8cb8c86f-8039-4bd4-a69f-693c3baec8e9",
+        "name": "QA交付-21ee1844-9b34-4290-84e7-62bb9839dc3d.xlsx",
+        "profileId": "ee1d5ae3-de6e-4832-b167-82cc82cdd837",
+        "materialId": "b394783f-d617-4b84-994e-e618a62fcf5a",
+        "status": "PASS",
+        "hashes": {
+          "source": "1e641304c1b5522f83b04e812c9ae05d765ca0fb5b7bf54c0ac044bd0ec46a2d",
+          "target": "1e641304c1b5522f83b04e812c9ae05d765ca0fb5b7bf54c0ac044bd0ec46a2d",
+          "view": "1e641304c1b5522f83b04e812c9ae05d765ca0fb5b7bf54c0ac044bd0ec46a2d",
+          "send": "1e641304c1b5522f83b04e812c9ae05d765ca0fb5b7bf54c0ac044bd0ec46a2d",
+          "recorded": "1e641304c1b5522f83b04e812c9ae05d765ca0fb5b7bf54c0ac044bd0ec46a2d"
+        }
+      },
+      {
+        "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+        "runId": "8cb8c86f-8039-4bd4-a69f-693c3baec8e9",
+        "name": "QA交付-1994162f-71fb-4f4a-828f-fc3371527a29.pptx",
+        "profileId": "0e7412e4-fdc4-4e4f-a8c0-0d9f48a4cd30",
+        "materialId": "8eb6007f-45c2-4a69-9674-a9c296df6e8e",
+        "status": "PASS",
+        "hashes": {
+          "source": "ab3dd0ae6513ba7fdc906af1f5dcd1d3381f3202cdf30006ec0bf2b10eb990f7",
+          "target": "ab3dd0ae6513ba7fdc906af1f5dcd1d3381f3202cdf30006ec0bf2b10eb990f7",
+          "view": "ab3dd0ae6513ba7fdc906af1f5dcd1d3381f3202cdf30006ec0bf2b10eb990f7",
+          "send": "ab3dd0ae6513ba7fdc906af1f5dcd1d3381f3202cdf30006ec0bf2b10eb990f7",
+          "recorded": "ab3dd0ae6513ba7fdc906af1f5dcd1d3381f3202cdf30006ec0bf2b10eb990f7"
+        }
+      },
+      {
+        "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+        "runId": "8cb8c86f-8039-4bd4-a69f-693c3baec8e9",
+        "name": "QA交付-ab90ce5f-87ac-4fe0-a2d9-bc40a2c393e6.pdf",
+        "profileId": "9a727090-06a5-4d41-b9dd-4df64a307887",
+        "materialId": "a7b35d82-6878-40c4-9987-9617a5a658a0",
+        "status": "PASS",
+        "hashes": {
+          "source": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+          "target": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+          "view": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+          "send": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+          "recorded": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a"
+        }
+      }
+    ]
+  },
+  "server": {
+    "tests": 28,
+    "fail": 0,
+    "error": 0,
+    "skip": 0,
+    "platformLockDockerWorkerSubstituted": true
+  },
+  "collectorBaseline": {
+    "pass": 6,
+    "firstAttemptEnvironmentErrors": 12
+  },
+  "collectorDisagreementProbe": {
+    "tests": 1,
+    "fail": 1,
+    "mockDevice": true,
+    "result": "PASS manifest plus JUnit FAILED was accepted as PASS"
+  },
+  "jvmProbesFirst": {
+    "suites": 1,
+    "tests": 2,
+    "failures": 2,
+    "errors": 0,
+    "skipped": 0
+  },
+  "jvmQueueProbeFixtureCorrected": {
+    "suites": 1,
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "androidProbesFirst": [
+    {
+      "method": "deletedConversationMustRejectStaleSaveAfterSessionEviction",
+      "runId": "2136a10a-6abf-47fc-93e7-db350d259134",
+      "started": 1791462438418,
+      "ended": 1791462442209,
+      "exit": 0,
+      "ok": false
+    },
+    {
+      "method": "completeServiceFactoryContinuationUsesSyntheticProviderAndFirstDecision",
+      "runId": "2e7c8b34-70f0-41ac-8f4d-bd1270878dac",
+      "started": 1791462442241,
+      "ended": 1791462445970,
+      "exit": 0,
+      "ok": false
+    }
+  ],
+  "androidProbesFixtureCorrected": [
+    {
+      "method": "deletedConversationMustRejectStaleSaveAfterSessionEviction",
+      "runId": "e51b5cb2-6bfd-4a2b-a703-aa85eb33ad83",
+      "started": 1791462574699,
+      "ended": 1791462578885,
+      "exit": 0,
+      "ok": false
+    },
+    {
+      "method": "completeServiceFactoryContinuationUsesSyntheticProviderAndFirstDecision",
+      "runId": "1040913c-b04a-44d1-89da-53f4c9fac419",
+      "started": 1791462578957,
+      "ended": 1791462584706,
+      "exit": 0,
+      "ok": true
+    }
+  ],
+  "lint": {
+    "errors": 0,
+    "warnings": 42,
+    "cachedAnalysis": true
+  },
+  "installedFinal": [
+    {
+      "package": "org.mathstudy.agent.debug",
+      "sha256": "a9b22b310e5ed5f91d5c97ad0988d9e7c4fa4337dff698eff58597e10384d8f8"
+    },
+    {
+      "package": "org.mathstudy.agent.debug.test",
+      "sha256": "0483c9e4a0fa0ab2ab27f719dc740d8df40c87add6728afcd8c21f15cb594efc"
+    }
+  ],
+  "apks": [
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\build\\outputs\\apk\\debug\\app-arm64-v8a-debug.apk",
+      "Hash": "A047910D108071B2562F1D0D0F10DB8E51BA97971E31E6D907D095F2863FE9F3"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\build\\outputs\\apk\\debug\\app-universal-debug.apk",
+      "Hash": "5878540B09084CEE59B8BD98F0792FC544CE343111B71A698910AEC0910BE262"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\build\\outputs\\apk\\debug\\app-x86_64-debug.apk",
+      "Hash": "A9B22B310E5ED5F91D5C97AD0988D9E7C4FA4337DFF698EFF58597E10384D8F8"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\build\\outputs\\apk\\androidTest\\debug\\app-debug-androidTest.apk",
+      "Hash": "0483C9E4A0FA0AB2AB27F719DC740D8DF40C87ADD6728AFCD8C21F15CB594EFC"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\independent-postfix-review-20261008-201627\\probe-test-first.apk",
+      "Hash": "CA20EA96AF3984475B6B4F4149969A022945BF4BDE41F75636F4079356569B15"
+    },
+    {
+      "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\independent-postfix-review-20261008-201627\\probe-test-fixture-fixed.apk",
+      "Hash": "951CF1E9FA00ABE7D5ACDA4ACDAEDE0C4837F48D79E72D5C5ECF0482C01C594D"
+    }
+  ],
+  "remoteRequests": false,
+  "realImagePositive": "MISSING_CONFIGURATION / NOT_RUN (not inspected or configured credentials)",
+  "notRun": [
+    "all transaction fault positions",
+    "actual factory execute function invocation counter",
+    "all editing UI and real title/suggestion model callbacks",
+    "deleted stale save after independent process restart",
+    "nested/broken skill symlink and cleanup/replace I/O failures",
+    "cross-session attachment device negative and I/O deletion retry",
+    "delivery cancel/corrupt/profile-switch/target-read failure",
+    "real Docker/mount/worker and remote teaching/material/image/GitHub",
+    "all non-app JVM modules/Web/full migration/backup/other platforms"
+  ],
+  "historicalBatchesNotCombined": [
+    "44 Android",
+    "18 Android",
+    "first real 2",
+    "independent re-review 180657",
+    "independent fixes 182645",
+    "coverage completion 192645 JVM328/Android21/delivery2/server28/collector6/lint0+42"
+  ],
+  "committed": false,
+  "pushed": false,
+  "deployed": false
+}

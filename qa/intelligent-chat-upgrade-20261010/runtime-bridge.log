@@ -1,0 +1,22 @@
+
+s_glBindAttribLocation: bind attrib 0 name position
+s_glBindAttribLocation: bind attrib 1 name color
+s_glBindAttribLocation: bind attrib 2 name localCoord
+me.rerere.rikkahub.service.FlutterChatBridgeTest:..........
+Error in actualFlutterSurfaceRestoresEditsClosesAndContinues(me.rerere.rikkahub.service.FlutterChatBridgeTest):
+java.lang.IllegalStateException: Control not clickable: 展开界面
+	at me.rerere.rikkahub.service.FlutterChatBridgeTest.actualFlutterSurfaceRestoresEditsClosesAndContinues$click(FlutterChatBridgeTest.kt:248)
+	at me.rerere.rikkahub.service.FlutterChatBridgeTest.actualFlutterSurfaceRestoresEditsClosesAndContinues(FlutterChatBridgeTest.kt:263)
+.
+
+Time: 54.685
+There was 1 failure:
+1) actualFlutterSurfaceRestoresEditsClosesAndContinues(me.rerere.rikkahub.service.FlutterChatBridgeTest)
+java.lang.IllegalStateException: Control not clickable: 展开界面
+	at me.rerere.rikkahub.service.FlutterChatBridgeTest.actualFlutterSurfaceRestoresEditsClosesAndContinues$click(FlutterChatBridgeTest.kt:248)
+	at me.rerere.rikkahub.service.FlutterChatBridgeTest.actualFlutterSurfaceRestoresEditsClosesAndContinues(FlutterChatBridgeTest.kt:263)
+
+FAILURES!!!
+Tests run: 12,  Failures: 1
+
+

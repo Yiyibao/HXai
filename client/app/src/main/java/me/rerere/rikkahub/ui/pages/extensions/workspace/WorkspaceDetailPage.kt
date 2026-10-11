@@ -81,6 +81,7 @@ import me.rerere.hugeicons.stroke.Share08
 import me.rerere.rikkahub.Screen
 import me.rerere.rikkahub.data.ai.tools.resolveWorkspaceToolApproval
 import me.rerere.rikkahub.data.db.entity.WorkspaceEntity
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import me.rerere.rikkahub.R
 import me.rerere.rikkahub.ui.components.nav.BackButton
@@ -541,7 +542,7 @@ private fun RootfsProgress(progress: RootfsInstallProgress) {
 
                 RootfsInstallStage.EXTRACTING -> {
                     val entry = progress.currentEntry?.let { " · $it" }.orEmpty()
-                    stringResource(R.string.workspace_detail_extracting, progress.entriesExtracted, entry)
+                    pluralStringResource(R.plurals.workspace_detail_extracting, progress.entriesExtracted, progress.entriesExtracted, entry)
                 }
 
                 RootfsInstallStage.INSTALLED -> stringResource(R.string.workspace_detail_install_complete)

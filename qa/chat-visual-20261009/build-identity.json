@@ -1,0 +1,10 @@
+{
+  "apk": "client\\app\\build\\outputs\\apk\\debug\\app-x86_64-debug.apk",
+  "sha256": "794ab0f30e1dd75b64f185881418d8ff4cdfc4a4ee497e1fcab59816057e3feb",
+  "installed_apk_sha256": "794ab0f30e1dd75b64f185881418d8ff4cdfc4a4ee497e1fcab59816057e3feb",
+  "installed_matches": true,
+  "references": [
+    "docs/ui-design/chatgpt-inspired-v1/two-page-preview.png",
+    "docs/ui-design/chatgpt-inspired-v1/smart-chat-three-scenes.png"
+  ]
+}

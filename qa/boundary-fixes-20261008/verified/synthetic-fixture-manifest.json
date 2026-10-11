@@ -1,0 +1,26 @@
+[
+  {
+    "name": "real-teaching.md",
+    "device_mtime": 1791437278,
+    "bytes": 299,
+    "sha256": "46b508a42a3695ac6967952fbdd6e931f398c5896b5344446510c6f5fff15d05"
+  },
+  {
+    "name": "material-real-model.md",
+    "device_mtime": 1791437596,
+    "bytes": 6737,
+    "sha256": "0c4464acf32dca26326779b31d04171bea925105a187f9f8e61c20a3f92e65a8"
+  },
+  {
+    "name": "word-input.docx",
+    "device_mtime": 1791437025,
+    "bytes": 5725,
+    "sha256": "290a065ba5f0c5f81fb514a2a99c76294ab0240c2008434d9b8de818d3bb8c6e"
+  },
+  {
+    "name": "word-output.docx",
+    "device_mtime": 1791437596,
+    "bytes": 6531,
+    "sha256": "c37072aa237e746daa8fb0eab09c444941662a88925e303b586255a3defc9f96"
+  }
+]

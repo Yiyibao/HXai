@@ -1,0 +1,42 @@
+{
+  "id": "98ae6937-7b4e-47be-800f-f61be21af35e",
+  "title": "[QA] real kill",
+  "messages": [
+    {
+      "id": "eac3f282-91dd-4ed6-a450-a52135536078",
+      "role": "user",
+      "state": null,
+      "characters": 57,
+      "sha256": "99a121a7a71b581fb00e08fedd6d8e95693f7c100f1de5d2c43f456e6fa443d2",
+      "tools": []
+    },
+    {
+      "id": "94564fe7-52a3-4d89-8e9b-4881a2fd60d6",
+      "role": "assistant",
+      "state": "INTERRUPTED",
+      "characters": 596,
+      "sha256": "df58e7c4862314e5a8623b80c2c86940f4881d19545a33ffdb7bdfa9d1cfde6d",
+      "tools": []
+    },
+    {
+      "id": "8175d717-3b30-4ece-9cb1-5ceec90e3169",
+      "role": "user",
+      "state": null,
+      "characters": 22,
+      "sha256": "29ba83493260e1ca628fec60b32f0a972a3278358be02a5f6cdd00a36ab62ffa",
+      "tools": []
+    },
+    {
+      "id": "6f22e554-eb43-4b19-94e0-6c5ca437bacd",
+      "role": "assistant",
+      "state": "COMPLETED",
+      "characters": 2,
+      "sha256": "6b51d431df5d7f141cbececcf79edf3dd861c3b4069f0b11661a3eefacbba918",
+      "tools": []
+    }
+  ],
+  "queue": {
+    "paused": false,
+    "inputs": []
+  }
+}

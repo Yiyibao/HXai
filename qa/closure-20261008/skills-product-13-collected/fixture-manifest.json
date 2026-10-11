@@ -1,0 +1,50 @@
+{
+  "schema": 2,
+  "contextSha256": "f803260ac4265c1cab769a68c87caf6ef3083ce6bd112639e31b43efb51bfb53",
+  "appSha256": "ba53c4b477701dbdd87bbee9270394f2fe376a7ce1f52e7db704b5f7a8410094",
+  "testSha256": "cf2b8764df40660d5f0fcaa89606188d9391953ee8b0f61c2e1087c54c600f18",
+  "records": [
+    {
+      "name": "qa-evidence/SkillClosureTest.nestedBrokenLinksAndSiblingReplacement/14dbee31-3384-4064-ae7c-ff3425bcbdb9/outside/sentinel.txt",
+      "sha256": "83765fd869ed4d0ac25fd41110ca53b3361b4fef02a7745b4d7e4ab8152fef33",
+      "bytes": 21,
+      "reusedSyntheticInput": false,
+      "method": "SkillClosureTest.nestedBrokenLinksAndSiblingReplacement",
+      "runId": "14dbee31-3384-4064-ae7c-ff3425bcbdb9",
+      "status": "PASS",
+      "actualClass": "me.rerere.rikkahub.service.SkillClosureTest",
+      "actualTest": "nestedBrokenLinksAndSiblingReplacement",
+      "deviceMtime": 1791466529,
+      "startedAt": 1791466529736,
+      "finishedAt": 1791466529924
+    },
+    {
+      "name": "qa-evidence/SkillClosureTest.replacementAndRollbackFailureKeepOriginalContentAndEnabledState/fda078a7-8cd1-4a1e-bcf2-9b6b5bd4e029/assertions.txt",
+      "sha256": "3f46ea84fd46dcf96234f2d9e71f878657aa4959c71a29d38c99f1a9a6e64abe",
+      "bytes": 12,
+      "reusedSyntheticInput": false,
+      "method": "SkillClosureTest.replacementAndRollbackFailureKeepOriginalContentAndEnabledState",
+      "runId": "fda078a7-8cd1-4a1e-bcf2-9b6b5bd4e029",
+      "status": "PASS",
+      "actualClass": "me.rerere.rikkahub.service.SkillClosureTest",
+      "actualTest": "replacementAndRollbackFailureKeepOriginalContentAndEnabledState",
+      "deviceMtime": 1791466533,
+      "startedAt": 1791466533081,
+      "finishedAt": 1791466533442
+    },
+    {
+      "name": "qa-evidence/SkillClosureTest.partialUninstallCleanupFailureRestoresEntireSkill/a94d2d9b-5775-4f9e-8555-9cc6a61f29d3/result.txt",
+      "sha256": "8ebd199c62aa37cbf99e8c86d01aa7f5e8cf126c100f3b6fbca3268ea92e3ee4",
+      "bytes": 63,
+      "reusedSyntheticInput": false,
+      "method": "SkillClosureTest.partialUninstallCleanupFailureRestoresEntireSkill",
+      "runId": "a94d2d9b-5775-4f9e-8555-9cc6a61f29d3",
+      "status": "PASS",
+      "actualClass": "me.rerere.rikkahub.service.SkillClosureTest",
+      "actualTest": "partialUninstallCleanupFailureRestoresEntireSkill",
+      "deviceMtime": 1791466536,
+      "startedAt": 1791466536500,
+      "finishedAt": 1791466536878
+    }
+  ]
+}

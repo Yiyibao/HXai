@@ -1,0 +1,16 @@
+[
+  {
+    "time": 1791391770567,
+    "stage": "NETWORK",
+    "result": "HTTP_ERROR",
+    "httpStatus": 524,
+    "durationMs": 125235
+  },
+  {
+    "time": 1791391903295,
+    "stage": "NETWORK",
+    "result": "HTTP_ERROR",
+    "httpStatus": 524,
+    "durationMs": 125277
+  }
+]

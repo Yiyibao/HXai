@@ -1,0 +1,76 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/sidebar_accent_test.dart
+00:00 +0: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/sidebar_accent_test.dart: All accent choices preserve readable text in both appearances
+00:00 +1: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/sidebar_accent_test.dart: Accent choice survives platform load and provider recreation
+00:00 +2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/sidebar_accent_test.dart: Picker updates preview and theme immediately (dark=false)
+00:01 +3: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/sidebar_accent_test.dart: Picker updates preview and theme immediately (dark=false)
+00:01 +4: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Markdown renders heading table and code as semantic widgets
+00:01 +5: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: appearance: light mobile layout is usable
+00:01 +6: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/sidebar_accent_test.dart: Small sidebar scrolls with placeholder projects and fixed footer (dark=false)
+00:01 +7: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/sidebar_accent_test.dart: Small sidebar scrolls with placeholder projects and fixed footer (dark=false)
+00:01 +8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/sidebar_accent_test.dart: Small sidebar scrolls with placeholder projects and fixed footer (dark=false)
+00:01 +9: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart: Unfinished stream preserves raw expression
+00:01 +10: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: provider-edit: light mobile layout is usable
+00:01 +11: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/sidebar_accent_test.dart: Picker updates preview and theme immediately (dark=true)
+00:01 +12: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: provider-models: light mobile layout is usable
+00:01 +13: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/sidebar_accent_test.dart: Small sidebar scrolls with placeholder projects and fixed footer (dark=true)
+00:01 +14: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: model-config: light mobile layout is usable
+00:01 +15: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: skills: light mobile layout is usable
+00:02 +16: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: skill-detail: light mobile layout is usable
+00:02 +17: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: import: light mobile layout is usable
+00:02 +18: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: memories: light mobile layout is usable
+00:02 +19: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: memory-detail: light mobile layout is usable
+00:02 +20: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: memory-edit: light mobile layout is usable
+00:02 +21: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: files: light mobile layout is usable
+00:02 +22: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: file-detail: light mobile layout is usable
+00:02 +23: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: symbol: light mobile layout is usable
+00:02 +24: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: artifacts: light mobile layout is usable
+00:02 +25: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: artifact-preview: light mobile layout is usable
+00:02 +26: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: versions: light mobile layout is usable
+00:02 +27: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: document-config: light mobile layout is usable
+00:02 +28: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: tasks: light mobile layout is usable
+00:03 +29: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: task-detail: light mobile layout is usable
+00:03 +30: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: backup: light mobile layout is usable
+00:03 +31: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: restore: light mobile layout is usable
+00:03 +32: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: diagnostics: light mobile layout is usable
+00:03 +33: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: chat: light mobile layout is usable
+00:03 +34: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: search: light mobile layout is usable
+00:03 +35: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: chart-entry: light mobile layout is usable
+00:03 +36: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: table-entry: light mobile layout is usable
+00:03 +37: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: parameters-entry: light mobile layout is usable
+00:03 +38: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: attachment-sheet: light mobile layout is usable
+00:03 +39: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: sources-sheet: light mobile layout is usable
+00:03 +40: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: dark large narrow layout is usable
+00:03 +41: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: appearance: dark large narrow layout is usable
+00:03 +42: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: providers: dark large narrow layout is usable
+00:03 +43: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: provider-edit: dark large narrow layout is usable
+00:03 +44: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: provider-models: dark large narrow layout is usable
+00:03 +45: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: model-config: dark large narrow layout is usable
+00:04 +46: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: skills: dark large narrow layout is usable
+00:04 +47: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: skill-detail: dark large narrow layout is usable
+00:04 +48: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: import: dark large narrow layout is usable
+00:04 +49: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: memories: dark large narrow layout is usable
+00:04 +50: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: memory-detail: dark large narrow layout is usable
+00:04 +51: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: memory-edit: dark large narrow layout is usable
+00:04 +52: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: files: dark large narrow layout is usable
+00:04 +53: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: file-detail: dark large narrow layout is usable
+00:04 +54: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: symbol: dark large narrow layout is usable
+00:04 +55: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: artifacts: dark large narrow layout is usable
+00:04 +56: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: artifact-preview: dark large narrow layout is usable
+00:04 +57: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: versions: dark large narrow layout is usable
+00:04 +58: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: document-config: dark large narrow layout is usable
+00:04 +59: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: tasks: dark large narrow layout is usable
+00:04 +60: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: task-detail: dark large narrow layout is usable
+00:04 +61: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: backup: dark large narrow layout is usable
+00:04 +62: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: restore: dark large narrow layout is usable
+00:04 +63: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: diagnostics: dark large narrow layout is usable
+00:04 +64: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: chat: dark large narrow layout is usable
+00:05 +65: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: search: dark large narrow layout is usable
+00:05 +66: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: chart-entry: dark large narrow layout is usable
+00:05 +67: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: table-entry: dark large narrow layout is usable
+00:05 +68: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: parameters-entry: dark large narrow layout is usable
+00:05 +69: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: attachment-sheet: dark large narrow layout is usable
+00:05 +70: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: sources-sheet: dark large narrow layout is usable
+00:05 +71: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: Follow-up keeps draft when conversation changes during preparation
+00:05 +72: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: Source links and empty citations cannot manufacture references
+00:05 +73: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: Appearance preferences survive a provider recreation
+00:05 +74: All tests passed!

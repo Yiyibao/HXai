@@ -1,0 +1,140 @@
+[
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\data\\files\\SkillManager.kt",
+    "Expected": "FD24AC0BD36563C6FD50FDED1DA642BE48FC13C0063A8F5CA7EFE23D7C492415",
+    "Current": "FD24AC0BD36563C6FD50FDED1DA642BE48FC13C0063A8F5CA7EFE23D7C492415",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\data\\files\\SkillPaths.kt",
+    "Expected": "8E2A42678FCF7FA46545BDAD6C58D139BC47909A2DC296D04E5F1BD08CCF64F8",
+    "Current": "8E2A42678FCF7FA46545BDAD6C58D139BC47909A2DC296D04E5F1BD08CCF64F8",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\data\\files\\SkillTreeDeletion.kt",
+    "Expected": "8DFFCF6CA7E65744CEF4F4B788DD5A86607C02FF5F5B786FA18AD7DB741C1C82",
+    "Current": "8DFFCF6CA7E65744CEF4F4B788DD5A86607C02FF5F5B786FA18AD7DB741C1C82",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\data\\files\\SkillImportLimits.kt",
+    "Expected": "9D3716EB613AA0E7EED02B6DEC24ED234597C2F4F55B9AE211652F2F904A05E2",
+    "Current": "9D3716EB613AA0E7EED02B6DEC24ED234597C2F4F55B9AE211652F2F904A05E2",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\service\\ChatService.kt",
+    "Expected": "38C66570A1B37C4A54292DF33FC24DF8CDA1714CFCDB48178D5E26D5ED3848B8",
+    "Current": "38C66570A1B37C4A54292DF33FC24DF8CDA1714CFCDB48178D5E26D5ED3848B8",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\service\\ConversationSession.kt",
+    "Expected": "13243F5F5107A9C36BE9209D75497CA6CBE8676E2FE063B3415E2CF58179CA55",
+    "Current": "13243F5F5107A9C36BE9209D75497CA6CBE8676E2FE063B3415E2CF58179CA55",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\data\\repository\\ConversationRepository.kt",
+    "Expected": "E1753B0FF12F042AE6794166E05C1A266741035048B6BD3536BFD8BAC0D81B39",
+    "Current": "E1753B0FF12F042AE6794166E05C1A266741035048B6BD3536BFD8BAC0D81B39",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\test\\java\\me\\rerere\\rikkahub\\service\\ConversationSessionTest.kt",
+    "Expected": "C7D5469B3D89FA5FF4E46F635B28C53C62528930B7990553D54C610A9B3E9F61",
+    "Current": "C7D5469B3D89FA5FF4E46F635B28C53C62528930B7990553D54C610A9B3E9F61",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\server\\document-service\\tests\\test_dispatcher_schedule.py",
+    "Expected": "615DFBFBEE37C77DDA3C862344887C347C8E09C281E29F97FD50DE845BDF2084",
+    "Current": "615DFBFBEE37C77DDA3C862344887C347C8E09C281E29F97FD50DE845BDF2084",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\scripts\\collect_run_evidence.py",
+    "Expected": "4261C22C94147C5125023D56C18151D110C61490EA8B56F2C1E13404D5102CBC",
+    "Current": "4261C22C94147C5125023D56C18151D110C61490EA8B56F2C1E13404D5102CBC",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\scripts\\tests\\test_collect_run_evidence.py",
+    "Expected": "077054471DC7688AC90555046FD31761E66124946B32B367C7FE0E4413D126EB",
+    "Current": "077054471DC7688AC90555046FD31761E66124946B32B367C7FE0E4413D126EB",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\README.md",
+    "Expected": "34D8F04E9FF7129E0C64DEA99D44F56723401F11E0240359846525916BF606D2",
+    "Current": "34D8F04E9FF7129E0C64DEA99D44F56723401F11E0240359846525916BF606D2",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\docs\\acceptance-matrix.md",
+    "Expected": "0DA9FD7D3355CAD5EDFD26581985FA77BA6763C71A0212B4B60D7B1F7C4723A9",
+    "Current": "0DA9FD7D3355CAD5EDFD26581985FA77BA6763C71A0212B4B60D7B1F7C4723A9",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\docs\\data-contract-v1.md",
+    "Expected": "0E864A11F57D04D480ADFE08F20BEA76513F90E0F6E70E17696DC79FBCEBB09E",
+    "Current": "0E864A11F57D04D480ADFE08F20BEA76513F90E0F6E70E17696DC79FBCEBB09E",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\WordFormulaAssertionTest.kt",
+    "Expected": "1C36B0138B1266070C7E555E37071354B63AA0D61EABC063842AC7D6235C5AC0",
+    "Current": "1C36B0138B1266070C7E555E37071354B63AA0D61EABC063842AC7D6235C5AC0",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\WordFormulaAssertions.kt",
+    "Expected": "B236E613428CA143EBD9EBC1801832D9F2A3CFCAB9FA3EF0A97411C34086B15B",
+    "Current": "B236E613428CA143EBD9EBC1801832D9F2A3CFCAB9FA3EF0A97411C34086B15B",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\SkillsInstallBoundaryTest.kt",
+    "Expected": "D931598D0E5A0689B628AF236D60BFD74020BDF509468B8606A6BEA5D38BADD3",
+    "Current": "D931598D0E5A0689B628AF236D60BFD74020BDF509468B8606A6BEA5D38BADD3",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\QaEvidenceRun.kt",
+    "Expected": "0B9975C7425781766158845D6B2658092655728B23BC87F9DFB405D47F1A7148",
+    "Current": "0B9975C7425781766158845D6B2658092655728B23BC87F9DFB405D47F1A7148",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\ProjectReviewDeliveryTest.kt",
+    "Expected": "A34C8A2463155181003ECE55EB43BB198DFE2419E60B043D5FF7D9AFCE7C588B",
+    "Current": "A34C8A2463155181003ECE55EB43BB198DFE2419E60B043D5FF7D9AFCE7C588B",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\MaterialSampleFixtures.kt",
+    "Expected": "DBA82C0E6F6EF69F74C516CF094AC49A72F64F6A8C4C85E87AD91C5AF9911CA9",
+    "Current": "DBA82C0E6F6EF69F74C516CF094AC49A72F64F6A8C4C85E87AD91C5AF9911CA9",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\MaterialRealModelTest.kt",
+    "Expected": "C4913CABD4164F9D5F59EE7FF295A980BE9C6D8CD2F8CDC7561D118DD7EBA357",
+    "Current": "C4913CABD4164F9D5F59EE7FF295A980BE9C6D8CD2F8CDC7561D118DD7EBA357",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\DiagnosticsTest.kt",
+    "Expected": "7E37327029E8B00310E704932CF17FAF45509003F1454634F6CDD2EA3C9D087A",
+    "Current": "7E37327029E8B00310E704932CF17FAF45509003F1454634F6CDD2EA3C9D087A",
+    "Matches": true
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\ChecklistSupplementTest.kt",
+    "Expected": "D42F7878BB140D6DE70A3206D2A95B42A59B33F772FE10E0660A66F14CFD09C3",
+    "Current": "D42F7878BB140D6DE70A3206D2A95B42A59B33F772FE10E0660A66F14CFD09C3",
+    "Matches": true
+  }
+]

@@ -45,6 +45,7 @@ private val ALLOWED_MIME_TYPES = setOf(
 )
 
 private val ALLOWED_FILE_EXTENSIONS = setOf(
+    "docx", "xlsx", "pptx", "pdf", "doc", "xls", "ppt",
     "txt", "md", "csv", "json", "js", "jsx", "mjs", "cjs",
     "html", "css", "vue", "svelte", "xml", "agc",
     "py", "rb", "lua", "sql", "java", "kt", "ts", "tsx",

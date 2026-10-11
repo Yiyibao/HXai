@@ -15,9 +15,13 @@ object CrashHandler {
         val appContext = context.applicationContext
         val defaultHandler = Thread.getDefaultUncaughtExceptionHandler()
         Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
-            Log.e(TAG, "Uncaught exception on thread ${thread.name}", throwable)
-            markCrashed(appContext, thread, throwable)
-            defaultHandler?.uncaughtException(thread, throwable)
+            me.rerere.rikkahub.feature.diagnostics.Diagnostics.captureCrash(appContext, throwable)
+            val diagnostic = IllegalStateException("Application failure (${throwable.javaClass.simpleName})").apply {
+                stackTrace = throwable.stackTrace
+            }
+            Log.e(TAG, "Uncaught application exception", diagnostic)
+            markCrashed(appContext, thread, diagnostic)
+            defaultHandler?.uncaughtException(thread, diagnostic)
         }
     }
 
@@ -38,7 +42,7 @@ object CrashHandler {
 
     private fun markCrashed(context: Context, thread: Thread, throwable: Throwable) {
         val stackTrace = buildString {
-            appendLine("Thread: ${thread.name}")
+            appendLine("Application crash")
             appendLine(throwable.stackTraceToString())
         }.take(MAX_STACKTRACE_LENGTH)
         context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)

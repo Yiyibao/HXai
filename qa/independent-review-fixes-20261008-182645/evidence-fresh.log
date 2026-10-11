@@ -1,0 +1,25 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.QaEvidenceRunTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.QaEvidenceRunTest:
+INSTRUMENTATION_STATUS: test=freshSyntheticEvidence
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"QaEvidenceRunTest.freshSyntheticEvidence","runId":"b9e65a18-3232-40ed-97a1-b1d154392c02","startedAt":1791458083744,"finishedAt":1791458083746,"status":"PASS","entries":[{"name":"qa-evidence\/QaEvidenceRunTest.freshSyntheticEvidence\/b9e65a18-3232-40ed-97a1-b1d154392c02\/transcript.md","sha256":"37cc3d51ba8f8cfe0cf6fe81bc30b6d68ac92e68c27c27855fbc282272f4dda5","bytes":68,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.QaEvidenceRunTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=freshSyntheticEvidence
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 0.331
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

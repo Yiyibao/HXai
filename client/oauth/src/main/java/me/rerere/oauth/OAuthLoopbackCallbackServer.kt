@@ -209,7 +209,7 @@ class OAuthLoopbackCallbackServer(
 
     private suspend fun stopServerIfIdle() {
         if (callbacks.isEmpty()) {
-            server?.stopSuspend(gracePeriodMillis = 0, timeoutMillis = 1_000)
+            server?.stopSuspend(gracePeriodMillis = 1_000, timeoutMillis = 5_000)
             server = null
             redirectUri = null
             localizedContext = null

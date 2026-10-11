@@ -1,0 +1,33 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+Calculating task graph as no cached configuration is available for tasks: :app:testDebugUnitTest :ai:testDebugUnitTest :search:testDebugUnitTest :document:testDebugUnitTest :app:assembleDebug :app:assembleDebugAndroidTest
+> Task :build-logic:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:compileKotlin UP-TO-DATE
+> Task :build-logic:compileJava NO-SOURCE
+> Task :build-logic:pluginDescriptors UP-TO-DATE
+> Task :build-logic:processResources UP-TO-DATE
+> Task :build-logic:classes UP-TO-DATE
+> Task :build-logic:jar UP-TO-DATE
+
+1 problem was found storing the configuration cache.
+- Task `:document:generateDebugUnitTestStubRFile` of type `com.android.build.gradle.internal.res.GenerateLibraryRFileTask`: error writing value of type 'java.util.ArrayList'
+
+See the complete report at file:///D:/Office/Study/code/MathStudyAgent/client/build/reports/configuration-cache/b843vx8sj0r5ti4swaynwvvyu/9nkt5d8oly9i1l54gm8xmocln/configuration-cache-report.html
+
+[Incubating] Problems report is available at: file:///D:/Office/Study/code/MathStudyAgent/client/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Configuration cache state could not be cached: field `elements` of `org.gradle.internal.serialize.codecs.core.ResolutionBackedFileCollectionSpec` bean found in field `__dependencies__` of task `:document:generateDebugUnitTestStubRFile` of type `com.android.build.gradle.internal.res.GenerateLibraryRFileTask`: error writing value of type 'java.util.ArrayList'
+> Could not download emoji2-views-helper-1.3.0.aar (androidx.emoji2:emoji2-views-helper:1.3.0): No cached version available for offline mode
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 34s
+4 actionable tasks: 4 up-to-date
+Configuration cache entry discarded due to serialization error.

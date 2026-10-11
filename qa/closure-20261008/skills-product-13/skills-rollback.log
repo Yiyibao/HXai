@@ -1,0 +1,25 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.SkillClosureTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.SkillClosureTest:
+INSTRUMENTATION_STATUS: test=replacementAndRollbackFailureKeepOriginalContentAndEnabledState
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"SkillClosureTest.replacementAndRollbackFailureKeepOriginalContentAndEnabledState","runId":"fda078a7-8cd1-4a1e-bcf2-9b6b5bd4e029","startedAt":1791466533081,"finishedAt":1791466533442,"status":"PASS","entries":[{"name":"qa-evidence\/SkillClosureTest.replacementAndRollbackFailureKeepOriginalContentAndEnabledState\/fda078a7-8cd1-4a1e-bcf2-9b6b5bd4e029\/assertions.txt","sha256":"3f46ea84fd46dcf96234f2d9e71f878657aa4959c71a29d38c99f1a9a6e64abe","bytes":12,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.SkillClosureTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=replacementAndRollbackFailureKeepOriginalContentAndEnabledState
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 0.589
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

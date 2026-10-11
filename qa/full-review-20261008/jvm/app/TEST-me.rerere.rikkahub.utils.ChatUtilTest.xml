@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.utils.ChatUtilTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-07T16:36:03.550Z" hostname="DESKTOP-QH4J0RS" time="0.001">
+  <properties/>
+  <testcase name="still rejects unknown binary file types" classname="me.rerere.rikkahub.utils.ChatUtilTest" time="0.001"/>
+  <testcase name="allows agc camera configs as text documents" classname="me.rerere.rikkahub.utils.ChatUtilTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-06",
+  "environment": "AOSP_API_34_X86_64_EMULATOR",
+  "package": "org.mathstudy.agent.debug",
+  "configuration": [
+    {
+      "base_url": "https://xinyue.mom/v1",
+      "responses": true,
+      "path": "/responses",
+      "key_present": false,
+      "models": [
+        {
+          "model": "gpt-6.1-sol",
+          "abilities": [
+            "TOOL",
+            "REASONING"
+          ]
+        }
+      ]
+    }
+  ],
+  "assistant_reasoning_levels": [
+    "medium"
+  ],
+  "real_android_responses": "NOT_RUN_MISSING_CREDENTIAL",
+  "stream_switch": "NOT_RUN",
+  "stream_cancel": "NOT_RUN",
+  "restart_followup": "NOT_RUN"
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.tts.provider.providers.VolcengineTTSProviderTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-10-07T16:43:48.420Z" hostname="DESKTOP-QH4J0RS" time="0.028">
+  <properties/>
+  <testcase name="rejectsTruncatedAudio" classname="me.rerere.tts.provider.providers.VolcengineTTSProviderTest" time="0.006"/>
+  <testcase name="rejectsInvalidBase64" classname="me.rerere.tts.provider.providers.VolcengineTTSProviderTest" time="0.0"/>
+  <testcase name="apiKeyAndSettingsSurviveSerialization" classname="me.rerere.tts.provider.providers.VolcengineTTSProviderTest" time="0.017"/>
+  <testcase name="rejectsEmptySynthesis" classname="me.rerere.tts.provider.providers.VolcengineTTSProviderTest" time="0.0"/>
+  <testcase name="rejectsBlankApiKey" classname="me.rerere.tts.provider.providers.VolcengineTTSProviderTest" time="0.0"/>
+  <testcase name="usesApiKeyAndEscapesText" classname="me.rerere.tts.provider.providers.VolcengineTTSProviderTest" time="0.001"/>
+  <testcase name="rejectsApiFailureEvenWithHttpSuccess" classname="me.rerere.tts.provider.providers.VolcengineTTSProviderTest" time="0.001"/>
+  <testcase name="decodesAudioAndPreservesAudioOnTerminalFrame" classname="me.rerere.tts.provider.providers.VolcengineTTSProviderTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

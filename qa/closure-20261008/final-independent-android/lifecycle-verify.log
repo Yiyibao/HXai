@@ -1,0 +1,25 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ClosureBoundaryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ClosureBoundaryTest:
+INSTRUMENTATION_STATUS: test=deletionCreationRestoreAndIndependentIncarnation
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"ClosureBoundaryTest.deletionCreationRestoreAndIndependentIncarnation","runId":"889cea54-faac-49d6-b75b-0378c8ea8929","startedAt":1791468008217,"finishedAt":1791468010106,"status":"PASS","entries":[{"name":"qa-evidence\/ClosureBoundaryTest.deletionCreationRestoreAndIndependentIncarnation\/889cea54-faac-49d6-b75b-0378c8ea8929\/assertions.json","sha256":"378c66e82b264c7bd88839fce06185747a0b21a706a725e7a3d095ea1d0dfec9","bytes":1117,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ClosureBoundaryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=deletionCreationRestoreAndIndependentIncarnation
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 2.144
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

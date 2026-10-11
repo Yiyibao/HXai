@@ -1,0 +1,32 @@
+[
+  {
+    "name": "skills-links",
+    "className": "SkillClosureTest#nestedBrokenLinksAndSiblingReplacement",
+    "runId": "14dbee31-3384-4064-ae7c-ff3425bcbdb9",
+    "notBefore": 1791466528068,
+    "notAfter": 1791466531359,
+    "status": "PASS",
+    "logSha256": "231e9a9a38f05bdf6ffb16c05f2420eb2495c8a5a5fc9330bd70b22e0569f8f3",
+    "extras": {}
+  },
+  {
+    "name": "skills-rollback",
+    "className": "SkillClosureTest#replacementAndRollbackFailureKeepOriginalContentAndEnabledState",
+    "runId": "fda078a7-8cd1-4a1e-bcf2-9b6b5bd4e029",
+    "notBefore": 1791466531361,
+    "notAfter": 1791466534862,
+    "status": "PASS",
+    "logSha256": "9032c4e0a3ad1095554ea402fb6ed8cab2f09e9d221c70e21860bea8e252c002",
+    "extras": {}
+  },
+  {
+    "name": "skills-partial-cleanup",
+    "className": "SkillClosureTest#partialUninstallCleanupFailureRestoresEntireSkill",
+    "runId": "a94d2d9b-5775-4f9e-8555-9cc6a61f29d3",
+    "notBefore": 1791466534864,
+    "notAfter": 1791466538315,
+    "status": "PASS",
+    "logSha256": "4b4a6fa16e62583d3cd99ede5f87a2f896534f0fd6dae293bb8fcbb09fa552f6",
+    "extras": {}
+  }
+]

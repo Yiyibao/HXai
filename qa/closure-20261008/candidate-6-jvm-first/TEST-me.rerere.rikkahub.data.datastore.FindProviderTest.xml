@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.datastore.FindProviderTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-08T13:09:59.049Z" hostname="DESKTOP-QH4J0RS" time="0.0">
+  <properties/>
+  <testcase name="findProvider returns base provider when model has no overwrite" classname="me.rerere.rikkahub.data.datastore.FindProviderTest" time="0.0"/>
+  <testcase name="findProvider returns overwrite instead of looking it up in settings providers" classname="me.rerere.rikkahub.data.datastore.FindProviderTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

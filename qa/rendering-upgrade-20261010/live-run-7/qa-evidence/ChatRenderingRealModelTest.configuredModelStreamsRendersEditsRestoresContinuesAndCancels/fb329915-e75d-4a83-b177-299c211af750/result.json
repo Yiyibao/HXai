@@ -1,0 +1,1 @@
+{"model":"gpt-6.1-sol","provider":"OpenAI","protocol":"responses","status":"FAILED","stream_argument_snapshots":0,"preview_observed":false,"errors":["HttpException"],"http_errors":[{"status":null,"reason":"RATE_LIMIT","message":"Model service rejected the request"}]}

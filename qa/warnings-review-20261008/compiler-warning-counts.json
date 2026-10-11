@@ -1,0 +1,17 @@
+{
+  "final_total": 61,
+  "final_by_type": {
+    "旧消息序列化兼容": 6,
+    "Coil 实验性缓存 API": 2,
+    "Material3 列表 API 弃用": 22,
+    "Haze 实验性视觉 API": 12,
+    "协程 Flow 预览 API": 1,
+    "终端软键盘旧常量": 1,
+    "UsageStats AppOps API 弃用": 1,
+    "Wi-Fi 连接信息 API 弃用": 2,
+    "Compose 仪器测试 API 弃用": 14
+  },
+  "first_app_compile": 80,
+  "first_other_module_compile": 39,
+  "baseline_caveat": "The first two compiler logs are incremental/intermediate runs (one failed); their 80 and 39 entries are not a single untouched-workspace baseline. Final full compiler log is successful and fresh. AndroidTest warnings previously not fully exposed."
+}

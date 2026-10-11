@@ -1,0 +1,152 @@
+[
+  {
+    "group": "material",
+    "extension": "md",
+    "exactName": "QA交付-f0daa2f2-c32c-41f1-a892-c655cd46a1c6.md",
+    "method": "delivery-material",
+    "started": "2026-10-08T18:15:56.0194565+08:00",
+    "status": "PASS",
+    "hashes": {
+      "source": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+      "target": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+      "view": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+      "send": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+      "recorded": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd"
+    }
+  },
+  {
+    "group": "material",
+    "extension": "docx",
+    "exactName": "QA交付-0cdd50d1-7704-4269-b156-13042ac69c14.docx",
+    "method": "delivery-material",
+    "started": "2026-10-08T18:15:56.0194565+08:00",
+    "status": "PASS",
+    "hashes": {
+      "source": "b0fb2d428c647ec0bca47d659bf0987c3442be67e83dc285024ec6f8aeef7782",
+      "target": "b0fb2d428c647ec0bca47d659bf0987c3442be67e83dc285024ec6f8aeef7782",
+      "view": "b0fb2d428c647ec0bca47d659bf0987c3442be67e83dc285024ec6f8aeef7782",
+      "send": "b0fb2d428c647ec0bca47d659bf0987c3442be67e83dc285024ec6f8aeef7782",
+      "recorded": "b0fb2d428c647ec0bca47d659bf0987c3442be67e83dc285024ec6f8aeef7782"
+    }
+  },
+  {
+    "group": "material",
+    "extension": "xlsx",
+    "exactName": "QA交付-50b5508d-284b-4b5b-8607-2479550c268f.xlsx",
+    "method": "delivery-material",
+    "started": "2026-10-08T18:15:56.0194565+08:00",
+    "status": "PASS",
+    "hashes": {
+      "source": "51bd5b5a80b07106f7681a9e629a780903e197a2272dd23888609129f22c8764",
+      "target": "51bd5b5a80b07106f7681a9e629a780903e197a2272dd23888609129f22c8764",
+      "view": "51bd5b5a80b07106f7681a9e629a780903e197a2272dd23888609129f22c8764",
+      "send": "51bd5b5a80b07106f7681a9e629a780903e197a2272dd23888609129f22c8764",
+      "recorded": "51bd5b5a80b07106f7681a9e629a780903e197a2272dd23888609129f22c8764"
+    }
+  },
+  {
+    "group": "material",
+    "extension": "pptx",
+    "exactName": "QA交付-222ab7ca-2028-4966-b86d-8131abfc7b84.pptx",
+    "method": "delivery-material",
+    "started": "2026-10-08T18:15:56.0194565+08:00",
+    "status": "PASS",
+    "hashes": {
+      "source": "41077f370f5dfb9ac3a866a79caadd5ea92fdc83db92f3ba63b8c97754438dd1",
+      "target": "41077f370f5dfb9ac3a866a79caadd5ea92fdc83db92f3ba63b8c97754438dd1",
+      "view": "41077f370f5dfb9ac3a866a79caadd5ea92fdc83db92f3ba63b8c97754438dd1",
+      "send": "41077f370f5dfb9ac3a866a79caadd5ea92fdc83db92f3ba63b8c97754438dd1",
+      "recorded": "41077f370f5dfb9ac3a866a79caadd5ea92fdc83db92f3ba63b8c97754438dd1"
+    }
+  },
+  {
+    "group": "material",
+    "extension": "pdf",
+    "exactName": "QA交付-641c3724-e55c-4240-9975-efabc412dc4e.pdf",
+    "method": "delivery-material",
+    "started": "2026-10-08T18:15:56.0194565+08:00",
+    "status": "PASS",
+    "hashes": {
+      "source": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+      "target": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+      "view": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+      "send": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+      "recorded": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a"
+    }
+  },
+  {
+    "group": "artifact",
+    "extension": "md",
+    "exactName": "QA交付-bfa5f33d-4e78-4dbb-9525-a434c21745e4.md",
+    "method": "delivery-artifact",
+    "started": "2026-10-08T18:16:35.5392117+08:00",
+    "status": "PASS",
+    "hashes": {
+      "source": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+      "target": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+      "view": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+      "send": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+      "recorded": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd"
+    }
+  },
+  {
+    "group": "artifact",
+    "extension": "docx",
+    "exactName": "QA交付-eff30d1f-c9c0-4c6b-a677-2046566ec7b6.docx",
+    "method": "delivery-artifact",
+    "started": "2026-10-08T18:16:35.5392117+08:00",
+    "status": "PASS",
+    "hashes": {
+      "source": "4cfad5c34ce4ff921a613ea8bc1eb95331808e4b5d7d6bbdca3e6632f7babfcd",
+      "target": "4cfad5c34ce4ff921a613ea8bc1eb95331808e4b5d7d6bbdca3e6632f7babfcd",
+      "view": "4cfad5c34ce4ff921a613ea8bc1eb95331808e4b5d7d6bbdca3e6632f7babfcd",
+      "send": "4cfad5c34ce4ff921a613ea8bc1eb95331808e4b5d7d6bbdca3e6632f7babfcd",
+      "recorded": "4cfad5c34ce4ff921a613ea8bc1eb95331808e4b5d7d6bbdca3e6632f7babfcd"
+    }
+  },
+  {
+    "group": "artifact",
+    "extension": "xlsx",
+    "exactName": "QA交付-8fb05906-4c37-4403-b792-0bd5741d5b19.xlsx",
+    "method": "delivery-artifact",
+    "started": "2026-10-08T18:16:35.5392117+08:00",
+    "status": "PASS",
+    "hashes": {
+      "source": "45c77d283562dd115975a58667f1aff83141085407a4fee7e0a0097b97d0ec57",
+      "target": "45c77d283562dd115975a58667f1aff83141085407a4fee7e0a0097b97d0ec57",
+      "view": "45c77d283562dd115975a58667f1aff83141085407a4fee7e0a0097b97d0ec57",
+      "send": "45c77d283562dd115975a58667f1aff83141085407a4fee7e0a0097b97d0ec57",
+      "recorded": "45c77d283562dd115975a58667f1aff83141085407a4fee7e0a0097b97d0ec57"
+    }
+  },
+  {
+    "group": "artifact",
+    "extension": "pptx",
+    "exactName": "QA交付-c2ddfe20-334c-4cd2-a3fc-04e66d58236f.pptx",
+    "method": "delivery-artifact",
+    "started": "2026-10-08T18:16:35.5392117+08:00",
+    "status": "PASS",
+    "hashes": {
+      "source": "fccfac56fac7d5ba8ad76dcba9bf3aa967608b3d9296dd73f130960a926c3b42",
+      "target": "fccfac56fac7d5ba8ad76dcba9bf3aa967608b3d9296dd73f130960a926c3b42",
+      "view": "fccfac56fac7d5ba8ad76dcba9bf3aa967608b3d9296dd73f130960a926c3b42",
+      "send": "fccfac56fac7d5ba8ad76dcba9bf3aa967608b3d9296dd73f130960a926c3b42",
+      "recorded": "fccfac56fac7d5ba8ad76dcba9bf3aa967608b3d9296dd73f130960a926c3b42"
+    }
+  },
+  {
+    "group": "artifact",
+    "extension": "pdf",
+    "exactName": "QA交付-5107335a-b16e-40b9-894f-bec116d8a1df.pdf",
+    "method": "delivery-artifact",
+    "started": "2026-10-08T18:16:35.5392117+08:00",
+    "status": "PASS",
+    "hashes": {
+      "source": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+      "target": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+      "view": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+      "send": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+      "recorded": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a"
+    }
+  }
+]

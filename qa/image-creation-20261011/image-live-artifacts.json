@@ -1,0 +1,10 @@
+{
+  "model": "gpt-image-2",
+  "originalPreserved": true,
+  "originalSha256": "80f75b4d3a10e4587536ef8a6f6f80e65a2ccab3f6e8f5add1a47d0edfbc7d34",
+  "editedSha256": "9632648b4221c8d1dcccb57f87bef79d0313ca8c53b3f8c441498d3c73571bdf",
+  "differentImages": true,
+  "quality": "low",
+  "revision": 2,
+  "editPromptIntegrity": "Emulator IME rewrote test text; exact requested color was not verified."
+}

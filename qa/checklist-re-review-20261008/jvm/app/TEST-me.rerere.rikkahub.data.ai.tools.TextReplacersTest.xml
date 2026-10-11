@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.ai.tools.TextReplacersTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2026-10-08T06:42:57.260Z" hostname="DESKTOP-QH4J0RS" time="0.014">
+  <properties/>
+  <testcase name="line trimmed reindent preserves relative indentation of new text" classname="me.rerere.rikkahub.data.ai.tools.TextReplacersTest" time="0.004"/>
+  <testcase name="throws when old_text is empty" classname="me.rerere.rikkahub.data.ai.tools.TextReplacersTest" time="0.001"/>
+  <testcase name="line trimmed matches despite indentation mismatch and reindents new text" classname="me.rerere.rikkahub.data.ai.tools.TextReplacersTest" time="0.0"/>
+  <testcase name="exact match throws on ambiguous occurrences without replace_all" classname="me.rerere.rikkahub.data.ai.tools.TextReplacersTest" time="0.003"/>
+  <testcase name="throws when old_text is not found anywhere" classname="me.rerere.rikkahub.data.ai.tools.TextReplacersTest" time="0.0"/>
+  <testcase name="exact match replaces single occurrence" classname="me.rerere.rikkahub.data.ai.tools.TextReplacersTest" time="0.0"/>
+  <testcase name="line trimmed handles trailing newline in old_text" classname="me.rerere.rikkahub.data.ai.tools.TextReplacersTest" time="0.0"/>
+  <testcase name="exact match counts non overlapping occurrences" classname="me.rerere.rikkahub.data.ai.tools.TextReplacersTest" time="0.0"/>
+  <testcase name="whitespace only old_text never fuzzy matches" classname="me.rerere.rikkahub.data.ai.tools.TextReplacersTest" time="0.0"/>
+  <testcase name="block anchor matches when middle lines differ slightly" classname="me.rerere.rikkahub.data.ai.tools.TextReplacersTest" time="0.0"/>
+  <testcase name="line trimmed throws on ambiguous match without replace_all" classname="me.rerere.rikkahub.data.ai.tools.TextReplacersTest" time="0.0"/>
+  <testcase name="exact match with replace_all replaces every occurrence" classname="me.rerere.rikkahub.data.ai.tools.TextReplacersTest" time="0.002"/>
+  <testcase name="line trimmed matches crlf content with lf old_text" classname="me.rerere.rikkahub.data.ai.tools.TextReplacersTest" time="0.0"/>
+  <testcase name="block anchor requires at least three lines" classname="me.rerere.rikkahub.data.ai.tools.TextReplacersTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

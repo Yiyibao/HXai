@@ -1,0 +1,8 @@
+qa\comprehensive-review-20261008\WordParserProbe.java:2: ����: �����me.rerere.rikkahub.feature.material������
+import me.rerere.rikkahub.feature.material.MaterialWordContent;
+                                          ^
+qa\comprehensive-review-20261008\WordParserProbe.java:5: ����: �����MaterialWordContent������
+  String text=MaterialWordContent.INSTANCE.text(Files.readString(Path.of(args[0])));
+                                 ^
+2 ������
+����: ����ʧ��

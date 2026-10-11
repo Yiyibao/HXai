@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.interactive.InteractiveSurfaceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-09T20:20:33.716Z" hostname="DESKTOP-QH4J0RS" time="0.016">
+  <properties/>
+  <testcase name="invalidToolDefinitionReturnsRecoverableFailureWithoutSurface" classname="me.rerere.rikkahub.feature.interactive.InteractiveSurfaceTest" time="0.005"/>
+  <testcase name="streamCheckpointPreservesClientStateOnlyForSameDefinition" classname="me.rerere.rikkahub.feature.interactive.InteractiveSurfaceTest" time="0.001"/>
+  <testcase name="legacyReferenceUsesToolIdentityAndSharedStateProtocol" classname="me.rerere.rikkahub.feature.interactive.InteractiveSurfaceTest" time="0.003"/>
+  <testcase name="rejectsCodeUnknownActionsAndCrossSurfaceReferences" classname="me.rerere.rikkahub.feature.interactive.InteractiveSurfaceTest" time="0.001"/>
+  <testcase name="acceptedResultKeepsVersionAndStableDigest" classname="me.rerere.rikkahub.feature.interactive.InteractiveSurfaceTest" time="0.003"/>
+  <testcase name="stateCannotAddFieldsOrEscapeLimits" classname="me.rerere.rikkahub.feature.interactive.InteractiveSurfaceTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

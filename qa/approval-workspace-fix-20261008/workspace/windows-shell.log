@@ -1,0 +1,31 @@
+Starting a Gradle Daemon, 4 busy and 2 stopped Daemons could not be reused, use --status for details
+> Task :build-logic:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:pluginDescriptors
+> Task :build-logic:processResources
+> Task :build-logic:compileKotlin
+> Task :build-logic:compileJava NO-SOURCE
+> Task :build-logic:classes
+> Task :build-logic:jar
+> Task :workspace:preBuild UP-TO-DATE
+> Task :workspace:preDebugBuild UP-TO-DATE
+> Task :workspace:generateDebugResources
+> Task :workspace:packageDebugResources
+> Task :workspace:processDebugNavigationResources
+> Task :workspace:preDebugUnitTestBuild UP-TO-DATE
+> Task :workspace:javaPreCompileDebug
+> Task :workspace:javaPreCompileDebugUnitTest
+> Task :workspace:parseDebugLocalResources
+> Task :workspace:generateDebugRFile
+> Task :workspace:generateDebugUnitTestStubRFile
+> Task :workspace:compileDebugKotlin
+> Task :workspace:compileDebugJavaWithJavac NO-SOURCE
+> Task :workspace:processDebugJavaRes
+> Task :workspace:bundleLibRuntimeToJarDebug
+> Task :workspace:bundleLibCompileToJarDebug
+> Task :workspace:compileDebugUnitTestKotlin
+> Task :workspace:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :workspace:processDebugUnitTestJavaRes
+> Task :workspace:testDebugUnitTest
+
+BUILD SUCCESSFUL in 34s
+19 actionable tasks: 19 executed

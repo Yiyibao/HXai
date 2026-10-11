@@ -1,0 +1,41 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DeliveryUiClosureTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.DeliveryUiClosureTest:
+INSTRUMENTATION_STATUS: test=pickerCancelAndProfileChangeDoNotDeliverOldSource
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource","runId":"b32c2752-b6d2-4d24-a5a4-30cbdcb067a8","startedAt":1791468215709,"finishedAt":1791468224215,"status":"PASS","entries":[{"name":"qa-evidence\/DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource\/b32c2752-b6d2-4d24-a5a4-30cbdcb067a8\/picker-before-save.png","sha256":"34432872b39f6bd5e5ef18f7d0f98af903a36159c04eee1694d0a3f6bed6f2f6","bytes":93394,"reusedSyntheticInput":false},{"name":"qa-evidence\/DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource\/b32c2752-b6d2-4d24-a5a4-30cbdcb067a8\/assertions.txt","sha256":"c52c759f372633856bab7fef495a1a5646c799f5427427879c452aaee2c34b9d","bytes":386,"reusedSyntheticInput":false},{"name":"qa-evidence\/DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource\/b32c2752-b6d2-4d24-a5a4-30cbdcb067a8\/screen.png","sha256":"a3ea5fab4de566589f77812c7ea2146289b9a5f51e3c397ef2a77d061f0c22f3","bytes":84536,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DeliveryUiClosureTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=pickerCancelAndProfileChangeDoNotDeliverOldSource
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DeliveryUiClosureTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=listPickerRejectsProfileChange
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"DeliveryUiClosureTest.listPickerRejectsProfileChange","runId":"b32c2752-b6d2-4d24-a5a4-30cbdcb067a8","startedAt":1791468225672,"finishedAt":1791468231964,"status":"PASS","entries":[{"name":"qa-evidence\/DeliveryUiClosureTest.listPickerRejectsProfileChange\/b32c2752-b6d2-4d24-a5a4-30cbdcb067a8\/picker-before-save.png","sha256":"29d30b8135c9720012f2b659d0fc42adf10582c34474698645e7236f38e57e10","bytes":97389,"reusedSyntheticInput":false},{"name":"qa-evidence\/DeliveryUiClosureTest.listPickerRejectsProfileChange\/b32c2752-b6d2-4d24-a5a4-30cbdcb067a8\/assertions.txt","sha256":"06c1e6fe3401ab79fa74f241d9d0e32b6a1ebadbdfe1f317c0fd6080346a9519","bytes":386,"reusedSyntheticInput":false},{"name":"qa-evidence\/DeliveryUiClosureTest.listPickerRejectsProfileChange\/b32c2752-b6d2-4d24-a5a4-30cbdcb067a8\/screen.png","sha256":"41c056849123559ac5bdf4cbde8251cfa580bc0843f3e61d45cc621fff6c62ca","bytes":114515,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DeliveryUiClosureTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=listPickerRejectsProfileChange
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 20.249
+
+OK (2 tests)
+
+
+INSTRUMENTATION_CODE: -1

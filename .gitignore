@@ -13,3 +13,12 @@
 **/.kotlin/
 client/web/src/main/resources/static/
 qa/s0/private/
+
+# Local build deliveries and scratch files
+**/*.apk
+**/*.aab
+/tmp/
+
+# Historical QA source snapshots duplicate the application checkout
+qa/**/source-*/
+qa/**/qa-source*/

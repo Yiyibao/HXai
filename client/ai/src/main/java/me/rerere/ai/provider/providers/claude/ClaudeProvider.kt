@@ -256,10 +256,10 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
 
             val response = client.newCall(request).execute()
             if (!response.isSuccessful) {
-                error("Failed to get models: ${response.code} ${response.body?.string()}")
+                error("Failed to get models: ${response.code}")
             }
 
-            val bodyStr = response.body?.string() ?: ""
+            val bodyStr = response.body.string()
             val bodyJson = json.parseToJsonElement(bodyStr).jsonObject
             val data = bodyJson["data"]?.jsonArray ?: return@withContext emptyList()
 
@@ -308,14 +308,12 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
             .configureSessionHeaders(providerSetting.baseUrl, params.sessionId)
             .build()
 
-        Log.i(TAG, "generateText: ${json.encodeToString(requestBody)}")
-
         val response = client.newCall(request).await()
         if (!response.isSuccessful) {
-            throw Exception("Failed to get response: ${response.code} ${response.body?.string()}")
+            throw Exception("Failed to get response: ${response.code}")
         }
 
-        val bodyStr = response.body?.string() ?: ""
+        val bodyStr = response.body.string()
         val bodyJson = json.parseToJsonElement(bodyStr).jsonObject
 
         // 从 JsonObject 中提取必要的信息
@@ -359,19 +357,12 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
             .configureSessionHeaders(providerSetting.baseUrl, params.sessionId)
             .build()
 
-        Log.i(TAG, "streamText: ${json.encodeToString(requestBody)}")
-
-        requestBody["messages"]!!.jsonArray.forEach {
-            Log.i(TAG, "streamText: $it")
-        }
 
         val decoder = ClaudeStreamDecoder()
 
         fun sendChunks(chunks: Iterable<StreamChunk>) {
             chunks.forEach { chunk ->
-                trySend(chunk).onFailure { e ->
-                    Log.w(TAG, "onEvent: chunk dropped (${e?.message})")
-                }
+                trySend(chunk).onFailure { Log.w(TAG, "Stream chunk dropped") }
             }
         }
 
@@ -382,7 +373,6 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
                 type: String?,
                 data: String
             ) {
-                Log.d(TAG, "onEvent: type=$type, data=$data")
                 try {
                     val result = decoder.accept(SseEvent(id = id, event = type, data = data))
                     sendChunks(result.chunks)
@@ -395,19 +385,13 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
             override fun onFailure(eventSource: EventSource, t: Throwable?, response: Response?) {
                 var exception = t
 
-                t?.printStackTrace()
-                Log.e(TAG, "onFailure: ${t?.javaClass?.name} ${t?.message} / $response")
-
                 val bodyRaw = response?.body?.stringSafe()
                 try {
                     if (!bodyRaw.isNullOrBlank()) {
                         val bodyElement = Json.parseToJsonElement(bodyRaw)
-                        Log.i(TAG, "Error response: $bodyElement")
                         exception = bodyElement.parseErrorDetail()
                     }
                 } catch (e: Throwable) {
-                    Log.w(TAG, "onFailure: failed to parse from $bodyRaw")
-                    e.printStackTrace()
                 } finally {
                     close(exception)
                 }
@@ -423,7 +407,6 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
             .newEventSource(request, listener)
 
         awaitClose {
-            Log.d(TAG, "Closing eventSource")
             eventSource.cancel()
         }
         // trySend 在缓冲满时会静默丢弃 delta，导致回复中间缺字 (#1295)，因此缓冲必须无界
@@ -742,7 +725,6 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
                     put("data", encoded.base64)
                 })
             }.onFailure {
-                Log.w(TAG, "encode image failed: $url", it)
                 put("type", "text")
                 put("text", "")
             }
@@ -806,7 +788,6 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
 
                 "redacted_thinking" -> {
                     val data = block["data"]?.jsonPrimitiveOrNull?.contentOrNull
-                    println(data)
                 }
 
                 "tool_use" -> {

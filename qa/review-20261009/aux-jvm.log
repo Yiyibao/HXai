@@ -1,0 +1,164 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+Calculating task graph as no cached configuration is available for tasks: :common:testDebugUnitTest --rerun :document:testDebugUnitTest --rerun :search:testDebugUnitTest --rerun :speech:testDebugUnitTest --rerun :workspace:testDebugUnitTest --rerun :oauth:testDebugUnitTest --rerun
+> Task :build-logic:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:compileKotlin UP-TO-DATE
+> Task :build-logic:compileJava NO-SOURCE
+> Task :build-logic:pluginDescriptors UP-TO-DATE
+> Task :build-logic:processResources UP-TO-DATE
+> Task :build-logic:classes UP-TO-DATE
+> Task :build-logic:jar UP-TO-DATE
+> Task :ai:preBuild UP-TO-DATE
+> Task :search:preBuild UP-TO-DATE
+> Task :document:preBuild UP-TO-DATE
+> Task :common:preBuild UP-TO-DATE
+> Task :speech:preBuild UP-TO-DATE
+> Task :oauth:preBuild UP-TO-DATE
+> Task :workspace:preBuild UP-TO-DATE
+> Task :speech:preDebugUnitTestBuild UP-TO-DATE
+> Task :oauth:preDebugBuild UP-TO-DATE
+> Task :document:preDebugBuild UP-TO-DATE
+> Task :document:preDebugUnitTestBuild UP-TO-DATE
+> Task :search:preDebugUnitTestBuild UP-TO-DATE
+> Task :workspace:preDebugBuild UP-TO-DATE
+> Task :speech:preDebugBuild UP-TO-DATE
+> Task :workspace:preDebugUnitTestBuild UP-TO-DATE
+> Task :common:preDebugBuild UP-TO-DATE
+> Task :common:preDebugUnitTestBuild UP-TO-DATE
+> Task :ai:preDebugBuild UP-TO-DATE
+> Task :oauth:preDebugUnitTestBuild UP-TO-DATE
+> Task :search:preDebugBuild UP-TO-DATE
+> Task :common:javaPreCompileDebugUnitTest UP-TO-DATE
+> Task :document:processDebugNavigationResources UP-TO-DATE
+> Task :document:generateDebugResources UP-TO-DATE
+> Task :common:generateDebugResources UP-TO-DATE
+> Task :speech:javaPreCompileDebugUnitTest UP-TO-DATE
+> Task :common:processDebugNavigationResources UP-TO-DATE
+> Task :common:javaPreCompileDebug UP-TO-DATE
+> Task :document:javaPreCompileDebug UP-TO-DATE
+> Task :search:javaPreCompileDebug UP-TO-DATE
+> Task :workspace:javaPreCompileDebug UP-TO-DATE
+> Task :speech:javaPreCompileDebug UP-TO-DATE
+> Task :document:javaPreCompileDebugUnitTest UP-TO-DATE
+> Task :search:javaPreCompileDebugUnitTest UP-TO-DATE
+> Task :ai:javaPreCompileDebug UP-TO-DATE
+> Task :workspace:processDebugNavigationResources UP-TO-DATE
+> Task :ai:generateDebugResources UP-TO-DATE
+> Task :workspace:generateDebugResources UP-TO-DATE
+> Task :speech:processDebugNavigationResources UP-TO-DATE
+> Task :ai:processDebugNavigationResources UP-TO-DATE
+> Task :speech:generateDebugResources UP-TO-DATE
+> Task :oauth:javaPreCompileDebugUnitTest UP-TO-DATE
+> Task :oauth:javaPreCompileDebug UP-TO-DATE
+> Task :workspace:javaPreCompileDebugUnitTest UP-TO-DATE
+> Task :search:processDebugNavigationResources UP-TO-DATE
+> Task :search:generateDebugResources UP-TO-DATE
+> Task :common:packageDebugResources UP-TO-DATE
+> Task :document:packageDebugResources UP-TO-DATE
+> Task :oauth:processDebugNavigationResources UP-TO-DATE
+> Task :oauth:generateDebugResources UP-TO-DATE
+> Task :ai:packageDebugResources UP-TO-DATE
+> Task :speech:packageDebugResources UP-TO-DATE
+> Task :ai:parseDebugLocalResources UP-TO-DATE
+> Task :speech:parseDebugLocalResources UP-TO-DATE
+> Task :document:parseDebugLocalResources UP-TO-DATE
+> Task :common:parseDebugLocalResources UP-TO-DATE
+> Task :workspace:packageDebugResources UP-TO-DATE
+> Task :workspace:parseDebugLocalResources UP-TO-DATE
+> Task :search:packageDebugResources UP-TO-DATE
+> Task :ai:generateDebugRFile UP-TO-DATE
+> Task :common:generateDebugRFile UP-TO-DATE
+> Task :document:generateDebugRFile UP-TO-DATE
+> Task :speech:generateDebugRFile UP-TO-DATE
+> Task :search:parseDebugLocalResources UP-TO-DATE
+> Task :oauth:packageDebugResources UP-TO-DATE
+> Task :workspace:generateDebugRFile UP-TO-DATE
+> Task :oauth:parseDebugLocalResources UP-TO-DATE
+> Task :search:generateDebugRFile UP-TO-DATE
+> Task :oauth:generateDebugRFile UP-TO-DATE
+> Task :document:generateDebugUnitTestStubRFile UP-TO-DATE
+> Task :common:generateDebugUnitTestStubRFile UP-TO-DATE
+> Task :workspace:generateDebugUnitTestStubRFile UP-TO-DATE
+> Task :speech:generateDebugUnitTestStubRFile UP-TO-DATE
+> Task :search:generateDebugUnitTestStubRFile UP-TO-DATE
+> Task :oauth:compileDebugKotlin UP-TO-DATE
+> Task :workspace:compileDebugKotlin UP-TO-DATE
+> Task :oauth:compileDebugJavaWithJavac NO-SOURCE
+> Task :workspace:compileDebugJavaWithJavac NO-SOURCE
+> Task :oauth:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :oauth:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :oauth:processDebugJavaRes UP-TO-DATE
+> Task :workspace:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :workspace:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :workspace:processDebugJavaRes UP-TO-DATE
+> Task :common:compileDebugKotlin UP-TO-DATE
+> Task :document:compileDebugKotlin UP-TO-DATE
+> Task :common:compileDebugJavaWithJavac NO-SOURCE
+> Task :common:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :common:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :document:processDebugJavaRes UP-TO-DATE
+> Task :common:processDebugJavaRes UP-TO-DATE
+> Task :oauth:generateDebugUnitTestStubRFile UP-TO-DATE
+> Task :document:compileDebugJavaWithJavac UP-TO-DATE
+> Task :document:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :document:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :workspace:compileDebugUnitTestKotlin UP-TO-DATE
+> Task :workspace:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :workspace:processDebugUnitTestJavaRes UP-TO-DATE
+> Task :common:compileDebugUnitTestKotlin UP-TO-DATE
+> Task :oauth:compileDebugUnitTestKotlin UP-TO-DATE
+> Task :common:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :document:compileDebugUnitTestKotlin UP-TO-DATE
+> Task :oauth:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :document:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :common:processDebugUnitTestJavaRes UP-TO-DATE
+> Task :oauth:processDebugUnitTestJavaRes UP-TO-DATE
+> Task :document:processDebugUnitTestJavaRes UP-TO-DATE
+> Task :ai:compileDebugKotlin UP-TO-DATE
+> Task :speech:compileDebugKotlin UP-TO-DATE
+> Task :speech:compileDebugJavaWithJavac NO-SOURCE
+> Task :ai:compileDebugJavaWithJavac NO-SOURCE
+> Task :speech:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :speech:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :speech:processDebugJavaRes UP-TO-DATE
+> Task :ai:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :ai:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :ai:processDebugJavaRes UP-TO-DATE
+> Task :search:compileDebugKotlin UP-TO-DATE
+> Task :search:compileDebugJavaWithJavac NO-SOURCE
+> Task :search:processDebugJavaRes UP-TO-DATE
+> Task :search:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :search:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :speech:compileDebugUnitTestKotlin UP-TO-DATE
+> Task :speech:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :speech:processDebugUnitTestJavaRes UP-TO-DATE
+> Task :search:compileDebugUnitTestKotlin UP-TO-DATE
+> Task :search:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :search:processDebugUnitTestJavaRes UP-TO-DATE
+> Task :document:testDebugUnitTest
+> Task :common:testDebugUnitTest
+> Task :speech:testDebugUnitTest
+> Task :search:testDebugUnitTest
+
+> Task :workspace:testDebugUnitTest
+
+ExampleUnitTest > rootfsInstallerDownloadsAndExtractsTarGz FAILED
+    java.nio.file.FileSystemException at ExampleUnitTest.kt:78
+
+20 tests completed, 1 failed
+
+> Task :workspace:testDebugUnitTest FAILED
+> Task :oauth:testDebugUnitTest
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':workspace:testDebugUnitTest'.
+> There were failing tests. See the report at: file:///D:/Office/Study/code/MathStudyAgent/client/workspace/build/reports/tests/testDebugUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 28s
+105 actionable tasks: 6 executed, 99 up-to-date
+Configuration cache entry stored.

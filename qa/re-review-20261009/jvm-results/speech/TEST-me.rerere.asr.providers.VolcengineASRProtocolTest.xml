@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.asr.providers.VolcengineASRProtocolTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-10-09T03:00:10.187Z" hostname="DESKTOP-QH4J0RS" time="0.044">
+  <properties/>
+  <testcase name="decodes intermediate response and optional event number" classname="me.rerere.asr.providers.VolcengineASRProtocolTest" time="0.012"/>
+  <testcase name="request enables second pass VAD and clamps silence duration" classname="me.rerere.asr.providers.VolcengineASRProtocolTest" time="0.014"/>
+  <testcase name="decodes compressed final response with sequence and extended header" classname="me.rerere.asr.providers.VolcengineASRProtocolTest" time="0.001"/>
+  <testcase name="partial result waits for definite even if second pass adjusts timestamp" classname="me.rerere.asr.providers.VolcengineASRProtocolTest" time="0.002"/>
+  <testcase name="compressed server errors retain code and message" classname="me.rerere.asr.providers.VolcengineASRProtocolTest" time="0.008"/>
+  <testcase name="preview without utterances marks active speech and empty definite completes" classname="me.rerere.asr.providers.VolcengineASRProtocolTest" time="0.0"/>
+  <testcase name="audio and terminating packets use distinct flags and exact payload lengths" classname="me.rerere.asr.providers.VolcengineASRProtocolTest" time="0.002"/>
+  <testcase name="cumulative and repeated results cannot replace an already finalized turn" classname="me.rerere.asr.providers.VolcengineASRProtocolTest" time="0.001"/>
+  <testcase name="rejects truncated headers sequences and payloads" classname="me.rerere.asr.providers.VolcengineASRProtocolTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

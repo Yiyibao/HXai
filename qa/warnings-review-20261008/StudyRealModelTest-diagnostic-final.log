@@ -1,0 +1,86 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.StudyRealModelTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.StudyRealModelTest:
+INSTRUMENTATION_STATUS: test=coldStartEncryptedConfigurationAndFourTeachingModes
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: review_stage=mode-GUIDED-complete
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: review_stage=mode-HINT-complete
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: review_stage=mode-CHECK-complete
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: review_stage=mode-EXPLAIN-complete
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: review_stage=approval-request
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: review_stage=approval-response-FAILED
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.StudyRealModelTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Actual model response must include a pending ask_user tool
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at me.rerere.rikkahub.service.StudyRealModelTest$coldStartEncryptedConfigurationAndFourTeachingModes$1$waiting$1.invokeSuspend(StudyRealModelTest.kt:101)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:98)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.StudyRealModelTest.coldStartEncryptedConfigurationAndFourTeachingModes(StudyRealModelTest.kt:27)
+
+INSTRUMENTATION_STATUS: stream=
+Error in coldStartEncryptedConfigurationAndFourTeachingModes(me.rerere.rikkahub.service.StudyRealModelTest):
+java.lang.AssertionError: Actual model response must include a pending ask_user tool
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at me.rerere.rikkahub.service.StudyRealModelTest$coldStartEncryptedConfigurationAndFourTeachingModes$1$waiting$1.invokeSuspend(StudyRealModelTest.kt:101)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:98)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.StudyRealModelTest.coldStartEncryptedConfigurationAndFourTeachingModes(StudyRealModelTest.kt:27)
+
+INSTRUMENTATION_STATUS: test=coldStartEncryptedConfigurationAndFourTeachingModes
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 40.575
+There was 1 failure:
+1) coldStartEncryptedConfigurationAndFourTeachingModes(me.rerere.rikkahub.service.StudyRealModelTest)
+java.lang.AssertionError: Actual model response must include a pending ask_user tool
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at me.rerere.rikkahub.service.StudyRealModelTest$coldStartEncryptedConfigurationAndFourTeachingModes$1$waiting$1.invokeSuspend(StudyRealModelTest.kt:101)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:98)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.StudyRealModelTest.coldStartEncryptedConfigurationAndFourTeachingModes(StudyRealModelTest.kt:27)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

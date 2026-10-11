@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.service.ConversationSessionTest" tests="23" skipped="0" failures="0" errors="0" timestamp="2026-10-08T12:18:55.347Z" hostname="DESKTOP-QH4J0RS" time="0.09">
+  <properties/>
+  <testcase name="metadata edit loads history when the conversation has no initialized session" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.004"/>
+  <testcase name="returning to a generating conversation retains reasoning and partial reply" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.003"/>
+  <testcase name="stopping queued approvals waits for all predecessors to stop" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.008"/>
+  <testcase name="approval retry commits current safety pause and concurrent queued input atomically" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.005"/>
+  <testcase name="pending messages retain session even when queue is paused and page has no references" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.002"/>
+  <testcase name="stop does not resume queued approval when predecessor cancels immediately" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.004"/>
+  <testcase name="failed stream persists partial content for a recreated session" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.011"/>
+  <testcase name="running tool is recovered unknown while empty completed result is retained" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.003"/>
+  <testcase name="metadata edit waits for checkpoint and preserves its messages" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.005"/>
+  <testcase name="failed queue commit preserves item and does not publish user input" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.003"/>
+  <testcase name="queue commits before publication and restores paused with stable IDs" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.006"/>
+  <testcase name="checkpoint commits before publication and survives a new session" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.004"/>
+  <testcase name="concurrent initialization loads once without blocking another conversation" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.005"/>
+  <testcase name="cancelled initial load can be retried" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.002"/>
+  <testcase name="queued approvals preserve a decision while its save is suspended" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.004"/>
+  <testcase name="first direct conversation save restores pending input paused" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.001"/>
+  <testcase name="metadata edits survive reopening and final generation save" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.003"/>
+  <testcase name="instant completion does not leave a stale generation job" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.001"/>
+  <testcase name="concurrent pin toggles persist in order without replacing streamed messages" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.004"/>
+  <testcase name="cancelled generation waits for partial content to be persisted" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.004"/>
+  <testcase name="replaced job finishing late cannot clear successor or advance queue" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.004"/>
+  <testcase name="failed checkpoint does not publish uncommitted text" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.001"/>
+  <testcase name="late database load cannot overwrite a newer conversation update" classname="me.rerere.rikkahub.service.ConversationSessionTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

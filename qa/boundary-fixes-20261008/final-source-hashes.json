@@ -1,0 +1,78 @@
+[
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\service\\ChatService.kt",
+    "Hash": "A92E8B04040F4937D28E5B2404E667A7A7BBC705F7343F27911C1828D8D3F5C1"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\service\\ConversationSession.kt",
+    "Hash": "2295FC63B8515EC421F9DBAA4B4759F083249C0F58A2F510BDD4C08997B94DDB"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\data\\repository\\ConversationRepository.kt",
+    "Hash": "1B0ECCA0E3C2F674C21D13BF8A5B55C5391E7E96EAC3C60A87479FE4B7FE87A9"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\data\\db\\dao\\ConversationDAO.kt",
+    "Hash": "1428083DFAA7D6F447F383506387832AC997D6D3CB9F1E349161839EC26D089D"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\ui\\pages\\chat\\ChatVM.kt",
+    "Hash": "495A98FE77DDF0FC9FE87A4B460EA442FB328DCD52F067594CF61266ADB624D7"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\ui\\pages\\history\\HistoryVM.kt",
+    "Hash": "0E47BD0966DE7EA73BD1510249368CD544F7DA65762C85E2F601EAB43C40FFCF"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\server\\document-service\\api\\store.py",
+    "Hash": "91F7811518D2C211E8F0065EAA815965F9801889AB312FE664FC9F7343783A15"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\server\\document-service\\dispatcher\\main.py",
+    "Hash": "EFC5753E3E73D8FA53FF370E0336C311647558F874A967D9007B020DDF115A4A"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\MaterialRealModelTest.kt",
+    "Hash": "67B10DC058138D219B5403D9BED8B7308DCC52B9B15832327F4FF93F2777B137"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\ConversationBoundaryFixTest.kt",
+    "Hash": "2C7C15A5BD07531AF81CAFB8B62C891CB59C0D42951AB560C86BD6D7BEC5F8C7"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\WordFormulaAssertions.kt",
+    "Hash": "1C9643825ED26EB17574674D706B7C47EEAB430A99A8188BBE30570577441434"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\WordFormulaAssertionTest.kt",
+    "Hash": "D9F1201DF4E192977179BA93CF06F3B64DE8B6420D71541CD6D95058F90CF689"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\test\\java\\me\\rerere\\rikkahub\\service\\ConversationCommitTest.kt",
+    "Hash": "CF3D55813DF47E7CB15A806E396BC6EA32AB796A5135D28EADE9B7539EB655D6"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\server\\document-service\\tests\\test_enqueue_recovery.py",
+    "Hash": "1EE7D3907CF0DA409DBA4760FC00365E92610C63B64BB81A307960EED1D1F77A"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\scripts\\test_boundary_fixes.ps1",
+    "Hash": "CE7AD668357412C9A990A2A7F4F3AC6DD9A890C74049A0A054AD6E52031D9D68"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\ChatNetworkFaultTest.kt",
+    "Hash": "93E101FBE0646ADF79ECA34C57FB204439E4F288234BB763B1F75B34FAA6E19C"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\scripts\\collect_boundary_delivery.py",
+    "Hash": "2233A26E284270F100550EE86266E1831A31DBCEF97BFC3F088DA2CAB0C7FF0E"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\scripts\\collect_boundary_fixtures.py",
+    "Hash": "409222E8B7A46819FACF1983392B3F623611C1954B61836D1B31ABC653EDF9A2"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\scripts\\summarize_boundary_fixes.py",
+    "Hash": "27A7480B3744037F7850EB3F62244D18276F4E8F0EB5F42719B8BD30BCDFE371"
+  }
+]

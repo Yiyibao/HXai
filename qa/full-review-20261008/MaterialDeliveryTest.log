@@ -1,0 +1,53 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.MaterialDeliveryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.MaterialDeliveryTest:
+INSTRUMENTATION_STATUS: test=everyFormatOpensSavesAndArrivesInOtherUid
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.MaterialDeliveryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Action performScrollTo() failed.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (Text + InputText + EditableText contains '打开' (ignoreCase: false))
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollTo(Actions.kt:82)
+	at me.rerere.rikkahub.service.MaterialDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid(MaterialDeliveryTest.kt:74)
+
+INSTRUMENTATION_STATUS: stream=
+Error in everyFormatOpensSavesAndArrivesInOtherUid(me.rerere.rikkahub.service.MaterialDeliveryTest):
+java.lang.AssertionError: Action performScrollTo() failed.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (Text + InputText + EditableText contains '打开' (ignoreCase: false))
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollTo(Actions.kt:82)
+	at me.rerere.rikkahub.service.MaterialDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid(MaterialDeliveryTest.kt:74)
+
+INSTRUMENTATION_STATUS: test=everyFormatOpensSavesAndArrivesInOtherUid
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 7.176
+There was 1 failure:
+1) everyFormatOpensSavesAndArrivesInOtherUid(me.rerere.rikkahub.service.MaterialDeliveryTest)
+java.lang.AssertionError: Action performScrollTo() failed.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (Text + InputText + EditableText contains '打开' (ignoreCase: false))
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollTo(Actions.kt:82)
+	at me.rerere.rikkahub.service.MaterialDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid(MaterialDeliveryTest.kt:74)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

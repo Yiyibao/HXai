@@ -39,6 +39,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -139,6 +140,11 @@ fun SettingPage(vm: SettingVM = koinViewModel()) {
             contentPadding = innerPadding + PaddingValues(8.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
+            item("diagnostics") {
+                Column(Modifier.padding(horizontal = 8.dp)) {
+                    me.rerere.rikkahub.feature.diagnostics.DiagnosticsPanel()
+                }
+            }
             if (settings.isNotConfigured()) {
                 item {
                     ProviderConfigWarningCard(navController)
@@ -200,6 +206,12 @@ fun SettingPage(vm: SettingVM = koinViewModel()) {
                         leadingContent = { Icon(HugeIcons.Package, null) },
                         supportingContent = { Text(stringResource(R.string.setting_page_extensions_desc)) },
                         headlineContent = { Text(stringResource(R.string.setting_page_extensions)) },
+                    )
+                    item(
+                        onClick = { navController.navigate(Screen.StudyHandoffGallery) },
+                        leadingContent = { Icon(HugeIcons.AiMagic, null, tint = Color(0xFF925568)) },
+                        supportingContent = { Text("P01–P16 逐页交互、动画与布局验收画廊") },
+                        headlineContent = { Text("数学学习助手 · 16页交互展厅") },
                     )
                 }
             }
@@ -270,9 +282,7 @@ fun SettingPage(vm: SettingVM = koinViewModel()) {
                                 Text(stringResource(R.string.calculating))
                             } else {
                                 Text(
-                                    stringResource(
-                                        R.string.setting_page_chat_storage_desc,
-                                        storageState.first,
+                                    pluralStringResource(R.plurals.setting_page_chat_storage_desc, storageState.first, storageState.first,
                                         storageState.second / 1024 / 1024.0
                                     )
                                 )

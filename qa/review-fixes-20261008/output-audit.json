@@ -1,0 +1,24 @@
+{
+  "fraction": [
+    {
+      "num": "x+1",
+      "den": "2"
+    }
+  ],
+  "power": [
+    {
+      "e": "y",
+      "sup": "3"
+    }
+  ],
+  "tables": 1,
+  "originalImageBytesPreserved": true,
+  "sourceImages": [
+    "9332a1b6a53078dca8d1029fc8040b12373f02c4b1c9e5300c952d6ad45922cd"
+  ],
+  "outputImages": [
+    "9332a1b6a53078dca8d1029fc8040b12373f02c4b1c9e5300c952d6ad45922cd"
+  ],
+  "scanIdentifierAndFractionPresent": true,
+  "imageProbe": "MISSING_CONFIGURATION"
+}

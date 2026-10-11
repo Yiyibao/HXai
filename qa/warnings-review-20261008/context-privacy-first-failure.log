@@ -1,0 +1,44 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.WarningReviewContextPrivacyTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.WarningReviewContextPrivacyTest:
+INSTRUMENTATION_STATUS: test=clipboardDeliveryAndUrlFailureDoNotLogPrivateContent
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.WarningReviewContextPrivacyTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: The synthetic copied text/URL token must not reach ContextUtil logs
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at me.rerere.rikkahub.service.WarningReviewContextPrivacyTest.clipboardDeliveryAndUrlFailureDoNotLogPrivateContent(WarningReviewContextPrivacyTest.kt:47)
+
+INSTRUMENTATION_STATUS: stream=
+Error in clipboardDeliveryAndUrlFailureDoNotLogPrivateContent(me.rerere.rikkahub.service.WarningReviewContextPrivacyTest):
+java.lang.AssertionError: The synthetic copied text/URL token must not reach ContextUtil logs
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at me.rerere.rikkahub.service.WarningReviewContextPrivacyTest.clipboardDeliveryAndUrlFailureDoNotLogPrivateContent(WarningReviewContextPrivacyTest.kt:47)
+
+INSTRUMENTATION_STATUS: test=clipboardDeliveryAndUrlFailureDoNotLogPrivateContent
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 7
+There was 1 failure:
+1) clipboardDeliveryAndUrlFailureDoNotLogPrivateContent(me.rerere.rikkahub.service.WarningReviewContextPrivacyTest)
+java.lang.AssertionError: The synthetic copied text/URL token must not reach ContextUtil logs
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at me.rerere.rikkahub.service.WarningReviewContextPrivacyTest.clipboardDeliveryAndUrlFailureDoNotLogPrivateContent(WarningReviewContextPrivacyTest.kt:47)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

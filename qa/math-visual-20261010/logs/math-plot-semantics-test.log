@@ -1,0 +1,34 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_plot_test.dart
+00:00 +0: implicit background computation uses latest parameters
+00:01 +1: hyperbola parabola and rotated ellipse obey their equations
+00:01 +2: grammar precedence and mathematical functions match host
+00:01 +3: ellipse parameter sampling satisfies original equation
+00:01 +4: parameters recompute and definition limits are respected
+00:01 +5: discontinuities and non-real domain are not connected
+00:01 +6: implicit zero contour has bounded residual and rejects poles
+00:01 +7: equal aspect keeps a circle circular on a rectangular screen
+00:01 +8: surface slider recomputes plot and supports saved state
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+A SemanticsHandle was active at the end of the test.
+All SemanticsHandle instances must be disposed by calling dispose() on the SemanticsHandle.
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester._verifySemanticsHandlesWereDisposed (package:flutter_test/src/widget_tester.dart:1074:7)
+#1      WidgetTester._endOfTestVerifications (package:flutter_test/src/widget_tester.dart:1063:5)
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1969:22)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  surface slider recomputes plot and supports saved state
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +8 -1: surface slider recomputes plot and supports saved state [E]
+  Test failed. See exception logs above.
+  The test description was: surface slider recomputes plot and supports saved state
+  
+00:02 +8 -1: Some tests failed.
+
+Failing tests:
+  D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_plot_test.dart: surface slider recomputes plot and supports saved state

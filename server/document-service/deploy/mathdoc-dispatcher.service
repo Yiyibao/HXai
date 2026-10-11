@@ -1,0 +1,21 @@
+[Unit]
+Description=MathStudy restricted document dispatcher
+After=docker.service mathdoc-api.service
+Requires=docker.service
+
+[Service]
+WorkingDirectory=/opt/mathdoc/service
+Environment=MATHDOC_DATA=/var/lib/mathdoc
+EnvironmentFile=/etc/mathdoc/worker.env
+ExecStart=/opt/mathdoc/api-env/bin/python -m dispatcher.main
+Restart=on-failure
+UMask=0007
+NoNewPrivileges=yes
+MemoryMax=768M
+CPUQuota=100%
+TasksMax=64
+# Runs in the host mount namespace to expose quota-bound task tmpfs to Docker.
+# Only this trusted fixed-command dispatcher can access the Docker socket.
+
+[Install]
+WantedBy=multi-user.target

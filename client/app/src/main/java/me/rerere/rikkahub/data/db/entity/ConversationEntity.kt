@@ -32,4 +32,14 @@ data class ConversationEntity(
     val workspaceCwd: String = "",
     @ColumnInfo("folder_id", defaultValue = "")
     val folderId: String = "",
+    @ColumnInfo("profile_id", defaultValue = "default-learner")
+    val profileId: String = me.rerere.rikkahub.data.datastore.DEFAULT_PROFILE_ID,
+    @ColumnInfo("queue_state", defaultValue = "'{}'")
+    val queueState: String = "{}",
+    @ColumnInfo("study_mode", defaultValue = "'GUIDED'")
+    val studyMode: String = "GUIDED",
+    @ColumnInfo("lifecycle_revision", defaultValue = "0")
+    val lifecycleRevision: Long = 0,
+    @ColumnInfo("is_archived", defaultValue = "0")
+    val isArchived: Boolean = false,
 )

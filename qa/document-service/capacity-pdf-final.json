@@ -1,0 +1,372 @@
+{
+  "extension": "pdf",
+  "requestedRange": [
+    1,
+    5
+  ],
+  "samples": [
+    {
+      "elapsed": 2.2,
+      "memory": "92.06MiB / 4GiB",
+      "cpu": "159.56%"
+    },
+    {
+      "elapsed": 4.2,
+      "memory": "456.1MiB / 4GiB",
+      "cpu": "100.29%"
+    },
+    {
+      "elapsed": 6.3,
+      "memory": "643.9MiB / 4GiB",
+      "cpu": "156.76%"
+    },
+    {
+      "elapsed": 8.3,
+      "memory": "941.2MiB / 4GiB",
+      "cpu": "399.93%"
+    },
+    {
+      "elapsed": 10.3,
+      "memory": "1.134GiB / 4GiB",
+      "cpu": "399.41%"
+    },
+    {
+      "elapsed": 12.4,
+      "memory": "1.616GiB / 4GiB",
+      "cpu": "98.34%"
+    },
+    {
+      "elapsed": 14.4,
+      "memory": "1.999GiB / 4GiB",
+      "cpu": "101.02%"
+    },
+    {
+      "elapsed": 16.5,
+      "memory": "1.998GiB / 4GiB",
+      "cpu": "100.65%"
+    },
+    {
+      "elapsed": 18.5,
+      "memory": "2.02GiB / 4GiB",
+      "cpu": "100.43%"
+    },
+    {
+      "elapsed": 20.6,
+      "memory": "2.041GiB / 4GiB",
+      "cpu": "100.31%"
+    },
+    {
+      "elapsed": 22.6,
+      "memory": "2.061GiB / 4GiB",
+      "cpu": "100.53%"
+    },
+    {
+      "elapsed": 24.6,
+      "memory": "2.374GiB / 4GiB",
+      "cpu": "398.50%"
+    },
+    {
+      "elapsed": 26.7,
+      "memory": "2.378GiB / 4GiB",
+      "cpu": "400.55%"
+    },
+    {
+      "elapsed": 28.8,
+      "memory": "2.413GiB / 4GiB",
+      "cpu": "401.94%"
+    },
+    {
+      "elapsed": 30.8,
+      "memory": "2.439GiB / 4GiB",
+      "cpu": "328.50%"
+    },
+    {
+      "elapsed": 32.8,
+      "memory": "2.524GiB / 4GiB",
+      "cpu": "100.22%"
+    },
+    {
+      "elapsed": 34.9,
+      "memory": "0B / 0B",
+      "cpu": "0.00%"
+    }
+  ],
+  "result": {
+    "taskId": "ee1b66b6-e62f-4a7c-a7ac-e051e619d605",
+    "state": "SUCCEEDED",
+    "errorCode": null,
+    "resultRevision": 1,
+    "expiresAt": 1791453131.326295,
+    "requestedRange": [
+      1,
+      5
+    ]
+  },
+  "elapsedSeconds": 35.9,
+  "manifest": {
+    "contractVersion": 1,
+    "sourceSha256": "fcc62398a6b784fe53608eede3e224a358a0f32e9d12bf9bd1fc42589c0c9b4a",
+    "resultRevision": 1,
+    "parserVersion": "4.0.10",
+    "adapterVersion": "1",
+    "tier": "basic",
+    "totalPages": 5,
+    "requestedRange": [
+      1,
+      5
+    ],
+    "processedPages": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "blankPages": [
+      3
+    ],
+    "failedPages": [],
+    "complete": true,
+    "warnings": [
+      "OCR and formula recognition require checking the original page; geometry unavailable."
+    ],
+    "assets": [
+      {
+        "assetId": "document",
+        "path": "document.json",
+        "mediaType": "application/json",
+        "size": 2877,
+        "sha256": "534106347df3a1aafd1adbcaf9a130a8233b34b8120b34a6b9b5120b8681aec7"
+      },
+      {
+        "assetId": "image-a3c86f63fe1ba8f3fedfd217",
+        "path": "image-a3c86f63fe1ba8f3fedfd217.png",
+        "mediaType": "image/png",
+        "size": 9484,
+        "sha256": "1e56b1bf9d4685168c2b6e2889e1ec815f7bbb47700d56d8fb7a6d700e4b2c87"
+      },
+      {
+        "assetId": "image-880616daf01108371fe00cb1",
+        "path": "image-880616daf01108371fe00cb1.png",
+        "mediaType": "image/png",
+        "size": 63428,
+        "sha256": "c851c86bc2a2cf4bdd5faf68be056bafe07977c54186d86f7fe77e49384f5b3d"
+      },
+      {
+        "assetId": "image-804e58528c44ed133dc9eed9",
+        "path": "image-804e58528c44ed133dc9eed9.png",
+        "mediaType": "image/png",
+        "size": 9484,
+        "sha256": "1e56b1bf9d4685168c2b6e2889e1ec815f7bbb47700d56d8fb7a6d700e4b2c87"
+      },
+      {
+        "assetId": "image-70055f606241240d1694c722",
+        "path": "image-70055f606241240d1694c722.png",
+        "mediaType": "image/png",
+        "size": 63428,
+        "sha256": "c851c86bc2a2cf4bdd5faf68be056bafe07977c54186d86f7fe77e49384f5b3d"
+      },
+      {
+        "assetId": "image-63f08f4972f95f0e88627b48",
+        "path": "image-63f08f4972f95f0e88627b48.png",
+        "mediaType": "image/png",
+        "size": 9484,
+        "sha256": "1e56b1bf9d4685168c2b6e2889e1ec815f7bbb47700d56d8fb7a6d700e4b2c87"
+      },
+      {
+        "assetId": "image-a48cc184cef980ae15b0b3b4",
+        "path": "image-a48cc184cef980ae15b0b3b4.png",
+        "mediaType": "image/png",
+        "size": 63428,
+        "sha256": "c851c86bc2a2cf4bdd5faf68be056bafe07977c54186d86f7fe77e49384f5b3d"
+      },
+      {
+        "assetId": "image-a34963017b92b6cd5e7272d6",
+        "path": "image-a34963017b92b6cd5e7272d6.png",
+        "mediaType": "image/png",
+        "size": 9484,
+        "sha256": "1e56b1bf9d4685168c2b6e2889e1ec815f7bbb47700d56d8fb7a6d700e4b2c87"
+      },
+      {
+        "assetId": "image-437b14218ef89ed0ffa9db11",
+        "path": "image-437b14218ef89ed0ffa9db11.png",
+        "mediaType": "image/png",
+        "size": 63428,
+        "sha256": "c851c86bc2a2cf4bdd5faf68be056bafe07977c54186d86f7fe77e49384f5b3d"
+      },
+      {
+        "assetId": "text",
+        "path": "content.txt",
+        "mediaType": "text/plain",
+        "size": 1096,
+        "sha256": "c14cd88be04e6a4810df247a14809497025da5953a6b81cfc2d42ef9b50d282b"
+      }
+    ]
+  },
+  "document": {
+    "contractVersion": 1,
+    "sourceSha256": "fcc62398a6b784fe53608eede3e224a358a0f32e9d12bf9bd1fc42589c0c9b4a",
+    "resultRevision": 1,
+    "parserVersion": "4.0.10",
+    "adapterVersion": "1",
+    "tier": "basic",
+    "totalPages": 5,
+    "requestedRange": [
+      1,
+      5
+    ],
+    "processedPages": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "blankPages": [
+      3
+    ],
+    "failedPages": [],
+    "complete": true,
+    "warnings": [
+      "OCR and formula recognition require checking the original page; geometry unavailable."
+    ],
+    "blocks": [
+      {
+        "blockId": "p1-b0",
+        "page": 1,
+        "type": "text",
+        "text": "数学解析合成测试(非私人文件)"
+      },
+      {
+        "blockId": "p1-b1",
+        "page": 1,
+        "type": "text",
+        "text": "函数 f(x) = x^{2} + 2x + 1"
+      },
+      {
+        "blockId": "p1-b2",
+        "page": 1,
+        "type": "text",
+        "text": "当x = 2时， f(x) = 9"
+      },
+      {
+        "blockId": "p1-b3",
+        "page": 1,
+        "type": "equation",
+        "text": "\\frac { x + 1 } { 2 }",
+        "latex": "\\frac { x + 1 } { 2 }",
+        "assetId": "image-a3c86f63fe1ba8f3fedfd217"
+      },
+      {
+        "blockId": "p1-b4.0",
+        "page": 1,
+        "type": "table_body",
+        "text": "项目\t数量\t结果\n样本A\t2\t9\n样本B\t3\t16",
+        "assetId": "image-880616daf01108371fe00cb1"
+      },
+      {
+        "blockId": "p2-b0",
+        "page": 2,
+        "type": "text",
+        "text": "数学解析合成测试(非私人文件)"
+      },
+      {
+        "blockId": "p2-b1",
+        "page": 2,
+        "type": "text",
+        "text": "函数 f(x) = x^{2} + 2x + 1"
+      },
+      {
+        "blockId": "p2-b2",
+        "page": 2,
+        "type": "text",
+        "text": "当x =2时， f(x) = 9"
+      },
+      {
+        "blockId": "p2-b3",
+        "page": 2,
+        "type": "equation",
+        "text": "\\frac { x + 1 } { 2 }",
+        "latex": "\\frac { x + 1 } { 2 }",
+        "assetId": "image-804e58528c44ed133dc9eed9"
+      },
+      {
+        "blockId": "p2-b4.0",
+        "page": 2,
+        "type": "table_body",
+        "text": "项目\t数量\t结果\n样本A\t2\t9\n样本B\t3\t16",
+        "assetId": "image-70055f606241240d1694c722"
+      },
+      {
+        "blockId": "p4-b0",
+        "page": 4,
+        "type": "text",
+        "text": "数学解析合成测试(非私人文件)"
+      },
+      {
+        "blockId": "p4-b1",
+        "page": 4,
+        "type": "text",
+        "text": "函数 f(x) = x^{2} + 2x + 1"
+      },
+      {
+        "blockId": "p4-b2",
+        "page": 4,
+        "type": "text",
+        "text": "当x = 2时， f(x) = 9"
+      },
+      {
+        "blockId": "p4-b3",
+        "page": 4,
+        "type": "equation",
+        "text": "\\frac { x + 1 } { 2 }",
+        "latex": "\\frac { x + 1 } { 2 }",
+        "assetId": "image-63f08f4972f95f0e88627b48"
+      },
+      {
+        "blockId": "p4-b4.0",
+        "page": 4,
+        "type": "table_body",
+        "text": "项目\t数量\t结果\n样本A\t2\t9\n样本B\t3\t16",
+        "assetId": "image-a48cc184cef980ae15b0b3b4"
+      },
+      {
+        "blockId": "p5-b0",
+        "page": 5,
+        "type": "text",
+        "text": "数学解析合成测试(非私人文件)"
+      },
+      {
+        "blockId": "p5-b1",
+        "page": 5,
+        "type": "text",
+        "text": "函数 f(x) = x^{2} + 2x + 1"
+      },
+      {
+        "blockId": "p5-b2",
+        "page": 5,
+        "type": "text",
+        "text": "当x =2时， f(x) = 9"
+      },
+      {
+        "blockId": "p5-b3",
+        "page": 5,
+        "type": "equation",
+        "text": "\\frac { x + 1 } { 2 }",
+        "latex": "\\frac { x + 1 } { 2 }",
+        "assetId": "image-a34963017b92b6cd5e7272d6"
+      },
+      {
+        "blockId": "p5-b4.0",
+        "page": 5,
+        "type": "table_body",
+        "text": "项目\t数量\t结果\n样本A\t2\t9\n样本B\t3\t16",
+        "assetId": "image-437b14218ef89ed0ffa9db11"
+      }
+    ]
+  },
+  "existingServices": [
+    "active",
+    "active"
+  ]
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "fixture": "math-scan.png",
+    "status": {
+      "taskId": "b2147046-875f-4ed5-9e9a-5aac9f2a7b7b",
+      "state": "SUCCEEDED",
+      "errorCode": null,
+      "resultRevision": 1,
+      "expiresAt": 1791789677.8706112,
+      "requestedRange": [
+        1,
+        1
+      ],
+      "operation": "parse"
+    },
+    "elapsedSeconds": 36.5
+  },
+  {
+    "fixture": "math-scan-five.pdf",
+    "status": {
+      "taskId": "0e35e4b9-4d44-48ee-915a-c18e98f22e58",
+      "state": "SUCCEEDED",
+      "errorCode": null,
+      "resultRevision": 1,
+      "expiresAt": 1791789720.3181903,
+      "requestedRange": [
+        1,
+        5
+      ],
+      "operation": "parse"
+    },
+    "elapsedSeconds": 39.7
+  }
+]

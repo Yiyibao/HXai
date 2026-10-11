@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.util.ErrorPrivacyTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-09T03:26:54.015Z" hostname="DESKTOP-QH4J0RS" time="0.011">
+  <properties/>
+  <testcase name="remoteErrorBodiesNeverBecomeExceptionMessages" classname="me.rerere.ai.util.ErrorPrivacyTest" time="0.002"/>
+  <testcase name="wrappedResponseBodyCanBeReadForSafeErrorClassification" classname="me.rerere.ai.util.ErrorPrivacyTest" time="0.006"/>
+  <testcase name="httpRejectionsRetainOnlyKnownReasonsAndStatus" classname="me.rerere.ai.util.ErrorPrivacyTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

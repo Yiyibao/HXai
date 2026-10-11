@@ -1,0 +1,109 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatNetworkFaultTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=5
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ChatNetworkFaultTest:
+INSTRUMENTATION_STATUS: test=unauthorizedAndRateLimitAreDurableFailuresWithoutAutomaticRetry
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatNetworkFaultTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=5
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=unauthorizedAndRateLimitAreDurableFailuresWithoutAutomaticRetry
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatNetworkFaultTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=5
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=staleApprovalCannotReplaceAnActiveGenerationJob
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatNetworkFaultTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=5
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=staleApprovalCannotReplaceAnActiveGenerationJob
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatNetworkFaultTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=5
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=chatCompletionsDistinguishesSilentEofCompletionAndEmptyHttpError
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatNetworkFaultTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=5
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=chatCompletionsDistinguishesSilentEofCompletionAndEmptyHttpError
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatNetworkFaultTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=5
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=badToolSchemaIsClassifiedWithoutRetryOrLeakingResponse
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatNetworkFaultTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=5
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=badToolSchemaIsClassifiedWithoutRetryOrLeakingResponse
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.StudyRealModelTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=5
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.StudyRealModelTest:
+INSTRUMENTATION_STATUS: test=realApprovalDecisionsAndBoundaries
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: review_stage=approval-deny-request
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.StudyRealModelTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=5
+INSTRUMENTATION_STATUS: stack=kotlinx.coroutines.TimeoutCancellationException: Timed out waiting for 120000 ms
+	at kotlinx.coroutines.TimeoutKt.TimeoutCancellationException(Timeout.kt:281)
+	at kotlinx.coroutines.TimeoutCoroutine.run(Timeout.kt:243)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedRunnableTask.run(EventLoop.common.kt:498)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.DefaultExecutor.run(DefaultExecutor.kt:105)
+	at java.lang.Thread.run(Thread.java:1012)
+
+INSTRUMENTATION_STATUS: stream=
+Error in realApprovalDecisionsAndBoundaries(me.rerere.rikkahub.service.StudyRealModelTest):
+kotlinx.coroutines.TimeoutCancellationException: Timed out waiting for 120000 ms
+	at kotlinx.coroutines.TimeoutKt.TimeoutCancellationException(Timeout.kt:281)
+	at kotlinx.coroutines.TimeoutCoroutine.run(Timeout.kt:243)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedRunnableTask.run(EventLoop.common.kt:498)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.DefaultExecutor.run(DefaultExecutor.kt:105)
+	at java.lang.Thread.run(Thread.java:1012)
+
+INSTRUMENTATION_STATUS: test=realApprovalDecisionsAndBoundaries
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 148.126
+There was 1 failure:
+1) realApprovalDecisionsAndBoundaries(me.rerere.rikkahub.service.StudyRealModelTest)
+kotlinx.coroutines.TimeoutCancellationException: Timed out waiting for 120000 ms
+	at kotlinx.coroutines.TimeoutKt.TimeoutCancellationException(Timeout.kt:281)
+	at kotlinx.coroutines.TimeoutCoroutine.run(Timeout.kt:243)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedRunnableTask.run(EventLoop.common.kt:498)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.DefaultExecutor.run(DefaultExecutor.kt:105)
+	at java.lang.Thread.run(Thread.java:1012)
+
+FAILURES!!!
+Tests run: 5,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "D:\Office\Study\code\MathStudyAgent\qa\coverage-completion-20261008-192645\check-exact-delivery.py", line 19, in <module>
+    text = receipt_file.read_text()
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 546, in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py", line 633, in read_text
+    return f.read()
+           ~~~~~~^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xad in position 417: illegal multibyte sequence

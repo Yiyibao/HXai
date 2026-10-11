@@ -1,0 +1,43 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DeliveryUiClosureTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.DeliveryUiClosureTest:
+INSTRUMENTATION_STATUS: test=pickerCancelAndProfileChangeDoNotDeliverOldSource
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource","runId":"50bf4d4a-da2e-4cd5-9f61-a6399bbefb6c","startedAt":1791466564725,"finishedAt":1791466585807,"status":"FAILED","entries":[{"name":"qa-evidence\/DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource\/50bf4d4a-da2e-4cd5-9f61-a6399bbefb6c\/assertions.txt","sha256":"b3bbbf256cd2023d46605f3a9da3866f1729e15db04538f94d1aafe7419f22fe","bytes":49,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DeliveryUiClosureTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 15000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:990)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:504)
+	at me.rerere.rikkahub.service.DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource(DeliveryUiClosureTest.kt:52)
+
+INSTRUMENTATION_STATUS: stream=
+Error in pickerCancelAndProfileChangeDoNotDeliverOldSource(me.rerere.rikkahub.service.DeliveryUiClosureTest):
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 15000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:990)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:504)
+	at me.rerere.rikkahub.service.DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource(DeliveryUiClosureTest.kt:52)
+
+INSTRUMENTATION_STATUS: test=pickerCancelAndProfileChangeDoNotDeliverOldSource
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 24.911
+There was 1 failure:
+1) pickerCancelAndProfileChangeDoNotDeliverOldSource(me.rerere.rikkahub.service.DeliveryUiClosureTest)
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 15000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:990)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:504)
+	at me.rerere.rikkahub.service.DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource(DeliveryUiClosureTest.kt:52)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

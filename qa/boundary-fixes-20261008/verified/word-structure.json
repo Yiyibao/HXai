@@ -1,0 +1,22 @@
+{
+  "fractions": [
+    {
+      "numerator": "x+1",
+      "denominator": "2"
+    }
+  ],
+  "powers": [
+    {
+      "base": "y",
+      "exponent": "3"
+    }
+  ],
+  "tables": 1,
+  "output_images": [
+    "9332a1b6a53078dca8d1029fc8040b12373f02c4b1c9e5300c952d6ad45922cd"
+  ],
+  "source_images": [
+    "9332a1b6a53078dca8d1029fc8040b12373f02c4b1c9e5300c952d6ad45922cd"
+  ],
+  "original_image_bytes_preserved": true
+}

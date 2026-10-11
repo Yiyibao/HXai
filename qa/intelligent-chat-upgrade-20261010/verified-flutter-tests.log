@@ -1,0 +1,220 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart
+00:00 +0: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Cold bootstrap settles empty chat and refresh preserves explicit selection
+00:00 +1: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:00 +2: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart: Startup waits for a nondefault profile before bridge commands
+00:01 +3: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_image_test.dart: AI Markdown mixes decoded image and surrounding prose, opens fullscreen
+00:01 +4: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_image_test.dart: AI Markdown mixes decoded image and surrounding prose, opens fullscreen
+00:01 +5: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_image_test.dart: AI Markdown mixes decoded image and surrounding prose, opens fullscreen
+00:01 +6: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_image_test.dart: AI Markdown mixes decoded image and surrounding prose, opens fullscreen
+00:02 +7: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:02 +8: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:02 +9: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:02 +10: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:02 +11: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:02 +12: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:02 +13: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:02 +14: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:02 +15: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:02 +16: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:02 +17: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:02 +18: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:02 +19: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:02 +20: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:02 +21: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:03 +22: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:03 +23: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:03 +24: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:03 +25: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:03 +26: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:03 +27: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:03 +28: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:04 +29: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/interactive_surface_test.dart: Budget slider recalculates locally and only button submits action
+00:04 +30: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/interactive_surface_test.dart: Budget slider recalculates locally and only button submits action
+00:04 +31: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_markdown_32_test.dart: Math & Markdown 32 Acceptance Test Cases (C05) Case 1 renders without exception and preserves content
+00:04 +32: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_plot_test.dart: implicit background computation uses latest parameters
+00:04 +33: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_plot_test.dart: implicit background computation uses latest parameters
+00:04 +34: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_plot_test.dart: implicit background computation uses latest parameters
+00:04 +35: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_plot_test.dart: implicit background computation uses latest parameters
+00:04 +36: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_plot_test.dart: implicit background computation uses latest parameters
+00:04 +37: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_plot_test.dart: implicit background computation uses latest parameters
+00:04 +38: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_plot_test.dart: implicit background computation uses latest parameters
+00:04 +39: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_plot_test.dart: implicit background computation uses latest parameters
+00:04 +40: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_plot_test.dart: implicit background computation uses latest parameters
+00:04 +41: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/math_plot_test.dart: implicit background computation uses latest parameters
+00:04 +42: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:04 +43: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:04 +44: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:04 +45: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:04 +46: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:04 +47: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:04 +48: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:04 +49: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:04 +50: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:04 +51: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +52: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +53: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +54: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +55: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +56: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +57: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +58: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +59: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +60: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +61: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +62: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +63: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +64: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +65: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +66: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +67: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +68: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +69: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +70: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +71: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +72: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +73: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:05 +74: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:05 +75: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:05 +76: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:06 +77: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:06 +78: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:06 +79: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:06 +80: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:06 +81: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:06 +82: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:06 +83: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:06 +84: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:06 +85: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:06 +86: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:06 +87: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:06 +88: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:06 +89: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:06 +90: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:06 +91: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:06 +92: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:06 +93: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:06 +94: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:07 +95: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:07 +96: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:07 +97: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:07 +98: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:07 +99: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:07 +100: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:07 +101: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:07 +102: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:07 +103: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:07 +104: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:07 +105: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:07 +106: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:07 +107: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:07 +108: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:07 +109: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:07 +110: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:08 +111: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:08 +112: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:08 +113: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:08 +114: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:08 +115: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:08 +116: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:08 +117: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:08 +118: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:08 +119: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:08 +120: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:08 +121: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:08 +122: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:08 +123: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:08 +124: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:08 +125: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:08 +126: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:08 +127: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:08 +128: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:08 +129: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:08 +130: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:08 +131: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:08 +132: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:09 +133: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:09 +134: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:09 +135: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/re_review_regression_test.dart: Same profile epoch change clears draft and attachment
+00:09 +136: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:09 +137: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:09 +138: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:09 +139: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:10 +140: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:10 +141: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:10 +142: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:10 +143: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:10 +144: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:10 +145: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:10 +146: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:10 +147: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:10 +148: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:10 +149: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:10 +150: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:10 +151: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:10 +152: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:10 +153: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:10 +154: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:11 +155: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:11 +156: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:11 +157: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:11 +158: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:11 +159: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:11 +160: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:11 +161: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:11 +162: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:11 +163: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:11 +164: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:11 +165: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:11 +166: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:11 +167: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:11 +168: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:11 +169: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:11 +170: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:11 +171: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:11 +172: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:11 +173: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:11 +174: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:11 +175: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:11 +176: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:11 +177: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:12 +178: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:12 +179: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:12 +180: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:12 +181: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:12 +182: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:12 +183: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:12 +184: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:12 +185: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:12 +186: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:12 +187: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:12 +188: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:12 +189: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:12 +190: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:12 +191: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:12 +192: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:13 +193: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:13 +194: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:13 +195: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:13 +196: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:13 +197: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:13 +198: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:13 +199: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:13 +200: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:13 +201: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:13 +202: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:13 +203: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:14 +204: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:14 +205: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:14 +206: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:14 +207: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:14 +208: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+00:14 +209: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: search: dark large narrow layout is usable
+00:14 +210: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: chart-entry: dark large narrow layout is usable
+00:14 +211: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: table-entry: dark large narrow layout is usable
+00:14 +212: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: parameters-entry: dark large narrow layout is usable
+00:14 +213: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: attachment-sheet: dark large narrow layout is usable
+00:14 +214: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: sources-sheet: dark large narrow layout is usable
+00:14 +215: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: Follow-up keeps draft when conversation changes during preparation
+00:14 +216: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: Source links and empty citations cannot manufacture references
+00:14 +217: D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/neutral_frontend_layout_test.dart: Appearance preferences survive a provider recreation
+00:14 +218: All tests passed!

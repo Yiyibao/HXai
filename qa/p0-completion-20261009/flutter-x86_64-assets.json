@@ -1,0 +1,29 @@
+{
+  "apk": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\build\\outputs\\apk\\debug\\app-x86_64-debug.apk",
+  "apk_sha256": "64dfc9fb29087885da96decbf5e109d7f2a142d7525aba1e91326389bbe49e18",
+  "aar_sha256": "9c16d9ff2a0bcad21e2d8169ddfca6b1f4939de7a1abf932b73a2f9b16dc5d5e",
+  "native_abis": [
+    "x86_64"
+  ],
+  "assets_checked": 32,
+  "mismatches": [],
+  "sources": {
+    "client\\flutter_ui\\lib\\bridge\\bridge_client.dart": "70bfa7a09add2252cdcefb125da69e38b1ffc86f3a2a587a971549a536d85069",
+    "client\\flutter_ui\\lib\\bridge\\study_host_api.g.dart": "577eb47ed28e748da4dc04df10f0f58a261b49ce17962064056881bd3ef237ed",
+    "client\\flutter_ui\\lib\\main.dart": "5cd7413fcf8d3dad0b59408fc68c54a76985ea4c1fd9e654501c370967d1313d",
+    "client\\flutter_ui\\lib\\pages\\artifacts_page.dart": "e60aa09f142c6ba56124a13863793978fb69c145307706a290e3c7761c8ca5b4",
+    "client\\flutter_ui\\lib\\pages\\chat_page.dart": "d50b7137d0f211248c2ce810382d5ec5f9cb8ada9dd7f7c50578108bb492a675",
+    "client\\flutter_ui\\lib\\pages\\conversation_drawer.dart": "4bbf5346206e6b0148fc22ae1890f674d0942750e8fb57b6b25ff5a2a3b76e18",
+    "client\\flutter_ui\\lib\\pages\\materials_page.dart": "ad7f954ee1bc24054fad45d1775810cf099fefde2af38d5775c3a826ecdf9aa4",
+    "client\\flutter_ui\\lib\\pages\\memories_page.dart": "66a1e6c5ebb18392ed43db1e6ba52305820a872a5907a57c55b15a13a2eb14ef",
+    "client\\flutter_ui\\lib\\pages\\model_picker_sheet.dart": "b9691242910ab62d4370e09053c11d723ab0b3f026bc6deda813b9959454abca",
+    "client\\flutter_ui\\lib\\pages\\settings_page.dart": "15998206a7c73e2d3143b36690e08dbb563648ba7a6dff179a2e7b244986bf56",
+    "client\\flutter_ui\\lib\\pages\\skills_page.dart": "c6d8a314a7fa347e4a2bb2f7671d85d0d71440982bc72f6b03f6bea2c105d650",
+    "client\\flutter_ui\\lib\\providers\\study_providers.dart": "c3d50feb8eda6b09b0795383e28c5b36c6f56f0773042e6bd01fc2c4dbd9ac39",
+    "client\\flutter_ui\\lib\\router.dart": "843c5bfa6db0d4342e3ace3ef4b082358fcd6665cbaf095e3ffa8046aa3ea48e",
+    "client\\flutter_ui\\lib\\theme\\study_theme.dart": "db1b392b85949a773e9387927ebacc7b2d36f3407a502478cdb7b17c61b52574",
+    "client\\flutter_ui\\lib\\widgets\\interactive_surface.dart": "6ff35371abe26fd3e8133a87a16a0fd0e421cade4c51d0a1b36cb8804e8cc81d",
+    "client\\flutter_ui\\lib\\widgets\\mascot.dart": "458c4fcf5a653744ca790cf7c0ede6663408364cb8a79d59699298d99ecc15e4",
+    "client\\flutter_ui\\lib\\widgets\\math_markdown.dart": "cc9ae67497bdaf8a68f229b799691a552d3bcd2f110dd3c2410935e79bf212b9"
+  }
+}

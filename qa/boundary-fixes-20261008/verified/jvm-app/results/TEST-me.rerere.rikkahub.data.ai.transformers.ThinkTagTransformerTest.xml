@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.ai.transformers.ThinkTagTransformerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-08T05:12:28.902Z" hostname="DESKTOP-QH4J0RS" time="0.014">
+  <properties/>
+  <testcase name="think tag in visible answer should be preserved" classname="me.rerere.rikkahub.data.ai.transformers.ThinkTagTransformerTest" time="0.005"/>
+  <testcase name="later think tags should remain visible" classname="me.rerere.rikkahub.data.ai.transformers.ThinkTagTransformerTest" time="0.006"/>
+  <testcase name="generation finish should close reasoning created by visual transform" classname="me.rerere.rikkahub.data.ai.transformers.ThinkTagTransformerTest" time="0.0"/>
+  <testcase name="think tag in a later text part should be preserved" classname="me.rerere.rikkahub.data.ai.transformers.ThinkTagTransformerTest" time="0.001"/>
+  <testcase name="unclosed prefix tag should remain unfinished while streaming" classname="me.rerere.rikkahub.data.ai.transformers.ThinkTagTransformerTest" time="0.0"/>
+  <testcase name="native reasoning should prevent fallback tag parsing" classname="me.rerere.rikkahub.data.ai.transformers.ThinkTagTransformerTest" time="0.0"/>
+  <testcase name="think tag at start should be converted to reasoning" classname="me.rerere.rikkahub.data.ai.transformers.ThinkTagTransformerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

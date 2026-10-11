@@ -55,6 +55,9 @@ const val WEB_SERVER_NOTIFICATION_CHANNEL_ID = "web_server"
 class RikkaHubApp : Application() {
     override fun onCreate() {
         super.onCreate()
+        me.rerere.rikkahub.feature.studychat.OneShotFeedback.install(this)
+        me.rerere.rikkahub.feature.diagnostics.Diagnostics.install(this)
+        CrashHandler.install(this)
         // Restore files and settings before eager Koin singletons or workers can access them.
         try {
             val restored = runBlocking(Dispatchers.IO) {
@@ -64,22 +67,26 @@ class RikkaHubApp : Application() {
                 Toast.makeText(this, R.string.backup_page_restore_success, Toast.LENGTH_LONG).show()
             }
         } catch (e: RestoreFailedException) {
+            me.rerere.rikkahub.feature.diagnostics.Diagnostics.record(
+                me.rerere.rikkahub.feature.diagnostics.Diagnostics.Stage.RESTORE,
+                me.rerere.rikkahub.feature.diagnostics.Diagnostics.Result.FAILED)
             Log.e(TAG, "Backup restore rolled back", e)
             Toast.makeText(this, "备份恢复失败，已保留原数据。请重新导入备份。", Toast.LENGTH_LONG).show()
         }
+        BackupManager.cleanupInterruptedWork(this)
         startKoin {
             androidLogger()
             androidContext(this@RikkaHubApp)
             workManagerFactory()
             modules(appModule, viewModelModule, dataSourceModule, repositoryModule)
         }
+        get<me.rerere.rikkahub.feature.memory.MemoryExtractionRunner>().start()
+        me.rerere.rikkahub.feature.memory.MemoryMaintenanceWorker.schedule(this)
+        me.rerere.rikkahub.feature.material.DocumentSyncWorker.schedule(this)
         this.createNotificationChannel()
 
         // set cursor window size to 32MB
         DatabaseUtil.setCursorWindowSize(32 * 1024 * 1024)
-
-        // install crash handler
-        CrashHandler.install(this)
 
         // delete temp files
         deleteTempFiles()
@@ -104,6 +111,9 @@ class RikkaHubApp : Application() {
 
         // Increment launch count
         incrementLaunchCount()
+        me.rerere.rikkahub.feature.diagnostics.Diagnostics.record(
+            me.rerere.rikkahub.feature.diagnostics.Diagnostics.Stage.STARTUP,
+            me.rerere.rikkahub.feature.diagnostics.Diagnostics.Result.COMPLETED)
 
         // Composer.setDiagnosticStackTraceMode(ComposeStackTraceMode.Auto)
     }
@@ -256,6 +266,6 @@ class AppScope : CoroutineScope by CoroutineScope(
         + Dispatchers.Main
         + CoroutineName("AppScope")
         + CoroutineExceptionHandler { _, e ->
-        Log.e(TAG, "AppScope exception", e)
+        Log.e(TAG, "AppScope operation failed (${e.javaClass.simpleName})")
     }
 )

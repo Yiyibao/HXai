@@ -1,0 +1,203 @@
+--------- beginning of main
+10-10 11:05:26.803   740   787 D SplashScreenView: Build android.window.SplashScreenView{a64b150 V.E...... ......ID 0,0-0,0}
+10-10 11:05:26.803   740   787 D SplashScreenView: Icon: view: null drawable: null size: 0
+10-10 11:05:26.803   740   787 D SplashScreenView: Branding: view: android.view.View{ec60f49 G.ED..... ......I. 0,0-0,0 #10204ef android:id/splashscreen_branding_view} drawable: null size w: 0 h: 0
+--------- beginning of system
+10-10 11:05:26.807   532  1331 I ActivityTaskManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=org.hxsi.agent.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity} with LAUNCH_MULTIPLE from uid 10146 (BAL_ALLOW_VISIBLE_WINDOW) result code=0
+10-10 11:05:26.808   740   766 V WindowManagerShell: Transition requested: android.os.BinderProxy@e72f04e TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=982 displayId=0 isRunning=true baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=org.hxsi.agent.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity } baseActivity=ComponentInfo{org.hxsi.agent.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity} topActivity=ComponentInfo{org.hxsi.agent.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity} origActivity=null realActivity=ComponentInfo{org.hxsi.agent.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity} numActivities=1 lastActiveTime=3138806 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@67c456f} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{2eb927c androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
+10-10 11:05:26.811  3096  3096 D FirebaseSessions: App backgrounded on org.hxsi.agent.debug
+10-10 11:05:26.824   532  1314 D CoreBackPreview: Window{477b9a0 u0 Splash Screen org.hxsi.agent.debug.test}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@f1be5ff, mPriority=0, mIsAnimationCallback=false}
+10-10 11:05:26.828  3096  3096 D LifecycleMonitor: Lifecycle status change: me.rerere.rikkahub.flutter.StudyFlutterActivity@a774796 in: PAUSED
+10-10 11:05:26.829  3096  3096 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=me.rerere.rikkahub.flutter.StudyFlutterActivity@a774796
+10-10 11:05:26.831   411   411 I BpBinder: onLastStrongRef automatically unlinking death recipients: 
+10-10 11:05:26.835   532  1314 D ActivityManager: quick sync unfreeze 3215 for 1
+10-10 11:05:26.874  3096  3124 W FA      : Failed to retrieve Firebase Instance Id
+10-10 11:05:26.894   532   560 D ActivityManager: sync unfroze 3215 org.hxsi.agent.debug.test for 1
+10-10 11:05:26.910  3096  3285 D EGL_emulation: app_time_stats: avg=184.42ms min=28.44ms max=701.24ms count=7
+10-10 11:05:26.964   532   557 V WindowManager: Sent Transition #10 createdAt=10-10 11:05:26.792 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=982 displayId=0 isRunning=true baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=org.hxsi.agent.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity } baseActivity=ComponentInfo{org.hxsi.agent.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity} topActivity=ComponentInfo{org.hxsi.agent.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity} origActivity=null realActivity=ComponentInfo{org.hxsi.agent.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity} numActivities=1 lastActiveTime=3138806 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{452e31b Task{bb4745d #982 type=standard A=10147:org.hxsi.agent.debug.test}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{a5f1cb8 androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
+10-10 11:05:26.964   532   557 V WindowManager:     startWCT=WindowContainerTransaction { changes = {} hops = [] errorCallbackToken=null taskFragmentOrganizer=null }
+10-10 11:05:26.964   532   557 V WindowManager:     info={id=10 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{RemoteToken{452e31b Task{bb4745d #982 type=standard A=10147:org.hxsi.agent.debug.test}}} m=OPEN f=NONE leash=Surface(name=Task=982)/@0x806d215 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0},{WCT{RemoteToken{1b4b7f8 Task{d9cfae3 #981 type=standard A=10146:org.hxsi.agent.debug}}} m=TO_BACK f=NONE leash=Surface(name=Task=981)/@0xa14e26a sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}]}
+10-10 11:05:26.965   740   766 V WindowManagerShell: onTransitionReady android.os.BinderProxy@e72f04e: {id=10 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{android.window.IWindowContainerToken$Stub$Proxy@d345cb9} m=OPEN f=NONE leash=Surface(name=Task=982)/@0xa4563b2 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0},{WCT{android.window.IWindowContainerToken$Stub$Proxy@3a208fe} m=TO_BACK f=NONE leash=Surface(name=Task=981)/@0x197df03 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}]}
+10-10 11:05:26.966   740   766 V WindowManagerShell: Playing animation for (#10)android.os.BinderProxy@e72f04e@0
+10-10 11:05:26.966   740   766 V WindowManagerShell:  try handler com.android.wm.shell.transition.DefaultMixedHandler@6584722
+10-10 11:05:26.966   740   766 V WindowManagerShell:  try handler com.android.wm.shell.keyguard.KeyguardTransitionHandler@f8ed5b3
+10-10 11:05:26.966   740   766 V WindowManagerShell:  try handler com.android.wm.shell.activityembedding.ActivityEmbeddingController@5fb770
+10-10 11:05:26.966   740   766 V WindowManagerShell:  try handler com.android.wm.shell.recents.RecentsTransitionHandler@3456ae9
+10-10 11:05:26.966   740   766 V ShellRecents: RecentsTransitionHandler.startAnimation: no controller found
+10-10 11:05:26.967   740   766 V WindowManagerShell:  try handler com.android.wm.shell.pip.PipTransition@457b36e
+10-10 11:05:26.967   740   766 V WindowManagerShell:  try handler com.android.wm.shell.splitscreen.StageCoordinator@7171a0f
+10-10 11:05:26.967   740   766 V WindowManagerShell:  try handler com.android.wm.shell.transition.RemoteTransitionHandler@560da9c
+10-10 11:05:26.967   740   766 V WindowManagerShell: Transition doesn't have explicit remote, search filters for match for {id=10 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{android.window.IWindowContainerToken$Stub$Proxy@d345cb9} m=OPEN f=NONE leash=Surface(name=Task=982)/@0xa4563b2 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0},{WCT{android.window.IWindowContainerToken$Stub$Proxy@3a208fe} m=TO_BACK f=NONE leash=Surface(name=Task=981)/@0x197df03 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}]}
+10-10 11:05:26.967   740   766 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x100 checks=[{atype=home independent=true modes=[OPEN,TO_FRONT] flags=NONE mustBeTask=false order=TOP topActivity=ComponentInfo{com.android.launcher3/com.android.launcher3.uioverrides.QuickstepLauncher}},{atype=standard independent=true modes=[CLOSE,TO_BACK] flags=NONE mustBeTask=false order=ANY topActivity=null}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@5ef0488, appThread = android.app.IApplicationThread$Stub$Proxy@3568e21, debugName = QuickstepLaunchHome }}
+10-10 11:05:26.967   740   766 V WindowManagerShell:  Delegate animation for #10 to null
+10-10 11:05:26.967   740   766 V WindowManagerShell:  try handler com.android.wm.shell.transition.DefaultTransitionHandler@9aec246
+10-10 11:05:26.972   740   766 V WindowManagerShell: start default transition animation, info = {id=10 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{android.window.IWindowContainerToken$Stub$Proxy@d345cb9} m=OPEN f=NONE leash=Surface(name=Task=982)/@0xa4563b2 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0},{WCT{android.window.IWindowContainerToken$Stub$Proxy@3a208fe} m=TO_BACK f=NONE leash=Surface(name=Task=981)/@0x197df03 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}]}
+10-10 11:05:26.975   740   766 V WindowManagerShell: loadAnimation: anim=android.view.animation.AnimationSet@b350b75 animAttr=0x9 type=OPEN isEntrance=false
+10-10 11:05:26.977   740   766 V WindowManagerShell: loadAnimation: anim=android.view.animation.AnimationSet@f8c2b7b animAttr=0x8 type=OPEN isEntrance=true
+10-10 11:05:26.999   740   766 V WindowManagerShell:  animated by com.android.wm.shell.transition.DefaultTransitionHandler@9aec246
+10-10 11:05:27.000   740   766 W Looper  : Slow dispatch took 34ms wmshell.main h=android.os.Handler c=com.android.wm.shell.transition.Transitions$TransitionPlayerImpl$$ExternalSyntheticLambda0@7280457 m=0
+10-10 11:05:27.124  3215  3224 I gent.debug.test: Background concurrent copying GC freed 3782(397KB) AllocSpace objects, 0(0B) LOS objects, 49% free, 2195KB/4390KB, paused 562us,145us total 225.432ms
+10-10 11:05:27.131   532  1331 D CoreBackPreview: Window{1849382 u0 org.hxsi.agent.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@c8deac9, mPriority=0, mIsAnimationCallback=false}
+10-10 11:05:27.147   740   750 I ndroid.systemui: NativeAlloc concurrent copying GC freed 155948(8098KB) AllocSpace objects, 0(0B) LOS objects, 49% free, 10MB/20MB, paused 2.799ms,157us total 173.430ms
+10-10 11:05:27.181  3215  3234 W OpenGLRenderer: Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-10 11:05:27.211   532   559 I DropBoxManagerService: add tag=system_app_strictmode isTagEnabled=true flags=0x2
+10-10 11:05:27.444   532   557 W ziparchive: Unable to open '/data/app/~~XsqpzKE1WCo0y3UkyYgOdg==/org.hxsi.agent.debug.test-BnXAiWxpV2Z_YHkMq4UZ5g==/base.dm': No such file or directory
+10-10 11:05:27.446   532   557 I ActivityTaskManager: Displayed org.hxsi.agent.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity for user 0: +651ms
+10-10 11:05:27.455   740   766 V WindowManagerShell: Transition requested: android.os.BinderProxy@2c9e188 TransitionRequestInfo { type = CLOSE, triggerTask = TaskInfo{userId=0 taskId=982 displayId=0 isRunning=false baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=org.hxsi.agent.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity } baseActivity=null topActivity=null origActivity=null realActivity=ComponentInfo{org.hxsi.agent.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity} numActivities=0 lastActiveTime=3138834 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@9dca721} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=null launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=true isVisibleRequested=true isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
+10-10 11:05:27.524   740   766 V WindowManagerShell: Transition animation finished (aborted=false), notifying core (#10)android.os.BinderProxy@e72f04e@0
+10-10 11:05:27.527   532   557 V WindowManager: Finish Transition #10: created at 10-10 11:05:26.792 collect-started=0.063ms request-sent=14.757ms started=16.975ms ready=75.24ms sent=168.285ms finished=734.421ms
+10-10 11:05:27.536   740   766 V WindowManagerShell: Track 0 became idle
+10-10 11:05:27.623   532   557 V WindowManager: Sent Transition #11 createdAt=10-10 11:05:27.453 via request=TransitionRequestInfo { type = CLOSE, triggerTask = TaskInfo{userId=0 taskId=982 displayId=0 isRunning=false baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=org.hxsi.agent.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity } baseActivity=null topActivity=null origActivity=null realActivity=ComponentInfo{org.hxsi.agent.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity} numActivities=0 lastActiveTime=3138834 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{452e31b Task{bb4745d #982 type=standard A=10147:org.hxsi.agent.debug.test}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=null launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=true isVisibleRequested=true isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
+10-10 11:05:27.623   532   557 V WindowManager:     startWCT=WindowContainerTransaction { changes = {} hops = [] errorCallbackToken=null taskFragmentOrganizer=null }
+10-10 11:05:27.624   532   557 V WindowManager:     info={id=11 t=CLOSE f=0x0 trk=1 r=[0@Point(0, 0)] c=[{WCT{RemoteToken{fb4b8b1 Task{19f236a #1 type=home}}} m=TO_FRONT f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0x34741db sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0},{WCT{RemoteToken{452e31b Task{bb4745d #982 type=standard A=10147:org.hxsi.agent.debug.test}}} m=CLOSE f=NONE leash=Surface(name=Task=982)/@0x806d215 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{f106a63 token=android.os.Binder@b258092})/@0x950e2d5 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}]}
+10-10 11:05:27.637   740   766 V WindowManagerShell: onTransitionReady android.os.BinderProxy@2c9e188: {id=11 t=CLOSE f=0x0 trk=1 r=[0@Point(0, 0)] c=[{WCT{android.window.IWindowContainerToken$Stub$Proxy@ab26fcc} m=TO_FRONT f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0xf0159a0 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0},{WCT{android.window.IWindowContainerToken$Stub$Proxy@fd1f215} m=CLOSE f=NONE leash=Surface(name=Task=982)/@0xea21959 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{f106a63 token=android.os.Binder@b258092})/@0x294191e sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}]}
+10-10 11:05:27.639   740   766 V WindowManagerShell: Playing animation for (#11)android.os.BinderProxy@2c9e188@1
+10-10 11:05:27.649   740   766 V WindowManagerShell:  try handler com.android.wm.shell.transition.DefaultMixedHandler@6584722
+10-10 11:05:27.651   740   766 V WindowManagerShell:  try handler com.android.wm.shell.keyguard.KeyguardTransitionHandler@f8ed5b3
+10-10 11:05:27.653  3096  3096 D LifecycleMonitor: Lifecycle status change: me.rerere.rikkahub.flutter.StudyFlutterActivity@a774796 in: STOPPED
+10-10 11:05:27.654  3096  3096 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=me.rerere.rikkahub.flutter.StudyFlutterActivity@a774796
+10-10 11:05:27.655   740   766 V WindowManagerShell:  try handler com.android.wm.shell.activityembedding.ActivityEmbeddingController@5fb770
+10-10 11:05:27.664   740   766 V WindowManagerShell:  try handler com.android.wm.shell.recents.RecentsTransitionHandler@3456ae9
+10-10 11:05:27.665   740   766 V ShellRecents: RecentsTransitionHandler.startAnimation: no controller found
+10-10 11:05:27.666   740   766 V WindowManagerShell:  try handler com.android.wm.shell.pip.PipTransition@457b36e
+10-10 11:05:27.667   740   766 V WindowManagerShell:  try handler com.android.wm.shell.splitscreen.StageCoordinator@7171a0f
+10-10 11:05:27.667   740   766 V WindowManagerShell:  try handler com.android.wm.shell.transition.RemoteTransitionHandler@560da9c
+10-10 11:05:27.668   740   766 V WindowManagerShell: Transition doesn't have explicit remote, search filters for match for {id=11 t=CLOSE f=0x0 trk=1 r=[0@Point(0, 0)] c=[{WCT{android.window.IWindowContainerToken$Stub$Proxy@ab26fcc} m=TO_FRONT f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0xf0159a0 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0},{WCT{android.window.IWindowContainerToken$Stub$Proxy@fd1f215} m=CLOSE f=NONE leash=Surface(name=Task=982)/@0xea21959 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{f106a63 token=android.os.Binder@b258092})/@0x294191e sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}]}
+10-10 11:05:27.668   740   766 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x100 checks=[{atype=home independent=true modes=[OPEN,TO_FRONT] flags=NONE mustBeTask=false order=TOP topActivity=ComponentInfo{com.android.launcher3/com.android.launcher3.uioverrides.QuickstepLauncher}},{atype=standard independent=true modes=[CLOSE,TO_BACK] flags=NONE mustBeTask=false order=ANY topActivity=null}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@5ef0488, appThread = android.app.IApplicationThread$Stub$Proxy@3568e21, debugName = QuickstepLaunchHome }}
+10-10 11:05:27.669   740   766 D RemoteTransitionHandler: Found filterPair{{types=[] flags=0x0] notFlags=0x100 checks=[{atype=home independent=true modes=[OPEN,TO_FRONT] flags=NONE mustBeTask=false order=TOP topActivity=ComponentInfo{com.android.launcher3/com.android.launcher3.uioverrides.QuickstepLauncher}},{atype=standard independent=true modes=[CLOSE,TO_BACK] flags=NONE mustBeTask=false order=ANY topActivity=null}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@5ef0488, appThread = android.app.IApplicationThread$Stub$Proxy@3568e21, debugName = QuickstepLaunchHome }}
+10-10 11:05:27.670   740   766 V WindowManagerShell:  Delegate animation for #11 to RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@5ef0488, appThread = android.app.IApplicationThread$Stub$Proxy@3568e21, debugName = QuickstepLaunchHome }
+10-10 11:05:27.677  3096  3096 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.app.Activity$$ExternalSyntheticLambda0@cf8a4ff
+10-10 11:05:27.679   740   766 V WindowManagerShell:  animated by com.android.wm.shell.transition.RemoteTransitionHandler@560da9c
+10-10 11:05:27.679   740   766 W Looper  : Slow dispatch took 43ms wmshell.main h=android.os.Handler c=com.android.wm.shell.transition.Transitions$TransitionPlayerImpl$$ExternalSyntheticLambda0@cec9a91 m=0
+10-10 11:05:27.682   532  1675 D CoreBackPreview: Window{1d9594b u0 org.hxsi.agent.debug/me.rerere.rikkahub.flutter.StudyFlutterActivity}: Setting back callback null
+10-10 11:05:27.687   740   795 D EGL_emulation: app_time_stats: avg=806.46ms min=12.66ms max=7128.91ms count=9
+10-10 11:05:27.689   740   766 W Looper  : Slow delivery took 41ms wmshell.main h=android.os.Handler c=null m=2
+10-10 11:05:27.714   740   795 D EGL_emulation: app_time_stats: avg=809.78ms min=12.76ms max=7157.59ms count=9
+10-10 11:05:27.739   532  1675 I ImeTracker: com.android.launcher3:4b717e4a: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-10 11:05:27.740   532  1675 I ImeTracker: com.android.launcher3:4b717e4a: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-10 11:05:27.791   532  2811 W BatteryExternalStatsWorker: error reading Bluetooth stats: 11
+10-10 11:05:27.792   740   766 W Looper  : Drained
+10-10 11:05:27.801   740   786 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@db1c98b
+10-10 11:05:27.803   532  2811 D CoreBackPreview: Window{477b9a0 u0 Splash Screen org.hxsi.agent.debug.test EXITING}: Setting back callback null
+10-10 11:05:27.804   532  1675 W InputManager-JNI: Input channel object '477b9a0 Splash Screen org.hxsi.agent.debug.test (client)' was disposed without first being removed with the input manager!
+10-10 11:05:27.852   740   786 W FrameTracker: Missed App frame:UNKNOWN: 24, 12851, 41676294, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.853   740   786 W FrameTracker: Missed SF frame:UNKNOWN: 24, 12851, 41676294, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.854   740   786 W FrameTracker: Missed App frame:UNKNOWN: 88, 12873, 0, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.854   740   786 W FrameTracker: Missed SF frame:UNKNOWN: 88, 12873, 0, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.855   740   786 W FrameTracker: Missing HWUI jank callback for vsyncId: 12873, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.855   740   786 W FrameTracker: Missed App frame:UNKNOWN: 72, 12888, 0, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.856   740   786 W FrameTracker: Missing HWUI jank callback for vsyncId: 12888, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.857   740   786 W FrameTracker: Missed SF frame:UNKNOWN: 80, 12917, 0, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.857   740   786 W FrameTracker: Missing HWUI jank callback for vsyncId: 12917, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.857   740   786 W FrameTracker: Missed App frame:UNKNOWN: 88, 12954, 57603764, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.858   740   786 W FrameTracker: Missed SF frame:UNKNOWN: 88, 12954, 57603764, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.859   740   786 W FrameTracker: Missed App frame:UNKNOWN: 88, 12969, 0, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.859   740   786 W FrameTracker: Missed SF frame:UNKNOWN: 88, 12969, 0, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.860   740   786 W FrameTracker: Missing HWUI jank callback for vsyncId: 12969, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.860   740   786 W FrameTracker: Missed SF frame:UNKNOWN: 66, 12992, 0, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.861   740   786 W FrameTracker: Missing HWUI jank callback for vsyncId: 12992, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.861   740   786 W FrameTracker: Missed SF frame:UNKNOWN: 80, 13007, 57562500, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.861   740   786 W FrameTracker: Missed App frame:UNKNOWN: 88, 13022, 63967234, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.862   740   786 W FrameTracker: Missed SF frame:UNKNOWN: 88, 13022, 63967234, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.862   740   786 W FrameTracker: Missed App frame:UNKNOWN: 88, 13030, 0, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.863   740   786 W FrameTracker: Missed SF frame:UNKNOWN: 88, 13030, 0, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.864   740   786 W FrameTracker: Missing HWUI jank callback for vsyncId: 13030, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.864   740   786 W FrameTracker: Missing SF jank callback for vsyncId: 13074, CUJ=J<SPLASHSCREEN_EXIT_ANIM>
+10-10 11:05:27.865   740   779 V PerfettoTrigger: Not triggering com.android.telemetry.interaction-jank-monitor-39 - not enough time since last trigger
+10-10 11:05:27.926  3096  3096 D LifecycleMonitor: Lifecycle status change: me.rerere.rikkahub.flutter.StudyFlutterActivity@a774796 in: DESTROYED
+10-10 11:05:27.927  3096  3096 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+10-10 11:05:27.938   532  2811 W InputManager-JNI: Input channel object '1d9594b org.hxsi.agent.debug/me.rerere.rikkahub.flutter.StudyFlutterActivity (client)' was disposed without first being removed with the input manager!
+10-10 11:05:28.071   740   766 V WindowManagerShell: Transition animation finished (aborted=false), notifying core (#11)android.os.BinderProxy@2c9e188@1
+10-10 11:05:28.074   532   557 V WindowManager: Finish Transition #11: created at 10-10 11:05:27.453 collect-started=0.053ms request-sent=0.459ms started=5.966ms ready=17.775ms sent=169.386ms finished=621.411ms
+10-10 11:05:28.084   740   766 V WindowManagerShell: Track 1 became idle
+10-10 11:05:28.084   740   766 V WindowManagerShell: All active transition animations finished
+10-10 11:05:28.098  3215  3215 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@93962b7
+10-10 11:05:28.099   532  1314 D CoreBackPreview: Window{1849382 u0 org.hxsi.agent.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity}: Setting back callback null
+10-10 11:05:28.110   532  2811 W InputManager-JNI: Input channel object '1849382 org.hxsi.agent.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity (client)' was disposed without first being removed with the input manager!
+10-10 11:05:28.219   988   988 W FrameTracker: Missed App frame:UNKNOWN: 72, 13106, 90165772, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.219   988   988 W FrameTracker: Missed SF frame:UNKNOWN: 66, 13143, 52274608, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.220   988   988 W FrameTracker: Missed App frame:UNKNOWN: 74, 13194, 0, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.220   988   988 W FrameTracker: Missed SF frame:UNKNOWN: 74, 13194, 0, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.220   988   988 W FrameTracker: Missing HWUI jank callback for vsyncId: 13194, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.221   988   988 W FrameTracker: Missed App frame:UNKNOWN: 74, 13224, 71345744, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.221   988   988 W FrameTracker: Missed SF frame:UNKNOWN: 74, 13224, 71345744, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.221   988   988 W FrameTracker: Missed App frame:UNKNOWN: 74, 13246, 0, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.222   988   988 W FrameTracker: Missed SF frame:UNKNOWN: 74, 13246, 0, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.222   988   988 W FrameTracker: Missing HWUI jank callback for vsyncId: 13246, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.222   988   988 W FrameTracker: Missed App frame:UNKNOWN: 88, 13261, 73260246, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.223   988   988 W FrameTracker: Missed SF frame:UNKNOWN: 88, 13261, 73260246, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.223   988   988 W FrameTracker: Missed App frame:UNKNOWN: 74, 13291, 0, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.223   988   988 W FrameTracker: Missed SF frame:UNKNOWN: 74, 13291, 0, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.223   988   988 W FrameTracker: Missing HWUI jank callback for vsyncId: 13291, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.224   988   988 W FrameTracker: Missing HWUI jank callback for vsyncId: 13299, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.224   988   988 W FrameTracker: Missing SF jank callback for vsyncId: 13350, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.224   988   988 W FrameTracker: Missed App frame:UNKNOWN: 88, 13372, 189282650, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.225   988   988 W FrameTracker: Missed SF frame:UNKNOWN: 88, 13372, 189282650, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.225   988   988 W FrameTracker: Missed SF frame:UNKNOWN: 80, 13380, 165314218, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-10 11:05:28.227   988  1423 V PerfettoTrigger: Not triggering com.android.telemetry.interaction-jank-monitor-9 - not enough time since last trigger
+10-10 11:05:28.335  3096  3140 E TestRunner: failed: actualFlutterSurfaceRestoresEditsClosesAndContinues(me.rerere.rikkahub.service.FlutterChatBridgeTest)
+10-10 11:05:28.338  3096  3140 E TestRunner: ----- begin exception -----
+10-10 11:05:28.338  3096  3140 E TestRunner: java.lang.IllegalStateException: Control not clickable: 展开界面
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at me.rerere.rikkahub.service.FlutterChatBridgeTest.actualFlutterSurfaceRestoresEditsClosesAndContinues$click(FlutterChatBridgeTest.kt:248)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at me.rerere.rikkahub.service.FlutterChatBridgeTest.actualFlutterSurfaceRestoresEditsClosesAndContinues(FlutterChatBridgeTest.kt:263)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at java.lang.reflect.Method.invoke(Native Method)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at androidx.test.internal.runner.junit4.statement.RunBefores.evaluate(RunBefores.java:80)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at androidx.test.internal.runner.junit4.statement.RunAfters.evaluate(RunAfters.java:61)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:128)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:27)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:68)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:59)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:467)
+10-10 11:05:28.338  3096  3140 E TestRunner: 	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2402)
+10-10 11:05:28.339  3096  3140 E TestRunner: ----- end exception -----
+10-10 11:05:28.344  3096  3140 I TestRunner: finished: actualFlutterSurfaceRestoresEditsClosesAndContinues(me.rerere.rikkahub.service.FlutterChatBridgeTest)
+10-10 11:05:28.347  3096  3140 I TestRunner: started: realArtifactInToolResultIsExposedAndSaveIsVerified(me.rerere.rikkahub.service.FlutterChatBridgeTest)
+10-10 11:05:28.351  3096  3140 D TrafficStats: tagSocket(96) with statsTag=0xffffffff, statsUid=-1
+10-10 11:05:28.871  3096  3140 I TestRunner: finished: realArtifactInToolResultIsExposedAndSaveIsVerified(me.rerere.rikkahub.service.FlutterChatBridgeTest)
+10-10 11:05:28.876  3096  3140 I TestRunner: run finished: 12 tests, 1 failed, 0 ignored
+10-10 11:05:28.902   532  2811 W WindowMagnificationMgr: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+10-10 11:05:28.902   532  2811 D AccessibilityManagerService: restoreCurrentUserForTestAutomationIfNeededLocked(): ignoring because device doesn't support visible background users
+10-10 11:05:28.909   532  2811 I ActivityManager: Force stopping org.hxsi.agent.debug appid=10146 user=0: finished inst
+--------- beginning of kernel
+10-10 11:05:28.891     0     0 I binder  : 532:2811 ioctl 400c620e 7e52d46ee930 returned -11
+10-10 11:05:28.893     0     0 I binder  : 532:2811 ioctl 400c620e 7e52d46ee930 returned -11
+10-10 11:05:28.914  3080  3080 I app_process: System.exit called, status: 0
+10-10 11:05:28.914  3080  3080 I AndroidRuntime: VM exiting with result code 0.
+10-10 11:05:28.914   532  2811 E ActivityManager: Unable to freeze binder for 3096: -11
+10-10 11:05:28.915   532   558 D DisplayManagerService: Drop pending events for gone uid 10146
+10-10 11:05:28.922   532  2811 I ActivityManager: Killing 3096:org.hxsi.agent.debug/u0a146 (adj 0): stop org.hxsi.agent.debug due to finished inst
+10-10 11:05:28.928   988   988 D CompatibilityChangeReporter: Compat change id reported: 150939131; UID 10112; state: ENABLED
+10-10 11:05:28.930   532   532 D BatterySaverPolicy: accessibility changed to false, updating policy.
+10-10 11:05:28.956     0     0 I binder  : undelivered TRANSACTION_COMPLETE
+10-10 11:05:28.957     0     0 I binder  : undelivered transaction 156488, process died.
+10-10 11:05:28.978   532   551 V ActivityManager: Got obituary of 3096:org.hxsi.agent.debug
+10-10 11:05:28.980   532   670 D ConnectivityService: releasing NetworkRequest [ REQUEST id=60, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10146 RequestorUid: 10146 RequestorPkg: org.hxsi.agent.debug UnderlyingNetworks: Null] ] (release request)
+10-10 11:05:28.980   532   560 W ActivityManager: setHasOverlayUi called on unknown pid: 3096
+10-10 11:05:28.982   345   345 I Zygote  : Process 3096 exited due to signal 9 (Killed)
+10-10 11:05:31.337   532  1437 E TaskPersister: File error accessing recents directory (directory doesn't exist?).

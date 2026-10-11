@@ -1,0 +1,37 @@
+[
+  {
+    "file": "/sdcard/Download/QA交付-5452c76f-ea0d-46a0-983e-ecb21124b017.md",
+    "extension": "md",
+    "modified": 1791394981,
+    "sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+    "matches_original": true
+  },
+  {
+    "file": "/sdcard/Download/QA交付-64af6068-9c5d-455d-a3b9-951d2ee53271.docx",
+    "extension": "docx",
+    "modified": 1791394988,
+    "sha256": "c36b21cda2eb503061bfdd60740012c7e52196359aa2b29cc7b929234520375c",
+    "matches_original": true
+  },
+  {
+    "file": "/sdcard/Download/QA交付-c3dee6b4-3c77-4800-bdb1-f27f18f32ce3.xlsx",
+    "extension": "xlsx",
+    "modified": 1791394998,
+    "sha256": "91edd96c9f1775630a16ceca5937018997a4768c183f82f86aac7f14949df17a",
+    "matches_original": true
+  },
+  {
+    "file": "/sdcard/Download/QA交付-aa9bdab3-e8f8-4fe9-a705-b1c8a56b3871.pptx",
+    "extension": "pptx",
+    "modified": 1791395007,
+    "sha256": "2a15f255519f1cd583c3c543ae8471e91b4f4ffec321c0db6fa0cbb53d159ee5",
+    "matches_original": true
+  },
+  {
+    "file": "/sdcard/Download/QA交付-9f524897-8ba4-4760-8b26-baae80b7a0f4.pdf",
+    "extension": "pdf",
+    "modified": 1791395016,
+    "sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+    "matches_original": true
+  }
+]

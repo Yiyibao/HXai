@@ -1,0 +1,5172 @@
+[
+  {
+    "number": 1,
+    "type": "EmptySuperCall",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/backup/BackupVM.kt",
+        "line": "54",
+        "column": "65"
+      }
+    ],
+    "source_excerpt": "    override fun onCleared() { discardEncryptedRestore(); super.onCleared() }",
+    "message": "No need to call `super.onCleared`; the super method is defined to be empty",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 2,
+    "type": "EmptySuperCall",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/ChatVM.kt",
+        "line": "112",
+        "column": "15"
+      }
+    ],
+    "source_excerpt": "        super.onCleared()",
+    "message": "No need to call `super.onCleared`; the super method is defined to be empty",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 3,
+    "type": "DiscouragedPrivateApi",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/utils/DatabaseUtil.kt",
+        "line": "11",
+        "column": "25"
+      }
+    ],
+    "source_excerpt": "            val field = CursorWindow::class.java.getDeclaredField(\"sCursorWindowSize\")",
+    "message": "Reflective access to sCursorWindowSize, which is not part of the public SDK and therefore likely to change in future Android releases",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 4,
+    "type": "InlinedApi",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/utils/NotificationUtil.kt",
+        "line": "47",
+        "column": "13"
+      }
+    ],
+    "source_excerpt": "            Manifest.permission.POST_NOTIFICATIONS",
+    "message": "Field requires API level 33 (current min is 26): `android.Manifest.permission#POST_NOTIFICATIONS`",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 5,
+    "type": "AndroidGradlePluginVersion",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/wrapper/gradle-wrapper.properties",
+        "line": "4",
+        "column": "17"
+      }
+    ],
+    "source_excerpt": "distributionUrl=https\\://services.gradle.org/distributions/gradle-9.6.0-bin.zip",
+    "message": "A newer version of Gradle than 9.6.0 is available: 9.8.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 6,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "43",
+        "column": "19"
+      }
+    ],
+    "source_excerpt": "quickie-bundled = \"1.11.0\"",
+    "message": "A newer version of io.github.g00fy2.quickie:quickie-bundled than 1.11.0 is available: 1.12.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 7,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "49",
+        "column": "10"
+      }
+    ],
+    "source_excerpt": "pebble = \"4.1.1\"",
+    "message": "A newer version of io.pebbletemplates:pebble than 4.1.1 is available: 4.1.2",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 8,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "55",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "haze = \"2.0.0\"",
+    "message": "A newer version of dev.chrisbanes.haze:haze than 2.0.0 is available: 2.0.1",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 9,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "55",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "haze = \"2.0.0\"",
+    "message": "A newer version of dev.chrisbanes.haze:haze-blur than 2.0.0 is available: 2.0.1",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 10,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "55",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "haze = \"2.0.0\"",
+    "message": "A newer version of dev.chrisbanes.haze:haze-blur-material3 than 2.0.0 is available: 2.0.1",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 11,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "55",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "haze = \"2.0.0\"",
+    "message": "A newer version of dev.chrisbanes.haze:haze-glass than 2.0.0 is available: 2.0.1",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 12,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "55",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "haze = \"2.0.0\"",
+    "message": "A newer version of dev.chrisbanes.haze:haze-glass-material3 than 2.0.0 is available: 2.0.1",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 13,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "60",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "ktor = \"3.5.2\"",
+    "message": "A newer version of io.ktor:ktor-client-content-negotiation than 3.5.2 is available: 3.6.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 14,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "60",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "ktor = \"3.5.2\"",
+    "message": "A newer version of io.ktor:ktor-client-core than 3.5.2 is available: 3.6.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 15,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "60",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "ktor = \"3.5.2\"",
+    "message": "A newer version of io.ktor:ktor-client-okhttp than 3.5.2 is available: 3.6.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 16,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "60",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "ktor = \"3.5.2\"",
+    "message": "A newer version of io.ktor:ktor-serialization-kotlinx-json than 3.5.2 is available: 3.6.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 17,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "60",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "ktor = \"3.5.2\"",
+    "message": "A newer version of io.ktor:ktor-server-auth than 3.5.2 is available: 3.6.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 18,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "60",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "ktor = \"3.5.2\"",
+    "message": "A newer version of io.ktor:ktor-server-auth-jwt than 3.5.2 is available: 3.6.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 19,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "60",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "ktor = \"3.5.2\"",
+    "message": "A newer version of io.ktor:ktor-server-caching-headers than 3.5.2 is available: 3.6.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 20,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "60",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "ktor = \"3.5.2\"",
+    "message": "A newer version of io.ktor:ktor-server-cio than 3.5.2 is available: 3.6.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 21,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "60",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "ktor = \"3.5.2\"",
+    "message": "A newer version of io.ktor:ktor-server-compression than 3.5.2 is available: 3.6.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 22,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "60",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "ktor = \"3.5.2\"",
+    "message": "A newer version of io.ktor:ktor-server-conditional-headers than 3.5.2 is available: 3.6.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 23,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "60",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "ktor = \"3.5.2\"",
+    "message": "A newer version of io.ktor:ktor-server-content-negotiation than 3.5.2 is available: 3.6.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 24,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "60",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "ktor = \"3.5.2\"",
+    "message": "A newer version of io.ktor:ktor-server-core than 3.5.2 is available: 3.6.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 25,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "60",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "ktor = \"3.5.2\"",
+    "message": "A newer version of io.ktor:ktor-server-cors than 3.5.2 is available: 3.6.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 26,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "60",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "ktor = \"3.5.2\"",
+    "message": "A newer version of io.ktor:ktor-server-default-headers than 3.5.2 is available: 3.6.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 27,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "60",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "ktor = \"3.5.2\"",
+    "message": "A newer version of io.ktor:ktor-server-host-common than 3.5.2 is available: 3.6.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 28,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "60",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "ktor = \"3.5.2\"",
+    "message": "A newer version of io.ktor:ktor-server-sse than 3.5.2 is available: 3.6.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 29,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "60",
+        "column": "8"
+      }
+    ],
+    "source_excerpt": "ktor = \"3.5.2\"",
+    "message": "A newer version of io.ktor:ktor-server-status-pages than 3.5.2 is available: 3.6.0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 30,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "61",
+        "column": "17"
+      }
+    ],
+    "source_excerpt": "sqlite-vector = \"1.0.0\"",
+    "message": "A newer version of ai.sqlite:vector than 1.0.0 is available: 1.1.2",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 31,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "63",
+        "column": "9"
+      }
+    ],
+    "source_excerpt": "slf4j = \"2.0.18\"",
+    "message": "A newer version of org.slf4j:slf4j-api than 2.0.18 is available: 2.0.20",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 32,
+    "type": "NewerVersionAvailable",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/gradle/libs.versions.toml",
+        "line": "183",
+        "column": "69"
+      }
+    ],
+    "source_excerpt": "slf4j-android = { module = \"uk.uuid.slf4j:slf4j-android\", version = \"2.0.17-0\" }",
+    "message": "A newer version of uk.uuid.slf4j:slf4j-android than 2.0.17-0 is available: 2.0.20-0",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 33,
+    "type": "ModifierFactoryExtensionFunction",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/ReorderableDrag.kt",
+        "line": "27",
+        "column": "36"
+      }
+    ],
+    "source_excerpt": "fun ReorderableCollectionItemScope.longPressReorder(",
+    "message": "Modifier factory functions should be extensions on Modifier",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 34,
+    "type": "ModifierFactoryExtensionFunction",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/ReorderableDrag.kt",
+        "line": "45",
+        "column": "30"
+      }
+    ],
+    "source_excerpt": "fun ReorderableListItemScope.longPressReorder(",
+    "message": "Modifier factory functions should be extensions on Modifier",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 35,
+    "type": "Aligned16KB",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "C:/Users/Hfff/.gradle/caches/9.6.0/transforms/d5752d6441a49c9b57f8f1824c642e4c/transformed/terminal-emulator-0.118.0/jni/arm64-v8a/libtermux.so",
+        "line": null,
+        "column": null
+      }
+    ],
+    "source_excerpt": null,
+    "message": "The native library `arm64-v8a/libtermux.so` (from `com.termux.termux-app:terminal-emulator:0.118.0`) is not 16 KB aligned",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 36,
+    "type": "Aligned16KB",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "C:/Users/Hfff/.gradle/caches/9.6.0/transforms/d5752d6441a49c9b57f8f1824c642e4c/transformed/terminal-emulator-0.118.0/jni/arm64-v8a/libtermux.so",
+        "line": null,
+        "column": null
+      }
+    ],
+    "source_excerpt": null,
+    "message": "The native library `arm64-v8a/libtermux.so` (from `com.termux.termux-app:terminal-emulator:0.118.0`) is not 16 KB aligned",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 37,
+    "type": "Aligned16KB",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "C:/Users/Hfff/.gradle/caches/9.6.0/transforms/d5752d6441a49c9b57f8f1824c642e4c/transformed/terminal-emulator-0.118.0/jni/arm64-v8a/libtermux.so",
+        "line": null,
+        "column": null
+      }
+    ],
+    "source_excerpt": null,
+    "message": "The native library `arm64-v8a/libtermux.so` (from `com.termux.termux-app:terminal-emulator:0.118.0`) is not 16 KB aligned",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 38,
+    "type": "Typos",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "949",
+        "column": "57"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_provider_page_avaliable_models\">Avaliable Models</string>",
+    "message": "\"Avaliable\" is a common misspelling; did you mean \"Available\"?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 39,
+    "type": "Typos",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "978",
+        "column": "67"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_provider_page_location\">Location (e.g. us-central1)</string>",
+    "message": "Did you mean \"central!\" instead of \"central1\"?",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 40,
+    "type": "PluralsCandidate",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "95",
+        "column": "3"
+      }
+    ],
+    "source_excerpt": "  <string name=\"assistant_page_max_tokens_limit\">Limit: %d tokens</string>",
+    "message": "Formatting %d followed by words (\"tokens\"): This should probably be a plural rather than a string",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 41,
+    "type": "PluralsCandidate",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "196",
+        "column": "3"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_reminder_interval_days\">%1$d days</string>",
+    "message": "Formatting %d followed by words (\"days\"): This should probably be a plural rather than a string",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 42,
+    "type": "PluralsCandidate",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "197",
+        "column": "3"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_reminder_last_days\">Last backup %1$d days ago</string>",
+    "message": "Formatting %d followed by words (\"days\"): This should probably be a plural rather than a string",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 43,
+    "type": "PluralsCandidate",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "231",
+        "column": "3"
+      }
+    ],
+    "source_excerpt": "  <string name=\"chain_of_thought_show_more_steps\">Show %d more steps</string>",
+    "message": "Formatting %d followed by words (\"more\"): This should probably be a plural rather than a string",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 44,
+    "type": "PluralsCandidate",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "238",
+        "column": "3"
+      }
+    ],
+    "source_excerpt": "  <string name=\"chat_message_tool_ask_questions\">Ask %d questions</string>",
+    "message": "Formatting %d followed by words (\"questions\"): This should probably be a plural rather than a string",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 45,
+    "type": "PluralsCandidate",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "256",
+        "column": "3"
+      }
+    ],
+    "source_excerpt": "  <string name=\"chat_message_tool_search_results_count\">%1$d results</string>",
+    "message": "Formatting %d followed by words (\"results\"): This should probably be a plural rather than a string",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 46,
+    "type": "PluralsCandidate",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "293",
+        "column": "3"
+      }
+    ],
+    "source_excerpt": "  <string name=\"chat_page_message_count\">%d messages</string>",
+    "message": "Formatting %d followed by words (\"messages\"): This should probably be a plural rather than a string",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 47,
+    "type": "PluralsCandidate",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "307",
+        "column": "3"
+      }
+    ],
+    "source_excerpt": "  <string name=\"citations_count\">%1$d Citations</string>",
+    "message": "Formatting %d followed by words (\"Citations\"): This should probably be a plural rather than a string",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 48,
+    "type": "PluralsCandidate",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "500",
+        "column": "3"
+      }
+    ],
+    "source_excerpt": "  <string name=\"prompt_page_entries_count_format\">%d entries</string>",
+    "message": "Formatting %d followed by words (\"entries\"): This should probably be a plural rather than a string",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 49,
+    "type": "PluralsCandidate",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "746",
+        "column": "3"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_files_page_clean_older_than_days\">Older than %1$d days</string>",
+    "message": "Formatting %d followed by words (\"days\"): This should probably be a plural rather than a string",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 50,
+    "type": "PluralsCandidate",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "827",
+        "column": "3"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_page_chat_storage_desc\">%1$d files, %2$.2f MB</string>",
+    "message": "Formatting %d followed by words (\"files\"): This should probably be a plural rather than a string",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 51,
+    "type": "PluralsCandidate",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "979",
+        "column": "3"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_provider_page_model_count\">%d models</string>",
+    "message": "Formatting %d followed by words (\"models\"): This should probably be a plural rather than a string",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 52,
+    "type": "PluralsCandidate",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1228",
+        "column": "3"
+      }
+    ],
+    "source_excerpt": "  <string name=\"workspace_detail_extracting\">Extracting %1$d items%2$s</string>",
+    "message": "Formatting %d followed by words (\"items\"): This should probably be a plural rather than a string",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 53,
+    "type": "PluralsCandidate",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1272",
+        "column": "3"
+      }
+    ],
+    "source_excerpt": "  <string name=\"tool_ui_list_files_items\">%1$d items: %2$s</string>",
+    "message": "Formatting %d followed by words (\"items\"): This should probably be a plural rather than a string",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 54,
+    "type": "PluralsCandidate",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1323",
+        "column": "3"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_update_reminder_pause_days\">%1$d days</string>",
+    "message": "Formatting %d followed by words (\"days\"): This should probably be a plural rather than a string",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 55,
+    "type": "ObsoleteSdkInt",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/debug/res/mipmap-anydpi-v26",
+        "line": null,
+        "column": null
+      }
+    ],
+    "source_excerpt": null,
+    "message": "This folder configuration (`v26`) is unnecessary; `minSdkVersion` is 26. Merge all the resources in this folder into `mipmap-anydpi`.",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 56,
+    "type": "ObsoleteSdkInt",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/mipmap-anydpi-v26",
+        "line": null,
+        "column": null
+      }
+    ],
+    "source_excerpt": null,
+    "message": "This folder configuration (`v26`) is unnecessary; `minSdkVersion` is 26. Merge all the resources in this folder into `mipmap-anydpi`.",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 57,
+    "type": "StaticFieldLeak",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/feature/diagnostics/Diagnostics.kt",
+        "line": "19",
+        "column": "1"
+      }
+    ],
+    "source_excerpt": "/** Deliberately accepts no free-form exception, URL, header, file name or user identifier. */",
+    "message": "Do not place Android context classes in static fields (static reference to `Diagnostics` which has field `app` pointing to `Context`); this is a memory leak",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 58,
+    "type": "StaticFieldLeak",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/feature/diagnostics/Diagnostics.kt",
+        "line": "27",
+        "column": "5"
+      }
+    ],
+    "source_excerpt": "    private var app: Context? = null",
+    "message": "Do not place Android context classes in static fields; this is a memory leak",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 59,
+    "type": "UnnecessaryArrayInit",
+    "severity": "Hint",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/table/DataTable.kt",
+        "line": "81",
+        "column": "51"
+      }
+    ],
+    "source_excerpt": "            val colWidths = IntArray(columnCount) { 0 }",
+    "message": "This initialization lambda (`{ 0 }`) is unnecessary and is less efficient",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 60,
+    "type": "AutoboxingStateCreation",
+    "severity": "Hint",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/easteregg/EmojiBurst.kt",
+        "line": "37",
+        "column": "30"
+      }
+    ],
+    "source_excerpt": "    var nextId by remember { mutableStateOf(0L) }",
+    "message": "Prefer `mutableLongStateOf` instead of `mutableStateOf`",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 61,
+    "type": "AutoboxingStateCreation",
+    "severity": "Hint",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingPreferencesNotificationPage.kt",
+        "line": "55",
+        "column": "47"
+      }
+    ],
+    "source_excerpt": "    var selectedUpdatePauseDays by remember { mutableStateOf(UPDATE_PAUSE_DAY_OPTIONS.first()) }",
+    "message": "Prefer `mutableIntStateOf` instead of `mutableStateOf`",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 62,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/colors.xml",
+        "line": "3",
+        "column": "10"
+      }
+    ],
+    "source_excerpt": "  <color name=\"purple_200\">#FFBB86FC</color>",
+    "message": "The resource `R.color.purple_200` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 63,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/colors.xml",
+        "line": "4",
+        "column": "10"
+      }
+    ],
+    "source_excerpt": "  <color name=\"purple_500\">#FF6200EE</color>",
+    "message": "The resource `R.color.purple_500` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 64,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/colors.xml",
+        "line": "5",
+        "column": "10"
+      }
+    ],
+    "source_excerpt": "  <color name=\"purple_700\">#FF3700B3</color>",
+    "message": "The resource `R.color.purple_700` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 65,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/colors.xml",
+        "line": "6",
+        "column": "10"
+      }
+    ],
+    "source_excerpt": "  <color name=\"teal_200\">#FF03DAC5</color>",
+    "message": "The resource `R.color.teal_200` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 66,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/colors.xml",
+        "line": "7",
+        "column": "10"
+      }
+    ],
+    "source_excerpt": "  <color name=\"teal_700\">#FF018786</color>",
+    "message": "The resource `R.color.teal_700` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 67,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/colors.xml",
+        "line": "9",
+        "column": "10"
+      }
+    ],
+    "source_excerpt": "  <color name=\"white\">#FFFFFFFF</color>",
+    "message": "The resource `R.color.white` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 68,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/drawable/patreon.xml",
+        "line": "1",
+        "column": "1"
+      }
+    ],
+    "source_excerpt": "<vector xmlns:android=\"http://schemas.android.com/apk/res/android\"",
+    "message": "The resource `R.drawable.patreon` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 69,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "41",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"assistant_page_actions\">Actions</string>",
+    "message": "The resource `R.string.assistant_page_actions` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 70,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "54",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"assistant_page_balanced\">Balanced</string>",
+    "message": "The resource `R.string.assistant_page_balanced` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 71,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "59",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"assistant_page_chaotic\">Chaotic (Dangerous)</string>",
+    "message": "The resource `R.string.assistant_page_chaotic` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 72,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "66",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"assistant_page_creative\">Creative</string>",
+    "message": "The resource `R.string.assistant_page_creative` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 73,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "99",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"assistant_page_memory_count\">Memory: %d</string>",
+    "message": "The resource `R.string.assistant_page_memory_count` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 74,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "127",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"assistant_page_strict\">Strict</string>",
+    "message": "The resource `R.string.assistant_page_strict` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 75,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "150",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"assistant_page_top_p_value\">Top P: %s</string>",
+    "message": "The resource `R.string.assistant_page_top_p_value` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 76,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "175",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_export_desc\">Export app data to a file</string>",
+    "message": "The resource `R.string.backup_page_export_desc` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 77,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "177",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_exporting\">Exporting...</string>",
+    "message": "The resource `R.string.backup_page_exporting` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 78,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "179",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_import_chatbox_desc\">Import ChatBox provider configurations and full chat history</string>",
+    "message": "The resource `R.string.backup_page_import_chatbox_desc` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 79,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "180",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_import_cherry_studio_desc\">Import Cherry Studio provider configurations</string>",
+    "message": "The resource `R.string.backup_page_import_cherry_studio_desc` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 80,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "181",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_import_desc\">Import local backup file</string>",
+    "message": "The resource `R.string.backup_page_import_desc` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 81,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "183",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_import_from_chatbox\">Import from ChatBox</string>",
+    "message": "The resource `R.string.backup_page_import_from_chatbox` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 82,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "184",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_import_from_cherry_studio\">Import from Cherry Studio</string>",
+    "message": "The resource `R.string.backup_page_import_from_cherry_studio` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 83,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "185",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_import_from_other_app\">Import from other app</string>",
+    "message": "The resource `R.string.backup_page_import_from_other_app` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 84,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "186",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_importing\">Importing...</string>",
+    "message": "The resource `R.string.backup_page_importing` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 85,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "188",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_local_backup_export\">Export to File</string>",
+    "message": "The resource `R.string.backup_page_local_backup_export` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 86,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "189",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_local_backup_import\">Import from File</string>",
+    "message": "The resource `R.string.backup_page_local_backup_import` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 87,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "225",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"built_in_search_description\">Enable model\\'s built-in search functionality</string>",
+    "message": "The resource `R.string.built_in_search_description` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 88,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "226",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"built_in_search_title\">Built-in Search</string>",
+    "message": "The resource `R.string.built_in_search_title` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 89,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "389",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"imggen_page_aspect_ratio\">Image Aspect Ratio</string>",
+    "message": "The resource `R.string.imggen_page_aspect_ratio` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 90,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "390",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"imggen_page_aspect_ratio_desc\">Select aspect ratio for generated images</string>",
+    "message": "The resource `R.string.imggen_page_aspect_ratio_desc` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 91,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "391",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"imggen_page_aspect_ratio_landscape\">16:9 Landscape</string>",
+    "message": "The resource `R.string.imggen_page_aspect_ratio_landscape` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 92,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "392",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"imggen_page_aspect_ratio_portrait\">9:16 Portrait</string>",
+    "message": "The resource `R.string.imggen_page_aspect_ratio_portrait` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 93,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "393",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"imggen_page_aspect_ratio_square\">1:1 Square</string>",
+    "message": "The resource `R.string.imggen_page_aspect_ratio_square` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 94,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "404",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"imggen_page_model_selection\">Model Selection</string>",
+    "message": "The resource `R.string.imggen_page_model_selection` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 95,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "405",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"imggen_page_model_selection_desc\">Select AI model for image generation</string>",
+    "message": "The resource `R.string.imggen_page_model_selection_desc` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 96,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "494",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"prompt_page_edit\">Edit</string>",
+    "message": "The resource `R.string.prompt_page_edit` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 97,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "538",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"reasoning_auto_desc\">Let the model automatically determine reasoning level.</string>",
+    "message": "The resource `R.string.reasoning_auto_desc` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 98,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "539",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"reasoning_custom\">Custom reasoning budget</string>",
+    "message": "The resource `R.string.reasoning_custom` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 99,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "541",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"reasoning_heavy_desc\">The model will use a large amount of reasoning to answer questions.</string>",
+    "message": "The resource `R.string.reasoning_heavy_desc` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 100,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "543",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"reasoning_light_desc\">The model will use a small amount of reasoning to answer questions.</string>",
+    "message": "The resource `R.string.reasoning_light_desc` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 101,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "545",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"reasoning_medium_desc\">The model will use more reasoning to answer questions.</string>",
+    "message": "The resource `R.string.reasoning_medium_desc` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 102,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "548",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"reasoning_off_desc\">Turn off reasoning functionality, the model will directly answer questions.</string>",
+    "message": "The resource `R.string.reasoning_off_desc` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 103,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "555",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"rikkahub_provider_description\">Official free AI service, using user sponsorship funds to provide some free models for new users as fallback, no API key required. Has strict rate limits, if you have purchased your own provider, please use your own provider as much as possible.</string>",
+    "message": "The resource `R.string.rikkahub_provider_description` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 104,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "691",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_display_page_enable_blur_effect_desc\">Enable blur effect on chat input bar</string>",
+    "message": "The resource `R.string.setting_display_page_enable_blur_effect_desc` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 105,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "692",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_display_page_enable_blur_effect_title\">Enable Blur Effect</string>",
+    "message": "The resource `R.string.setting_display_page_enable_blur_effect_title` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 106,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "724",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_display_page_show_updates_desc\">Whether to display app update notifications</string>",
+    "message": "The resource `R.string.setting_display_page_show_updates_desc` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 107,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "730",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_display_page_title\">Display Settings</string>",
+    "message": "The resource `R.string.setting_display_page_title` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 108,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "743",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_files_page_clean_confirmation\">All files in this category will be permanently deleted. This action cannot be undone.</string>",
+    "message": "The resource `R.string.setting_files_page_clean_confirmation` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 109,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "805",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_model_page_suggestion_model\">Chat Suggestion Model</string>",
+    "message": "The resource `R.string.setting_model_page_suggestion_model` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 110,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "806",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_model_page_suggestion_model_desc\">Model used to generate conversation suggestions. If not set, uses the fast model</string>",
+    "message": "The resource `R.string.setting_model_page_suggestion_model_desc` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 111,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "809",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_model_page_title_model\">Title Summary Model</string>",
+    "message": "The resource `R.string.setting_model_page_title_model` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 112,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "810",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_model_page_title_model_desc\">Model used to summarize conversation titles. If not set, uses the fast model</string>",
+    "message": "The resource `R.string.setting_model_page_title_model_desc` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 113,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "841",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_page_display_setting\">Display Settings</string>",
+    "message": "The resource `R.string.setting_page_display_setting` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 114,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "842",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_page_display_setting_desc\">Manage display settings</string>",
+    "message": "The resource `R.string.setting_page_display_setting_desc` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 115,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "871",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_page_interaction_notification_settings\">Interaction &amp;amp; Notifications</string>",
+    "message": "The resource `R.string.setting_page_interaction_notification_settings` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 116,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "884",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_page_search_delete_provider\">Delete Provider</string>",
+    "message": "The resource `R.string.setting_page_search_delete_provider` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 117,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1030",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_emotion\">Emotion</string>",
+    "message": "The resource `R.string.setting_tts_page_emotion` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 118,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1031",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_emotion_description\">Emotion style for speech synthesis</string>",
+    "message": "The resource `R.string.setting_tts_page_emotion_description` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 119,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1036",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_more_options_content_description\">More options</string>",
+    "message": "The resource `R.string.setting_tts_page_more_options_content_description` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 120,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1060",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_title\">Text-to-Speech</string>",
+    "message": "The resource `R.string.setting_tts_page_title` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 121,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1094",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"skills_page_more_actions\">More actions</string>",
+    "message": "The resource `R.string.skills_page_more_actions` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 122,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1211",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"workspace_detail_tool_list_files\">List Files</string>",
+    "message": "The resource `R.string.workspace_detail_tool_list_files` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 123,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1215",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"workspace_detail_tool_delete_file\">Delete File</string>",
+    "message": "The resource `R.string.workspace_detail_tool_delete_file` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 124,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1216",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"workspace_detail_tool_move_file\">Move File</string>",
+    "message": "The resource `R.string.workspace_detail_tool_move_file` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 125,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1230",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"workspace_terminal_title\">Terminal</string>",
+    "message": "The resource `R.string.workspace_terminal_title` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 126,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1231",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"workspace_terminal_title_with_name\">%s · Terminal</string>",
+    "message": "The resource `R.string.workspace_terminal_title_with_name` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 127,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1269",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"tool_ui_list_files\">List: %s</string>",
+    "message": "The resource `R.string.tool_ui_list_files` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 128,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1270",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"tool_ui_list_files_default\">List files</string>",
+    "message": "The resource `R.string.tool_ui_list_files_default` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 129,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1271",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"tool_ui_list_files_empty\">Empty</string>",
+    "message": "The resource `R.string.tool_ui_list_files_empty` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 130,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1272",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"tool_ui_list_files_items\">%1$d items: %2$s</string>",
+    "message": "The resource `R.string.tool_ui_list_files_items` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 131,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1273",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"tool_ui_delete_file\">Delete: %s</string>",
+    "message": "The resource `R.string.tool_ui_delete_file` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 132,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1274",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"tool_ui_delete_file_default\">Delete file</string>",
+    "message": "The resource `R.string.tool_ui_delete_file_default` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 133,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1275",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"tool_ui_deleted\">Deleted %s</string>",
+    "message": "The resource `R.string.tool_ui_deleted` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 134,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1276",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"tool_ui_delete_failed\">Failed to delete %s</string>",
+    "message": "The resource `R.string.tool_ui_delete_failed` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 135,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1277",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"tool_ui_move_file\">Move file</string>",
+    "message": "The resource `R.string.tool_ui_move_file` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 136,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1314",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"assistant_page_context_message_limit_count\">Context message limit: %d</string>",
+    "message": "The resource `R.string.assistant_page_context_message_limit_count` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 137,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1315",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"assistant_page_context_message_limit_unlimited\">Unlimited context messages</string>",
+    "message": "The resource `R.string.assistant_page_context_message_limit_unlimited` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 138,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1317",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"assistant_page_context_message_limit_too_small\">The context message limit cannot be less than %1$d. It has been reset to %1$d.</string>",
+    "message": "The resource `R.string.assistant_page_context_message_limit_too_small` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 139,
+    "type": "UnusedResources",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1325",
+        "column": "11"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_import_overwrite_confirm\">Importing a backup will overwrite app data. Continue?</string>",
+    "message": "The resource `R.string.backup_page_import_overwrite_confirm` appears to be unused",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 140,
+    "type": "UsableSpace",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/feature/diagnostics/Diagnostics.kt",
+        "line": "154",
+        "column": "63"
+      }
+    ],
+    "source_excerpt": "                    .put(\"freeStorageBytes\", context.filesDir.usableSpace)",
+    "message": "Consider also using `StorageManager#getAllocatableBytes` and `allocateBytes` which will consider clearable cached data",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 141,
+    "type": "UseOfNonLambdaOffsetOverload",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/Switch.kt",
+        "line": "112",
+        "column": "18"
+      }
+    ],
+    "source_excerpt": "                .offset(x = thumbOffset)",
+    "message": "State backed values should use the lambda overload of Modifier.offset",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 142,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "618",
+        "column": "49"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_asr_configure_vad_desc\">서버 VAD 민감도, 보통 0.3 - 0.8</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 143,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "618",
+        "column": "49"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_asr_configure_vad_desc\">伺服器 VAD 靈敏度，通常為 0.3 - 0.8</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 144,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "628",
+        "column": "49"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_asr_configure_vad_desc\">服务器 VAD 灵敏度，通常为 0.3 - 0.8</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 145,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "635",
+        "column": "49"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_asr_configure_vad_desc\">Server VAD sensitivity, usually 0.3 - 0.8</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 146,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "860",
+        "column": "52"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_page_web_server_port_desc\">網頁伺服器監聽連接埠（1024-65535）</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 147,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "862",
+        "column": "52"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_page_web_server_port_desc\">Webサーバーリスンポート（1024-65535）</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 148,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "862",
+        "column": "52"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_page_web_server_port_desc\">웹 서버 수신 포트(1024-65535)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 149,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ru/strings.xml",
+        "line": "862",
+        "column": "52"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_page_web_server_port_desc\">Порт веб-сервера (1024-65535)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 150,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "905",
+        "column": "52"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_page_web_server_port_desc\">Web服务器监听端口（1024-65535）</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 151,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "935",
+        "column": "52"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_page_web_server_port_desc\">Web server listen port (1024-65535)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 152,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "964",
+        "column": "53"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_pitch_description\">控制語音音調高低 (0.1 - 2.0，1.0為正常音調)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 153,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "966",
+        "column": "53"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_pitch_description\">音声のピッチを制御 (0.1 - 2.0、1.0が標準)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 154,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "966",
+        "column": "53"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_pitch_description\">말하기 피치 제어 (0.1 - 2.0, 1.0은 일반)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 155,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "972",
+        "column": "64"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_similarity_boost_description\">控制語音與原始聲音的匹配程度（0.0 - 1.0）</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 156,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "974",
+        "column": "64"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_similarity_boost_description\">元の声との一致度を制御（0.0 - 1.0）</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 157,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "974",
+        "column": "64"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_similarity_boost_description\">음성이 원본과 얼마나 일치하는지 제어 (0.0 - 1.0)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 158,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ru/strings.xml",
+        "line": "974",
+        "column": "64"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_similarity_boost_description\">Управление степенью совпадения голоса с оригиналом (0.0 - 1.0)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 159,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "975",
+        "column": "57"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_stability_description\">控制語音的穩定度（0.0 - 1.0，越低越有表現力）</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 160,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "976",
+        "column": "59"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_speech_rate_description\">控制語音播放速度 (0.1 - 3.0，1.0為正常速度)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 161,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "977",
+        "column": "57"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_stability_description\">音声の安定性を制御（0.0 - 1.0、低いほど表現力豊か）</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 162,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "977",
+        "column": "57"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_stability_description\">음성의 안정성 제어 (0.0 - 1.0, 낮을수록 더 표현력 풍부)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 163,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ru/strings.xml",
+        "line": "977",
+        "column": "57"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_stability_description\">Контроль стабильности голоса (0.0 - 1.0, ниже — выразительнее)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 164,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "978",
+        "column": "59"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_speech_rate_description\">音声の再生速度を制御 (0.1 - 3.0、1.0が標準)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 165,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "978",
+        "column": "59"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_speech_rate_description\">말하기 속도 제어 (0.1 - 3.0, 1.0은 일반)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 166,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "978",
+        "column": "53"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_speed_description\">語音合成速度 (0.25 - 4.0)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 167,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "980",
+        "column": "53"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_speed_description\">音声合成の速度 (0.25 - 4.0)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 168,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "980",
+        "column": "53"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_speed_description\">말하기 속도 (0.25 - 4.0)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 169,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "1009",
+        "column": "53"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_pitch_description\">控制语音音调高低 (0.1 - 2.0，1.0为正常音调)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 170,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "1017",
+        "column": "64"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_similarity_boost_description\">控制语音与原始声音的匹配程度（0.0 - 1.0）</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 171,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "1020",
+        "column": "57"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_stability_description\">控制语音的稳定度（0.0 - 1.0，越低越有表现力）</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 172,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "1022",
+        "column": "59"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_temperature_description\">控制语音的随机性（0.0 - 1.0，越高越有表现力）</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 173,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "1023",
+        "column": "64"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_fish_audio_speed_description\">语音速度（0.5 - 2.0，1.0 为正常语速）</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 174,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "1024",
+        "column": "59"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_speech_rate_description\">控制语音播放速度 (0.1 - 3.0，1.0为正常速度)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 175,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "1026",
+        "column": "53"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_speed_description\">语音合成速度 (0.25 - 4.0)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 176,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "1032",
+        "column": "52"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_page_web_server_port_desc\">منفذ استماع خادم الويب (1024-65535)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 177,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1041",
+        "column": "53"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_pitch_description\">Control the pitch of speech (0.1 - 2.0, 1.0 is normal)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 178,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1049",
+        "column": "64"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_similarity_boost_description\">Control how closely the voice matches the original (0.0 - 1.0)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 179,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1052",
+        "column": "57"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_stability_description\">Control the stability of the voice (0.0 - 1.0, lower is more expressive)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 180,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1054",
+        "column": "59"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_temperature_description\">Control the randomness of the voice (0.0 - 1.0, higher is more expressive)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 181,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1055",
+        "column": "64"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_fish_audio_speed_description\">Speech speed (0.5 - 2.0, 1.0 is normal)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 182,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1056",
+        "column": "59"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_speech_rate_description\">Control the speed of speech (0.1 - 3.0, 1.0 is normal)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 183,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1058",
+        "column": "53"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_speed_description\">Speech speed (0.25 - 4.0)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 184,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "1153",
+        "column": "64"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_fish_audio_speed_description\">سرعة الكلام (0.5 - 2.0، 1.0 عادي)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 185,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "1163",
+        "column": "53"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_pitch_description\">التحكم في طبقة الصوت للنطق (0.1 - 2.0، 1.0 هو الوضع الطبيعي)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 186,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "1171",
+        "column": "64"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_similarity_boost_description\">تحكم في مدى تطابق الصوت مع الأصل (0.0 - 1.0)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 187,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "1173",
+        "column": "59"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_speech_rate_description\">التحكم في سرعة الكلام (0.1 - 3.0، 1.0 عادي)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 188,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "1175",
+        "column": "53"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_speed_description\">سرعة الكلام (0.25 - 4.0)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 189,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "1177",
+        "column": "57"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_stability_description\">تحكم في استقرار الصوت (0.0 - 1.0، القيمة الأقل أكثر تعبيرًا)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 190,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "1179",
+        "column": "59"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_temperature_description\">تحكم في عشوائية الصوت (0.0 - 1.0، القيمة الأعلى أكثر تعبيرًا)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 191,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "1383",
+        "column": "59"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_temperature_description\">控制語音的隨機性（0.0 - 1.0，數值越高越有表現力）</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 192,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "1384",
+        "column": "64"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_fish_audio_speed_description\">語速（0.5 - 2.0，1.0 為正常）</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 193,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "1385",
+        "column": "59"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_temperature_description\">音声のランダム性を制御します（0.0 - 1.0、大きいほど表現豊かになります）</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 194,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "1385",
+        "column": "59"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_temperature_description\">음성의 무작위성을 제어합니다 (0.0 - 1.0, 높을수록 더 표현력이 풍부합니다)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 195,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "1386",
+        "column": "64"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_fish_audio_speed_description\">話速（0.5 - 2.0、1.0が標準）</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 196,
+    "type": "TypographyDashes",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "1386",
+        "column": "64"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_fish_audio_speed_description\">음성 속도 (0.5 - 2.0, 1.0이 기본)</string>",
+    "message": "Replace \"-\" with an \"en dash\" character (–, &#8211;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 197,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "34",
+        "column": "47"
+      }
+    ],
+    "source_excerpt": "  <string name=\"assistant_importer_importing\">جارٍ الاستيراد...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 198,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "34",
+        "column": "47"
+      }
+    ],
+    "source_excerpt": "  <string name=\"assistant_importer_importing\">インポート中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 199,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "34",
+        "column": "47"
+      }
+    ],
+    "source_excerpt": "  <string name=\"assistant_importer_importing\">가져오는 중...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 200,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "34",
+        "column": "47"
+      }
+    ],
+    "source_excerpt": "  <string name=\"assistant_importer_importing\">匯入中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 201,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "34",
+        "column": "47"
+      }
+    ],
+    "source_excerpt": "  <string name=\"assistant_importer_importing\">导入中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 202,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "34",
+        "column": "47"
+      }
+    ],
+    "source_excerpt": "  <string name=\"assistant_importer_importing\">Importing...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 203,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "165",
+        "column": "41"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_backing_up\">バックアップ中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 204,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "165",
+        "column": "41"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_backing_up\">백업 중...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 205,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "165",
+        "column": "41"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_backing_up\">備份中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 206,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "165",
+        "column": "41"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_backing_up\">备份中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 207,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "165",
+        "column": "41"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_backing_up\">Backing up...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 208,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "176",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_exporting\">エクスポート中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 209,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "176",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_exporting\">내보내는 중...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 210,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "176",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_exporting\">正在導出...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 211,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "177",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_exporting\">正在导出...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 212,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "177",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_exporting\">Exporting...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 213,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "185",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_importing\">インポート中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 214,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "185",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_importing\">가져오는 중...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 215,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "185",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_importing\">正在恢復...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 216,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "186",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_importing\">正在恢复...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 217,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "186",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_importing\">Importing...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 218,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "187",
+        "column": "41"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_backing_up\">جارٍ النسخ الاحتياطي...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 219,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "198",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_exporting\">جارٍ التصدير...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 220,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "207",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_restoring\">復元中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 221,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "207",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_restoring\">복원 중...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 222,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ru/strings.xml",
+        "line": "207",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_restoring\">Восстановление...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 223,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "207",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_restoring\">恢復中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 224,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "208",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_importing\">جارٍ الاستيراد...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 225,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "208",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_restoring\">恢复中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 226,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "208",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_restoring\">Restoring...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 227,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "224",
+        "column": "30"
+      }
+    ],
+    "source_excerpt": "  <string name=\"calculating\">計算中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 228,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "224",
+        "column": "30"
+      }
+    ],
+    "source_excerpt": "  <string name=\"calculating\">계산 중...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 229,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ru/strings.xml",
+        "line": "224",
+        "column": "30"
+      }
+    ],
+    "source_excerpt": "  <string name=\"calculating\">Вычисление...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 230,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "224",
+        "column": "30"
+      }
+    ],
+    "source_excerpt": "  <string name=\"calculating\">計算中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 231,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "227",
+        "column": "30"
+      }
+    ],
+    "source_excerpt": "  <string name=\"calculating\">计算中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 232,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "227",
+        "column": "30"
+      }
+    ],
+    "source_excerpt": "  <string name=\"calculating\">Calculating...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 233,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "230",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"backup_page_restoring\">جارٍ الاستعادة...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 234,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "249",
+        "column": "30"
+      }
+    ],
+    "source_excerpt": "  <string name=\"calculating\">جارٍ الحساب...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 235,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "268",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"chat_page_compressing\">압축 중...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 236,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ru/strings.xml",
+        "line": "268",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"chat_page_compressing\">Сжатие...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 237,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "268",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"chat_page_compressing\">正在壓縮...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 238,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "271",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"chat_page_compressing\">正在压缩...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 239,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "271",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"chat_page_compressing\">Compressing...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 240,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "303",
+        "column": "40"
+      }
+    ],
+    "source_excerpt": "  <string name=\"chat_page_compressing\">جارٍ الضغط...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 241,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "315",
+        "column": "31"
+      }
+    ],
+    "source_excerpt": "  <string name=\"db_migrating\">데이터베이스 마이그레이션 중...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 242,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "315",
+        "column": "31"
+      }
+    ],
+    "source_excerpt": "  <string name=\"db_migrating\">正在移轉資料庫...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 243,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "319",
+        "column": "31"
+      }
+    ],
+    "source_excerpt": "  <string name=\"db_migrating\">Migrating database...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 244,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "326",
+        "column": "50"
+      }
+    ],
+    "source_excerpt": "  <string name=\"emoji_picker_search_placeholder\">絵文字を検索...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 245,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "326",
+        "column": "50"
+      }
+    ],
+    "source_excerpt": "  <string name=\"emoji_picker_search_placeholder\">이모지 검색...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 246,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ru/strings.xml",
+        "line": "326",
+        "column": "50"
+      }
+    ],
+    "source_excerpt": "  <string name=\"emoji_picker_search_placeholder\">Поиск эмодзи...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 247,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "326",
+        "column": "50"
+      }
+    ],
+    "source_excerpt": "  <string name=\"emoji_picker_search_placeholder\">搜尋表情符號...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 248,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "330",
+        "column": "50"
+      }
+    ],
+    "source_excerpt": "  <string name=\"emoji_picker_search_placeholder\">搜索表情符号...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 249,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "330",
+        "column": "50"
+      }
+    ],
+    "source_excerpt": "  <string name=\"emoji_picker_search_placeholder\">Search emojis...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 250,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "402",
+        "column": "31"
+      }
+    ],
+    "source_excerpt": "  <string name=\"db_migrating\">جارٍ ترحيل قاعدة البيانات...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 251,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "402",
+        "column": "49"
+      }
+    ],
+    "source_excerpt": "  <string name=\"imggen_page_prompt_placeholder\">生成したい画像を説明してください...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 252,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "402",
+        "column": "49"
+      }
+    ],
+    "source_excerpt": "  <string name=\"imggen_page_prompt_placeholder\">생성하고 싶은 이미지를 설명하세요...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 253,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "402",
+        "column": "49"
+      }
+    ],
+    "source_excerpt": "  <string name=\"imggen_page_prompt_placeholder\">描述您想要生成的圖片...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 254,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "406",
+        "column": "49"
+      }
+    ],
+    "source_excerpt": "  <string name=\"imggen_page_prompt_placeholder\">描述您想要生成的图片...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 255,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "407",
+        "column": "49"
+      }
+    ],
+    "source_excerpt": "  <string name=\"imggen_page_prompt_placeholder\">Describe the image you want to generate...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 256,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "413",
+        "column": "50"
+      }
+    ],
+    "source_excerpt": "  <string name=\"emoji_picker_search_placeholder\">ابحث عن الرموز التعبيرية...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 257,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "416",
+        "column": "37"
+      }
+    ],
+    "source_excerpt": "  <string name=\"mcp_picker_syncing\">MCPサーバーを同期中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 258,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "416",
+        "column": "37"
+      }
+    ],
+    "source_excerpt": "  <string name=\"mcp_picker_syncing\">MCP 서버 동기화 중...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 259,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "416",
+        "column": "37"
+      }
+    ],
+    "source_excerpt": "  <string name=\"mcp_picker_syncing\">正在同步MCP伺服器...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 260,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "420",
+        "column": "37"
+      }
+    ],
+    "source_excerpt": "  <string name=\"mcp_picker_syncing\">正在同步MCP服务器...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 261,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "421",
+        "column": "37"
+      }
+    ],
+    "source_excerpt": "  <string name=\"mcp_picker_syncing\">Syncing MCP servers...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 262,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "438",
+        "column": "52"
+      }
+    ],
+    "source_excerpt": "  <string name=\"notification_live_update_thinking\">생각 중...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 263,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "438",
+        "column": "52"
+      }
+    ],
+    "source_excerpt": "  <string name=\"notification_live_update_thinking\">思考中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 264,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "441",
+        "column": "51"
+      }
+    ],
+    "source_excerpt": "  <string name=\"notification_live_update_writing\">응답 작성 중...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 265,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "443",
+        "column": "51"
+      }
+    ],
+    "source_excerpt": "  <string name=\"notification_web_server_starting\">시작 중...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 266,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "443",
+        "column": "52"
+      }
+    ],
+    "source_excerpt": "  <string name=\"notification_live_update_thinking\">Thinking...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 267,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "444",
+        "column": "49"
+      }
+    ],
+    "source_excerpt": "  <string name=\"notification_live_update_title\">Generating response...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 268,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "446",
+        "column": "51"
+      }
+    ],
+    "source_excerpt": "  <string name=\"notification_live_update_writing\">Writing response...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 269,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "447",
+        "column": "51"
+      }
+    ],
+    "source_excerpt": "  <string name=\"notification_web_server_starting\">正在启动...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 270,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "448",
+        "column": "51"
+      }
+    ],
+    "source_excerpt": "  <string name=\"notification_web_server_starting\">Starting...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 271,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "497",
+        "column": "49"
+      }
+    ],
+    "source_excerpt": "  <string name=\"imggen_page_prompt_placeholder\">صف الصورة التي تريد توليدها...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 272,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "515",
+        "column": "37"
+      }
+    ],
+    "source_excerpt": "  <string name=\"mcp_picker_syncing\">جارٍ مزامنة خوادم MCP...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 273,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "537",
+        "column": "52"
+      }
+    ],
+    "source_excerpt": "  <string name=\"notification_live_update_thinking\">جارٍ التفكير...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 274,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "538",
+        "column": "49"
+      }
+    ],
+    "source_excerpt": "  <string name=\"notification_live_update_title\">جارٍ توليد الرد...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 275,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "540",
+        "column": "51"
+      }
+    ],
+    "source_excerpt": "  <string name=\"notification_live_update_writing\">جارٍ كتابة الرد...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 276,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "542",
+        "column": "51"
+      }
+    ],
+    "source_excerpt": "  <string name=\"notification_web_server_starting\">جارٍ البدء...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 277,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "580",
+        "column": "42"
+      }
+    ],
+    "source_excerpt": "  <string name=\"search_page_placeholder\">메시지 내용 검색...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 278,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "584",
+        "column": "41"
+      }
+    ],
+    "source_excerpt": "  <string name=\"search_page_rebuilding\">색인 재구성 중 (%1$d / %2$d)...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 279,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "585",
+        "column": "48"
+      }
+    ],
+    "source_excerpt": "  <string name=\"search_page_rebuilding_simple\">색인 재구성 중...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 280,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "591",
+        "column": "42"
+      }
+    ],
+    "source_excerpt": "  <string name=\"search_page_placeholder\">Search message content...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 281,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "595",
+        "column": "41"
+      }
+    ],
+    "source_excerpt": "  <string name=\"search_page_rebuilding\">Rebuilding index (%1$d / %2$d)...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 282,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "596",
+        "column": "48"
+      }
+    ],
+    "source_excerpt": "  <string name=\"search_page_rebuilding_simple\">Rebuilding index...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 283,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "685",
+        "column": "42"
+      }
+    ],
+    "source_excerpt": "  <string name=\"search_page_placeholder\">ابحث في محتوى الرسائل...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 284,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "689",
+        "column": "41"
+      }
+    ],
+    "source_excerpt": "  <string name=\"search_page_rebuilding\">جارٍ إعادة بناء الفهرس (%1$d / %2$d)...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 285,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "690",
+        "column": "48"
+      }
+    ],
+    "source_excerpt": "  <string name=\"search_page_rebuilding_simple\">جارٍ إعادة بناء الفهرس...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 286,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "946",
+        "column": "62"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_api_key_placeholder_gemini\">AIza...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 287,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "947",
+        "column": "62"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_api_key_placeholder_openai\">sk-...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 288,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "948",
+        "column": "62"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_api_key_placeholder_gemini\">AIza...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 289,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "948",
+        "column": "62"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_api_key_placeholder_gemini\">AIza...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 290,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ru/strings.xml",
+        "line": "948",
+        "column": "62"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_api_key_placeholder_gemini\">AIza...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 291,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "949",
+        "column": "62"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_api_key_placeholder_openai\">sk-...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 292,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "949",
+        "column": "62"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_api_key_placeholder_openai\">sk-...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 293,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ru/strings.xml",
+        "line": "949",
+        "column": "62"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_api_key_placeholder_openai\">sk-...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 294,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "991",
+        "column": "62"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_api_key_placeholder_gemini\">AIza...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 295,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "992",
+        "column": "62"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_api_key_placeholder_openai\">sk-...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 296,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "1008",
+        "column": "42"
+      }
+    ],
+    "source_excerpt": "  <string name=\"skills_page_downloading\">다운로드 중...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 297,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ru/strings.xml",
+        "line": "1008",
+        "column": "42"
+      }
+    ],
+    "source_excerpt": "  <string name=\"skills_page_downloading\">Загрузка...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 298,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1021",
+        "column": "62"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_api_key_placeholder_gemini\">AIza...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 299,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1022",
+        "column": "62"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_api_key_placeholder_openai\">sk-...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 300,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "1044",
+        "column": "47"
+      }
+    ],
+    "source_excerpt": "  <string name=\"tag_input_dialog_placeholder\">請輸入標籤名稱...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 301,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "1046",
+        "column": "47"
+      }
+    ],
+    "source_excerpt": "  <string name=\"tag_input_dialog_placeholder\">タグ名を入力...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 302,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "1046",
+        "column": "47"
+      }
+    ],
+    "source_excerpt": "  <string name=\"tag_input_dialog_placeholder\">태그 이름 입력...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 303,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ru/strings.xml",
+        "line": "1046",
+        "column": "47"
+      }
+    ],
+    "source_excerpt": "  <string name=\"tag_input_dialog_placeholder\">Введите имя тега...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 304,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "1054",
+        "column": "42"
+      }
+    ],
+    "source_excerpt": "  <string name=\"skills_page_downloading\">正在下载...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 305,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "1063",
+        "column": "30"
+      }
+    ],
+    "source_excerpt": "  <string name=\"translating\">翻譯中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 306,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "1065",
+        "column": "30"
+      }
+    ],
+    "source_excerpt": "  <string name=\"translating\">翻訳中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 307,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "1065",
+        "column": "30"
+      }
+    ],
+    "source_excerpt": "  <string name=\"translating\">번역 중...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 308,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ru/strings.xml",
+        "line": "1065",
+        "column": "30"
+      }
+    ],
+    "source_excerpt": "  <string name=\"translating\">Перевод...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 309,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh-rTW/strings.xml",
+        "line": "1068",
+        "column": "52"
+      }
+    ],
+    "source_excerpt": "  <string name=\"translator_page_input_placeholder\">請輸入要翻譯的文字...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 310,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ja/strings.xml",
+        "line": "1070",
+        "column": "52"
+      }
+    ],
+    "source_excerpt": "  <string name=\"translator_page_input_placeholder\">翻訳するテキストを入力してください...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 311,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ko-rKR/strings.xml",
+        "line": "1070",
+        "column": "52"
+      }
+    ],
+    "source_excerpt": "  <string name=\"translator_page_input_placeholder\">번역할 텍스트를 입력하세요...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 312,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ru/strings.xml",
+        "line": "1070",
+        "column": "52"
+      }
+    ],
+    "source_excerpt": "  <string name=\"translator_page_input_placeholder\">Введите текст для перевода...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 313,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1086",
+        "column": "42"
+      }
+    ],
+    "source_excerpt": "  <string name=\"skills_page_downloading\">Downloading...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 314,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "1092",
+        "column": "47"
+      }
+    ],
+    "source_excerpt": "  <string name=\"tag_input_dialog_placeholder\">请输入标签名称...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 315,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "1111",
+        "column": "30"
+      }
+    ],
+    "source_excerpt": "  <string name=\"translating\">翻译中...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 316,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-zh/strings.xml",
+        "line": "1116",
+        "column": "52"
+      }
+    ],
+    "source_excerpt": "  <string name=\"translator_page_input_placeholder\">请输入要翻译的文本...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 317,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1124",
+        "column": "47"
+      }
+    ],
+    "source_excerpt": "  <string name=\"tag_input_dialog_placeholder\">Enter tag name...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 318,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "1142",
+        "column": "62"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_api_key_placeholder_gemini\">AIza...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 319,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "1143",
+        "column": "62"
+      }
+    ],
+    "source_excerpt": "  <string name=\"setting_tts_page_api_key_placeholder_openai\">sk-...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 320,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1144",
+        "column": "30"
+      }
+    ],
+    "source_excerpt": "  <string name=\"translating\">Translating...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 321,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values/strings.xml",
+        "line": "1149",
+        "column": "52"
+      }
+    ],
+    "source_excerpt": "  <string name=\"translator_page_input_placeholder\">Enter text to translate...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 322,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "1214",
+        "column": "42"
+      }
+    ],
+    "source_excerpt": "  <string name=\"skills_page_downloading\">جارٍ التنزيل...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 323,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "1253",
+        "column": "47"
+      }
+    ],
+    "source_excerpt": "  <string name=\"tag_input_dialog_placeholder\">أدخل اسم الوسم...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 324,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "1297",
+        "column": "30"
+      }
+    ],
+    "source_excerpt": "  <string name=\"translating\">جارٍ الترجمة...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 325,
+    "type": "TypographyEllipsis",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/values-ar/strings.xml",
+        "line": "1302",
+        "column": "52"
+      }
+    ],
+    "source_excerpt": "  <string name=\"translator_page_input_placeholder\">أدخل النص للترجمة...</string>",
+    "message": "Replace \"...\" with ellipsis character (…, &#8230;) ?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 326,
+    "type": "IconLocation",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/drawable/kofi.webp",
+        "line": null,
+        "column": null
+      }
+    ],
+    "source_excerpt": null,
+    "message": "Found bitmap drawable `res/drawable/kofi.webp` in densityless folder",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 327,
+    "type": "IconLocation",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/drawable/placeholder.png",
+        "line": null,
+        "column": null
+      }
+    ],
+    "source_excerpt": null,
+    "message": "Found bitmap drawable `res/drawable/placeholder.png` in densityless folder",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 328,
+    "type": "IconLocation",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/drawable/placeholder_dark.png",
+        "line": null,
+        "column": null
+      }
+    ],
+    "source_excerpt": null,
+    "message": "Found bitmap drawable `res/drawable/placeholder_dark.png` in densityless folder",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 329,
+    "type": "IconLocation",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/drawable/siliconflow_dark.png",
+        "line": null,
+        "column": null
+      }
+    ],
+    "source_excerpt": null,
+    "message": "Found bitmap drawable `res/drawable/siliconflow_dark.png` in densityless folder",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 330,
+    "type": "IconLocation",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/drawable/siliconflow_light.png",
+        "line": null,
+        "column": null
+      }
+    ],
+    "source_excerpt": null,
+    "message": "Found bitmap drawable `res/drawable/siliconflow_light.png` in densityless folder",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 331,
+    "type": "IconDuplicates",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/mipmap-hdpi/ic_launcher_monochrome.png",
+        "line": null,
+        "column": null
+      },
+      {
+        "file": "client/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png",
+        "line": null,
+        "column": null
+      }
+    ],
+    "source_excerpt": null,
+    "message": "The following unrelated icon files have identical contents: ic_launcher_foreground.png, ic_launcher_monochrome.png",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 332,
+    "type": "IconDuplicates",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/mipmap-mdpi/ic_launcher_monochrome.png",
+        "line": null,
+        "column": null
+      },
+      {
+        "file": "client/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png",
+        "line": null,
+        "column": null
+      }
+    ],
+    "source_excerpt": null,
+    "message": "The following unrelated icon files have identical contents: ic_launcher_foreground.png, ic_launcher_monochrome.png",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 333,
+    "type": "IconDuplicates",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/mipmap-xhdpi/ic_launcher_monochrome.png",
+        "line": null,
+        "column": null
+      },
+      {
+        "file": "client/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png",
+        "line": null,
+        "column": null
+      }
+    ],
+    "source_excerpt": null,
+    "message": "The following unrelated icon files have identical contents: ic_launcher_foreground.png, ic_launcher_monochrome.png",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 334,
+    "type": "IconDuplicates",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/mipmap-xxhdpi/ic_launcher_monochrome.png",
+        "line": null,
+        "column": null
+      },
+      {
+        "file": "client/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png",
+        "line": null,
+        "column": null
+      }
+    ],
+    "source_excerpt": null,
+    "message": "The following unrelated icon files have identical contents: ic_launcher_foreground.png, ic_launcher_monochrome.png",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 335,
+    "type": "IconDuplicates",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/res/mipmap-xxxhdpi/ic_launcher_monochrome.png",
+        "line": null,
+        "column": null
+      },
+      {
+        "file": "client/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png",
+        "line": null,
+        "column": null
+      }
+    ],
+    "source_excerpt": null,
+    "message": "The following unrelated icon files have identical contents: ic_launcher_foreground.png, ic_launcher_monochrome.png",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 336,
+    "type": "UseKtx",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialPdfPages.kt",
+        "line": "27",
+        "column": "30"
+      }
+    ],
+    "source_excerpt": "                val bitmap = Bitmap.createBitmap(maxOf(1, (page.width * scale).toInt()), maxOf(1, (page.height * scale).toInt()), Bitmap.Config.ARGB_8888)",
+    "message": "Use the KTX function `createBitmap` instead?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 337,
+    "type": "UseKtx",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialWriter.kt",
+        "line": "89",
+        "column": "25"
+      }
+    ],
+    "source_excerpt": "                        canvas.save(); canvas.clipRect(x + 6, y + 6, x + width - 6, y + height - 6)",
+    "message": "Use the KTX extension function `Canvas.withClip` instead?",
+    "destination": "resolved in current lint"
+  },
+  {
+    "number": 338,
+    "type": "UseKtx",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/feature/studychat/OneShotFeedback.kt",
+        "line": "38",
+        "column": "48"
+      }
+    ],
+    "source_excerpt": "            override fun record(key: String) = preferences.edit().putBoolean(key, true).commit()",
+    "message": "Use the KTX extension function `SharedPreferences.edit` instead?",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 339,
+    "type": "UseKtx",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/feature/studychat/OneShotFeedback.kt",
+        "line": "39",
+        "column": "42"
+      }
+    ],
+    "source_excerpt": "            override fun clear() { check(preferences.edit().clear().commit()) }",
+    "message": "Use the KTX extension function `SharedPreferences.edit` instead?",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 340,
+    "type": "RtlHardcoded",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/ViewText.kt",
+        "line": "157",
+        "column": "43"
+      }
+    ],
+    "source_excerpt": "                TextAlign.Left -> Gravity.LEFT",
+    "message": "Use \"`Gravity.START`\" instead of \"`Gravity.LEFT`\" to ensure correct behavior in right-to-left locales",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 341,
+    "type": "RtlHardcoded",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/ViewText.kt",
+        "line": "157",
+        "column": "43"
+      }
+    ],
+    "source_excerpt": "                TextAlign.Left -> Gravity.LEFT",
+    "message": "Use \"`Gravity.START`\" instead of \"`Gravity.LEFT`\" to ensure correct behavior in right-to-left locales",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 342,
+    "type": "RtlHardcoded",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/ViewText.kt",
+        "line": "158",
+        "column": "44"
+      }
+    ],
+    "source_excerpt": "                TextAlign.Right -> Gravity.RIGHT",
+    "message": "Use \"`Gravity.END`\" instead of \"`Gravity.RIGHT`\" to ensure correct behavior in right-to-left locales",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  },
+  {
+    "number": 343,
+    "type": "RtlHardcoded",
+    "severity": "Warning",
+    "locations": [
+      {
+        "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/ViewText.kt",
+        "line": "158",
+        "column": "44"
+      }
+    ],
+    "source_excerpt": "                TextAlign.Right -> Gravity.RIGHT",
+    "message": "Use \"`Gravity.END`\" instead of \"`Gravity.RIGHT`\" to ensure correct behavior in right-to-left locales",
+    "destination": "retained; see exact instance in remaining-warnings.json"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "suite": "me.rerere.rikkahub.feature.interactive.MathPlotTest",
+    "tests": "10",
+    "failures": "0",
+    "errors": "0"
+  },
+  {
+    "suite": "me.rerere.rikkahub.feature.interactive.SurfaceRenderingV4Test",
+    "tests": "3",
+    "failures": "0",
+    "errors": "0"
+  },
+  {
+    "suite": "me.rerere.rikkahub.feature.interactive.SurfaceRevisionToolTest",
+    "tests": "1",
+    "failures": "0",
+    "errors": "0"
+  }
+]

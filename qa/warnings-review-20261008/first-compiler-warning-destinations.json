@@ -1,0 +1,950 @@
+[
+  {
+    "file": null,
+    "line": null,
+    "message": "Opt-in requirement marker 'androidx.navigation3.runtime.ExperimentalNavigation3Api' is unresolved. Make sure it's present in the module dependencies.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/RouteActivity.kt",
+    "line": 182,
+    "column": 33,
+    "message": "This declaration needs opt-in. Its usage should be marked with '@coil3.annotation.ExperimentalCoilApi' or '@OptIn(coil3.annotation.ExperimentalCoilApi::class)'",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/RouteActivity.kt",
+    "line": 184,
+    "column": 55,
+    "message": "This declaration needs opt-in. Its usage should be marked with '@coil3.annotation.ExperimentalCoilApi' or '@OptIn(coil3.annotation.ExperimentalCoilApi::class)'",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/datastore/PreferencesStore.kt",
+    "line": 242,
+    "column": 47,
+    "message": "Unnecessary safe call on a non-null receiver of type 'Uuid'.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/datastore/PreferencesStore.kt",
+    "line": 867,
+    "column": 33,
+    "message": "Unnecessary safe call on a non-null receiver of type 'Uuid'.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/db/migrations/MigrationUtils.kt",
+    "line": 85,
+    "column": 45,
+    "message": "Cast is redundant.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/db/migrations/Migration_11_12.kt",
+    "line": 74,
+    "column": 33,
+    "message": "Type argument for reified type parameter 'T' was inferred to the intersection of ['Comparable<*>' & 'Serializable']. Reification of an intersection type results in the common supertype being used. This may lead to subtle issues and an explicit type argument is encouraged. This will become an error in language version 2.6. See https://youtrack.jetbrains.com/issue/KTLC-399.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/repository/ConversationRepository.kt",
+    "line": 387,
+    "column": 88,
+    "message": "Unnecessary non-null assertion (!!) on a non-null receiver of type 'ConversationEntity'.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/repository/ConversationRepository.kt",
+    "line": 578,
+    "column": 77,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ConversationEntity'.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/sync/webdav/WebDavClient.kt",
+    "line": 377,
+    "column": 43,
+    "message": "Unnecessary non-null assertion (!!) on a non-null receiver of type 'String'.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/data/sync/webdav/WebDavClient.kt",
+    "line": 381,
+    "column": 51,
+    "message": "Unnecessary non-null assertion (!!) on a non-null receiver of type 'String'.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/DocumentServiceRepository.kt",
+    "line": 99,
+    "column": 34,
+    "message": "Elvis operator (?:) always returns the left operand of non-nullable type 'ResponseBody'.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/DocumentServiceRepository.kt",
+    "line": 188,
+    "column": 50,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/feature/material/ui/StudyFileCard.kt",
+    "line": 158,
+    "column": 49,
+    "message": "'val outlinedButtonBorder: BorderStroke' is deprecated. Please use the version that takes an `enabled` param to get the `BorderStroke` with the correct opacity.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/AssistantPicker.kt",
+    "line": 218,
+    "column": 5,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ChatInput.kt",
+    "line": 253,
+    "column": 72,
+    "message": "Experimental Haze API",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ChatInput.kt",
+    "line": 255,
+    "column": 45,
+    "message": "Experimental Haze API",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ChatInput.kt",
+    "line": 255,
+    "column": 56,
+    "message": "Experimental Haze API",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ChatInput.kt",
+    "line": 260,
+    "column": 41,
+    "message": "Experimental Haze API",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ChatInput.kt",
+    "line": 260,
+    "column": 48,
+    "message": "Experimental Haze API",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ChatInput.kt",
+    "line": 260,
+    "column": 62,
+    "message": "Experimental Haze API",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ChatInput.kt",
+    "line": 260,
+    "column": 69,
+    "message": "Experimental Haze API",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ChatInput.kt",
+    "line": 261,
+    "column": 58,
+    "message": "Experimental Haze API",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ChatInput.kt",
+    "line": 261,
+    "column": 75,
+    "message": "Experimental Haze API",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ChatInput.kt",
+    "line": 262,
+    "column": 53,
+    "message": "Experimental Haze API",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ChatInput.kt",
+    "line": 262,
+    "column": 70,
+    "message": "Experimental Haze API",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ChatInput.kt",
+    "line": 264,
+    "column": 41,
+    "message": "Experimental Haze API",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ExtensionContent.kt",
+    "line": 48,
+    "column": 13,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ExtensionContent.kt",
+    "line": 82,
+    "column": 13,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ExtensionContent.kt",
+    "line": 125,
+    "column": 13,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ExtensionContent.kt",
+    "line": 166,
+    "column": 13,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/FilesPicker.kt",
+    "line": 194,
+    "column": 9,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/FilesPicker.kt",
+    "line": 224,
+    "column": 9,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/FilesPicker.kt",
+    "line": 329,
+    "column": 5,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/McpPicker.kt",
+    "line": 178,
+    "column": 5,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/ModelList.kt",
+    "line": 678,
+    "column": 14,
+    "message": "This declaration is in a preview state and can be changed in a backwards-incompatible manner with a best-effort migration. Its usage should be marked with '@kotlinx.coroutines.FlowPreview' or '@OptIn(kotlinx.coroutines.FlowPreview::class)' if you accept the drawback of relying on preview API",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/WorkspaceCwdPicker.kt",
+    "line": 127,
+    "column": 21,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/WorkspaceSelectSheet.kt",
+    "line": 90,
+    "column": 13,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ai/WorkspaceSelectSheet.kt",
+    "line": 120,
+    "column": 5,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/message/ChatMessageReasoning.kt",
+    "line": 219,
+    "column": 53,
+    "message": "Unnecessary non-null assertion (!!) on a non-null receiver of type 'String'.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/message/ChatMessageTranslation.kt",
+    "line": 72,
+    "column": 13,
+    "message": "'constructor(p0: String!, p1: String!): Locale' is deprecated. Deprecated in Java.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/message/ChatMessageTranslation.kt",
+    "line": 89,
+    "column": 13,
+    "message": "'constructor(p0: String!, p1: String!): Locale' is deprecated. Deprecated in Java.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/CardGroup.kt",
+    "line": 117,
+    "column": 5,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/Tooltip.kt",
+    "line": 18,
+    "column": 44,
+    "message": "'fun rememberTooltipPositionProvider(spacingBetweenTooltipAndAnchor: Dp = ...): PopupPositionProvider' is deprecated. Deprecated in favor of rememberTooltipPositionProvider API that takes a preferred positioning. Please use rememberTooltipPositionProvider with TooltipAnchorPosition.Above if this same behavior is desired.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/UpdateCard.kt",
+    "line": 167,
+    "column": 29,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/components/ui/ViewText.kt",
+    "line": 190,
+    "column": 45,
+    "message": "Redundant call of conversion method.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/assistant/detail/AssistantBasicPage.kt",
+    "line": 517,
+    "column": 117,
+    "message": "Unnecessary non-null assertion (!!) on a non-null receiver of type 'Int'.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/assistant/detail/AssistantBasicPage.kt",
+    "line": 580,
+    "column": 21,
+    "message": "'fun Slider(value: Float, onValueChange: (Float) -> Unit, modifier: Modifier = ..., enabled: Boolean = ..., valueRange: ClosedFloatingPointRange<Float> = ..., steps: Int = ..., onValueChangeFinished: (() -> Unit)? = ..., colors: SliderColors = ..., interactionSource: MutableInteractionSource = ...): Unit' is deprecated. Use the Slider overload that accepts SliderState, onValueChange, and onValueChangeFinished instead.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/ChatPage.kt",
+    "line": 143,
+    "column": 30,
+    "message": "'fun currentWindowDpSize(): DpSize' is deprecated. Going to be removed in the next version. Prefer LocalWindowInfo instead.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/ConversationExport.kt",
+    "line": 140,
+    "column": 21,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/ConversationExport.kt",
+    "line": 166,
+    "column": 21,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/ConversationExport.kt",
+    "line": 185,
+    "column": 25,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/ConversationExport.kt",
+    "line": 199,
+    "column": 25,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/chat/VoiceSessionController.kt",
+    "line": 131,
+    "column": 32,
+    "message": "Unnecessary safe call on a non-null receiver of type 'Job'.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/extensions/skills/SkillsPage.kt",
+    "line": 403,
+    "column": 5,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/extensions/workspace/WorkspaceTerminalSession.kt",
+    "line": 266,
+    "column": 71,
+    "message": "'static field SHOW_IMPLICIT: Int' is deprecated. Deprecated in Java.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/history/HistoryPage.kt",
+    "line": 236,
+    "column": 9,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/imggen/ImgGenPage.kt",
+    "line": 529,
+    "column": 28,
+    "message": "'val LocalClipboardManager: ProvidableCompositionLocal<ClipboardManager>' is deprecated. Use LocalClipboard instead which supports suspend functions.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingPreferencesGeneralPage.kt",
+    "line": 237,
+    "column": 37,
+    "message": "'fun Slider(value: Float, onValueChange: (Float) -> Unit, modifier: Modifier = ..., enabled: Boolean = ..., valueRange: ClosedFloatingPointRange<Float> = ..., steps: Int = ..., onValueChangeFinished: (() -> Unit)? = ..., colors: SliderColors = ..., interactionSource: MutableInteractionSource = ...): Unit' is deprecated. Use the Slider overload that accepts SliderState, onValueChange, and onValueChangeFinished instead.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingPreferencesGeneralPage.kt",
+    "line": 271,
+    "column": 37,
+    "message": "'fun Slider(value: Float, onValueChange: (Float) -> Unit, modifier: Modifier = ..., enabled: Boolean = ..., valueRange: ClosedFloatingPointRange<Float> = ..., steps: Int = ..., onValueChangeFinished: (() -> Unit)? = ..., colors: SliderColors = ..., interactionSource: MutableInteractionSource = ...): Unit' is deprecated. Use the Slider overload that accepts SliderState, onValueChange, and onValueChangeFinished instead.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingPreferencesGeneralPage.kt",
+    "line": 305,
+    "column": 37,
+    "message": "'fun Slider(value: Float, onValueChange: (Float) -> Unit, modifier: Modifier = ..., enabled: Boolean = ..., valueRange: ClosedFloatingPointRange<Float> = ..., steps: Int = ..., onValueChangeFinished: (() -> Unit)? = ..., colors: SliderColors = ..., interactionSource: MutableInteractionSource = ...): Unit' is deprecated. Use the Slider overload that accepts SliderState, onValueChange, and onValueChangeFinished instead.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingPreferencesUIPage.kt",
+    "line": 172,
+    "column": 33,
+    "message": "'fun Slider(value: Float, onValueChange: (Float) -> Unit, modifier: Modifier = ..., enabled: Boolean = ..., valueRange: ClosedFloatingPointRange<Float> = ..., steps: Int = ..., onValueChangeFinished: (() -> Unit)? = ..., colors: SliderColors = ..., interactionSource: MutableInteractionSource = ...): Unit' is deprecated. Use the Slider overload that accepts SliderState, onValueChange, and onValueChangeFinished instead.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingPreferencesUIPage.kt",
+    "line": 351,
+    "column": 37,
+    "message": "'fun Slider(value: Float, onValueChange: (Float) -> Unit, modifier: Modifier = ..., enabled: Boolean = ..., valueRange: ClosedFloatingPointRange<Float> = ..., steps: Int = ..., onValueChangeFinished: (() -> Unit)? = ..., colors: SliderColors = ..., interactionSource: MutableInteractionSource = ...): Unit' is deprecated. Use the Slider overload that accepts SliderState, onValueChange, and onValueChangeFinished instead.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingThemePage.kt",
+    "line": 323,
+    "column": 5,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingThemePage.kt",
+    "line": 590,
+    "column": 21,
+    "message": "'fun Slider(value: Float, onValueChange: (Float) -> Unit, modifier: Modifier = ..., enabled: Boolean = ..., valueRange: ClosedFloatingPointRange<Float> = ..., steps: Int = ..., onValueChangeFinished: (() -> Unit)? = ..., colors: SliderColors = ..., interactionSource: MutableInteractionSource = ...): Unit' is deprecated. Use the Slider overload that accepts SliderState, onValueChange, and onValueChangeFinished instead.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingThemePage.kt",
+    "line": 601,
+    "column": 21,
+    "message": "'fun Slider(value: Float, onValueChange: (Float) -> Unit, modifier: Modifier = ..., enabled: Boolean = ..., valueRange: ClosedFloatingPointRange<Float> = ..., steps: Int = ..., onValueChangeFinished: (() -> Unit)? = ..., colors: SliderColors = ..., interactionSource: MutableInteractionSource = ...): Unit' is deprecated. Use the Slider overload that accepts SliderState, onValueChange, and onValueChangeFinished instead.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingThemePage.kt",
+    "line": 612,
+    "column": 21,
+    "message": "'fun Slider(value: Float, onValueChange: (Float) -> Unit, modifier: Modifier = ..., enabled: Boolean = ..., valueRange: ClosedFloatingPointRange<Float> = ..., steps: Int = ..., onValueChangeFinished: (() -> Unit)? = ..., colors: SliderColors = ..., interactionSource: MutableInteractionSource = ...): Unit' is deprecated. Use the Slider overload that accepts SliderState, onValueChange, and onValueChangeFinished instead.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/setting/SettingWebPage.kt",
+    "line": 85,
+    "column": 28,
+    "message": "'val LocalClipboardManager: ProvidableCompositionLocal<ClipboardManager>' is deprecated. Use LocalClipboard instead which supports suspend functions.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/share/handler/ShareHandlerPage.kt",
+    "line": 98,
+    "column": 21,
+    "message": "'fun ListItem(headlineContent: ComposableFunction0<Unit>, modifier: Modifier = ..., overlineContent: ComposableFunction0<Unit>? = ..., supportingContent: ComposableFunction0<Unit>? = ..., leadingContent: ComposableFunction0<Unit>? = ..., trailingContent: ComposableFunction0<Unit>? = ..., colors: ListItemColors = ..., tonalElevation: Dp = ..., shadowElevation: Dp = ...): Unit' is deprecated. Use the overload where `headlineContent` is now a trailing `content` lambda.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/translator/TranslatorPage.kt",
+    "line": 217,
+    "column": 9,
+    "message": "'constructor(p0: String!, p1: String!): Locale' is deprecated. Deprecated in Java.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/ui/pages/translator/TranslatorPage.kt",
+    "line": 239,
+    "column": 13,
+    "message": "'constructor(p0: String!, p1: String!): Locale' is deprecated. Deprecated in Java.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/utils/ContextUtil.kt",
+    "line": 85,
+    "column": 16,
+    "message": "'fun unsafeCheckOpNoThrow(p0: String, p1: Int, p2: String): Int' is deprecated. Deprecated in Java.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/utils/ContextUtil.kt",
+    "line": 195,
+    "column": 49,
+    "message": "'static field ACTION_MEDIA_SCANNER_SCAN_FILE: String' is deprecated. Deprecated in Java.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/utils/ContextUtil.kt",
+    "line": 248,
+    "column": 49,
+    "message": "'static field ACTION_MEDIA_SCANNER_SCAN_FILE: String' is deprecated. Deprecated in Java.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/web/NsdServiceRegistrar.kt",
+    "line": 118,
+    "column": 41,
+    "message": "'val connectionInfo: WifiInfo!' is deprecated. Deprecated in Java.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/web/NsdServiceRegistrar.kt",
+    "line": 119,
+    "column": 35,
+    "message": "'val ipAddress: Int' is deprecated. Deprecated in Java.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/app/src/main/java/me/rerere/rikkahub/web/routes/FilesRoutes.kt",
+    "line": 69,
+    "column": 26,
+    "message": "'val dispose: () -> Unit' is deprecated. Use release instead.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": null,
+    "line": null,
+    "message": "Opt-in requirement marker 'androidx.navigation3.runtime.ExperimentalNavigation3Api' is unresolved. Make sure it's present in the module dependencies.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/app/src/androidTest/java/me/rerere/rikkahub/service/FrontendDeliveryRoutesTest.kt",
+    "line": 28,
+    "column": 29,
+    "message": "'fun <reified A : ComponentActivity> createAndroidComposeRule(effectContext: CoroutineContext = ...): AndroidComposeTestRule<ActivityScenarioRule<A>, A>' is deprecated. Use `androidx.compose.ui.test.junit4.v2.createAndroidComposeRule` instead. The v2 APIs use StandardTestDispatcher instead of UnconfinedTestDispatcher, which aligns with standard coroutine behavior by queuing tasks rather than executing them immediately. Tests relying on immediate execution may require explicit synchronization. Please refer to the migration guide for more details.",
+    "log": "after-build-second.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": null,
+    "line": null,
+    "message": "Opt-in requirement marker 'androidx.navigation3.runtime.ExperimentalNavigation3Api' is unresolved. Make sure it's present in the module dependencies.",
+    "log": "after-build-second.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": null,
+    "line": null,
+    "message": "file:///D:/Office/Study/code/MathStudyAgent/client/app/build.gradle.kts:100:41: 'fun srcDirs(vararg srcDirs: Any): Any' is deprecated. Use `directories` mutable set instead.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/common/src/main/java/me/rerere/common/http/AcceptLang.kt",
+    "line": 61,
+    "column": 28,
+    "message": "'field locale: Locale!' is deprecated. Deprecated in Java.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/common/src/main/java/me/rerere/common/http/JsonExpression.kt",
+    "line": 359,
+    "column": 13,
+    "message": "'when' is exhaustive so 'else' is redundant here.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/material3/material-color-utilities/kotlin/dynamiccolor/ColorSpec2025.kt",
+    "line": 904,
+    "column": 37,
+    "message": "Unnecessary non-null assertion (!!) on a non-null receiver of type 'DynamicColor'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/material3/material-color-utilities/kotlin/dynamiccolor/ColorSpec2025.kt",
+    "line": 1107,
+    "column": 36,
+    "message": "Unnecessary non-null assertion (!!) on a non-null receiver of type 'DynamicColor'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/material3/material-color-utilities/kotlin/dynamiccolor/ColorSpec2025.kt",
+    "line": 1253,
+    "column": 33,
+    "message": "Unnecessary non-null assertion (!!) on a non-null receiver of type 'DynamicColor'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/asr/providers/MiMoASRController.kt",
+    "line": 256,
+    "column": 41,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/providers/ElevenLabsTTSProvider.kt",
+    "line": 53,
+    "column": 42,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/providers/FishAudioTTSProvider.kt",
+    "line": 61,
+    "column": 42,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/providers/GroqTTSProvider.kt",
+    "line": 52,
+    "column": 56,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/providers/StepTTSProvider.kt",
+    "line": 79,
+    "column": 56,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/providers/StepTTSProvider.kt",
+    "line": 86,
+    "column": 39,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/providers/SystemTTSProvider.kt",
+    "line": 79,
+    "column": 34,
+    "message": "This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/providers/SystemTTSProvider.kt",
+    "line": 112,
+    "column": 16,
+    "message": "Unnecessary safe call on a non-null receiver of type 'TextToSpeech'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/speech/src/main/java/me/rerere/tts/provider/providers/XAITTSProvider.kt",
+    "line": 50,
+    "column": 42,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/speech/src/test/java/me/rerere/asr/providers/VolcengineASRProtocolTest.kt",
+    "line": 60,
+    "column": 34,
+    "message": "Unnecessary non-null assertion (!!) on a non-null receiver of type 'String'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/provider/providers/claude/ClaudeProvider.kt",
+    "line": 262,
+    "column": 40,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/provider/providers/claude/ClaudeProvider.kt",
+    "line": 316,
+    "column": 36,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/provider/providers/google/GoogleProvider.kt",
+    "line": 143,
+    "column": 41,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/provider/providers/google/GoogleProvider.kt",
+    "line": 207,
+    "column": 36,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/provider/providers/openai/ChatCompletionsAPI.kt",
+    "line": 107,
+    "column": 36,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/provider/providers/openai/OpenAIProvider.kt",
+    "line": 72,
+    "column": 40,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/provider/providers/openai/OpenAIProvider.kt",
+    "line": 186,
+    "column": 36,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/ui/Message.kt",
+    "line": 242,
+    "column": 30,
+    "message": "'data class ToolCall : UIMessagePart' is deprecated. Use UIMessagePart.Tool instead.",
+    "log": "full-build-tests-lint.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/ui/Message.kt",
+    "line": 243,
+    "column": 30,
+    "message": "'data class ToolResult : UIMessagePart' is deprecated. Use UIMessagePart.Tool instead.",
+    "log": "full-build-tests-lint.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/ui/Message.kt",
+    "line": 244,
+    "column": 30,
+    "message": "'data object Search : UIMessagePart' is deprecated. Deprecated.",
+    "log": "full-build-tests-lint.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/ui/UIMessagePart.kt",
+    "line": 144,
+    "column": 26,
+    "message": "'data class ToolCall : UIMessagePart' is deprecated. Use UIMessagePart.Tool instead.",
+    "log": "full-build-tests-lint.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/ui/UIMessagePart.kt",
+    "line": 144,
+    "column": 37,
+    "message": "'data class ToolCall : UIMessagePart' is deprecated. Use UIMessagePart.Tool instead.",
+    "log": "full-build-tests-lint.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/ai/src/main/java/me/rerere/ai/ui/UIMessagePart.kt",
+    "line": 145,
+    "column": 20,
+    "message": "'constructor(toolCallId: String, toolName: String, arguments: String, approvalState: ToolApprovalState = ..., executionState: ToolExecutionState = ..., metadata: JsonObject? = ...): UIMessagePart.ToolCall' is deprecated. Use UIMessagePart.Tool instead.",
+    "log": "full-build-tests-lint.log",
+    "destination": "retained; see remaining compiler ledger"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/BochaSearchService.kt",
+    "line": 80,
+    "column": 21,
+    "message": "Expression is unused.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/ExaSearchService.kt",
+    "line": 124,
+    "column": 21,
+    "message": "Expression is unused.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/ExaSearchService.kt",
+    "line": 158,
+    "column": 21,
+    "message": "Expression is unused.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/MetasoSearchService.kt",
+    "line": 76,
+    "column": 44,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/MetasoSearchService.kt",
+    "line": 80,
+    "column": 21,
+    "message": "Expression is unused.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/MetasoSearchService.kt",
+    "line": 97,
+    "column": 46,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/SearXNGService.kt",
+    "line": 96,
+    "column": 21,
+    "message": "Expression is unused.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/SearXNGService.kt",
+    "line": 114,
+    "column": 46,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/ZhipuSearchService.kt",
+    "line": 75,
+    "column": 44,
+    "message": "Unnecessary safe call on a non-null receiver of type 'ResponseBody'.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  },
+  {
+    "file": "client/search/src/main/java/me/rerere/search/ZhipuSearchService.kt",
+    "line": 79,
+    "column": 21,
+    "message": "Expression is unused.",
+    "log": "full-build-tests-lint.log",
+    "destination": "removed from fresh final compiler output; original failed/intermediate logs retained"
+  }
+]

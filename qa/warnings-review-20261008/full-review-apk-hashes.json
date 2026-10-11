@@ -1,0 +1,22 @@
+[
+  {
+    "file": "client\\app\\build\\outputs\\apk\\debug\\app-arm64-v8a-debug.apk",
+    "sha256": "24d8b231415b2aea010bd841b71cdfdff37716393d291908dcf423c9a9cc9fbd",
+    "mtime": 1791412279.0280035
+  },
+  {
+    "file": "client\\app\\build\\outputs\\apk\\debug\\app-universal-debug.apk",
+    "sha256": "56a8ffc94fd36e5f4c859d3b49d09a7b481eda12477efb03c232a275d69f83aa",
+    "mtime": 1791412279.0269983
+  },
+  {
+    "file": "client\\app\\build\\outputs\\apk\\debug\\app-x86_64-debug.apk",
+    "sha256": "f1441f122abcb30c93ca3b6476bf6f9b7f7f4c7be99ae7951a2e0e406112a261",
+    "mtime": 1791412278.9549103
+  },
+  {
+    "file": "client\\app\\build\\outputs\\apk\\androidTest\\debug\\app-debug-androidTest.apk",
+    "sha256": "6b9f7739f90199262ddb2d3986e09814765d5d70a7f078dd78d91fec5f41cf1a",
+    "mtime": 1791412269.308223
+  }
+]

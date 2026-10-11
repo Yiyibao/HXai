@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2026-10-07T16:42:07.420Z" hostname="DESKTOP-QH4J0RS" time="0.042">
+  <properties/>
+  <testcase name="server tool should replay the original response item" classname="me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest" time="0.004"/>
+  <testcase name="parallel tool calls should emit all calls before their outputs" classname="me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest" time="0.004"/>
+  <testcase name="openai response api should include reasoning summary" classname="me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest" time="0.003"/>
+  <testcase name="encrypted reasoning should not replay plaintext content" classname="me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest" time="0.002"/>
+  <testcase name="complex multi-round scenario with text and tools interleaved" classname="me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest" time="0.002"/>
+  <testcase name="function tools and built-in tools should coexist in the same tools array" classname="me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest" time="0.003"/>
+  <testcase name="unencrypted reasoning should replay plaintext content" classname="me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest" time="0.002"/>
+  <testcase name="function_call should be immediately followed by function_call_output" classname="me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest" time="0.003"/>
+  <testcase name="server tool should not replay Claude blocks into Responses input" classname="me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest" time="0.003"/>
+  <testcase name="tools key should be absent when neither function nor built-in tools exist" classname="me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest" time="0.002"/>
+  <testcase name="multi-round tool calls should produce correct function_call and function_call_output pairs" classname="me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest" time="0.002"/>
+  <testcase name="volc response api should keep reasoning effort when non auto" classname="me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest" time="0.003"/>
+  <testcase name="function tools should be sent when no built-in tools configured" classname="me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest" time="0.003"/>
+  <testcase name="content with text should be properly formatted" classname="me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest" time="0.001"/>
+  <testcase name="volc response api should not include reasoning summary" classname="me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

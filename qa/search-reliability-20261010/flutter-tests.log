@@ -1,0 +1,5 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/search_reliability_test.dart
+00:00 +0: search failure is visible even though tool execution completed
+00:00 +1: source count reflects actual results
+00:00 +2: sources preserve evidence and publication dates and deduplicate URLs
+00:00 +3: All tests passed!

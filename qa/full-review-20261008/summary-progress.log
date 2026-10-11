@@ -1,0 +1,246 @@
+{
+  "instrumentation": [
+    {
+      "log": "BackupPageTest.log",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "BackupReliabilityTest.log",
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "ChatNetworkFaultTest.log",
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "CredentialVaultTest.log",
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "DiagnosticsPageTest.log",
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "DiagnosticsTest.log",
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "DocumentServicePageTest.log",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "feedback-seed.log",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "feedback-verify.log",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "FrontendDeliveryRoutesTest.log",
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "FrontendModelPickerTest.log",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "LearningLoopPersistenceTest.log",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "LearningMemoryPageTest.log",
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0
+    },
+    {
+      "log": "LearningMemoryPersistenceTest.log",
+      "passed": 4,
+      "failed": 0,
+      "skipped": 1
+    },
+    {
+      "log": "LegacyMemoryEntryTest.log",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "long-material-current.log",
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0
+    },
+    {
+      "log": "material-real-retry.log",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialDeliveryTest.log",
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialFidelityTest.log",
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialFilesTest.log",
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialPageTest.log",
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialPaginationTest.log",
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0
+    },
+    {
+      "log": "memory-current-final.log",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "memory-seed.log",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "memory-verify.log",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "navigation-large-font.log",
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "ProjectReviewAuditTest.log",
+      "passed": 2,
+      "failed": 6,
+      "skipped": 0
+    },
+    {
+      "log": "ProjectReviewDeliveryTest.log",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "ProjectReviewTeachingTest.log",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "real-model-tests.log",
+      "passed": 2,
+      "failed": 2,
+      "skipped": 0
+    },
+    {
+      "log": "runtime-seed.log",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "runtime-verify.log",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "StudyChatCompletionTest.log",
+      "passed": 3,
+      "failed": 0,
+      "skipped": 1
+    },
+    {
+      "log": "StudyNavigationTest.log",
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0
+    }
+  ],
+  "jvm": [
+    {
+      "module": "app",
+      "tests": 317,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "module": "ai",
+      "tests": 198,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "module": "search",
+      "tests": 16,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "module": "speech",
+      "tests": 43,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "module": "common",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "module": "document",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0
+    }
+  ]
+}

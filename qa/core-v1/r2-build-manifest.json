@@ -1,0 +1,25 @@
+{
+  "apk": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\build\\outputs\\apk\\debug\\app-x86_64-debug.apk",
+  "apk_sha256": "8e407a795b19bec606b30ab565f6e120c6e1a40a6ede8f99bc564a761eddd0ed",
+  "aar_sha256": "f69e6b05a822ec1c450c951a0da7c3bf10cb8c4e9a139ec61f5f07373f35fd39",
+  "assets_checked": 32,
+  "mismatches": [],
+  "sources": {
+    "client\\flutter_ui\\lib\\bridge\\bridge_client.dart": "70bfa7a09add2252cdcefb125da69e38b1ffc86f3a2a587a971549a536d85069",
+    "client\\flutter_ui\\lib\\bridge\\study_host_api.g.dart": "fdd89f5f5b3159bef85192205f5969cf944fb407e096f0475db849a22df7e8ee",
+    "client\\flutter_ui\\lib\\main.dart": "5cd7413fcf8d3dad0b59408fc68c54a76985ea4c1fd9e654501c370967d1313d",
+    "client\\flutter_ui\\lib\\pages\\artifacts_page.dart": "98071956e0689609aa54e1a9765f295ebd4539752ef89797dd25f665789db69c",
+    "client\\flutter_ui\\lib\\pages\\chat_page.dart": "fdbe1f9359e9b512af2f9bcdf17d4fadf70bd2fa1aaf6970d63b0bfa5912d8cc",
+    "client\\flutter_ui\\lib\\pages\\conversation_drawer.dart": "93ef78873ab77f5cec5223058ab7d63281ca5d3961982fe54d8a2ffd9bc31f5e",
+    "client\\flutter_ui\\lib\\pages\\materials_page.dart": "ad7f954ee1bc24054fad45d1775810cf099fefde2af38d5775c3a826ecdf9aa4",
+    "client\\flutter_ui\\lib\\pages\\memories_page.dart": "bf685f1f996be4c832ff90f3b10444b732c6d9dbe8aad98f98bd130c4890f7c5",
+    "client\\flutter_ui\\lib\\pages\\model_picker_sheet.dart": "b9691242910ab62d4370e09053c11d723ab0b3f026bc6deda813b9959454abca",
+    "client\\flutter_ui\\lib\\pages\\settings_page.dart": "41197ffd471b9c52f39dcb22409015836ea4b67d7b5f366ce63bf20a9ac9a1f7",
+    "client\\flutter_ui\\lib\\providers\\study_providers.dart": "8f2513f32a1ea321f493ab9f6166e2837b970a9b0c72fc998475c9a7167d1e5e",
+    "client\\flutter_ui\\lib\\router.dart": "843c5bfa6db0d4342e3ace3ef4b082358fcd6665cbaf095e3ffa8046aa3ea48e",
+    "client\\flutter_ui\\lib\\theme\\study_theme.dart": "db1b392b85949a773e9387927ebacc7b2d36f3407a502478cdb7b17c61b52574",
+    "client\\flutter_ui\\lib\\widgets\\interactive_surface.dart": "1ff3f0f473febbc0a2688008d4b68f8a2f50c9bf19556596450836435daa399b",
+    "client\\flutter_ui\\lib\\widgets\\mascot.dart": "458c4fcf5a653744ca790cf7c0ede6663408364cb8a79d59699298d99ecc15e4",
+    "client\\flutter_ui\\lib\\widgets\\math_markdown.dart": "cc9ae67497bdaf8a68f229b799691a552d3bcd2f110dd3c2410935e79bf212b9"
+  }
+}

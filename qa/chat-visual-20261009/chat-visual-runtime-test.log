@@ -1,0 +1,59 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatVisualReviewTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ChatVisualReviewTest:
+INSTRUMENTATION_STATUS: test=captureReferenceScenes
+INSTRUMENTATION_STATUS_CODE: 1
+s_glBindAttribLocation: bind attrib 0 name position
+s_glBindAttribLocation: bind attrib 1 name color
+s_glBindAttribLocation: bind attrib 2 name localCoord
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatVisualReviewTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=captureReferenceScenes
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.CoreFlutterDeliveryTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.CoreFlutterDeliveryTest:
+INSTRUMENTATION_STATUS: test=actualFlutterArtifactOpensSavesAndShares
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.CoreFlutterDeliveryTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Verified destination receipt missing
+	at org.junit.Assert.fail(Assert.java:89)
+	at me.rerere.rikkahub.service.CoreFlutterDeliveryTest.waitUntil(CoreFlutterDeliveryTest.kt:51)
+	at me.rerere.rikkahub.service.CoreFlutterDeliveryTest.actualFlutterArtifactOpensSavesAndShares(CoreFlutterDeliveryTest.kt:92)
+
+INSTRUMENTATION_STATUS: stream=
+Error in actualFlutterArtifactOpensSavesAndShares(me.rerere.rikkahub.service.CoreFlutterDeliveryTest):
+java.lang.AssertionError: Verified destination receipt missing
+	at org.junit.Assert.fail(Assert.java:89)
+	at me.rerere.rikkahub.service.CoreFlutterDeliveryTest.waitUntil(CoreFlutterDeliveryTest.kt:51)
+	at me.rerere.rikkahub.service.CoreFlutterDeliveryTest.actualFlutterArtifactOpensSavesAndShares(CoreFlutterDeliveryTest.kt:92)
+
+INSTRUMENTATION_STATUS: test=actualFlutterArtifactOpensSavesAndShares
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 51.79
+There was 1 failure:
+1) actualFlutterArtifactOpensSavesAndShares(me.rerere.rikkahub.service.CoreFlutterDeliveryTest)
+java.lang.AssertionError: Verified destination receipt missing
+	at org.junit.Assert.fail(Assert.java:89)
+	at me.rerere.rikkahub.service.CoreFlutterDeliveryTest.waitUntil(CoreFlutterDeliveryTest.kt:51)
+	at me.rerere.rikkahub.service.CoreFlutterDeliveryTest.actualFlutterArtifactOpensSavesAndShares(CoreFlutterDeliveryTest.kt:92)
+
+FAILURES!!!
+Tests run: 2,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

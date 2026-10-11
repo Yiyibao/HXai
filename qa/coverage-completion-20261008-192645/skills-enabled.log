@@ -1,0 +1,27 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChecklistSupplementTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ChecklistSupplementTest:
+INSTRUMENTATION_STATUS: test=installedSkillsCanBeUsedOnlyWhenEnabled
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_pid=17387
+INSTRUMENTATION_STATUS: qa_snapshot=read_material_text_page,read_material_word_images,read_material_pdf_pages,list_material_files,read_material_file,create_material_file,generate_material_image,use_skill
+INSTRUMENTATION_STATUS: qa_stage=D07-synthetic-tools
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChecklistSupplementTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=installedSkillsCanBeUsedOnlyWhenEnabled
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 0.93
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

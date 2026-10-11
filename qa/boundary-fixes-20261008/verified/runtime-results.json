@@ -1,0 +1,121 @@
+[
+  {
+    "name": "ConversationBoundaryFixTest",
+    "passed": true,
+    "started": "2026-10-08T13:12:52.5123389+08:00",
+    "seconds": 10.9,
+    "log": "ConversationBoundaryFixTest.log"
+  },
+  {
+    "name": "WordFormulaAssertionTest",
+    "passed": true,
+    "started": "2026-10-08T13:13:03.4279393+08:00",
+    "seconds": 4.6,
+    "log": "WordFormulaAssertionTest.log"
+  },
+  {
+    "name": "StudyChatCompletionTest",
+    "passed": true,
+    "started": "2026-10-08T13:13:08.0747667+08:00",
+    "seconds": 6.4,
+    "log": "StudyChatCompletionTest.log"
+  },
+  {
+    "name": "ChatNetworkFaultTest",
+    "passed": false,
+    "started": "2026-10-08T13:13:14.5195911+08:00",
+    "seconds": 150.6,
+    "log": "ChatNetworkFaultTest-first-failure.log"
+  },
+  {
+    "name": "ChatNetworkFaultTest",
+    "passed": false,
+    "started": "2026-10-08T13:18:03.3116457+08:00",
+    "seconds": 144.5,
+    "log": "ChatNetworkFaultTest-failure-20261008131803.log"
+  },
+  {
+    "name": "ProjectReviewAuditTest",
+    "passed": true,
+    "started": "2026-10-08T13:22:17.4504254+08:00",
+    "seconds": 78.4,
+    "log": "ProjectReviewAuditTest.log"
+  },
+  {
+    "name": "MaterialFilesTest",
+    "passed": true,
+    "started": "2026-10-08T13:23:35.9345648+08:00",
+    "seconds": 6.3,
+    "log": "MaterialFilesTest.log"
+  },
+  {
+    "name": "MaterialFidelityTest",
+    "passed": true,
+    "started": "2026-10-08T13:23:42.2160686+08:00",
+    "seconds": 4.0,
+    "log": "MaterialFidelityTest.log"
+  },
+  {
+    "name": "LearningMemoryPersistenceTest",
+    "passed": true,
+    "started": "2026-10-08T13:23:46.1866379+08:00",
+    "seconds": 4.3,
+    "log": "LearningMemoryPersistenceTest.log"
+  },
+  {
+    "name": "BackupReliabilityTest",
+    "passed": true,
+    "started": "2026-10-08T13:23:50.5045510+08:00",
+    "seconds": 16.2,
+    "log": "BackupReliabilityTest.log"
+  },
+  {
+    "name": "MaterialDeliveryTest",
+    "passed": true,
+    "started": "2026-10-08T13:24:06.7365048+08:00",
+    "seconds": 55.5,
+    "log": "MaterialDeliveryTest.log"
+  },
+  {
+    "name": "ProjectReviewDeliveryTest",
+    "passed": true,
+    "started": "2026-10-08T13:25:02.2615128+08:00",
+    "seconds": 54.6,
+    "log": "ProjectReviewDeliveryTest.log"
+  },
+  {
+    "name": "MaterialPageTest",
+    "passed": true,
+    "started": "2026-10-08T13:25:56.9146292+08:00",
+    "seconds": 16.9,
+    "log": "MaterialPageTest.log"
+  },
+  {
+    "name": "runtime-seed",
+    "passed": true,
+    "started": "2026-10-08T13:26:13.8380760+08:00",
+    "seconds": 3.4,
+    "log": "runtime-seed.log"
+  },
+  {
+    "name": "runtime-verify",
+    "passed": true,
+    "started": "2026-10-08T13:26:17.2675086+08:00",
+    "seconds": 3.4,
+    "log": "runtime-verify.log"
+  },
+  {
+    "name": "real-teaching-approval",
+    "passed": true,
+    "started": "2026-10-08T13:26:20.6571638+08:00",
+    "seconds": 100.3,
+    "log": "real-teaching-approval.log"
+  },
+  {
+    "name": "real-material",
+    "passed": true,
+    "started": "2026-10-08T13:28:00.9628241+08:00",
+    "seconds": 316.4,
+    "log": "real-material.log"
+  }
+]

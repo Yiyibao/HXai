@@ -1,0 +1,918 @@
+[
+  {
+    "module": "ai",
+    "tests": 198,
+    "failed": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "me.rerere.ai.provider.providers.claude.ClaudePromptCacheRequestTest",
+        "tests": "6",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:48.627Z"
+      },
+      {
+        "name": "me.rerere.ai.provider.providers.claude.ClaudeRequestMessageTest",
+        "tests": "7",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:48.945Z"
+      },
+      {
+        "name": "me.rerere.ai.provider.providers.claude.ClaudeServerToolTest",
+        "tests": "10",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:49.069Z"
+      },
+      {
+        "name": "me.rerere.ai.provider.providers.google.GoogleRequestMessageTest",
+        "tests": "8",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:49.303Z"
+      },
+      {
+        "name": "me.rerere.ai.provider.providers.google.GoogleToolCombinationTest",
+        "tests": "3",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:49.342Z"
+      },
+      {
+        "name": "me.rerere.ai.provider.providers.google.InteractionsApiTest",
+        "tests": "11",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:49.370Z"
+      },
+      {
+        "name": "me.rerere.ai.provider.providers.openai.ChatCompletionsMoonshotRequestTest",
+        "tests": "3",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:49.500Z"
+      },
+      {
+        "name": "me.rerere.ai.provider.providers.openai.ChatCompletionsRequestMessageTest",
+        "tests": "12",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:49.534Z"
+      },
+      {
+        "name": "me.rerere.ai.provider.providers.openai.ChatCompletionsToolSchemaTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:49.570Z"
+      },
+      {
+        "name": "me.rerere.ai.provider.providers.openai.ChatCompletionsUsageParsingTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:49.577Z"
+      },
+      {
+        "name": "me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest",
+        "tests": "15",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:49.587Z"
+      },
+      {
+        "name": "me.rerere.ai.provider.providers.openai.ResponseApiStreamDecoderTest",
+        "tests": "11",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:49.649Z"
+      },
+      {
+        "name": "me.rerere.ai.provider.providers.ProviderMessageGroupingTest",
+        "tests": "15",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:48.533Z"
+      },
+      {
+        "name": "me.rerere.ai.provider.stream.StreamTraceReplayTest",
+        "tests": "10",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:49.700Z"
+      },
+      {
+        "name": "me.rerere.ai.registry.ModelRegistryTest",
+        "tests": "13",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:50.166Z"
+      },
+      {
+        "name": "me.rerere.ai.ui.MessageContextLimitTest",
+        "tests": "11",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:50.195Z"
+      },
+      {
+        "name": "me.rerere.ai.ui.MessageMetadataTest",
+        "tests": "12",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:50.218Z"
+      },
+      {
+        "name": "me.rerere.ai.ui.MessageToolMigrationTest",
+        "tests": "14",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:50.246Z"
+      },
+      {
+        "name": "me.rerere.ai.ui.MessageUploadValidationTest",
+        "tests": "4",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:50.259Z"
+      },
+      {
+        "name": "me.rerere.ai.ui.MessageVisibilityTest",
+        "tests": "3",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:50.262Z"
+      },
+      {
+        "name": "me.rerere.ai.ui.StreamChunkHandlerTest",
+        "tests": "7",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:50.265Z"
+      },
+      {
+        "name": "me.rerere.ai.ui.ToolApprovalStateTest",
+        "tests": "3",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:50.273Z"
+      },
+      {
+        "name": "me.rerere.ai.ui.UIMessagePartTest",
+        "tests": "2",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:50.280Z"
+      },
+      {
+        "name": "me.rerere.ai.ui.UIMessageSerializationTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:50.285Z"
+      },
+      {
+        "name": "me.rerere.ai.util.ErrorPrivacyTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:50.350Z"
+      },
+      {
+        "name": "me.rerere.ai.util.FileEncoderExifTransformTest",
+        "tests": "5",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:50.357Z"
+      },
+      {
+        "name": "me.rerere.ai.util.JsonTest",
+        "tests": "6",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:50.363Z"
+      },
+      {
+        "name": "me.rerere.ai.util.RequestHeadersTest",
+        "tests": "3",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:50.368Z"
+      }
+    ],
+    "evidence": "jvm-full/ai"
+  },
+  {
+    "module": "app",
+    "tests": 317,
+    "failed": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "me.rerere.rikkahub.data.ai.mcp.McpConnectionKeyTest",
+        "tests": "3",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:39.980Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.ai.mcp.McpToolSchemaTest",
+        "tests": "6",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:39.987Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.ai.tools.local.JavascriptToolTest",
+        "tests": "5",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:40.331Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.ai.tools.SearchToolsTest",
+        "tests": "2",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:39.998Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.ai.tools.SkillsToolsTest",
+        "tests": "2",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:40.216Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.ai.tools.TextReplacersTest",
+        "tests": "14",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:40.313Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest",
+        "tests": "40",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:41.228Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.ai.transformers.ThinkTagTransformerTest",
+        "tests": "7",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:41.265Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest",
+        "tests": "10",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:41.277Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.datastore.DefaultProvidersTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:41.291Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.datastore.FindProviderTest",
+        "tests": "2",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:41.293Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.files.BuiltinSkillsTest",
+        "tests": "2",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:41.296Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.files.SkillPathsTest",
+        "tests": "5",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:41.355Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.network.ProxyConfigTest",
+        "tests": "5",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:41.394Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.sync.BackupIntegrityTest",
+        "tests": "2",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:41.398Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.sync.BackupPathsTest",
+        "tests": "2",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:41.596Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.sync.EncryptedBackupTest",
+        "tests": "6",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:41.608Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.sync.importer.ChatboxImporterTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:46.354Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.sync.MemoryRestoreTest",
+        "tests": "3",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:44.876Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.data.sync.PendingRestoreTest",
+        "tests": "11",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:44.886Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.ExampleUnitTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:39.822Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.feature.material.DocumentContractTest",
+        "tests": "4",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:46.393Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.feature.memory.LearningLoopTest",
+        "tests": "3",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:46.421Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.feature.memory.MemoryContractTest",
+        "tests": "37",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:46.442Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.feature.studychat.StudyChatContractTest",
+        "tests": "10",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:46.487Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.service.ChatServiceTest",
+        "tests": "8",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:46.514Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.service.ConversationSessionManagerTest",
+        "tests": "6",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:46.531Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.service.ConversationSessionTest",
+        "tests": "22",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:46.658Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.service.GenerationRecoveryTest",
+        "tests": "7",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:46.775Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.service.LearnerProfileCompatibilityTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:46.905Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.service.MessageQueueTest",
+        "tests": "13",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:46.909Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.service.QueuedAttachmentCleanupTest",
+        "tests": "7",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:46.919Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.service.SettingsCredentialExportTest",
+        "tests": "2",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:46.924Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.ShareSheetTest",
+        "tests": "8",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:39.833Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.ui.components.webview.WebViewContentCacheTest",
+        "tests": "3",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:46.970Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest",
+        "tests": "11",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:47.020Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.ui.pages.setting.components.ProviderConfigureConvertToTest",
+        "tests": "6",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:51.256Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.utils.ChatUtilTest",
+        "tests": "2",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:51.264Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.utils.DiffUtilsTest",
+        "tests": "6",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:51.268Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.utils.StringUtilsTest",
+        "tests": "19",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:51.301Z"
+      },
+      {
+        "name": "me.rerere.rikkahub.utils.VersionTest",
+        "tests": "11",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:51.308Z"
+      },
+      {
+        "name": "me.rerere.tts.provider.TTSPrivacyTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:50:51.312Z"
+      }
+    ],
+    "evidence": "jvm-final/app"
+  },
+  {
+    "module": "common",
+    "tests": 1,
+    "failed": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "me.rerere.common.ExampleUnitTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:05.905Z"
+      }
+    ],
+    "evidence": "jvm-full/common"
+  },
+  {
+    "module": "document",
+    "tests": 1,
+    "failed": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "me.rerere.document.ExampleUnitTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:06.933Z"
+      }
+    ],
+    "evidence": "jvm-full/document"
+  },
+  {
+    "module": "highlight",
+    "tests": 53,
+    "failed": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "me.rerere.highlight.CodeHighlighterTest",
+        "tests": "6",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:14.969Z"
+      },
+      {
+        "name": "me.rerere.highlight.core.HighlightEngineTest",
+        "tests": "11",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:16.232Z"
+      },
+      {
+        "name": "me.rerere.highlight.core.RegexesTest",
+        "tests": "5",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:16.313Z"
+      },
+      {
+        "name": "me.rerere.highlight.ExampleUnitTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:16.200Z"
+      },
+      {
+        "name": "me.rerere.highlight.languages.LanguageFixtureTest",
+        "tests": "30",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:16.325Z"
+      }
+    ],
+    "evidence": "jvm-full/highlight"
+  },
+  {
+    "module": "material3",
+    "tests": 1,
+    "failed": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "me.rerere.material3.ExampleUnitTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:09.580Z"
+      }
+    ],
+    "evidence": "jvm-full/material3"
+  },
+  {
+    "module": "oauth",
+    "tests": 2,
+    "failed": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "me.rerere.oauth.OAuthHttpClientTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:00.448Z"
+      },
+      {
+        "name": "me.rerere.oauth.OAuthLoopbackCallbackServerTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:02.604Z"
+      }
+    ],
+    "evidence": "jvm-full/oauth"
+  },
+  {
+    "module": "search",
+    "tests": 16,
+    "failed": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "me.rerere.search.CustomJsSearchServiceTest",
+        "tests": "4",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:57.743Z"
+      },
+      {
+        "name": "me.rerere.search.DoubaoSearchServiceTest",
+        "tests": "2",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:58.827Z"
+      },
+      {
+        "name": "me.rerere.search.ExampleUnitTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:58.861Z"
+      },
+      {
+        "name": "me.rerere.search.ExaSearchServiceTest",
+        "tests": "9",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:58.848Z"
+      }
+    ],
+    "evidence": "jvm-full/search"
+  },
+  {
+    "module": "speech",
+    "tests": 43,
+    "failed": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "me.rerere.asr.ASRProviderSettingMiMoTest",
+        "tests": "3",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:27.827Z"
+      },
+      {
+        "name": "me.rerere.asr.ASRProviderSettingStepTest",
+        "tests": "3",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:27.947Z"
+      },
+      {
+        "name": "me.rerere.asr.ASRProviderSettingVolcengineTest",
+        "tests": "3",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:27.962Z"
+      },
+      {
+        "name": "me.rerere.asr.ASRVoiceTurnTest",
+        "tests": "5",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:28.094Z"
+      },
+      {
+        "name": "me.rerere.asr.providers.VolcengineASRProtocolTest",
+        "tests": "9",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:28.103Z"
+      },
+      {
+        "name": "me.rerere.tts.ExampleUnitTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:28.169Z"
+      },
+      {
+        "name": "me.rerere.tts.provider.providers.MiMoTTSProviderTest",
+        "tests": "4",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:28.230Z"
+      },
+      {
+        "name": "me.rerere.tts.provider.providers.VolcengineTTSProviderTest",
+        "tests": "8",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:28.304Z"
+      },
+      {
+        "name": "me.rerere.tts.provider.TTSProviderSettingElevenLabsTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:28.175Z"
+      },
+      {
+        "name": "me.rerere.tts.provider.TTSProviderSettingFishAudioTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:28.212Z"
+      },
+      {
+        "name": "me.rerere.tts.provider.TTSProviderSettingMiMoTest",
+        "tests": "2",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:28.218Z"
+      },
+      {
+        "name": "me.rerere.tts.provider.TTSProviderSettingStepTest",
+        "tests": "3",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:28.224Z"
+      }
+    ],
+    "evidence": "jvm-full/speech"
+  },
+  {
+    "module": "videogen",
+    "tests": 3,
+    "failed": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "me.rerere.videogen.provider.providers.VideoGenerationProviderTest",
+        "tests": "3",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:11.465Z"
+      }
+    ],
+    "evidence": "jvm-full/videogen"
+  },
+  {
+    "module": "web",
+    "tests": 1,
+    "failed": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "me.rerere.rikkahub.web.ExampleUnitTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:20:31.020Z"
+      }
+    ],
+    "evidence": "jvm-full/web"
+  },
+  {
+    "module": "workspace",
+    "tests": 20,
+    "failed": 5,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "me.rerere.workspace.ExampleUnitTest",
+        "tests": "10",
+        "failures": "5",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:05.846Z"
+      },
+      {
+        "name": "me.rerere.workspace.RootfsInstallerTest",
+        "tests": "2",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:07.468Z"
+      },
+      {
+        "name": "me.rerere.workspace.RootfsPathResolutionTest",
+        "tests": "8",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "timestamp": "2026-10-07T22:19:07.735Z"
+      }
+    ],
+    "evidence": "jvm-full/workspace"
+  }
+]

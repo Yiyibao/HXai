@@ -1,0 +1,210 @@
+[
+  {
+    "name": "BackupPageTest",
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "BackupReliabilityTest",
+    "passed": 3,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "ChatNetworkFaultTest",
+    "passed": 19,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "CredentialVaultTest",
+    "passed": 10,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "DiagnosticsPageTest",
+    "passed": 2,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "DiagnosticsTest",
+    "passed": 4,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "DocumentServicePageTest",
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "FrontendDeliveryRoutesTest",
+    "passed": 2,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "FrontendModelPickerTest",
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "LearningLoopPersistenceTest",
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "LearningMemoryPageTest",
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "LearningMemoryPersistenceTest",
+    "passed": 4,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 1,
+    "completed": true
+  },
+  {
+    "name": "LegacyMemoryEntryTest",
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "MaterialDeliveryTest",
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "MaterialFidelityTest",
+    "passed": 3,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "MaterialFilesTest",
+    "passed": 4,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "MaterialPageTest",
+    "passed": 0,
+    "failed": 1,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "MaterialPaginationTest",
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "memory-seed",
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "memory-verify",
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "ProjectReviewAuditTest",
+    "passed": 11,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "ProjectReviewDeliveryTest",
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "runtime-seed",
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "runtime-verify",
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "StudyChatCompletionTest",
+    "passed": 3,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 1,
+    "completed": true
+  },
+  {
+    "name": "StudyNavigationTest",
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "completed": true
+  }
+]

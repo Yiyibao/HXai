@@ -1,0 +1,28 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatRenderingRealModelTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ChatRenderingRealModelTest:
+INSTRUMENTATION_STATUS: test=configuredModelStreamsRendersEditsRestoresContinuesAndCancels
+INSTRUMENTATION_STATUS_CODE: 1
+s_glBindAttribLocation: bind attrib 0 name position
+s_glBindAttribLocation: bind attrib 1 name color
+s_glBindAttribLocation: bind attrib 2 name localCoord
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels","runId":"6b0d7b02-8e54-4212-b20b-5e24edbf9d5b","startedAt":1791614578361,"finishedAt":1791614641163,"status":"PASS","entries":[{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/6b0d7b02-8e54-4212-b20b-5e24edbf9d5b\/definition.json","sha256":"5afae99550988847e95831ee8607f0508a2f6fab08e26d6b6abf5cfcf04f8559","bytes":2537,"reusedSyntheticInput":false},{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/6b0d7b02-8e54-4212-b20b-5e24edbf9d5b\/inline-light.png","sha256":"9d97c424a66d8ebe3643a2c953f86cf25a74bac2aa4eb57bbe4d4308cb557b94","bytes":208192,"reusedSyntheticInput":false},{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/6b0d7b02-8e54-4212-b20b-5e24edbf9d5b\/expanded-light-top.png","sha256":"532f585b5049ffe61f44164ebed99daadd28aa423a5b59c6244a7a71101ae2cd","bytes":197870,"reusedSyntheticInput":false},{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/6b0d7b02-8e54-4212-b20b-5e24edbf9d5b\/slider-edited.png","sha256":"817495c111c60082ef1588c2e2fe10efaa407c73d61052de8db8dff70a024c7c","bytes":120009,"reusedSyntheticInput":false},{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/6b0d7b02-8e54-4212-b20b-5e24edbf9d5b\/code-expanded.png","sha256":"fa267e81c654568a9961d097fc65af1544f118c81e362b9b0d1ce80ee832234e","bytes":120477,"reusedSyntheticInput":false},{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/6b0d7b02-8e54-4212-b20b-5e24edbf9d5b\/inline-dark-large-text.png","sha256":"230ec949a08f5056382cd95ab27dc52529ff4590b50ca8557597c7ee2dfdda70","bytes":192807,"reusedSyntheticInput":false},{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/6b0d7b02-8e54-4212-b20b-5e24edbf9d5b\/table-dark-large-text.png","sha256":"a6016897fa588998819981fa2b18bba6806d06d3d22058f57db4a69c0f786dcd","bytes":136280,"reusedSyntheticInput":false},{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/6b0d7b02-8e54-4212-b20b-5e24edbf9d5b\/result.json","sha256":"07f14a74535b311661725ad975a27ef981d11236d8c7672dec4111fe5bc65f63","bytes":562,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatRenderingRealModelTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=configuredModelStreamsRendersEditsRestoresContinuesAndCancels
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 63.058
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

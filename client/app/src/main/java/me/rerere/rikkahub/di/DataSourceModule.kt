@@ -26,12 +26,9 @@ import me.rerere.rikkahub.data.ai.mcp.McpManager
 import me.rerere.rikkahub.data.network.SettingsProxySelector
 import me.rerere.rikkahub.data.network.SettingsProxyAuthenticator
 import me.rerere.rikkahub.data.network.SettingsSocks5Authenticator
-import me.rerere.rikkahub.data.sync.webdav.WebDavSync
 import me.rerere.search.SearchService
-import me.rerere.rikkahub.data.sync.S3Sync
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
@@ -178,11 +175,8 @@ val dataSourceModule = module {
                 }
             }
             .addNetworkInterceptor(RequestLoggingInterceptor())
+            .addInterceptor(me.rerere.rikkahub.feature.diagnostics.DiagnosticsNetworkInterceptor())
             .addInterceptor(AIRequestInterceptor())
-            .addInterceptor(HttpLoggingInterceptor().apply {
-                redactHeader("Proxy-Authorization")
-                level = HttpLoggingInterceptor.Level.HEADERS
-            })
             .build()
         client.also { SearchService.init(it, get()) }
     }
@@ -197,14 +191,6 @@ val dataSourceModule = module {
 
     single { BackupManager(context = get(), database = get(), settingsStore = get(), json = get()) }
 
-    single {
-        WebDavSync(
-            backupManager = get(),
-            context = get(),
-            httpClient = get()
-        )
-    }
-
     single<HttpClient> {
         HttpClient(OkHttp) {
             engine {
@@ -218,14 +204,6 @@ val dataSourceModule = module {
                 }
             }
         }
-    }
-
-    single {
-        S3Sync(
-            backupManager = get(),
-            context = get(),
-            httpClient = get()
-        )
     }
 
     single<Retrofit> {

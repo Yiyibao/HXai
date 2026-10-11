@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.util.FileEncoderExifTransformTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-08T06:42:55.928Z" hostname="DESKTOP-QH4J0RS" time="0.001">
+  <properties/>
+  <testcase name="very large images should still be downsampled by pixel budget" classname="me.rerere.ai.util.FileEncoderExifTransformTest" time="0.0"/>
+  <testcase name="extremely long images should still be downsampled by max dimension" classname="me.rerere.ai.util.FileEncoderExifTransformTest" time="0.001"/>
+  <testcase name="all supported exif orientations should map to expected transform" classname="me.rerere.ai.util.FileEncoderExifTransformTest" time="0.0"/>
+  <testcase name="long screenshots should keep original resolution when under pixel budget" classname="me.rerere.ai.util.FileEncoderExifTransformTest" time="0.0"/>
+  <testcase name="undefined or unknown orientation should map to none" classname="me.rerere.ai.util.FileEncoderExifTransformTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

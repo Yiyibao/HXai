@@ -1,0 +1,20 @@
+{
+  "app": {
+    "tests": 332,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "ai": {
+    "tests": 200,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "probes": {
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

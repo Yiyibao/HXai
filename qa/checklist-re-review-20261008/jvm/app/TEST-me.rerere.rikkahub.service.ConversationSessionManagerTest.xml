@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.service.ConversationSessionManagerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-08T06:43:02.347Z" hostname="DESKTOP-QH4J0RS" time="0.06">
+  <properties/>
+  <testcase name="cancelled scoped operation releases its session reference" classname="me.rerere.rikkahub.service.ConversationSessionManagerTest" time="0.006"/>
+  <testcase name="cleanup clears observed job registry and cancels every generation" classname="me.rerere.rikkahub.service.ConversationSessionManagerTest" time="0.035"/>
+  <testcase name="same conversation shares a session while different conversations stay isolated" classname="me.rerere.rikkahub.service.ConversationSessionManagerTest" time="0.001"/>
+  <testcase name="idle removal waits for every UI or SSE reference to be released" classname="me.rerere.rikkahub.service.ConversationSessionManagerTest" time="0.0"/>
+  <testcase name="generation and queued messages retain sessions after observers leave" classname="me.rerere.rikkahub.service.ConversationSessionManagerTest" time="0.002"/>
+  <testcase name="job observer follows sessions created and recreated after subscription" classname="me.rerere.rikkahub.service.ConversationSessionManagerTest" time="0.016"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

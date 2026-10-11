@@ -1,0 +1,1057 @@
+[
+  {
+    "path": "acceptance-matrix.md",
+    "sha256": "03c0e9c8ae65a277821ed456fe238ac9b910736f07175606656d9a93aa1858b8",
+    "bytes": 7086
+  },
+  {
+    "path": "android-driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "path": "apk-current.json",
+    "sha256": "1cd1fcd26b4f34e06889ee0790d861b8dcf320020d2a3940cd795f382bbf5139",
+    "bytes": 869
+  },
+  {
+    "path": "apk-final.json",
+    "sha256": "a3d5813b41087cd5360616aaeea26d8851bda1fca096be923427429460a19bff",
+    "bytes": 1311
+  },
+  {
+    "path": "build-approval-final-exit.txt",
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "bytes": 3
+  },
+  {
+    "path": "build-approval-final.log",
+    "sha256": "3378f4d628891274f66688a76dbfc717d6624bbd1c09351d3800f692d6f080a5",
+    "bytes": 32078
+  },
+  {
+    "path": "build.ps1",
+    "sha256": "d758a1217e8aab34b7c9ae85bf22616b985625d605115ca852c0e2671681f0e4",
+    "bytes": 772
+  },
+  {
+    "path": "check-exact-delivery.py",
+    "sha256": "ff2bc766715b6b1916157b2454970d2601e498191dd4b31a4716c5432e3bbc20",
+    "bytes": 2470
+  },
+  {
+    "path": "collector-delivery-first-exit.txt",
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "bytes": 3
+  },
+  {
+    "path": "collector-delivery-first.log",
+    "sha256": "96c305cf244388e1883e0a78084a88d5137a78ab46fff034646d241c52631886",
+    "bytes": 41
+  },
+  {
+    "path": "collector-delivery-repeat-exit.txt",
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "bytes": 3
+  },
+  {
+    "path": "collector-delivery-repeat.log",
+    "sha256": "96c305cf244388e1883e0a78084a88d5137a78ab46fff034646d241c52631886",
+    "bytes": 41
+  },
+  {
+    "path": "collector-device-first-exit.txt",
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "bytes": 3
+  },
+  {
+    "path": "collector-device-first.log",
+    "sha256": "268b3353c9a43ffe10a2dcba5a00c8b8b5205959023a2ddd85e7e2fc5c12d01c",
+    "bytes": 41
+  },
+  {
+    "path": "collector-device-repeat-exit.txt",
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "bytes": 3
+  },
+  {
+    "path": "collector-device-repeat.log",
+    "sha256": "268b3353c9a43ffe10a2dcba5a00c8b8b5205959023a2ddd85e7e2fc5c12d01c",
+    "bytes": 41
+  },
+  {
+    "path": "collector-disagreement-input.log",
+    "sha256": "c57f9551b8517ccade611cac2177d053220cf2f9a12aa444969a4baac077d0cd",
+    "bytes": 646
+  },
+  {
+    "path": "collector-disagreement-output.json",
+    "sha256": "84e3c6a06c9cf27189e34fe572fc52d6a5d85dbc34e97c138f36b6a162b38064",
+    "bytes": 797
+  },
+  {
+    "path": "collector-status-probe-exit-fixed-exit.txt",
+    "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+    "bytes": 3
+  },
+  {
+    "path": "collector-status-probe-exit-fixed.log",
+    "sha256": "50495af1ce489488a9314e0a09d64818268299a2fe3a3e231fe56eb7b3c2e2d3",
+    "bytes": 1150
+  },
+  {
+    "path": "collector-status-probe-first.log",
+    "sha256": "240d76a1ca268aabf491f9c9581732355048eb1bf7ef5dc84505979c57496df6",
+    "bytes": 1150
+  },
+  {
+    "path": "collector-status-probe-first.py.txt",
+    "sha256": "253d6949bde15da08f488c1105e9cd435df9bd3d7a296f881881a46de68f5eed",
+    "bytes": 1424
+  },
+  {
+    "path": "collector-status-probe.log",
+    "sha256": "240d76a1ca268aabf491f9c9581732355048eb1bf7ef5dc84505979c57496df6",
+    "bytes": 1150
+  },
+  {
+    "path": "collector-status-probe.py",
+    "sha256": "22cab3e770f5f96923ec2f1642f5a5e068f15eb0a7364fe7ed727d38b0dcadf4",
+    "bytes": 1497
+  },
+  {
+    "path": "collector-tests-exit.txt",
+    "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+    "bytes": 3
+  },
+  {
+    "path": "collector-tests-qa-temp-retry-exit.txt",
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "bytes": 3
+  },
+  {
+    "path": "collector-tests-qa-temp-retry.log",
+    "sha256": "5f0df5edbccf621e145c11a176d6c8063b94bad802143d8302bfe871ba925296",
+    "bytes": 1141
+  },
+  {
+    "path": "collector-tests.log",
+    "sha256": "9a374c9155da46f65487117c80d9068cad94e11504252062fb0a1d50ae3db784",
+    "bytes": 23315
+  },
+  {
+    "path": "completeServiceFactoryContinuationUsesSyntheticProviderAndFirstDecision-first.log",
+    "sha256": "f6aa5f8d1011815857f53cc6a1ca3597c89dc1987f281771a3303545badde03c",
+    "bytes": 5520
+  },
+  {
+    "path": "completeServiceFactoryContinuationUsesSyntheticProviderAndFirstDecision-fixture-fixed.log",
+    "sha256": "3dad5aef3c01594f7b40e466acc394ca8d74f520c9fb2ea52038adc52f17a223",
+    "bytes": 1520
+  },
+  {
+    "path": "completeServiceFactoryContinuationUsesSyntheticProviderAndFirstDecision.log",
+    "sha256": "f6aa5f8d1011815857f53cc6a1ca3597c89dc1987f281771a3303545badde03c",
+    "bytes": 5520
+  },
+  {
+    "path": "deletedConversationMustRejectStaleSaveAfterSessionEviction-first.log",
+    "sha256": "aaaec75cb230c0638af92eb694f72c5fc53b3340fbd07f9c3fc9cfd4ce89e8e2",
+    "bytes": 5390
+  },
+  {
+    "path": "deletedConversationMustRejectStaleSaveAfterSessionEviction-fixture-fixed.log",
+    "sha256": "0e69eb76be8419fcbdba5f6aadf26e9ad6da23c4ab8fb943a35db6a104f14417",
+    "bytes": 8719
+  },
+  {
+    "path": "deletedConversationMustRejectStaleSaveAfterSessionEviction.log",
+    "sha256": "aaaec75cb230c0638af92eb694f72c5fc53b3340fbd07f9c3fc9cfd4ce89e8e2",
+    "bytes": 5390
+  },
+  {
+    "path": "delivery-driver.log",
+    "sha256": "4d0779e917fca167c90b1220f06e6613c39413f1d8084d59273458bec479fc76",
+    "bytes": 34
+  },
+  {
+    "path": "exact-delivery-exit.txt",
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "bytes": 3
+  },
+  {
+    "path": "exact-delivery-hashes.json",
+    "sha256": "ddbbffd13da5c1215551ccd6afbe1d32bcb669617888b1e3d7c244c64f8a6833",
+    "bytes": 8037
+  },
+  {
+    "path": "exact-delivery.log",
+    "sha256": "e450ee59869b04a622b4ef88ecb4adc4afdb2bfc64e3d69baa1443dd19c76b8a",
+    "bytes": 31
+  },
+  {
+    "path": "findings.md",
+    "sha256": "63bc4abbf716e81ae86514f2b7c4da232583ab65b0eb02c889e1be3219703de1",
+    "bytes": 5670
+  },
+  {
+    "path": "IndependentAssertionProbeTest-first.kt.txt",
+    "sha256": "c6d410ee0a72ccee76e0236fca3cf3082384ff1012330de30324f5f7651de462",
+    "bytes": 2829
+  },
+  {
+    "path": "IndependentPostfixProbeTest-first.kt.txt",
+    "sha256": "a43b58947bbd4fcfbeba3338116bdb8997bb76c480ec4151fd105dfe8cba15ec",
+    "bytes": 9721
+  },
+  {
+    "path": "input-hashes-after.json",
+    "sha256": "2c33e5b71bfc3a0f4495fdb51fc2e8c24421f1090cb18bbd4653d6c7756a6ffb",
+    "bytes": 318619
+  },
+  {
+    "path": "input-hashes-before.json",
+    "sha256": "22d444576aa1af3a0a64e1a71d5fff659a8b59d307265abc08375946dbb639fa",
+    "bytes": 218343
+  },
+  {
+    "path": "installed-apk-current.json",
+    "sha256": "a923a17f53532a363431ec6240e0c82dceb398274f94d484846270e8f0b02fa4",
+    "bytes": 286
+  },
+  {
+    "path": "installed-apk-final.json",
+    "sha256": "a923a17f53532a363431ec6240e0c82dceb398274f94d484846270e8f0b02fa4",
+    "bytes": 286
+  },
+  {
+    "path": "lint-current.xml",
+    "sha256": "7135750c108db38aa680b3ee688f1c77f9f311fc40ff3b303f78ecca85c0cb8f",
+    "bytes": 46980
+  },
+  {
+    "path": "original-test.apk",
+    "sha256": "0483c9e4a0fa0ab2ab27f719dc740d8df40c87add6728afcd8c21f15cb594efc",
+    "bytes": 2189268
+  },
+  {
+    "path": "probe-android-results-first.json",
+    "sha256": "1941d158d2750b181a12bf73b549d542ed6d7e6ebd8aa3218f39969a279b0360",
+    "bytes": 488
+  },
+  {
+    "path": "probe-android-results-fixture-fixed.json",
+    "sha256": "4be141b4c0187daa3e0f9c438a11d85a13bce2394026eac45fad1bd0486bfbf6",
+    "bytes": 487
+  },
+  {
+    "path": "probe-android-results.json",
+    "sha256": "1941d158d2750b181a12bf73b549d542ed6d7e6ebd8aa3218f39969a279b0360",
+    "bytes": 488
+  },
+  {
+    "path": "probe-apk-hashes.json",
+    "sha256": "6959a07179353c90667ba0518db853ccd00fa28245f3dbae855f8d4ed050207c",
+    "bytes": 430
+  },
+  {
+    "path": "probe-build-first-exit.txt",
+    "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+    "bytes": 3
+  },
+  {
+    "path": "probe-build-first.log",
+    "sha256": "59b0bdf1c636b26cdda1c670f30d69e5e5f9cc19e1ef1272db0a12118e4afc16",
+    "bytes": 789
+  },
+  {
+    "path": "probe-build-fixture-retry-exit.txt",
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "bytes": 3
+  },
+  {
+    "path": "probe-build-fixture-retry.log",
+    "sha256": "db168e11802aa712437a76b36ab7fccec6bd207a404cea93cbce7a5cdc5d269d",
+    "bytes": 19207
+  },
+  {
+    "path": "probe-build-path-retry-exit.txt",
+    "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+    "bytes": 3
+  },
+  {
+    "path": "probe-build-path-retry.log",
+    "sha256": "010677e4d4895d3120ce4d60a27797d58ca90e4b921d42c06514420b9068b25a",
+    "bytes": 19973
+  },
+  {
+    "path": "probe-collector-exit.txt",
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "bytes": 3
+  },
+  {
+    "path": "probe-collector.log",
+    "sha256": "ee65cd1de9c77a548d2bdbb073c41914d2dc7cbb61c84ad8e423c1dfe87fb9a4",
+    "bytes": 50
+  },
+  {
+    "path": "probe-driver-fixture-fixed.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "path": "probe-install-fixture-fixed.log",
+    "sha256": "c4aa470acafcf8576c15b0f0b5ae7e852d1ec5413372d0e6a9272e788e1306d3",
+    "bytes": 38
+  },
+  {
+    "path": "probe-install.log",
+    "sha256": "c4aa470acafcf8576c15b0f0b5ae7e852d1ec5413372d0e6a9272e788e1306d3",
+    "bytes": 38
+  },
+  {
+    "path": "probe-run-context-fixture-fixed.json",
+    "sha256": "5909feb725918a86ba98335a24e0c3271c1539c7893aa3b94b2619fcca7744c1",
+    "bytes": 1074
+  },
+  {
+    "path": "probe-run-context.json",
+    "sha256": "053f7360a90b1a3af333078627d02d76c34a9d29520e9b4a366ed091b790ea90",
+    "bytes": 189
+  },
+  {
+    "path": "probe-test-first.apk",
+    "sha256": "ca20ea96af3984475b6b4f4149969a022945bf4bde41f75636f4079356569b15",
+    "bytes": 2223904
+  },
+  {
+    "path": "probe-test-fixture-fixed.apk",
+    "sha256": "951cf1e9fa00abe7d5acda4acdaede0c4837f48d79e72d5c5ecf0482c01c594d",
+    "bytes": 2223729
+  },
+  {
+    "path": "probe-test.apk",
+    "sha256": "ca20ea96af3984475b6b4f4149969a022945bf4bde41f75636f4079356569b15",
+    "bytes": 2223904
+  },
+  {
+    "path": "probes.init.gradle",
+    "sha256": "8ee4eebfaa6c47b4898631a675975747445d6595652435aeab5b2943dbf98016",
+    "bytes": 1158
+  },
+  {
+    "path": "report.md",
+    "sha256": "2f17b2f83ec1494b25e1e46d38bc8013d21bc086a02be7a5d874559cd707b350",
+    "bytes": 7219
+  },
+  {
+    "path": "restore-baseline-test-build-exit.txt",
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "bytes": 3
+  },
+  {
+    "path": "restore-baseline-test-build.log",
+    "sha256": "a4903997b4b3c6b5cf94a29eafc0978ba2e2da0433dad87512c667808c5b1f2e",
+    "bytes": 18021
+  },
+  {
+    "path": "restore-original-test-install.log",
+    "sha256": "c4aa470acafcf8576c15b0f0b5ae7e852d1ec5413372d0e6a9272e788e1306d3",
+    "bytes": 38
+  },
+  {
+    "path": "run-android.ps1",
+    "sha256": "61f955ac6cedf64364b584e3fb4b810f6a6427ffefedf0c39fbed69e45028061",
+    "bytes": 3495
+  },
+  {
+    "path": "run-delivery.ps1",
+    "sha256": "dde678b05a1c0f6be24c304e381872cbe1b3e26377455ff1ffae9633abe75508",
+    "bytes": 1745
+  },
+  {
+    "path": "run-probes.ps1",
+    "sha256": "0060c91ca63a44e53f68d5a3cb68bfbe34aede1b3d22bddcfdc7a041aaca4760",
+    "bytes": 2133
+  },
+  {
+    "path": "server-first.log",
+    "sha256": "3e52084d3c33df632a46528369432cdf7d1e032d88571bf1923f63902a2bc2fd",
+    "bytes": 98
+  },
+  {
+    "path": "server-host-exit.txt",
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "bytes": 3
+  },
+  {
+    "path": "server-host.log",
+    "sha256": "d8bd3db430a96a09d5cb150d7c0a8635909da5d7f29850739ce28bd5cd377992",
+    "bytes": 648
+  },
+  {
+    "path": "server-host.xml",
+    "sha256": "65db4364b071a440f5d05629bcbfc709fa6c148045fd75403623ef6f2aca8946",
+    "bytes": 3347
+  },
+  {
+    "path": "source-comparison.json",
+    "sha256": "d7c6810def5cc46f318e222147cc895758e808525ada3404cfb3b4dc6d41eab9",
+    "bytes": 7654
+  },
+  {
+    "path": "summarize.py",
+    "sha256": "8cfe8e1b93a848f0804661f9f35747c7165175431da40a58e9c389ba37467e75",
+    "bytes": 4417
+  },
+  {
+    "path": "summary.json",
+    "sha256": "01b0a1140845a122efd8b238baaaf66b21032e74035fe3333a765509cbb73ff9",
+    "bytes": 17650
+  },
+  {
+    "path": "worktree-after.txt",
+    "sha256": "848a3ddd0cc7b2fecf82efe4e0fa30031aecc0ebae15a5ad9047a004cfbd58ec",
+    "bytes": 20504
+  },
+  {
+    "path": "worktree-before.txt",
+    "sha256": "3977b7792421e58b13c38b4784a9078d3cf09edd620268d66b4c7ae01f86687e",
+    "bytes": 20491
+  },
+  {
+    "path": "acceptance-android\\android-results.json",
+    "sha256": "2010163196ab80cb95a3ccb5595688e3f95ec82f87517c9334bddef607db8ba0",
+    "bytes": 1988
+  },
+  {
+    "path": "acceptance-android\\context-privacy.log",
+    "sha256": "3dfb0a022d96c7666293dd7bc3adadda71441c488fe25a30d300e3d3d7ea5906",
+    "bytes": 867
+  },
+  {
+    "path": "acceptance-android\\diagnostics.log",
+    "sha256": "f0dea026a674ea15fe499766ade01a667c7bb61b551d955ab6081b585b75711a",
+    "bytes": 4965
+  },
+  {
+    "path": "acceptance-android\\fixture-id.txt",
+    "sha256": "b11585e3284e8b4a0797c15f1d179a1bac7623b0f3cefd2194dcac72840877d7",
+    "bytes": 38
+  },
+  {
+    "path": "acceptance-android\\install-app.log",
+    "sha256": "c4aa470acafcf8576c15b0f0b5ae7e852d1ec5413372d0e6a9272e788e1306d3",
+    "bytes": 38
+  },
+  {
+    "path": "acceptance-android\\install-test.log",
+    "sha256": "c4aa470acafcf8576c15b0f0b5ae7e852d1ec5413372d0e6a9272e788e1306d3",
+    "bytes": 38
+  },
+  {
+    "path": "acceptance-android\\run-context.json",
+    "sha256": "45825c71c742428e626ed70820906d0c35427c39b8fc8b52095d37fff68034ab",
+    "bytes": 891
+  },
+  {
+    "path": "acceptance-android\\runtime-apk-hashes.json",
+    "sha256": "d9166a29d65db1cda1beee0bafe6ecf4deb7e94d9cf4585a3e7a19b1ad0625b7",
+    "bytes": 443
+  },
+  {
+    "path": "acceptance-android\\seed.log",
+    "sha256": "bb101469518e2193b18fdae0ad5af6fc4b083c66ffc54ce85a21943c864a69ee",
+    "bytes": 41826
+  },
+  {
+    "path": "acceptance-android\\skills-enabled.log",
+    "sha256": "6d0f08c1f8cdc3339e3231232bd4d25f21f5be51a246fee6e78766621d197274",
+    "bytes": 1146
+  },
+  {
+    "path": "acceptance-android\\skills-install.log",
+    "sha256": "7617f821f40749843cd7f4088d2ac86fada44ed3292f7895d42912a1805f440c",
+    "bytes": 1064
+  },
+  {
+    "path": "acceptance-android\\skills.log",
+    "sha256": "907d13104f98f43210af74f91ecd917b9d95f4f35afa8e1c9bf522a41f18bbbb",
+    "bytes": 2416
+  },
+  {
+    "path": "acceptance-android\\verify.log",
+    "sha256": "262a30950c30a39a1f37fe589dc3523014b5522cc6b744c1287b017c5e3794f5",
+    "bytes": 4509
+  },
+  {
+    "path": "acceptance-android\\word.log",
+    "sha256": "9b53fb26bb457467235bb60488822a76933eaa06b61796c56d5ee9550b432574",
+    "bytes": 8303
+  },
+  {
+    "path": "android\\IndependentPostfixProbeTest.kt",
+    "sha256": "59728feda93ce5dd4f1717c55300bec058bec5dc95bbee7d5cec117770cd5245",
+    "bytes": 9739
+  },
+  {
+    "path": "core-collected\\fixture-manifest.json",
+    "sha256": "6ec65c375c2b86490693c1da31dbdb74718ad8da4e9a6a8a896a4039722e8d5f",
+    "bytes": 6269
+  },
+  {
+    "path": "delivery-collected\\fixture-manifest.json",
+    "sha256": "74f23b5caf1bd049a8a95d1a5047743b46df851cccce05dcaf9cd4d793ecd395",
+    "bytes": 19141
+  },
+  {
+    "path": "delivery-runs\\delivery-1.log",
+    "sha256": "b0ae5e4d0b3df261ccaa69500256a2a28d589221690a9a653925556471b30921",
+    "bytes": 5602
+  },
+  {
+    "path": "delivery-runs\\delivery-2.log",
+    "sha256": "2d4f0d54584a8031144df9d7d7c614980a5be442c1cd3ae432c94946f2a74927",
+    "bytes": 5602
+  },
+  {
+    "path": "delivery-runs\\results.json",
+    "sha256": "e6bfa0970f94df0b979dc3cac41d6b28e529ceac29d9cba0935bec99b1104714",
+    "bytes": 373
+  },
+  {
+    "path": "delivery-runs\\run-context.json",
+    "sha256": "3b71594e79bd918bc7a6c5623c07e982b0ce7fc32d3cef78b645d9859fbce09c",
+    "bytes": 886
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.ai.mcp.McpConnectionKeyTest.xml",
+    "sha256": "b41c9ffe3de2f01c871b615d90d973ad747de636d23f8accd7339d8e4750393a",
+    "bytes": 811
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.ai.mcp.McpToolSchemaTest.xml",
+    "sha256": "42f2544e1b4e025aaf95a99eac1978260fe1f2d2ae764f3e2d496fdf3c5e195a",
+    "bytes": 1227
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.ai.tools.local.JavascriptToolTest.xml",
+    "sha256": "e14c31c02277e4f6995a4a06d70328c9333dae851e73bba94ccb768f37c08b2e",
+    "bytes": 1073
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.ai.tools.SearchToolsTest.xml",
+    "sha256": "d42a77c18eed1708f2a1cfd109c26013cec39ffc6171011f537212ca5f05099b",
+    "bytes": 5580
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.ai.tools.SkillsToolsTest.xml",
+    "sha256": "71c17a477233b3e157f7eb303bdea680bc333828a23e8249d88c6209abed243e",
+    "bytes": 649
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.ai.tools.TextReplacersTest.xml",
+    "sha256": "0ad7e9477b8849369ca9f45d4737dad8f960aff004779c3b97b7a411321c0977",
+    "bytes": 2418
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest.xml",
+    "sha256": "c8c2637354814ce4ea84dc28677c1474e982e1acc903e6f3a55368854f28f955",
+    "bytes": 7510
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.ai.transformers.ThinkTagTransformerTest.xml",
+    "sha256": "a5a09a3e3fa4bb3a73d70e8cbd421bed3c2ec71c9de29cf57e7078064a2899c4",
+    "bytes": 1504
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest.xml",
+    "sha256": "4b2d397dc5bb44264616ab85111484455f2e7b4888449810f11f9ca01762421d",
+    "bytes": 2024
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.datastore.DefaultProvidersTest.xml",
+    "sha256": "15386adb38074bb9a50a3978101ac82c6775eb11c61eb75397347207fdc5d3b6",
+    "bytes": 529
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.datastore.FindProviderTest.xml",
+    "sha256": "25b05ff83c7ba53a80bc3161223de817e072d1f952bdc852856cde73662e6407",
+    "bytes": 682
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.files.BuiltinSkillsTest.xml",
+    "sha256": "a8c3bd63bab08b66c197fd228b41fbe8123d7fa2bff74592037c6b94b4d02e96",
+    "bytes": 620
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.files.SkillImportLimitsTest.xml",
+    "sha256": "43f0e96bb5c8a957dca4cac7d0b2d572f3c392d047cbb0d5192c6dd67a331e3b",
+    "bytes": 1114
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.files.SkillPathsTest.xml",
+    "sha256": "e9130f9e8e5864f725db51d4eaa23c2545d3d036f52eedc28023e97971502683",
+    "bytes": 1013
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.network.ProxyConfigTest.xml",
+    "sha256": "36630828c02f2b90b4432030bdedf9795467f1d0e7c0570f45c23f8ab308d3fa",
+    "bytes": 965
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.sync.BackupIntegrityTest.xml",
+    "sha256": "f4415f7b1ddf445b6ca2bb26d8302bc6203381ad566c7852848bf4c1ecf96882",
+    "bytes": 629
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.sync.BackupPathsTest.xml",
+    "sha256": "df0d757870e5e646293feb27f63027b1bc0d1b21e0e278b0cedc7e026e19d131",
+    "bytes": 623
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.sync.EncryptedBackupTest.xml",
+    "sha256": "70d43fd52e7047a2b4d996789f8799982a71cfdc828298b97d8dc6935bde2097",
+    "bytes": 1196
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.sync.importer.ChatboxImporterTest.xml",
+    "sha256": "990ac7bd4867cf7257fc63b0243e3afac8d43c3cbdd3c332c7002e852847d294",
+    "bytes": 515
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.sync.MemoryRestoreTest.xml",
+    "sha256": "4b1479accbcb0089b93068331ee712394ec7c3d2f639179da9e822d5a26d2f0f",
+    "bytes": 775
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.data.sync.PendingRestoreTest.xml",
+    "sha256": "05f33cfc7fa3615d178971e8ea8eb7931e6624b564e60c6bf7e9a9f2059b4e10",
+    "bytes": 1962
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.ExampleUnitTest.xml",
+    "sha256": "2ede7f105984212c4457528da82d01a563714e2d2a921dd2a1f371cd7b80a90c",
+    "bytes": 432
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.feature.material.DocumentContractTest.xml",
+    "sha256": "7a6c5a590b080ef59c7357181cf534f4ab759aeb62e280df222bfb19472ef79e",
+    "bytes": 937
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.feature.memory.LearningLoopTest.xml",
+    "sha256": "da8ff1a092e21267874dafa0c1e19b997c99f30ed95f794ede3e027bebf727fc",
+    "bytes": 784
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.feature.memory.MemoryContractTest.xml",
+    "sha256": "2d003253b4ce88b46c1dfa6df9611ccc1ae8a952765dc6cb85feccdcb8f47e07",
+    "bytes": 4993
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.feature.studychat.StudyChatContractTest.xml",
+    "sha256": "6e85765549242c5807e8a6302d45cd86fb87f6efe6c652ef668a008a28e21fc9",
+    "bytes": 1797
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.service.ChatServiceTest.xml",
+    "sha256": "e30afc2f4004c04ab97ce673bc82f1c7e2491b717e5e1af234695140d716389c",
+    "bytes": 1570
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.service.ConversationCommitTest.xml",
+    "sha256": "58a05e922510f6450f6a1f0142870fe8219cfab4953740082776bb28c7b378dc",
+    "bytes": 1154
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.service.ConversationSessionManagerTest.xml",
+    "sha256": "98444c31abf89cc5b4b60da728869ad517e95cda2e91ee347411f38ead8d2c4b",
+    "bytes": 1389
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.service.ConversationSessionTest.xml",
+    "sha256": "288e5e4c90f28cbd861e0c9a4911ef6f48533f9118a26e857160ac2ddff4c9cc",
+    "bytes": 4135
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.service.GenerationRecoveryTest.xml",
+    "sha256": "12f34b52bbfd1cae9eb2115e871e7afa4118bf59094a268671833430eb257ca8",
+    "bytes": 1507
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.service.LearnerProfileCompatibilityTest.xml",
+    "sha256": "7248ff86fa39272097ecd1389ab79bd86e8e97b46efed0d0713052c6564de197",
+    "bytes": 530
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.service.MessageQueueTest.xml",
+    "sha256": "629141e450a4b781f78025d0494a3b68240042555f7bb065c99a23f9f9c9769b",
+    "bytes": 2291
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.service.QueuedAttachmentCleanupTest.xml",
+    "sha256": "112fd4d3f285a4268ebb9a09812331e6d0e3b24381de65773c2f1c738556629c",
+    "bytes": 1513
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.service.SettingsCredentialExportTest.xml",
+    "sha256": "431c028d16099d81fe867b873486441eaded249c0aacd575470f9d5158532be8",
+    "bytes": 665
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.ShareSheetTest.xml",
+    "sha256": "47a91b0fd5358525ce21bac1c8159b971e3f3e641beaf96bc8d66c29d951016b",
+    "bytes": 1355
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.ui.components.webview.WebViewContentCacheTest.xml",
+    "sha256": "7d85126d6412024a410ca47818b116c169488aee66179d845fd5cff652224a7e",
+    "bytes": 819
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest.xml",
+    "sha256": "cb8664f795c7f68abda9ebd44e0dba4d37b67f8845f4dc4fd6d2349274e5cc34",
+    "bytes": 2175
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.ui.pages.setting.components.ProviderConfigureConvertToTest.xml",
+    "sha256": "4648778a20270f4c42464abd17b490a69d259b80d43da4bfb8a9dace98aea8df",
+    "bytes": 1536
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.utils.ChatUtilTest.xml",
+    "sha256": "d895e10c6ba554de6a310513332714922f3454f5842932e62215598da093a565",
+    "bytes": 582
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.utils.DiffUtilsTest.xml",
+    "sha256": "278d6ab684aef77da2e3829c08f0f2a8d9f7c994865f6aa16256f864d21bc497",
+    "bytes": 1093
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.utils.StringUtilsTest.xml",
+    "sha256": "bbb1e86e776afa4ffe546228025b3b62aacd5dcc58a02fa691d6a58b3dbd308b",
+    "bytes": 2592
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.rikkahub.utils.VersionTest.xml",
+    "sha256": "b49a5bc3863698474305724a3c95fe4e7bda583a3596d6495ef3dbbd5a9b6869",
+    "bytes": 1622
+  },
+  {
+    "path": "jvm-core\\TEST-me.rerere.tts.provider.TTSPrivacyTest.xml",
+    "sha256": "36e805d5048846e96dbde74a48ce7bf05c4f714f2ef5147d0b0d5334ab50ae2d",
+    "bytes": 473
+  },
+  {
+    "path": "probe-collected\\fixture-manifest.json",
+    "sha256": "c28c564c432d347745b73cd8b7830fbe038e0e4267c3a2e74d480066e772c6e8",
+    "bytes": 1562
+  },
+  {
+    "path": "probe-xml\\TEST-me.rerere.rikkahub.service.IndependentAssertionProbeTest.xml",
+    "sha256": "05edcf8a951bd0ea8ad7a1046eeb6f8a5ad346073a7e0181d32bc89169299b43",
+    "bytes": 525
+  },
+  {
+    "path": "probe-xml-first\\TEST-me.rerere.rikkahub.service.IndependentAssertionProbeTest.xml",
+    "sha256": "7d91b61820dba47c07199be796909c5612917b12c3185150ebe31ba8133a842b",
+    "bytes": 10453
+  },
+  {
+    "path": "unit\\IndependentAssertionProbeTest.kt",
+    "sha256": "c30199e682edf5d225a999e20666f5381f00df81f7729dfb1f4c5e57bd49153e",
+    "bytes": 2913
+  },
+  {
+    "path": "word-negative\\cell-source.docx",
+    "sha256": "74c016ef206bd25c1bfadb719931b9145cbc9e25a10edc7cfc94bc7d71407cbb",
+    "bytes": 274
+  },
+  {
+    "path": "word-negative\\cell-tab.docx",
+    "sha256": "6c372d6f3d157600f4d4b67452d2329af0d2f1622ab940442326242a712fd7a6",
+    "bytes": 280
+  },
+  {
+    "path": "probe-collected\\qa-evidence\\IndependentPostfixProbeTest.deletedConversationMustRejectStaleSaveAfterSessionEviction\\e51b5cb2-6bfd-4a2b-a703-aa85eb33ad83\\result.txt",
+    "sha256": "7fca9b1cf844e9474214656d1a4ecd3497ca68ed3ffe183f20f66e32a568c594",
+    "bytes": 70
+  },
+  {
+    "path": "probe-collected\\qa-evidence\\IndependentPostfixProbeTest.completeServiceFactoryContinuationUsesSyntheticProviderAndFirstDecision\\1040913c-b04a-44d1-89da-53f4c9fac419\\continuation.txt",
+    "sha256": "847d0a042f3ce6b1070aa76f101ee2977fccad606da531e02924c76e60262ff9",
+    "bytes": 313
+  },
+  {
+    "path": "jvm-core\\binary\\output-events.bin",
+    "sha256": "781733be8c60458af317134dd7a8c6d468d1b2f215b55d8e5ea5b79543087662",
+    "bytes": 5992
+  },
+  {
+    "path": "jvm-core\\binary\\results-generic.bin",
+    "sha256": "76c7dcb2820521820deab8bff9dd1cc96a3c1190ac499d47e5638c82eb6eac83",
+    "bytes": 50101
+  },
+  {
+    "path": "exact-targets\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\QA\u4ea4\u4ed8-1994162f-71fb-4f4a-828f-fc3371527a29.pptx",
+    "sha256": "ab3dd0ae6513ba7fdc906af1f5dcd1d3381f3202cdf30006ec0bf2b10eb990f7",
+    "bytes": 2533
+  },
+  {
+    "path": "exact-targets\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\QA\u4ea4\u4ed8-21ee1844-9b34-4290-84e7-62bb9839dc3d.xlsx",
+    "sha256": "1e641304c1b5522f83b04e812c9ae05d765ca0fb5b7bf54c0ac044bd0ec46a2d",
+    "bytes": 2398
+  },
+  {
+    "path": "exact-targets\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\QA\u4ea4\u4ed8-25163f99-991f-4642-b76e-630d5de6f99f.docx",
+    "sha256": "e463e69e507cf33078d531055700fb1327b1ffb32d93ab6af46e0d7f3e3ee448",
+    "bytes": 1563
+  },
+  {
+    "path": "exact-targets\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\QA\u4ea4\u4ed8-ab90ce5f-87ac-4fe0-a2d9-bc40a2c393e6.pdf",
+    "sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+    "bytes": 29097
+  },
+  {
+    "path": "exact-targets\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\QA\u4ea4\u4ed8-be7d6020-2ec7-4a0b-a4f4-32c6ec8da2a7.md",
+    "sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+    "bytes": 32
+  },
+  {
+    "path": "exact-targets\\c549393e-52be-41bd-839a-436e111d730b\\QA\u4ea4\u4ed8-1cffa141-118e-4066-8fa7-30f1684e151b.docx",
+    "sha256": "a3606b76b5208667d12e733855a45cba29c1511960e5ed8a54641531140b0d0e",
+    "bytes": 1563
+  },
+  {
+    "path": "exact-targets\\c549393e-52be-41bd-839a-436e111d730b\\QA\u4ea4\u4ed8-4580d010-cb51-4c27-a45f-a39670b880d3.pdf",
+    "sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+    "bytes": 29097
+  },
+  {
+    "path": "exact-targets\\c549393e-52be-41bd-839a-436e111d730b\\QA\u4ea4\u4ed8-8ba2aff9-bd5e-4e18-96ec-d019f7cb57c8.xlsx",
+    "sha256": "6258e1d56e48db48e015710727f3ff9090c3ab3e84bf873937a9923ba9c237ad",
+    "bytes": 2398
+  },
+  {
+    "path": "exact-targets\\c549393e-52be-41bd-839a-436e111d730b\\QA\u4ea4\u4ed8-987febfd-51f3-4eb9-8395-eb18c6edb014.md",
+    "sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+    "bytes": 32
+  },
+  {
+    "path": "exact-targets\\c549393e-52be-41bd-839a-436e111d730b\\QA\u4ea4\u4ed8-d52e9018-31f8-4af1-a65b-68e80d8b2e03.pptx",
+    "sha256": "a69b2a30f4496d157a5bde1eb4fe08339ead076250c84ca89318f25bc5c84eab",
+    "bytes": 2533
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\delivery-open-docx.png",
+    "sha256": "fd8a0646f04625489be33d5bf3c031a8e480db3243ad9146ef738166399a1925",
+    "bytes": 72378
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\delivery-open-md.png",
+    "sha256": "2fb47949cdf7a79d35669a97411d9755646073934e1fb5c1a387ada9ae211500",
+    "bytes": 55641
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\delivery-open-pdf.png",
+    "sha256": "98f89bbe4fef118aed399254e5aec9f121f6cc1b98d01d63b7ba776153fa4559",
+    "bytes": 70071
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\delivery-open-pptx.png",
+    "sha256": "583f0358e6cd684ff59fcf6681150e49699ea3c2afe9b6dd9eb6d090aa37539b",
+    "bytes": 79145
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\delivery-open-xlsx.png",
+    "sha256": "d2fadf1bb3005cca986c0a0bbe6448a35b35ae8e2ac8ce4ef7dd1e4037f80eca",
+    "bytes": 70926
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\delivery-receipts.txt",
+    "sha256": "1ff814d6276c07492db01ff7a77755d32383da7fb339308a9bb2551fc3a313b0",
+    "bytes": 4778
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\delivery-send-docx.png",
+    "sha256": "dd79edbbbaab7624ac9f0afe5c99c4bbc023f9b0b2d6a469d1c859544fff3da4",
+    "bytes": 73892
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\delivery-send-md.png",
+    "sha256": "aa13b884da676d1a5d05598cc9477a356354d19dcb2c57806dcd2537f449977b",
+    "bytes": 56551
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\delivery-send-pdf.png",
+    "sha256": "4ba0624a8b7f34d7a230965d1ac9feb3ada9c92e66aedda721262c5da58f9b43",
+    "bytes": 71585
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\delivery-send-pptx.png",
+    "sha256": "bb90c1cdff03e90914a1048723c98e5564e469feead2d2ba0fe14af55d46927d",
+    "bytes": 80546
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\delivery-send-xlsx.png",
+    "sha256": "0949892a56232face2a19f81cb616b893b391d2d24c91d1059df0865b9c9165d",
+    "bytes": 72262
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\source-docx.docx",
+    "sha256": "e463e69e507cf33078d531055700fb1327b1ffb32d93ab6af46e0d7f3e3ee448",
+    "bytes": 1563
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\source-md.md",
+    "sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+    "bytes": 32
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\source-pdf.pdf",
+    "sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+    "bytes": 29097
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\source-pptx.pptx",
+    "sha256": "ab3dd0ae6513ba7fdc906af1f5dcd1d3381f3202cdf30006ec0bf2b10eb990f7",
+    "bytes": 2533
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\8cb8c86f-8039-4bd4-a69f-693c3baec8e9\\source-xlsx.xlsx",
+    "sha256": "1e641304c1b5522f83b04e812c9ae05d765ca0fb5b7bf54c0ac044bd0ec46a2d",
+    "bytes": 2398
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\c549393e-52be-41bd-839a-436e111d730b\\delivery-open-docx.png",
+    "sha256": "90b899b579522f739f0d66b75979f6f7474b681303482cc72178a39e3d097a5b",
+    "bytes": 73622
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\c549393e-52be-41bd-839a-436e111d730b\\delivery-open-md.png",
+    "sha256": "a5a613bc1ebfd69a29a1c3098699707fe4baedc2710d3077e61c9fb2c70249a2",
+    "bytes": 55716
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\c549393e-52be-41bd-839a-436e111d730b\\delivery-open-pdf.png",
+    "sha256": "b2b13dc9b60fa0fc2eeae1f8407aa7eaffa1967ec4d9eb300efe6a33bebec748",
+    "bytes": 70653
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\c549393e-52be-41bd-839a-436e111d730b\\delivery-open-pptx.png",
+    "sha256": "e1a4809efaeb56102500776ee80f269d551f03b3b41702d77089dd5bc15b49be",
+    "bytes": 81620
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\c549393e-52be-41bd-839a-436e111d730b\\delivery-open-xlsx.png",
+    "sha256": "4d6c252114a06af54ec0ec80df5626ec1d1d81cbb356dce2e6a69938e8af8a1d",
+    "bytes": 71030
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\c549393e-52be-41bd-839a-436e111d730b\\delivery-receipts.txt",
+    "sha256": "09e667b4cc302fa7ed0d5dbfc81b25665e9286973338d8e8da90dcec8dba292f",
+    "bytes": 4778
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\c549393e-52be-41bd-839a-436e111d730b\\delivery-send-docx.png",
+    "sha256": "3d0ff266d96335df5d066fec1b8493e3792f5ad24e0e2d82d82f1ea52b83ddd1",
+    "bytes": 74998
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\c549393e-52be-41bd-839a-436e111d730b\\delivery-send-md.png",
+    "sha256": "650c69b86751123bf594d6933006e65d719aae153758b1891fd800eb086222d6",
+    "bytes": 57184
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\c549393e-52be-41bd-839a-436e111d730b\\delivery-send-pdf.png",
+    "sha256": "35cb77c2ad57ddf6a268a74f4e95827cf8c018e4af00637b9a8165e525bb7c25",
+    "bytes": 72669
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\c549393e-52be-41bd-839a-436e111d730b\\delivery-send-pptx.png",
+    "sha256": "8a67b1b0086fb2b2b76519a0c16edbebe2e826d1663bb4b95bcabe6835866c35",
+    "bytes": 82889
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\c549393e-52be-41bd-839a-436e111d730b\\delivery-send-xlsx.png",
+    "sha256": "9a5c86586e7c84cc36a3534d12aa824fd74a07a463f76fc3ee175cce8fc173ba",
+    "bytes": 72398
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\c549393e-52be-41bd-839a-436e111d730b\\source-docx.docx",
+    "sha256": "a3606b76b5208667d12e733855a45cba29c1511960e5ed8a54641531140b0d0e",
+    "bytes": 1563
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\c549393e-52be-41bd-839a-436e111d730b\\source-md.md",
+    "sha256": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+    "bytes": 32
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\c549393e-52be-41bd-839a-436e111d730b\\source-pdf.pdf",
+    "sha256": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+    "bytes": 29097
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\c549393e-52be-41bd-839a-436e111d730b\\source-pptx.pptx",
+    "sha256": "a69b2a30f4496d157a5bde1eb4fe08339ead076250c84ca89318f25bc5c84eab",
+    "bytes": 2533
+  },
+  {
+    "path": "delivery-collected\\qa-evidence\\ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid\\c549393e-52be-41bd-839a-436e111d730b\\source-xlsx.xlsx",
+    "sha256": "6258e1d56e48db48e015710727f3ff9090c3ab3e84bf873937a9923ba9c237ad",
+    "bytes": 2398
+  },
+  {
+    "path": "core-collected\\qa-evidence\\WordFormulaAssertionTest.tableCellsRejectDeletionReorderingAndValueChanges\\c0c58e2a-997e-4a64-9a53-8128f4f4a436\\deleted-row.docx",
+    "sha256": "00b9b1c386021e3ebbc0b8de177a174961f289130c0f0f26da1dcf9151f5d4e8",
+    "bytes": 1535
+  },
+  {
+    "path": "core-collected\\qa-evidence\\WordFormulaAssertionTest.tableCellsRejectDeletionReorderingAndValueChanges\\c0c58e2a-997e-4a64-9a53-8128f4f4a436\\empty.docx",
+    "sha256": "a9f77100b7b8be61c65a8d03a2c2223e80d5f1714e6fa5f7da61eb714c4a95e9",
+    "bytes": 1339
+  },
+  {
+    "path": "core-collected\\qa-evidence\\WordFormulaAssertionTest.tableCellsRejectDeletionReorderingAndValueChanges\\c0c58e2a-997e-4a64-9a53-8128f4f4a436\\reordered.docx",
+    "sha256": "26547913777e04591d890e3e4267e421987618fa0df0fa482e9fad8b536696c6",
+    "bytes": 1584
+  },
+  {
+    "path": "core-collected\\qa-evidence\\WordFormulaAssertionTest.tableCellsRejectDeletionReorderingAndValueChanges\\c0c58e2a-997e-4a64-9a53-8128f4f4a436\\source.docx",
+    "sha256": "bc234a3259fadd5d2a55736b64cb72076b34fd8f236124b8d2bb8d61648d5a1e",
+    "bytes": 1583
+  },
+  {
+    "path": "core-collected\\qa-evidence\\WordFormulaAssertionTest.tableCellsRejectDeletionReorderingAndValueChanges\\c0c58e2a-997e-4a64-9a53-8128f4f4a436\\value.docx",
+    "sha256": "7bf3178693e9646b6adb7f1ca645211c05a660ff797a978a277e9114d6510c92",
+    "bytes": 1584
+  },
+  {
+    "path": "core-collected\\qa-evidence\\WordFormulaAssertionTest.perRunMaterialSamplesExistAndContainSyntheticContent\\c0c58e2a-997e-4a64-9a53-8128f4f4a436\\sample.docx",
+    "sha256": "e881a3f13f78a3dd310c6b9e4456f27bdb470cc4d81d50e392689950f4d3b737",
+    "bytes": 1597
+  },
+  {
+    "path": "core-collected\\qa-evidence\\WordFormulaAssertionTest.perRunMaterialSamplesExistAndContainSyntheticContent\\c0c58e2a-997e-4a64-9a53-8128f4f4a436\\sample.md",
+    "sha256": "9e82c4c8608f892e3e677e2a51aa2fc5efbfbd2a4bb74ccde176a786d8af9e06",
+    "bytes": 58
+  },
+  {
+    "path": "core-collected\\qa-evidence\\WordFormulaAssertionTest.perRunMaterialSamplesExistAndContainSyntheticContent\\c0c58e2a-997e-4a64-9a53-8128f4f4a436\\sample.pdf",
+    "sha256": "4b5cd6da715095d55bb7ed447f0f9bcc44076c188821292a6c2c6511f08980d0",
+    "bytes": 47993
+  },
+  {
+    "path": "core-collected\\qa-evidence\\WordFormulaAssertionTest.perRunMaterialSamplesExistAndContainSyntheticContent\\c0c58e2a-997e-4a64-9a53-8128f4f4a436\\sample.pptx",
+    "sha256": "e37ef6baab66fff001ed249f9e6ef01c5ad7044fd11c3935f47bac17c2f79a23",
+    "bytes": 1933
+  },
+  {
+    "path": "core-collected\\qa-evidence\\WordFormulaAssertionTest.perRunMaterialSamplesExistAndContainSyntheticContent\\c0c58e2a-997e-4a64-9a53-8128f4f4a436\\sample.xlsx",
+    "sha256": "d6be2ae32ef73423f0e1a0a3eeb471c885f547ba981ab796d4a900ec1cd61b2c",
+    "bytes": 2400
+  }
+]

@@ -1,0 +1,1 @@
+{"model":"gpt-6-astra","provider":"OpenAI","protocol":"responses","reasoning_effort":"low","mode":"live-model","status":"FAILED","stream_argument_snapshots":0,"preview_observed":false,"errors":["HttpException"],"http_errors":[{"status":null,"reason":null,"message":"Model service rejected the request"}]}

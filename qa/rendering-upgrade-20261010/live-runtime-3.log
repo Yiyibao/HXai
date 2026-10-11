@@ -1,0 +1,97 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatRenderingRealModelTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ChatRenderingRealModelTest:
+INSTRUMENTATION_STATUS: test=configuredModelStreamsRendersEditsRestoresContinuesAndCancels
+INSTRUMENTATION_STATUS_CODE: 1
+s_glBindAttribLocation: bind attrib 0 name position
+s_glBindAttribLocation: bind attrib 1 name color
+s_glBindAttribLocation: bind attrib 2 name localCoord
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels","runId":"43d91508-7913-493f-90e0-986d986f7131","startedAt":1791613656159,"finishedAt":1791613705047,"status":"FAILED","entries":[{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/43d91508-7913-493f-90e0-986d986f7131\/stream-preview.png","sha256":"6646b63615ae55782b158e5ef5f044de514fb68a3cbb0b5414251bb8f15bf22a","bytes":235418,"reusedSyntheticInput":false},{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/43d91508-7913-493f-90e0-986d986f7131\/generation-1.json","sha256":"940b31bb82b7721a39b8e76c0b763eab8a2dfb631524aa148184fd11366d61c0","bytes":6913,"reusedSyntheticInput":false},{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/43d91508-7913-493f-90e0-986d986f7131\/definition.json","sha256":"6c431d0c843d4605fae393cf443bb7794df07968aca9ca62f7891f6bef0ab7e1","bytes":2554,"reusedSyntheticInput":false},{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/43d91508-7913-493f-90e0-986d986f7131\/inline-light.png","sha256":"3e005fab9dd8e091e3d362cec4710e666857448bfcddb91c5541cd0698133180","bytes":207518,"reusedSyntheticInput":false},{"name":"qa-evidence\/ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels\/43d91508-7913-493f-90e0-986d986f7131\/result.json","sha256":"766acc57d18e551008f4cc7681656ae4ac7fe1e56111c887bdb18530c1499669","bytes":198,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ChatRenderingRealModelTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: Label not clickable: 展开界面
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest.click(ChatRenderingRealModelTest.kt:57)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest.access$click(ChatRenderingRealModelTest.kt:26)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest$configuredModelStreamsRendersEditsRestoresContinuesAndCancels$1.invokeSuspend(ChatRenderingRealModelTest.kt:174)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTaskKt.resume(DispatchedTask.kt:233)
+	at kotlinx.coroutines.DispatchedTaskKt.dispatch(DispatchedTask.kt:152)
+	at kotlinx.coroutines.CancellableContinuationImpl.dispatchResume(CancellableContinuationImpl.kt:470)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core(CancellableContinuationImpl.kt:504)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core$default(CancellableContinuationImpl.kt:493)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeUndispatched(CancellableContinuationImpl.kt:596)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedResumeTask.run(EventLoop.common.kt:490)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels(ChatRenderingRealModelTest.kt:67)
+
+INSTRUMENTATION_STATUS: stream=
+Error in configuredModelStreamsRendersEditsRestoresContinuesAndCancels(me.rerere.rikkahub.service.ChatRenderingRealModelTest):
+java.lang.IllegalStateException: Label not clickable: 展开界面
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest.click(ChatRenderingRealModelTest.kt:57)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest.access$click(ChatRenderingRealModelTest.kt:26)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest$configuredModelStreamsRendersEditsRestoresContinuesAndCancels$1.invokeSuspend(ChatRenderingRealModelTest.kt:174)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTaskKt.resume(DispatchedTask.kt:233)
+	at kotlinx.coroutines.DispatchedTaskKt.dispatch(DispatchedTask.kt:152)
+	at kotlinx.coroutines.CancellableContinuationImpl.dispatchResume(CancellableContinuationImpl.kt:470)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core(CancellableContinuationImpl.kt:504)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core$default(CancellableContinuationImpl.kt:493)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeUndispatched(CancellableContinuationImpl.kt:596)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedResumeTask.run(EventLoop.common.kt:490)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels(ChatRenderingRealModelTest.kt:67)
+
+INSTRUMENTATION_STATUS: test=configuredModelStreamsRendersEditsRestoresContinuesAndCancels
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 48.981
+There was 1 failure:
+1) configuredModelStreamsRendersEditsRestoresContinuesAndCancels(me.rerere.rikkahub.service.ChatRenderingRealModelTest)
+java.lang.IllegalStateException: Label not clickable: 展开界面
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest.click(ChatRenderingRealModelTest.kt:57)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest.access$click(ChatRenderingRealModelTest.kt:26)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest$configuredModelStreamsRendersEditsRestoresContinuesAndCancels$1.invokeSuspend(ChatRenderingRealModelTest.kt:174)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTaskKt.resume(DispatchedTask.kt:233)
+	at kotlinx.coroutines.DispatchedTaskKt.dispatch(DispatchedTask.kt:152)
+	at kotlinx.coroutines.CancellableContinuationImpl.dispatchResume(CancellableContinuationImpl.kt:470)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core(CancellableContinuationImpl.kt:504)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core$default(CancellableContinuationImpl.kt:493)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeUndispatched(CancellableContinuationImpl.kt:596)
+	at kotlinx.coroutines.EventLoopImplBase$DelayedResumeTask.run(EventLoop.common.kt:490)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source:1)
+	at me.rerere.rikkahub.service.ChatRenderingRealModelTest.configuredModelStreamsRendersEditsRestoresContinuesAndCancels(ChatRenderingRealModelTest.kt:67)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

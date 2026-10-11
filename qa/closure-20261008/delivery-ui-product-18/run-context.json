@@ -1,0 +1,22 @@
+{
+  "appSha256": "f8f8ab311ecabb051cb296bd9660bdfa460dea8dfacf465aa4918a324685ac82",
+  "testSha256": "9c694f7c902d2b53911c92f01b4c1948a09562ee3c369140ac88ec49d243a11f",
+  "runs": [
+    {
+      "method": "DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource",
+      "runId": "32a341ab-5973-4b31-9acf-9b15ab2921dd",
+      "log": "focused.log",
+      "logSha256": "ddb0c736b1813aa710096e24aea82b859ab4b55743b94a7c903ff37f5e271489",
+      "notBefore": 1791467719981,
+      "notAfter": 1791467753339
+    },
+    {
+      "method": "DeliveryUiClosureTest.listPickerRejectsProfileChange",
+      "runId": "32a341ab-5973-4b31-9acf-9b15ab2921dd",
+      "log": "focused.log",
+      "logSha256": "ddb0c736b1813aa710096e24aea82b859ab4b55743b94a7c903ff37f5e271489",
+      "notBefore": 1791467719981,
+      "notAfter": 1791467753339
+    }
+  ]
+}

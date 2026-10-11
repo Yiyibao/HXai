@@ -1,0 +1,17 @@
+[
+  {
+    "name": "app-arm64-v8a-debug.apk",
+    "bytes": 90015229,
+    "sha256": "6013172aabb2b5c3b6bcfc9f2faeb04b5d8dccff889fb84697fd593079e0825c"
+  },
+  {
+    "name": "app-universal-debug.apk",
+    "bytes": 100683995,
+    "sha256": "24a4338cba2202cefc5d95b574b674d5cdb979f9aff58a8f0e287b14d60071e2"
+  },
+  {
+    "name": "app-x86_64-debug.apk",
+    "bytes": 90843843,
+    "sha256": "2485b040d23ac2f8b2a59673113ff391b5e49d311cf550f545c76fecaee477d9"
+  }
+]

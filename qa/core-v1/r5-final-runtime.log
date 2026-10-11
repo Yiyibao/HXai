@@ -1,0 +1,20 @@
+
+me.rerere.rikkahub.service.FlutterChatBridgeTest:....
+me.rerere.rikkahub.service.MaterialEditWorkflowTest:.
+me.rerere.rikkahub.service.CoreSkillsWorkflowTest:..
+me.rerere.rikkahub.service.BackupReliabilityTest:...
+me.rerere.rikkahub.service.SkillsInstallBoundaryTest:..INSTRUMENTATION_STATUS: qa_skill_fixture=qa-bounded-0e3fd45d-6300-479b-9aa6-61d155f3d3a7
+INSTRUMENTATION_STATUS_CODE: 2
+.
+me.rerere.rikkahub.service.DocumentSubmissionRecoveryTest:.
+s_glBindAttribLocation: bind attrib 0 name position
+s_glBindAttribLocation: bind attrib 1 name color
+s_glBindAttribLocation: bind attrib 2 name localCoord
+me.rerere.rikkahub.service.CoreFlutterDeliveryTest:.
+me.rerere.rikkahub.service.CoreConfiguredModelTest:.
+
+Time: 105.236
+
+OK (16 tests)
+
+

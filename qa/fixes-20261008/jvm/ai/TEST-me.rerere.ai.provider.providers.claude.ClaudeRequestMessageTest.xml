@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.provider.providers.claude.ClaudeRequestMessageTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-07T16:42:07.022Z" hostname="DESKTOP-QH4J0RS" time="0.073">
+  <properties/>
+  <testcase name="thinking and server tool history should be preserved before client tool result" classname="me.rerere.ai.provider.providers.claude.ClaudeRequestMessageTest" time="0.056"/>
+  <testcase name="parallel tool calls should be in same assistant message" classname="me.rerere.ai.provider.providers.claude.ClaudeRequestMessageTest" time="0.003"/>
+  <testcase name="multi-round tool calls should produce tool_use followed by tool_result" classname="me.rerere.ai.provider.providers.claude.ClaudeRequestMessageTest" time="0.003"/>
+  <testcase name="user messages should have correct content format" classname="me.rerere.ai.provider.providers.claude.ClaudeRequestMessageTest" time="0.002"/>
+  <testcase name="tool_use in assistant should be immediately followed by user message with tool_result" classname="me.rerere.ai.provider.providers.claude.ClaudeRequestMessageTest" time="0.003"/>
+  <testcase name="thinking blocks should be included in assistant content" classname="me.rerere.ai.provider.providers.claude.ClaudeRequestMessageTest" time="0.003"/>
+  <testcase name="multi-round reasoning and tools should maintain correct order" classname="me.rerere.ai.provider.providers.claude.ClaudeRequestMessageTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

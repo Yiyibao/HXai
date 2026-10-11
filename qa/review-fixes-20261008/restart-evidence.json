@@ -1,0 +1,14 @@
+[
+  {
+    "phase": "seed-gate-fixed",
+    "pid": "13808",
+    "reopened": 0,
+    "deletedAbsent": 0
+  },
+  {
+    "phase": "verify-gate-fixed",
+    "pid": "13898",
+    "reopened": 18,
+    "deletedAbsent": 2
+  }
+]

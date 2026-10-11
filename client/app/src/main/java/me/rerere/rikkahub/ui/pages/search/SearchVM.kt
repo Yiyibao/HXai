@@ -35,6 +35,7 @@ private data class SearchRequest(
     val scope: MessageSearchScope,
     val assistantId: Uuid?,
     val debounce: Boolean,
+    val profileId: String,
 )
 
 class SearchVM(
@@ -72,13 +73,12 @@ class SearchVM(
         }
         viewModelScope.launch {
             settingsStore.settingsFlow
-                .map { it.getCurrentAssistant().id }
+                .map { it.getCurrentAssistant().id to it.activeProfileId }
                 .distinctUntilChanged()
-                .collect { assistantId ->
+                .collect { (assistantId, _) ->
                     currentAssistantId = assistantId
-                    if (searchScope == MessageSearchScope.CURRENT_ASSISTANT) {
-                        search()
-                    }
+                    results = emptyList()
+                    search()
                 }
         }
     }
@@ -117,6 +117,7 @@ class SearchVM(
                 scope = searchScope,
                 assistantId = assistantId,
                 debounce = debounce,
+                profileId = conversationRepo.activeProfileId,
             )
         )
     }
@@ -145,7 +146,8 @@ class SearchVM(
         isLoading = true
         try {
             if (request.debounce) delay(300L)
-            results = conversationRepo.searchMessages(request.query, request.sort, request.assistantId)
+            val found = conversationRepo.searchMessages(request.query, request.sort, request.assistantId, request.profileId)
+            if (request.profileId == conversationRepo.activeProfileId) results = found
         } finally {
             isLoading = false
         }

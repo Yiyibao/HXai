@@ -10,6 +10,8 @@ import me.rerere.rikkahub.ui.theme.presets.OceanThemePreset
 import me.rerere.rikkahub.ui.theme.presets.SakuraThemePreset
 import me.rerere.rikkahub.ui.theme.presets.SpringThemePreset
 
+import me.rerere.rikkahub.ui.theme.presets.StudyWhitePinkThemePreset
+
 data class PresetTheme(
     val id: String,
     val name: @Composable () -> Unit,
@@ -23,6 +25,7 @@ data class PresetTheme(
 
 val PresetThemes by lazy {
     listOf(
+        StudyWhitePinkThemePreset,
         SakuraThemePreset,
         OceanThemePreset,
         SpringThemePreset,
@@ -34,7 +37,7 @@ val PresetThemes by lazy {
 }
 
 fun findPresetTheme(id: String): PresetTheme {
-    return PresetThemes.find { it.id == id } ?: SakuraThemePreset
+    return PresetThemes.find { it.id == id } ?: StudyWhitePinkThemePreset
 }
 
 fun findThemeById(id: String, customThemes: List<CustomTheme>): PresetTheme? {

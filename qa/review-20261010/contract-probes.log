@@ -1,0 +1,4 @@
+Accepted upload without client receipt: QUEUED
+Cancellation by request key: CANCELLED
+Server accepted single block chars: 24001
+Client read_material_parse_blocks per-call text cap: 24000; count=1 still cannot read this block

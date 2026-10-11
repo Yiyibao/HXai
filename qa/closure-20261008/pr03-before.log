@@ -1,0 +1,60 @@
+Failed to find real location of C:\Users\Hfff\AppData\Local\Programs\Python\Python313\python.exe
+test_junit_failure_cannot_be_collected_as_pass (__main__.StatusProbe.test_junit_failure_cannot_be_collected_as_pass) ... ERROR
+test_junit_failure_cannot_be_collected_as_pass (__main__.StatusProbe.test_junit_failure_cannot_be_collected_as_pass) ... ERROR
+
+======================================================================
+ERROR: test_junit_failure_cannot_be_collected_as_pass (__main__.StatusProbe.test_junit_failure_cannot_be_collected_as_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Office\Study\code\MathStudyAgent\scripts\tests\test_collect_run_evidence.py", line 29, in setUp
+    self.write_context()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Office\Study\code\MathStudyAgent\scripts\tests\test_collect_run_evidence.py", line 32, in write_context
+    (self.root/'run.log').write_bytes(log)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py", line 641, in write_bytes
+    with self.open(mode='wb') as f:
+         ~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{72452426-ccb5-4611-bde8-74ae212dad4a}\\AC\\Temp\\tmpqxr14hb5\\run.log'
+
+======================================================================
+ERROR: test_junit_failure_cannot_be_collected_as_pass (__main__.StatusProbe.test_junit_failure_cannot_be_collected_as_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{72452426-ccb5-4611-bde8-74ae212dad4a}\\AC\\Temp\\tmpqxr14hb5'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hfff\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\Hfff\\AppData\\Local\\Packages\\sandbox.{72452426-ccb5-4611-bde8-74ae212dad4a}\\AC\\Temp\\tmpqxr14hb5'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.009s
+
+FAILED (errors=2)

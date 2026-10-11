@@ -1,0 +1,50 @@
+{
+  "schema": 2,
+  "contextSha256": "f1526288d8dca89e9ce41c4683d89396f7ec0d7a65749405dfd7366966c64cd1",
+  "appSha256": "ba53c4b477701dbdd87bbee9270394f2fe376a7ce1f52e7db704b5f7a8410094",
+  "testSha256": "36a6063b9151158705ddb178346f1975c3c27dcabc1e4a38cf9a6377358f9d7f",
+  "records": [
+    {
+      "name": "qa-evidence/DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource/b1e17af1-9edf-435a-8d95-1ad35c63fd9d/picker-before-save.png",
+      "sha256": "07d42bd965728f3bed84e8b454dc74a8b0c5cc2dfbab6124e9186158fcd53ba6",
+      "bytes": 95296,
+      "reusedSyntheticInput": false,
+      "method": "DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource",
+      "runId": "b1e17af1-9edf-435a-8d95-1ad35c63fd9d",
+      "status": "FAILED",
+      "actualClass": "me.rerere.rikkahub.service.DeliveryUiClosureTest",
+      "actualTest": "pickerCancelAndProfileChangeDoNotDeliverOldSource",
+      "deviceMtime": 1791467351,
+      "startedAt": 1791467345327,
+      "finishedAt": 1791467353165
+    },
+    {
+      "name": "qa-evidence/DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource/b1e17af1-9edf-435a-8d95-1ad35c63fd9d/assertions.txt",
+      "sha256": "31720adf327be36a0dc03e60880eaa6c7f4a4847e6a099773515f8284a66a5c1",
+      "bytes": 240,
+      "reusedSyntheticInput": false,
+      "method": "DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource",
+      "runId": "b1e17af1-9edf-435a-8d95-1ad35c63fd9d",
+      "status": "FAILED",
+      "actualClass": "me.rerere.rikkahub.service.DeliveryUiClosureTest",
+      "actualTest": "pickerCancelAndProfileChangeDoNotDeliverOldSource",
+      "deviceMtime": 1791467353,
+      "startedAt": 1791467345327,
+      "finishedAt": 1791467353165
+    },
+    {
+      "name": "qa-evidence/DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource/b1e17af1-9edf-435a-8d95-1ad35c63fd9d/screen.png",
+      "sha256": "68ae926e1833a7753169638e2eb1d48523a5ea796a75cdfbfa0aa5625b1e7123",
+      "bytes": 106508,
+      "reusedSyntheticInput": false,
+      "method": "DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource",
+      "runId": "b1e17af1-9edf-435a-8d95-1ad35c63fd9d",
+      "status": "FAILED",
+      "actualClass": "me.rerere.rikkahub.service.DeliveryUiClosureTest",
+      "actualTest": "pickerCancelAndProfileChangeDoNotDeliverOldSource",
+      "deviceMtime": 1791467353,
+      "startedAt": 1791467345327,
+      "finishedAt": 1791467353165
+    }
+  ]
+}

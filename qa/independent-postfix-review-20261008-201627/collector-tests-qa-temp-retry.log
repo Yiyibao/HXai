@@ -1,0 +1,12 @@
+Failed to find real location of C:\Users\Hfff\AppData\Local\Programs\Python\Python313\python.exe
+test_changed_device_and_local_bytes_are_rejected (test_collect_run_evidence.RunEvidenceTests.test_changed_device_and_local_bytes_are_rejected) ... ok
+test_cross_method_path_and_failed_status_are_not_success (test_collect_run_evidence.RunEvidenceTests.test_cross_method_path_and_failed_status_are_not_success) ... ok
+test_current_and_repeat_collection_recheck_device (test_collect_run_evidence.RunEvidenceTests.test_current_and_repeat_collection_recheck_device) ... ok
+test_existing_manifest_does_not_bypass_stale_device (test_collect_run_evidence.RunEvidenceTests.test_existing_manifest_does_not_bypass_stale_device) ... ok
+test_legacy_manifest_and_changed_log_are_rejected (test_collect_run_evidence.RunEvidenceTests.test_legacy_manifest_and_changed_log_are_rejected) ... ok
+test_other_run_wrong_apk_and_old_window_are_rejected (test_collect_run_evidence.RunEvidenceTests.test_other_run_wrong_apk_and_old_window_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.398s
+
+OK

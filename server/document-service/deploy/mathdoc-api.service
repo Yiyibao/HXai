@@ -1,0 +1,23 @@
+[Unit]
+Description=MathStudy document gateway
+After=network.target
+
+[Service]
+User=mathdoc
+Group=mathdoc
+WorkingDirectory=/opt/mathdoc/service
+Environment=MATHDOC_DATA=/var/lib/mathdoc
+ExecStart=/opt/mathdoc/api-env/bin/python -m api.main
+Restart=on-failure
+UMask=0007
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ReadWritePaths=/var/lib/mathdoc
+MemoryMax=512M
+CPUQuota=100%
+TasksMax=64
+
+[Install]
+WantedBy=multi-user.target

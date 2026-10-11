@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.oauth.OAuthLoopbackCallbackServerTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2026-10-07T17:52:48.742Z" hostname="DESKTOP-QH4J0RS" time="2.502">
+  <properties/>
+  <testcase name="callback is delivered only to matching state" classname="me.rerere.oauth.OAuthLoopbackCallbackServerTest" time="2.502">
+    <failure message="java.net.ConnectException: Failed to connect to localhost/127.0.0.1:57558" type="java.net.ConnectException">java.net.ConnectException: Failed to connect to localhost/127.0.0.1:57558
+	at _COROUTINE._BOUNDARY._(CoroutineDebugging.kt:42)
+	at me.rerere.oauth.OAuthLoopbackCallbackServerTest$callback is delivered only to matching state$1.invokeSuspend(OAuthLoopbackCallbackServerTest.kt:31)
+Caused by: java.net.ConnectException: Failed to connect to localhost/127.0.0.1:57558
+	at okhttp3.internal.connection.ConnectPlan.connectSocket(ConnectPlan.kt:285)
+	at okhttp3.internal.connection.ConnectPlan.connectTcp(ConnectPlan.kt:144)
+	at okhttp3.internal.connection.FastFallbackExchangeFinder$launchTcpConnect$1.runOnce(FastFallbackExchangeFinder.kt:147)
+	at okhttp3.internal.concurrent.TaskRunner$runnable$1.run(TaskRunner.kt:81)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+	Suppressed: java.net.ConnectException: Failed to connect to localhost/[0:0:0:0:0:0:0:1]:57558
+		... 7 more
+	Caused by: java.net.ConnectException: Connection refused: getsockopt
+		at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+		at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:694)
+		at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+		at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+		at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+		at java.base/java.net.Socket.connect(Socket.java:751)
+		at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:173)
+		at okhttp3.internal.connection.ConnectPlan.connectSocket(ConnectPlan.kt:283)
+		... 6 more
+	Suppressed: java.net.ConnectException: Failed to connect to localhost/127.0.0.1:57558
+		... 7 more
+	Caused by: java.net.ConnectException: Connection refused: getsockopt
+		at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+		at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:694)
+		at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+		at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+		at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+		at java.base/java.net.Socket.connect(Socket.java:751)
+		at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:173)
+		at okhttp3.internal.connection.ConnectPlan.connectSocket(ConnectPlan.kt:283)
+		... 6 more
+	Suppressed: java.io.IOException: unexpected end of stream on http://localhost:57558/...
+		at okhttp3.internal.http1.Http1ExchangeCodec.readResponseHeaders(Http1ExchangeCodec.kt:252)
+		at okhttp3.internal.connection.Exchange.readResponseHeaders(Exchange.kt:117)
+		at okhttp3.internal.http.CallServerInterceptor.intercept(CallServerInterceptor.kt:97)
+		at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)
+		at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.kt:34)
+		at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)
+		at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.kt:98)
+		at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)
+		at okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.kt:83)
+		at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)
+		at okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.kt:72)
+		at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)
+		at okhttp3.internal.connection.RealCall.getResponseWithInterceptorChain$okhttp(RealCall.kt:234)
+		at okhttp3.internal.connection.RealCall.execute(RealCall.kt:189)
+		at me.rerere.oauth.OAuthLoopbackCallbackServerTest.execute(OAuthLoopbackCallbackServerTest.kt:51)
+		at me.rerere.oauth.OAuthLoopbackCallbackServerTest.access$execute(OAuthLoopbackCallbackServerTest.kt:15)
+		at me.rerere.oauth.OAuthLoopbackCallbackServerTest$callback is delivered only to matching state$1$2.invokeSuspend(OAuthLoopbackCallbackServerTest.kt:32)
+		at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+		at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+		at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+		at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+		at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+		at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
+		at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+		at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+	Caused by: java.io.EOFException: \n not found: limit=0 content=…
+		at okio.RealBufferedSource.readUtf8LineStrict(RealBufferedSource.kt:362)
+		at okhttp3.internal.http1.HeadersReader.readLine(HeadersReader.kt:32)
+		at okhttp3.internal.http1.Http1ExchangeCodec.readResponseHeaders(Http1ExchangeCodec.kt:215)
+		... 24 more
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:694)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:173)
+	at okhttp3.internal.connection.ConnectPlan.connectSocket(ConnectPlan.kt:283)
+	... 6 more
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+]]></system-err>
+</testsuite>

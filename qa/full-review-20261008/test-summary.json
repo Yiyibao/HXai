@@ -1,0 +1,2066 @@
+{
+  "instrumentation": [
+    {
+      "log": "BackupPageTest.log",
+      "modified": 1791391203.5698154,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.BackupPageTest",
+          "test": "requiresStrongMatchingPasswordAndClearsCancelledEntry",
+          "status": "passed"
+        }
+      ],
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "BackupReliabilityTest.log",
+      "modified": 1791391190.351425,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.BackupReliabilityTest",
+          "test": "legacyDeletedFactsArePreservedWithAutomaticExtractionBlocked",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.BackupReliabilityTest",
+          "test": "encryptedSnapshotPortableKeyWrongPasswordAndPostConfirmationDeletion",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.BackupReliabilityTest",
+          "test": "twentyRequestBudgetLeaseRecoveryAndCompactionSurviveReopen",
+          "status": "passed"
+        }
+      ],
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "ChatNetworkFaultTest.log",
+      "modified": 1791391077.7648194,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+          "test": "regenerationFailureBeforeFirstChunkKeepsPreviousInterruptedBranch",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+          "test": "unauthorizedAndRateLimitAreDurableFailuresWithoutAutomaticRetry",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+          "test": "toolCheckpointsPreventReplayAfterExecutionInterruption",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+          "test": "durableQueueRestoresPausedAndSubmissionIsAtomicInRoom",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+          "test": "chatCompletionsDistinguishesSilentEofCompletionAndEmptyHttpError",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+          "test": "deviceAirplaneModeInterruptsStreamAndQueueRequiresManualResume",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+          "test": "toolNetworkFailureIsUnknownAndDoesNotAdvanceToNextTool",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+          "test": "actualSocketReadTimeoutIsClassifiedAsInterruption",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+          "test": "roomRestartRecoveryCommitsInterruptedWithSameMessageIds",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+          "test": "silentEofPreservesPartialAndDoesNotAutomaticallyReplay",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+          "test": "resetConnectionPreservesPartialAndDoesNotAutomaticallyReplay",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+          "test": "room27To28MigrationPreservesConversationAndMessages",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+          "test": "manualRegenerationCompletesWithoutDuplicatingUserMessage",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+          "test": "stoppingStalledStreamPersistsCancelledAndRetainsText",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+          "test": "switchingWifiToMobileInterruptsWithoutReplay",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+          "test": "resumedAutoToolStillRequiresApprovalBeforeAnyExecution",
+          "status": "passed"
+        }
+      ],
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "CredentialVaultTest.log",
+      "modified": 1791391091.6272986,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+          "test": "legacyMigrationPreservesValuesAndIsIdempotent",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+          "test": "missingRecordAndPathTraversalAreRejected",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+          "test": "failedMigrationPreservesOriginalPreferences",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+          "test": "realBackupArchiveExcludesCredentialsAndReferences",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+          "test": "applicationSettingsLoadWithoutPlaintextCredentialsOnDisk",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+          "test": "recoveryResetsOnlyFailedPartitionsAndPreservesProfileAndReadableCredentials",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+          "test": "encryptedWriteSurvivesReopenAndDoesNotStoreCanary",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+          "test": "failedRecoveryArchiveDoesNotMutatePreferences",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+          "test": "missingDeviceKeyCanBeExplicitlyRecoveredWithoutUsingOldCiphertext",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+          "test": "tamperedCiphertextIsRejected",
+          "status": "passed"
+        }
+      ],
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "DiagnosticsPageTest.log",
+      "modified": 1791391236.3092177,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.DiagnosticsPageTest",
+          "test": "actualDocumentsSaveAndOtherUidShareDeliverCompleteZip",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.DiagnosticsPageTest",
+          "test": "phoneFeedbackEntryAndClearRequireExplicitAction",
+          "status": "passed"
+        }
+      ],
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "DiagnosticsTest.log",
+      "modified": 1791391211.8263552,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.DiagnosticsTest",
+          "test": "feedbackIsExplicitBoundedAndCancelledTasksAreDistinguished",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.DiagnosticsTest",
+          "test": "networkFailuresHttpErrorsAndTruncatedStreamsDoNotExposeRequestData",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.DiagnosticsTest",
+          "test": "corruptMetadataRecoversWithoutReadingLearningFiles",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.DiagnosticsTest",
+          "test": "boundedDurableEventsAndSanitizedCrashSurviveSafeModeClearing",
+          "status": "passed"
+        }
+      ],
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "DocumentServicePageTest.log",
+      "modified": 1791391170.906199,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.DocumentServicePageTest",
+          "test": "downloadedResultShowsCoverageAndOriginalSourceLinks",
+          "status": "passed"
+        }
+      ],
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "feedback-seed.log",
+      "modified": 1791392711.9551754,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.FrontendFeedbackProcessTest",
+          "test": "durableFeedbackDoesNotReplayAfterProcessRestart",
+          "status": "passed"
+        }
+      ],
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "feedback-verify.log",
+      "modified": 1791392714.934775,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.FrontendFeedbackProcessTest",
+          "test": "durableFeedbackDoesNotReplayAfterProcessRestart",
+          "status": "passed"
+        }
+      ],
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "FrontendDeliveryRoutesTest.log",
+      "modified": 1791391266.762144,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.FrontendDeliveryRoutesTest",
+          "test": "memoryEditorKeepsDraftAndRejectsConcurrentRevision",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.FrontendDeliveryRoutesTest",
+          "test": "providerRoutesUseRealModelRequestAndProtectUnsavedDraft",
+          "status": "passed"
+        }
+      ],
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "FrontendModelPickerTest.log",
+      "modified": 1791391243.5629232,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.FrontendModelPickerTest",
+          "test": "waitsForDurableSaveAndKeepsPickerOnFailure",
+          "status": "passed"
+        }
+      ],
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "LearningLoopPersistenceTest.log",
+      "modified": 1791391118.209627,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.LearningLoopPersistenceTest",
+          "test": "wrongHintRetryReviewIsolationAndReopen",
+          "status": "passed"
+        }
+      ],
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "LearningMemoryPageTest.log",
+      "modified": 1791391108.5340009,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.LearningMemoryPageTest",
+          "test": "viewSourceEditDeleteAndSwitchLearner",
+          "stack": "java.lang.AssertionError: Action performScrollTo() failed.",
+          "status": "failed"
+        }
+      ],
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0
+    },
+    {
+      "log": "LearningMemoryPersistenceTest.log",
+      "modified": 1791391097.4277723,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.LearningMemoryPersistenceTest",
+          "test": "explicitMemoryDeletionNewRequestAndTopicSuppression",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.LearningMemoryPersistenceTest",
+          "test": "sourceEditBranchInvalidationAndHumanCAS",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.LearningMemoryPersistenceTest",
+          "test": "restartDurabilityAndTwoLearners",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.LearningMemoryPersistenceTest",
+          "test": "memorySurvivesProcessRestart",
+          "stack": "org.junit.AssumptionViolatedException: got: <false>, expected: is <true>",
+          "status": "skipped"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.LearningMemoryPersistenceTest",
+          "test": "retriesDisabledLateResultsAndEmptySuccess",
+          "status": "passed"
+        }
+      ],
+      "passed": 4,
+      "failed": 0,
+      "skipped": 1
+    },
+    {
+      "log": "LegacyMemoryEntryTest.log",
+      "modified": 1791391114.0421488,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.LegacyMemoryEntryTest",
+          "test": "oldEntryDoesNotLoadSharedMemoryOrInstantiateAssistant",
+          "status": "passed"
+        }
+      ],
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "long-and-isolation-final.log",
+      "modified": 1791393077.5090005,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+          "test": "currentLongMaterialPreviewPagesReachTail",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+          "test": "artifactPreviewClearsContentAfterLearnerSwitch",
+          "stack": "java.lang.AssertionError: Failed: assertDoesNotExist.",
+          "status": "failed"
+        }
+      ],
+      "passed": 1,
+      "failed": 1,
+      "skipped": 0
+    },
+    {
+      "log": "long-material-current.log",
+      "modified": 1791392893.8793771,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+          "test": "currentLongMaterialPreviewPagesReachTail",
+          "stack": "java.lang.AssertionError: Action performScrollTo() failed.",
+          "status": "failed"
+        }
+      ],
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0
+    },
+    {
+      "log": "material-real-retry.log",
+      "modified": 1791392709.0740497,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.MaterialRealModelTest",
+          "test": "actualAttachmentToolsAndVision",
+          "status": "passed"
+        }
+      ],
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialDeliveryTest.log",
+      "modified": 1791391157.6802602,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.MaterialDeliveryTest",
+          "test": "everyFormatOpensSavesAndArrivesInOtherUid",
+          "stack": "java.lang.AssertionError: Action performScrollTo() failed.",
+          "status": "failed"
+        }
+      ],
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialFidelityTest.log",
+      "modified": 1791391127.4353278,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.MaterialFidelityTest",
+          "test": "longTextAndPdfTableHaveTailAndMultiplePages",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.MaterialFidelityTest",
+          "test": "wordImageMathAndTableArePreserved",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.MaterialFidelityTest",
+          "test": "namedTypedSheetAndRelationshipOrder",
+          "status": "passed"
+        }
+      ],
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialFilesTest.log",
+      "modified": 1791391123.4733841,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.MaterialFilesTest",
+          "test": "importsImagesAndRejectsOldOrMalformedFiles",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.MaterialFilesTest",
+          "test": "actualFormatsAndContentRoundTrip",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.MaterialFilesTest",
+          "test": "failCancelCorruptionAndOwnerAreReal",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.MaterialFilesTest",
+          "test": "selectedPdfRasterizationAndRangeFailures",
+          "status": "passed"
+        }
+      ],
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialPageTest.log",
+      "modified": 1791391137.5313978,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.MaterialPageTest",
+          "test": "actualPageContentShareAndProfileIsolation",
+          "stack": "java.lang.AssertionError: Action performScrollTo() failed.",
+          "status": "failed"
+        }
+      ],
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialPaginationTest.log",
+      "modified": 1791391147.751186,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.MaterialPaginationTest",
+          "test": "toolCanReadTailAndPreviewCanChangePages",
+          "stack": "java.lang.AssertionError: Action performScrollTo() failed.",
+          "status": "failed"
+        }
+      ],
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0
+    },
+    {
+      "log": "memory-current-final.log",
+      "modified": 1791392408.9546547,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+          "test": "currentMemorySourceEditDeleteAndIsolationWork",
+          "status": "passed"
+        }
+      ],
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "memory-seed.log",
+      "modified": 1791391280.3426647,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.LearningMemoryPersistenceTest",
+          "test": "memorySurvivesProcessRestart",
+          "status": "passed"
+        }
+      ],
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "memory-verify.log",
+      "modified": 1791391284.1876373,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.LearningMemoryPersistenceTest",
+          "test": "memorySurvivesProcessRestart",
+          "status": "passed"
+        }
+      ],
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "navigation-large-font.log",
+      "modified": 1791392908.8785079,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+          "test": "fourEntrancesAndCurrentTeachingSelectorWork",
+          "status": "passed"
+        }
+      ],
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "ProjectReviewAuditTest.log",
+      "modified": 1791392157.3159037,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+          "test": "currentMaterialTextPreviewAndPaginationWork",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+          "test": "missingArtifactDoesNotShowUnrelatedWorkedExample",
+          "stack": "java.lang.AssertionError: Failed: assertDoesNotExist.",
+          "status": "failed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+          "test": "unrelatedTextDoesNotInventRecognizedFormula",
+          "stack": "java.lang.AssertionError: Failed: assertDoesNotExist.",
+          "status": "failed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+          "test": "corruptedArtifactOpenReportsFailure",
+          "stack": "java.lang.AssertionError: Failed: assertDoesNotExist.",
+          "status": "failed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+          "test": "docxPreviewReadsDocumentInsteadOfZipBytes",
+          "stack": "java.lang.AssertionError: Failed: assertExists.",
+          "status": "failed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+          "test": "fourEntrancesAndCurrentTeachingSelectorWork",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+          "test": "currentMemorySourceEditDeleteAndIsolationWork",
+          "stack": "androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 10000 ms",
+          "status": "failed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+          "test": "parsedMaterialRemainsVisibleWhenFiltered",
+          "stack": "java.lang.AssertionError: Failed: assertExists.",
+          "status": "failed"
+        }
+      ],
+      "passed": 2,
+      "failed": 6,
+      "skipped": 0
+    },
+    {
+      "log": "ProjectReviewDeliveryTest.log",
+      "modified": 1791392212.75055,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.ProjectReviewDeliveryTest",
+          "test": "everyFormatOpensSavesAndArrivesInOtherUid",
+          "status": "passed"
+        }
+      ],
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "ProjectReviewTeachingTest.log",
+      "modified": 1791392312.351321,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.ProjectReviewTeachingTest",
+          "test": "fourModesReturnActualModelAnswers",
+          "status": "passed"
+        }
+      ],
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "real-model-tests.log",
+      "modified": 1791391988.0561604,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.StudyRealModelTest",
+          "test": "coldStartEncryptedConfigurationAndFourTeachingModes",
+          "stack": "kotlinx.coroutines.TimeoutCancellationException: Timed out waiting for 120000 ms",
+          "status": "failed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.MaterialRealModelTest",
+          "test": "actualAttachmentToolsAndVision",
+          "stack": "org.junit.ComparisonFailure: expected:<[COMPLET]ED> but was:<[FAIL]ED>",
+          "status": "failed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.LearningLoopRealModelTest",
+          "test": "actualTeachingAndEvidenceExtraction",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.LearningMemoryRealModelTest",
+          "test": "thirtyLabeledSourcesThroughActualExtractionAndNewChat",
+          "status": "passed"
+        }
+      ],
+      "passed": 2,
+      "failed": 2,
+      "skipped": 0
+    },
+    {
+      "log": "runtime-seed.log",
+      "modified": 1791391270.7520423,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.RuntimeProcessRecoveryTest",
+          "test": "processRecovery",
+          "status": "passed"
+        }
+      ],
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "runtime-verify.log",
+      "modified": 1791391275.372393,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.RuntimeProcessRecoveryTest",
+          "test": "processRecovery",
+          "status": "passed"
+        }
+      ],
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "StudyChatCompletionTest.log",
+      "modified": 1791391020.4406946,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.StudyChatCompletionTest",
+          "test": "editDetachesDependentRepliesAndKeepsOldPathInHistory",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.StudyChatCompletionTest",
+          "test": "richTextVisualFixture",
+          "stack": "org.junit.AssumptionViolatedException: got: <false>, expected: is <true>",
+          "status": "skipped"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.StudyChatCompletionTest",
+          "test": "modePersistsInRoomAndFork",
+          "status": "passed"
+        },
+        {
+          "class": "me.rerere.rikkahub.service.StudyChatCompletionTest",
+          "test": "branchSelectionDetachesRepliesFromTheOtherVersion",
+          "status": "passed"
+        }
+      ],
+      "passed": 3,
+      "failed": 0,
+      "skipped": 1
+    },
+    {
+      "log": "StudyNavigationTest.log",
+      "modified": 1791391015.9343686,
+      "cases": [
+        {
+          "class": "me.rerere.rikkahub.service.StudyNavigationTest",
+          "test": "fourEntrancesAndTeachingSelectorAreReachable",
+          "stack": "java.lang.AssertionError: Assert failed: The component with Text + InputText + EditableText contains '完整讲解' (ignoreCase: false) is not displayed!",
+          "status": "failed"
+        }
+      ],
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0
+    }
+  ],
+  "latest_cases": [
+    {
+      "class": "me.rerere.rikkahub.service.StudyNavigationTest",
+      "test": "fourEntrancesAndTeachingSelectorAreReachable",
+      "stack": "java.lang.AssertionError: Assert failed: The component with Text + InputText + EditableText contains '完整讲解' (ignoreCase: false) is not displayed!",
+      "status": "failed",
+      "log": "StudyNavigationTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.StudyChatCompletionTest",
+      "test": "editDetachesDependentRepliesAndKeepsOldPathInHistory",
+      "status": "passed",
+      "log": "StudyChatCompletionTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.StudyChatCompletionTest",
+      "test": "richTextVisualFixture",
+      "stack": "org.junit.AssumptionViolatedException: got: <false>, expected: is <true>",
+      "status": "skipped",
+      "log": "StudyChatCompletionTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.StudyChatCompletionTest",
+      "test": "modePersistsInRoomAndFork",
+      "status": "passed",
+      "log": "StudyChatCompletionTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.StudyChatCompletionTest",
+      "test": "branchSelectionDetachesRepliesFromTheOtherVersion",
+      "status": "passed",
+      "log": "StudyChatCompletionTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+      "test": "regenerationFailureBeforeFirstChunkKeepsPreviousInterruptedBranch",
+      "status": "passed",
+      "log": "ChatNetworkFaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+      "test": "unauthorizedAndRateLimitAreDurableFailuresWithoutAutomaticRetry",
+      "status": "passed",
+      "log": "ChatNetworkFaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+      "test": "toolCheckpointsPreventReplayAfterExecutionInterruption",
+      "status": "passed",
+      "log": "ChatNetworkFaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+      "test": "durableQueueRestoresPausedAndSubmissionIsAtomicInRoom",
+      "status": "passed",
+      "log": "ChatNetworkFaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+      "test": "chatCompletionsDistinguishesSilentEofCompletionAndEmptyHttpError",
+      "status": "passed",
+      "log": "ChatNetworkFaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+      "test": "deviceAirplaneModeInterruptsStreamAndQueueRequiresManualResume",
+      "status": "passed",
+      "log": "ChatNetworkFaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+      "test": "toolNetworkFailureIsUnknownAndDoesNotAdvanceToNextTool",
+      "status": "passed",
+      "log": "ChatNetworkFaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+      "test": "actualSocketReadTimeoutIsClassifiedAsInterruption",
+      "status": "passed",
+      "log": "ChatNetworkFaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+      "test": "roomRestartRecoveryCommitsInterruptedWithSameMessageIds",
+      "status": "passed",
+      "log": "ChatNetworkFaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+      "test": "silentEofPreservesPartialAndDoesNotAutomaticallyReplay",
+      "status": "passed",
+      "log": "ChatNetworkFaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+      "test": "resetConnectionPreservesPartialAndDoesNotAutomaticallyReplay",
+      "status": "passed",
+      "log": "ChatNetworkFaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+      "test": "room27To28MigrationPreservesConversationAndMessages",
+      "status": "passed",
+      "log": "ChatNetworkFaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+      "test": "manualRegenerationCompletesWithoutDuplicatingUserMessage",
+      "status": "passed",
+      "log": "ChatNetworkFaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+      "test": "stoppingStalledStreamPersistsCancelledAndRetainsText",
+      "status": "passed",
+      "log": "ChatNetworkFaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+      "test": "switchingWifiToMobileInterruptsWithoutReplay",
+      "status": "passed",
+      "log": "ChatNetworkFaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ChatNetworkFaultTest",
+      "test": "resumedAutoToolStillRequiresApprovalBeforeAnyExecution",
+      "status": "passed",
+      "log": "ChatNetworkFaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+      "test": "legacyMigrationPreservesValuesAndIsIdempotent",
+      "status": "passed",
+      "log": "CredentialVaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+      "test": "missingRecordAndPathTraversalAreRejected",
+      "status": "passed",
+      "log": "CredentialVaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+      "test": "failedMigrationPreservesOriginalPreferences",
+      "status": "passed",
+      "log": "CredentialVaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+      "test": "realBackupArchiveExcludesCredentialsAndReferences",
+      "status": "passed",
+      "log": "CredentialVaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+      "test": "applicationSettingsLoadWithoutPlaintextCredentialsOnDisk",
+      "status": "passed",
+      "log": "CredentialVaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+      "test": "recoveryResetsOnlyFailedPartitionsAndPreservesProfileAndReadableCredentials",
+      "status": "passed",
+      "log": "CredentialVaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+      "test": "encryptedWriteSurvivesReopenAndDoesNotStoreCanary",
+      "status": "passed",
+      "log": "CredentialVaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+      "test": "failedRecoveryArchiveDoesNotMutatePreferences",
+      "status": "passed",
+      "log": "CredentialVaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+      "test": "missingDeviceKeyCanBeExplicitlyRecoveredWithoutUsingOldCiphertext",
+      "status": "passed",
+      "log": "CredentialVaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.CredentialVaultTest",
+      "test": "tamperedCiphertextIsRejected",
+      "status": "passed",
+      "log": "CredentialVaultTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.LearningMemoryPersistenceTest",
+      "test": "explicitMemoryDeletionNewRequestAndTopicSuppression",
+      "status": "passed",
+      "log": "LearningMemoryPersistenceTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.LearningMemoryPersistenceTest",
+      "test": "sourceEditBranchInvalidationAndHumanCAS",
+      "status": "passed",
+      "log": "LearningMemoryPersistenceTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.LearningMemoryPersistenceTest",
+      "test": "restartDurabilityAndTwoLearners",
+      "status": "passed",
+      "log": "LearningMemoryPersistenceTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.LearningMemoryPersistenceTest",
+      "test": "memorySurvivesProcessRestart",
+      "stack": "org.junit.AssumptionViolatedException: got: <false>, expected: is <true>",
+      "status": "skipped",
+      "log": "LearningMemoryPersistenceTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.LearningMemoryPersistenceTest",
+      "test": "retriesDisabledLateResultsAndEmptySuccess",
+      "status": "passed",
+      "log": "LearningMemoryPersistenceTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.LearningMemoryPageTest",
+      "test": "viewSourceEditDeleteAndSwitchLearner",
+      "stack": "java.lang.AssertionError: Action performScrollTo() failed.",
+      "status": "failed",
+      "log": "LearningMemoryPageTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.LegacyMemoryEntryTest",
+      "test": "oldEntryDoesNotLoadSharedMemoryOrInstantiateAssistant",
+      "status": "passed",
+      "log": "LegacyMemoryEntryTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.LearningLoopPersistenceTest",
+      "test": "wrongHintRetryReviewIsolationAndReopen",
+      "status": "passed",
+      "log": "LearningLoopPersistenceTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.MaterialFilesTest",
+      "test": "importsImagesAndRejectsOldOrMalformedFiles",
+      "status": "passed",
+      "log": "MaterialFilesTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.MaterialFilesTest",
+      "test": "actualFormatsAndContentRoundTrip",
+      "status": "passed",
+      "log": "MaterialFilesTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.MaterialFilesTest",
+      "test": "failCancelCorruptionAndOwnerAreReal",
+      "status": "passed",
+      "log": "MaterialFilesTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.MaterialFilesTest",
+      "test": "selectedPdfRasterizationAndRangeFailures",
+      "status": "passed",
+      "log": "MaterialFilesTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.MaterialFidelityTest",
+      "test": "longTextAndPdfTableHaveTailAndMultiplePages",
+      "status": "passed",
+      "log": "MaterialFidelityTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.MaterialFidelityTest",
+      "test": "wordImageMathAndTableArePreserved",
+      "status": "passed",
+      "log": "MaterialFidelityTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.MaterialFidelityTest",
+      "test": "namedTypedSheetAndRelationshipOrder",
+      "status": "passed",
+      "log": "MaterialFidelityTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.MaterialPageTest",
+      "test": "actualPageContentShareAndProfileIsolation",
+      "stack": "java.lang.AssertionError: Action performScrollTo() failed.",
+      "status": "failed",
+      "log": "MaterialPageTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.MaterialPaginationTest",
+      "test": "toolCanReadTailAndPreviewCanChangePages",
+      "stack": "java.lang.AssertionError: Action performScrollTo() failed.",
+      "status": "failed",
+      "log": "MaterialPaginationTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.MaterialDeliveryTest",
+      "test": "everyFormatOpensSavesAndArrivesInOtherUid",
+      "stack": "java.lang.AssertionError: Action performScrollTo() failed.",
+      "status": "failed",
+      "log": "MaterialDeliveryTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.DocumentServicePageTest",
+      "test": "downloadedResultShowsCoverageAndOriginalSourceLinks",
+      "status": "passed",
+      "log": "DocumentServicePageTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.BackupReliabilityTest",
+      "test": "legacyDeletedFactsArePreservedWithAutomaticExtractionBlocked",
+      "status": "passed",
+      "log": "BackupReliabilityTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.BackupReliabilityTest",
+      "test": "encryptedSnapshotPortableKeyWrongPasswordAndPostConfirmationDeletion",
+      "status": "passed",
+      "log": "BackupReliabilityTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.BackupReliabilityTest",
+      "test": "twentyRequestBudgetLeaseRecoveryAndCompactionSurviveReopen",
+      "status": "passed",
+      "log": "BackupReliabilityTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.BackupPageTest",
+      "test": "requiresStrongMatchingPasswordAndClearsCancelledEntry",
+      "status": "passed",
+      "log": "BackupPageTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.DiagnosticsTest",
+      "test": "feedbackIsExplicitBoundedAndCancelledTasksAreDistinguished",
+      "status": "passed",
+      "log": "DiagnosticsTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.DiagnosticsTest",
+      "test": "networkFailuresHttpErrorsAndTruncatedStreamsDoNotExposeRequestData",
+      "status": "passed",
+      "log": "DiagnosticsTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.DiagnosticsTest",
+      "test": "corruptMetadataRecoversWithoutReadingLearningFiles",
+      "status": "passed",
+      "log": "DiagnosticsTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.DiagnosticsTest",
+      "test": "boundedDurableEventsAndSanitizedCrashSurviveSafeModeClearing",
+      "status": "passed",
+      "log": "DiagnosticsTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.DiagnosticsPageTest",
+      "test": "actualDocumentsSaveAndOtherUidShareDeliverCompleteZip",
+      "status": "passed",
+      "log": "DiagnosticsPageTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.DiagnosticsPageTest",
+      "test": "phoneFeedbackEntryAndClearRequireExplicitAction",
+      "status": "passed",
+      "log": "DiagnosticsPageTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.FrontendModelPickerTest",
+      "test": "waitsForDurableSaveAndKeepsPickerOnFailure",
+      "status": "passed",
+      "log": "FrontendModelPickerTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.FrontendDeliveryRoutesTest",
+      "test": "memoryEditorKeepsDraftAndRejectsConcurrentRevision",
+      "status": "passed",
+      "log": "FrontendDeliveryRoutesTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.FrontendDeliveryRoutesTest",
+      "test": "providerRoutesUseRealModelRequestAndProtectUnsavedDraft",
+      "status": "passed",
+      "log": "FrontendDeliveryRoutesTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.RuntimeProcessRecoveryTest",
+      "test": "processRecovery",
+      "status": "passed",
+      "log": "runtime-seed.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.RuntimeProcessRecoveryTest",
+      "test": "processRecovery",
+      "status": "passed",
+      "log": "runtime-verify.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.LearningMemoryPersistenceTest",
+      "test": "memorySurvivesProcessRestart",
+      "status": "passed",
+      "log": "memory-seed.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.LearningMemoryPersistenceTest",
+      "test": "memorySurvivesProcessRestart",
+      "status": "passed",
+      "log": "memory-verify.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.StudyRealModelTest",
+      "test": "coldStartEncryptedConfigurationAndFourTeachingModes",
+      "stack": "kotlinx.coroutines.TimeoutCancellationException: Timed out waiting for 120000 ms",
+      "status": "failed",
+      "log": "real-model-tests.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.MaterialRealModelTest",
+      "test": "actualAttachmentToolsAndVision",
+      "status": "passed",
+      "log": "material-real-retry.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.LearningLoopRealModelTest",
+      "test": "actualTeachingAndEvidenceExtraction",
+      "status": "passed",
+      "log": "real-model-tests.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.LearningMemoryRealModelTest",
+      "test": "thirtyLabeledSourcesThroughActualExtractionAndNewChat",
+      "status": "passed",
+      "log": "real-model-tests.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+      "test": "currentMaterialTextPreviewAndPaginationWork",
+      "status": "passed",
+      "log": "ProjectReviewAuditTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+      "test": "missingArtifactDoesNotShowUnrelatedWorkedExample",
+      "stack": "java.lang.AssertionError: Failed: assertDoesNotExist.",
+      "status": "failed",
+      "log": "ProjectReviewAuditTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+      "test": "unrelatedTextDoesNotInventRecognizedFormula",
+      "stack": "java.lang.AssertionError: Failed: assertDoesNotExist.",
+      "status": "failed",
+      "log": "ProjectReviewAuditTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+      "test": "corruptedArtifactOpenReportsFailure",
+      "stack": "java.lang.AssertionError: Failed: assertDoesNotExist.",
+      "status": "failed",
+      "log": "ProjectReviewAuditTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+      "test": "docxPreviewReadsDocumentInsteadOfZipBytes",
+      "stack": "java.lang.AssertionError: Failed: assertExists.",
+      "status": "failed",
+      "log": "ProjectReviewAuditTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+      "test": "fourEntrancesAndCurrentTeachingSelectorWork",
+      "status": "passed",
+      "log": "navigation-large-font.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+      "test": "currentMemorySourceEditDeleteAndIsolationWork",
+      "status": "passed",
+      "log": "memory-current-final.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+      "test": "parsedMaterialRemainsVisibleWhenFiltered",
+      "stack": "java.lang.AssertionError: Failed: assertExists.",
+      "status": "failed",
+      "log": "ProjectReviewAuditTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ProjectReviewDeliveryTest",
+      "test": "everyFormatOpensSavesAndArrivesInOtherUid",
+      "status": "passed",
+      "log": "ProjectReviewDeliveryTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ProjectReviewTeachingTest",
+      "test": "fourModesReturnActualModelAnswers",
+      "status": "passed",
+      "log": "ProjectReviewTeachingTest.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.FrontendFeedbackProcessTest",
+      "test": "durableFeedbackDoesNotReplayAfterProcessRestart",
+      "status": "passed",
+      "log": "feedback-seed.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.FrontendFeedbackProcessTest",
+      "test": "durableFeedbackDoesNotReplayAfterProcessRestart",
+      "status": "passed",
+      "log": "feedback-verify.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+      "test": "currentLongMaterialPreviewPagesReachTail",
+      "status": "passed",
+      "log": "long-and-isolation-final.log"
+    },
+    {
+      "class": "me.rerere.rikkahub.service.ProjectReviewAuditTest",
+      "test": "artifactPreviewClearsContentAfterLearnerSwitch",
+      "stack": "java.lang.AssertionError: Failed: assertDoesNotExist.",
+      "status": "failed",
+      "log": "long-and-isolation-final.log"
+    }
+  ],
+  "latest_counts": {
+    "passed": 71,
+    "failed": 12,
+    "skipped": 2
+  },
+  "jvm": [
+    {
+      "module": "app",
+      "tests": 317,
+      "failures": 0,
+      "errors": 0,
+      "suites": [
+        {
+          "name": "me.rerere.rikkahub.data.ai.mcp.McpConnectionKeyTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:53.406Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.ai.mcp.McpToolSchemaTest",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:53.415Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.ai.tools.local.JavascriptToolTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:53.698Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.ai.tools.SearchToolsTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:53.429Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.ai.tools.SkillsToolsTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:53.601Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.ai.tools.TextReplacersTest",
+          "tests": "14",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:53.679Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest",
+          "tests": "40",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:54.565Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.ai.transformers.ThinkTagTransformerTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:54.596Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest",
+          "tests": "10",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:54.606Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.datastore.DefaultProvidersTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:54.621Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.datastore.FindProviderTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:54.623Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.files.BuiltinSkillsTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:54.625Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.files.SkillPathsTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:54.662Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.network.ProxyConfigTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:54.699Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.sync.BackupIntegrityTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:54.703Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.sync.BackupPathsTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:54.867Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.sync.EncryptedBackupTest",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:54.874Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.sync.importer.ChatboxImporterTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:58.779Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.sync.MemoryRestoreTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:57.725Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.data.sync.PendingRestoreTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:57.731Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.ExampleUnitTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:53.250Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.feature.material.DocumentContractTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:58.813Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.feature.memory.LearningLoopTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:58.828Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.feature.memory.MemoryContractTest",
+          "tests": "37",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:58.836Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.feature.studychat.StudyChatContractTest",
+          "tests": "10",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:58.858Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.service.ChatServiceTest",
+          "tests": "8",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:58.875Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.service.ConversationSessionManagerTest",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:58.884Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.service.ConversationSessionTest",
+          "tests": "22",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:58.945Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.service.GenerationRecoveryTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:59.062Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.service.LearnerProfileCompatibilityTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:59.130Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.service.MessageQueueTest",
+          "tests": "13",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:59.132Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.service.QueuedAttachmentCleanupTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:59.137Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.service.SettingsCredentialExportTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:59.141Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.ShareSheetTest",
+          "tests": "8",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:53.257Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.ui.components.webview.WebViewContentCacheTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:59.172Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:35:59.218Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.ui.pages.setting.components.ProviderConfigureConvertToTest",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:36:03.545Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.utils.ChatUtilTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:36:03.550Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.utils.DiffUtilsTest",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:36:03.552Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.utils.StringUtilsTest",
+          "tests": "19",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:36:03.562Z"
+        },
+        {
+          "name": "me.rerere.rikkahub.utils.VersionTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:36:03.566Z"
+        },
+        {
+          "name": "me.rerere.tts.provider.TTSPrivacyTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:36:03.569Z"
+        }
+      ]
+    },
+    {
+      "module": "ai",
+      "tests": 198,
+      "failures": 0,
+      "errors": 0,
+      "suites": [
+        {
+          "name": "me.rerere.ai.provider.providers.claude.ClaudePromptCacheRequestTest",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:06.788Z"
+        },
+        {
+          "name": "me.rerere.ai.provider.providers.claude.ClaudeRequestMessageTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.022Z"
+        },
+        {
+          "name": "me.rerere.ai.provider.providers.claude.ClaudeServerToolTest",
+          "tests": "10",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.111Z"
+        },
+        {
+          "name": "me.rerere.ai.provider.providers.google.GoogleRequestMessageTest",
+          "tests": "8",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.232Z"
+        },
+        {
+          "name": "me.rerere.ai.provider.providers.google.GoogleToolCombinationTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.263Z"
+        },
+        {
+          "name": "me.rerere.ai.provider.providers.google.InteractionsApiTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.280Z"
+        },
+        {
+          "name": "me.rerere.ai.provider.providers.openai.ChatCompletionsMoonshotRequestTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.356Z"
+        },
+        {
+          "name": "me.rerere.ai.provider.providers.openai.ChatCompletionsRequestMessageTest",
+          "tests": "12",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.379Z"
+        },
+        {
+          "name": "me.rerere.ai.provider.providers.openai.ChatCompletionsToolSchemaTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.407Z"
+        },
+        {
+          "name": "me.rerere.ai.provider.providers.openai.ChatCompletionsUsageParsingTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.413Z"
+        },
+        {
+          "name": "me.rerere.ai.provider.providers.openai.ResponseApiRequestMessageTest",
+          "tests": "15",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.420Z"
+        },
+        {
+          "name": "me.rerere.ai.provider.providers.openai.ResponseApiStreamDecoderTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.466Z"
+        },
+        {
+          "name": "me.rerere.ai.provider.providers.ProviderMessageGroupingTest",
+          "tests": "15",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:06.728Z"
+        },
+        {
+          "name": "me.rerere.ai.provider.stream.StreamTraceReplayTest",
+          "tests": "10",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.498Z"
+        },
+        {
+          "name": "me.rerere.ai.registry.ModelRegistryTest",
+          "tests": "13",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.760Z"
+        },
+        {
+          "name": "me.rerere.ai.ui.MessageContextLimitTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.777Z"
+        },
+        {
+          "name": "me.rerere.ai.ui.MessageMetadataTest",
+          "tests": "12",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.794Z"
+        },
+        {
+          "name": "me.rerere.ai.ui.MessageToolMigrationTest",
+          "tests": "14",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.808Z"
+        },
+        {
+          "name": "me.rerere.ai.ui.MessageUploadValidationTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.815Z"
+        },
+        {
+          "name": "me.rerere.ai.ui.MessageVisibilityTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.816Z"
+        },
+        {
+          "name": "me.rerere.ai.ui.StreamChunkHandlerTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.818Z"
+        },
+        {
+          "name": "me.rerere.ai.ui.ToolApprovalStateTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.821Z"
+        },
+        {
+          "name": "me.rerere.ai.ui.UIMessagePartTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.824Z"
+        },
+        {
+          "name": "me.rerere.ai.ui.UIMessageSerializationTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.826Z"
+        },
+        {
+          "name": "me.rerere.ai.util.ErrorPrivacyTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.857Z"
+        },
+        {
+          "name": "me.rerere.ai.util.FileEncoderExifTransformTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.862Z"
+        },
+        {
+          "name": "me.rerere.ai.util.JsonTest",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.865Z"
+        },
+        {
+          "name": "me.rerere.ai.util.RequestHeadersTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:07.868Z"
+        }
+      ]
+    },
+    {
+      "module": "search",
+      "tests": 16,
+      "failures": 0,
+      "errors": 0,
+      "suites": [
+        {
+          "name": "me.rerere.search.CustomJsSearchServiceTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:05.869Z"
+        },
+        {
+          "name": "me.rerere.search.DoubaoSearchServiceTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:06.431Z"
+        },
+        {
+          "name": "me.rerere.search.ExampleUnitTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:06.462Z"
+        },
+        {
+          "name": "me.rerere.search.ExaSearchServiceTest",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:42:06.450Z"
+        }
+      ]
+    },
+    {
+      "module": "speech",
+      "tests": 43,
+      "failures": 0,
+      "errors": 0,
+      "suites": [
+        {
+          "name": "me.rerere.asr.ASRProviderSettingMiMoTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:43:48.258Z"
+        },
+        {
+          "name": "me.rerere.asr.ASRProviderSettingStepTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:43:48.291Z"
+        },
+        {
+          "name": "me.rerere.asr.ASRProviderSettingVolcengineTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:43:48.295Z"
+        },
+        {
+          "name": "me.rerere.asr.ASRVoiceTurnTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:43:48.331Z"
+        },
+        {
+          "name": "me.rerere.asr.providers.VolcengineASRProtocolTest",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:43:48.336Z"
+        },
+        {
+          "name": "me.rerere.tts.ExampleUnitTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:43:48.370Z"
+        },
+        {
+          "name": "me.rerere.tts.provider.providers.MiMoTTSProviderTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:43:48.398Z"
+        },
+        {
+          "name": "me.rerere.tts.provider.providers.VolcengineTTSProviderTest",
+          "tests": "8",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:43:48.420Z"
+        },
+        {
+          "name": "me.rerere.tts.provider.TTSProviderSettingElevenLabsTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:43:48.373Z"
+        },
+        {
+          "name": "me.rerere.tts.provider.TTSProviderSettingFishAudioTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:43:48.387Z"
+        },
+        {
+          "name": "me.rerere.tts.provider.TTSProviderSettingMiMoTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:43:48.391Z"
+        },
+        {
+          "name": "me.rerere.tts.provider.TTSProviderSettingStepTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:43:48.395Z"
+        }
+      ]
+    },
+    {
+      "module": "common",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "suites": [
+        {
+          "name": "me.rerere.common.ExampleUnitTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:43:50.984Z"
+        }
+      ]
+    },
+    {
+      "module": "document",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "suites": [
+        {
+          "name": "me.rerere.document.ExampleUnitTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0",
+          "timestamp": "2026-10-07T16:43:52.212Z"
+        }
+      ]
+    }
+  ]
+}

@@ -121,14 +121,14 @@ object ExaSearchService : SearchService<SearchServiceOptions.ExaOptions> {
                 val response = runCatching {
                     json.decodeFromString<ExaData>(bodyRaw)
                 }.onFailure {
-                    it.printStackTrace()
-                    println(bodyRaw)
-                    error("Failed to decode response: $bodyRaw")
+
+
+                    error("Failed to decode service response")
                 }.getOrThrow()
 
                 return@withContext Result.success(mapSearchResult(response))
             } else {
-                println(response.body.string())
+
                 error("response failed #${response.code}")
             }
         }
@@ -155,14 +155,14 @@ object ExaSearchService : SearchService<SearchServiceOptions.ExaOptions> {
                 val data = runCatching {
                     json.decodeFromString<ExaData>(bodyRaw)
                 }.onFailure {
-                    it.printStackTrace()
-                    println(bodyRaw)
-                    error("Failed to decode response: $bodyRaw")
+
+
+                    error("Failed to decode service response")
                 }.getOrThrow()
 
                 return@withContext Result.success(mapScrapedResult(data))
             } else {
-                println(response.body.string())
+
                 error("response failed #${response.code}")
             }
         }
@@ -285,6 +285,9 @@ object ExaSearchService : SearchService<SearchServiceOptions.ExaOptions> {
             )
         },
         images = data.results.mapNotNull { it.image?.takeIf { url -> url.isNotBlank() } },
+        imageDetails = data.results.mapNotNull { item -> item.image?.takeIf { it.isNotBlank() }?.let {
+            SearchImage(it, item.url, item.title, item.author, item.publishedDate)
+        } },
     )
 
     internal fun mapScrapedResult(data: ExaData): ScrapedResult = ScrapedResult(

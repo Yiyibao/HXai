@@ -1,0 +1,25 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.QaEvidenceRunTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.QaEvidenceRunTest:
+INSTRUMENTATION_STATUS: test=failureEvidenceIsRetainedInSeparateMethodDirectory
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"QaEvidenceRunTest.failureEvidenceIsRetainedInSeparateMethodDirectory","runId":"62e9605e-39ba-40d3-94ed-a342e7d9d948","startedAt":1791458087552,"finishedAt":1791458087554,"status":"FAILED","entries":[{"name":"qa-evidence\/QaEvidenceRunTest.failureEvidenceIsRetainedInSeparateMethodDirectory\/62e9605e-39ba-40d3-94ed-a342e7d9d948\/transcript.md","sha256":"3d33da318bf437c12d7da18751befbac75b0ac98e87042b58653bb9a01a13415","bytes":73,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.QaEvidenceRunTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=failureEvidenceIsRetainedInSeparateMethodDirectory
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 0.113
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

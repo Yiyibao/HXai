@@ -1,0 +1,22 @@
+[
+  {
+    "density": "mipmap-hdpi",
+    "sha256": "3182be820d144d32c0e664df5a40c9dbcbce818ce9745d91578947ac10aa1ea7"
+  },
+  {
+    "density": "mipmap-mdpi",
+    "sha256": "fbb36534e951bcf46528ff8253c6fbce58b0cd0c2975598929efd18c764018cb"
+  },
+  {
+    "density": "mipmap-xhdpi",
+    "sha256": "74deb6312a9fa959d42d4eb10c0af9845decd982d909b82f8cba9e4ac36395a0"
+  },
+  {
+    "density": "mipmap-xxhdpi",
+    "sha256": "851f597691619e96c2db56fc442a9f3a65109e982058a901a7f3dc7776f33478"
+  },
+  {
+    "density": "mipmap-xxxhdpi",
+    "sha256": "121f8ab41800cf651f6688aa47cfd88af3d5c8421db672620f986770c26999aa"
+  }
+]

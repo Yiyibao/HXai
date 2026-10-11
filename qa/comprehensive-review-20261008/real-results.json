@@ -1,0 +1,30 @@
+[
+  {
+    "name": "teaching-and-approval",
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "memory-real",
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "learning-loop-real",
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "completed": true
+  },
+  {
+    "name": "material-real",
+    "passed": 0,
+    "failed": 1,
+    "skipped": 0,
+    "completed": true
+  }
+]

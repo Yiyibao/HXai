@@ -1,0 +1,35 @@
+{
+  "lint": {
+    "warnings": 46,
+    "errors": 0
+  },
+  "initial_runtime_crash": "Preserved in android-runtime.log and runtime-crash.log; fixed test fixture and final combined rerun passed",
+  "apk_resources": {
+    "mismatches": 0,
+    "per_arch": 32
+  },
+  "android_final": {
+    "failures": 0,
+    "tests": 13,
+    "skipped": 0
+  },
+  "flutter": {
+    "failures": 0,
+    "tests": 62,
+    "new_regressions": 14
+  },
+  "jvm": {
+    "ai": {
+      "failures": 0,
+      "errors": 0,
+      "tests": 202,
+      "skipped": 0
+    },
+    "app": {
+      "failures": 0,
+      "errors": 0,
+      "tests": 341,
+      "skipped": 0
+    }
+  }
+}

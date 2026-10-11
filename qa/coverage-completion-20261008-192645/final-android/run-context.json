@@ -1,0 +1,22 @@
+{
+  "appSha256": "c3703aaedbfd5dcead6efbf1f1f09baeb585b41869570a3ff3da2befbb11bda0",
+  "testSha256": "29c279ca7a77abd277c264ffc59f626a8b4c1997c12d089476d52be3c35168b0",
+  "runs": [
+    {
+      "method": "WordFormulaAssertionTest.tableCellsRejectDeletionReorderingAndValueChanges",
+      "runId": "7b55b87c-274f-4fc6-98a6-91fd6c147cd1",
+      "log": "word.log",
+      "logSha256": "7bc437a10e2c97ba877d443fedd4b79d0671f788dc8f7acc40db555a49a3199f",
+      "notBefore": 1791459843503,
+      "notAfter": 1791459857613
+    },
+    {
+      "method": "WordFormulaAssertionTest.perRunMaterialSamplesExistAndContainSyntheticContent",
+      "runId": "7b55b87c-274f-4fc6-98a6-91fd6c147cd1",
+      "log": "word.log",
+      "logSha256": "7bc437a10e2c97ba877d443fedd4b79d0671f788dc8f7acc40db555a49a3199f",
+      "notBefore": 1791459843503,
+      "notAfter": 1791459857613
+    }
+  ]
+}

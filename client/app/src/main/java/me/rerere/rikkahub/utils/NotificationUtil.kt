@@ -42,6 +42,9 @@ object NotificationUtil {
      * 检查是否有通知权限
      */
     fun hasNotificationPermission(context: Context): Boolean {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            return NotificationManagerCompat.from(context).areNotificationsEnabled()
+        }
         return ActivityCompat.checkSelfPermission(
             context,
             Manifest.permission.POST_NOTIFICATIONS

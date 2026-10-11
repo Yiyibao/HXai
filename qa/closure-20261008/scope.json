@@ -1,0 +1,17 @@
+{
+  "scopeFrozen": "2026-10-08",
+  "historyCountsAsCurrent": false,
+  "requiredLocal": {
+    "PR01": ["original stale save after eviction", "new conversation", "existing update", "explicit restore", "old incarnation after restore", "independent process deletion", "late metadata/runtime save"],
+    "PR02": ["insert tab", "insert break", "ordered text-tab-break", "split runs equivalence", "paragraph/break equivalence", "all table rows/cells ordered", "explicit formula operands", "original image bytes"],
+    "PR03": ["manifest then assertion failure", "manifest then cleanup failure", "process crash", "missing method terminal", "mixed method outcomes", "exact class/test", "duplicate terminal", "missing invocation terminal", "unchanged bytes/APK/window checks"],
+    "APPROVAL": ["conversation update failure", "node deletion failure", "node insertion failure", "memory transaction failure", "transaction commit failure", "no partial DB or premature memory publication", "locked latest queue", "concurrent enqueue/edit/pause", "approve/deny/answer repeated/conflicting/late", "service factory execution counts", "another active Job", "independent recovery"],
+    "SKILLS": ["nested links", "broken links", "sibling alias uninstall/replace", "cleanup failure", "replace failure", "rollback failure content and enabled state", "resource limits", "duplicate paths", "binary bytes", "default/explicit read boundary", "authoring disabled", "explicit enabled tools", "no automatic profile instruction injection"],
+    "ATTACHMENT": ["cross conversation references", "branch references", "queue references", "last reference cleanup", "IO deletion failure retry", "save failure message/SHA preserved", "private materials retained"],
+    "DELIVERY": ["normal repeated five format SOURCE/VIEW/SEND/exact target SHA", "cancel", "corrupt", "profile switch during delivery", "target reread failure"],
+    "SERVICE": ["startup", "periodic", "enqueue/cleanup gate", "claim/execute gate", "grace period", "metadata/insert/commit compensation"],
+    "DIAGNOSTICS": ["redaction", "capacity retains newest failure", "user record/cache hashes unchanged"]
+  },
+  "external": ["authorized remote teaching/material model", "GitHub", "image generation", "real worker and Docker mounts", "extra devices and release signing"],
+  "end": ["all confirmed P1/P2 closed with before/after evidence", "all required local subscenarios executed without unexplained failure", "final candidate regression/build/quality", "final source and installed APK evidence bound", "external conditions individually recorded"]
+}

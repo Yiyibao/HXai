@@ -1,0 +1,101 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/review_20261010_probe_test.dart
+00:00 +0: B profile must not display A file from route extra
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _TextWidgetFinder:<Found 1 widget with text "A-private-file.txt": [
+            Text("A-private-file.txt", debugLabel: (englishLike headlineMedium
+2021).merge((blackMountainView headlineMedium).apply), inherit: false, color: Color(alpha: 1.0000,
+red: 0.1137, green: 0.1059, blue: 0.1255, colorSpace: ColorSpace.sRGB), family: Roboto, size: 28.0,
+weight: 400, letterSpacing: 0.0, baseline: alphabetic, height: 1.3x, leadingDistribution: even,
+decoration: Color(alpha: 1.0000, red: 0.1137, green: 0.1059, blue: 0.1255, colorSpace:
+ColorSpace.sRGB) TextDecoration.none, dependencies: [DefaultSelectionStyle, DefaultTextStyle,
+MediaQuery]),
+          ]>
+   Which: means one was found but none were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/review_20261010_probe_test.dart:33:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/review_20261010_probe_test.dart line 33
+The test description was:
+  B profile must not display A file from route extra
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: B profile must not display A file from route extra [E]
+  Test failed. See exception logs above.
+  The test description was: B profile must not display A file from route extra
+  
+00:01 +0 -1: Deleted memory must not reappear from route extra
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _TextWidgetFinder:<Found 1 widget with text "deleted-private-content": [
+            Text("deleted-private-content", debugLabel: ((englishLike titleLarge
+2021).merge((blackMountainView titleLarge).apply)).copyWith, inherit: false, color: Color(alpha:
+1.0000, red: 0.1137, green: 0.1059, blue: 0.1255, colorSpace: ColorSpace.sRGB), family: Roboto,
+size: 22.0, weight: 400, letterSpacing: 0.0, baseline: alphabetic, height: 1.6x,
+leadingDistribution: even, decoration: Color(alpha: 1.0000, red: 0.1137, green: 0.1059, blue:
+0.1255, colorSpace: ColorSpace.sRGB) TextDecoration.none, dependencies: [DefaultSelectionStyle,
+DefaultTextStyle, MediaQuery]),
+          ]>
+   Which: means one was found but none were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/review_20261010_probe_test.dart:47:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/review_20261010_probe_test.dart line 47
+The test description was:
+  Deleted memory must not reappear from route extra
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -2: Deleted memory must not reappear from route extra [E]
+  Test failed. See exception logs above.
+  The test description was: Deleted memory must not reappear from route extra
+  
+00:01 +0 -2: Artifact metadata must not be presented as document body
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextContainingWidgetFinder:<Found 0 widgets with text containing 此格式请使用系统应用: []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/review_20261010_probe_test.dart:58:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/review_20261010_probe_test.dart line 58
+The test description was:
+  Artifact metadata must not be presented as document body
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -3: Artifact metadata must not be presented as document body [E]
+  Test failed. See exception logs above.
+  The test description was: Artifact metadata must not be presented as document body
+  
+00:01 +0 -3: Some tests failed.
+
+Failing tests:
+  D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/review_20261010_probe_test.dart: Artifact metadata must not be presented as document body
+  D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/review_20261010_probe_test.dart: B profile must not display A file from route extra
+  D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/review_20261010_probe_test.dart: Deleted memory must not reappear from route extra

@@ -1,0 +1,393 @@
+[
+  {
+    "name": "purple_200",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "purple_500",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "purple_700",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "teal_200",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "teal_700",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "white",
+    "action": "removed",
+    "references": [],
+    "check": "Broad word hits were not resource references; exact R.color.white and @color/white search found none."
+  },
+  {
+    "name": "patreon",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "assistant_page_actions",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "assistant_page_balanced",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "assistant_page_chaotic",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "assistant_page_creative",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "assistant_page_memory_count",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "assistant_page_strict",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "assistant_page_top_p_value",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "backup_page_export_desc",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "backup_page_exporting",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "backup_page_import_chatbox_desc",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "backup_page_import_cherry_studio_desc",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "backup_page_import_desc",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "backup_page_import_from_chatbox",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "backup_page_import_from_cherry_studio",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "backup_page_import_from_other_app",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "backup_page_importing",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "backup_page_local_backup_export",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "backup_page_local_backup_import",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "built_in_search_description",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "built_in_search_title",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "imggen_page_aspect_ratio",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "imggen_page_aspect_ratio_desc",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "imggen_page_aspect_ratio_landscape",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "imggen_page_aspect_ratio_portrait",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "imggen_page_aspect_ratio_square",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "imggen_page_model_selection",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "imggen_page_model_selection_desc",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "prompt_page_edit",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "reasoning_auto_desc",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "reasoning_custom",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "reasoning_heavy_desc",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "reasoning_light_desc",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "reasoning_medium_desc",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "reasoning_off_desc",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "rikkahub_provider_description",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "setting_display_page_enable_blur_effect_desc",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "setting_display_page_enable_blur_effect_title",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "setting_display_page_show_updates_desc",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "setting_display_page_title",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "setting_files_page_clean_confirmation",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "setting_model_page_suggestion_model",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "setting_model_page_suggestion_model_desc",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "setting_model_page_title_model",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "setting_model_page_title_model_desc",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "setting_page_display_setting",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "setting_page_display_setting_desc",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "setting_page_interaction_notification_settings",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "setting_page_search_delete_provider",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "setting_tts_page_emotion",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "setting_tts_page_emotion_description",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "setting_tts_page_more_options_content_description",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "setting_tts_page_title",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "skills_page_more_actions",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "workspace_detail_tool_list_files",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "workspace_detail_tool_delete_file",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "workspace_detail_tool_move_file",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "workspace_terminal_title",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "workspace_terminal_title_with_name",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "tool_ui_list_files",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "tool_ui_list_files_default",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "tool_ui_list_files_empty",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "tool_ui_list_files_items",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "tool_ui_delete_file",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "tool_ui_delete_file_default",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "tool_ui_deleted",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "tool_ui_delete_failed",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "tool_ui_move_file",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "assistant_page_context_message_limit_count",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "assistant_page_context_message_limit_unlimited",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "assistant_page_context_message_limit_too_small",
+    "action": "removed",
+    "references": []
+  },
+  {
+    "name": "backup_page_import_overwrite_confirm",
+    "action": "removed",
+    "references": []
+  }
+]

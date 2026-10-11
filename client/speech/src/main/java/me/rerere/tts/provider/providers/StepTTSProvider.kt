@@ -1,7 +1,7 @@
 package me.rerere.tts.provider.providers
 
 import android.content.Context
-import android.util.Log
+import me.rerere.common.util.ServicePrivacyLog as Log
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.json.buildJsonObject
@@ -76,15 +76,14 @@ class StepTTSProvider : TTSProvider<TTSProviderSetting.Step> {
         val response = httpClient.newCall(httpRequest).execute()
         if (!response.isSuccessful) {
             // 把错误响应体读出来方便排查 (4xx 通常返回 JSON 错误信息)
-            val errorBody = runCatching { response.body?.string() }.getOrNull().orEmpty()
+            val errorBody = runCatching { response.body.string() }.getOrNull().orEmpty()
             throw TTSProviderException(
                 message = "Step TTS request failed: HTTP ${response.code} ${response.message}. body=$errorBody",
                 statusCode = response.code
             )
         }
 
-        val audioBytes = response.body?.bytes()
-            ?: throw Exception("Step TTS returned empty body")
+        val audioBytes = response.body.bytes()
 
         if (audioBytes.isEmpty()) {
             throw Exception("Step TTS returned 0 bytes")

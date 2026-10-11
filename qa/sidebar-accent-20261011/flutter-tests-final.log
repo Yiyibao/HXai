@@ -1,0 +1,8 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/sidebar_accent_test.dart
+00:00 +0: All accent choices preserve readable text in both appearances
+00:00 +1: Accent choice survives platform load and provider recreation
+00:00 +2: Picker updates preview and theme immediately (dark=false)
+00:00 +3: Small sidebar scrolls with placeholder projects and fixed footer (dark=false)
+00:01 +4: Picker updates preview and theme immediately (dark=true)
+00:01 +5: Small sidebar scrolls with placeholder projects and fixed footer (dark=true)
+00:01 +6: All tests passed!

@@ -1,0 +1,86 @@
+[
+  {
+    "module": "app",
+    "tests": 381,
+    "passed": 381,
+    "failures": 0,
+    "skipped": 0
+  },
+  {
+    "module": "ai",
+    "tests": 202,
+    "passed": 202,
+    "failures": 0,
+    "skipped": 0
+  },
+  {
+    "module": "search",
+    "tests": 29,
+    "passed": 29,
+    "failures": 0,
+    "skipped": 0
+  },
+  {
+    "module": "speech",
+    "tests": 43,
+    "passed": 43,
+    "failures": 0,
+    "skipped": 0
+  },
+  {
+    "module": "workspace",
+    "tests": 20,
+    "passed": 19,
+    "failures": 0,
+    "skipped": 1
+  },
+  {
+    "module": "oauth",
+    "tests": 2,
+    "passed": 2,
+    "failures": 0,
+    "skipped": 0
+  },
+  {
+    "module": "common",
+    "tests": 1,
+    "passed": 1,
+    "failures": 0,
+    "skipped": 0
+  },
+  {
+    "module": "document",
+    "tests": 1,
+    "passed": 1,
+    "failures": 0,
+    "skipped": 0
+  },
+  {
+    "module": "videogen",
+    "tests": 3,
+    "passed": 3,
+    "failures": 0,
+    "skipped": 0
+  },
+  {
+    "module": "web",
+    "tests": 1,
+    "passed": 1,
+    "failures": 0,
+    "skipped": 0
+  },
+  {
+    "module": "highlight",
+    "tests": 53,
+    "passed": 53,
+    "failures": 0,
+    "skipped": 0
+  },
+  {
+    "module": "material3",
+    "tests": 1,
+    "passed": 1,
+    "failures": 0,
+    "skipped": 0
+  }
+]

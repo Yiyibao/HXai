@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.asr.ASRProviderSettingMiMoTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-08T06:42:53.855Z" hostname="DESKTOP-QH4J0RS" time="0.075">
+  <properties/>
+  <testcase name="mimo_is_registered_in_provider_types" classname="me.rerere.asr.ASRProviderSettingMiMoTest" time="0.048"/>
+  <testcase name="mimo_copy_provider_preserves_extra_fields" classname="me.rerere.asr.ASRProviderSettingMiMoTest" time="0.016"/>
+  <testcase name="mimo_defaults_are_expected" classname="me.rerere.asr.ASRProviderSettingMiMoTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

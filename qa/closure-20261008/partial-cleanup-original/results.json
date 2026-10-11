@@ -1,0 +1,12 @@
+[
+  {
+    "name": "focused",
+    "className": "SkillClosureTest#partialUninstallCleanupFailureRestoresEntireSkill",
+    "runId": "57fa4536-2661-43e7-acea-9033782bdeb1",
+    "notBefore": 1791465700247,
+    "notAfter": 1791465705278,
+    "status": "FAIL",
+    "logSha256": "ec69f5f8f7cba87ea6a995c25d5a65392b89046a09c419c4e646a39dd13bba85",
+    "extras": {}
+  }
+]

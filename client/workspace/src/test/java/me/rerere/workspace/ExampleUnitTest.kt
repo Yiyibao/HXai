@@ -60,6 +60,18 @@ class ExampleUnitTest {
     @Test
     fun rootfsInstallerDownloadsAndExtractsTarGz() {
         val baseDir = Files.createTempDirectory("workspace-manager-test").toFile()
+        // Android/Linux support symlinks. Some Windows test hosts require a privilege
+        // that this JVM does not have; skip only this demonstrated host limitation.
+        val probe = File(baseDir, "symlink-capability-probe").toPath()
+        try {
+            Files.createSymbolicLink(probe, File(baseDir, "probe-target").toPath())
+            Files.delete(probe)
+        } catch (error: java.nio.file.FileSystemException) {
+            if (System.getProperty("os.name").orEmpty().startsWith("Windows") &&
+                (error.reason.orEmpty().contains("privilege", ignoreCase = true) || error.reason.orEmpty().contains("特权"))) {
+                org.junit.Assume.assumeTrue("Windows host lacks the privilege to create a symbolic link", false)
+            } else throw error
+        }
         val manager = WorkspaceManager(baseDir)
         val installer = RootfsInstaller(manager)
         val archive = tarGz(

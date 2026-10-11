@@ -31,13 +31,13 @@
 | ID | 状态 | 实际证据 / 下一步 |
 |---|---|---|
 | G01 | BLOCKED | 设备型号/系统已有截图依据；ADB 无设备；需 USB 调试连接或用户手机手动操作并补完整系统号 |
-| G02 | FAIL（修复后复验中） | 固定来源与 Gradle/前端通过；SDK/NDK/CMake 已安装；完整 APK 构建正在重跑 |
+| G02 | PASS（2026-10-06） | 固定源码逐文件复核；完整 assembleDebug 成功（7m 1s）；arm64/x86_64/universal APK 签名验证通过，见 baseline-build-20261006.json |
 | G03 | BLOCKED | 未完成真机安装/运行；Google/Firebase 依赖不能只靠源码判 PASS |
-| G04 | BLOCKED | 未提供中转地址/模型/协议与安全配置；桌面及手机流式、取消/错误待测 |
-| G05 | BLOCKED | 加法工具探针已准备，真实往返与 Android 校验待测 |
+| G04 | 部分 PASS（桌面真实 Responses）；Android NOT_RUN | gpt-6.1-sol / medium 文本、624 个增量片段及流式终态一致性通过；Android 取消/错误显示尚待模拟器 |
+| G05 | 部分 PASS（桌面真实往返）；Android NOT_RUN | 实际 s0_add 调用、参数校验、结果 42、无服务端存储的续答通过；Android 工具路径尚待模拟器 |
 | G06 | BLOCKED | 印刷/手写图的真实模型与真机显示待测 |
-| G07 | NOT_RUN（本地结构校验 PASS） | 真实抽取、来源语义及 Android 拒绝提交未测 |
-| G08 | BLOCKED | 已询问首版 Word/公式要求与使用者设备分工，尚无答复 |
+| G07 | 部分 PASS（桌面真实合成抽取）；Android NOT_RUN | 合法偏好候选与来源白名单通过；同一结果跨档案来源拒绝；Android 原子事务与真实学习质量未测 |
+| G08 | 格式范围已确认；保真待验 | 用户选择首版 PDF + Markdown，Word 导出后置；DOCX 输入仍保留，同机/各自设备及认证需求未确认 |
 
 ## S1 必须处理的基线差距
 
@@ -46,4 +46,27 @@
 - 已存在多模态/工具/Skills 能力不代表满足本项目的自动抽取、档案隔离、删除抑制与文件验收。
 - 本批不将版本降级、不改 SDK 要求、不借用原项目密钥。备份加密参数须在可构建基线上核验后补合同。
 
-退出条件：G01–G08 必需项有真实通过证据或明确且已复验的替代路线。当前不能宣告 S0 完成，也不推进 S1 业务实现。
+历史退出条件为 G01–G08 必需项全部通过。2026-10-06 用户在无 Mate 50 情况下明确继续 Android 开发，现按 v0.4 方案分开开发与交付门禁：G02、模拟器基础运行、中转文本/流式/工具/候选拒绝路径和格式范围验证后可进入 S1；Mate 50 G01/G03 及目标真机检查保留到交付前。固定基线构建、模拟器基础安装/冷启动/重开、桌面真实中转文本/流式/工具/候选来源拒绝及首版格式范围已通过，开发门禁通过，进入 S1。Android 流式/取消/工具和材料公式 UI 仍在 S1/S3 待验；不宣告完整 S0 或目标设备通过。
+
+
+## 2026-10-06 接续执行
+
+- 用户讨论 Apple 路线后选择继续 Android；本轮未迁移到 iOS。首版导出 PDF + Markdown，Word 后置。
+- 原构建日志无终态、无产物且残留占位 Firebase 文件。哈希确认与公开样例一致后清理，再由脚本临时创建；未覆盖真实配置。10:13 启动的复验因路线讨论于配置阶段主动停止，日志中的 daemon disappeared 是本次停止导致，不作源码失败结论。
+- 恢复构建增加可选 Info 与单次 HTTP 30 秒连接/读取超时。未修改上游版本或业务源码。完整 :app:assembleDebug 成功，269 个任务（265 执行、4 up-to-date），7m 1s；占位配置已自动移除。
+- 三份 Debug APK 的路径、大小、SHA256 和签名通过记录见 [构建证据](../qa/s0/baseline-build-20261006.json)。它们是固定上游的调试基线，使用 me.rerere.rikkahub.debug，不是 MathStudyAgent 成品，也不证明 Firebase、真机或业务功能。
+- 再次核对固定归档：1423 个主源码文件和 385 个子模块文件一致。本地候选/Chat/Responses 反例共 17 组通过（含候选跨档案来源拒绝）；见 [本地验证日志](../qa/s0/local-validation.log)。
+- 用户本次为本项目提供 Responses 中转与认证信息；密钥通过隐藏终端输入，仅在探针进程使用，不保存到仓库或结果。首次默认 Python User-Agent 请求得到 403；调整为明确的应用 User-Agent 后文本、流式和工具往返通过。403 原因未取得服务端证据，不能断言只是 User-Agent。
+- 实际模型 gpt-6.1-sol、reasoning.effort=medium、store=false；流式 624 个非空增量、980 字符，终态与增量内容一致；加法工具 17+25=42，原输出与 call_id 接续成功。结果在忽略目录 qa/s0/private/provider-responses.json，只留状态与计数。store=false 是请求参数，不保证第三方留存政策。
+- Android 模拟器准备中：项目内 emulator 与 AOSP API 34 x86_64 镜像；WHPX 已检查可用。不含 GMS 的模拟器结果只作开发证据，Mate 50/HarmonyOS 安装、文件、后台和锁屏表现仍待交付前补验。
+
+日志：.local/baseline-build-20261006.log（主动停止）、.local/baseline-build-20261006-resume.log（成功）、.local/emulator-install-20261006-proxy.log。真实模型图像与 Android 取消/错误、真实学习质量和记忆原子事务仍未验。
+
+
+### 开发门禁通过，目标真机仍待验
+
+AOSP API 34 x86_64 模拟器安装固定基线 APK 成功；冷启动 4622 ms，force-stop 后重新打开 4380 ms，聊天首页与侧边栏可见，应用进程存活，crash buffer 无记录。镜像未安装 com.google.android.gms。见 [模拟器基础证据](../qa/s0/emulator-baseline-20261006.json)；这些结果不覆盖公式、文件、联网 UI 或 HarmonyOS。
+
+桌面真实合成记忆抽取返回一条合法偏好，来源白名单有效；把同一结果用于另一档案来源白名单时被拒绝。证据位于 qa/s0/private/provider-responses-extra.json；未执行 Android 数据提交事务，亦非真实学习质量评估。
+
+按 v0.4 的开发门禁允许进入 S1，首批内容见 [S1 执行记录](s1-execution.md)。G01/G03 目标 Mate 50 及 G06 真机图像仍为未验证，完整交付前必须补齐。原固定基线 APK 已另存 .local/s0-baseline-apks/，与公开证据校验值一致，后续业务构建不覆盖此保全副本。

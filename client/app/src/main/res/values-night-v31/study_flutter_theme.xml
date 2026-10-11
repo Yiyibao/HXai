@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="Theme.StudyFlutter" parent="Theme.StudyFlutterApi27">
+    <item name="android:windowSplashScreenBackground">#171717</item>
+    <item name="android:windowSplashScreenAnimatedIcon">@drawable/study_splash_icon</item>
+  </style>
+</resources>

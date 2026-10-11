@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "date": "2026-10-08",
+  "userScope": "current emulator and local validation; no remote replay",
+  "findings": [
+    {
+      "id": "CF01",
+      "type": "code",
+      "status": "FIXED_VERIFIED",
+      "priority": "P2"
+    },
+    {
+      "id": "CF02",
+      "type": "code_boundary",
+      "status": "FIXED_VERIFIED",
+      "priority": "P2"
+    },
+    {
+      "id": "CF03",
+      "type": "test_fixture_regression",
+      "status": "FIXED_LOCAL_VERIFIED_REMOTE_NOT_RUN",
+      "priority": "P2"
+    },
+    {
+      "id": "CF04",
+      "type": "test_success_classification",
+      "status": "FIXED_NEGATIVE_VERIFIED_POSITIVE_NOT_RUN",
+      "priority": "P2"
+    },
+    {
+      "id": "CF05",
+      "type": "coverage_gap",
+      "status": "LOCAL_VERIFIED_REMOTE_NOT_RUN",
+      "priority": "P3"
+    },
+    {
+      "id": "CF06",
+      "type": "evidence_extension",
+      "status": "FIXED_VERIFIED",
+      "priority": "P3"
+    }
+  ],
+  "batches": {
+    "server": {
+      "platformAndWorkerSubstituted": true,
+      "pass": 28
+    },
+    "collectorUnit": {
+      "fail": 0,
+      "pass": 6
+    },
+    "jvm": {
+      "errors": 0.0,
+      "tests": 328.0,
+      "failures": 0.0,
+      "skipped": 0.0
+    },
+    "lint": {
+      "errors": 0,
+      "warnings": 42
+    },
+    "androidCore": {
+      "invocations": 8,
+      "pass": 21,
+      "skip": 0,
+      "fail": 0
+    },
+    "delivery": {
+      "pass": 2,
+      "exactHashPass": 10,
+      "exactHashGroups": 10,
+      "methods": 1,
+      "runs": 2
+    }
+  },
+  "firstFailures": [
+    "server.log: temp setup environment error",
+    "server-retry.log: sandbox TestClient hang, interrupted",
+    "seed.log: wrong trigger discriminator test defect",
+    "final-android/seed.log: real queue pause durability defect CF01",
+    "verified-android/seed.log: test nanosecond/millisecond baseline mismatch",
+    "exact-delivery.log: QA UTF-8 decoding environment error"
+  ],
+  "apkHashesStableAfterTests": true,
+  "historicalRemoteRootCause": "UNKNOWN",
+  "notRun": [
+    "remote teaching/material/image/GitHub",
+    "complete model/factory tool continuation",
+    "cross-conversation attachment and I/O cleanup retries",
+    "all UI editing/delivery cancellation/profile switch/read failure paths",
+    "full migration/backup/provider/platform/release/worker deployment"
+  ],
+  "committed": false,
+  "pushed": false,
+  "deployed": false
+}

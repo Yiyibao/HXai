@@ -53,6 +53,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
@@ -74,6 +75,13 @@ import java.util.concurrent.TimeUnit
 fun SettingFilesPage(
     filesManager: FilesManager = koinInject(),
 ) {
+    // The upstream file index is global; exposing it would cross learner boundaries.
+    Scaffold(topBar = {
+        LargeFlexibleTopAppBar(title = { Text("文件管理") }, navigationIcon = { BackButton() })
+    }) { padding ->
+        Text("当前请从所属聊天查看附件。材料库完成档案隔离后再开放统一文件管理。", Modifier.padding(padding).padding(24.dp))
+    }
+    return
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     val gridState = rememberLazyStaggeredGridState()
     val scope = rememberCoroutineScope()
@@ -270,7 +278,7 @@ private fun CleanFilesSheet(
                 )
                 Text(
                     text = range.days?.let {
-                        stringResource(R.string.setting_files_page_clean_older_than_days, it)
+                        pluralStringResource(R.plurals.setting_files_page_clean_older_than_days, it, it)
                     } ?: stringResource(R.string.setting_files_page_clean_all),
                     style = MaterialTheme.typography.bodyLarge,
                     modifier = Modifier.padding(start = 8.dp),

@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-06",
+  "environment": "AOSP emulator; localhost HTTP/SSE faults plus real default-network transitions; not Mate 50",
+  "serial": "emulator-5554",
+  "sdk": "34",
+  "application_id": "org.mathstudy.agent.debug",
+  "apk_sha256": "4d97a9605c82e0c497c1af2a72cbebb9dc19e6fc5d0b1b2f8390ce21d2de6199",
+  "android_tests": 16,
+  "status": "PASS",
+  "jvm": {
+    "ai": {
+      "errors": 0,
+      "failures": 0,
+      "tests": 197
+    },
+    "app": {
+      "errors": 0,
+      "failures": 0,
+      "tests": 245
+    }
+  },
+  "keep_visual_fixture": false,
+  "cases": [
+    "Responses silent SSE EOF",
+    "TCP reset after partial output",
+    "HTTP 401/429 with JSON and empty bodies",
+    "manual regeneration without duplicate user input",
+    "regeneration failure before first chunk preserves interrupted branch",
+    "cancel stalled stream",
+    "real socket read timeout classification",
+    "Chat Completions EOF/completion/empty HTTP error",
+    "Room restart recovery with preserved message IDs",
+    "device airplane mode interruption and explicit queue resume",
+    "Wi-Fi to cellular default-network switch without replay",
+    "durable queue and atomic submission",
+    "per-tool durable checkpoints and unknown-effect skip",
+    "Room 27 to 28 migration",
+    "tool network error leaves unknown effects and blocks next tool",
+    "resumed Auto tool rechecks approval"
+  ],
+  "limitations": [
+    "No target Mate 50 test",
+    "Timeout uses a short fixture client rather than production ten-minute read timeout",
+    "Localhost SSE fixture observes real device route changes; it does not validate a remote provider over both routes",
+    "Separate runtime continuation runner verifies force-stop recovery; this suite uses fresh sessions"
+  ]
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.utils.DiffUtilsTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-08T12:18:59.903Z" hostname="DESKTOP-QH4J0RS" time="0.008">
+  <properties/>
+  <testcase name="returns null when texts are identical" classname="me.rerere.rikkahub.utils.DiffUtilsTest" time="0.0"/>
+  <testcase name="splits distant changes into separate hunks" classname="me.rerere.rikkahub.utils.DiffUtilsTest" time="0.007"/>
+  <testcase name="generates diff for appended lines" classname="me.rerere.rikkahub.utils.DiffUtilsTest" time="0.001"/>
+  <testcase name="handles replace all style multiple replacements" classname="me.rerere.rikkahub.utils.DiffUtilsTest" time="0.0"/>
+  <testcase name="generates unified diff for single line replacement" classname="me.rerere.rikkahub.utils.DiffUtilsTest" time="0.0"/>
+  <testcase name="merges nearby changes into one hunk" classname="me.rerere.rikkahub.utils.DiffUtilsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

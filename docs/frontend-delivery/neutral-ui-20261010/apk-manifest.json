@@ -1,0 +1,6 @@
+{
+  "apk": "client\\app\\build\\outputs\\apk\\debug\\app-x86_64-debug.apk",
+  "sha256": "309eacb06f4156bafbb72e36b21b63635a79d549a36aadadd9079a1c6d7b9955",
+  "latestFlutterAssetsVerified": true,
+  "flutterTestsPassed": 164
+}

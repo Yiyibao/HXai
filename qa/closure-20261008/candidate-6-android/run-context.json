@@ -1,0 +1,110 @@
+{
+  "appSha256": "d70684448b5b8e74b4429d44c5f1cfe47d499fcbefd4b9a67bfe05b321e83683",
+  "testSha256": "b2eb40762f42bda5728b78fbd6a5f5b24c4cb4f486ef7e49d9cc817d9aaf48a9",
+  "runs": [
+    {
+      "method": "IndependentPostfixProbeTest.deletedConversationMustRejectStaleSaveAfterSessionEviction",
+      "runId": "44afccf7-77e1-4ea3-9f3c-4fd0f35dfb35",
+      "log": "eviction.log",
+      "logSha256": "0eb7684f6d126fd64632ed93eeeec94677bd1c70f83668b00aad209d3f6a773b",
+      "notBefore": 1791464949791,
+      "notAfter": 1791464963890
+    },
+    {
+      "method": "ClosureBoundaryTest.deletionCreationRestoreAndIndependentIncarnation",
+      "runId": "cf2e35a6-c48b-4e63-a800-033487ef3bad",
+      "log": "lifecycle-seed.log",
+      "logSha256": "785e57751ace16ffce629d566a4079638b5fdac0baa001db5e2213fd1eac86f8",
+      "notBefore": 1791464953891,
+      "notAfter": 1791464968133
+    },
+    {
+      "method": "ClosureBoundaryTest.deletionCreationRestoreAndIndependentIncarnation",
+      "runId": "17ac2512-e9a0-449d-a362-3d0ee522e34d",
+      "log": "lifecycle-verify.log",
+      "logSha256": "96ef426d00995301add237465292c37b2a927f6247b1d47f13b7885a3dd59d4d",
+      "notBefore": 1791464958186,
+      "notAfter": 1791464972308
+    },
+    {
+      "method": "ClosureBoundaryTest.crossConversationReferencesAndDeleteIoRetry",
+      "runId": "99fc84bb-31d4-4d99-9c23-eead85023ab6",
+      "log": "attachments.log",
+      "logSha256": "f5b233e5e3a587e1785b9ea2ad4e2ba54adf9641b53338c57d4fd4aa44f395bb",
+      "notBefore": 1791464968030,
+      "notAfter": 1791464983442
+    },
+    {
+      "method": "IndependentPostfixProbeTest.completeServiceFactoryContinuationUsesSyntheticProviderAndFirstDecision",
+      "runId": "338c4ed2-e91b-4d97-af9f-dd558251cc3c",
+      "log": "factory.log",
+      "logSha256": "c564e5c68e56f5becf03cd832ac5f6f2380e43b2da0ee5a3323b72197f718e2b",
+      "notBefore": 1791464973443,
+      "notAfter": 1791464991496
+    },
+    {
+      "method": "WordFormulaAssertionTest.tableCellsRejectDeletionReorderingAndValueChanges",
+      "runId": "b347aefe-72c6-47c0-b5a8-07d079b4a51c",
+      "log": "word.log",
+      "logSha256": "081ec466da122c2f03efad9ca3b63bf7ed8bfef383f81b0c36e1b77958906f9f",
+      "notBefore": 1791464981497,
+      "notAfter": 1791464997761
+    },
+    {
+      "method": "WordFormulaAssertionTest.perRunMaterialSamplesExistAndContainSyntheticContent",
+      "runId": "b347aefe-72c6-47c0-b5a8-07d079b4a51c",
+      "log": "word.log",
+      "logSha256": "081ec466da122c2f03efad9ca3b63bf7ed8bfef383f81b0c36e1b77958906f9f",
+      "notBefore": 1791464981497,
+      "notAfter": 1791464997761
+    },
+    {
+      "method": "SkillClosureTest.nestedBrokenLinksAndSiblingReplacement",
+      "runId": "ca40a4b4-a0fa-410a-9f17-9047ff3ab148",
+      "log": "skills-links.log",
+      "logSha256": "5525f99d1f119b412b981f3cf0e5f434987fc5459d9ae8f2cb2cd3e7271b2082",
+      "notBefore": 1791465024794,
+      "notAfter": 1791465037997
+    },
+    {
+      "method": "SkillClosureTest.replacementAndRollbackFailureKeepOriginalContentAndEnabledState",
+      "runId": "b7131f83-a1ea-4a5c-8e54-d91e4b072a56",
+      "log": "skills-rollback.log",
+      "logSha256": "f46f5ea17178a97d5135e327b4e00d664e2a2b96eed6d441f82d6382e264c737",
+      "notBefore": 1791465027998,
+      "notAfter": 1791465041317
+    },
+    {
+      "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+      "runId": "9fac670e-2db3-4375-b195-0c789fb6e24d",
+      "log": "delivery-1.log",
+      "logSha256": "407d22b66375a0959504e1197e0aad6071b8da4adb3bb70c4bb3b3cd8c7b035d",
+      "notBefore": 1791465031318,
+      "notAfter": 1791465101827
+    },
+    {
+      "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+      "runId": "063922f8-dc22-4d3a-bc8c-97d20a56b1a2",
+      "log": "delivery-2.log",
+      "logSha256": "7a7c373a829779d427b7d786b53cfe0babdf05be9fa367fc7f094ef3831d849c",
+      "notBefore": 1791465091830,
+      "notAfter": 1791465172767
+    },
+    {
+      "method": "DeliveryClosureTest.cancellationCorruptionAndTargetRereadRejectFalseSuccess",
+      "runId": "b1b611da-8c24-4cd8-b39e-0088d0410a7e",
+      "log": "delivery-failure.log",
+      "logSha256": "6e07e1bb472581de7f7e970ffd82bd17a960c8c5c5b3d33be34e031d6693766e",
+      "notBefore": 1791465162769,
+      "notAfter": 1791465182297
+    },
+    {
+      "method": "DeliveryUiClosureTest.pickerCancelAndProfileChangeDoNotDeliverOldSource",
+      "runId": "20d57d70-7c97-4a5a-9a14-bb4dd3407650",
+      "log": "delivery-ui.log",
+      "logSha256": "3233d65b3be4f4702f6f6f68c4da55facb31f58fe1c326d8c5b4cb367e4dab4c",
+      "notBefore": 1791465172299,
+      "notAfter": 1791465195033
+    }
+  ]
+}

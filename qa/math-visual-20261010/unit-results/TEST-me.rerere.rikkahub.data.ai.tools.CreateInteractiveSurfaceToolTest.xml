@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.ai.tools.CreateInteractiveSurfaceToolTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-09T20:20:18.286Z" hostname="DESKTOP-QH4J0RS" time="0.041">
+  <properties/>
+  <testcase name="test basic surface creation" classname="me.rerere.rikkahub.data.ai.tools.CreateInteractiveSurfaceToolTest" time="0.038"/>
+  <testcase name="test chart with slider scale" classname="me.rerere.rikkahub.data.ai.tools.CreateInteractiveSurfaceToolTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

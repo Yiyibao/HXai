@@ -1,0 +1,1 @@
+SyntaxError: invalid syntax at dict(... pass=sum(...)). Corrected reserved keyword to passed. Original tool output retained; no product/test assertion changed.

@@ -1,0 +1,378 @@
+{
+  "instrumentation": [
+    {
+      "log": "BackupPageTest.log",
+      "modified": 1791412661.5442846,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "BackupReliabilityTest.log",
+      "modified": 1791412650.5746956,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "ChatNetworkFaultTest.log",
+      "modified": 1791412437.0986624,
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "context-privacy-final-verified.log",
+      "modified": 1791413763.4552286,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "context-privacy-final.log",
+      "modified": 1791413643.4396174,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "context-privacy-first-failure.log",
+      "modified": 1791413365.0716598,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0
+    },
+    {
+      "log": "CredentialVaultTest.log",
+      "modified": 1791412457.3862965,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "DiagnosticsPageTest.log",
+      "modified": 1791412689.98508,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "DiagnosticsTest-post-privacy.log",
+      "modified": 1791413667.5541015,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "DiagnosticsTest.log",
+      "modified": 1791412668.6517227,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "DocumentServicePageTest.log",
+      "modified": 1791412629.0386088,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "feedback-seed.log",
+      "modified": 1791412850.8977258,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "feedback-verify.log",
+      "modified": 1791412853.8827794,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "FrontendDeliveryRoutesTest.log",
+      "modified": 1791412716.7073038,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "FrontendModelPickerTest.log",
+      "modified": 1791412697.0676837,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "gallery-final.log",
+      "modified": 1791412839.6844497,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "gallery-first.log",
+      "modified": 1791411139.9284742,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "LearningLoopPersistenceTest.log",
+      "modified": 1791412510.6749382,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "LearningLoopRealModelTest.log",
+      "modified": 1791413098.956752,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "LearningMemoryPageTest.log",
+      "modified": 1791412497.2839172,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "LearningMemoryPersistenceTest.log",
+      "modified": 1791412463.670999,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 1
+    },
+    {
+      "log": "LearningMemoryRealModelTest.log",
+      "modified": 1791413146.5270512,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "LegacyMemoryEntryTest.log",
+      "modified": 1791412505.962572,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialDeliveryTest.log",
+      "modified": 1791412611.164808,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialFidelityTest.log",
+      "modified": 1791412520.2280598,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialFilesTest.log",
+      "modified": 1791412516.3677223,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialPageTest.log",
+      "modified": 1791412535.9583385,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialPaginationTest.log",
+      "modified": 1791412549.7335472,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "MaterialRealModelTest.log",
+      "modified": 1791413354.5800717,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "memory-seed.log",
+      "modified": 1791412827.7737796,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "memory-verify.log",
+      "modified": 1791412830.8199937,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "ProjectReviewAuditTest-post-privacy.log",
+      "modified": 1791413741.550735,
+      "passed": 11,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "ProjectReviewAuditTest.log",
+      "modified": 1791412772.0731719,
+      "passed": 11,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "ProjectReviewDeliveryTest.log",
+      "modified": 1791412817.5707898,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "ProjectReviewTeachingTest.log",
+      "modified": 1791413041.984413,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "runtime-seed.log",
+      "modified": 1791412821.4819653,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "runtime-verify.log",
+      "modified": 1791412824.6171825,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "slider-final.log",
+      "modified": 1791412844.8489752,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "StudyChatCompletionTest.log",
+      "modified": 1791412320.6158495,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 1
+    },
+    {
+      "log": "StudyNavigationTest-post-privacy.log",
+      "modified": 1791413681.5141935,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "StudyNavigationTest.log",
+      "modified": 1791412314.744437,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "StudyRealModelTest-diagnostic-final.log",
+      "modified": 1791413467.1032012,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0
+    },
+    {
+      "log": "StudyRealModelTest.log",
+      "modified": 1791413018.837972,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0
+    },
+    {
+      "log": "WarningFixGalleryTest-post-privacy.log",
+      "modified": 1791413652.4444647,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "WarningFixSliderTest-post-privacy.log",
+      "modified": 1791413657.682004,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "WarningReviewBoundaryTest-post-privacy.log",
+      "modified": 1791413660.8500981,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "workspace-boundary-final.log",
+      "modified": 1791412847.9358618,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "log": "workspace-boundary-first-failure.log",
+      "modified": 1791411817.195498,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0
+    }
+  ],
+  "jvm": [
+    {
+      "module": "app",
+      "tests": 317,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "module": "ai",
+      "tests": 198,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "module": "search",
+      "tests": 16,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "module": "speech",
+      "tests": 43,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "module": "common",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "module": "document",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0
+    }
+  ]
+}

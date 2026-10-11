@@ -1,0 +1,77 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ClosureBoundaryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ClosureBoundaryTest:
+INSTRUMENTATION_STATUS: test=approvalEveryTransactionStepRollsBackBeforePublication
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ClosureBoundaryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=android.database.sqlite.SQLiteException: Cannot execute this statement because it might modify the database but the connection is read-only.
+	at io.requery.android.database.sqlite.SQLiteConnection.throwIfStatementForbidden(SQLiteConnection.java:1111)
+	at io.requery.android.database.sqlite.SQLiteConnection.executeForChangedRowCount(SQLiteConnection.java:780)
+	at io.requery.android.database.sqlite.SQLiteSession.executeForChangedRowCount(SQLiteSession.java:764)
+	at io.requery.android.database.sqlite.SQLiteStatement.executeUpdateDelete(SQLiteStatement.java:71)
+	at io.requery.android.database.sqlite.SQLiteDatabase.executeSql(SQLiteDatabase.java:1936)
+	at io.requery.android.database.sqlite.SQLiteDatabase.execSQL(SQLiteDatabase.java:1877)
+	at me.rerere.rikkahub.service.ClosureBoundaryTest$approvalEveryTransactionStepRollsBackBeforePublication$1$sql$2.invokeSuspend(ClosureBoundaryTest.kt:89)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+
+INSTRUMENTATION_STATUS: stream=
+Error in approvalEveryTransactionStepRollsBackBeforePublication(me.rerere.rikkahub.service.ClosureBoundaryTest):
+android.database.sqlite.SQLiteException: Cannot execute this statement because it might modify the database but the connection is read-only.
+	at io.requery.android.database.sqlite.SQLiteConnection.throwIfStatementForbidden(SQLiteConnection.java:1111)
+	at io.requery.android.database.sqlite.SQLiteConnection.executeForChangedRowCount(SQLiteConnection.java:780)
+	at io.requery.android.database.sqlite.SQLiteSession.executeForChangedRowCount(SQLiteSession.java:764)
+	at io.requery.android.database.sqlite.SQLiteStatement.executeUpdateDelete(SQLiteStatement.java:71)
+	at io.requery.android.database.sqlite.SQLiteDatabase.executeSql(SQLiteDatabase.java:1936)
+	at io.requery.android.database.sqlite.SQLiteDatabase.execSQL(SQLiteDatabase.java:1877)
+	at me.rerere.rikkahub.service.ClosureBoundaryTest$approvalEveryTransactionStepRollsBackBeforePublication$1$sql$2.invokeSuspend(ClosureBoundaryTest.kt:89)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+
+INSTRUMENTATION_STATUS: test=approvalEveryTransactionStepRollsBackBeforePublication
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 2.87
+There was 1 failure:
+1) approvalEveryTransactionStepRollsBackBeforePublication(me.rerere.rikkahub.service.ClosureBoundaryTest)
+android.database.sqlite.SQLiteException: Cannot execute this statement because it might modify the database but the connection is read-only.
+	at io.requery.android.database.sqlite.SQLiteConnection.throwIfStatementForbidden(SQLiteConnection.java:1111)
+	at io.requery.android.database.sqlite.SQLiteConnection.executeForChangedRowCount(SQLiteConnection.java:780)
+	at io.requery.android.database.sqlite.SQLiteSession.executeForChangedRowCount(SQLiteSession.java:764)
+	at io.requery.android.database.sqlite.SQLiteStatement.executeUpdateDelete(SQLiteStatement.java:71)
+	at io.requery.android.database.sqlite.SQLiteDatabase.executeSql(SQLiteDatabase.java:1936)
+	at io.requery.android.database.sqlite.SQLiteDatabase.execSQL(SQLiteDatabase.java:1877)
+	at me.rerere.rikkahub.service.ClosureBoundaryTest$approvalEveryTransactionStepRollsBackBeforePublication$1$sql$2.invokeSuspend(ClosureBoundaryTest.kt:89)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

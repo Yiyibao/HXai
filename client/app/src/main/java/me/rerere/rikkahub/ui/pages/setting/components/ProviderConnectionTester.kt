@@ -28,6 +28,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
@@ -57,6 +58,7 @@ fun ProviderConnectionTester(
     var showTestDialog by remember { mutableStateOf(false) }
     val providerManager = koinInject<ProviderManager>()
     val scope = rememberCoroutineScope()
+    val resources = LocalResources.current
     val context = LocalContext.current
 
     IconButton(onClick = { showTestDialog = true }) {
@@ -196,7 +198,7 @@ fun ProviderConnectionTester(
                                         .filterIsInstance<UIMessagePart.Tool>()
                                         .firstOrNull()
                                     val resultText = if (toolCall != null) {
-                                        context.getString(
+                                        resources.getString(
                                             R.string.setting_provider_page_test_tool_called,
                                             toolCall.toolName,
                                             toolCall.input
@@ -205,7 +207,7 @@ fun ProviderConnectionTester(
                                         val text = message.parts
                                             .filterIsInstance<UIMessagePart.Text>()
                                             .joinToString("") { it.text }
-                                        context.getString(
+                                        resources.getString(
                                             R.string.setting_provider_page_test_tool_not_called,
                                             text
                                         )

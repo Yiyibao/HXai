@@ -1,0 +1,6 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_bootstrap_test.dart
+00:00 +0: Cold bootstrap settles empty chat and refresh preserves explicit selection
+00:00 +1: Startup waits for a nondefault profile before bridge commands
+00:00 +2: Failed send retains draft and startup failure renders retry
+00:01 +3: Chat delivers artifact actions and displays native failure
+00:01 +4: All tests passed!

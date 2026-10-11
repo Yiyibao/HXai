@@ -1,0 +1,14 @@
+[
+  {
+    "file": "qa\\material\\rendered\\docx\\real-验证docx.pdf",
+    "pages": 2
+  },
+  {
+    "file": "qa\\material\\rendered\\pptx\\real-验证pptx.pdf",
+    "pages": 4
+  },
+  {
+    "file": "qa\\material\\rendered\\xlsx\\real-验证xlsx.pdf",
+    "pages": 2
+  }
+]

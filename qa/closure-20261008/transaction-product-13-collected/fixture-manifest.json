@@ -1,0 +1,36 @@
+{
+  "schema": 2,
+  "contextSha256": "c2f0f6152917ad38bb13ad6fbca533e798c46059178cc98b6051a803027b6ebc",
+  "appSha256": "ba53c4b477701dbdd87bbee9270394f2fe376a7ce1f52e7db704b5f7a8410094",
+  "testSha256": "cf2b8764df40660d5f0fcaa89606188d9391953ee8b0f61c2e1087c54c600f18",
+  "records": [
+    {
+      "name": "qa-evidence/ClosureBoundaryTest.approvalEveryTransactionStepRollsBackBeforePublication/44cccaf6-d5f4-4f33-8e90-43fb9a7b3750/exceptions.txt",
+      "sha256": "ae70b78b79a4de4d0170648eed3b2106476744bda2e95c53cae09a607b071703",
+      "bytes": 95143,
+      "reusedSyntheticInput": false,
+      "method": "ClosureBoundaryTest.approvalEveryTransactionStepRollsBackBeforePublication",
+      "runId": "44cccaf6-d5f4-4f33-8e90-43fb9a7b3750",
+      "status": "PASS",
+      "actualClass": "me.rerere.rikkahub.service.ClosureBoundaryTest",
+      "actualTest": "approvalEveryTransactionStepRollsBackBeforePublication",
+      "deviceMtime": 1791466508,
+      "startedAt": 1791466506418,
+      "finishedAt": 1791466509060
+    },
+    {
+      "name": "qa-evidence/ClosureBoundaryTest.approvalEveryTransactionStepRollsBackBeforePublication/44cccaf6-d5f4-4f33-8e90-43fb9a7b3750/assertions.txt",
+      "sha256": "4e81a3c1d26fe1a4ed3762bd4f8914fa8c876c172f65d6bc54f7513dee6790b0",
+      "bytes": 781,
+      "reusedSyntheticInput": false,
+      "method": "ClosureBoundaryTest.approvalEveryTransactionStepRollsBackBeforePublication",
+      "runId": "44cccaf6-d5f4-4f33-8e90-43fb9a7b3750",
+      "status": "PASS",
+      "actualClass": "me.rerere.rikkahub.service.ClosureBoundaryTest",
+      "actualTest": "approvalEveryTransactionStepRollsBackBeforePublication",
+      "deviceMtime": 1791466509,
+      "startedAt": 1791466506418,
+      "finishedAt": 1791466509060
+    }
+  ]
+}

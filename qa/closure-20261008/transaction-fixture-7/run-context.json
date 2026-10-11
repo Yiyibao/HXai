@@ -1,0 +1,14 @@
+{
+  "appSha256": "d70684448b5b8e74b4429d44c5f1cfe47d499fcbefd4b9a67bfe05b321e83683",
+  "testSha256": "36bfa7f5e40269379fd4e89a176ee353ef911f0c8c0b6ef684172ddbf08507b3",
+  "runs": [
+    {
+      "method": "ClosureBoundaryTest.approvalEveryTransactionStepRollsBackBeforePublication",
+      "runId": "1480c57b-8fcb-4dd9-867f-90c3099a1a7b",
+      "log": "focused.log",
+      "logSha256": "5f4440942603c315b020fac3d67c46d6fc8089742edcdd6d3de2c3750042b457",
+      "notBefore": 1791465219721,
+      "notAfter": 1791465234994
+    }
+  ]
+}

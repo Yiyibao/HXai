@@ -38,8 +38,10 @@ class ShareSheetTest {
         val decodedOpenAI = decoded as ProviderSetting.OpenAI
         assertEquals(originalId, decodedOpenAI.id)
         assertEquals("Test OpenAI", decodedOpenAI.name)
-        assertEquals("sk-test-key", decodedOpenAI.apiKey)
-        assertEquals("https://api.openai.com/v1", decodedOpenAI.baseUrl)
+        assertEquals("", decodedOpenAI.apiKey)
+        assertEquals("", decodedOpenAI.baseUrl)
+        assertEquals("", decodedOpenAI.chatCompletionsPath)
+        assertEquals("sk-test-key", original.apiKey)
         assertTrue(decodedOpenAI.models.isEmpty())
     }
 
@@ -63,7 +65,7 @@ class ShareSheetTest {
         val decodedGoogle = decoded as ProviderSetting.Google
         assertEquals(originalId, decodedGoogle.id)
         assertEquals("Test Google", decodedGoogle.name)
-        assertEquals("test-google-key", decodedGoogle.apiKey)
+        assertEquals("", decodedGoogle.apiKey)
         assertEquals(false, decodedGoogle.vertexAI)
     }
 
@@ -86,7 +88,7 @@ class ShareSheetTest {
         val decodedClaude = decoded as ProviderSetting.Claude
         assertEquals(originalId, decodedClaude.id)
         assertEquals("Test Claude", decodedClaude.name)
-        assertEquals("test-claude-key", decodedClaude.apiKey)
+        assertEquals("", decodedClaude.apiKey)
         assertEquals(false, decodedClaude.enabled)
     }
 

@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-08",
+  "status": "PASS_TARGETED_ACCEPTANCE",
+  "environment": "Windows host; WSL Linux POSIX runtime; AOSP API 34 emulator",
+  "real_rejection": {
+    "evidence": "real-provider-rejection.json",
+    "http_status": 400,
+    "meaning": "Remote prompt filter rejected the request before a pending tool existed",
+    "code": "prompt_blocked",
+    "historical_record": "The older status-only body cannot be recovered; cause confirmed by a new reproduction of the same approval scenario",
+    "type": "invalid_request_error"
+  },
+  "changes": [
+    "OpenAI error reader accepts wrapped ResponseBody",
+    "Fixed allowlisted rejection categories preserve status without raw text",
+    "Completed/inactive approvals do not start or replace jobs",
+    "QA uses an ordinary mathematical clarification request",
+    "Windows POSIX shell discovery and script-based quoting",
+    "Full original workspace assertions run on a Linux filesystem"
+  ],
+  "real_approval": {
+    "failures": 0,
+    "skipped": 0,
+    "cases": [
+      "WAITING_TOOL -> denial -> COMPLETED",
+      "WAITING_TOOL -> answer/approval -> COMPLETED",
+      "same and conflicting duplicate decisions preserve first decision",
+      "late decision preserves completed messages"
+    ],
+    "log": "real-prompt-filter-fix-final.log",
+    "tests": 1
+  },
+  "local_http_boundaries": {
+    "failures": 0,
+    "skipped": 0,
+    "log": "local-prompt-filter-fix-final.log",
+    "tests": 5
+  },
+  "unit_tests": {
+    "app": {
+      "failures": 0,
+      "skipped": 0,
+      "tests": 317
+    },
+    "ai": {
+      "failures": 0,
+      "skipped": 0,
+      "tests": 200
+    }
+  },
+  "workspace": {
+    "skipped": 0,
+    "failures": 0,
+    "windows_shell_tests": 4,
+    "native_windows_symlink_requirement": "Windows full Gradle suite still requires symlink privileges; test_workspace.ps1 runs the full original suite in WSL without skipping or replacing links",
+    "posix_full_tests": 20,
+    "original_assertions_unchanged": true
+  },
+  "apk_sha256": "96B5B93DEFB3A444A9C5F62F484DB0F1E07446F6C9324CB89E416CE0C04A96A8",
+  "test_apk_sha256": "7CC7319E0F71118B217F96459E6C229E8E1C699ECB8FFE7195484CD0F032F282",
+  "raw_capture": "Private capture file and temporary capture code removed; only sanitized reason retained",
+  "earlier_failures": [
+    "real-approval.log: teaching response failed before approval",
+    "acceptance-final.log: combined-run remote timeout",
+    "real-delivery-final.log: actual remote HTTP 400",
+    "http-and-stale-boundaries.log: JUnit signature error repaired",
+    "http-and-stale-boundaries-final.log: wrapped response classification failure repaired"
+  ]
+}

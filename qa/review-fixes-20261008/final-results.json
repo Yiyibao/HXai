@@ -1,0 +1,93 @@
+[
+  {
+    "name": "seed-final",
+    "passed": true,
+    "started": "2026-10-08T17:42:50.3148626+08:00",
+    "seconds": 6.2,
+    "log": "seed-final.log"
+  },
+  {
+    "name": "verify-final",
+    "passed": true,
+    "started": "2026-10-08T17:42:56.5908389+08:00",
+    "seconds": 4.7,
+    "log": "verify-final.log"
+  },
+  {
+    "name": "skills-install",
+    "passed": true,
+    "started": "2026-10-08T17:43:01.3070914+08:00",
+    "seconds": 2.9,
+    "log": "skills-install.log"
+  },
+  {
+    "name": "skills-use",
+    "passed": true,
+    "started": "2026-10-08T17:43:04.2210708+08:00",
+    "seconds": 3.5,
+    "log": "skills-use.log"
+  },
+  {
+    "name": "word-negative",
+    "passed": true,
+    "started": "2026-10-08T17:43:07.7054154+08:00",
+    "seconds": 3.0,
+    "log": "word-negative.log"
+  },
+  {
+    "name": "diagnostics",
+    "passed": true,
+    "started": "2026-10-08T17:43:10.6813592+08:00",
+    "seconds": 6.4,
+    "log": "diagnostics.log"
+  },
+  {
+    "name": "boundary",
+    "passed": true,
+    "started": "2026-10-08T17:43:17.1251814+08:00",
+    "seconds": 5.4,
+    "log": "boundary.log"
+  },
+  {
+    "name": "network",
+    "passed": true,
+    "started": "2026-10-08T17:43:22.5016604+08:00",
+    "seconds": 31.3,
+    "log": "network.log"
+  },
+  {
+    "name": "material-fidelity",
+    "passed": true,
+    "started": "2026-10-08T17:43:53.7759723+08:00",
+    "seconds": 3.6,
+    "log": "material-fidelity.log"
+  },
+  {
+    "name": "material-page",
+    "passed": true,
+    "started": "2026-10-08T17:43:57.3580257+08:00",
+    "seconds": 14.0,
+    "log": "material-page.log"
+  },
+  {
+    "name": "delivery",
+    "passed": true,
+    "started": "2026-10-08T17:44:11.3695083+08:00",
+    "seconds": 63.3,
+    "log": "delivery.log"
+  },
+  {
+    "name": "project-delivery",
+    "passed": true,
+    "started": "2026-10-08T17:45:14.6520179+08:00",
+    "seconds": 47.2,
+    "log": "project-delivery.log"
+  },
+  {
+    "name": "teaching-evidence",
+    "passed": true,
+    "started": "2026-10-08T17:46:01.8475225+08:00",
+    "seconds": 125.1,
+    "log": "teaching-evidence.log"
+  }
+]

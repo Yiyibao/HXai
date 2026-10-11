@@ -1,0 +1,53 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FlutterChatBridgeTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=3
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.FlutterChatBridgeTest:
+INSTRUMENTATION_STATUS: test=documentRoutingRequestIncludesCoverageAndHonorsUploadRestrictions
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.FlutterChatBridgeTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=3
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=documentRoutingRequestIncludesCoverageAndHonorsUploadRestrictions
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DocumentPermissionRegressionTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=3
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.DocumentPermissionRegressionTest:
+INSTRUMENTATION_STATUS: test=revokedUploadPreservesApprovedTaskOperationsWithoutResubmission
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.DocumentPermissionRegressionTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=3
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=revokedUploadPreservesApprovedTaskOperationsWithoutResubmission
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.P0DocumentBatchTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=3
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.P0DocumentBatchTest:
+INSTRUMENTATION_STATUS: test=sevenPagesPersistCoverExactlyOnceAndRevokedUploadBlocksNextBatch
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.P0DocumentBatchTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=3
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=sevenPagesPersistCoverExactlyOnceAndRevokedUploadBlocksNextBatch
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 5.468
+
+OK (3 tests)
+
+
+INSTRUMENTATION_CODE: -1

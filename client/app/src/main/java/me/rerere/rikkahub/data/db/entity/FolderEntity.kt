@@ -17,6 +17,8 @@ import androidx.room.PrimaryKey
     indices = [Index(value = ["assistant_id"])]
 )
 data class FolderEntity(
+    @ColumnInfo("profile_id", defaultValue = "'default-learner'")
+    val profileId: String = me.rerere.rikkahub.data.datastore.DEFAULT_PROFILE_ID,
     @PrimaryKey
     val id: String,
     @ColumnInfo("assistant_id")

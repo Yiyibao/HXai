@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.provider.providers.google.GoogleToolCombinationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-07T22:19:49.342Z" hostname="DESKTOP-QH4J0RS" time="0.022">
+  <properties/>
+  <testcase name="built-in and function tools enable server-side tool invocations" classname="me.rerere.ai.provider.providers.google.GoogleToolCombinationTest" time="0.007"/>
+  <testcase name="single tool category does not enable server-side tool invocations" classname="me.rerere.ai.provider.providers.google.GoogleToolCombinationTest" time="0.002"/>
+  <testcase name="server tool context and function id survive streaming and history replay" classname="me.rerere.ai.provider.providers.google.GoogleToolCombinationTest" time="0.012"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,9 @@
+{
+  "before": {
+    "Warning": 340,
+    "Hint": 3
+  },
+  "after": {
+    "Warning": 42
+  }
+}

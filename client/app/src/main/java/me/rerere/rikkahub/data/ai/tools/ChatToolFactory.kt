@@ -1,12 +1,10 @@
 package me.rerere.rikkahub.data.ai.tools
 
-import android.util.Log
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.jsonObject
 import me.rerere.ai.core.Tool
-import me.rerere.ai.provider.BuiltInTools
 import me.rerere.ai.provider.Model
 import me.rerere.rikkahub.data.ai.mcp.McpManager
+import me.rerere.rikkahub.data.ai.tools.local.LocalToolOption
 import me.rerere.rikkahub.data.ai.tools.local.LocalTools
 import me.rerere.rikkahub.data.datastore.Settings
 import me.rerere.rikkahub.data.files.SkillManager
@@ -14,13 +12,10 @@ import me.rerere.rikkahub.data.model.Assistant
 import me.rerere.rikkahub.data.repository.ConversationRepository
 import me.rerere.rikkahub.data.repository.MemoryRepository
 import me.rerere.rikkahub.data.repository.WorkspaceRepository
-import me.rerere.workspace.WorkspaceShellStatus
 
-private const val TAG = "ChatToolFactory"
-
-internal fun shouldUseExternalWebSearch(assistant: Assistant, model: Model): Boolean {
-    return assistant.enableWebSearch && BuiltInTools.Search !in model.tools
-}
+// Web search is available to every conversation; legacy flags do not gate this capability.
+@Suppress("UNUSED_PARAMETER")
+internal fun shouldUseExternalWebSearch(assistant: Assistant, model: Model): Boolean = true
 
 class InvalidMcpServerNamesException(val names: List<String>) :
     IllegalStateException("Invalid MCP server names: ${names.joinToString(", ")}")
@@ -34,76 +29,73 @@ class ChatToolFactory(
     private val mcpManager: McpManager,
     private val skillManager: SkillManager,
     private val workspaceRepository: WorkspaceRepository,
+    private val learningMemories: me.rerere.rikkahub.feature.memory.LearningMemoryStore,
+    private val materialFiles: me.rerere.rikkahub.feature.material.MaterialFiles,
+    private val providerManager: me.rerere.ai.provider.ProviderManager,
+    private val documentService: me.rerere.rikkahub.feature.material.DocumentServiceRepository? = null,
+    private val decorateTool: (Tool) -> Tool = { it },
 ) {
     suspend fun createTools(
         settings: Settings,
         assistant: Assistant,
         model: Model,
         workspaceCwd: String? = null,
+        profileId: String,
+        allowRemoteDocuments: Boolean = false,
+        sourceConversation: me.rerere.rikkahub.data.model.Conversation? = null,
     ): List<Tool> = buildList {
-        if (assistant.enableMemory) {
-            val memoryAssistantId = if (assistant.useGlobalMemory) {
-                MemoryRepository.GLOBAL_MEMORY_ID
-            } else {
-                assistant.id.toString()
-            }
-            addAll(
-                buildMemoryTools(
-                    json = json,
-                    onCreation = { content -> memoryRepository.addMemory(memoryAssistantId, content) },
-                    onUpdate = { id, content -> memoryRepository.updateContent(id, content) },
-                    onDelete = { id -> memoryRepository.deleteMemory(id) },
-                )
-            )
-        }
+        // 智能交互界面工具 - P0核心功能
+        sourceConversation?.let { source -> add(me.rerere.rikkahub.feature.interactive.surfaceRevisionTool {
+            conversationRepository.getConversationById(source.id, profileId = profileId) ?: error("会话已不存在")
+        }) }
+        add(displayImageTool())
+        addAll(createWebImageTools())
+        add(me.rerere.rikkahub.feature.interactive.interactiveUiTool())
+        add(me.rerere.rikkahub.feature.interactive.mathPlotTool(materialFiles, profileId))
+        addAll(me.rerere.rikkahub.feature.material.materialEditTools(materialFiles, profileId, documentService, allowRemoteDocuments))
+        addAll(me.rerere.rikkahub.feature.material.materialTools(materialFiles, profileId, settings, providerManager, model,
+            onImageCreated = sourceConversation?.let { source -> { artifact, prompt, imageModel ->
+                val koin = org.koin.core.context.GlobalContext.get()
+                me.rerere.rikkahub.feature.imagecreation.ImageCreation.get(koin.get<android.content.Context>(), koin.get(), materialFiles)
+                    .registerToolImage(profileId, source.id.toString(), artifact, prompt, imageModel)
+            } }))
+        documentService?.let { addAll(me.rerere.rikkahub.feature.material.documentServiceTools(it, profileId, me.rerere.ai.provider.Modality.IMAGE in model.inputModalities, allowRemote = allowRemoteDocuments)) }
+        // Legacy memory tools are disabled until memory rows carry profile ownership.
         if (shouldUseExternalWebSearch(assistant, model)) {
-            addAll(createSearchTools(settings))
+            addAll(createEnhancedSearchTools(settings))
         }
-        addAll(localTools.getTools(assistant.localTools))
-        if (assistant.enableRecentChatsReference) {
-            addAll(createConversationTools(conversationRepository, assistant.id))
+        addAll(localTools.getTools(assistant.localTools.filter {
+            it in listOf(
+                LocalToolOption.JavascriptEngine,
+                LocalToolOption.TimeInfo,
+                LocalToolOption.AskUser,
+                LocalToolOption.ChartDisplay,
+            )
+        }))
+        if (assistant.enableRecentChatsReference && learningMemories.read(profileId).suppressedSources.isEmpty()) {
+            addAll(createConversationTools(conversationRepository, assistant.id, profileId))
         }
-        addAll(createWorkspaceToolsIfReady(assistant.workspaceId?.toString(), workspaceCwd))
-        if (assistant.enabledSkills.isNotEmpty()) {
+        // Shared workspaces have no profile ownership; do not expose them to study runs.
+        val availableSkills = skillManager.listSkills()
+        // Ship mathematical visualization as a discoverable chat capability, without editing
+        // the user's assistant settings or enabling arbitrary imported skills automatically.
+        val mathBuiltin = availableSkills.firstOrNull {
+            it.name == me.rerere.rikkahub.feature.interactive.MATH_VISUAL_SKILL && it.builtin
+        }
+        val enabledSkills = assistant.enabledSkills + listOfNotNull(mathBuiltin?.name)
+        if (enabledSkills.isNotEmpty()) {
             addAll(
                 createSkillTools(
-                    enabledSkills = assistant.enabledSkills,
-                    allSkills = skillManager.listSkills(),
+                    enabledSkills = enabledSkills,
+                    allSkills = availableSkills,
+                    materials = materialFiles,
+                    profileId = profileId,
                 )
             )
         }
 
-        val mcpTools = mcpManager.getAllAvailableTools()
-        val invalidNames = mcpTools
-            .map { it.second }
-            .distinct()
-            .filter { name -> name.isEmpty() || !name.all { it in 'a'..'z' || it in 'A'..'Z' || it in '0'..'9' } }
-        if (invalidNames.isNotEmpty()) {
-            throw InvalidMcpServerNamesException(invalidNames)
-        }
-        mcpTools.forEach { (serverId, serverName, tool) ->
-            add(
-                Tool(
-                    name = "mcp__${serverName}__${tool.name}",
-                    description = tool.description ?: "",
-                    parameters = { tool.inputSchema },
-                    needsApproval = { tool.needsApproval },
-                    execute = { mcpManager.callTool(serverId, tool.name, it.jsonObject) },
-                )
-            )
-        }
-    }
+        // Shared MCP tools have no profile authorization contract yet.
 
-    private suspend fun createWorkspaceToolsIfReady(workspaceId: String?, cwd: String?): List<Tool> {
-        if (workspaceId.isNullOrBlank()) return emptyList()
-        val workspace = workspaceRepository.getById(workspaceId) ?: return emptyList()
-        if (workspace.shellStatus != WorkspaceShellStatus.READY.name) {
-            Log.d(
-                TAG,
-                "createWorkspaceToolsIfReady: skip workspace tools, workspace=$workspaceId, status=${workspace.shellStatus}"
-            )
-            return emptyList()
-        }
-        return createWorkspaceTools(workspaceId, workspaceRepository, cwd)
-    }
+    }.map(decorateTool)
+
 }

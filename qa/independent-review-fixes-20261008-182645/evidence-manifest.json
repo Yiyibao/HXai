@@ -1,0 +1,687 @@
+[
+  {
+    "path": "android-results.json",
+    "bytes": 2061,
+    "sha256": "ECC0CE33C73665AC7A1758AD9B62BE61DA5040A77BC307FFBD87F7BE03F79421"
+  },
+  {
+    "path": "build-daemon-threads.log",
+    "bytes": 295613,
+    "sha256": "8D2E5B0F6729A1B214BD97E17FBFA3E3D5F30D9CEAB07DE9AB8F901F4CC79227"
+  },
+  {
+    "path": "build-final-exit.txt",
+    "bytes": 3,
+    "sha256": "F1B2F662800122BED0FF255693DF89C4487FBDCF453D3524A42D4EC20C3D9C04"
+  },
+  {
+    "path": "build-final.log",
+    "bytes": 32807,
+    "sha256": "2D335E3440C24030456239506414480C3649829C4D48BDA551657D46398F112A"
+  },
+  {
+    "path": "build-first-exit.txt",
+    "bytes": 3,
+    "sha256": "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354"
+  },
+  {
+    "path": "build-first.log",
+    "bytes": 32086,
+    "sha256": "77CC3EC6ED287BD71F9C52E8541330656854D3DBC88EFCA34A894ECB052522F1"
+  },
+  {
+    "path": "build-test-fix-exit.txt",
+    "bytes": 3,
+    "sha256": "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354"
+  },
+  {
+    "path": "build-test-fix.log",
+    "bytes": 32230,
+    "sha256": "8A388E0B1B65C12916D45B5A7513BD7CA3394F7E7A406646DF0E2FDD52C6AA01"
+  },
+  {
+    "path": "collected/fixture-manifest.json",
+    "bytes": 1407,
+    "sha256": "83E2E8F240DD596B0E62C6CDAEC966E8F5BE6C255B95186F3F249FC007E16413"
+  },
+  {
+    "path": "collected/qa-evidence/QaEvidenceRunTest.failureEvidenceIsRetainedInSeparateMethodDirectory/62e9605e-39ba-40d3-94ed-a342e7d9d948/transcript.md",
+    "bytes": 73,
+    "sha256": "3D33DA318BF437C12D7DA18751BEFBAC75B0AC98E87042B58653BB9A01A13415"
+  },
+  {
+    "path": "collected/qa-evidence/QaEvidenceRunTest.freshSyntheticEvidence/b9e65a18-3232-40ed-97a1-b1d154392c02/transcript.md",
+    "bytes": 68,
+    "sha256": "37CC3D51BA8F8CFE0CF6FE81BC30B6D68AC92E68C27C27855FBC282272F4DDA5"
+  },
+  {
+    "path": "collector-before.py",
+    "bytes": 1961,
+    "sha256": "4A0DC77C5777248021646F7CE88172B4CA401BF6A3B0114951A477A975E75C92"
+  },
+  {
+    "path": "collector-device-first-exit.txt",
+    "bytes": 3,
+    "sha256": "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354"
+  },
+  {
+    "path": "collector-device-first.log",
+    "bytes": 50,
+    "sha256": "EE65CD1DE9C77A548D2BDBB073C41914D2DC7CBB61C84AD8E423C1DFE87FB9A4"
+  },
+  {
+    "path": "collector-device-repeat-exit.txt",
+    "bytes": 3,
+    "sha256": "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354"
+  },
+  {
+    "path": "collector-device-repeat.log",
+    "bytes": 50,
+    "sha256": "EE65CD1DE9C77A548D2BDBB073C41914D2DC7CBB61C84AD8E423C1DFE87FB9A4"
+  },
+  {
+    "path": "collector-tests-final.log",
+    "bytes": 1043,
+    "sha256": "488E6BF38CD90A6E5D813E8D0562F60498BECFE596DEC80734BFDF260EC38AB1"
+  },
+  {
+    "path": "collector-tests-first.log",
+    "bytes": 1043,
+    "sha256": "7646ADF934F1A419667D10D421FDB2C1959DF8ED3E4045A677D5157B1D4F758F"
+  },
+  {
+    "path": "diagnostics.log",
+    "bytes": 4966,
+    "sha256": "B8C2957EC491497089B8DBF5DD3775EEB508D816DB441D28F8C1854E240FD125"
+  },
+  {
+    "path": "evidence-failed-status.log",
+    "bytes": 1384,
+    "sha256": "D2C5920D2925ECE411A36FF980AA25CCBE8403E6AFD83CACCCA159633DD20DF6"
+  },
+  {
+    "path": "evidence-fresh.log",
+    "bytes": 1270,
+    "sha256": "D8E9FFA080135916E6FA71FA6D2CC521CEF6B10ECBC4003A57C0382FE842550A"
+  },
+  {
+    "path": "final-apk-hashes.json",
+    "bytes": 869,
+    "sha256": "BF8243A6CDF0EE3FE2F7BF22EBBDD00AD7F9C00BF210AA7376B7A691509E95E3"
+  },
+  {
+    "path": "final-inputs.json",
+    "bytes": 3685,
+    "sha256": "008BC6422C3557FB63B4C436B6570A39B59F070AB089213FE67219F9F33F0B7B"
+  },
+  {
+    "path": "fixture-id.txt",
+    "bytes": 38,
+    "sha256": "4AC0874B197655673B09F59AEEF6B700CA137DD32DC8A9792E513A48618EB778"
+  },
+  {
+    "path": "inputs.json",
+    "bytes": 669,
+    "sha256": "51074F0B5B04FEB8703C5A8BB54EFD3ED43555C47919CD571BB3B0BD1A2AF46E"
+  },
+  {
+    "path": "install-app.log",
+    "bytes": 38,
+    "sha256": "C4AA470ACAFCF8576C15B0F0B5AE7E852D1EC5413372D0E6A9272E788E1306D3"
+  },
+  {
+    "path": "install-test.log",
+    "bytes": 38,
+    "sha256": "C4AA470ACAFCF8576C15B0F0B5AE7E852D1EC5413372D0E6A9272E788E1306D3"
+  },
+  {
+    "path": "intermediate-apk-hashes.json",
+    "bytes": 869,
+    "sha256": "87AF2D0EDD07569C9F1B4BC424819CC2A6B7D343CF268E88101A6D1D528541C1"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.ai.mcp.McpConnectionKeyTest.xml",
+    "bytes": 813,
+    "sha256": "97A6872F5AD846EFC0E43C3E088F94F1C1169EFCA5F341553FA27B27A11119D0"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.ai.mcp.McpToolSchemaTest.xml",
+    "bytes": 1225,
+    "sha256": "005F9269210D968DA290DD70849CEA0F28F3A4FA692BC543701F4596454ECD6F"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.ai.tools.local.JavascriptToolTest.xml",
+    "bytes": 1074,
+    "sha256": "A63AF4DCA3F36E5610F46637140887B794209739DCED88422266921DB5DFAAEC"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.ai.tools.SearchToolsTest.xml",
+    "bytes": 5581,
+    "sha256": "C33F0D898032F0309B6C3FF7ECA84EB951A19C6F3310960A0CE67FBB4CB9ED4C"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.ai.tools.SkillsToolsTest.xml",
+    "bytes": 649,
+    "sha256": "71CA70E51CCD88A832723A1640DAEA92916A7F474C17DD414A0F9D152A7D8731"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.ai.tools.TextReplacersTest.xml",
+    "bytes": 2429,
+    "sha256": "0C8BCE229453BD5F19AFBE0691D60D394E8E77B09866C7F91E5E930A87D34D21"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest.xml",
+    "bytes": 7512,
+    "sha256": "5C1E638C76E70F2BC27035872321F8B4D9EFD2C7D6435D75356A637E8A243C1E"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.ai.transformers.ThinkTagTransformerTest.xml",
+    "bytes": 1501,
+    "sha256": "59D8326DF22D772AAD1E85FAA4AAD7F4BEEC0C4A8C422218A57297CFDCA547E8"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest.xml",
+    "bytes": 2023,
+    "sha256": "7633159ADD5AFFF6074F6A310E846BFBBCA18C5386E7A0E4C8B43ECA25EFE866"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.datastore.DefaultProvidersTest.xml",
+    "bytes": 533,
+    "sha256": "70F65A9717A3F49C471D401C8DC18948E0B16F393AF518C610EF513649CBEA4D"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.datastore.FindProviderTest.xml",
+    "bytes": 682,
+    "sha256": "5FD8FD13D1AD318CA30D087B679888E5556C61D431047A011D7E82217A15129B"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.files.BuiltinSkillsTest.xml",
+    "bytes": 620,
+    "sha256": "DA9ED6900B9D8E9B81DD1375D9D9E5F17E1BCA31A6E53366FEAE5AFF86DFE9AD"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.files.SkillImportLimitsTest.xml",
+    "bytes": 1114,
+    "sha256": "3EFDCFB8671C817792F2C46CF1065BFCDF9F47B5C765BD87D631B029C6D0AA47"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.files.SkillPathsTest.xml",
+    "bytes": 1013,
+    "sha256": "654AF9BDA844B84682EACD75481A20FBEB0F6659C970C8454806DC06725BFC94"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.network.ProxyConfigTest.xml",
+    "bytes": 965,
+    "sha256": "FF45FFF8C38B3899A6061A2309C754129D5727A3A7F7E3A5AD7125A8A4C8049C"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.sync.BackupIntegrityTest.xml",
+    "bytes": 630,
+    "sha256": "2CEE83548E6573CDE08075F84DA03BAC2A983F488C3BE18D9E1FFF85BC50CACD"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.sync.BackupPathsTest.xml",
+    "bytes": 625,
+    "sha256": "5354FB202A485DD6CACBD240C05E329B62E0076F29FD87BCD68D3B01F0A961B7"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.sync.EncryptedBackupTest.xml",
+    "bytes": 1196,
+    "sha256": "C567127B1A58F4290652A2540B538063CFDFCE0FF308AA7D86CB1036E2145ED0"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.sync.importer.ChatboxImporterTest.xml",
+    "bytes": 513,
+    "sha256": "ADF34B764A9C2DC461E9B590564C3385BFFA91B242D11BE7D85D240BB61D87A1"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.sync.MemoryRestoreTest.xml",
+    "bytes": 777,
+    "sha256": "697013E3795FA7F7E95B9F55B4B5F57BB6216467F4A27E4C7AD28F679BE76C54"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.data.sync.PendingRestoreTest.xml",
+    "bytes": 1961,
+    "sha256": "FFA6E3283629604401155EF10DD39CD38B55A258D2537679F993BB98BA35E684"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.ExampleUnitTest.xml",
+    "bytes": 432,
+    "sha256": "674231433117D99954B2B731F0FBBB2A9011F35D56B644E220BCF68B15B56B00"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.feature.material.DocumentContractTest.xml",
+    "bytes": 937,
+    "sha256": "FB4CCAA2FD1ADE583B373CEBAD152C22119449CD2E6BA60B58E76D438A452761"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.feature.memory.LearningLoopTest.xml",
+    "bytes": 784,
+    "sha256": "7D9FFBFD0627222CB225A843096DD461A6C048240F14FF023D0130F6DC9569A0"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.feature.memory.MemoryContractTest.xml",
+    "bytes": 5010,
+    "sha256": "3F518A432DA94CDDD76E8258EAD7518574E375FD8130C066BDBE5FA524CB831A"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.feature.studychat.StudyChatContractTest.xml",
+    "bytes": 1801,
+    "sha256": "6B9636C538A6ED52C9D47B8CA007B25AEC34EA5DEA08E7543FD2FAC9854F186A"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.service.ChatServiceTest.xml",
+    "bytes": 1570,
+    "sha256": "681B75DC024040EF7991DCF9BF412ED23CB9306E499FE0AAFB86C8CF087871C9"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.service.ConversationCommitTest.xml",
+    "bytes": 1154,
+    "sha256": "FEBDB7CBE9AA29EE3278BD7122084F0F85562266E658048A0C80166DBC8F6A0A"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.service.ConversationSessionManagerTest.xml",
+    "bytes": 1391,
+    "sha256": "79B9D84BC799EC086292708B2996BEE955B9125370909597B8E385EAE4E76FD2"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.service.ConversationSessionTest.xml",
+    "bytes": 3951,
+    "sha256": "9A90FF328F29C7F30CD4C9CB2AECC2D07DFF831EC045C9CEB82BA599FB7FD2DF"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.service.GenerationRecoveryTest.xml",
+    "bytes": 1509,
+    "sha256": "B1F68B0BB8047F85546E4178C1F4E5984F9C34C599DB4BC5894BD6F9C411787C"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.service.LearnerProfileCompatibilityTest.xml",
+    "bytes": 530,
+    "sha256": "F386C3153C87F3C21ECFEF7AB6AF443AB17802CFA3812A06CA297A84A4CE22C8"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.service.MessageQueueTest.xml",
+    "bytes": 2290,
+    "sha256": "48F07EF5DDA8440D244004AC5FF1EFC9E0990EEE4A72018F8982D308FCD3CFC7"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.service.QueuedAttachmentCleanupTest.xml",
+    "bytes": 1513,
+    "sha256": "0A9041C213CFC76890B7AB7D721EA954A79EDE8952187C4A72CFC0DBC5B6B8FA"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.service.SettingsCredentialExportTest.xml",
+    "bytes": 665,
+    "sha256": "FEE55C0B86A9739CDB10B42C95152FB067E754FFE2546E2E7BD9BBE43F9E1344"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.ShareSheetTest.xml",
+    "bytes": 1354,
+    "sha256": "50F1DF9E6372D1A09CF63479C9A4AFA0971607DEAE176FEAB39E2394D1119412"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.ui.components.webview.WebViewContentCacheTest.xml",
+    "bytes": 819,
+    "sha256": "EB70B49427D283200420560A60A569E6F6C79138F68B273903E6AF333C166988"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest.xml",
+    "bytes": 2176,
+    "sha256": "841E1725F61E8871E6E015703E8EE1A07D92CA89641A8ABC2C6FE769FE980AED"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.ui.pages.setting.components.ProviderConfigureConvertToTest.xml",
+    "bytes": 1538,
+    "sha256": "7705670E39F74DD843746B2A68DE1E6D54D43F0C58A2363EA79990A375C31B59"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.utils.ChatUtilTest.xml",
+    "bytes": 586,
+    "sha256": "0D8AFDDDC994F9B491B5E637AE76B4CD2C3174C04EA7EE4972F341279F48692F"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.utils.DiffUtilsTest.xml",
+    "bytes": 1095,
+    "sha256": "8CCCFB6593B5065532D4343BEF51046C6770C8879519BC6EC9AAA31AC887A1CE"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.utils.StringUtilsTest.xml",
+    "bytes": 2598,
+    "sha256": "1B12F0A4F8855646AB1BA257CC6739C8F03AA1022EAEF6F8BABBF2FC1EA33954"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.rikkahub.utils.VersionTest.xml",
+    "bytes": 1622,
+    "sha256": "CBC30ACB713CC21BAEDA96146BFF4212CC58B848485EBD211536A677282487AF"
+  },
+  {
+    "path": "jvm-final/TEST-me.rerere.tts.provider.TTSPrivacyTest.xml",
+    "bytes": 473,
+    "sha256": "7D47BC5D3980ECBF015C000204A6FCE216321113B8D16B9A4F7C1BEB0E29C926"
+  },
+  {
+    "path": "jvm-first-summary.json",
+    "bytes": 71,
+    "sha256": "94094BB34B17C7024FFCFBFB997CFECB65E095C4F11C37E3B846741B6202DDC4"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.ai.mcp.McpConnectionKeyTest.xml",
+    "bytes": 813,
+    "sha256": "308497371FDD392CF9B377F30312BE26B28B411AB7766AE850B9B205C1193AC8"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.ai.mcp.McpToolSchemaTest.xml",
+    "bytes": 1227,
+    "sha256": "B2F435CD1E36B916FC4A9FD508DFF75C1140C1975C3F117458B80D3999B30484"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.ai.tools.local.JavascriptToolTest.xml",
+    "bytes": 1074,
+    "sha256": "74FB944D8A8DD51B6E13C4AF5CD38C6CA3B30DEBC270F0A898DF4C70D5491E28"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.ai.tools.SearchToolsTest.xml",
+    "bytes": 5581,
+    "sha256": "ADFF482BE0A7A93371C20F71DE1B21139FA6205BE350E4A0097C9A6BF2D2F6BB"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.ai.tools.SkillsToolsTest.xml",
+    "bytes": 648,
+    "sha256": "745893A6BA77FF24539F5975509CC602E79721E141ADF56F2DE952C6B316DF01"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.ai.tools.TextReplacersTest.xml",
+    "bytes": 2425,
+    "sha256": "480310330E037105E6E6D6699E75EDF76D3FDDED94A30D650F92213F927C8E74"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.ai.transformers.PromptInjectionTransformerTest.xml",
+    "bytes": 7515,
+    "sha256": "874C3D5DD2902B552CC55382DEC0DBF81EC10A2B4FE6818F7D396F8666D592F5"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.ai.transformers.ThinkTagTransformerTest.xml",
+    "bytes": 1504,
+    "sha256": "E4754B0DE5D0A96D8923087195917F696DDEEDAA051738811117EEA43B34B6CE"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest.xml",
+    "bytes": 2026,
+    "sha256": "D5CA743829106B24689D3931D0A52226D388E0C47E3E2431ABDA593BC7275B2F"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.datastore.DefaultProvidersTest.xml",
+    "bytes": 529,
+    "sha256": "D9608C418B3224EA062CC4A69B05F80527CE45D42124A1C9065F5FA757E5444B"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.datastore.FindProviderTest.xml",
+    "bytes": 682,
+    "sha256": "31570F18C898C3B3D34BEB14F6DDDFB2A94C6D03F0DDE9FCA5AF1A8815BD6460"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.files.BuiltinSkillsTest.xml",
+    "bytes": 619,
+    "sha256": "910E6D0FA6F00EAF74497B9AD1C3C2F7924E66160F981B9D50E5D2279B62483D"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.files.SkillImportLimitsTest.xml",
+    "bytes": 1114,
+    "sha256": "3AC0261AA3EDC4CCE958A2355CD2F71686F972E1B4E641DAD9FB7EAA251BC476"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.files.SkillPathsTest.xml",
+    "bytes": 1013,
+    "sha256": "5539BD9DA43465AA431C9858E502A9E8F520C61DB96758FD143114451E6C9735"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.network.ProxyConfigTest.xml",
+    "bytes": 967,
+    "sha256": "83E5BACEC305D7F3767C3179DBEC3FD3057F736DD4E7F0CC713DC7EA50B045E8"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.sync.BackupIntegrityTest.xml",
+    "bytes": 629,
+    "sha256": "50C0D1F9AF4762C64A2F6285E5CBBFADADB6A00C44E596C45A2C6064437DE0DD"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.sync.BackupPathsTest.xml",
+    "bytes": 623,
+    "sha256": "E3CF85FB6C8BDAF6BB17F10ABAEE47823D8E88520C1625F15F188DE70BF7FE17"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.sync.EncryptedBackupTest.xml",
+    "bytes": 1196,
+    "sha256": "16778358F834929D50F654749AA81F03B37D8D049C3D9919B356034BAAC39308"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.sync.importer.ChatboxImporterTest.xml",
+    "bytes": 515,
+    "sha256": "74D840F6E45AA54E8835103E30DD8E959A9AB9210B1E13CE05FDFA7061834C25"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.sync.MemoryRestoreTest.xml",
+    "bytes": 775,
+    "sha256": "299E2BA8E31B266DBA13122398E38E9914D3E78DDA2BF5FF1EFBC7B646A6090C"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.data.sync.PendingRestoreTest.xml",
+    "bytes": 1960,
+    "sha256": "72A291A9E2F14B7FC05D26BA7F6DBCC13E5F723169C3A84E35A15A79B418E190"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.ExampleUnitTest.xml",
+    "bytes": 432,
+    "sha256": "56C960C4D1FF5158F7CCF2ABF538C4E059493492E4191E9145D627E6885E9CEA"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.feature.material.DocumentContractTest.xml",
+    "bytes": 935,
+    "sha256": "117B48C3C3136645B9B200BD65948BAB9AB0CC133F270DE75AE9E982D8786326"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.feature.memory.LearningLoopTest.xml",
+    "bytes": 784,
+    "sha256": "A412BFCB60152CCE020BD70BD782C11AE695EE0E2CA1CC460998D58EB1FAF08E"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.feature.memory.MemoryContractTest.xml",
+    "bytes": 4991,
+    "sha256": "74507BBC5E47B791168429692C812EA25B9FAFF72D030BDE6442BE3FB91E7947"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.feature.studychat.StudyChatContractTest.xml",
+    "bytes": 1798,
+    "sha256": "DEFCCDD51AB41F4422522EBC8AA23419215DA441BBAA49968BFE99FA2B38D5B7"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.service.ChatServiceTest.xml",
+    "bytes": 1572,
+    "sha256": "CF5336776CCA6D3345472FF6E1A8BD16013D64B89497E2CC1656F838880EFF93"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.service.ConversationCommitTest.xml",
+    "bytes": 1153,
+    "sha256": "CFA8B45D83C660007700B12C41350E77122AFBEA4751803962E62B4F9FF1A743"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.service.ConversationSessionManagerTest.xml",
+    "bytes": 1389,
+    "sha256": "C56D0661A54ECAA7A04F5BC3B296EF0CD9B7068D5E66AB4F3F5991DB34CC5A28"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.service.ConversationSessionTest.xml",
+    "bytes": 3952,
+    "sha256": "123BA6DE2EDEE7D8102C72D1B2BCDE840A1FE6FACB11D63B9F16B868B93C5E5C"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.service.GenerationRecoveryTest.xml",
+    "bytes": 1509,
+    "sha256": "4A3E83012C4558D593CF951032C7A2C276EF21111974D005DE068E7491B6CAC2"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.service.LearnerProfileCompatibilityTest.xml",
+    "bytes": 530,
+    "sha256": "29065631457C408CB4106F2608463FD80E013111DF2F8895D7DC0DE5D4B1005E"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.service.MessageQueueTest.xml",
+    "bytes": 2287,
+    "sha256": "9D955B58596DA91F3BAD8F397CE85F70B8F77EC4086E9988D0767082651AEAC3"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.service.QueuedAttachmentCleanupTest.xml",
+    "bytes": 1511,
+    "sha256": "E4570B0EA82ED4FD516EFE88FC8EEC08A7BFAE28505E916F184711950EBFEDFC"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.service.SettingsCredentialExportTest.xml",
+    "bytes": 665,
+    "sha256": "2BBE2AA3667717CBFF1983FDACF46E36B1B1F618F9165F48176D8525129491A8"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.ShareSheetTest.xml",
+    "bytes": 1354,
+    "sha256": "F22115E3BD02B309A76A68082048EB106531BD9C70EFEAC8F3E79AB6D3FC4621"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.ui.components.webview.WebViewContentCacheTest.xml",
+    "bytes": 818,
+    "sha256": "CDCFD6CC6D15F93231DFFF86C09DF61C28A6BF7FCCD1AE5228236BED68293D9E"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.ui.pages.chat.VoiceSessionControllerTest.xml",
+    "bytes": 2175,
+    "sha256": "3625C6220C41119B0B15033AA0B0C5AD6D0C3EAD8F8FD8C55D47DCB8E21DBDCD"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.ui.pages.setting.components.ProviderConfigureConvertToTest.xml",
+    "bytes": 1538,
+    "sha256": "2298AFBDE1792643432475050B77F43B2C0A37CB393FE5F256466FE3F78CF577"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.utils.ChatUtilTest.xml",
+    "bytes": 586,
+    "sha256": "C495CDDAEEB1204A1A23E74BD43D380F52B056438F73A20A5F80BE59E7C85CBC"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.utils.DiffUtilsTest.xml",
+    "bytes": 1095,
+    "sha256": "67FF8783E829173CEB2ADC4926B182BED80CC5641B9A6FF7427CEF6A0F9840DF"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.utils.StringUtilsTest.xml",
+    "bytes": 2594,
+    "sha256": "829D7EBB868BFEDE0F64634D02EAD2F95A62A84EB42474C34BA56B4275E35D92"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.rikkahub.utils.VersionTest.xml",
+    "bytes": 1620,
+    "sha256": "09AAA696827715B5E9DBE8F66BF9292EB2D96449C58CF072DA94EEF40CCAA1DC"
+  },
+  {
+    "path": "jvm-first/TEST-me.rerere.tts.provider.TTSPrivacyTest.xml",
+    "bytes": 473,
+    "sha256": "6F34B2AAAE27994E006033CE8504032233AA39BF2162EC39DA2CF5C22FF6E2CB"
+  },
+  {
+    "path": "lint.xml",
+    "bytes": 46980,
+    "sha256": "7135750C108DB38AA680B3EE688F1C77F9F311FC40FF3B303F78ECCA85C0CB8F"
+  },
+  {
+    "path": "original-64mb-probe-exit.txt",
+    "bytes": 3,
+    "sha256": "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354"
+  },
+  {
+    "path": "original-64mb-probe.log",
+    "bytes": 12966,
+    "sha256": "7258C677E574CA82E70480824570477A24A31B38F418AC5FE67698B28D9265A1"
+  },
+  {
+    "path": "post-probe-apk-hashes.json",
+    "bytes": 869,
+    "sha256": "BF8243A6CDF0EE3FE2F7BF22EBBDD00AD7F9C00BF210AA7376B7A691509E95E3"
+  },
+  {
+    "path": "probe.init.gradle",
+    "bytes": 899,
+    "sha256": "0D9A7FAF4A09339EC10082F776D912CE8989E82F4C721185C59614ADAB6F495F"
+  },
+  {
+    "path": "probes/IndependentReviewProbeTest.kt",
+    "bytes": 1884,
+    "sha256": "5391412CDB5DA106091FFFE225119436D8C2236F7184B03E1D9D9B9ED3BBDE15"
+  },
+  {
+    "path": "report.md",
+    "bytes": 6635,
+    "sha256": "23F210F94AB31D3606D3FF5CD1FCF4D13EADE23ABA9036DBE3635D4A3FA60D42"
+  },
+  {
+    "path": "run-android.ps1",
+    "bytes": 3237,
+    "sha256": "B292579234F9FBAEBDDAA7F2FC867CC3AF12D61E26F0D3593C7A93562F574A19"
+  },
+  {
+    "path": "run-context.json",
+    "bytes": 876,
+    "sha256": "D4AA9952106A1BDD86251C2194843B3B020E2D6FC4C833913C834E8EA6A731E6"
+  },
+  {
+    "path": "runtime-apk-hashes.json",
+    "bytes": 443,
+    "sha256": "3BA1D1AC1FE8955066C1A1B070B3CBA2E1401A9DBCCDD83E5CB52F33EAE26DAC"
+  },
+  {
+    "path": "seed.log",
+    "bytes": 40293,
+    "sha256": "B3DFCB98149FA0B69D8399970EE1CDBFAC050F0B1B1FEAE08A98765964206EA0"
+  },
+  {
+    "path": "skill-import-probe-xml/TEST-independent.review.IndependentReviewProbeTest.xml",
+    "bytes": 621,
+    "sha256": "E1D84E8ACAA44D079E1BBAA594424F04BB52B4C79B54AA7759179CA0A81EDE34"
+  },
+  {
+    "path": "skills-bounds.log",
+    "bytes": 1691,
+    "sha256": "84B718D79B262893F64D8C0CD748903400819317C5E54DBA1B84448E7054EB8A"
+  },
+  {
+    "path": "skills-install.log",
+    "bytes": 1065,
+    "sha256": "48170369545D52D6DE43CF7F994D216E7B26D5CD16EF3FD581E3E83925DF3A1A"
+  },
+  {
+    "path": "skills-use.log",
+    "bytes": 1146,
+    "sha256": "43B8ABD4249FB1CCEEAC59A22DAF43E79D86200957193F500469A8364D06BBA4"
+  },
+  {
+    "path": "summary.json",
+    "bytes": 1492,
+    "sha256": "7C9696C18429F1156A03E1513BF29FC4C35A816CEF84F03339E64BF75AA362A5"
+  },
+  {
+    "path": "verification-matrix.md",
+    "bytes": 2300,
+    "sha256": "D3F1F1112003585D2F14267038BD3892D205416F010E8B977008683141CD3B63"
+  },
+  {
+    "path": "verify.log",
+    "bytes": 4509,
+    "sha256": "39ED3FD4ABA0EF3209B9C936D0496C41CDC8380DDB9160FAB3DAA85E742C2A08"
+  },
+  {
+    "path": "worktree-after.txt",
+    "bytes": 20256,
+    "sha256": "1C87865F81227EB4871A974E9FB3BD8E83E99F6B721701338E0CC5BB9D9B5A35"
+  },
+  {
+    "path": "worktree-before.txt",
+    "bytes": 19874,
+    "sha256": "7B145816F878040AEED5AFD309257B2EB0B8772CD18F803148574AFE9B385B9E"
+  }
+]

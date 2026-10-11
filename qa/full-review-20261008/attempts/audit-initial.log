@@ -1,0 +1,337 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ProjectReviewAuditTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.ProjectReviewAuditTest:
+INSTRUMENTATION_STATUS: test=currentMaterialTextPreviewAndPaginationWork
+INSTRUMENTATION_STATUS_CODE: 1
+s_glBindAttribLocation: bind attrib 0 name position
+s_glBindAttribLocation: bind attrib 1 name color
+s_glBindAttribLocation: bind attrib 2 name localCoord
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ProjectReviewAuditTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Failed: assertExists.
+Reason: Expected exactly '1' node but found '2' nodes that satisfy: (isRoot)
+Nodes found:
+1) Node #1 at (l=0.0, t=0.0, r=1080.0, b=2340.0)px
+Has 1 child
+2) Node #351 at (l=0.0, t=0.0, r=805.0, b=787.0)px
+Has 1 child
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode$default(SemanticsNodeInteraction.kt:83)
+	at androidx.compose.ui.test.OutputKt.printToString(Output.kt:45)
+	at androidx.compose.ui.test.OutputKt.printToString$default(Output.kt:41)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.capture(ProjectReviewAuditTest.kt:32)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.currentMaterialTextPreviewAndPaginationWork$lambda$0(ProjectReviewAuditTest.kt:102)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest$$ExternalSyntheticLambda2.invoke(D8$$SyntheticClass:0)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture(ProjectReviewAuditTest.kt:62)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture$default(ProjectReviewAuditTest.kt:46)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.currentMaterialTextPreviewAndPaginationWork(ProjectReviewAuditTest.kt:96)
+
+INSTRUMENTATION_STATUS: stream=
+Error in currentMaterialTextPreviewAndPaginationWork(me.rerere.rikkahub.service.ProjectReviewAuditTest):
+java.lang.AssertionError: Failed: assertExists.
+Reason: Expected exactly '1' node but found '2' nodes that satisfy: (isRoot)
+Nodes found:
+1) Node #1 at (l=0.0, t=0.0, r=1080.0, b=2340.0)px
+Has 1 child
+2) Node #351 at (l=0.0, t=0.0, r=805.0, b=787.0)px
+Has 1 child
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode$default(SemanticsNodeInteraction.kt:83)
+	at androidx.compose.ui.test.OutputKt.printToString(Output.kt:45)
+	at androidx.compose.ui.test.OutputKt.printToString$default(Output.kt:41)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.capture(ProjectReviewAuditTest.kt:32)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.currentMaterialTextPreviewAndPaginationWork$lambda$0(ProjectReviewAuditTest.kt:102)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest$$ExternalSyntheticLambda2.invoke(D8$$SyntheticClass:0)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture(ProjectReviewAuditTest.kt:62)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture$default(ProjectReviewAuditTest.kt:46)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.currentMaterialTextPreviewAndPaginationWork(ProjectReviewAuditTest.kt:96)
+
+INSTRUMENTATION_STATUS: test=currentMaterialTextPreviewAndPaginationWork
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ProjectReviewAuditTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=missingArtifactDoesNotShowUnrelatedWorkedExample
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ProjectReviewAuditTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Failed: assertDoesNotExist.
+Reason: Did not expect any node but found '1' node that satisfies: (Text + InputText + EditableText contains '函数定义域与解析推导' (ignoreCase: false) as substring)
+Node found:
+Node #660 at (l=106.0, t=567.0, r=751.0, b=658.0)px
+Text = '[函数定义域与解析推导]'
+Actions = [ClearTextSubstitution, GetTextLayoutResult, SetTextSubstitution, ShowTextSubstitution]
+Has 10 siblings
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertDoesNotExist(SemanticsNodeInteraction.kt:101)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.missingArtifactDoesNotShowUnrelatedWorkedExample(ProjectReviewAuditTest.kt:85)
+
+INSTRUMENTATION_STATUS: stream=
+Error in missingArtifactDoesNotShowUnrelatedWorkedExample(me.rerere.rikkahub.service.ProjectReviewAuditTest):
+java.lang.AssertionError: Failed: assertDoesNotExist.
+Reason: Did not expect any node but found '1' node that satisfies: (Text + InputText + EditableText contains '函数定义域与解析推导' (ignoreCase: false) as substring)
+Node found:
+Node #660 at (l=106.0, t=567.0, r=751.0, b=658.0)px
+Text = '[函数定义域与解析推导]'
+Actions = [ClearTextSubstitution, GetTextLayoutResult, SetTextSubstitution, ShowTextSubstitution]
+Has 10 siblings
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertDoesNotExist(SemanticsNodeInteraction.kt:101)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.missingArtifactDoesNotShowUnrelatedWorkedExample(ProjectReviewAuditTest.kt:85)
+
+INSTRUMENTATION_STATUS: test=missingArtifactDoesNotShowUnrelatedWorkedExample
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ProjectReviewAuditTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=unrelatedTextDoesNotInventRecognizedFormula
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ProjectReviewAuditTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Failed: assertExists.
+Reason: Expected exactly '1' node but found '2' nodes that satisfy: (isRoot)
+Nodes found:
+1) Node #724 at (l=0.0, t=0.0, r=1080.0, b=2340.0)px
+Has 1 child
+2) Node #1074 at (l=0.0, t=0.0, r=1080.0, b=2340.0)px
+Has 1 child
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode$default(SemanticsNodeInteraction.kt:83)
+	at androidx.compose.ui.test.OutputKt.printToString(Output.kt:45)
+	at androidx.compose.ui.test.OutputKt.printToString$default(Output.kt:41)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.capture(ProjectReviewAuditTest.kt:32)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.unrelatedTextDoesNotInventRecognizedFormula$lambda$0(ProjectReviewAuditTest.kt:79)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest$$ExternalSyntheticLambda0.invoke(D8$$SyntheticClass:0)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture(ProjectReviewAuditTest.kt:62)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture$default(ProjectReviewAuditTest.kt:46)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.unrelatedTextDoesNotInventRecognizedFormula(ProjectReviewAuditTest.kt:74)
+
+INSTRUMENTATION_STATUS: stream=
+Error in unrelatedTextDoesNotInventRecognizedFormula(me.rerere.rikkahub.service.ProjectReviewAuditTest):
+java.lang.AssertionError: Failed: assertExists.
+Reason: Expected exactly '1' node but found '2' nodes that satisfy: (isRoot)
+Nodes found:
+1) Node #724 at (l=0.0, t=0.0, r=1080.0, b=2340.0)px
+Has 1 child
+2) Node #1074 at (l=0.0, t=0.0, r=1080.0, b=2340.0)px
+Has 1 child
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode$default(SemanticsNodeInteraction.kt:83)
+	at androidx.compose.ui.test.OutputKt.printToString(Output.kt:45)
+	at androidx.compose.ui.test.OutputKt.printToString$default(Output.kt:41)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.capture(ProjectReviewAuditTest.kt:32)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.unrelatedTextDoesNotInventRecognizedFormula$lambda$0(ProjectReviewAuditTest.kt:79)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest$$ExternalSyntheticLambda0.invoke(D8$$SyntheticClass:0)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture(ProjectReviewAuditTest.kt:62)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture$default(ProjectReviewAuditTest.kt:46)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.unrelatedTextDoesNotInventRecognizedFormula(ProjectReviewAuditTest.kt:74)
+
+INSTRUMENTATION_STATUS: test=unrelatedTextDoesNotInventRecognizedFormula
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ProjectReviewAuditTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=docxPreviewReadsDocumentInsteadOfZipBytes
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ProjectReviewAuditTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Failed: assertExists.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (Text + InputText + EditableText contains 'AUDIT_UNIQUE_REAL_CONTENT' (ignoreCase: false) as substring)
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists(SemanticsNodeInteraction.kt:125)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists$default(SemanticsNodeInteraction.kt:124)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.docxPreviewReadsDocumentInsteadOfZipBytes$lambda$0(ProjectReviewAuditTest.kt:94)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest$$ExternalSyntheticLambda5.invoke(D8$$SyntheticClass:0)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture(ProjectReviewAuditTest.kt:62)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.docxPreviewReadsDocumentInsteadOfZipBytes(ProjectReviewAuditTest.kt:87)
+
+INSTRUMENTATION_STATUS: stream=
+Error in docxPreviewReadsDocumentInsteadOfZipBytes(me.rerere.rikkahub.service.ProjectReviewAuditTest):
+java.lang.AssertionError: Failed: assertExists.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (Text + InputText + EditableText contains 'AUDIT_UNIQUE_REAL_CONTENT' (ignoreCase: false) as substring)
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists(SemanticsNodeInteraction.kt:125)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists$default(SemanticsNodeInteraction.kt:124)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.docxPreviewReadsDocumentInsteadOfZipBytes$lambda$0(ProjectReviewAuditTest.kt:94)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest$$ExternalSyntheticLambda5.invoke(D8$$SyntheticClass:0)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture(ProjectReviewAuditTest.kt:62)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.docxPreviewReadsDocumentInsteadOfZipBytes(ProjectReviewAuditTest.kt:87)
+
+INSTRUMENTATION_STATUS: test=docxPreviewReadsDocumentInsteadOfZipBytes
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ProjectReviewAuditTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=fourEntrancesAndCurrentTeachingSelectorWork
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ProjectReviewAuditTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=fourEntrancesAndCurrentTeachingSelectorWork
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ProjectReviewAuditTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=parsedMaterialRemainsVisibleWhenFiltered
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.ProjectReviewAuditTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Failed: assertExists.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (Text + InputText + EditableText contains '审查材料.md' (ignoreCase: false))
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists(SemanticsNodeInteraction.kt:125)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists$default(SemanticsNodeInteraction.kt:124)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.parsedMaterialRemainsVisibleWhenFiltered$lambda$0(ProjectReviewAuditTest.kt:72)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest$$ExternalSyntheticLambda1.invoke(D8$$SyntheticClass:0)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture(ProjectReviewAuditTest.kt:62)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture$default(ProjectReviewAuditTest.kt:46)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.parsedMaterialRemainsVisibleWhenFiltered(ProjectReviewAuditTest.kt:65)
+
+INSTRUMENTATION_STATUS: stream=
+Error in parsedMaterialRemainsVisibleWhenFiltered(me.rerere.rikkahub.service.ProjectReviewAuditTest):
+java.lang.AssertionError: Failed: assertExists.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (Text + InputText + EditableText contains '审查材料.md' (ignoreCase: false))
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists(SemanticsNodeInteraction.kt:125)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists$default(SemanticsNodeInteraction.kt:124)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.parsedMaterialRemainsVisibleWhenFiltered$lambda$0(ProjectReviewAuditTest.kt:72)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest$$ExternalSyntheticLambda1.invoke(D8$$SyntheticClass:0)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture(ProjectReviewAuditTest.kt:62)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture$default(ProjectReviewAuditTest.kt:46)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.parsedMaterialRemainsVisibleWhenFiltered(ProjectReviewAuditTest.kt:65)
+
+INSTRUMENTATION_STATUS: test=parsedMaterialRemainsVisibleWhenFiltered
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 32.25
+There were 5 failures:
+1) currentMaterialTextPreviewAndPaginationWork(me.rerere.rikkahub.service.ProjectReviewAuditTest)
+java.lang.AssertionError: Failed: assertExists.
+Reason: Expected exactly '1' node but found '2' nodes that satisfy: (isRoot)
+Nodes found:
+1) Node #1 at (l=0.0, t=0.0, r=1080.0, b=2340.0)px
+Has 1 child
+2) Node #351 at (l=0.0, t=0.0, r=805.0, b=787.0)px
+Has 1 child
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode$default(SemanticsNodeInteraction.kt:83)
+	at androidx.compose.ui.test.OutputKt.printToString(Output.kt:45)
+	at androidx.compose.ui.test.OutputKt.printToString$default(Output.kt:41)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.capture(ProjectReviewAuditTest.kt:32)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.currentMaterialTextPreviewAndPaginationWork$lambda$0(ProjectReviewAuditTest.kt:102)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest$$ExternalSyntheticLambda2.invoke(D8$$SyntheticClass:0)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture(ProjectReviewAuditTest.kt:62)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture$default(ProjectReviewAuditTest.kt:46)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.currentMaterialTextPreviewAndPaginationWork(ProjectReviewAuditTest.kt:96)
+2) missingArtifactDoesNotShowUnrelatedWorkedExample(me.rerere.rikkahub.service.ProjectReviewAuditTest)
+java.lang.AssertionError: Failed: assertDoesNotExist.
+Reason: Did not expect any node but found '1' node that satisfies: (Text + InputText + EditableText contains '函数定义域与解析推导' (ignoreCase: false) as substring)
+Node found:
+Node #660 at (l=106.0, t=567.0, r=751.0, b=658.0)px
+Text = '[函数定义域与解析推导]'
+Actions = [ClearTextSubstitution, GetTextLayoutResult, SetTextSubstitution, ShowTextSubstitution]
+Has 10 siblings
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertDoesNotExist(SemanticsNodeInteraction.kt:101)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.missingArtifactDoesNotShowUnrelatedWorkedExample(ProjectReviewAuditTest.kt:85)
+3) unrelatedTextDoesNotInventRecognizedFormula(me.rerere.rikkahub.service.ProjectReviewAuditTest)
+java.lang.AssertionError: Failed: assertExists.
+Reason: Expected exactly '1' node but found '2' nodes that satisfy: (isRoot)
+Nodes found:
+1) Node #724 at (l=0.0, t=0.0, r=1080.0, b=2340.0)px
+Has 1 child
+2) Node #1074 at (l=0.0, t=0.0, r=1080.0, b=2340.0)px
+Has 1 child
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode$default(SemanticsNodeInteraction.kt:83)
+	at androidx.compose.ui.test.OutputKt.printToString(Output.kt:45)
+	at androidx.compose.ui.test.OutputKt.printToString$default(Output.kt:41)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.capture(ProjectReviewAuditTest.kt:32)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.unrelatedTextDoesNotInventRecognizedFormula$lambda$0(ProjectReviewAuditTest.kt:79)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest$$ExternalSyntheticLambda0.invoke(D8$$SyntheticClass:0)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture(ProjectReviewAuditTest.kt:62)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture$default(ProjectReviewAuditTest.kt:46)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.unrelatedTextDoesNotInventRecognizedFormula(ProjectReviewAuditTest.kt:74)
+4) docxPreviewReadsDocumentInsteadOfZipBytes(me.rerere.rikkahub.service.ProjectReviewAuditTest)
+java.lang.AssertionError: Failed: assertExists.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (Text + InputText + EditableText contains 'AUDIT_UNIQUE_REAL_CONTENT' (ignoreCase: false) as substring)
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists(SemanticsNodeInteraction.kt:125)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists$default(SemanticsNodeInteraction.kt:124)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.docxPreviewReadsDocumentInsteadOfZipBytes$lambda$0(ProjectReviewAuditTest.kt:94)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest$$ExternalSyntheticLambda5.invoke(D8$$SyntheticClass:0)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture(ProjectReviewAuditTest.kt:62)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.docxPreviewReadsDocumentInsteadOfZipBytes(ProjectReviewAuditTest.kt:87)
+5) parsedMaterialRemainsVisibleWhenFiltered(me.rerere.rikkahub.service.ProjectReviewAuditTest)
+java.lang.AssertionError: Failed: assertExists.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (Text + InputText + EditableText contains '审查材料.md' (ignoreCase: false))
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists(SemanticsNodeInteraction.kt:125)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists$default(SemanticsNodeInteraction.kt:124)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.parsedMaterialRemainsVisibleWhenFiltered$lambda$0(ProjectReviewAuditTest.kt:72)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest$$ExternalSyntheticLambda1.invoke(D8$$SyntheticClass:0)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture(ProjectReviewAuditTest.kt:62)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.fixture$default(ProjectReviewAuditTest.kt:46)
+	at me.rerere.rikkahub.service.ProjectReviewAuditTest.parsedMaterialRemainsVisibleWhenFiltered(ProjectReviewAuditTest.kt:65)
+
+FAILURES!!!
+Tests run: 6,  Failures: 5
+
+
+INSTRUMENTATION_CODE: -1

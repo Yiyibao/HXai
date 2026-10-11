@@ -1,7 +1,7 @@
 package me.rerere.tts.provider.providers
 
 import android.content.Context
-import android.util.Log
+import me.rerere.common.util.ServicePrivacyLog as Log
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import me.rerere.tts.model.AudioChunk
@@ -50,7 +50,7 @@ class ElevenLabsTTSProvider : TTSProvider<TTSProviderSetting.ElevenLabs> {
         val response = httpClient.newCall(httpRequest).execute()
 
         if (!response.isSuccessful) {
-            val errorBody = response.body?.string()
+            val errorBody = response.body.string()
             Log.e(TAG, "generateSpeech: ${response.code} ${response.message}")
             Log.e(TAG, "generateSpeech: $errorBody")
             throw TTSProviderException(

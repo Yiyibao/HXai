@@ -1,0 +1,32 @@
+{
+  "conversation_id": "7249d329-b985-41ae-91d6-a3f0659fcfb9",
+  "source": "Synthetic Room restart fixture, inspected after force-stop and cold start",
+  "selected_messages": [
+    {
+      "id": "113663ef-3069-4456-83ac-faac5348b8bc",
+      "role": "user",
+      "generation_state": null,
+      "characters": 20,
+      "sha256": "7ba6dab72dec7c92f247cfa3a09d13283cef918437fd7b21578b755b3dbc6d00"
+    },
+    {
+      "id": "72fe1c1d-ee02-4870-ae72-4691044f17c8",
+      "role": "assistant",
+      "generation_state": "INTERRUPTED",
+      "characters": 30,
+      "sha256": "170fc672e605b9e1c8df9a32a7900fa118e5d3872ae193fb3c83f509d3ac5d48"
+    }
+  ],
+  "ui_visible": {
+    "partial_reply": true,
+    "interruption_prompt": true,
+    "retry_button": true
+  },
+  "stop_controls": 0,
+  "progress_bars": 0,
+  "screenshot": "network-recovery-20261006.png",
+  "screenshot_sha256": "933f26e9ab52271572dbe62a3a94e9492a8c421c646eaa5fb39a6c7b6f60d905",
+  "limitations": [
+    "This fixture cold start is not a process kill during a live HTTP stream"
+  ]
+}

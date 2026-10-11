@@ -102,8 +102,12 @@ data class SearchResult(
     val answer: String? = null,
     val items: List<SearchResultItem>,
     val images: List<String> = emptyList(),
+    val imageDetails: List<SearchImage> = emptyList(),
+    val imageWarning: String? = null,
     /** Local time at which this result was retrieved; not a publication date. */
     val retrievedAt: String? = null,
+    val provider: String? = null,
+    val warning: String? = null,
 ) {
     @Serializable
     data class SearchResultItem(
@@ -115,6 +119,17 @@ data class SearchResult(
         val highlights: List<String> = emptyList(),
     )
 }
+
+/** Provenance supplied by the provider, never inferred from an image CDN hostname. */
+@Serializable
+data class SearchImage(
+    val url: String,
+    val sourceUrl: String? = null,
+    val sourceTitle: String? = null,
+    val author: String? = null,
+    val publishedDate: String? = null,
+    val alt: String? = null,
+)
 
 @Serializable
 data class ScrapedResult(
@@ -370,6 +385,7 @@ enum class DoubaoSearchMode {
 
 internal suspend fun Call.await(): Response {
     return suspendCancellableCoroutine { continuation ->
+        continuation.invokeOnCancellation { cancel() }
         enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 if (continuation.isActive) {

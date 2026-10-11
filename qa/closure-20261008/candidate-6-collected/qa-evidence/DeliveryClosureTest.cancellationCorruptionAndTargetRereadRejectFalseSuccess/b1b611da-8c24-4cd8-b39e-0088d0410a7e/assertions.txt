@@ -1,0 +1,5 @@
+reread-null rejected=true sourceUnchanged=true
+reread-throw rejected=true sourceUnchanged=true
+reread-wrong-bytes rejected=true sourceUnchanged=true
+midCopyCancellation=true sourceUnchanged=true
+corruptSource rejectedBeforeWrite=true

@@ -3,7 +3,7 @@ package me.rerere.tts.provider.providers
 import android.content.Context
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
-import android.util.Log
+import me.rerere.common.util.ServicePrivacyLog as Log
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -76,6 +76,7 @@ class SystemTTSProvider : TTSProvider<TTSProviderSetting.SystemTTS> {
                         }
                     }
 
+                    @Deprecated("Required callback for legacy TextToSpeech engines")
                     override fun onError(utteranceId: String?) {
                         Log.e(TAG, "onError: TTS synthesis failed!")
                         audioFile.delete()
@@ -109,7 +110,7 @@ class SystemTTSProvider : TTSProvider<TTSProviderSetting.SystemTTS> {
         tts = TextToSpeech(context, listener)
 
         continuation.invokeOnCancellation {
-            tts?.shutdown()
+            tts.shutdown()
         }
     }
 

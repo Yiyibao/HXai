@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.sync.BackupIntegrityTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-08T05:30:06.686Z" hostname="DESKTOP-QH4J0RS" time="0.207">
+  <properties/>
+  <testcase name="verifiesManifestAndRejectsHashSizeAndTraversal" classname="me.rerere.rikkahub.data.sync.BackupIntegrityTest" time="0.191"/>
+  <testcase name="missingManifestNeverAcceptsLegacyPlainArchive" classname="me.rerere.rikkahub.data.sync.BackupIntegrityTest" time="0.016"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

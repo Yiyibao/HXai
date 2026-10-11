@@ -1,0 +1,102 @@
+[
+  {
+    "apk": "app-arm64-v8a-debug.apk",
+    "apk_sha256": "bab3ea4a1094d5ab8a642f7088b40b49915a19479bd3081b70893baeb91a90a1",
+    "entry": "lib/arm64-v8a/libtermux.so",
+    "sha256": "ccc1de53c81c6e97630652f72860de2e9c82ff3a8e68b279c6aa63b31ffa3321",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 266528,
+        "vaddr": 282912,
+        "align": 16384
+      },
+      {
+        "offset": 283264,
+        "vaddr": 316032,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "f6ab10e8b4da771bb1d708144dfae3c8c37daf4edada062f4de96e9f720e1275",
+    "entry": "lib/arm64-v8a/libtermux.so",
+    "sha256": "ccc1de53c81c6e97630652f72860de2e9c82ff3a8e68b279c6aa63b31ffa3321",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 266528,
+        "vaddr": 282912,
+        "align": 16384
+      },
+      {
+        "offset": 283264,
+        "vaddr": 316032,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-universal-debug.apk",
+    "apk_sha256": "f6ab10e8b4da771bb1d708144dfae3c8c37daf4edada062f4de96e9f720e1275",
+    "entry": "lib/x86_64/libtermux.so",
+    "sha256": "1aa432f210f448e5f0b335b8211d02afb372df5ae4d575046ae15853ebefffa2",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 262320,
+        "vaddr": 278704,
+        "align": 16384
+      },
+      {
+        "offset": 278888,
+        "vaddr": 311656,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  },
+  {
+    "apk": "app-x86_64-debug.apk",
+    "apk_sha256": "157074dbdbddda62d74d762f674986978fe4fd04ca39bbe6de74c340f443f339",
+    "entry": "lib/x86_64/libtermux.so",
+    "sha256": "1aa432f210f448e5f0b335b8211d02afb372df5ae4d575046ae15853ebefffa2",
+    "compressed": true,
+    "load_segments": [
+      {
+        "offset": 0,
+        "vaddr": 0,
+        "align": 16384
+      },
+      {
+        "offset": 262320,
+        "vaddr": 278704,
+        "align": 16384
+      },
+      {
+        "offset": 278888,
+        "vaddr": 311656,
+        "align": 16384
+      }
+    ],
+    "elf_16kb_compatible": true
+  }
+]

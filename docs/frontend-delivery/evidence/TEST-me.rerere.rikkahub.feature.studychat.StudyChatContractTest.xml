@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.studychat.StudyChatContractTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-07T16:24:03.869Z" hostname="DESKTOP-QH4J0RS" time="0.078">
+  <properties/>
+  <testcase name="testOneShotFeedbackDeduplication" classname="me.rerere.rikkahub.feature.studychat.StudyChatContractTest" time="0.015"/>
+  <testcase name="cancelledModelSelectionPropagatesCancellation" classname="me.rerere.rikkahub.feature.studychat.StudyChatContractTest" time="0.035"/>
+  <testcase name="feedbackSurvivesLedgerRecreation" classname="me.rerere.rikkahub.feature.studychat.StudyChatContractTest" time="0.001"/>
+  <testcase name="testModelIdentityGroupedByProvider" classname="me.rerere.rikkahub.feature.studychat.StudyChatContractTest" time="0.008"/>
+  <testcase name="testOneShotFeedbackProfileIsolation" classname="me.rerere.rikkahub.feature.studychat.StudyChatContractTest" time="0.0"/>
+  <testcase name="failedDurableWriteDoesNotPublishFeedback" classname="me.rerere.rikkahub.feature.studychat.StudyChatContractTest" time="0.001"/>
+  <testcase name="modelSelectionWaitsForPersistence" classname="me.rerere.rikkahub.feature.studychat.StudyChatContractTest" time="0.009"/>
+  <testcase name="testGenerationRecoveryStateNormalization" classname="me.rerere.rikkahub.feature.studychat.StudyChatContractTest" time="0.001"/>
+  <testcase name="failedModelSelectionPreservesPreviousSelection" classname="me.rerere.rikkahub.feature.studychat.StudyChatContractTest" time="0.002"/>
+  <testcase name="providerValidationRejectsInvalidAddresses" classname="me.rerere.rikkahub.feature.studychat.StudyChatContractTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.ui.UIMessageSerializationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-09T03:00:11.484Z" hostname="DESKTOP-QH4J0RS" time="0.031">
+  <properties/>
+  <testcase name="synthetic marker is not serialized" classname="me.rerere.ai.ui.UIMessageSerializationTest" time="0.031"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

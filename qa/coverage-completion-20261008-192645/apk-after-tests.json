@@ -1,0 +1,18 @@
+[
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\build\\outputs\\apk\\debug\\app-arm64-v8a-debug.apk",
+    "Hash": "A047910D108071B2562F1D0D0F10DB8E51BA97971E31E6D907D095F2863FE9F3"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\build\\outputs\\apk\\debug\\app-universal-debug.apk",
+    "Hash": "5878540B09084CEE59B8BD98F0792FC544CE343111B71A698910AEC0910BE262"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\build\\outputs\\apk\\debug\\app-x86_64-debug.apk",
+    "Hash": "A9B22B310E5ED5F91D5C97AD0988D9E7C4FA4337DFF698EFF58597E10384D8F8"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\build\\outputs\\apk\\androidTest\\debug\\app-debug-androidTest.apk",
+    "Hash": "0483C9E4A0FA0AB2AB27F719DC740D8DF40C87ADD6728AFCD8C21F15CB594EFC"
+  }
+]

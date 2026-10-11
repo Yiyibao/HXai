@@ -1,0 +1,32 @@
+{
+  "schema": 2,
+  "contextSha256": "5909feb725918a86ba98335a24e0c3271c1539c7893aa3b94b2619fcca7744c1",
+  "appSha256": "a9b22b310e5ed5f91d5c97ad0988d9e7c4fa4337dff698eff58597e10384d8f8",
+  "testSha256": "951cf1e9fa00abe7d5acda4acdaede0c4837f48d79e72d5c5ecf0482c01c594d",
+  "records": [
+    {
+      "name": "qa-evidence/IndependentPostfixProbeTest.deletedConversationMustRejectStaleSaveAfterSessionEviction/e51b5cb2-6bfd-4a2b-a703-aa85eb33ad83/result.txt",
+      "sha256": "7fca9b1cf844e9474214656d1a4ecd3497ca68ed3ffe183f20f66e32a568c594",
+      "bytes": 70,
+      "reusedSyntheticInput": false,
+      "method": "IndependentPostfixProbeTest.deletedConversationMustRejectStaleSaveAfterSessionEviction",
+      "runId": "e51b5cb2-6bfd-4a2b-a703-aa85eb33ad83",
+      "status": "FAILED",
+      "deviceMtime": 1791462577,
+      "startedAt": 1791462576993,
+      "finishedAt": 1791462577318
+    },
+    {
+      "name": "qa-evidence/IndependentPostfixProbeTest.completeServiceFactoryContinuationUsesSyntheticProviderAndFirstDecision/1040913c-b04a-44d1-89da-53f4c9fac419/continuation.txt",
+      "sha256": "847d0a042f3ce6b1070aa76f101ee2977fccad606da531e02924c76e60262ff9",
+      "bytes": 313,
+      "reusedSyntheticInput": false,
+      "method": "IndependentPostfixProbeTest.completeServiceFactoryContinuationUsesSyntheticProviderAndFirstDecision",
+      "runId": "1040913c-b04a-44d1-89da-53f4c9fac419",
+      "status": "PASS",
+      "deviceMtime": 1791462582,
+      "startedAt": 1791462581138,
+      "finishedAt": 1791462582773
+    }
+  ]
+}

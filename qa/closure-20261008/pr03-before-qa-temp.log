@@ -1,0 +1,15 @@
+test_junit_failure_cannot_be_collected_as_pass (__main__.StatusProbe.test_junit_failure_cannot_be_collected_as_pass) ... FAIL
+
+======================================================================
+FAIL: test_junit_failure_cannot_be_collected_as_pass (__main__.StatusProbe.test_junit_failure_cannot_be_collected_as_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Office\Study\code\MathStudyAgent\qa\closure-20261008\collector-status-probe.py", line 22, in test_junit_failure_cannot_be_collected_as_pass
+    self.assertNotEqual('PASS', result['records'][0]['status'], 'Actual JUnit FAILED must not be delivered as PASS')
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'PASS' == 'PASS' : Actual JUnit FAILED must not be delivered as PASS
+
+----------------------------------------------------------------------
+Ran 1 test in 0.045s
+
+FAILED (failures=1)

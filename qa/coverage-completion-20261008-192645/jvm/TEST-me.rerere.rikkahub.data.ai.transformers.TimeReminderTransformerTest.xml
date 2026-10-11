@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-08T11:38:14.503Z" hostname="DESKTOP-QH4J0RS" time="0.079">
+  <properties/>
+  <testcase name="custom interval should use strict threshold and format minutes" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.049"/>
+  <testcase name="gap less than 1 hour should not inject" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.001"/>
+  <testcase name="gap more than 1 hour should inject time reminder before second message" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.002"/>
+  <testcase name="empty messages should return empty" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.0"/>
+  <testcase name="gap in days should format correctly" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.013"/>
+  <testcase name="multiple large gaps should inject multiple reminders" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.005"/>
+  <testcase name="single message should inject current time before first user message" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.002"/>
+  <testcase name="large interval should not overflow or inject prematurely" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.002"/>
+  <testcase name="injected message should contain day of week and gap in hours" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.002"/>
+  <testcase name="gap exactly 1 hour should not inject" classname="me.rerere.rikkahub.data.ai.transformers.TimeReminderTransformerTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

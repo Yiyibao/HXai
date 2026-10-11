@@ -1,0 +1,1 @@
+Removed this run synthetic config after verifying its hash matches the repository example; original config was absent.

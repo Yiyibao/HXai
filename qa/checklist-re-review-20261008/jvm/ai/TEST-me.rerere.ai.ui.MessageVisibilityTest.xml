@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.ui.MessageVisibilityTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-08T06:42:55.854Z" hostname="DESKTOP-QH4J0RS" time="0.0">
+  <properties/>
+  <testcase name="client tool is visible UI content" classname="me.rerere.ai.ui.MessageVisibilityTest" time="0.0"/>
+  <testcase name="server tool is visible UI content" classname="me.rerere.ai.ui.MessageVisibilityTest" time="0.0"/>
+  <testcase name="blank text remains empty UI content" classname="me.rerere.ai.ui.MessageVisibilityTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

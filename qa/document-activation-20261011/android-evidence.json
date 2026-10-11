@@ -1,0 +1,16 @@
+{
+  "profileId": "default-learner",
+  "endpoint": "https://hxnf.top/documents",
+  "enabled": true,
+  "capabilitiesReady": true,
+  "officeReady": true,
+  "chatToolExecuted": "parse_material_enhanced",
+  "taskId": "6a7080fd-104b-426e-b3ba-62bf3170e69f",
+  "state": "SUCCEEDED",
+  "pages": 5,
+  "blocks": 20,
+  "downloadVerified": true,
+  "reopenedConfigVerified": true,
+  "remoteCleanupConfirmed": true,
+  "coldRestartUiConnectionPassed": true
+}

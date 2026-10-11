@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.provider.providers.google.GoogleRequestMessageTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-10-09T03:00:10.943Z" hostname="DESKTOP-QH4J0RS" time="0.03">
+  <properties/>
+  <testcase name="parallel tool calls should be in same model message" classname="me.rerere.ai.provider.providers.google.GoogleRequestMessageTest" time="0.009"/>
+  <testcase name="functionResponse should contain correct result structure" classname="me.rerere.ai.provider.providers.google.GoogleRequestMessageTest" time="0.003"/>
+  <testcase name="user message parts should be correctly formatted" classname="me.rerere.ai.provider.providers.google.GoogleRequestMessageTest" time="0.003"/>
+  <testcase name="complex multi-round scenario with interleaved content" classname="me.rerere.ai.provider.providers.google.GoogleRequestMessageTest" time="0.003"/>
+  <testcase name="multi-round tool calls should produce functionCall followed by functionResponse" classname="me.rerere.ai.provider.providers.google.GoogleRequestMessageTest" time="0.003"/>
+  <testcase name="reasoning parts should have thought flag set to true" classname="me.rerere.ai.provider.providers.google.GoogleRequestMessageTest" time="0.002"/>
+  <testcase name="functionCall in model should be followed by user message with functionResponse" classname="me.rerere.ai.provider.providers.google.GoogleRequestMessageTest" time="0.002"/>
+  <testcase name="multi-round reasoning and tools should maintain correct order" classname="me.rerere.ai.provider.providers.google.GoogleRequestMessageTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

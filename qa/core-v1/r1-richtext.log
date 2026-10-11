@@ -1,0 +1,17 @@
+Resolving dependencies...
+Downloading packages...
+  cupertino_icons 1.0.9 (2.0.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  petitparser 7.0.2 (7.1.0 available)
+  test_api 0.7.12 (0.7.14 available)
+  vector_math 2.4.0 (2.4.3 available)
+  xml 7.0.1 (7.1.0 available)
+Got dependencies!
+7 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/core_chat_rendering_test.dart
+00:00 +0: Markdown renders heading table and code as semantic widgets
+00:00 +1: Inline and display math render while fenced math stays code
+00:00 +2: Unfinished stream preserves raw expression
+00:00 +3: All tests passed!

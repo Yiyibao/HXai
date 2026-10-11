@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.service.GenerationRecoveryTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-07T16:35:59.062Z" hostname="DESKTOP-QH4J0RS" time="0.067">
+  <properties/>
+  <testcase name="restart recovery is committed before state publication" classname="me.rerere.rikkahub.service.GenerationRecoveryTest" time="0.003"/>
+  <testcase name="terminal causes distinguish stop network timeout and provider failure" classname="me.rerere.rikkahub.service.GenerationRecoveryTest" time="0.0"/>
+  <testcase name="http error code survives restart and next generation clears it" classname="me.rerere.rikkahub.service.GenerationRecoveryTest" time="0.048"/>
+  <testcase name="skipped unknown result survives restart and cannot be executed again" classname="me.rerere.rikkahub.service.GenerationRecoveryTest" time="0.005"/>
+  <testcase name="process restart recovers running checkpoint without duplicating user input" classname="me.rerere.rikkahub.service.GenerationRecoveryTest" time="0.005"/>
+  <testcase name="network terminal survives serialization and preserves partial response" classname="me.rerere.rikkahub.service.GenerationRecoveryTest" time="0.002"/>
+  <testcase name="regeneration checkpoint preserves interrupted alternative and owns failure state" classname="me.rerere.rikkahub.service.GenerationRecoveryTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

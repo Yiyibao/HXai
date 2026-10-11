@@ -1,0 +1,65 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.MaterialPaginationTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.MaterialPaginationTest:
+INSTRUMENTATION_STATUS: test=toolCanReadTailAndPreviewCanChangePages
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.MaterialPaginationTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: No node found that matches Text + InputText + EditableText contains 'TAIL_PREVIEW' (ignoreCase: false) in scrollable container
+Semantics of the node:
+Node #405 at (l=63.0, t=567.0, r=693.0, b=652.0)px
+HorizontalScrollAxisRange = 'ScrollAxisRange(value=0.0, maxValue=0.0, reverseScrolling=false)'
+IsTraversalGroup = 'true'
+Shape = 'androidx.compose.foundation.HorizontalScrollableClipShape@1be7091'
+Actions = [ScrollBy, ScrollByOffset]
+Has 2 children, 3 siblings
+Selector used: ((ScrollBy is defined).last)
+
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:242)
+	at me.rerere.rikkahub.service.MaterialPaginationTest.toolCanReadTailAndPreviewCanChangePages(MaterialPaginationTest.kt:49)
+
+INSTRUMENTATION_STATUS: stream=
+Error in toolCanReadTailAndPreviewCanChangePages(me.rerere.rikkahub.service.MaterialPaginationTest):
+java.lang.AssertionError: No node found that matches Text + InputText + EditableText contains 'TAIL_PREVIEW' (ignoreCase: false) in scrollable container
+Semantics of the node:
+Node #405 at (l=63.0, t=567.0, r=693.0, b=652.0)px
+HorizontalScrollAxisRange = 'ScrollAxisRange(value=0.0, maxValue=0.0, reverseScrolling=false)'
+IsTraversalGroup = 'true'
+Shape = 'androidx.compose.foundation.HorizontalScrollableClipShape@1be7091'
+Actions = [ScrollBy, ScrollByOffset]
+Has 2 children, 3 siblings
+Selector used: ((ScrollBy is defined).last)
+
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:242)
+	at me.rerere.rikkahub.service.MaterialPaginationTest.toolCanReadTailAndPreviewCanChangePages(MaterialPaginationTest.kt:49)
+
+INSTRUMENTATION_STATUS: test=toolCanReadTailAndPreviewCanChangePages
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 9.551
+There was 1 failure:
+1) toolCanReadTailAndPreviewCanChangePages(me.rerere.rikkahub.service.MaterialPaginationTest)
+java.lang.AssertionError: No node found that matches Text + InputText + EditableText contains 'TAIL_PREVIEW' (ignoreCase: false) in scrollable container
+Semantics of the node:
+Node #405 at (l=63.0, t=567.0, r=693.0, b=652.0)px
+HorizontalScrollAxisRange = 'ScrollAxisRange(value=0.0, maxValue=0.0, reverseScrolling=false)'
+IsTraversalGroup = 'true'
+Shape = 'androidx.compose.foundation.HorizontalScrollableClipShape@1be7091'
+Actions = [ScrollBy, ScrollByOffset]
+Has 2 children, 3 siblings
+Selector used: ((ScrollBy is defined).last)
+
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:242)
+	at me.rerere.rikkahub.service.MaterialPaginationTest.toolCanReadTailAndPreviewCanChangePages(MaterialPaginationTest.kt:49)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

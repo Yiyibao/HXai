@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.files.SkillCompatibilityTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-09T20:20:20.033Z" hostname="DESKTOP-QH4J0RS" time="0.444">
+  <properties/>
+  <testcase name="distinguishesInstructionsReferencesAssetsAndMissingRuntime" classname="me.rerere.rikkahub.data.files.SkillCompatibilityTest" time="0.444"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

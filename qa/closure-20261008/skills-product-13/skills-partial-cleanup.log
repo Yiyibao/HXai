@@ -1,0 +1,25 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.SkillClosureTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.SkillClosureTest:
+INSTRUMENTATION_STATUS: test=partialUninstallCleanupFailureRestoresEntireSkill
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: qa_evidence_manifest={"schema":1,"method":"SkillClosureTest.partialUninstallCleanupFailureRestoresEntireSkill","runId":"a94d2d9b-5775-4f9e-8555-9cc6a61f29d3","startedAt":1791466536500,"finishedAt":1791466536878,"status":"PASS","entries":[{"name":"qa-evidence\/SkillClosureTest.partialUninstallCleanupFailureRestoresEntireSkill\/a94d2d9b-5775-4f9e-8555-9cc6a61f29d3\/result.txt","sha256":"8ebd199c62aa37cbf99e8c86d01aa7f5e8cf126c100f3b6fbca3268ea92e3ee4","bytes":63,"reusedSyntheticInput":false}]}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.SkillClosureTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=partialUninstallCleanupFailureRestoresEntireSkill
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 0.597
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

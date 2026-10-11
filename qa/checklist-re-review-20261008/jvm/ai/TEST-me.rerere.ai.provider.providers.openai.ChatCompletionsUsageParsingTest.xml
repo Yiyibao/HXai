@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.provider.providers.openai.ChatCompletionsUsageParsingTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-08T06:42:55.301Z" hostname="DESKTOP-QH4J0RS" time="0.002">
+  <properties/>
+  <testcase name="cached tokens fall back across provider dialects" classname="me.rerere.ai.provider.providers.openai.ChatCompletionsUsageParsingTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

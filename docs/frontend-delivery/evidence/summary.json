@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-08",
+  "timezone": "Asia/Taipei",
+  "unit_suites": [
+    {
+      "name": "me.rerere.rikkahub.feature.studychat.StudyChatContractTest",
+      "tests": "10",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "timestamp": "2026-10-07T16:24:03.869Z"
+    },
+    {
+      "name": "me.rerere.rikkahub.feature.memory.MemoryContractTest",
+      "tests": "37",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "timestamp": "2026-10-07T16:24:03.743Z"
+    },
+    {
+      "name": "me.rerere.rikkahub.feature.material.DocumentContractTest",
+      "tests": "4",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "timestamp": "2026-10-07T16:24:03.661Z"
+    }
+  ],
+  "unit_tests": 51,
+  "runtime_normal": "3 passed",
+  "runtime_font_scale_2": "3 passed",
+  "process_feedback": "seed and verify passed across force-stop",
+  "apks": [
+    {
+      "name": "app-arm64-v8a-debug.apk",
+      "bytes": 90015229,
+      "sha256": "c80368e2325691f15c215ad2999694ba740fb5df33f7777c8c68f5898235e6f6"
+    },
+    {
+      "name": "app-universal-debug.apk",
+      "bytes": 100683995,
+      "sha256": "537125bdf6bd0dfd24479735e46a227adebea3d0d00c97f1d3214d38230beced"
+    },
+    {
+      "name": "app-x86_64-debug.apk",
+      "bytes": 90843843,
+      "sha256": "b400b810d63be63e2ca89abe958c3e86cd02344bc2cc9ec391db6e2f6f330690"
+    }
+  ]
+}

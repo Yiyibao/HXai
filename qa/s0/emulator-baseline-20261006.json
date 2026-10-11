@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-06",
+  "environment": "AOSP_EMULATOR_ONLY",
+  "system_image": "system-images;android-34;default;x86_64",
+  "emulator_version": "37.2.12.0",
+  "acceleration": "WHPX usable",
+  "api": "34",
+  "abi": "x86_64",
+  "system_build": "sdk_phone64_x86_64-userdebug 14 UE1A.230829.036.A1 11228894 test-keys",
+  "gms_package_present": false,
+  "baseline_application_id": "me.rerere.rikkahub.debug",
+  "install": "PASS",
+  "cold_launch": "PASS",
+  "force_stop_reopen": "PASS",
+  "crash_buffer_empty": true,
+  "screenshot": ".local/s0-launch.png",
+  "formula_file_network_ui": "NOT_RUN",
+  "mate50": "NOT_RUN"
+}

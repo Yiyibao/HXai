@@ -1,0 +1,79 @@
+[
+  {
+    "file": "multipage.pdf",
+    "format": "pdf",
+    "bytes": 25649,
+    "sha256": "fc5c66a944e28054012174a9904bb1bdf978ec19e4aa3b2bbc9e0c39658829b0",
+    "independent_read": "PASS"
+  },
+  {
+    "file": "real-验证docx.docx",
+    "format": "docx",
+    "bytes": 2152,
+    "sha256": "9c78d6afc34175085569430f31ba400c85aa4e55e9a89b79c7b4369d50f2e688",
+    "independent_read": "PASS"
+  },
+  {
+    "file": "real-验证md.md",
+    "format": "md",
+    "bytes": 892,
+    "sha256": "05efa9747a4f1bab5f0e7a1e1fbe400e778a2d761f1b7ee5a4f5c7aafcb99b8d",
+    "independent_read": "PASS"
+  },
+  {
+    "file": "real-验证pdf.pdf",
+    "format": "pdf",
+    "bytes": 228448,
+    "sha256": "e0ecc803ec9ac904ff9a1d0f3f25f8bc06b063fea167817ea06e0f7979dcff09",
+    "independent_read": "PASS"
+  },
+  {
+    "file": "real-验证pptx.pptx",
+    "format": "pptx",
+    "bytes": 5356,
+    "sha256": "2306fb9d0ae842ed03d314402d7b8888d81742b75d6673b3fa8f9df474342485",
+    "independent_read": "PASS"
+  },
+  {
+    "file": "real-验证xlsx.xlsx",
+    "format": "xlsx",
+    "bytes": 2671,
+    "sha256": "648d63a8a7b13e8623e41ceddaae4f4020443529779b45b5a28abeb05d5e3ae9",
+    "independent_read": "PASS"
+  },
+  {
+    "file": "sample.docx",
+    "format": "docx",
+    "bytes": 1144,
+    "sha256": "ca7936cd589565595321d6e564eed69ddcf02e010966f1180380695f9f8e1547",
+    "independent_read": "PASS"
+  },
+  {
+    "file": "sample.md",
+    "format": "md",
+    "bytes": 50,
+    "sha256": "71178a3bb49c65523f65eebe1a5b76de59c461732a08c496006714e29d4cda15",
+    "independent_read": "PASS"
+  },
+  {
+    "file": "sample.pdf",
+    "format": "pdf",
+    "bytes": 28726,
+    "sha256": "0854169a5625aa9080aaee53e14e5b7757406bd07f818286ce74f437ea302fa7",
+    "independent_read": "PASS"
+  },
+  {
+    "file": "sample.pptx",
+    "format": "pptx",
+    "bytes": 2499,
+    "sha256": "ddce10af5afd539ebbef2ac47d6351967728f4dca40596c50d5f49dc96eb9ebe",
+    "independent_read": "PASS"
+  },
+  {
+    "file": "sample.xlsx",
+    "format": "xlsx",
+    "bytes": 1648,
+    "sha256": "c786c76e3a1b3d38d3b6fb617a795b2339925266de8d79f2ea546513fa7ebeec",
+    "independent_read": "PASS"
+  }
+]

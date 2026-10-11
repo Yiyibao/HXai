@@ -1,0 +1,47 @@
+{
+  "id": "4cd5b754-173c-4865-8f11-83069ef57526",
+  "title": "[QA] real tools",
+  "messages": [
+    {
+      "id": "965975be-9314-4991-986a-1123271955a2",
+      "role": "user",
+      "state": null,
+      "characters": 75,
+      "sha256": "2dd370812a748fb7b7efcebc738b22ac943349e4daddb81f8a1c7e943b533635",
+      "tools": []
+    },
+    {
+      "id": "7bc6c8a1-2560-4f49-acae-83dfd2d2726b",
+      "role": "assistant",
+      "state": "INTERRUPTED",
+      "characters": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tools": [
+        {
+          "call_id": "call_hGx56IjOgiMQtuY5jrBpXwpQ",
+          "name": "eval_javascript",
+          "execution_state": "COMPLETED",
+          "approval": {
+            "type": "auto"
+          },
+          "output_sha256": "f05afb032b384ff99be4bdb940a1ad4932e4fc211c025abb3c6267f9c5038b51",
+          "unknown": false
+        },
+        {
+          "call_id": "call_rO2d8lAqRlBaQVumnldZ2LwM",
+          "name": "eval_javascript",
+          "execution_state": "INTERRUPTED",
+          "approval": {
+            "type": "auto"
+          },
+          "output_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "unknown": false
+        }
+      ]
+    }
+  ],
+  "queue": {
+    "paused": false,
+    "inputs": []
+  }
+}

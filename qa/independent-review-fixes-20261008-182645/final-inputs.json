@@ -1,0 +1,70 @@
+[
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\data\\files\\SkillImportLimits.kt",
+    "Hash": "9D3716EB613AA0E7EED02B6DEC24ED234597C2F4F55B9AE211652F2F904A05E2"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\data\\files\\SkillManager.kt",
+    "Hash": "8F7F6405A0599D8632B9112E05C8255F399A7632389EFD82D00B35ADE9A725A4"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\data\\ai\\tools\\SkillsTools.kt",
+    "Hash": "2E3D84658E4EE52946F20D735BF8B390A342C8D94E20007FB6D9B2A49E9BD196"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\scripts\\collect_run_evidence.py",
+    "Hash": "4261C22C94147C5125023D56C18151D110C61490EA8B56F2C1E13404D5102CBC"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\scripts\\tests\\test_collect_run_evidence.py",
+    "Hash": "077054471DC7688AC90555046FD31761E66124946B32B367C7FE0E4413D126EB"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\qa\\review-fixes-20261008\\collect.py",
+    "Hash": "424DA010549801A174EF289FEB03C875EAB329378B4AF296B0029B558A762607"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\README.md",
+    "Hash": "30B8807AA658C568024E97B951E527C685A2E985F465BF1754A506B7AE6B9698"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\docs\\acceptance-matrix.md",
+    "Hash": "F2F42EB503F4AB60FFE5C2DACC5ABDC3A0BDB4D442B88D510DFED667D126EF46"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\docs\\data-contract-v1.md",
+    "Hash": "8B1916331F8D163794DC3FC65711B16192C8B5D6A04D625B96A07F4A7D76F86F"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\test\\java\\me\\rerere\\rikkahub\\data\\files\\SkillImportLimitsTest.kt",
+    "Hash": "9730A3DADC30D324540BCF283232381800A88F7E4E207E0EF9BFBA228EDA7C13"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\StudyRealModelTest.kt",
+    "Hash": "26FD2A5F81EDF7208939D36663AECEEFE32149B9AEC1B0C44E5A9399EF4638AC"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\SkillsInstallBoundaryTest.kt",
+    "Hash": "4A7347C67A63062EFC8A839F4FF1E2FCC0C797427B65FD24D30116900A5C9573"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\QaEvidenceRun.kt",
+    "Hash": "0B9975C7425781766158845D6B2658092655728B23BC87F9DFB405D47F1A7148"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\ProjectReviewTeachingTest.kt",
+    "Hash": "A201D4B4CEECE4B952D3C687E7E8036553EE869ED1D13259B8EEF8DC84321BBA"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\MaterialRealModelTest.kt",
+    "Hash": "AD5A9AAEBFD459E2D610D3D36F1B60D54379E8B86CF9A76BE4A4860EAF78A244"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\androidTest\\java\\me\\rerere\\rikkahub\\service\\DiagnosticsTest.kt",
+    "Hash": "7E37327029E8B00310E704932CF17FAF45509003F1454634F6CDD2EA3C9D087A"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\ui\\pages\\extensions\\skills\\SkillsVM.kt",
+    "Hash": "45AB885A918234AB5F3448C255098A60635DE48FADA16495A3BFF74A5BAA00D0"
+  }
+]

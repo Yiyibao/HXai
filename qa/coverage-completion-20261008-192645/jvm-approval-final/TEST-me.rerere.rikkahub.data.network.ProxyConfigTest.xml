@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.network.ProxyConfigTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-08T11:49:57.525Z" hostname="DESKTOP-QH4J0RS" time="0.003">
+  <properties/>
+  <testcase name="defaults host and port input to http proxy" classname="me.rerere.rikkahub.data.network.ProxyConfigTest" time="0.001"/>
+  <testcase name="parses socks proxy URL" classname="me.rerere.rikkahub.data.network.ProxyConfigTest" time="0.001"/>
+  <testcase name="maps https proxy URL to http proxy type" classname="me.rerere.rikkahub.data.network.ProxyConfigTest" time="0.0"/>
+  <testcase name="rejects invalid proxy URL" classname="me.rerere.rikkahub.data.network.ProxyConfigTest" time="0.0"/>
+  <testcase name="parses http proxy URL" classname="me.rerere.rikkahub.data.network.ProxyConfigTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

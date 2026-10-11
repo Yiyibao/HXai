@@ -1,0 +1,44 @@
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.WarningReviewBoundaryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+me.rerere.rikkahub.service.WarningReviewBoundaryTest:
+INSTRUMENTATION_STATUS: test=sharedWorkspaceProviderIsNotExternallyResolvable
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=me.rerere.rikkahub.service.WarningReviewBoundaryTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Shared workspace has no learner authorization and must not be published to SAF expected null, but was:<ContentProviderInfo{name=org.mathstudy.agent.debug.documents className=me.rerere.rikkahub.data.provider.WorkspaceDocumentsProvider}>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotNull(Assert.java:756)
+	at org.junit.Assert.assertNull(Assert.java:738)
+	at me.rerere.rikkahub.service.WarningReviewBoundaryTest.sharedWorkspaceProviderIsNotExternallyResolvable(WarningReviewBoundaryTest.kt:13)
+
+INSTRUMENTATION_STATUS: stream=
+Error in sharedWorkspaceProviderIsNotExternallyResolvable(me.rerere.rikkahub.service.WarningReviewBoundaryTest):
+java.lang.AssertionError: Shared workspace has no learner authorization and must not be published to SAF expected null, but was:<ContentProviderInfo{name=org.mathstudy.agent.debug.documents className=me.rerere.rikkahub.data.provider.WorkspaceDocumentsProvider}>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotNull(Assert.java:756)
+	at org.junit.Assert.assertNull(Assert.java:738)
+	at me.rerere.rikkahub.service.WarningReviewBoundaryTest.sharedWorkspaceProviderIsNotExternallyResolvable(WarningReviewBoundaryTest.kt:13)
+
+INSTRUMENTATION_STATUS: test=sharedWorkspaceProviderIsNotExternallyResolvable
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 0.306
+There was 1 failure:
+1) sharedWorkspaceProviderIsNotExternallyResolvable(me.rerere.rikkahub.service.WarningReviewBoundaryTest)
+java.lang.AssertionError: Shared workspace has no learner authorization and must not be published to SAF expected null, but was:<ContentProviderInfo{name=org.mathstudy.agent.debug.documents className=me.rerere.rikkahub.data.provider.WorkspaceDocumentsProvider}>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotNull(Assert.java:756)
+	at org.junit.Assert.assertNull(Assert.java:738)
+	at me.rerere.rikkahub.service.WarningReviewBoundaryTest.sharedWorkspaceProviderIsNotExternallyResolvable(WarningReviewBoundaryTest.kt:13)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

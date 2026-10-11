@@ -1,0 +1,13 @@
+{
+  "client_date": "2026-10-08",
+  "timezone": "Asia/Taipei",
+  "recorded": "2026-10-08T14:44:42.9750239+08:00",
+  "head": "f603719909f342fabfcedf5c9a0cfcb9116194bd",
+  "checklist": "qa/review-synthesis-20261008/re-review-checklist.md",
+  "platform": "API34 x86_64 4096-byte pages",
+  "firebase": "repository placeholder, removed after builds",
+  "configuration": "existing authorized device model configuration; synthetic QA owners only",
+  "build_tasks": "assembleDebug assembleDebugAndroidTest lintDebug",
+  "jvm": "app ai document common oauth search speech highlight web; per-test task --rerun",
+  "web": "typecheck; react-router build (no static copy into Android resources)"
+}

@@ -1,0 +1,83 @@
+{
+  "tested_at": "2026-10-07T12:08:03.414078+08:00",
+  "timezone": "Asia/Taipei",
+  "jvm": {
+    "app": {
+      "tests": 284,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "ai": {
+      "tests": 198,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "search": {
+      "tests": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "android": {
+    "s2-android-final.log": {
+      "declared": 37,
+      "passed": 35,
+      "conditional_skips": 2
+    },
+    "s2-process-seed.log": {
+      "declared": 1,
+      "passed": 1,
+      "conditional_skips": 0
+    },
+    "s2-process-verify.log": {
+      "declared": 1,
+      "passed": 1,
+      "conditional_skips": 0
+    },
+    "s2-delivery-android.log": {
+      "declared": 7,
+      "passed": 6,
+      "conditional_skips": 1
+    },
+    "s2-delivery-real.log": {
+      "declared": 1,
+      "passed": 1,
+      "conditional_skips": 0
+    }
+  },
+  "evaluation": {
+    "cases": 30,
+    "expected_records": 20,
+    "ignore_cases": 10,
+    "tp": 20,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "statuses": {
+      "ACTIVE": 17,
+      "CANDIDATE": 3
+    },
+    "method": "Predefined synthetic labels; independent content-to-source review by Codex, not extractor self-scoring; not externally human-reviewed."
+  },
+  "apks": [
+    {
+      "file": "client/app/build/outputs/apk/debug/app-arm64-v8a-debug.apk",
+      "bytes": 90015229,
+      "sha256": "f29d295e2a25725042ab185c30d7b2e613aaef0c48bcd7633f44ccf3d087995e"
+    },
+    {
+      "file": "client/app/build/outputs/apk/debug/app-universal-debug.apk",
+      "bytes": 100683995,
+      "sha256": "33c01297e2f6e7e264998f77f7151bd052e7d863074debd3b9001b08dee7f2b0"
+    },
+    {
+      "file": "client/app/build/outputs/apk/debug/app-x86_64-debug.apk",
+      "bytes": 90843843,
+      "sha256": "5cbfbc1998185db82b8520d57455588134d57b433f1706cd033b4056935e5258"
+    }
+  ]
+}

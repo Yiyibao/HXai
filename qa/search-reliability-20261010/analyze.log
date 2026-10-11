@@ -1,0 +1,18 @@
+Analyzing enhanced_cards.dart, citations_sheet.dart, chat_page.dart, search_reliability_test.dart...
+
+   info - lib\pages\chat_page.dart:84:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\pages\chat_page.dart:89:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\pages\chat_page.dart:93:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\pages\chat_page.dart:112:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\pages\chat_page.dart:116:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\pages\chat_page.dart:529:19 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\pages\chat_page.dart:657:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\pages\chat_page.dart:676:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\pages\chat_page.dart:680:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\pages\chat_page.dart:702:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\pages\chat_page.dart:705:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\pages\chat_page.dart:909:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\pages\chat_page.dart:909:30 - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check. - use_build_context_synchronously
+   info - lib\widgets\citations_sheet.dart:320:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+
+14 issues found.

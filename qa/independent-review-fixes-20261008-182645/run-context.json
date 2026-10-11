@@ -1,0 +1,22 @@
+{
+  "appSha256": "8199a461e35a1b667b42ec98e617b6c423880b969f48a67a3b78db0e0957bb96",
+  "testSha256": "4f0e193e7c457290fd6ad9b09e6a3c91be5a7cfb602b0a22b715d1eedf3836a3",
+  "runs": [
+    {
+      "method": "QaEvidenceRunTest.freshSyntheticEvidence",
+      "runId": "b9e65a18-3232-40ed-97a1-b1d154392c02",
+      "log": "evidence-fresh.log",
+      "logSha256": "d8e9ffa080135916e6fa71fa6d2cc521cef6b10ecbc4003a57c0382fe842550a",
+      "notBefore": 1791458076057,
+      "notAfter": 1791458090193
+    },
+    {
+      "method": "QaEvidenceRunTest.failureEvidenceIsRetainedInSeparateMethodDirectory",
+      "runId": "62e9605e-39ba-40d3-94ed-a342e7d9d948",
+      "log": "evidence-failed-status.log",
+      "logSha256": "d2c5920d2925ece411a36ff980aa25ccbe8403e6afd83caccca159633dd20df6",
+      "notBefore": 1791458080220,
+      "notAfter": 1791458093980
+    }
+  ]
+}

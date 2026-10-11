@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.sync.BackupPathsTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-08T13:57:05.058Z" hostname="DESKTOP-QH4J0RS" time="0.006">
+  <properties/>
+  <testcase name="rebasesAttachmentsAndPreservesRemoteUrlsAndPlainText" classname="me.rerere.rikkahub.data.sync.BackupPathsTest" time="0.004"/>
+  <testcase name="encodedTraversalCannotEscapeTheNewInstallation" classname="me.rerere.rikkahub.data.sync.BackupPathsTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

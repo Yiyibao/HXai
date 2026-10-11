@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.sync.importer.ChatboxImporterTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-08T11:38:29.292Z" hostname="DESKTOP-QH4J0RS" time="0.061">
+  <properties/>
+  <testcase name="imports backup v2 providers resources and message forks" classname="me.rerere.rikkahub.data.sync.importer.ChatboxImporterTest" time="0.061"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

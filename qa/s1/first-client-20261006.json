@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-06",
+  "application_id": "org.mathstudy.agent.debug",
+  "version": "0.1.0-dev",
+  "build": "PASS",
+  "environment": "AOSP_API34_X86_64_EMULATOR",
+  "install": "PASS",
+  "cold_launch_ms": 4521,
+  "force_stop_reopen_ms": 4284,
+  "coexists_with_upstream_debug": true,
+  "default_assistant_name": "PASS",
+  "default_tutor_prompt_visible": "PASS",
+  "screenshot": ".local/s1-defaults.png",
+  "gms_present": false,
+  "mate50": "NOT_RUN",
+  "signed_release": "NOT_RUN",
+  "apks": [
+    {
+      "path": "client/app/build/outputs/apk/debug/app-arm64-v8a-debug.apk",
+      "bytes": 83735129,
+      "sha256": "ad842ca0e76d92ffa04e898c931619971d71249f846f456aa495038a1f2b4662",
+      "signature_verified": true
+    },
+    {
+      "path": "client/app/build/outputs/apk/debug/app-universal-debug.apk",
+      "bytes": 94403895,
+      "sha256": "daa2cf24feebcad77f3b11b69561c9ba5f8188813d7c5ad78fb477a2e4bfee42",
+      "signature_verified": true
+    },
+    {
+      "path": "client/app/build/outputs/apk/debug/app-x86_64-debug.apk",
+      "bytes": 84563743,
+      "sha256": "cd8f00b7d0b5213ab9eca2f93c6d7e8d2e01942092d2733e59c141b96060e97c",
+      "signature_verified": true
+    }
+  ]
+}

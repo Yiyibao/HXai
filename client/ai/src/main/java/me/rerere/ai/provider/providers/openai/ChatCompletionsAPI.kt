@@ -56,7 +56,7 @@ import me.rerere.ai.util.json
 import me.rerere.ai.util.mergeCustomBody
 import me.rerere.ai.util.mergeCustomHeaders
 import me.rerere.ai.util.parseErrorDetail
-import me.rerere.ai.util.stringSafe
+import me.rerere.ai.util.readModelErrorBody
 import me.rerere.common.http.await
 import me.rerere.common.http.jsonArrayOrNull
 import me.rerere.common.http.jsonObjectOrNull
@@ -99,14 +99,12 @@ class ChatCompletionsAPI(
             .configureSessionHeaders(providerSetting.baseUrl, params.sessionId)
             .build()
 
-        Log.i(TAG, "generateText: ${json.encodeToString(requestBody)}")
-
         val response = client.newCall(request).await()
         if (!response.isSuccessful) {
-            throw Exception("Failed to get response: ${response.code} ${response.body?.string()}")
+            throw me.rerere.ai.util.parseModelHttpError(response.code, response.body.readModelErrorBody())
         }
 
-        val bodyStr = response.body?.string() ?: ""
+        val bodyStr = response.body.string()
         val bodyJson = json.parseToJsonElement(bodyStr).jsonObject
 
         // 从 JsonObject 中提取必要的信息
@@ -152,21 +150,17 @@ class ChatCompletionsAPI(
             .configureSessionHeaders(providerSetting.baseUrl, params.sessionId)
             .build()
 
-        Log.i(TAG, "streamText: ${json.encodeToString(requestBody)}")
-
         // just for debugging response body
-        // println(client.newCall(request).await().body?.string())
 
         val decoder = ChatCompletionsStreamDecoder()
 
         fun sendChunks(chunks: Iterable<StreamChunk>) {
             chunks.forEach { chunk ->
-                trySend(chunk).onFailure { e ->
-                    Log.w(TAG, "onEvent: chunk dropped (${e?.message})")
-                }
+                trySend(chunk).onFailure { Log.w(TAG, "Stream chunk dropped") }
             }
         }
 
+        var streamCompleted = false
         val listener = object : EventSourceListener() {
             override fun onEvent(
                 eventSource: EventSource,
@@ -174,11 +168,13 @@ class ChatCompletionsAPI(
                 type: String?,
                 data: String
             ) {
-                Log.d(TAG, "onEvent: $data")
                 try {
                     val result = decoder.accept(SseEvent(id = id, event = type, data = data))
                     sendChunks(result.chunks)
-                    if (result.completed) close()
+                    if (result.completed) {
+                        streamCompleted = true
+                        close()
+                    }
                 } catch (e: Throwable) {
                     close(e)
                 }
@@ -187,36 +183,32 @@ class ChatCompletionsAPI(
             override fun onFailure(eventSource: EventSource, t: Throwable?, response: Response?) {
                 var exception = t
 
-                t?.printStackTrace()
-                println("[onFailure] 发生错误: ${t?.javaClass?.name} ${t?.message} / $response")
-
-                val bodyRaw = response?.body?.stringSafe()
+                val bodyRaw = response?.body?.readModelErrorBody()
                 try {
                     if (!bodyRaw.isNullOrBlank()) {
                         val bodyElement = Json.parseToJsonElement(bodyRaw)
-                        println(bodyElement)
                         exception = bodyElement.parseErrorDetail()
-                        Log.i(TAG, "onFailure: $exception")
                     }
                 } catch (e: Throwable) {
-                    Log.w(TAG, "onFailure: failed to parse from $bodyRaw")
-                    e.printStackTrace()
                     exception = e
                 } finally {
-                    close(exception)
+                    // HTTP status remains an interface failure even when its body is empty
+                    // or malformed; it must not enter the network retry path.
+                    close(if (response != null && !response.isSuccessful) {
+                        me.rerere.ai.util.parseModelHttpError(response.code, bodyRaw)
+                    } else exception ?: java.io.IOException("Stream connection failed"))
                 }
             }
 
             override fun onClosed(eventSource: EventSource) {
                 sendChunks(decoder.onClosed())
-                close()
+                close(if (streamCompleted) null else java.io.EOFException("Stream ended before completion"))
             }
         }
 
         val eventSource = EventSources.createFactory(client).newEventSource(request, listener)
 
         awaitClose {
-            println("[awaitClose] 关闭eventSource ")
             eventSource.cancel()
         }
         // trySend 在缓冲满时会静默丢弃 delta，导致回复中间缺字 (#1295)，因此缓冲必须无界
@@ -592,7 +584,6 @@ class ChatCompletionsAPI(
                                             put("url", encodedImage.base64)
                                         })
                                     }.onFailure {
-                                        it.printStackTrace()
                                         put("type", "text")
                                         put("text", "")
                                     }
@@ -649,7 +640,6 @@ class ChatCompletionsAPI(
                                             put("url", encodedImage.base64)
                                         })
                                     }.onFailure {
-                                        it.printStackTrace()
                                         put("type", "text")
                                         put("text", "")
                                     }
@@ -697,7 +687,6 @@ class ChatCompletionsAPI(
                                         put("url", encodedImage.base64)
                                     })
                                 }.onFailure {
-                                    Log.w(TAG, "encode tool result image failed: ${part.url}", it)
                                     put("type", "text")
                                     put("text", "Error: Failed to encode image to base64")
                                 }

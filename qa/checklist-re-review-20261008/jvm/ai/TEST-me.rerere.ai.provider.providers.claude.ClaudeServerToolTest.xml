@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.provider.providers.claude.ClaudeServerToolTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-08T06:42:54.937Z" hostname="DESKTOP-QH4J0RS" time="0.155">
+  <properties/>
+  <testcase name="non streaming response should pair server tool use and result" classname="me.rerere.ai.provider.providers.claude.ClaudeServerToolTest" time="0.005"/>
+  <testcase name="sequential server tool history should preserve interleaved block order" classname="me.rerere.ai.provider.providers.claude.ClaudeServerToolTest" time="0.004"/>
+  <testcase name="non streaming pause turn should continue inside Claude provider" classname="me.rerere.ai.provider.providers.claude.ClaudeServerToolTest" time="0.074"/>
+  <testcase name="server tool history should replay original Claude blocks with final input" classname="me.rerere.ai.provider.providers.claude.ClaudeServerToolTest" time="0.003"/>
+  <testcase name="parallel server tool history should replay all calls before results" classname="me.rerere.ai.provider.providers.claude.ClaudeServerToolTest" time="0.003"/>
+  <testcase name="streaming response should merge input and result into server tool" classname="me.rerere.ai.provider.providers.claude.ClaudeServerToolTest" time="0.018"/>
+  <testcase name="streaming pause turn should expose one logical stream" classname="me.rerere.ai.provider.providers.claude.ClaudeServerToolTest" time="0.039"/>
+  <testcase name="Claude server tool error result should be failed" classname="me.rerere.ai.provider.providers.claude.ClaudeServerToolTest" time="0.002"/>
+  <testcase name="Claude request should skip Responses server tool history" classname="me.rerere.ai.provider.providers.claude.ClaudeServerToolTest" time="0.001"/>
+  <testcase name="Claude request should enable hosted web search" classname="me.rerere.ai.provider.providers.claude.ClaudeServerToolTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,1 @@
+{"nonRoot": true, "noCapabilities": true, "noNewPrivileges": true, "neighborDenied": true, "hostCredentialsDenied": true, "dockerSocketDenied": true, "hostTasksDenied": true, "rootReadOnly": true, "inputReadOnly": true, "modelsReadOnly": true, "ownOutputWritable": true, "egressDenied": true}

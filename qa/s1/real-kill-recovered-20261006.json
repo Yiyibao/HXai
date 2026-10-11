@@ -1,0 +1,31 @@
+{
+  "id": "98ae6937-7b4e-47be-800f-f61be21af35e",
+  "title": "[QA] real kill",
+  "messages": [
+    {
+      "id": "eac3f282-91dd-4ed6-a450-a52135536078",
+      "role": "user",
+      "state": null,
+      "characters": 57,
+      "sha256": "99a121a7a71b581fb00e08fedd6d8e95693f7c100f1de5d2c43f456e6fa443d2",
+      "tools": []
+    },
+    {
+      "id": "94564fe7-52a3-4d89-8e9b-4881a2fd60d6",
+      "role": "assistant",
+      "state": "INTERRUPTED",
+      "characters": 596,
+      "sha256": "df58e7c4862314e5a8623b80c2c86940f4881d19545a33ffdb7bdfa9d1cfde6d",
+      "tools": []
+    }
+  ],
+  "queue": {
+    "paused": true,
+    "inputs": [
+      {
+        "id": "8175d717-3b30-4ece-9cb1-5ceec90e3169",
+        "parts_sha256": "a4fac4385c5de57cfa2e792ba2b7f2947ea6802182b66917f1604072cfbc4099"
+      }
+    ]
+  }
+}

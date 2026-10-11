@@ -1,0 +1,152 @@
+[
+  {
+    "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+    "runId": "9fac670e-2db3-4375-b195-0c789fb6e24d",
+    "name": "QA交付-0bdbc6c7-15bb-489a-9bab-7b0d90a10de2.md",
+    "profileId": "759e7e51-eb8a-4402-8268-61762b2ffccc",
+    "materialId": "2acc0613-15a3-4616-918b-d8109b1a31ec",
+    "status": "PASS",
+    "hashes": {
+      "source": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+      "target": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+      "view": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+      "send": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+      "recorded": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd"
+    }
+  },
+  {
+    "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+    "runId": "9fac670e-2db3-4375-b195-0c789fb6e24d",
+    "name": "QA交付-2ad58ebb-2110-4415-a033-48a94fed10c6.docx",
+    "profileId": "17bb0f10-4632-48ab-9a87-3ad558535508",
+    "materialId": "f9a0c035-21e9-43ad-b2ff-8bc128f52aa5",
+    "status": "PASS",
+    "hashes": {
+      "source": "008932b58c8c22a6bfb78c27daf085ef312b3c6eea6f0c4b85b050db28a5c264",
+      "target": "008932b58c8c22a6bfb78c27daf085ef312b3c6eea6f0c4b85b050db28a5c264",
+      "view": "008932b58c8c22a6bfb78c27daf085ef312b3c6eea6f0c4b85b050db28a5c264",
+      "send": "008932b58c8c22a6bfb78c27daf085ef312b3c6eea6f0c4b85b050db28a5c264",
+      "recorded": "008932b58c8c22a6bfb78c27daf085ef312b3c6eea6f0c4b85b050db28a5c264"
+    }
+  },
+  {
+    "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+    "runId": "9fac670e-2db3-4375-b195-0c789fb6e24d",
+    "name": "QA交付-7f0e1eb1-9678-47ea-8d83-6036fd6892b7.xlsx",
+    "profileId": "dca4fe7b-5e00-4714-8379-aa17dec11a39",
+    "materialId": "24d91e9a-269d-4a43-afe2-3f029402e236",
+    "status": "PASS",
+    "hashes": {
+      "source": "bc0de712c382e09419d595d868704a7fd703e79d2f9dcc831cf137f6e177166f",
+      "target": "bc0de712c382e09419d595d868704a7fd703e79d2f9dcc831cf137f6e177166f",
+      "view": "bc0de712c382e09419d595d868704a7fd703e79d2f9dcc831cf137f6e177166f",
+      "send": "bc0de712c382e09419d595d868704a7fd703e79d2f9dcc831cf137f6e177166f",
+      "recorded": "bc0de712c382e09419d595d868704a7fd703e79d2f9dcc831cf137f6e177166f"
+    }
+  },
+  {
+    "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+    "runId": "9fac670e-2db3-4375-b195-0c789fb6e24d",
+    "name": "QA交付-763142f3-36e6-4522-a0e6-b010bae85db1.pptx",
+    "profileId": "d50b3de1-39bc-4df3-9d12-c4de3c416dfb",
+    "materialId": "7c0db9e2-a8db-46d3-967b-b50e800c6e8a",
+    "status": "PASS",
+    "hashes": {
+      "source": "54161a6b0aa5f8b8cb285eb60c720536d910a5c8f2ea0bf648d49c803566642c",
+      "target": "54161a6b0aa5f8b8cb285eb60c720536d910a5c8f2ea0bf648d49c803566642c",
+      "view": "54161a6b0aa5f8b8cb285eb60c720536d910a5c8f2ea0bf648d49c803566642c",
+      "send": "54161a6b0aa5f8b8cb285eb60c720536d910a5c8f2ea0bf648d49c803566642c",
+      "recorded": "54161a6b0aa5f8b8cb285eb60c720536d910a5c8f2ea0bf648d49c803566642c"
+    }
+  },
+  {
+    "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+    "runId": "9fac670e-2db3-4375-b195-0c789fb6e24d",
+    "name": "QA交付-40a9d149-2db5-474f-b3a2-d15dc0f97824.pdf",
+    "profileId": "d8b6e63a-235d-48e5-80aa-29ce999f2b56",
+    "materialId": "4fb7b7f1-a2c2-482a-a710-58869fc70975",
+    "status": "PASS",
+    "hashes": {
+      "source": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+      "target": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+      "view": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+      "send": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+      "recorded": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a"
+    }
+  },
+  {
+    "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+    "runId": "063922f8-dc22-4d3a-bc8c-97d20a56b1a2",
+    "name": "QA交付-af75e133-8237-4b02-97f0-1cad40f45177.md",
+    "profileId": "1c098c12-3bc6-4a0d-a04d-cf8e7dcf9e59",
+    "materialId": "65e32ae6-09e2-45a4-8496-fbcac4e0bfeb",
+    "status": "PASS",
+    "hashes": {
+      "source": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+      "target": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+      "view": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+      "send": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd",
+      "recorded": "e91d4b385868e5aed4471b3740ccc98acf22f8307cc4996ec9ac0cdff6f6edcd"
+    }
+  },
+  {
+    "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+    "runId": "063922f8-dc22-4d3a-bc8c-97d20a56b1a2",
+    "name": "QA交付-a1f0f9b7-3271-4e6f-9eb5-8d5803d1455d.docx",
+    "profileId": "61f49ffc-050f-459d-a34a-c9766961b700",
+    "materialId": "d09e1e73-d292-4342-a0cc-f2d62458413d",
+    "status": "PASS",
+    "hashes": {
+      "source": "7636ee54a2bbf6fdab4fe6a0e0a3e47b9723adf78a409f750f2ca6abf80341b5",
+      "target": "7636ee54a2bbf6fdab4fe6a0e0a3e47b9723adf78a409f750f2ca6abf80341b5",
+      "view": "7636ee54a2bbf6fdab4fe6a0e0a3e47b9723adf78a409f750f2ca6abf80341b5",
+      "send": "7636ee54a2bbf6fdab4fe6a0e0a3e47b9723adf78a409f750f2ca6abf80341b5",
+      "recorded": "7636ee54a2bbf6fdab4fe6a0e0a3e47b9723adf78a409f750f2ca6abf80341b5"
+    }
+  },
+  {
+    "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+    "runId": "063922f8-dc22-4d3a-bc8c-97d20a56b1a2",
+    "name": "QA交付-d5d90a2b-e3fc-4c1b-aab1-15370b306ce2.xlsx",
+    "profileId": "fc75221d-60a9-49ad-9d63-8c497f1e48da",
+    "materialId": "c1f60cb8-b925-482b-9896-ab9b556584c7",
+    "status": "PASS",
+    "hashes": {
+      "source": "2f883d62d9a996342ead0ad84217471a6ae325198ef0e6ded3ce6894e5b13311",
+      "target": "2f883d62d9a996342ead0ad84217471a6ae325198ef0e6ded3ce6894e5b13311",
+      "view": "2f883d62d9a996342ead0ad84217471a6ae325198ef0e6ded3ce6894e5b13311",
+      "send": "2f883d62d9a996342ead0ad84217471a6ae325198ef0e6ded3ce6894e5b13311",
+      "recorded": "2f883d62d9a996342ead0ad84217471a6ae325198ef0e6ded3ce6894e5b13311"
+    }
+  },
+  {
+    "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+    "runId": "063922f8-dc22-4d3a-bc8c-97d20a56b1a2",
+    "name": "QA交付-a7169054-e8c7-47c8-beb3-21f07c6b8f6e.pptx",
+    "profileId": "9d9013e4-a0bb-4ceb-99af-d20408184985",
+    "materialId": "dbb87ee0-c11b-46fc-9396-914b97f985f3",
+    "status": "PASS",
+    "hashes": {
+      "source": "0c7fe0208e12ec899c4d9df757080d2140a2d5b3aa12a485cf85a91893904814",
+      "target": "0c7fe0208e12ec899c4d9df757080d2140a2d5b3aa12a485cf85a91893904814",
+      "view": "0c7fe0208e12ec899c4d9df757080d2140a2d5b3aa12a485cf85a91893904814",
+      "send": "0c7fe0208e12ec899c4d9df757080d2140a2d5b3aa12a485cf85a91893904814",
+      "recorded": "0c7fe0208e12ec899c4d9df757080d2140a2d5b3aa12a485cf85a91893904814"
+    }
+  },
+  {
+    "method": "ProjectReviewDeliveryTest.everyFormatOpensSavesAndArrivesInOtherUid",
+    "runId": "063922f8-dc22-4d3a-bc8c-97d20a56b1a2",
+    "name": "QA交付-e33a0586-6abc-4fb5-882e-be4406e80ca3.pdf",
+    "profileId": "eddf5063-eb00-47ef-8bbb-ac7b564cc32f",
+    "materialId": "c1e508e2-c46b-41b7-a7ab-5fbc9e89b7ca",
+    "status": "PASS",
+    "hashes": {
+      "source": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+      "target": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+      "view": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+      "send": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a",
+      "recorded": "357e3d3547e75acca5a75a3cefe7707191c30a17489ddadb7faa514dc8ee1d9a"
+    }
+  }
+]

@@ -1,0 +1,46 @@
+{
+  "gatewayPython": "Python 3.12.3",
+  "workerImage": "MATHDOC_WORKER_IMAGE=sha256:6e87c5aa06d22b76c0797d183874c16729712aeeff8c5489df1a4e2df751087f",
+  "ready": {
+    "ready": true,
+    "tier": "basic",
+    "mineru": "4.0.10",
+    "validation": "synthetic-pdf-png-jpeg-webp-lifecycle-isolation-android"
+  },
+  "services": {
+    "mathdoc-api": "active",
+    "mathdoc-dispatcher": "active",
+    "mathstudy-api": "active",
+    "yubai-blog": "active"
+  },
+  "jobStates": {
+    "EXPIRED": 10
+  },
+  "remainingWorkerContainers": "",
+  "taskOutputMounts": [],
+  "publicHealth": {
+    "status": "ok",
+    "contractVersion": 1
+  },
+  "memory": "total        used        free      shared  buff/cache   available\nMem:           7.8Gi       1.6Gi       2.8Gi        17Mi       3.7Gi       6.1Gi\nSwap:          2.0Gi       662Mi       1.4Gi",
+  "disk": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/vda2        69G   28G   39G  42% /",
+  "credentialStorage": "/var/lib/mathdoc-admin/credentials (root 0700 / files 0600)",
+  "backupScopeChecked": "existing business allowlist and configuration /etc do not include task data or admin credentials",
+  "credentialCapabilities": [
+    {
+      "file": "learner-1.json",
+      "ready": true,
+      "tier": [
+        "basic"
+      ]
+    },
+    {
+      "file": "learner-2.json",
+      "ready": true,
+      "tier": [
+        "basic"
+      ]
+    }
+  ],
+  "unauthenticatedStatus": 401
+}

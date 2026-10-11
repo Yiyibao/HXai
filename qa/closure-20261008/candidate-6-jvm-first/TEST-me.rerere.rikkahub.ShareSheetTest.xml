@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.ShareSheetTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-10-08T13:09:57.640Z" hostname="DESKTOP-QH4J0RS" time="0.14">
+  <properties/>
+  <testcase name="decode should restore Claude provider correctly" classname="me.rerere.rikkahub.ShareSheetTest" time="0.129"/>
+  <testcase name="decode should handle balance option" classname="me.rerere.rikkahub.ShareSheetTest" time="0.002"/>
+  <testcase name="decode should restore Google provider correctly" classname="me.rerere.rikkahub.ShareSheetTest" time="0.002"/>
+  <testcase name="decode should throw exception for wrong version" classname="me.rerere.rikkahub.ShareSheetTest" time="0.0"/>
+  <testcase name="decode should throw exception for invalid base64" classname="me.rerere.rikkahub.ShareSheetTest" time="0.0"/>
+  <testcase name="decode should throw exception for invalid prefix" classname="me.rerere.rikkahub.ShareSheetTest" time="0.0"/>
+  <testcase name="share round trip should restore OpenAI settings without models" classname="me.rerere.rikkahub.ShareSheetTest" time="0.004"/>
+  <testcase name="encode and decode should be reversible" classname="me.rerere.rikkahub.ShareSheetTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

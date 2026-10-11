@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.service.LearnerProfileCompatibilityTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-09T20:20:35.324Z" hostname="DESKTOP-QH4J0RS" time="0.003">
+  <properties/>
+  <testcase name="earlier nickname and memory preference survive rename and round trip" classname="me.rerere.rikkahub.service.LearnerProfileCompatibilityTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

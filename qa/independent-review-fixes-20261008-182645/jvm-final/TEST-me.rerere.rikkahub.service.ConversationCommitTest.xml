@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.service.ConversationCommitTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-08T11:05:50.075Z" hostname="DESKTOP-QH4J0RS" time="0.077">
+  <properties/>
+  <testcase name="background commit never republishes a stale whole conversation" classname="me.rerere.rikkahub.service.ConversationCommitTest" time="0.019"/>
+  <testcase name="late background results cannot replace checkpoint or branch" classname="me.rerere.rikkahub.service.ConversationCommitTest" time="0.009"/>
+  <testcase name="manual title and missing database row reject background publication" classname="me.rerere.rikkahub.service.ConversationCommitTest" time="0.009"/>
+  <testcase name="failed approval commit remains pending and retry survives restart" classname="me.rerere.rikkahub.service.ConversationCommitTest" time="0.024"/>
+  <testcase name="delete and undo never accept predelete responses or queued writes" classname="me.rerere.rikkahub.service.ConversationCommitTest" time="0.015"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,4 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_upgrade_transport_test.dart
+00:00 +0: Buffers initial patches, coalesces updates, rejects duplicate and wrong owner, recovers gaps
+00:00 +1: A snapshot already ahead of a queued cumulative patch never regresses
+00:00 +2: All tests passed!

@@ -1,0 +1,12 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/client/flutter_ui/test/chat_timeline_test.dart
+00:00 +0: Opens a long conversation at the actual lazy-list bottom
+00:00 +1: Follows streamed growth and delayed image layout
+00:00 +2: Reading history survives new chunks and viewport changes
+00:00 +3: Returning to latest resumes following subsequent chunks
+00:00 +4: Keyboard resizing keeps the latest answer visible
+00:00 +5: Disabled auto-follow allows explicit return without enabling it
+00:00 +6: New conversation identity resets history-reading state
+00:00 +7: Pending layout callback is safe after leaving chat
+00:01 +8: Scrolling inside a card does not pause the chat timeline
+00:01 +9: User gesture wins over a queued streaming layout check
+00:01 +10: All tests passed!

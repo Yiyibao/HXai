@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.asr.ASRProviderSettingVolcengineTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-08T06:42:53.947Z" hostname="DESKTOP-QH4J0RS" time="0.07">
+  <properties/>
+  <testcase name="custom endpoints remain unchanged and copy preserves silence setting" classname="me.rerere.asr.ASRProviderSettingVolcengineTest" time="0.001"/>
+  <testcase name="defaults select bidirectional API with server VAD" classname="me.rerere.asr.ASRProviderSettingVolcengineTest" time="0.001"/>
+  <testcase name="legacy persisted official endpoint remains unchanged" classname="me.rerere.asr.ASRProviderSettingVolcengineTest" time="0.068"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

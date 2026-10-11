@@ -1,0 +1,189 @@
+{
+  "extension": "jpg",
+  "requestedRange": [
+    1,
+    1
+  ],
+  "samples": [
+    {
+      "elapsed": 3.1,
+      "memory": "101.6MiB / 4GiB",
+      "cpu": "182.09%"
+    },
+    {
+      "elapsed": 5.1,
+      "memory": "471.6MiB / 4GiB",
+      "cpu": "100.30%"
+    },
+    {
+      "elapsed": 7.2,
+      "memory": "723MiB / 4GiB",
+      "cpu": "277.47%"
+    },
+    {
+      "elapsed": 9.2,
+      "memory": "1.2GiB / 4GiB",
+      "cpu": "100.03%"
+    },
+    {
+      "elapsed": 11.2,
+      "memory": "1.548GiB / 4GiB",
+      "cpu": "100.41%"
+    },
+    {
+      "elapsed": 13.3,
+      "memory": "1.569GiB / 4GiB",
+      "cpu": "100.54%"
+    },
+    {
+      "elapsed": 15.3,
+      "memory": "1.594GiB / 4GiB",
+      "cpu": "100.62%"
+    },
+    {
+      "elapsed": 17.4,
+      "memory": "1.618GiB / 4GiB",
+      "cpu": "100.42%"
+    },
+    {
+      "elapsed": 19.4,
+      "memory": "1.716GiB / 4GiB",
+      "cpu": "400.51%"
+    },
+    {
+      "elapsed": 21.4,
+      "memory": "1.782GiB / 4GiB",
+      "cpu": "184.91%"
+    },
+    {
+      "elapsed": 23.5,
+      "memory": "0B / 0B",
+      "cpu": "0.00%"
+    }
+  ],
+  "result": {
+    "taskId": "b2c4a769-c576-4513-9358-e3e244ba81c9",
+    "state": "SUCCEEDED",
+    "errorCode": null,
+    "resultRevision": 1,
+    "expiresAt": 1791453286.8165193,
+    "requestedRange": [
+      1,
+      1
+    ]
+  },
+  "elapsedSeconds": 24.49,
+  "manifest": {
+    "contractVersion": 1,
+    "sourceSha256": "a0935be7d6d1524b9a1d28203f003bc550b8877257eb7fefe3ad6a3f74191300",
+    "resultRevision": 1,
+    "parserVersion": "4.0.10",
+    "adapterVersion": "1",
+    "tier": "basic",
+    "totalPages": 1,
+    "requestedRange": [
+      1,
+      1
+    ],
+    "processedPages": [
+      1
+    ],
+    "blankPages": [],
+    "failedPages": [],
+    "complete": true,
+    "warnings": [
+      "OCR and formula recognition require checking the original page; geometry unavailable."
+    ],
+    "assets": [
+      {
+        "assetId": "document",
+        "path": "document.json",
+        "mediaType": "application/json",
+        "size": 1047,
+        "sha256": "57639a1cb8b2113303859554e4003f72172a7cc91b01589ef5cec8eec14a592c"
+      },
+      {
+        "assetId": "image-a3c86f63fe1ba8f3fedfd217",
+        "path": "image-a3c86f63fe1ba8f3fedfd217.png",
+        "mediaType": "image/png",
+        "size": 4767,
+        "sha256": "d5ddda7a965e430b2579c0cb0e800e6b32845e971f576fb0c36f8ff6cdb62390"
+      },
+      {
+        "assetId": "image-880616daf01108371fe00cb1",
+        "path": "image-880616daf01108371fe00cb1.png",
+        "mediaType": "image/png",
+        "size": 31233,
+        "sha256": "359bbda4f0df5ee4f439e64e2000b3e5de6d8199cc4ce697e8ac72ec12089690"
+      },
+      {
+        "assetId": "text",
+        "path": "content.txt",
+        "mediaType": "text/plain",
+        "size": 280,
+        "sha256": "43e6cf2d0dfc4ad626e6ea5a942ee4e97915a930bbde5e6b99b3f23000364ea7"
+      }
+    ]
+  },
+  "document": {
+    "contractVersion": 1,
+    "sourceSha256": "a0935be7d6d1524b9a1d28203f003bc550b8877257eb7fefe3ad6a3f74191300",
+    "resultRevision": 1,
+    "parserVersion": "4.0.10",
+    "adapterVersion": "1",
+    "tier": "basic",
+    "totalPages": 1,
+    "requestedRange": [
+      1,
+      1
+    ],
+    "processedPages": [
+      1
+    ],
+    "blankPages": [],
+    "failedPages": [],
+    "complete": true,
+    "warnings": [
+      "OCR and formula recognition require checking the original page; geometry unavailable."
+    ],
+    "blocks": [
+      {
+        "blockId": "p1-b0",
+        "page": 1,
+        "type": "text",
+        "text": "数学解析合成测试（非私人文件）"
+      },
+      {
+        "blockId": "p1-b1",
+        "page": 1,
+        "type": "text",
+        "text": "函数 f(x) = x^{2} + 2x + 1"
+      },
+      {
+        "blockId": "p1-b2",
+        "page": 1,
+        "type": "text",
+        "text": "\\times = 2 时， f(x) = 9"
+      },
+      {
+        "blockId": "p1-b3",
+        "page": 1,
+        "type": "equation",
+        "text": "\\frac { x + 1 } { 2 }",
+        "latex": "\\frac { x + 1 } { 2 }",
+        "assetId": "image-a3c86f63fe1ba8f3fedfd217"
+      },
+      {
+        "blockId": "p1-b4.0",
+        "page": 1,
+        "type": "table_body",
+        "text": "项目\t数量\t结果\n样本A\t2\t9\n样本B\t3\t16",
+        "assetId": "image-880616daf01108371fe00cb1"
+      }
+    ]
+  },
+  "existingServices": [
+    "active",
+    "active"
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\service\\ChatService.kt",
+    "Hash": "38C66570A1B37C4A54292DF33FC24DF8CDA1714CFCDB48178D5E26D5ED3848B8"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\service\\ConversationSession.kt",
+    "Hash": "13243F5F5107A9C36BE9209D75497CA6CBE8676E2FE063B3415E2CF58179CA55"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\data\\repository\\ConversationRepository.kt",
+    "Hash": "E1753B0FF12F042AE6794166E05C1A266741035048B6BD3536BFD8BAC0D81B39"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\data\\files\\SkillPaths.kt",
+    "Hash": "8E2A42678FCF7FA46545BDAD6C58D139BC47909A2DC296D04E5F1BD08CCF64F8"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\data\\files\\SkillTreeDeletion.kt",
+    "Hash": "8DFFCF6CA7E65744CEF4F4B788DD5A86607C02FF5F5B786FA18AD7DB741C1C82"
+  },
+  {
+    "Path": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\app\\src\\main\\java\\me\\rerere\\rikkahub\\data\\files\\SkillManager.kt",
+    "Hash": "FD24AC0BD36563C6FD50FDED1DA642BE48FC13C0063A8F5CA7EFE23D7C492415"
+  }
+]

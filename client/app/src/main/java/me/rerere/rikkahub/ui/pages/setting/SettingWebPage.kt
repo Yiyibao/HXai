@@ -40,9 +40,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.LocalClipboard
+import androidx.compose.ui.platform.ClipEntry
+import android.content.ClipData
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -69,6 +70,12 @@ import org.koin.compose.koinInject
 
 @Composable
 fun SettingWebPage() {
+    if (!me.rerere.rikkahub.feature.studychat.StudyCapabilities.WEB_ACCESS_ENABLED) {
+        Scaffold(topBar = { LargeFlexibleTopAppBar(title = { Text("Web 访问") }, navigationIcon = { BackButton() }) }) { padding ->
+            Text("当前版本尚未开放 Web 访问。请在手机上使用聊天；Web 入口完成学习者授权及文件隔离后再开放。", Modifier.padding(padding).padding(24.dp))
+        }
+        return
+    }
     val webServerManager: WebServerManager = koinInject()
     val settingsStore: SettingsStore = koinInject()
     val settings = LocalSettings.current
@@ -76,7 +83,7 @@ fun SettingWebPage() {
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
-    val clipboardManager = LocalClipboardManager.current
+    val clipboardManager = LocalClipboard.current
     val toaster = LocalToaster.current
     val copiedText = stringResource(R.string.copied)
     var portText by remember(settings.webServerPort) {
@@ -123,8 +130,10 @@ fun SettingWebPage() {
     }
 
     fun copyUrl(url: String) {
-        clipboardManager.setText(AnnotatedString(url))
-        toaster.show(copiedText)
+        scope.launch {
+            clipboardManager.setClipEntry(ClipEntry(ClipData.newPlainText("URL", url)))
+            toaster.show(copiedText)
+        }
     }
 
     Scaffold(
