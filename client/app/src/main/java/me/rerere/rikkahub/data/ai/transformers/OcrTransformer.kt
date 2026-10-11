@@ -1,14 +1,13 @@
 package me.rerere.rikkahub.data.ai.transformers
 
 import android.content.Context
-import android.util.Log
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.json.Json
 import me.rerere.ai.core.MessageRole
 import me.rerere.ai.provider.Modality
-import me.rerere.ai.provider.Model
 import me.rerere.ai.provider.ProviderManager
 import me.rerere.ai.provider.TextGenerationParams
 import me.rerere.ai.ui.UIMessage
@@ -22,8 +21,6 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.get
 import java.io.File
 import kotlin.time.Duration.Companion.days
-
-private const val TAG = "OcrTransformer"
 
 object OcrTransformer : InputMessageTransformer, KoinComponent {
     private val cache by lazy {
@@ -82,7 +79,6 @@ object OcrTransformer : InputMessageTransformer, KoinComponent {
     suspend fun performOcr(part: UIMessagePart.Image): String = runCatching {
         // Check cache first
         cache.get(part.url)?.let { cachedResult ->
-            Log.i(TAG, "performOcr: Using cached result for ${part.url}")
             return cachedResult
         }
 
@@ -106,7 +102,6 @@ object OcrTransformer : InputMessageTransformer, KoinComponent {
             ),
         )
         val content = result.message.toText().ifBlank { "[ERROR, OCR failed]" }
-        Log.i(TAG, "performOcr: $content")
         val ocrResult = """
             <image_file_ocr>
                $content
@@ -117,7 +112,10 @@ object OcrTransformer : InputMessageTransformer, KoinComponent {
         // Cache the result
         cache.put(part.url, ocrResult)
         return ocrResult
-    }.getOrElse {
-        "[ERROR, OCR failed: $it]"
+    }.getOrElse { error ->
+        // Cancellation is control flow, not OCR text. Never expose provider errors,
+        // local attachment paths, or recognized private content in logs/results.
+        if (error is CancellationException) throw error
+        "[ERROR, OCR failed]"
     }
 }
