@@ -48,12 +48,13 @@ class _DocServiceConfigPageState extends ConsumerState<DocServiceConfigPage> {
             );
         if (mounted &&
             owner == ref.read(activeProfileIdProvider) &&
-            epoch == ref.read(contextEpochProvider))
+            epoch == ref.read(contextEpochProvider)) {
           setState(
             () => status = response?['ready'] == true
                 ? '连接成功，服务已就绪'
                 : '连接成功，解析尚未就绪',
           );
+        }
       } else {
         await FrontendFeatures.fromWidget(ref, 'saveDocConfig', {
           'endpoint': url.text.trim(),

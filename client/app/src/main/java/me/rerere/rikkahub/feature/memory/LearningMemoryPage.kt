@@ -118,7 +118,7 @@ private fun ProfileMemoryPage(profileId: String, conversationId: String) {
 
             if (state.recoveryBlocked) {
                 Text(
-                    text = "旧删除约束已保留，自动抽取暂停；已有记忆仍可查看、更正和删除。请建立新学习档案继续自动记忆。",
+                    text = "旧删除约束已保留，自动抽取与聊天记忆引用暂停；已有记忆仍可查看、更正和删除。请建立新学习档案继续使用记忆。",
                     color = MaterialTheme.colorScheme.error,
                     fontSize = 12.sp
                 )

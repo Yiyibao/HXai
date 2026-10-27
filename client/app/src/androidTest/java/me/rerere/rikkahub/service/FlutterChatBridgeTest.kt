@@ -8,6 +8,9 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.combine
 import kotlinx.serialization.json.*
+import kotlinx.serialization.encodeToString
+import me.rerere.rikkahub.feature.agent.AgentScheduler
+import me.rerere.rikkahub.feature.agent.AgentTaskStore
 import me.rerere.rikkahub.data.datastore.getCurrentAssistant
 import me.rerere.rikkahub.data.datastore.getCurrentChatModel
 import me.rerere.ai.provider.Model
@@ -75,7 +78,7 @@ class FlutterChatBridgeTest {
             assertTrue(store.hiddenMessageIds(owner).contains(last.id.toString()))
 
             suspend fun send(stream: Boolean, enabled: Boolean): Pair<Uuid, String> {
-                assertTrue(facade.toggleAutoMemory(owner, enabled).success)
+                assertTrue(facade.toggleAutoMemory(owner, enabled, facade.getBootstrap(owner, 1).contextEpoch).success)
                 settings.update { config -> config.copy(assistants = config.assistants.map {
                     if (it.id == config.assistantId) it.copy(streamOutput = stream) else it
                 }) }
@@ -139,10 +142,15 @@ class FlutterChatBridgeTest {
                 val config = current.copy(activeProfileId = other, learnerProfiles = listOf(
                     LearnerProfile(owner, "Owner", enabled), LearnerProfile(other, "Other", !enabled)))
                 val count = server.contextBodies.size
-                loop.generateText(config, config.getCurrentChatModel()!!, input,
-                    assistant = config.getCurrentAssistant().copy(streamOutput = stream, enableMemory = true),
-                    profileId = owner, learningMemoryContext = memory, memories = listOf(AssistantMemory(1, legacy)),
-                    hiddenSourceMessageIds = setOf(deletedUser.id.toString()), maxSteps = 1).collect { }
+                val acceptedAssistant = config.getCurrentAssistant().copy(streamOutput = stream, enableMemory = true)
+                LeasedGenerationFixture(config, acceptedAssistant, profileId = owner).use { fixture ->
+                    fixture.run {
+                        loop.generateText(config, config.getCurrentChatModel()!!, input,
+                            assistant = acceptedAssistant, profileId = owner,
+                            learningMemoryContext = memory, memories = listOf(AssistantMemory(1, legacy)),
+                            hiddenSourceMessageIds = setOf(deletedUser.id.toString()), maxSteps = 1).collect { }
+                    }
+                }
                 val body = server.contextBodies.drop(count).single()
                 assertEquals(enabled, body.contains(memory))
                 assertEquals(enabled, body.contains(legacy))
@@ -152,10 +160,16 @@ class FlutterChatBridgeTest {
             }
         }
         val count = server.contextBodies.size
-        loop.generateText(current, current.getCurrentChatModel()!!, listOf(input.last()),
-            assistant = current.getCurrentAssistant(), profileId = "missing-profile",
-            learningMemoryContext = memory, maxSteps = 1).collect { }
-        assertFalse(server.contextBodies.drop(count).single().contains(memory))
+        LeasedGenerationFixture(current, current.getCurrentAssistant(), profileId = "missing-profile").use { fixture ->
+            assertTrue(runCatching {
+                fixture.run {
+                    loop.generateText(current, current.getCurrentChatModel()!!, listOf(input.last()),
+                        assistant = current.getCurrentAssistant(), profileId = "missing-profile",
+                        learningMemoryContext = memory, maxSteps = 1).collect { }
+                }
+            }.isFailure)
+        }
+        assertEquals("A missing owner cannot dispatch a model request", count, server.contextBodies.size)
     }
 
     @Test fun cumulativeEventsAndFinalSnapshotMatchPersistedContent() = runBlocking {
@@ -196,15 +210,21 @@ class FlutterChatBridgeTest {
         val cache = me.rerere.rikkahub.feature.studychat.ChatContextCache(context)
         val preferences = context.getSharedPreferences("chat_context_settings", android.content.Context.MODE_PRIVATE)
         preferences.edit().putInt("budget:$owner", 8000).commit()
-        val current = settings.settingsFlow.value.copy(activeProfileId = owner)
+        val selected = settings.settingsFlow.value
+        val current = selected.copy(activeProfileId = owner, compressModelId = selected.chatModelId,
+            learnerProfiles = selected.learnerProfiles + LearnerProfile(owner, "QA context", false))
         val messages = buildList {
             repeat(16) { add(me.rerere.ai.ui.UIMessage.user("历史$it 禁止覆盖原件；预算500元；文件id=file-123；" + "a".repeat(1500))); add(me.rerere.ai.ui.UIMessage.assistant("已完成核对。")) }
             add(me.rerere.ai.ui.UIMessage.user("继续刚才的任务，复述限制。"))
         }
         val immutable = messages.map { it.toText() }
         suspend fun generate(input: List<me.rerere.ai.ui.UIMessage>) = withTimeout(30_000) {
-            GlobalContext.get().get<me.rerere.rikkahub.data.ai.GenerationLoop>().generateText(current, current.getCurrentChatModel()!!, input,
-                assistant = current.getCurrentAssistant(), conversationId = id, maxSteps = 1).collect { }
+            LeasedGenerationFixture(current, current.getCurrentAssistant(), id).use { fixture ->
+                fixture.run {
+                    GlobalContext.get().get<me.rerere.rikkahub.data.ai.GenerationLoop>().generateText(current, current.getCurrentChatModel()!!, input,
+                        assistant = current.getCurrentAssistant(), conversationId = id, maxSteps = 1).collect { }
+                }
+            }
         }
         fun summaries() = server.contextBodies.count { Json.parseToJsonElement(it).jsonObject["stream"]?.jsonPrimitive?.boolean == false }
         try {
@@ -229,13 +249,23 @@ class FlutterChatBridgeTest {
         val owner = "qa-context-${Uuid.random()}"
         val preferences = context.getSharedPreferences("chat_context_settings", android.content.Context.MODE_PRIVATE)
         preferences.edit().putInt("budget:$owner", 8000).commit()
-        val current = settings.settingsFlow.value.copy(activeProfileId = owner)
+        val selected = settings.settingsFlow.value
+        val current = selected.copy(activeProfileId = owner, compressModelId = selected.chatModelId,
+            learnerProfiles = selected.learnerProfiles + LearnerProfile(owner, "QA failed context", false))
         val messages = buildList { repeat(16) { add(me.rerere.ai.ui.UIMessage.user("a".repeat(1500))); add(me.rerere.ai.ui.UIMessage.assistant("完成")) }; add(me.rerere.ai.ui.UIMessage.user("continue")) }
         val before = messages.map { it.toText() }
         try {
-            val result = runCatching { GlobalContext.get().get<me.rerere.rikkahub.data.ai.GenerationLoop>().generateText(current, current.getCurrentChatModel()!!, messages,
-                assistant = current.getCurrentAssistant(), conversationId = Uuid.random(), maxSteps = 1).collect { } }
-            assertTrue(result.isFailure); assertEquals(1, server.requests.get()); assertEquals(before, messages.map { it.toText() })
+            LeasedGenerationFixture(current, current.getCurrentAssistant()).use { fixture ->
+                val result = runCatching {
+                    fixture.run {
+                        GlobalContext.get().get<me.rerere.rikkahub.data.ai.GenerationLoop>().generateText(current, current.getCurrentChatModel()!!, messages,
+                            assistant = current.getCurrentAssistant(), conversationId = Uuid.random(), maxSteps = 1).collect { }
+                    }
+                }
+                assertTrue(result.isFailure)
+                assertEquals(1, server.requests.get())
+                assertEquals(before, messages.map { it.toText() })
+            }
         } finally { preferences.edit().remove("budget:$owner").commit() }
     }
     @Test fun actualFlutterReasoningCollapsesAndExpands() {
@@ -784,33 +814,75 @@ class FlutterChatBridgeTest {
             val document = java.io.File(directory, "document").apply { writeText(bytes) }
             val manifest = me.rerere.rikkahub.feature.material.DocumentManifest(1, source.sha256, 1, "synthetic", "1", "basic", 1, listOf(1,1), listOf(1), emptyList(), emptyList(), true, emptyList(), listOf(me.rerere.rikkahub.feature.material.DocumentAsset("document", "document.json", "application/json", document.length(), me.rerere.rikkahub.feature.material.MaterialFiles.digest(document))))
             java.io.File(directory, "manifest.json").writeText(kotlinx.serialization.json.Json.encodeToString(me.rerere.rikkahub.feature.material.DocumentManifest.serializer(), manifest))
-            val task = me.rerere.rikkahub.feature.material.DocumentTask(taskId, source.id, source.sha256, 1, 1, "synthetic-cache", state = "SUCCEEDED", downloaded = true)
+            val task = me.rerere.rikkahub.feature.material.DocumentTask(taskId, source.id, source.sha256, 1, 1, "synthetic-cache", remoteId = taskId, state = "SUCCEEDED", downloaded = true)
             taskFile.writeText(kotlinx.serialization.json.Json.encodeToString(me.rerere.rikkahub.feature.material.DocumentTask.serializer(), task))
             val input = kotlinx.serialization.json.buildJsonObject { put("id", kotlinx.serialization.json.JsonPrimitive(source.id)); put("start_page", kotlinx.serialization.json.JsonPrimitive("1")); put("end_page", kotlinx.serialization.json.JsonPrimitive("1")) }.toString()
             val tool = me.rerere.ai.ui.UIMessagePart.Tool("qa-document", "parse_material_enhanced", input, listOf(me.rerere.ai.ui.UIMessagePart.Text("{\"task_id\":\"$taskId\"}")), executionState = me.rerere.ai.ui.ToolExecutionState.COMPLETED)
             val message = me.rerere.ai.ui.UIMessage.assistant("").copy(parts = listOf(tool), generationState = "COMPLETED")
             val conversation = me.rerere.rikkahub.data.model.Conversation(assistantId = settings.settingsFlow.value.assistantId, title = "QA document continuation", messageNodes = listOf(me.rerere.rikkahub.data.model.MessageNode(messages = listOf(me.rerere.ai.ui.UIMessage.user("总结PDF"))), me.rerere.rikkahub.data.model.MessageNode(messages = listOf(message))), profileId = owner, newConversation = true)
             conversations += conversation.id; service.initializeConversation(conversation.id); service.saveConversation(conversation.id, conversation)
+            val scheduler = AgentScheduler.shared(ctx)
+            fun bindAcceptedReceipt(conversation: Conversation): String {
+                val user = conversation.currentMessages.single { it.role == me.rerere.ai.core.MessageRole.USER }
+                val accepted = scheduler.accept(conversation, user.id.toString(), Json.encodeToString(user.parts), settings.settingsFlow.value)
+                AgentTaskStore(ctx).use { journal ->
+                    // Trusted fixture grant, bound to this exact original task and input.
+                    journal.writableDatabase.execSQL("INSERT INTO grants(task_id,capability,scope,grant_epoch,input_hash) VALUES(?,'document.remote',?,1,?)",
+                        arrayOf(accepted.id, owner, AgentTaskStore.hash(input)))
+                    val lease = journal.claim(owner, accepted.id)
+                    journal.beginCall(lease, tool.toolCallId, tool.toolName, input)
+                    val receipt = Json.encodeToString(tool.output)
+                    journal.finishCall(lease, tool.toolCallId, AgentTaskStore.hash(receipt), false, receipt)
+                    journal.finish(lease, "COMPLETED_UNVERIFIED")
+                }
+                return accepted.id
+            }
+            val acceptedId = bindAcceptedReceipt(conversation)
             facade.watchConversation(owner, conversation.id.toString(), 1L)
-            withTimeout(30_000) { service.getConversationFlow(conversation.id).first { it.currentMessages.size == 4 && it.currentMessages.last().generationState == "COMPLETED" } }
+            withTimeout(30_000) {
+                AgentTaskStore(ctx).use { journal ->
+                    while (journal.readableDatabase.rawQuery("SELECT state FROM calls WHERE task_id=? AND call_id=?",
+                        arrayOf(acceptedId, tool.toolCallId)).use { !it.moveToFirst() || it.getString(0) != "VERIFIED" } ||
+                        server.requests.get() != 1) delay(20)
+                }
+                service.getConversationFlow(conversation.id).first { it.currentMessages.lastOrNull()?.generationState == "COMPLETED" }
+                while (service.getGenerationJobStateFlow(conversation.id).first() != null) delay(20)
+            }
             facade.watchConversation(owner, conversation.id.toString(), 1L)
             delay(700)
-            assertEquals(4, service.getConversationFlow(conversation.id).value.currentMessages.size)
+            assertEquals(1, server.requests.get())
+            assertEquals(conversation.currentMessages.filter { it.role == me.rerere.ai.core.MessageRole.USER }.map { it.id },
+                repository.getConversationById(conversation.id)!!.currentMessages.filter { it.role == me.rerere.ai.core.MessageRole.USER }.map { it.id })
+            assertEquals(acceptedId, scheduler.current(repository.getConversationById(conversation.id)!!)!!.id)
             assertEquals(doc, docs.read(owner, taskId))
             val localReader = me.rerere.rikkahub.feature.material.documentServiceTools(docs, owner, false, allowRemote = false).single { it.name == "read_material_parse_blocks" }
-            assertTrue(localReader.execute(kotlinx.serialization.json.buildJsonObject { put("task_id", kotlinx.serialization.json.JsonPrimitive(taskId)); put("cursor", kotlinx.serialization.json.JsonPrimitive("")); put("count", kotlinx.serialization.json.JsonPrimitive("1")) }).isNotEmpty())
+            val blocks = localReader.execute(kotlinx.serialization.json.buildJsonObject {
+                put("task_id", kotlinx.serialization.json.JsonPrimitive(taskId))
+                put("cursor", kotlinx.serialization.json.JsonPrimitive(""))
+                put("count", kotlinx.serialization.json.JsonPrimitive("1"))
+            })
+            assertTrue(blocks.filterIsInstance<me.rerere.ai.ui.UIMessagePart.Text>().any { it.text.contains("合成识别结果") })
             document.appendText("corrupt")
             assertTrue(runCatching { docs.read(owner, taskId) }.isFailure)
             val other = conversation.copy(id = Uuid.random(), newConversation = true)
             conversations += other.id; service.initializeConversation(other.id); service.saveConversation(other.id, other)
+            val otherAcceptedId = bindAcceptedReceipt(other)
             facade.watchConversation(owner, other.id.toString(), 1L)
-            delay(1000)
-            assertEquals(2, service.getConversationFlow(other.id).value.currentMessages.size)
+            withTimeout(10_000) { service.errors.first { errors -> errors.any { it.conversationId == other.id } } }
+            withTimeout(10_000) { service.getGenerationJobStateFlow(other.id).first { it == null } }
+            assertEquals(other.messageNodes, repository.getConversationById(other.id)!!.messageNodes)
+            assertEquals(1, server.requests.get())
+            assertEquals("FAILED_BLOCKED", scheduler.get(owner, otherAcceptedId).state)
             taskFile.writeText(kotlinx.serialization.json.Json.encodeToString(me.rerere.rikkahub.feature.material.DocumentTask.serializer(), task.copy(state = "FAILED", downloaded = false)))
-            facade.documentTaskAction(owner, other.id.toString(), message.id.toString(), "qa-document", "retry", 1L)
-            withTimeout(30_000) { service.getConversationFlow(other.id).first { it.currentMessages.size == 4 && it.currentMessages.last().generationState == "COMPLETED" } }
-            facade.documentTaskAction(owner, other.id.toString(), message.id.toString(), "qa-document", "retry", 1L)
-            assertEquals(4, service.getConversationFlow(other.id).value.currentMessages.size)
+            // An old Room receipt without an owning native task is not authority to retry.
+            val legacy = conversation.copy(id = Uuid.random(), newConversation = true)
+            conversations += legacy.id
+            service.initializeConversation(legacy.id); service.saveConversation(legacy.id, legacy)
+            assertTrue(runCatching {
+                facade.documentTaskAction(owner, legacy.id.toString(), message.id.toString(), "qa-document", "retry", 1L)
+            }.isFailure)
+            assertEquals(legacy.messageNodes, repository.getConversationById(legacy.id)!!.messageNodes)
+            assertEquals(1, server.requests.get())
         } finally {
             facade.watchConversation(owner, null, 1L)
             taskFile.delete(); directory.deleteRecursively(); store.file(source).delete(); java.io.File(ctx.filesDir, "materials/$owner/${source.id}.meta.json").delete()

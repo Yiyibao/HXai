@@ -1,0 +1,19 @@
+{
+  "label": "cli-template",
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "command": [
+    "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "D:\\Office\\Study\\code\\MathStudyAgent\\scripts\\score_b_math_evaluation.py",
+    "template",
+    "--corpus",
+    "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\AB28-INTEGRATION-20261028\\cli-smoke\\corpus",
+    "--sealed",
+    "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\AB28-INTEGRATION-20261028\\cli-smoke\\sealed",
+    "--out",
+    "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\AB28-INTEGRATION-20261028\\cli-smoke\\TEMPLATE.json"
+  ],
+  "exitCode": 0,
+  "seconds": 0.158,
+  "log": "logs\\cli-template.log",
+  "logSha256": "9f6138b6822b22e1d9e71c6694e1573a3d0b01e7281674baae62339f44225a77"
+}

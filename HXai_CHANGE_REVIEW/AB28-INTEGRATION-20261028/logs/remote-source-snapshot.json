@@ -1,0 +1,17 @@
+{
+  "label": "remote-source-snapshot",
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "command": [
+    "git",
+    "ls-remote",
+    "--symref",
+    "origin",
+    "HEAD",
+    "refs/heads/main",
+    "refs/heads/pro/hxai-safety-delivery-20261012"
+  ],
+  "exitCode": 0,
+  "seconds": 1.305,
+  "log": "logs\\remote-source-snapshot.log",
+  "logSha256": "003c4308d9f01fdcfac082c98b3c688df3190ac65aeb76ac04763db0a3861d48"
+}

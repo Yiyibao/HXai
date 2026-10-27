@@ -1,0 +1,9 @@
+{
+  "kind": "SYNTHETIC_PROTOCOL_FIXTURE",
+  "sourceFeature": "B-PPTX-SHAPES-20261014",
+  "sourcePath": "HXai_CHANGE_REVIEW/B-PPTX-SHAPES-20261014/artifacts/native-final/source.pptx",
+  "sha256": "c93748ef39e320e425d054ec4ca1f5e0c28c561d49cfaff3610f9c8365870524",
+  "purpose": "Preserve the original complex grouped/repeated-text shapeId=17 regression while making each Android instrumentation method independent of previously populated app cache.",
+  "containsPrivateMaterial": false,
+  "visualFidelityClaim": "NOT_GRANTED_BY_FIXTURE"
+}

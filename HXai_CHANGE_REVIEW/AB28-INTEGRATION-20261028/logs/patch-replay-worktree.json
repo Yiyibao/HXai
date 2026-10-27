@@ -1,0 +1,16 @@
+{
+  "label": "patch-replay-worktree",
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "command": [
+    "git",
+    "worktree",
+    "add",
+    "--detach",
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\ab28-patch-replay-20261028",
+    "5d826d5d7d8755ed42db834d6cd6dc52ae914c69"
+  ],
+  "exitCode": 0,
+  "seconds": 4.844,
+  "log": "logs\\patch-replay-worktree.log",
+  "logSha256": "1757b22b100e4f717ff92b10982fbcbb40fc157ccc09d153301357708a407f19"
+}

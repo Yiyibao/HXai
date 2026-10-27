@@ -1,0 +1,17 @@
+{
+  "contractVersion": 1,
+  "scope": "OFFLINE_BYTE_BINDING_ONLY",
+  "origin": "SYNTHETIC",
+  "runId": "ab28-integration-not-a-model-run",
+  "corpusSha256": "87ff045e3153b38f7e70fcbe72476b14e630d427782b6a7d3f8f7939338eda7f",
+  "cases": 32,
+  "artifacts": {
+    "CORPUS_SEAL.json": "382b345ba93a8393a9433bd19a4eca35a5b50d7b3420d97ba4fc2538e064deb4",
+    "BLIND_PROMPTS.json": "8e10ced3e771ba24b03d41f1668561d7703cb35a036f0ff08f0604cb4d48c785",
+    "RUN_INPUT.json": "4e005c9f73663c9c65ab0807bdca20263549a66ca2a6e91327d3d25d2049d436"
+  },
+  "referenceSha256": "ad77dc13a155bcc1e1f29a5f7d819ac66846c3f716453ff18ee8c2b891a52bc9",
+  "executionAttestation": "NOT_ATTESTED",
+  "authorization": "NOT_GRANTED",
+  "independentReview": "NOT_EVALUATED"
+}

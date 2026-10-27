@@ -1,0 +1,168 @@
+{
+  "corpusVersion": 2,
+  "corpusSha256": "87ff045e3153b38f7e70fcbe72476b14e630d427782b6a7d3f8f7939338eda7f",
+  "modelExecution": "NOT_RUN",
+  "purpose": "ORIGINAL_PUBLIC_QUESTIONS_NOT_AN_INDEPENDENT_BLIND_BENCHMARK; send only id/category/prompt, never references or certificates",
+  "cases": [
+    {
+      "id": "HS-PARAM-DERIVATIVE",
+      "category": "high_school",
+      "prompt": "实数a固定，求f(x)=a*x^3-3*a*x的导数，并说明此计算是否已完成含参单调性分类。"
+    },
+    {
+      "id": "HS-SEQUENCE",
+      "category": "high_school",
+      "prompt": "a_0=0，a_(n+1)=a_n+2n+1，n为非负整数。证明a_n=n^2。"
+    },
+    {
+      "id": "HS-SEQUENCE-SAMPLING",
+      "category": "high_school",
+      "prompt": "同上初值，但递推增加n(n-1)(n-2)。学生根据前几项宣称仍为n^2，是否有效？"
+    },
+    {
+      "id": "HS-CONIC-IDENTITY",
+      "category": "high_school",
+      "prompt": "x,y为实数。验证(x+y)^2+(x-y)^2=2x^2+2y^2，并说明能否直接视为已证明某圆锥曲线的几何结论。"
+    },
+    {
+      "id": "HS-FINITE-SAMPLES",
+      "category": "high_school",
+      "prompt": "学生因p(x)=x(x-1)(x-2)(x-3)在0,1,2,3均为0，称p恒为0。判断。"
+    },
+    {
+      "id": "CALC-REMOVABLE-LIMIT",
+      "category": "calculus",
+      "prompt": "求x趋于1时(x^2-1)/(x-1)的极限，原函数在1处有定义吗？"
+    },
+    {
+      "id": "CALC-POLE-TWO-SIDES",
+      "category": "calculus",
+      "prompt": "求x趋于0时1/x的双侧极限；左右极限是否一致？"
+    },
+    {
+      "id": "CALC-WRONG-PRIMITIVE",
+      "category": "calculus",
+      "prompt": "学生声称积分_0^1 2x dx=1，但给原函数F=0。原函数错是否证明积分值也错？"
+    },
+    {
+      "id": "CALC-NONSMOOTH-VALID",
+      "category": "calculus",
+      "prompt": "求积分_-1^1 |x| dx。若闭区间C8证书拒绝，能否据此判学生答案1错误？"
+    },
+    {
+      "id": "CALC-ROOT-NOT-UNIQUE",
+      "category": "calculus",
+      "prompt": "解x^2=1在[-2,2]内全部实根。局部严格单调唯一根工具能否代替全部根枚举？"
+    },
+    {
+      "id": "ANALYSIS-MTEST",
+      "category": "analysis",
+      "prompt": "给定级数s在D上逐项满足|s_n|<=M_n，且非负数项级数sum M_n收敛。说明一致绝对收敛，并列明条件。"
+    },
+    {
+      "id": "ANALYSIS-MTEST-MISSING",
+      "category": "analysis",
+      "prompt": "只知道|s_n(x)|<=M_n，未给sum M_n收敛；学生直接用M判别法。此推理成立吗？"
+    },
+    {
+      "id": "ANALYSIS-POINTWISE",
+      "category": "analysis",
+      "prompt": "学生称[0,1]上x^n逐点收敛所以一致收敛。应如何反驳？"
+    },
+    {
+      "id": "REAL-DCT",
+      "category": "real_analysis",
+      "prompt": "f_n可测且几乎处处趋于可测f，|f_n|<=g几乎处处，g可积。能否交换极限与积分？"
+    },
+    {
+      "id": "REAL-DCT-MISSING",
+      "category": "real_analysis",
+      "prompt": "只给f_n几乎处处趋于f、可测且各项可积，学生直接交换极限和积分。缺什么？"
+    },
+    {
+      "id": "REAL-FUBINI-SAME",
+      "category": "real_analysis",
+      "prompt": "在同一sigma有限测度空间的自乘积上，f可测且绝对可积。用一次sigma有限性证明能否用于两个因子？"
+    },
+    {
+      "id": "REAL-FUBINI-MISSING",
+      "category": "real_analysis",
+      "prompt": "同一sigma有限测度空间，f积可测且已给绝对可积。学生应用Fubini时只引用两次sigma有限性和一次积可测，遗漏已知的绝对可积前提。这个显式推理步骤完整吗？如何最小修复？"
+    },
+    {
+      "id": "REAL-TONELLI-EXTENDED",
+      "category": "real_analysis",
+      "prompt": "同一sigma有限测度空间，f积可测且非负。无需绝对可积能得什么积分交换结论？"
+    },
+    {
+      "id": "REVIEW-ALTERNATIVE",
+      "category": "ordered_review",
+      "prompt": "学生用配方而参考解用展开：x^2+2x+1=(x+1)^2。这是否因解法不同被判错？"
+    },
+    {
+      "id": "REVIEW-MULTIPAGE-FIRST",
+      "category": "ordered_review",
+      "prompt": "第一页末行展开(x+1)^2=x^2+2x+1，第二页首行删去2x得x^2+1。定位首错。"
+    },
+    {
+      "id": "REVIEW-UNKNOWN-PREFIX",
+      "category": "ordered_review",
+      "prompt": "第一页字迹不清，第二页有错误恒等式x^2+2x+1=x^2+1。能否断言第二页就是首错？"
+    },
+    {
+      "id": "LOGIC-CONTRACTION",
+      "category": "logic",
+      "prompt": "在显式假设P下，从同一前提P两次使用合取引入得到P∧P。有效吗？"
+    },
+    {
+      "id": "LOGIC-DISCHARGE",
+      "category": "logic",
+      "prompt": "证明P蕴含(P∧P)，要求解除P假设。"
+    },
+    {
+      "id": "LOGIC-REUSE-NO-INVENTION",
+      "category": "logic",
+      "prompt": "只给P，重复引用P，能否推出P∧Q？"
+    },
+    {
+      "id": "HS-PARAM-CUBIC-FULL",
+      "category": "high_school",
+      "prompt": "对所有实参数a，完整讨论f_a(x)=x^3-3ax在实数域的单调性。必须分别处理退化边界，不能只给导数或代入若干参数值。"
+    },
+    {
+      "id": "HS-SEQUENCE-TELESCOPING-FULL",
+      "category": "high_school",
+      "prompt": "数列满足a_0=0，a_(n+1)=((n+1)/(n+2))*a_n+(n+1)，n为非负整数。求通项并证明。允许使用归纳或变换后求和，不得因方法不同误判。"
+    },
+    {
+      "id": "HS-CONIC-PARAM-INTERSECTION",
+      "category": "high_school",
+      "prompt": "椭圆x^2/4+y^2=1与直线y=kx+1，k为任意实数。完整给出交点，并讨论何时相切、何时有两个不同交点。保留参数退化与几何依据。"
+    },
+    {
+      "id": "CALC-IMPROPER-LOG-ENDPOINT",
+      "category": "calculus",
+      "prompt": "求广义积分integral_(0)^1 ln(x) dx，并证明端点极限合法。若一个只接受光滑闭区间函数的核验器拒绝此输入，能否据此判学生答案-1错误？"
+    },
+    {
+      "id": "CALC-PARAM-IMPROPER-POWER",
+      "category": "calculus",
+      "prompt": "实参数a下，讨论integral_(0)^1 x^a dx的收敛性，收敛时求值。必须覆盖所有实参数与边界a=-1，不得用若干数值积分代替论证。"
+    },
+    {
+      "id": "ANALYSIS-UNIFORM-NOT-DERIVATIVE",
+      "category": "analysis",
+      "prompt": "在[-1,1]上令f_n(x)=sqrt(x^2+1/n)，n>=1。证明其一致收敛，求极限函数，并判断是否能由每个f_n可微推断极限在0可微。解释导数极限与极限求导的区别。"
+    },
+    {
+      "id": "REAL-DCT-SIGNED-CANCELLATION",
+      "category": "real_analysis",
+      "prompt": "在(0,1)取n>=2，f_n=n*1_(0,1/n)-n*1_(1/n,2/n)。求逐点几乎处处极限、integral f_n与integral |f_n|，并判断是否存在共同可积支配函数。若DCT的支配条件缺失，能否断言本例integral f_n不趋于integral lim f_n？"
+    },
+    {
+      "id": "REVIEW-FAILED-CERT-TRUE-CLAIM",
+      "category": "review",
+      "prompt": "学生原句是命题P=>P。其附带机器证明却从假设P用合取引入写出P&Q，再声称完成P=>P。请分别判断原句真假与所附证明有效性；不能仅因核验器拒绝所附证明就把原句标为数学首错，并给出有效的证明方法。"
+    }
+  ]
+}

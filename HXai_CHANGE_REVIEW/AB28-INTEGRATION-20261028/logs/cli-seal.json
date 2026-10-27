@@ -1,0 +1,19 @@
+{
+  "label": "cli-seal",
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "command": [
+    "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "D:\\Office\\Study\\code\\MathStudyAgent\\scripts\\score_b_math_evaluation.py",
+    "seal",
+    "--corpus",
+    "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\AB28-INTEGRATION-20261028\\cli-smoke\\corpus",
+    "--run",
+    "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\AB28-INTEGRATION-20261028\\cli-smoke\\RUN_INPUT.json",
+    "--out",
+    "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\AB28-INTEGRATION-20261028\\cli-smoke\\sealed"
+  ],
+  "exitCode": 0,
+  "seconds": 0.128,
+  "log": "logs\\cli-seal.log",
+  "logSha256": "8a7e1731608f7f126d12f9055168e9cabc770f54bee6341a427d3faca1ad2573"
+}

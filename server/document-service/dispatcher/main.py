@@ -12,6 +12,8 @@ from api.store import Store
 from api.output import validate_output
 from api.office import OFFICE_OPTIONS
 from api.office_output import validate_office_output
+from api.recalculation_output import validate_recalculation_output
+from office_worker.contracts import RECALCULATION_OPTIONS
 
 ROOT = Path(os.environ.get("MATHDOC_DATA", "/var/lib/mathdoc"))
 MODELS = Path("/var/lib/mathdoc-models")
@@ -30,6 +32,29 @@ def safe_id(value):
         return False
 
 
+class WorkerStopUnconfirmed(RuntimeError):
+    """Do not release execution or delete material without a worker-stop proof."""
+
+
+def stop_container(name):
+    try:
+        removed = docker("rm", "-f", name, check=False)
+        if removed.returncode == 0:
+            return
+        # A missing container is safe; a failed Docker command/daemon is not.
+        absent = docker("container", "ls", "--all", "--filter", "name=^/" + name + "$",
+                        "--format", "{{.Names}}", check=False)
+        if absent.returncode == 0 and not absent.stdout.strip():
+            return
+    except (OSError, subprocess.SubprocessError) as error:
+        raise WorkerStopUnconfirmed("worker_stop_unconfirmed") from error
+    raise WorkerStopUnconfirmed("worker_stop_unconfirmed")
+
+
+def stop_task_containers(name):
+    stop_container(name + "-validate")
+    stop_container(name)
+
 
 def cleanup(store):
     store.cleanup_orphan_jobs()
@@ -39,7 +64,7 @@ def cleanup(store):
     for row in rows:
         if not safe_id(row["id"]):
             raise RuntimeError("invalid_cleanup_identity")
-        docker("rm", "-f", "mathdoc-" + row["id"], check=False)
+        stop_task_containers("mathdoc-" + row["id"])
         directory = store.root / "jobs" / row["id"]
         if directory.parent != store.root / "jobs" or directory.resolve() != directory or directory.is_symlink():
             raise RuntimeError("invalid_cleanup_path")
@@ -63,15 +88,17 @@ def execute(store, row):
     # Quota-bound tmpfs: task output cannot fill the host disk.
     mounted = False
     validated = False
-    office = options.get("operation") == "office_pdf"
+    failure = None
+    recalculation = options.get("operation") == "xlsx_recalculate"
+    office = options.get("operation") in {"office_pdf", "xlsx_recalculate"}
     try:
         if str(uuid.UUID(job_id)) != job_id or directory.is_symlink() or directory.resolve() != directory:
             raise ValueError("invalid_task_directory")
         if office:
             allowed = {"operation", "sourceSha256", "extension", "rendererVersion", "renderOptions"}
-            if (set(options) != allowed or options["extension"] not in {"docx", "xlsx", "pptx"}
-                    or options["renderOptions"] != OFFICE_OPTIONS or not OFFICE_IMAGE.startswith("sha256:")
-                    or len(OFFICE_IMAGE) != 71):
+            if (set(options) != allowed or options["extension"] not in ({"xlsx"} if recalculation else {"docx", "xlsx", "pptx"})
+                    or options["renderOptions"] != (RECALCULATION_OPTIONS if recalculation else OFFICE_OPTIONS)
+                    or not OFFICE_IMAGE.startswith("sha256:") or len(OFFICE_IMAGE) != 71):
                 raise ValueError("invalid_conversion_options")
         else:
             allowed = {"sourceSha256", "extension", "pages", "tier", "parserVersion", "adapterVersion"}
@@ -89,6 +116,8 @@ def execute(store, row):
             raise ValueError("invalid_task_input")
         if json.loads(request_file.read_text()) != options:
             raise ValueError("invalid_task_input")
+        if not store.dispatchable(row["owner"], job_id):
+            return
         validated = True
         subprocess.run(["mount", "-t", "tmpfs", "-o", "size=192M,mode=0700", "tmpfs", str(directory / "output")], check=True)
         mounted = True
@@ -103,15 +132,16 @@ def execute(store, row):
                "--mount", f"type=bind,src={directory / 'input'},dst=/input,readonly",
                "--mount", f"type=bind,src={directory / 'output'},dst=/output",
                *extra, image)
+        if not store.dispatchable(row["owner"], job_id):
+            return
         docker("start", name)
         started = time.monotonic()
         while True:
-            current = store.get(row["owner"], job_id)
-            if current["cancel"]:
-                docker("rm", "-f", name, check=False)
+            if not store.dispatchable(row["owner"], job_id):
+                stop_task_containers(name)
                 return
             if time.monotonic() - started > (300 if office else 900):
-                docker("rm", "-f", name, check=False)
+                stop_task_containers(name)
                 store.finish(job_id, "FAILED", error="task_timeout")
                 return
             state = json.loads(docker("inspect", "--format", "{{json .State}}", name).stdout)
@@ -127,9 +157,13 @@ def execute(store, row):
                                   "invalid_office_input", "source_digest_mismatch", "invalid_office_package", "encrypted_or_unsafe_office",
                                   "active_or_external_office_content", "office_expansion_limit", "office_xml_limit", "unsafe_office_xml",
                                   "external_office_resource", "renderer_version_changed", "office_load_failed", "office_start_failed",
-                                  "office_formula_limit", "formula_recalculation_failed", "conversion_page_limit"}:
+                                  "office_formula_limit", "formula_recalculation_failed", "conversion_page_limit",
+                                  "formula_readback_mismatch", "formula_cache_missing", "calculation_evidence_limit",
+                                  "invalid_calculation_witness", "recalculation_sheet_mismatch", "invalid_recalculation_asset"}:
                     code = candidate
             store.finish(job_id, "FAILED", error=code)
+            return
+        if not store.dispatchable(row["owner"], job_id):
             return
         # The fresh validator has no source file, models, credentials or host socket.
         validation = docker("run", "--rm", "--name", name + "-validate", "--network", "none", "--read-only",
@@ -139,46 +173,44 @@ def execute(store, row):
                             "--entrypoint", "/usr/bin/python3" if office else "python", image, "-m", "office_worker.check_output" if office else "worker.check_output", check=False)
         if validation.returncode:
             raise ValueError("invalid_output")
-        manifest = validate_office_output(directory, options) if office else validate_output(directory, options)
+        manifest = (validate_recalculation_output(directory, options) if recalculation else validate_office_output(directory, options)) if office else validate_output(directory, options)
         store.finish(job_id, "PARTIAL" if not office and manifest["failedPages"] else "SUCCEEDED", manifest)
+    except WorkerStopUnconfirmed:
+        raise
     except Exception:
-        store.finish(job_id, "FAILED", error="worker_or_output_failure")
+        failure = "worker_or_output_failure"
     finally:
         if validated:
-            docker("rm", "-f", name + "-validate", check=False)
-            docker("rm", "-f", name, check=False)
+            stop_task_containers(name)
             if mounted:
                 subprocess.run(["umount", str(directory / "output")], check=True)
+            if failure is not None:
+                store.finish(job_id, "FAILED", error=failure)
             # Cancellation may win while publishing. Discard all uncommitted output.
             current = store.get(row["owner"], job_id)
             if current["state"] not in {"SUCCEEDED", "PARTIAL"}:
                 shutil.rmtree(directory / "published", ignore_errors=True)
             shutil.rmtree(directory / "publishing", ignore_errors=True)
+        elif failure is not None:
+            store.finish(job_id, "FAILED", error=failure)
 
 
 def main():
     store = Store(ROOT)
     with (ROOT / "dispatcher.lock").open("w") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        # Stop old containers before declaring interrupted tasks failed.
+        # Confirm every known worker/validator stopped before changing a running
+        # task or claiming more work, including cancellation just before a crash.
         with store.db() as db:
-            running = db.execute("SELECT id FROM jobs WHERE state='RUNNING'").fetchall()
-        for row in running:
-            if not safe_id(row["id"]):
-                continue
-            docker("rm", "-f", "mathdoc-" + row["id"], check=False)
-            subprocess.run(["umount", str(ROOT / "jobs" / row["id"] / "output")], capture_output=True)
-            store.finish(row["id"], "FAILED", error="server_restarted")
-        # Cancellation can have won just before a dispatcher crash. Stop every
-        # known task container, including terminal tasks, before accepting work.
-        with store.db() as db:
-            known = db.execute("SELECT id FROM jobs").fetchall()
+            known = db.execute("SELECT id,state FROM jobs").fetchall()
         for row in known:
             if not safe_id(row["id"]):
                 continue
-            docker("rm", "-f", "mathdoc-" + row["id"] + "-validate", check=False)
-            docker("rm", "-f", "mathdoc-" + row["id"], check=False)
+            stop_task_containers("mathdoc-" + row["id"])
             subprocess.run(["umount", str(ROOT / "jobs" / row["id"] / "output")], capture_output=True)
+        for row in known:
+            if row["state"] == "RUNNING" and safe_id(row["id"]):
+                store.finish(row["id"], "FAILED", error="server_restarted")
         while True:
             cleanup(store)
             job = store.claim()

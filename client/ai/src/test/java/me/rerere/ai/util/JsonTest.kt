@@ -10,6 +10,31 @@ import org.junit.Test
 
 class JsonTest {
 
+    @Test(expected = IllegalArgumentException::class)
+    fun `custom body cannot replace selected reasoning effort`() {
+        buildJsonObject { put("model", "selected"); put("reasoning_effort", "low") }
+            .mergeCustomBody(listOf(CustomBody("reasoning_effort", JsonPrimitive("high"))))
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `custom nested body cannot replace selected thinking budget`() {
+        buildJsonObject { put("generationConfig", buildJsonObject {
+            put("thinkingConfig", buildJsonObject { put("thinkingBudget", 1024) })
+        }) }.mergeCustomBody(listOf(CustomBody("generationConfig", buildJsonObject {
+            put("thinkingConfig", buildJsonObject { put("thinkingBudget", 32768) })
+        })))
+    }
+    @Test fun `unchanged selection permits unrelated nested protocol options`() {
+        val original=buildJsonObject { put("model","selected"); put("reasoning",buildJsonObject { put("effort","low") }) }
+        val result=original.mergeCustomBody(listOf(
+            CustomBody("model",JsonPrimitive("selected")),
+            CustomBody("reasoning",buildJsonObject { put("effort","low"); put("summary","auto") }),
+            CustomBody("response_format",buildJsonObject { put("type","json_object") }),
+        ))
+        assertEquals(original["model"],result["model"])
+        assertEquals("auto",(result["reasoning"] as JsonObject)["summary"]?.toString()?.trim('"'))
+    }
+
     @Test
     fun `mergeCustomBody with empty list should return original object`() {
         val originalJson = buildJsonObject {

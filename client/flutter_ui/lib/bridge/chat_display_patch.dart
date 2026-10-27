@@ -5,16 +5,18 @@ ConversationDetailDto? applyChatDisplayPatch(
   ConversationDetailDto detail,
   Map payload,
 ) {
-  if (payload['conversationId'] != detail.id || payload['changes'] is! List)
+  if (payload['conversationId'] != detail.id || payload['changes'] is! List) {
     return null;
+  }
   final nodes = List<MessageNodeDto>.of(detail.nodes);
   for (final raw in payload['changes'] as List) {
     if (raw is! Map) return null;
     final index = nodes.indexWhere((n) => n.nodeId == raw['nodeId']);
     if (index < 0) return null;
     final node = nodes[index];
-    if (node.selectIndex < 0 || node.selectIndex >= node.branches.length)
+    if (node.selectIndex < 0 || node.selectIndex >= node.branches.length) {
       return null;
+    }
     final message = node.branches[node.selectIndex];
     if (message.id != raw['messageId'] || raw['parts'] is! List) return null;
     final parts = List<MessagePartDto>.of(message.parts);

@@ -1,0 +1,15 @@
+{
+  "label": "device-api",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\platform-tools\\adb.exe",
+    "-s",
+    "emulator-5622",
+    "shell",
+    "getprop",
+    "ro.build.version.sdk"
+  ],
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "exitCode": 0,
+  "seconds": 0.281,
+  "logSha256": "9345fa6810ffcd4b7699c3c259562c4c062ee69e0774acd8f3c3b8afa4b81670"
+}

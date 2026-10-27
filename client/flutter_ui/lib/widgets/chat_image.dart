@@ -1,9 +1,29 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// One loader for message images, Markdown images and interactive surfaces.
-class ChatImage extends StatefulWidget {
+import '../providers/frontend_feature_providers.dart';
+import '../providers/study_providers.dart';
+
+final _chatImagePathProvider = FutureProvider.autoDispose
+    .family<String, (String, int)>((ref, request) async {
+      final owner = ref.watch(activeProfileIdProvider);
+      final epoch = ref.watch(contextEpochProvider);
+      final conversation = ref.watch(activeConversationIdProvider);
+      final path = await FrontendFeatures.call<String>(ref, 'resolveChatImage', {
+        'source': request.$1,
+        'conversationId': conversation,
+      });
+      if (ref.read(activeProfileIdProvider) != owner ||
+          ref.read(contextEpochProvider) != epoch || path == null) {
+        throw const FormatException('图片上下文已改变');
+      }
+      return path;
+    });
+
+/// Kotlin validates owner/hash and returns the stored bytes' path. No Dart HTTP.
+class ChatImage extends ConsumerStatefulWidget {
   final String source;
   final BoxFit fit;
   final ImageErrorWidgetBuilder? errorBuilder;
@@ -16,43 +36,11 @@ class ChatImage extends StatefulWidget {
   });
 
   @override
-  State<ChatImage> createState() => _ChatImageState();
+  ConsumerState<ChatImage> createState() => _ChatImageState();
 }
 
-class _ChatImageState extends State<ChatImage> {
+class _ChatImageState extends ConsumerState<ChatImage> {
   int attempt = 0;
-  String? cachedSource;
-  ImageProvider? cachedProvider;
-
-  ImageProvider _provider() {
-    if (cachedSource == widget.source && cachedProvider != null) {
-      return cachedProvider!;
-    }
-    final provider = _createProvider();
-    cachedSource = widget.source;
-    return cachedProvider = provider;
-  }
-
-  ImageProvider _createProvider() {
-    final source = widget.source.trim();
-    final uri = Uri.parse(source);
-    if (uri.scheme == 'data') {
-      final data = uri.data!;
-      if (!data.mimeType.startsWith('image/')) {
-        throw const FormatException('不是图片数据');
-      }
-      return MemoryImage(data.contentAsBytes());
-    }
-    if (uri.scheme == 'file') return FileImage(File.fromUri(uri));
-    if (source.startsWith('/') || RegExp(r'^[A-Za-z]:[\\/]').hasMatch(source)) {
-      return FileImage(File(source));
-    }
-    if ((uri.scheme == 'https' || uri.scheme == 'http') &&
-        uri.host.isNotEmpty) {
-      return NetworkImage(source);
-    }
-    throw const FormatException('图片地址无效或不支持');
-  }
 
   Widget _error(BuildContext context, Object error, StackTrace? stack) {
     if (widget.errorBuilder != null) {
@@ -67,12 +55,7 @@ class _ChatImageState extends State<ChatImage> {
             const Icon(Icons.broken_image_outlined),
             const Text('图片加载失败'),
             TextButton(
-              onPressed: () async {
-                try {
-                  await _provider().evict();
-                } catch (_) {}
-                if (mounted) setState(() => attempt++);
-              },
+              onPressed: () => setState(() => attempt++),
               child: const Text('重新加载'),
             ),
           ],
@@ -83,21 +66,21 @@ class _ChatImageState extends State<ChatImage> {
 
   @override
   Widget build(BuildContext context) {
-    try {
-      return Image(
-        key: ValueKey('${widget.source}:$attempt'),
-        image: _provider(),
+    final path = ref.watch(_chatImagePathProvider((widget.source, attempt)));
+    return path.when(
+      skipLoadingOnRefresh: false,
+      skipLoadingOnReload: false,
+      loading: () => const SizedBox(
+        height: 150,
+        child: Center(child: CircularProgressIndicator()),
+      ),
+      error: (error, stack) => _error(context, error, stack),
+      data: (path) => Image(
+        key: ValueKey('${widget.source}:$attempt:$path'),
+        image: FileImage(File(path)),
         fit: widget.fit,
         errorBuilder: _error,
-        loadingBuilder: (context, child, progress) => progress == null
-            ? child
-            : const SizedBox(
-                height: 150,
-                child: Center(child: CircularProgressIndicator()),
-              ),
-      );
-    } catch (error, stack) {
-      return _error(context, error, stack);
-    }
+      ),
+    );
   }
 }

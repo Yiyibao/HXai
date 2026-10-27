@@ -1,0 +1,15 @@
+{
+  "label": "ordinary-task-center-hierarchy",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\platform-tools\\adb.exe",
+    "-s",
+    "emulator-5622",
+    "exec-out",
+    "cat",
+    "/sdcard/ab28-hierarchy.xml"
+  ],
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "exitCode": 0,
+  "seconds": 0.043,
+  "logSha256": "d12f467aae4373d0ac159ac5d4e17331110898f477d4cee403e02713910d2a6f"
+}

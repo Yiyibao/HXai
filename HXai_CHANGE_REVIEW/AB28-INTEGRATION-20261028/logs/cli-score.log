@@ -1,0 +1,1 @@
+{"status": "PASS", "scope": "OFFLINE_ASSESSMENT_CONSISTENCY_ONLY", "origin": "SYNTHETIC", "totals": {"cases": 32, "mathematics": {"CORRECT": 0, "INCORRECT": 0, "INCOMPLETE": 0, "UNDETERMINED": 32}, "engineering": {"PASS": 0, "FAIL": 0, "NOT_RUN": 32, "BLOCKED": 0}, "obligations": {"UNDETERMINED": 81}, "unresolvedReasons": {"UNKNOWN": 81}}, "modelQuality": "NOT_ATTESTED"}

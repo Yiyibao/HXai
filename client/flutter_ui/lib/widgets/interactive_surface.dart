@@ -8,6 +8,7 @@ import '../theme/study_theme.dart';
 import '../bridge/study_host_api.g.dart';
 import 'enhanced_image_view.dart';
 import 'math_plot.dart';
+import 'math_space_plot.dart';
 import 'math_markdown.dart';
 import 'surface_semantics.dart';
 import 'surface_layout.dart';
@@ -51,22 +52,26 @@ class SurfaceDefinition {
               'composition',
             ],
           ].contains(k),
-        ))
+        )) {
       throw const FormatException('界面版本或字段无效');
+    }
     if (json.containsKey('presentation') &&
             !['inline', 'panel'].contains(json['presentation']) ||
         json.containsKey('density') &&
             !SurfaceLayout.densities.contains(json['density']) ||
         json.containsKey('template') &&
-            !SurfaceLayout.templates.contains(json['template']))
+            !SurfaceLayout.templates.contains(json['template'])) {
       throw const FormatException('Invalid presentation style');
-    if (json.containsKey('composition') && json.containsKey('layout'))
+    }
+    if (json.containsKey('composition') && json.containsKey('layout')) {
       throw const FormatException('Choose one layout');
+    }
     final components = (json['components'] as List)
         .map((c) => Map<String, dynamic>.from(c as Map))
         .toList();
-    if (components.isEmpty || components.length > 24)
+    if (components.isEmpty || components.length > 24) {
       throw const FormatException('组件数量无效');
+    }
     final ids = <String>{};
     final parameters = <String>{};
     final fields = {
@@ -78,6 +83,7 @@ class SurfaceDefinition {
         if (json['version'] >= 4) ...SurfaceData.imageFields,
       ],
       'math_plot': MathPlot.fields.toList(),
+      'math_plot_3d': MathSpacePlot.fields.toList(),
       'table': [
         'columns',
         'rows',
@@ -136,11 +142,13 @@ class SurfaceDefinition {
               ...fields[type]!,
               if (json['version'] >= 4) ...['variant', 'tone', 'density'],
             ].contains(k),
-          ))
+          )) {
         throw const FormatException('组件或字段未登记');
+      }
       if (json['version'] >= 4) SurfaceLayout.validateStyle(c);
-      if (SurfaceSemantics.fields.containsKey(type))
+      if (SurfaceSemantics.fields.containsKey(type)) {
         SurfaceSemantics.validate(c);
+      }
       if (type == 'image') {
         if (json['version'] >= 4) SurfaceData.validateImage(c);
         final url = c['url'];
@@ -148,8 +156,10 @@ class SurfaceDefinition {
         if (url is! String ||
             url.length > 16000 ||
             uri == null ||
-            !['http', 'https'].contains(uri.scheme) ||
-            uri.host.isEmpty ||
+            !((['http', 'https'].contains(uri.scheme) &&
+                    uri.host.isNotEmpty && uri.userInfo.isEmpty) ||
+                (uri.scheme == 'file' && uri.authority.isEmpty &&
+                    uri.path.startsWith('/') && !uri.hasQuery && !uri.hasFragment)) ||
             (c.containsKey('caption') &&
                 (c['caption'] is! String ||
                     (c['caption'] as String).length > 2000))) {
@@ -157,8 +167,9 @@ class SurfaceDefinition {
         }
       }
       if (['text', 'card'].contains(type) &&
-          (c['text'] is! String || (c['text'] as String).length > 4000))
+          (c['text'] is! String || (c['text'] as String).length > 4000)) {
         throw const FormatException('文本无效');
+      }
       if ([
             'slider',
             'select',
@@ -166,16 +177,18 @@ class SurfaceDefinition {
             'calculation',
             'button',
           ].contains(type) &&
-          (c['label'] is! String || (c['label'] as String).length > 200))
+          (c['label'] is! String || (c['label'] as String).length > 200)) {
         throw const FormatException('标签无效');
+      }
       if (type == 'slider') {
         if (!number(c['min']) ||
             !number(c['max']) ||
             !number(c['value']) ||
             c['min'] >= c['max'] ||
             c['value'] < c['min'] ||
-            c['value'] > c['max'])
+            c['value'] > c['max']) {
           throw const FormatException('滑块范围无效');
+        }
         parameters.add(id);
       }
       if (type == 'select') {
@@ -184,19 +197,23 @@ class SurfaceDefinition {
             options.length > 30 ||
             options.toSet().length != options.length ||
             !options.contains(c['value']) ||
-            options.any((v) => v is! String || v.isEmpty || v.length > 200))
+            options.any((v) => v is! String || v.isEmpty || v.length > 200)) {
           throw const FormatException('选项无效');
+        }
       }
       if (type == 'input' &&
-          (c['value'] is! String || (c['value'] as String).length > 4000))
+          (c['value'] is! String || (c['value'] as String).length > 4000)) {
         throw const FormatException('输入内容无效');
+      }
       if (type == 'calculation' &&
           (c.containsKey('expression')
               ? c.keys.any((k) => ['a', 'b', 'parameter'].contains(k))
-              : (!number(c['a']) || !number(c['b']))))
+              : (!number(c['a']) || !number(c['b'])))) {
         throw const FormatException('计算参数无效');
-      if (type == 'button' && c['action'] != 'continue')
+      }
+      if (type == 'button' && c['action'] != 'continue') {
         throw const FormatException('动作未登记');
+      }
       if (type == 'table') {
         final columns = c['columns'] as List;
         final rows = c['rows'] as List;
@@ -209,17 +226,20 @@ class SurfaceDefinition {
                   r is! List ||
                   r.length != columns.length ||
                   r.any((v) => v is List || v is Map || '$v'.length > 2000),
-            ))
+            )) {
           throw const FormatException('表格无效');
+        }
         if (json['version'] >= 4) SurfaceData.validateTable(c);
       }
       if (['line_chart', 'bar_chart', 'scatter_chart'].contains(type)) {
-        if (c.containsKey('selectable') && c['selectable'] is! bool)
+        if (c.containsKey('selectable') && c['selectable'] is! bool) {
           throw const FormatException('图表选择无效');
+        }
         for (final key in ['xLabel', 'yLabel']) {
           if (c.containsKey(key) &&
-              (c[key] is! String || (c[key] as String).length > 200))
+              (c[key] is! String || (c[key] as String).length > 200)) {
             throw const FormatException('坐标标签无效');
+          }
         }
         if (json['version'] >= 4) SurfaceData.validateChart(c);
         final points = SurfaceData.points(c);
@@ -227,14 +247,19 @@ class SurfaceDefinition {
             points.length > 500 ||
             points.any(
               (p) => p is! List || p.length != 2 || p.any((v) => !number(v)),
-            ))
+            )) {
           throw const FormatException('图表数据无效');
+        }
       }
     }
     for (final c in components) {
-      if (c['type'] == 'math_plot') {
+      if (c['type'] == 'math_plot' || c['type'] == 'math_plot_3d') {
         if (json['version'] < 3) throw const FormatException('数学图像需要版本 3');
-        MathPlot.validate(c, parameters);
+        if (c['type'] == 'math_plot_3d') {
+          MathSpacePlot.validate(c, parameters);
+        } else {
+          MathPlot.validate(c, parameters);
+        }
       }
       if (c.containsKey('filter') || c.containsKey('filterColumn')) {
         if (!components.any(
@@ -242,14 +267,16 @@ class SurfaceDefinition {
             ) ||
             c['filterColumn'] is! int ||
             c['filterColumn'] < 0 ||
-            c['filterColumn'] >= (c['columns'] as List).length)
+            c['filterColumn'] >= (c['columns'] as List).length) {
           throw const FormatException('筛选引用无效');
+        }
       }
       if ((c.containsKey('scale') && !parameters.contains(c['scale'])) ||
           (c['type'] == 'calculation' &&
               !c.containsKey('expression') &&
-              !parameters.contains(c['parameter'])))
+              !parameters.contains(c['parameter']))) {
         throw const FormatException('计算引用无效');
+      }
       if (c.containsKey('expression')) {
         var nodes = 0;
         void validateExpression(dynamic e, int depth) {
@@ -258,8 +285,9 @@ class SurfaceDefinition {
           if (e is! Map) throw const FormatException('计算节点无效');
           if (e.length == 1 &&
               e.containsKey('parameter') &&
-              parameters.contains(e['parameter']))
+              parameters.contains(e['parameter'])) {
             return;
+          }
           if (e.length != 2 ||
               !e.containsKey('op') ||
               ![
@@ -272,8 +300,9 @@ class SurfaceDefinition {
                 'max',
               ].contains(e['op']) ||
               e['args'] is! List ||
-              (e['args'] as List).length != 2)
+              (e['args'] as List).length != 2) {
             throw const FormatException('计算操作无效');
+          }
           for (final arg in e['args'] as List) {
             validateExpression(arg, depth + 1);
           }
@@ -293,10 +322,12 @@ class SurfaceDefinition {
             layout.any((r) => r.isEmpty || r.length > 3) ||
             layout.expand((r) => r).length != ids.length ||
             layout.expand((r) => r).toSet().difference(ids).isNotEmpty ||
-            ids.difference(layout.expand((r) => r).toSet()).isNotEmpty))
+            ids.difference(layout.expand((r) => r).toSet()).isNotEmpty)) {
       throw const FormatException('布局必须包含每个组件且不重复');
-    if (json.containsKey('composition'))
+    }
+    if (json.containsKey('composition')) {
       SurfaceLayout.validateComposition(json['composition'], ids);
+    }
     return SurfaceDefinition._(
       json['version'] as int,
       json['title'] as String,
@@ -320,26 +351,31 @@ class SurfaceDefinition {
   };
   void validateState(Map<String, dynamic> values) {
     if (values.length != defaults.length ||
-        values.keys.any((key) => !defaults.containsKey(key)))
+        values.keys.any((key) => !defaults.containsKey(key))) {
       throw const FormatException('界面状态字段无效');
+    }
     for (final c in components) {
       final v = values[c['id']];
       switch (c['type']) {
         case 'slider':
-          if (v is! num || !v.isFinite || v < c['min'] || v > c['max'])
+          if (v is! num || !v.isFinite || v < c['min'] || v > c['max']) {
             throw const FormatException('滑块状态无效');
+          }
         case 'select':
-          if (!(c['options'] as List).contains(v))
+          if (!(c['options'] as List).contains(v)) {
             throw const FormatException('选择状态无效');
+          }
         case 'input':
-          if (v is! String || v.length > 4000)
+          if (v is! String || v.length > 4000) {
             throw const FormatException('输入状态无效');
+          }
         case 'line_chart':
         case 'bar_chart':
         case 'scatter_chart':
           if (c['selectable'] == true &&
-              (v is! int || v < -1 || v >= SurfaceData.points(c).length))
+              (v is! int || v < -1 || v >= SurfaceData.points(c).length)) {
             throw const FormatException('图表状态无效');
+          }
       }
     }
   }
@@ -500,8 +536,9 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
         });
       }
     } catch (e) {
-      if (mounted && token == generation)
+      if (mounted && token == generation) {
         setState(() => error = '暂时无法恢复已保存的状态，请重试加载');
+      }
     }
   }
 
@@ -567,11 +604,12 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
       retryRequest = request;
       retryPayload = payload;
     }
-    if (notify && mounted)
+    if (notify && mounted) {
       setState(() {
         saving = true;
         if (action != null) busy = true;
       });
+    }
     final operation = pendingSave
         .catchError((_) {})
         .then((_) => callback(snapshot, action, request));
@@ -598,11 +636,12 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
       }
       return false;
     } finally {
-      if (mounted && token == generation && serial == saves)
+      if (mounted && token == generation && serial == saves) {
         setState(() {
           saving = false;
           if (action != null) busy = false;
         });
+      }
     }
   }
 
@@ -732,11 +771,12 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
                           .toList();
                       if (bounds.maxWidth < 260 ||
                           MediaQuery.textScalerOf(context).scale(14) > 20 ||
-                          children.length == 1)
+                          children.length == 1) {
                         return Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: children,
                         );
+                      }
                       return Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: children
@@ -882,13 +922,14 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
                           load: () async => Map<String, dynamic>.of(values),
                           save: (next, action, request) async {
                             await widget.save(next, action, request);
-                            if (mounted)
+                            if (mounted) {
                               setState(() {
                                 values = Map<String, dynamic>.of(next);
                                 resetRevision++;
                                 dirty = false;
                                 submitted = action != null;
                               });
+                            }
                           },
                         ),
                       ),
@@ -902,8 +943,9 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
                           if (state == null ||
                               !state.ready ||
                               state.busy ||
-                              state.invalidFields.isNotEmpty)
+                              state.invalidFields.isNotEmpty) {
                             return false;
+                          }
                           return state.save(null);
                         },
                         () => unawaited(closeExpanded(dialogContext)),
@@ -958,12 +1000,14 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
     if (c['id'] == id ||
         c['scale'] == id ||
         c['filter'] == id ||
-        c['parameter'] == id)
+        c['parameter'] == id) {
       return true;
-    if (c['type'] == 'math_plot')
+    }
+    if (c['type'] == 'math_plot' || c['type'] == 'math_plot_3d') {
       return widget.definition.components.any(
         (p) => p['id'] == id && p['type'] == 'slider',
       );
+    }
     bool expression(dynamic node) =>
         node is Map &&
         (node['parameter'] == id ||
@@ -995,9 +1039,16 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
                     .toDouble(),
           },
         );
+      case 'math_plot_3d':
+        return MathSpacePlotView(definition: c, parameters: {
+          for (final control in widget.definition.components)
+            if (control['type'] == 'slider')
+              control['id'] as String: (values[control['id']] as num).toDouble(),
+        });
       case 'text':
-        if (widget.definition.version >= 4)
+        if (widget.definition.version >= 4) {
           return MathMarkdownView(content: c['text'] as String);
+        }
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 6),
           child: SelectableText(
@@ -1012,10 +1063,11 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
           ),
         );
       case 'card':
-        if (widget.definition.version >= 4)
+        if (widget.definition.version >= 4) {
           return SurfaceInfoCard(
             child: MathMarkdownView(content: c['text'] as String),
           );
+        }
         final lines = (c['text'] as String).split('\n');
         final metric =
             lines.length == 2 &&
@@ -1052,8 +1104,9 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
               : SelectableText(c['text'] as String),
         );
       case 'image':
-        if (widget.definition.version >= 4)
+        if (widget.definition.version >= 4) {
           return SurfaceImageView(definition: c);
+        }
         return EnhancedImageView(
           part: MessagePartDto(
             type: 'image',
@@ -1063,12 +1116,13 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
           messageId: '',
         );
       case 'table':
-        if (widget.definition.version >= 4)
+        if (widget.definition.version >= 4) {
           return SurfaceTableView(
             key: ValueKey(c['id']),
             definition: c,
             filter: c.containsKey('filter') ? values[c['filter']] : '*',
           );
+        }
         final filter = c.containsKey('filter') ? values[c['filter']] : '*';
         final rows = (c['rows'] as List).where(
           (row) =>
@@ -1108,9 +1162,9 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
         );
       case 'slider':
         final mathParameter = widget.definition.components.any(
-          (c) => c['type'] == 'math_plot',
+          (c) => c['type'] == 'math_plot' || c['type'] == 'math_plot_3d',
         );
-        if (compact)
+        if (compact) {
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: _NumericParameter(
@@ -1130,6 +1184,7 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
               }),
             ),
           );
+        }
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 12),
           child: Column(
@@ -1346,7 +1401,7 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
                       child: const Text('恢复默认'),
                     );
                     if (bounds.maxWidth < 260 ||
-                        MediaQuery.textScalerOf(context).scale(14) > 20)
+                        MediaQuery.textScalerOf(context).scale(14) > 20) {
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
@@ -1355,6 +1410,7 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
                           resetButton,
                         ],
                       );
+                    }
                     return Row(
                       children: [
                         Expanded(child: button),
@@ -1369,7 +1425,7 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
       case 'line_chart':
       case 'bar_chart':
       case 'scatter_chart':
-        if (widget.definition.version >= 4)
+        if (widget.definition.version >= 4) {
           return SurfaceChartView(
             key: ValueKey(c['id']),
             definition: c,
@@ -1381,6 +1437,7 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
                 ? (index) => update(id, index)
                 : null,
           );
+        }
         final chartHeight = compact ? 180.0 : 220.0;
         final factor = c.containsKey('scale')
             ? (values[c['scale']] as num).toDouble()
@@ -1549,8 +1606,9 @@ class _NumericParameterState extends State<_NumericParameter> {
   void didUpdateWidget(covariant _NumericParameter oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (double.tryParse(controller.text) != widget.value &&
-        widget.value != oldWidget.value)
+        widget.value != oldWidget.value) {
       controller.text = _number(widget.value);
+    }
   }
 
   @override
@@ -1677,13 +1735,14 @@ class _ChartPainter extends CustomPainter {
       canvas.drawLine(Offset(x, rect.top), Offset(x, rect.bottom), grid);
       label(canvas, _number(p.dx), Offset(x, rect.bottom + 10), centered: true);
     }
-    if (xLabel.isNotEmpty)
+    if (xLabel.isNotEmpty) {
       label(
         canvas,
         xLabel,
         Offset(rect.center.dx, size.height - 12),
         centered: true,
       );
+    }
     final pen = Paint()
       ..color = color
       ..strokeWidth = 2;

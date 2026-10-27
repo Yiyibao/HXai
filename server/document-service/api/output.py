@@ -22,6 +22,9 @@ def validate_output(directory, options):
         raise ValueError("invalid_coverage")
     if manifest["complete"] != (not manifest["failedPages"] and options["pages"] == [1, manifest["totalPages"]]):
         raise ValueError("invalid_coverage")
+    blank = manifest.get("blankPages", [])
+    if len(blank) != len(set(blank)) or not set(blank) <= set(processed):
+        raise ValueError("invalid_blank_coverage")
     assets = manifest["assets"]
     if len(assets) > 2000 or len({a["assetId"] for a in assets}) != len(assets):
         raise ValueError("invalid_assets")
@@ -68,6 +71,9 @@ def validate_output(directory, options):
     ids = {a["assetId"] for a in assets}
     if any(b["page"] not in processed or ("assetId" in b and b["assetId"] not in ids) for b in document["blocks"]):
         raise ValueError("invalid_block")
+    if any(b["page"] in blank and (b["text"].strip() or (b.get("latex") or "").strip() or b.get("assetId") is not None)
+           for b in document["blocks"]):
+        raise ValueError("blank_page_content_conflict")
     os.replace(staging, directory / "published")
     return manifest
 

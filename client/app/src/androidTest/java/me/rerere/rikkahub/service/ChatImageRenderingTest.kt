@@ -21,10 +21,8 @@ import org.junit.Test
 import org.koin.core.context.GlobalContext
 import java.io.ByteArrayOutputStream
 import java.io.File
-import java.net.ServerSocket
-import kotlin.concurrent.thread
 
-/** Actual Kotlin -> Flutter rendering with local HTTP image bytes; no paid model calls. */
+/** Actual Kotlin -> Flutter rendering with owned synthetic PNG bytes; no model or remote image calls. */
 class ChatImageRenderingTest {
     @Test fun assistantImagesAppearInActualChat() {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
@@ -38,45 +36,22 @@ class ChatImageRenderingTest {
         bitmap.eraseColor(blue)
         val png = ByteArrayOutputStream().also { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }.toByteArray()
         bitmap.recycle()
-        val server = ServerSocket(0)
-        val worker = thread(isDaemon = true) {
-            while (!server.isClosed) {
-                try {
-                    server.accept().use { socket ->
-                        socket.soTimeout = 5000
-                        val reader = socket.getInputStream().bufferedReader()
-                        val path = reader.readLine().orEmpty().split(' ').getOrNull(1)
-                        while (!reader.readLine().isNullOrEmpty()) { }
-                        val bytes = if (path == "/page") "<title>图片来源测试</title><img src='/figure.png' alt='工具配图'>".toByteArray() else png
-                        val type = if (path == "/page") "text/html; charset=utf-8" else "image/png"
-                        socket.getOutputStream().apply {
-                            write("HTTP/1.1 200 OK\r\nContent-Type: $type\r\nContent-Length: ${bytes.size}\r\nConnection: close\r\n\r\n".toByteArray())
-                            write(bytes)
-                            flush()
-                        }
-                    }
-                } catch (_: Exception) { }
-            }
+        val materials = koin.get<me.rerere.rikkahub.feature.material.MaterialFiles>()
+        val asset = runBlocking {
+            me.rerere.rikkahub.data.ai.tools.persistWebImage(me.rerere.search.VerifiedWebImage(
+                me.rerere.search.SearchImage("https://source.example/figure.png"),240,120,"image/png",
+                java.time.Instant.now().toString(),png),materials,settings.activeProfileId)
         }
-        val url = "http://127.0.0.1:${server.localPort}/figure.png"
-        val imageFile = File(context.cacheDir, "qa-chat-image.png").apply { writeBytes(png) }
-        val extracted = runBlocking {
-            val tool = me.rerere.rikkahub.data.ai.tools.createWebImageTools().single { it.name == "extract_web_images" }
-            val text = tool.execute(buildJsonObject { put("url", "http://127.0.0.1:${server.localPort}/page") }).single() as UIMessagePart.Text
-            Json.parseToJsonElement(text.text).jsonObject
-        }
-        assertTrue(extracted["imageStatus"]?.jsonPrimitive?.content == "verified")
-        val verifiedImage = extracted.getValue("images").jsonArray.single().jsonObject
-        assertTrue(verifiedImage["width"]?.jsonPrimitive?.int == 240)
-        assertTrue(verifiedImage["height"]?.jsonPrimitive?.int == 120)
+        val imageFile = materials.verifiedFile(settings.activeProfileId,asset.id)
+        val url = imageFile.toURI().toString()
         val imageArgs = buildJsonObject {
-            put("url", verifiedImage.getValue("url")); put("caption", "工具配图")
-            put("sourceUrl", verifiedImage.getValue("sourceUrl")); put("sourceTitle", verifiedImage.getValue("sourceTitle"))
+            put("url", url); put("caption", "工具配图")
+            put("sourceUrl", "https://source.example/article"); put("sourceTitle", "图片来源测试")
         }
         val surfaceArgs = buildJsonObject { put("definition", """{"version":3,"title":"界面配图","components":[{"id":"figure","type":"image","url":"$url","caption":"真实图片组件"}]}""") }
         val scenes = mapOf(
             "markdown" to listOf(UIMessagePart.Text("配图前的解释。\n\n![网络配图]($url)\n\n配图后的说明。")),
-            "tool" to listOf(UIMessagePart.Tool("qa-image", "display_image", imageArgs.toString(), runBlocking { displayImageTool().execute(imageArgs) }, executionState = ToolExecutionState.COMPLETED)),
+            "tool" to listOf(UIMessagePart.Tool("qa-image", "display_image", imageArgs.toString(), runBlocking { displayImageTool(materials,settings.activeProfileId).execute(imageArgs) }, executionState = ToolExecutionState.COMPLETED)),
             "base64" to listOf(UIMessagePart.Image("data:image/png;base64,${Base64.encodeToString(png, Base64.NO_WRAP)}")),
             "local" to listOf(UIMessagePart.Image(imageFile.toURI().toString())),
             "surface" to listOf(UIMessagePart.Tool("qa-surface", "render_interactive_ui", surfaceArgs.toString(), runBlocking { interactiveUiTool().execute(surfaceArgs) }, executionState = ToolExecutionState.COMPLETED)),
@@ -86,7 +61,7 @@ class ChatImageRenderingTest {
                 val response = UIMessage.assistant("").copy(parts = answer, generationState = "COMPLETED")
                 // The normal generation pipeline converts Base64 to a managed file before Room persistence.
                 val persisted = if (name == "base64") runBlocking {
-                    koin.get<FilesManager>().convertBase64ImagePartToLocalFile(response)
+                    koin.get<FilesManager>().convertBase64ImagePartToLocalFile(response, materials, settings.activeProfileId)
                 } else response
                 val conversation = Conversation(assistantId = settings.assistantId, profileId = settings.activeProfileId,
                     title = "Image QA $name", newConversation = true,
@@ -97,15 +72,6 @@ class ChatImageRenderingTest {
                         service.addConversationReference(conversation.id)
                         service.initializeConversation(conversation.id)
                         service.saveConversation(conversation.id, conversation)
-                        if (name == "tool") {
-                            val facade = me.rerere.rikkahub.flutter.StudyHostFacade(context, koin.get(), repository,
-                                service, koin.get(), koin.get(), koin.get(), pickFiles = { emptyList() })
-                            try {
-                                val detail = facade.getConversationDetails(settings.activeProfileId, conversation.id.toString())
-                                assertTrue(detail.nodes.flatMap { it.branches }.flatMap { it.parts }
-                                    .any { it.type == "text" && it.text?.contains("图片来源测试") == true })
-                            } finally { facade.close() }
-                        }
                     }
                     ActivityScenario.launch(StudyFlutterActivity::class.java).use {
                         instrumentation.waitForIdleSync()
@@ -138,9 +104,8 @@ class ChatImageRenderingTest {
                 }
             }
         } finally {
-            server.close()
-            worker.join(1000)
             imageFile.delete()
+            imageFile.parentFile!!.resolve("${asset.id}.meta.json").delete()
         }
     }
 }

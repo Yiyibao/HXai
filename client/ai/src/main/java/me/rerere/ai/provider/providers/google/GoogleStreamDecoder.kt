@@ -152,14 +152,14 @@ internal class GoogleStreamDecoder(
 
     private fun parseUsage(usage: JsonObject?): TokenUsage? {
         if (usage == null) return null
-        val promptTokens = usage["promptTokenCount"]?.jsonPrimitiveOrNull?.intOrNull ?: 0
-        val thoughtTokens = usage["thoughtsTokenCount"]?.jsonPrimitiveOrNull?.intOrNull ?: 0
-        val cachedTokens = usage["cachedContentTokenCount"]?.jsonPrimitiveOrNull?.intOrNull ?: 0
-        val candidateTokens = usage["candidatesTokenCount"]?.jsonPrimitiveOrNull?.intOrNull ?: 0
-        val totalTokens = usage["totalTokenCount"]?.jsonPrimitiveOrNull?.intOrNull ?: 0
+        val promptTokens = usage["promptTokenCount"]?.jsonPrimitiveOrNull?.intOrNull
+        val thoughtTokens = usage["thoughtsTokenCount"]?.jsonPrimitiveOrNull?.intOrNull
+        val cachedTokens = usage["cachedContentTokenCount"]?.jsonPrimitiveOrNull?.intOrNull
+        val candidateTokens = usage["candidatesTokenCount"]?.jsonPrimitiveOrNull?.intOrNull
+        val totalTokens = usage["totalTokenCount"]?.jsonPrimitiveOrNull?.intOrNull
         return TokenUsage(
             promptTokens = promptTokens,
-            completionTokens = candidateTokens + thoughtTokens,
+            completionTokens = me.rerere.ai.core.sumTokenCounts(candidateTokens,thoughtTokens),
             totalTokens = totalTokens,
             cachedTokens = cachedTokens,
         )

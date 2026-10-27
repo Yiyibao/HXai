@@ -90,6 +90,9 @@ Map<String, dynamic> visualFixture() => {
 
 void main() {
   testWidgets('Capture mobile and wide light/dark rendering', (tester) async {
+    final evidenceRoot = Directory(Platform.environment['HXAI_QA_OUTPUT'] ?? '../../qa/flutter-visual-runs')
+      ..createSync(recursive: true);
+    final outputDirectory = evidenceRoot.createTempSync('surface-rendering-');
     final fontFile = File(
       '../../.local/flutter/bin/cache/artifacts/material_fonts/roboto-regular.ttf',
     );
@@ -156,7 +159,7 @@ void main() {
           final image = await boundary.toImage(pixelRatio: 1);
           final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
           final file = File(
-            '../../qa/rendering-upgrade-20261010/render-${width.toInt()}-${dark ? 'dark' : 'light'}.png',
+            '${outputDirectory.path}/render-${width.toInt()}-${dark ? 'dark' : 'light'}.png',
           );
           await file.parent.create(recursive: true);
           await file.writeAsBytes(bytes!.buffer.asUint8List());

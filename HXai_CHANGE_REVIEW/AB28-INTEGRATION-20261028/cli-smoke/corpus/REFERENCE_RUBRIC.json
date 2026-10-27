@@ -1,0 +1,559 @@
+{
+  "corpusVersion": 2,
+  "corpusSha256": "87ff045e3153b38f7e70fcbe72476b14e630d427782b6a7d3f8f7939338eda7f",
+  "referenceStatus": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+  "scoring": "After sealing actual answers: each obligation MET/VIOLATED/UNDETERMINED; overall CORRECT/INCORRECT/INCOMPLETE/UNDETERMINED. No engine-hit-rate substitution.",
+  "cases": [
+    {
+      "id": "HS-PARAM-DERIVATIVE",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "a为常数，逐项求导得3*a*x^2-3*a；a正、零、负的单调分支仍需分别讨论。",
+        "obligations": [
+          "参数对x恒定",
+          "a=0退化分支不得遗漏"
+        ],
+        "notCertified": [
+          "只认证导数，不认证全参数单调分类"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "HS-SEQUENCE",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "n=0成立；假设a_n=n^2，则a_(n+1)=n^2+2n+1=(n+1)^2。",
+        "obligations": [
+          "初值",
+          "所有n>=0的归纳步"
+        ],
+        "notCertified": [
+          "不由有限样例证明"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "HS-SEQUENCE-SAMPLING",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "n=0,1,2新增项为0不代表恒零；n=3增加6，a_4=22而非16。",
+        "obligations": [
+          "验证完整递推而非只看前三项"
+        ],
+        "notCertified": [
+          "不推导修正闭式"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "HS-CONIC-IDENTITY",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "展开后交叉项相消；几何变量与点/焦点的对应、分母非零和退化条件未给出。",
+        "obligations": [
+          "恒等展开",
+          "几何建模另验"
+        ],
+        "notCertified": [
+          "仅代数恒等，不认证未声明几何结论"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "HS-FINITE-SAMPLES",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "该多项式首项系数为1，非零；x=4时为24。",
+        "obligations": [
+          "恒等需系数或完整论证"
+        ],
+        "notCertified": [
+          "有限采样只能找反例"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "CALC-REMOVABLE-LIMIT",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "x不等于1时为x+1，极限2，但原分母在1为0，原点值不存在。",
+        "obligations": [
+          "区分极限与点值",
+          "保留原域"
+        ],
+        "notCertified": [
+          "不能自动填补原孔洞"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "CALC-POLE-TWO-SIDES",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "左侧负无穷，右侧正无穷；双侧极限不存在。",
+        "obligations": [
+          "两侧方向",
+          "不能把分类完成当作极限存在"
+        ],
+        "notCertified": [
+          "不认证有限极限"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "CALC-WRONG-PRIMITIVE",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "积分值确为1；F导数0不等于2x，只反驳此证书。",
+        "obligations": [
+          "区分证书错误与积分结论错误"
+        ],
+        "notCertified": [
+          "错误证书不等于错误答案"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "CALC-NONSMOOTH-VALID",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "分段积分两半均1/2，总和1；|x|在0不光滑，C8充分证书不适用。",
+        "obligations": [
+          "分段与0的处理",
+          "UNSUPPORTED不是反驳"
+        ],
+        "notCertified": [
+          "当前C8证书不认证该正确积分"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "CALC-ROOT-NOT-UNIQUE",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "因式分解(x-1)(x+1)=0，根为±1；导数2x在区间不严格同号。",
+        "obligations": [
+          "两个根",
+          "不得由唯一根证书拒绝推断无根"
+        ],
+        "notCertified": [
+          "此唯一根算法应UNSUPPORTED"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "ANALYSIS-MTEST",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "任意尾和的绝对值<=对应M尾和，后者与x无关且趋0，得到一致Cauchy性。",
+        "obligations": [
+          "所有x与n的统一界",
+          "非负可和majorant"
+        ],
+        "notCertified": [
+          "这里把题设条件作显式假设，未机器证明其成立"
+        ],
+        "sourceRefs": [
+          {
+            "url": "https://ocw.mit.edu/courses/18-100a-real-analysis-fall-2020/mit18_100af20_lec24.pdf",
+            "locator": "physical page 1, Theorem 3; page 2, interchange-of-limits warning",
+            "scope": "M-test hypotheses; not proof of any supplied hypothesis"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ANALYSIS-MTEST-MISSING",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "不成立的定理应用；例如M_n=1且s_n=1，级数发散。不能因条件缺失就宣称所有这样的s均发散。",
+        "obligations": [
+          "必须有可和majorant"
+        ],
+        "notCertified": [
+          "DISPROVED只指给定推理不合规则"
+        ],
+        "sourceRefs": [
+          {
+            "url": "https://ocw.mit.edu/courses/18-100a-real-analysis-fall-2020/mit18_100af20_lec24.pdf",
+            "locator": "physical page 1, Theorem 3; page 2, interchange-of-limits warning",
+            "scope": "M-test hypotheses; not proof of any supplied hypothesis"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ANALYSIS-POINTWISE",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "极限在[0,1)为0，在1为1，不连续；连续函数的一致极限必连续。也可取x_n=2^(-1/n)，误差1/2。",
+        "obligations": [
+          "量词次序",
+          "端点1"
+        ],
+        "notCertified": [
+          "自由文本反例不由当前命题规则自动证明"
+        ],
+        "sourceRefs": [
+          {
+            "url": "https://ocw.mit.edu/courses/18-100a-real-analysis-fall-2020/mit18_100af20_lec24.pdf",
+            "locator": "physical page 1, Theorem 3; page 2, interchange-of-limits warning",
+            "scope": "M-test hypotheses; not proof of any supplied hypothesis"
+          }
+        ]
+      }
+    },
+    {
+      "id": "REAL-DCT",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "满足控制收敛定理；由g±f_n及Fatou界或DCT得积分收敛。",
+        "obligations": [
+          "可测",
+          "a.e.收敛",
+          "同一个可积支配函数"
+        ],
+        "notCertified": [
+          "条件是明确假设，不宣称已经从教材/原题证明"
+        ],
+        "sourceRefs": [
+          {
+            "url": "https://ocw.mit.edu/courses/18-102-introduction-to-functional-analysis-spring-2021/e407e57ea631a29148ee94afecef7d33_MIT18_102s21_lec12.pdf",
+            "locator": "physical page 3, Theorem 125",
+            "scope": "dominated convergence hypotheses"
+          }
+        ]
+      }
+    },
+    {
+      "id": "REAL-DCT-MISSING",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "缺共同可积支配等充分条件。f_n=n*1_(0,1/n)在(0,1)逐点趋0但积分恒1。",
+        "obligations": [
+          "不能把各项可积替代共同支配"
+        ],
+        "notCertified": [
+          "拒绝定理应用不自动认证这个反例"
+        ],
+        "sourceRefs": [
+          {
+            "url": "https://ocw.mit.edu/courses/18-102-introduction-to-functional-analysis-spring-2021/e407e57ea631a29148ee94afecef7d33_MIT18_102s21_lec12.pdf",
+            "locator": "physical page 3, Theorem 125",
+            "scope": "dominated convergence hypotheses"
+          }
+        ]
+      }
+    },
+    {
+      "id": "REAL-FUBINI-SAME",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "两因子为同一测度，sigma有限性可重复引用；Fubini要求另有积可测与绝对可积。",
+        "obligations": [
+          "按两个有序前提位置复用同一事实",
+          "保留所有依赖"
+        ],
+        "notCertified": [
+          "并未机器证明f绝对可积"
+        ],
+        "sourceRefs": [
+          {
+            "url": "https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/6fe5ce4d56945ce7241679998922fb3a_MIT6_436JF18_lec09.pdf",
+            "locator": "physical pages 5–8, sigma-finiteness and Theorems 2/3",
+            "scope": "nonnegative extended integral versus absolutely integrable finite integral"
+          }
+        ]
+      }
+    },
+    {
+      "id": "REAL-FUBINI-MISSING",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "结论在题设下成立，但这个显式定理应用少一个前提位置；应补引已有绝对可积证明p2，不能用重复sigma有限性代替。拒绝该证书不等于结论被反驳。",
+        "obligations": [
+          "所有定理前提必须按序引用，即使遗漏的事实已经在假设或前序步骤中"
+        ],
+        "notCertified": [
+          "拒绝的是给定证明，不宣判任意f结论假"
+        ],
+        "sourceRefs": [
+          {
+            "url": "https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/6fe5ce4d56945ce7241679998922fb3a_MIT6_436JF18_lec09.pdf",
+            "locator": "physical pages 5–8, sigma-finiteness and Theorems 2/3",
+            "scope": "nonnegative extended integral versus absolutely integrable finite integral"
+          }
+        ]
+      }
+    },
+    {
+      "id": "REAL-TONELLI-EXTENDED",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "Tonelli给扩展非负积分相等，可为+infinity，不能自动声称有限。",
+        "obligations": [
+          "非负几乎处处",
+          "区分有限与扩展积分"
+        ],
+        "notCertified": [
+          "不证明积分有限"
+        ],
+        "sourceRefs": [
+          {
+            "url": "https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/6fe5ce4d56945ce7241679998922fb3a_MIT6_436JF18_lec09.pdf",
+            "locator": "physical pages 5–8, sigma-finiteness and Theorems 2/3",
+            "scope": "nonnegative extended integral versus absolutely integrable finite integral"
+          }
+        ]
+      }
+    },
+    {
+      "id": "REVIEW-ALTERNATIVE",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "两式恒等，方法顺序与参考不同不影响正确性。",
+        "obligations": [
+          "保留原步",
+          "精确恒等"
+        ],
+        "notCertified": [
+          "非OCR、整题正确性仍需原题覆盖"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "REVIEW-MULTIPAGE-FIRST",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "第一步恒等；第二步差2x并非零，首错在第二页首行。",
+        "obligations": [
+          "先证完整前缀",
+          "物理页/行定位来自固定转录"
+        ],
+        "notCertified": [
+          "不认证OCR或转录页是真实材料"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "REVIEW-UNKNOWN-PREFIX",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "不能；第一步未核对，第二页可指出局部不等但不能认定全稿首错。",
+        "obligations": [
+          "先确认未知字迹",
+          "不能跳过未知前缀"
+        ],
+        "notCertified": [
+          "不是机器识别质量"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "LOGIC-CONTRACTION",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "自然演绎允许前提复用；合取两个位置均为P，依赖仍为P。",
+        "obligations": [
+          "同一事实可重复用",
+          "不能抹去假设"
+        ],
+        "notCertified": [
+          "仅条件证明"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "LOGIC-DISCHARGE",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "假设P，合取引入P∧P，再蕴含引入解除P。",
+        "obligations": [
+          "解除恰当假设",
+          "结果无剩余依赖"
+        ],
+        "notCertified": [
+          "不是自然语言命题真值的自动判定器"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "LOGIC-REUSE-NO-INVENTION",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "合取引入的第二位置也是P，不是Q；此推理无效。",
+        "obligations": [
+          "逐位置匹配",
+          "重复不创造新事实"
+        ],
+        "notCertified": [
+          "拒绝推理不判定任意Q假"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "HS-PARAM-CUBIC-FULL",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "f'_a(x)=3(x^2-a)。a<0时导数处处正；a=0时f=x^3仍在R严格递增，孤立的零导数点不构成常值区间；a>0时在(-infinity,-sqrt(a)]与[sqrt(a),infinity)严格递增，在[-sqrt(a),sqrt(a)]严格递减。区间端点可按通常单调区间约定表述，但参数0不能漏掉。",
+        "obligations": [
+          "区分a<0、a=0、a>0",
+          "导数关于x求取且a固定",
+          "a>0的两个临界点与三个分支",
+          "不能因f'_0(0)=0否定严格递增"
+        ],
+        "notCertified": [
+          "本题没有可代替全参数分类的单个机器证书；代入有限参数值不是证明"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "HS-SEQUENCE-TELESCOPING-FULL",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "令b_n=(n+1)a_n，则b_(n+1)=b_n+(n+1)(n+2)，b_0=0。求和得b_n=sum_(j=1)^n j(j+1)=n(n+1)(n+2)/3，故a_n=n(n+2)/3。另一正确方法：先猜通项，验证n=0及代入递推得到a_(n+1)=(n+1)(n+3)/3。n+1、n+2在题设域内非零。",
+        "obligations": [
+          "初值和n的整数范围",
+          "通项n(n+2)/3",
+          "全体n的求和或归纳论证",
+          "变换的分母在题设域非零",
+          "接受独立正确的归纳异法"
+        ],
+        "notCertified": [
+          "有限项吻合不能证明通项；单个有理恒等式不能替代初值和归纳结构"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "HS-CONIC-PARAM-INTERSECTION",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "代入得(1/4+k^2)x^2+2kx=0，二次项系数始终正。一个交点是(0,1)，另一个是(-8k/(1+4k^2),(1-4k^2)/(1+4k^2))。分母对实k始终正；k=0时两根重合，直线y=1是椭圆在(0,1)的切线；k不为0时两交点不同。可用重根、判别式或梯度切线论证，不能把含k的分式直接约掉而丢失k=0。",
+        "obligations": [
+          "代入椭圆与直线方程",
+          "分母1+4k^2始终正",
+          "全部交点而非仅验证某一个点",
+          "k=0重根与相切",
+          "k非零时交点不同"
+        ],
+        "notCertified": [
+          "代数坐标恒等证书不自动证明建模、全部根和相切条件"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "CALC-IMPROPER-LOG-ENDPOINT",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "先在[epsilon,1]积分，结果是-1-epsilon*ln(epsilon)+epsilon。令t=1/epsilon，ln(t)/t趋0，例如0<=ln(t)=integral_1^t 1/s ds<=2(sqrt(t)-1)，再除以t即可。故广义积分为-1。ln在0无定义，闭区间光滑证书不适用；拒绝该方法不反驳正确的广义积分结论。",
+        "obligations": [
+          "截断积分而非在0直接代入ln",
+          "证明epsilon*ln(epsilon)趋0",
+          "极限值-1",
+          "区分证书不适用与答案错误"
+        ],
+        "notCertified": [
+          "当前C8闭区间积分证书不认证这个奇异端点；未获新证书不等于DISPROVED"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "CALC-PARAM-IMPROPER-POWER",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "x>0时实幂定义合法。a不为-1时截断积分为(1-epsilon^(a+1))/(a+1)。a>-1时极限是1/(a+1)；a<-1时epsilon^(a+1)趋+infinity且分母为负，积分趋+infinity。a=-1时截断积分为-ln(epsilon)，亦趋+infinity。因此有限收敛当且仅当a>-1。",
+        "obligations": [
+          "a>-1、a=-1、a<-1三个分支",
+          "先用epsilon正端点截断",
+          "收敛范围与值1/(a+1)",
+          "发散方向+infinity",
+          "不能把正数值采样推广至全部实参数"
+        ],
+        "notCertified": [
+          "固定有理参数片段或有限区间数值结果不能认证全实参数广义积分"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "ANALYSIS-UNIFORM-NOT-DERIVATIVE",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "由0<=sqrt(x^2+1/n)-|x|<=1/sqrt(n)，并在x=0取等号，sup误差为1/sqrt(n)，故一致趋于|x|。每个f_n可微且f'_n=x/sqrt(x^2+1/n)；导数逐点极限在x<0为-1、x=0为0、x>0为1。但|x|在0的左右导数不同，故不可微。导数列不能在含0闭区间一致趋于该不连续函数：连续函数的一致极限应连续。",
+        "obligations": [
+          "统一误差界与sup值",
+          "极限|x|",
+          "0处左右导数不同",
+          "区分函数一致收敛与导数一致收敛",
+          "导数逐点极限在0是0不代表|x|'(0)存在"
+        ],
+        "notCertified": [
+          "一般函数列与极限求导的完整论证不由当前有理函数证书自动给出"
+        ],
+        "sourceRefs": []
+      }
+    },
+    {
+      "id": "REAL-DCT-SIGNED-CANCELLATION",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "对固定x>0，大n时x>2/n，故f_n(x)=0，逐点极限0。两段长度均1/n，因此有符号积分为1-1=0，绝对值积分为2。若存在共同可积g>=|f_n|，DCT应用于|f_n|将给绝对值积分趋0，与恒2矛盾；故不存在共同可积支配。尽管不能以DCT证明本例，有符号积分仍因抵消而恰好趋于极限积分0。缺少充分条件不等于结论必假。",
+        "obligations": [
+          "n>=2与区间边界",
+          "逐点极限0",
+          "有符号积分0与L1范数2分开",
+          "共同可积支配不存在的论证",
+          "拒绝DCT应用不反驳本例有符号积分交换结论"
+        ],
+        "notCertified": [
+          "一般测度函数的几乎处处与支配关系在此仅有作者论证，没有机器或独立人工认证"
+        ],
+        "sourceRefs": [
+          {
+            "url": "https://ocw.mit.edu/courses/18-102-introduction-to-functional-analysis-spring-2021/e407e57ea631a29148ee94afecef7d33_MIT18_102s21_lec12.pdf",
+            "locator": "physical page 3, Theorem 125",
+            "scope": "DCT hypotheses only, not independent adjudication of this original example"
+          }
+        ]
+      }
+    },
+    {
+      "id": "REVIEW-FAILED-CERT-TRUE-CLAIM",
+      "reference": {
+        "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+        "argument": "原句P=>P为真：假设P，原样引用P，再用蕴含引入解除假设。附带证明的合取引入错误：第二个前提仍是P，不能凭空获得Q。无效证书只能说明证书无效，不能推出原句假。若原稿另有明确声称P&Q的独立数学断言，应针对该断言及题设另外检查，不能混同本题的目标命题。",
+        "obligations": [
+          "原句P=>P正确",
+          "逐位置说明错误的合取引入",
+          "证书有效性与目标真假分别报告",
+          "不给正确原句伪造首错",
+          "有效的假设解除证明"
+        ],
+        "notCertified": [
+          "给定失败证书不构成对目标的DISPROVED；新字段claim_status=NOT_EVALUATED不是自动证明目标真"
+        ],
+        "sourceRefs": []
+      }
+    }
+  ]
+}

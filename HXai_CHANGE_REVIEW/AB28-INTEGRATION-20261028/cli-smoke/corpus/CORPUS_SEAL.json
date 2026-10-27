@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "scope": "QUESTION_REFERENCE_SEPARATION_ONLY",
+  "corpusVersion": 2,
+  "cases": 32,
+  "corpusSha256": "87ff045e3153b38f7e70fcbe72476b14e630d427782b6a7d3f8f7939338eda7f",
+  "sources": [
+    {
+      "path": "scripts/fixtures/b26_math_quality_v1.json",
+      "sha256": "b968f7700f254a541c02b4b19dc0f6d90d03ca5b9a1d1d3235bcc4398ddb39e7",
+      "cases": 24
+    },
+    {
+      "path": "scripts/fixtures/b26_math_questions_extension_v2.json",
+      "sha256": "9f1d99e0c95037686f44c32e311bbe40502fba4e99af66fac71caaba3e7c50b1",
+      "cases": 8
+    }
+  ],
+  "artifacts": {
+    "BLIND_PROMPTS.json": "8e10ced3e771ba24b03d41f1668561d7703cb35a036f0ff08f0604cb4d48c785",
+    "REFERENCE_RUBRIC.json": "ad77dc13a155bcc1e1f29a5f7d819ac66846c3f716453ff18ee8c2b891a52bc9"
+  },
+  "realModelCalls": 0,
+  "modelQuality": "NOT_EVALUATED",
+  "independentReview": "NOT_EVALUATED",
+  "authorization": "WAITING_EXPLICIT_PROVIDER_MODEL_REASONING_SCOPE_AUTHORIZATION; this command grants nothing"
+}

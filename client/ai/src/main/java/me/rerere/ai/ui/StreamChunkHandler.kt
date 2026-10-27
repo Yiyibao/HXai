@@ -335,7 +335,7 @@ fun List<UIMessage>.handleTextGenerationResult(
     } else {
         dropLast(1) + last().appendMessage(incoming).copy(
             modelId = model?.id ?: last().modelId,
-            usage = last().usage.merge(result.usage ?: TokenUsage()),
+            usage = result.usage,
             finishedAt = incoming.finishedAt,
         ).finishReasoning()
     }

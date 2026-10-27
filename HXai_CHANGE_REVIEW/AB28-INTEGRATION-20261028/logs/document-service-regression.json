@@ -1,0 +1,15 @@
+{
+  "label": "document-service-regression",
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\server\\document-service",
+  "command": [
+    "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "--junitxml=D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\AB28-INTEGRATION-20261028/document-service-regression.xml"
+  ],
+  "exitCode": 0,
+  "seconds": 14.686,
+  "log": "logs\\document-service-regression.log",
+  "logSha256": "8f88403b6a968f2673dc79fa174fb8cc4a9f175a0a9fcf370ed34b18cc6bd9fc"
+}

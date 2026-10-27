@@ -1,0 +1,89 @@
+[
+  {
+    "id": "nonstandard-correct-chain",
+    "input": {
+      "operation": "equal_expression_chain",
+      "expressions": [
+        "(x+1)^2",
+        "1+x+x+x*x",
+        "x*x+2*x+1"
+      ]
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "verified_prefix_transitions": 2,
+      "first_error_transition": null
+    }
+  },
+  {
+    "id": "unknown-before-later-error",
+    "input": {
+      "operation": "equal_expression_chain",
+      "expressions": [
+        "x",
+        "x+0",
+        "sin(x)",
+        "x+1"
+      ]
+    },
+    "expected": {
+      "status": "UNSUPPORTED",
+      "verified_prefix_transitions": 1,
+      "first_error_transition": null,
+      "unverified_transition": 2
+    }
+  },
+  {
+    "id": "first-substantive-error",
+    "input": {
+      "operation": "equal_expression_chain",
+      "expressions": [
+        "(x+1)^2",
+        "x*x+2*x+1",
+        "x*x+1",
+        "x*x"
+      ]
+    },
+    "expected": {
+      "status": "DISPROVED",
+      "verified_prefix_transitions": 1,
+      "first_error_transition": 2
+    }
+  },
+  {
+    "id": "sampling-is-not-proof",
+    "input": {
+      "operation": "identity",
+      "left": "x*(x-1)*(x-2)*(x-3)",
+      "right": "0"
+    },
+    "expected": {
+      "status": "DISPROVED"
+    }
+  },
+  {
+    "id": "true-domain-hole-in-chain",
+    "input": {
+      "operation": "rational_expression_chain",
+      "expressions": [
+        "x+1",
+        "(x*x-1)/(x-1)"
+      ]
+    },
+    "expected": {
+      "status": "DISPROVED",
+      "first_error_transition": 1
+    }
+  },
+  {
+    "id": "unknown-transcendental-not-wrong",
+    "input": {
+      "operation": "derivative",
+      "expression": "sin(x)",
+      "claimed_derivative": "cos(x)"
+    },
+    "expected": {
+      "status": "UNSUPPORTED"
+    }
+  }
+]

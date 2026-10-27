@@ -6,12 +6,15 @@ import org.jsoup.Jsoup
 import org.junit.Assert.*
 import org.junit.Test
 import java.net.InetSocketAddress
+import okhttp3.Dns
+import okhttp3.OkHttpClient
+import java.net.InetAddress
 import javax.imageio.ImageIO
 
 class WebImageServiceTest {
     @Test fun imageSearchEndpointReturnsProvenanceThenVerifiesImageBytes() = runBlocking {
         val server = HttpServer.create(InetSocketAddress("127.0.0.1", 0), 0)
-        val base = "http://127.0.0.1:${server.address.port}"
+        val base = "http://source.org"
         val png = java.io.ByteArrayOutputStream().also {
             ImageIO.write(java.awt.image.BufferedImage(2, 1, java.awt.image.BufferedImage.TYPE_INT_RGB), "png", it)
         }.toByteArray()
@@ -29,15 +32,9 @@ class WebImageServiceTest {
         }
         server.start()
         try {
-            val client = okhttp3.OkHttpClient.Builder().addInterceptor { chain ->
-                val request = chain.request()
-                if (request.url.host == "www.bing.com") chain.proceed(request.newBuilder()
-                    .url("$base${request.url.encodedPath}?${request.url.encodedQuery}").build())
-                else chain.proceed(request)
-            }.build()
             val service = WebImageService(decode = { bytes ->
                 ImageIO.read(java.io.ByteArrayInputStream(bytes))?.let { it.width to it.height }
-            }, client = client)
+            }, transport = transportTo(server))
             val result = service.verify(service.search("aurora nasa")).single()
             assertEquals("$base/photo.png", result.image.url)
             assertEquals("$base/source", result.image.sourceUrl)
@@ -72,15 +69,16 @@ class WebImageServiceTest {
         }
         server.start()
         try {
-            val base = "http://127.0.0.1:${server.address.port}"
+            val base = "http://source.org"
             val service = WebImageService(decode = { bytes ->
                 ImageIO.read(java.io.ByteArrayInputStream(bytes))?.let { it.width to it.height }
-            })
+            }, transport = transportTo(server))
             val images = listOf("image", "redirect", "fake", "html", "forbidden", "large", "image")
                 .map { SearchImage("$base/$it", "$base/page", "Title") }
             val result = service.verify(images)
             assertEquals(listOf("$base/image", "$base/redirect"), result.map { it.image.url })
             assertTrue(result.all { it.width == 4 && it.height == 3 && it.contentType == "image/png" })
+            assertTrue(result.all { it.bytes.contentEquals(png) })
             assertTrue(result.all { it.image.sourceUrl == "$base/page" && it.verifiedAt.isNotBlank() })
         } finally { server.stop(0) }
     }
@@ -110,10 +108,18 @@ class WebImageServiceTest {
         }
         server.start()
         try {
-            val base = "http://127.0.0.1:${server.address.port}"
-            val image = WebImageService(decode = { null }).extract("$base/old").single()
+            val base = "http://source.org"
+            val image = WebImageService(decode = { null }, transport = transportTo(server)).extract("$base/old").single()
             assertEquals("$base/article/figure.png", image.url)
             assertEquals("$base/article/page", image.sourceUrl)
         } finally { server.stop(0) }
+    }
+
+    private fun transportTo(server: HttpServer): PublicWebTransport {
+        val client = OkHttpClient.Builder().followRedirects(false).build()
+        return PublicWebTransport(Dns { listOf(InetAddress.getByName("8.8.8.8")) }) { request, _ ->
+            val localUrl = request.url.newBuilder().scheme("http").host("127.0.0.1").port(server.address.port).build()
+            client.newCall(request.newBuilder().url(localUrl).build()).await().newBuilder().request(request).build()
+        }
     }
 }

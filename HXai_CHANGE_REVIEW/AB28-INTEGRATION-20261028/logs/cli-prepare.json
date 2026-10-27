@@ -1,0 +1,14 @@
+{
+  "label": "cli-prepare",
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "command": [
+    "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "D:\\Office\\Study\\code\\MathStudyAgent\\scripts\\prepare_b_math_evaluation.py",
+    "--out",
+    "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\AB28-INTEGRATION-20261028\\cli-smoke\\corpus"
+  ],
+  "exitCode": 0,
+  "seconds": 0.1,
+  "log": "logs\\cli-prepare.log",
+  "logSha256": "de1ac2fbc531d68ec12ece7af3dce08e63dd4a23f05025ac3f9038f5732c27a9"
+}

@@ -1,0 +1,15 @@
+{
+  "label": "device-emulated",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\platform-tools\\adb.exe",
+    "-s",
+    "emulator-5622",
+    "shell",
+    "getprop",
+    "ro.kernel.qemu"
+  ],
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "exitCode": 0,
+  "seconds": 0.229,
+  "logSha256": "1368282b2b213a43cd3d4664b45561b4ebb7bcd0e097ec933beada684892754c"
+}

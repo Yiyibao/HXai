@@ -185,8 +185,9 @@ void main() {
               save: (_, action, request) async {
                 if (action != null) {
                   requests.add(request);
-                  if (requests.length == 1)
+                  if (requests.length == 1) {
                     throw StateError('synthetic failure');
+                  }
                 }
               },
             ),

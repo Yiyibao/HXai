@@ -1,0 +1,13 @@
+{
+  "label": "python-environment",
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "command": [
+    "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-c",
+    "import platform,sys,sqlite3,pytest;print(sys.version);print(platform.platform());print(\"SQLite\",sqlite3.sqlite_version);print(\"pytest\",pytest.__version__)"
+  ],
+  "exitCode": 0,
+  "seconds": 0.439,
+  "log": "logs\\python-environment.log",
+  "logSha256": "7e65f9859441212f4a4a284ffac88cf0b8f5c28455ad437339b9a1e66f364db9"
+}

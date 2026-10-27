@@ -177,15 +177,15 @@ internal class ClaudeStreamDecoder : StreamChunkDecoder {
         val usageJson = bodyJson["usage"]?.jsonObject
             ?: bodyJson["message"]?.jsonObject?.get("usage")?.jsonObject
             ?: return null
-        val inputTokens = usageJson["input_tokens"]?.jsonPrimitive?.intOrNull ?: 0
-        val cachedInputTokens = usageJson["cache_read_input_tokens"]?.jsonPrimitive?.intOrNull ?: 0
-        val cachedCreationTokens = usageJson["cache_creation_input_tokens"]?.jsonPrimitive?.intOrNull ?: 0
-        val completionTokens = usageJson["output_tokens"]?.jsonPrimitive?.intOrNull ?: 0
-        val promptTokens = inputTokens + cachedInputTokens + cachedCreationTokens
+        val inputTokens = usageJson["input_tokens"]?.jsonPrimitive?.intOrNull
+        val cachedInputTokens = usageJson["cache_read_input_tokens"]?.jsonPrimitive?.intOrNull
+        val cachedCreationTokens = usageJson["cache_creation_input_tokens"]?.jsonPrimitive?.intOrNull
+        val completionTokens = usageJson["output_tokens"]?.jsonPrimitive?.intOrNull
+        val promptTokens = me.rerere.ai.core.sumTokenCounts(me.rerere.ai.core.sumTokenCounts(inputTokens,cachedInputTokens),cachedCreationTokens)
         return TokenUsage(
             promptTokens = promptTokens,
             completionTokens = completionTokens,
-            totalTokens = promptTokens + completionTokens,
+            totalTokens = me.rerere.ai.core.sumTokenCounts(promptTokens,completionTokens),
             cachedTokens = cachedInputTokens,
         )
     }

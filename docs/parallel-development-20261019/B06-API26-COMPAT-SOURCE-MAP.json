@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "feature_id": "B06-API26-COMPAT-20261021",
+  "baseline": {
+    "branch": "codex/b06-api26-compat-20261021",
+    "head": "5d826d5d7d8755ed42db834d6cd6dc52ae914c69",
+    "frozen_origin": ".local\\b04-b05-complete-20261020",
+    "root_branch_observed": "codex/a04-durable-mcp-20261021",
+    "candidate_is_root_a04": false
+  },
+  "inherited_tested_versions": {
+    "room": 33,
+    "task_sidecar": 9,
+    "pigeon": 164,
+    "material_metadata": 2,
+    "library": 1,
+    "math_contracts": "1-15"
+  },
+  "b06_persistent_schema_permission_model_changes": "NONE",
+  "root_activated_code": {
+    "server/document-service/office_worker/engine.py": "bd5a25f6277a0ef55ccd78a47a6f4c0dfb599553ae907c4f83cf368db336c66a",
+    "client/app/src/androidTest/java/me/rerere/rikkahub/feature/material/PptShapeRuntimeTest.kt": "86b75ae01f0608014da7f831fa96f1fb0061fb43b5dcfc8d6c7c80a848ed9824",
+    "scripts/verify_b_domain_compatibility.py": "362d58c47287a30c7ba3db3a892e90ac35fa12d741928c7a31211a8cc8835e4e",
+    "scripts/tests/test_verify_b_domain_compatibility.py": "92306347fa51a74bf86f0e405d51a978c28b6cdeac095baa507a53c1e5bf2862",
+    "server/document-service/tests/test_office_shutdown.py": "849fda2432207a2a97b917cf5a0665a5d870ead14bd083fbc0799805ca3f23f5",
+    "client/app/src/androidTest/assets/ppt_shapes/.gitattributes": "c09dec510bcf197badfb629f58be381fa56f72a5fec8401369c182fc7ef6a066",
+    "client/app/src/androidTest/assets/ppt_shapes/SOURCE.json": "eaea0bd7771212ee17c2613e3afa505ec179e2a5e2d4873906225d5f518b4ac9",
+    "client/app/src/androidTest/assets/ppt_shapes/complex-original.pptx": "c93748ef39e320e425d054ec4ca1f5e0c28c561d49cfaff3610f9c8365870524"
+  },
+  "a_shared_candidate_not_applied": {
+    "client/app/src/main/java/me/rerere/rikkahub/feature/agent/AgentTaskStore.kt": {
+      "before_sha256": "88fdf8d42bdf45675edad0c4a8d9e1dc9854e3db3a2f71970bad7e755bb0496b",
+      "candidate_sha256": "67c174bbf8e30382cdbd6c0b609ac454aab42d6308af3a64568a0727aa8a83e1"
+    },
+    "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/AgentTaskRuntimeTest.kt": {
+      "before_sha256": "6d187df60bdc56bde1cca7548dfc80b81876c2036dd1cb41df4de8387389ba6e",
+      "candidate_sha256": "a376dd111976b7066dd578705cde7e03830edc6fd875e22f8bff2a7b0a6fbaa5"
+    }
+  },
+  "runtime": {
+    "api": 26,
+    "abi": "x86_64",
+    "avd": "hxai-b06-api26-x64-20261021",
+    "methods": 89,
+    "result": "PASS",
+    "process_death_recovery": "PASS",
+    "runtime_result": "HXai_CHANGE_REVIEW/B06-API26-COMPAT-20261021/api26-candidate-v2/RESULT.json"
+  },
+  "source_manifests": {
+    "CANDIDATE_V2_SOURCE_INPUTS.json": "a932b9ff676f4be236b1f17d696ad1f05a35722c8bb4167fc7e58555116835ee",
+    "CANDIDATE_V2_APK_INPUTS.json": "144e4c3224ec12ea13ee928638c971154164f0196baf5257fed1fd0c8257e0e9",
+    "CODE_SOURCE_MAP_V2.json": "35f757d30ece55e6d09631da73d5d290b256106efc7a3495e14a2e81fa797c85",
+    "A_SHARED_ROOT_INPUTS_V2.json": "ac6a7272d3aaf7b8be896fa4872c0b5013e6b53efbf3d7b223b239a1ef8b9f5e",
+    "FROZEN_WEB_RESOURCES.json": "be33d6feac9c377cd353859b4342c55d599df881b0722d29d16054547f9a8612",
+    "FROZEN_FLUTTER_ARTIFACT_INPUTS.json": "57984b3688c6dc618e1da1d6c8f85d336c85f401ac00e66f658cb1ecc4c90f8f"
+  },
+  "worker": {
+    "python": "3.13.13",
+    "libreoffice": "26.2.4.2",
+    "root_related_regressions": 75,
+    "local_process_lifecycle_cases": 14,
+    "linux_container": "NOT_RUN",
+    "cross_software": "NOT_RUN"
+  },
+  "review": {
+    "independent": "NOT_EVALUATED",
+    "full_project": "NOT_EVALUATED",
+    "overall_verdict": "CONDITIONAL",
+    "candidate_available_environment_verdict": "PASS_SCOPED"
+  }
+}

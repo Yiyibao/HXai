@@ -1,0 +1,15 @@
+{
+  "label": "ordinary-chat-hierarchy",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\platform-tools\\adb.exe",
+    "-s",
+    "emulator-5622",
+    "exec-out",
+    "cat",
+    "/sdcard/ab28-hierarchy.xml"
+  ],
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "exitCode": 0,
+  "seconds": 0.045,
+  "logSha256": "0b985424eab1ddedeeb0fedf5d4aeb7edb494e4c9ec2f4d06edd482734a51948"
+}

@@ -1,0 +1,16 @@
+{
+  "label": "qa-preserve-stop",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\platform-tools\\adb.exe",
+    "-s",
+    "emulator-5622",
+    "shell",
+    "am",
+    "force-stop",
+    "org.hxsi.agent.nativeqa"
+  ],
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "exitCode": 0,
+  "seconds": 0.237,
+  "logSha256": "a3680b6601c39b586ea892ad2bbaa58a7f72b62a64f73917b09aa8c5f188110e"
+}

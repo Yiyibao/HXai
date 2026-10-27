@@ -17,7 +17,9 @@ class _DocTaskDetailPageState extends ConsumerState<DocTaskDetailPage> {
   bool busy = false;
   Future<void> act(DocumentTaskInfo task, String action) async {
     if (busy || readResource(ref, widget.resource, documentTasksProvider,
-        (t) => t.id) == null) return;
+        (t) => t.id) == null) {
+      return;
+    }
     final owner = widget.resource!.profileId, epoch = widget.resource!.epoch;
     bool current() => mounted && widget.resource!.isCurrent(ref) &&
         readResource(ref, widget.resource, documentTasksProvider, (t) => t.id) != null;
@@ -34,9 +36,10 @@ class _DocTaskDetailPageState extends ConsumerState<DocTaskDetailPage> {
         await ref.read(documentTasksProvider.future);
       }
     } catch (e) {
-      if (current())
+      if (mounted && current()) {
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('$e')));
+      }
     } finally {
       if (mounted) setState(() => busy = false);
     }

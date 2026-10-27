@@ -1,5 +1,7 @@
 package me.rerere.ai.provider.providers.google
 
+import me.rerere.ai.core.beginProviderRequest
+import me.rerere.ai.core.StreamingRequestReceipt
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
@@ -87,15 +89,18 @@ internal class InteractionsAPI(
         params: TextGenerationParams,
     ): TextGenerationResult = withContext(Dispatchers.IO) {
         val requestBody = buildRequestBody(messages, params, stream = false)
-        val request = buildRequest(providerSetting, params, requestBody)
+        val encodedBody = json.encodeToString(requestBody)
+        val request = buildRequest(providerSetting, params, encodedBody)
+        val receipt = beginProviderRequest(providerSetting,params,requestBody,encodedBody)
 
         // await() waits for the response headers; reading the body can still block.
         client.newCall(request).await().use { response ->
             if (!response.isSuccessful) {
+                if(response.code==401 || response.code==403) receipt?.authorizationRejected(response.code)
                 throw Exception("Failed to get response: ${response.code}")
             }
             val bodyJson = json.parseToJsonElement(response.body.string()).jsonObject
-            parseInteraction(bodyJson, fallbackModel = params.model.modelId)
+            parseInteraction(bodyJson, fallbackModel = params.model.modelId).also { receipt?.complete(it.usage) }
         }
     }
 
@@ -105,12 +110,15 @@ internal class InteractionsAPI(
         params: TextGenerationParams,
     ): Flow<StreamChunk> = callbackFlow {
         val requestBody = buildRequestBody(messages, params, stream = true)
-        val request = buildRequest(providerSetting, params, requestBody)
+        val encodedBody = json.encodeToString(requestBody)
+        val request = buildRequest(providerSetting, params, encodedBody)
+        val receipt = beginProviderRequest(providerSetting,params,requestBody,encodedBody)?.let(::StreamingRequestReceipt)
 
         val decoder = InteractionsStreamDecoder(fallbackModel = params.model.modelId)
 
         fun sendChunks(chunks: Iterable<StreamChunk>) {
             chunks.forEach { chunk ->
+                receipt?.observe(chunk)
                 trySend(chunk).onFailure { Log.w(TAG, "Stream chunk dropped") }
             }
         }
@@ -125,7 +133,7 @@ internal class InteractionsAPI(
                 try {
                     val result = decoder.accept(SseEvent(id = id, event = type, data = data))
                     sendChunks(result.chunks)
-                    if (result.completed) close()
+                    if (result.completed) { receipt?.complete(); close() }
                 } catch (e: Throwable) {
                     close(e)
                 }
@@ -133,6 +141,10 @@ internal class InteractionsAPI(
 
             override fun onFailure(eventSource: EventSource, t: Throwable?, response: Response?) {
                 var exception = t
+                if(response!=null && (response.code==401 || response.code==403)) {
+                    try { receipt?.authorizationRejected(response.code) }
+                    catch(error: Throwable) { close(error); return }
+                }
 
                 val bodyRaw = response?.body?.stringSafe()
                 try {
@@ -165,14 +177,14 @@ internal class InteractionsAPI(
     private fun buildRequest(
         providerSetting: ProviderSetting.Google,
         params: TextGenerationParams,
-        requestBody: JsonObject,
+        encodedBody: String,
     ): Request {
         val url = "${providerSetting.baseUrl}/interactions"
         return Request.Builder()
             .url(url)
             .headers(providerSetting.mergeCustomHeaders(params.customHeaders))
             .configureSessionHeaders(url, params.sessionId)
-            .post(json.encodeToString(requestBody).toRequestBody("application/json".toMediaType()))
+            .post(encodedBody.toRequestBody("application/json".toMediaType()))
             .addHeader("x-goog-api-key", keyRoulette.next(providerSetting.apiKey, providerSetting.id.toString()))
             .configureReferHeaders(providerSetting.baseUrl)
             .build()
@@ -558,11 +570,11 @@ internal fun JsonElement?.toInteractionsAnnotations(): List<UIMessageAnnotation>
 
 internal fun parseInteractionsUsage(usage: JsonObject?): TokenUsage? {
     if (usage == null) return null
-    fun count(key: String) = usage[key]?.jsonPrimitiveOrNull?.intOrNull ?: 0
+    fun count(key: String) = usage[key]?.jsonPrimitiveOrNull?.intOrNull
     return TokenUsage(
         promptTokens = count("total_input_tokens"),
         // total_output_tokens 不包含思考 token
-        completionTokens = count("total_output_tokens") + count("total_thought_tokens"),
+        completionTokens = me.rerere.ai.core.sumTokenCounts(count("total_output_tokens"),count("total_thought_tokens")),
         totalTokens = count("total_tokens"),
         cachedTokens = count("total_cached_tokens"),
     )

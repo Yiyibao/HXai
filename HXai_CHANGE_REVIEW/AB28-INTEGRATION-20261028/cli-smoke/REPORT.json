@@ -1,0 +1,1241 @@
+{
+  "contractVersion": 1,
+  "status": "PASS",
+  "scope": "OFFLINE_ASSESSMENT_CONSISTENCY_ONLY",
+  "origin": "SYNTHETIC",
+  "runId": "ab28-integration-not-a-model-run",
+  "corpusSha256": "87ff045e3153b38f7e70fcbe72476b14e630d427782b6a7d3f8f7939338eda7f",
+  "answerSealSha256": "fb865e3d94b59333e133015f1491fd520385eb2a39f465bdb06d305d52e68b58",
+  "referenceSha256": "ad77dc13a155bcc1e1f29a5f7d819ac66846c3f716453ff18ee8c2b891a52bc9",
+  "judgmentSha256": "f98e04188c0982d0cc486bf26a9e1efff7de57d88425f35a3f645191b3376f8e",
+  "evaluatorDeclaration": {
+    "id": "AB28-same-executor-synthetic-smoke",
+    "relationship": "SAME_EXECUTOR"
+  },
+  "independentReview": "NOT_EVALUATED",
+  "referenceStatus": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+  "executionAttestation": "NOT_ATTESTED",
+  "modelQuality": "NOT_ATTESTED",
+  "taskCompletion": "NOT_EVALUATED",
+  "totals": {
+    "cases": 32,
+    "mathematics": {
+      "CORRECT": 0,
+      "INCORRECT": 0,
+      "INCOMPLETE": 0,
+      "UNDETERMINED": 32
+    },
+    "engineering": {
+      "PASS": 0,
+      "FAIL": 0,
+      "NOT_RUN": 32,
+      "BLOCKED": 0
+    },
+    "obligations": {
+      "UNDETERMINED": 81
+    },
+    "unresolvedReasons": {
+      "UNKNOWN": 81
+    }
+  },
+  "categories": {
+    "analysis": {
+      "cases": 4,
+      "mathematics": {
+        "CORRECT": 0,
+        "INCORRECT": 0,
+        "INCOMPLETE": 0,
+        "UNDETERMINED": 4
+      },
+      "engineering": {
+        "PASS": 0,
+        "FAIL": 0,
+        "NOT_RUN": 4,
+        "BLOCKED": 0
+      },
+      "obligations": {
+        "UNDETERMINED": 10
+      },
+      "unresolvedReasons": {
+        "UNKNOWN": 10
+      }
+    },
+    "calculus": {
+      "cases": 7,
+      "mathematics": {
+        "CORRECT": 0,
+        "INCORRECT": 0,
+        "INCOMPLETE": 0,
+        "UNDETERMINED": 7
+      },
+      "engineering": {
+        "PASS": 0,
+        "FAIL": 0,
+        "NOT_RUN": 7,
+        "BLOCKED": 0
+      },
+      "obligations": {
+        "UNDETERMINED": 18
+      },
+      "unresolvedReasons": {
+        "UNKNOWN": 18
+      }
+    },
+    "high_school": {
+      "cases": 8,
+      "mathematics": {
+        "CORRECT": 0,
+        "INCORRECT": 0,
+        "INCOMPLETE": 0,
+        "UNDETERMINED": 8
+      },
+      "engineering": {
+        "PASS": 0,
+        "FAIL": 0,
+        "NOT_RUN": 8,
+        "BLOCKED": 0
+      },
+      "obligations": {
+        "UNDETERMINED": 22
+      },
+      "unresolvedReasons": {
+        "UNKNOWN": 22
+      }
+    },
+    "logic": {
+      "cases": 3,
+      "mathematics": {
+        "CORRECT": 0,
+        "INCORRECT": 0,
+        "INCOMPLETE": 0,
+        "UNDETERMINED": 3
+      },
+      "engineering": {
+        "PASS": 0,
+        "FAIL": 0,
+        "NOT_RUN": 3,
+        "BLOCKED": 0
+      },
+      "obligations": {
+        "UNDETERMINED": 6
+      },
+      "unresolvedReasons": {
+        "UNKNOWN": 6
+      }
+    },
+    "ordered_review": {
+      "cases": 3,
+      "mathematics": {
+        "CORRECT": 0,
+        "INCORRECT": 0,
+        "INCOMPLETE": 0,
+        "UNDETERMINED": 3
+      },
+      "engineering": {
+        "PASS": 0,
+        "FAIL": 0,
+        "NOT_RUN": 3,
+        "BLOCKED": 0
+      },
+      "obligations": {
+        "UNDETERMINED": 6
+      },
+      "unresolvedReasons": {
+        "UNKNOWN": 6
+      }
+    },
+    "real_analysis": {
+      "cases": 6,
+      "mathematics": {
+        "CORRECT": 0,
+        "INCORRECT": 0,
+        "INCOMPLETE": 0,
+        "UNDETERMINED": 6
+      },
+      "engineering": {
+        "PASS": 0,
+        "FAIL": 0,
+        "NOT_RUN": 6,
+        "BLOCKED": 0
+      },
+      "obligations": {
+        "UNDETERMINED": 14
+      },
+      "unresolvedReasons": {
+        "UNKNOWN": 14
+      }
+    },
+    "review": {
+      "cases": 1,
+      "mathematics": {
+        "CORRECT": 0,
+        "INCORRECT": 0,
+        "INCOMPLETE": 0,
+        "UNDETERMINED": 1
+      },
+      "engineering": {
+        "PASS": 0,
+        "FAIL": 0,
+        "NOT_RUN": 1,
+        "BLOCKED": 0
+      },
+      "obligations": {
+        "UNDETERMINED": 5
+      },
+      "unresolvedReasons": {
+        "UNKNOWN": 5
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "HS-PARAM-DERIVATIVE",
+      "category": "high_school",
+      "promptSha256": "195ae9455f81bbc349558d8e39c9727b31db9a3401b7bb7c732cd17fc113e04b",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "参数对x恒定",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "a=0退化分支不得遗漏",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "HS-SEQUENCE",
+      "category": "high_school",
+      "promptSha256": "069f78f74c08a964d7c3577c7d4b7edeec4f2715ad68274a70ab60ac42120775",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "初值",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "所有n>=0的归纳步",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "HS-SEQUENCE-SAMPLING",
+      "category": "high_school",
+      "promptSha256": "0e1596b9408fbe6f17ab834449ebc7122618e99220b26ee03a8ba9471d563377",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "验证完整递推而非只看前三项",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "HS-CONIC-IDENTITY",
+      "category": "high_school",
+      "promptSha256": "1b349d076feac5b621be134e63360c3068c7fe203a2a33930f1da46c854770a2",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "恒等展开",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "几何建模另验",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "HS-FINITE-SAMPLES",
+      "category": "high_school",
+      "promptSha256": "16ca3fdb550e51b016a784dd70c816809fcb8e0cb975179760256203a616d3cb",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "恒等需系数或完整论证",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "CALC-REMOVABLE-LIMIT",
+      "category": "calculus",
+      "promptSha256": "30d7bb6076b415f34151771de6211cc201f45f39e84ba6ab460d2c3b8747a9f9",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "区分极限与点值",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "保留原域",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "CALC-POLE-TWO-SIDES",
+      "category": "calculus",
+      "promptSha256": "dc77162bf1d316a82d676ee8ac4d856bf67802dd46b7c2aa3969106c96761693",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "两侧方向",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "不能把分类完成当作极限存在",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "CALC-WRONG-PRIMITIVE",
+      "category": "calculus",
+      "promptSha256": "f3f95338445b7ca5e749f6e28e314a11dc4358f4a8fd1899633603ea5084879a",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "区分证书错误与积分结论错误",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "CALC-NONSMOOTH-VALID",
+      "category": "calculus",
+      "promptSha256": "04c780eb40077d96e6db18c1048d37047b7a768d07645c6c349daf0d400b0d81",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "分段与0的处理",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "UNSUPPORTED不是反驳",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "CALC-ROOT-NOT-UNIQUE",
+      "category": "calculus",
+      "promptSha256": "0d8d70400ffaecaba4f3ad5f726b45b707adbbce649974e25ed05c312f69b4a2",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "两个根",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "不得由唯一根证书拒绝推断无根",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "ANALYSIS-MTEST",
+      "category": "analysis",
+      "promptSha256": "dcd9234cbe8b3915bbb77187ea0dd9418f8b05aab4a6e0f18098bbd7f9f65d4a",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "所有x与n的统一界",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "非负可和majorant",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "ANALYSIS-MTEST-MISSING",
+      "category": "analysis",
+      "promptSha256": "f8eda78673b8b09f408bb7ba81c6a986c53230866fbb8f7ac70edfe5444edd58",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "必须有可和majorant",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "ANALYSIS-POINTWISE",
+      "category": "analysis",
+      "promptSha256": "4465368aaa7e979e41ea07c03223dcd4b29c7a43b9f80688221c4e3bab30739d",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "量词次序",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "端点1",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "REAL-DCT",
+      "category": "real_analysis",
+      "promptSha256": "78f3be6729784b72072b4a180f156e954989d904b3c5ff56b567a644d4f9514b",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "可测",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "a.e.收敛",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 2,
+          "text": "同一个可积支配函数",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "REAL-DCT-MISSING",
+      "category": "real_analysis",
+      "promptSha256": "82a216648ed49398be79462a4e22ebdd06a1dbc33a0a15821fa41ce3a3755223",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "不能把各项可积替代共同支配",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "REAL-FUBINI-SAME",
+      "category": "real_analysis",
+      "promptSha256": "fb15b897adcd17bdea33eef46502999cef83d8673fa795212687e46b7076e623",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "按两个有序前提位置复用同一事实",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "保留所有依赖",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "REAL-FUBINI-MISSING",
+      "category": "real_analysis",
+      "promptSha256": "41fd9d742504a215bb694e947f46a694fb3eb71c21a1c4f02848a9ccf48e4b3b",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "所有定理前提必须按序引用，即使遗漏的事实已经在假设或前序步骤中",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "REAL-TONELLI-EXTENDED",
+      "category": "real_analysis",
+      "promptSha256": "3c867acea805c4e97f52795d0cec82e49f3cf516a3fa2f10f8a0aa3eb4370c9b",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "非负几乎处处",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "区分有限与扩展积分",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "REVIEW-ALTERNATIVE",
+      "category": "ordered_review",
+      "promptSha256": "42fa1239aa6b827ddc83aba96997f2b47fa33af22ed14850e46928ad444d0a38",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "保留原步",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "精确恒等",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "REVIEW-MULTIPAGE-FIRST",
+      "category": "ordered_review",
+      "promptSha256": "37a8e67130b63e63ad2a8dc1dd55f1db7b6171728c9b88458ef00131323fc331",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "先证完整前缀",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "物理页/行定位来自固定转录",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "REVIEW-UNKNOWN-PREFIX",
+      "category": "ordered_review",
+      "promptSha256": "362a3615034443d653b32605aca6006237127684fa49ff591e6ea9118be8e462",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "先确认未知字迹",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "不能跳过未知前缀",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "LOGIC-CONTRACTION",
+      "category": "logic",
+      "promptSha256": "0d63736cf56c730ba04a0fbd9cc64a8dc77f967c667847da21d3822c434769fd",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "同一事实可重复用",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "不能抹去假设",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "LOGIC-DISCHARGE",
+      "category": "logic",
+      "promptSha256": "572fb96b5b38538110b55e49922f8bb3d1a8a79bd9ece1d3e188ed6f5ef007a4",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "解除恰当假设",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "结果无剩余依赖",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "LOGIC-REUSE-NO-INVENTION",
+      "category": "logic",
+      "promptSha256": "b8331146b9ae2d8d6317f5263937f8f7d32c4645b7f036ff08a63d53752ad1cb",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "逐位置匹配",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "重复不创造新事实",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "HS-PARAM-CUBIC-FULL",
+      "category": "high_school",
+      "promptSha256": "6325c7dda1ebae02ea21ac7a9286eea77db325f7cacacc9bc6953c4be5945497",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "区分a<0、a=0、a>0",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "导数关于x求取且a固定",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 2,
+          "text": "a>0的两个临界点与三个分支",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 3,
+          "text": "不能因f'_0(0)=0否定严格递增",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "HS-SEQUENCE-TELESCOPING-FULL",
+      "category": "high_school",
+      "promptSha256": "9a687017cfd14b7b49166cee349cc0edfcf1b57734acf9cea5a385707b1e58c6",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "初值和n的整数范围",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "通项n(n+2)/3",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 2,
+          "text": "全体n的求和或归纳论证",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 3,
+          "text": "变换的分母在题设域非零",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 4,
+          "text": "接受独立正确的归纳异法",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "HS-CONIC-PARAM-INTERSECTION",
+      "category": "high_school",
+      "promptSha256": "a5d15f52f86654f5cdd4c7a947ff02958b9adad98f1d1d7e233933d926dff125",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "代入椭圆与直线方程",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "分母1+4k^2始终正",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 2,
+          "text": "全部交点而非仅验证某一个点",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 3,
+          "text": "k=0重根与相切",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 4,
+          "text": "k非零时交点不同",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "CALC-IMPROPER-LOG-ENDPOINT",
+      "category": "calculus",
+      "promptSha256": "f1e24dd6765b35df8c2b250e2f1b46cc9479d0425b82fe1c45de0c1de7d9e219",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "截断积分而非在0直接代入ln",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "证明epsilon*ln(epsilon)趋0",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 2,
+          "text": "极限值-1",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 3,
+          "text": "区分证书不适用与答案错误",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "CALC-PARAM-IMPROPER-POWER",
+      "category": "calculus",
+      "promptSha256": "8af4fa53e4526ab930e6a12d2fa3314bd4a9a2e130e282e022c583f0af9b4084",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "a>-1、a=-1、a<-1三个分支",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "先用epsilon正端点截断",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 2,
+          "text": "收敛范围与值1/(a+1)",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 3,
+          "text": "发散方向+infinity",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 4,
+          "text": "不能把正数值采样推广至全部实参数",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "ANALYSIS-UNIFORM-NOT-DERIVATIVE",
+      "category": "analysis",
+      "promptSha256": "730dcfee877e30c57d28f6fe2fb1f8876a1d04f476f9464647f29b0b833427f1",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "统一误差界与sup值",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "极限|x|",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 2,
+          "text": "0处左右导数不同",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 3,
+          "text": "区分函数一致收敛与导数一致收敛",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 4,
+          "text": "导数逐点极限在0是0不代表|x|'(0)存在",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "REAL-DCT-SIGNED-CANCELLATION",
+      "category": "real_analysis",
+      "promptSha256": "65fe38c5c0624601810589f8128b67c65372a04ff65b6617044205d66e8e2f82",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "n>=2与区间边界",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "逐点极限0",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 2,
+          "text": "有符号积分0与L1范数2分开",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 3,
+          "text": "共同可积支配不存在的论证",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 4,
+          "text": "拒绝DCT应用不反驳本例有符号积分交换结论",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    },
+    {
+      "id": "REVIEW-FAILED-CERT-TRUE-CLAIM",
+      "category": "review",
+      "promptSha256": "62071ce7d9cd7ca073590611238ee3657ab6dd19c8ffbe14686e360b79558560",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "engineeringStatus": "NOT_RUN",
+      "mathematicalResult": "UNDETERMINED",
+      "obligations": [
+        {
+          "index": 0,
+          "text": "原句P=>P正确",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 1,
+          "text": "逐位置说明错误的合取引入",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 2,
+          "text": "证书有效性与目标真假分别报告",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 3,
+          "text": "不给正确原句伪造首错",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        },
+        {
+          "index": 4,
+          "text": "有效的假设解除证明",
+          "status": "UNDETERMINED",
+          "reason": "UNKNOWN",
+          "evidence": null,
+          "rationale": "Not assessed.",
+          "verification": "Not assessed."
+        }
+      ]
+    }
+  ]
+}

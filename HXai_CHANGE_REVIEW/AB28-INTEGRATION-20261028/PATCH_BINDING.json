@@ -1,0 +1,7 @@
+{
+  "path": "FIXES.patch",
+  "sha256": "57e892073d9b82815f704c578c1ac4297660ea93cfb1c211266f4cd7f2f01a7e",
+  "bytes": 10420663,
+  "scope": "Full inherited product source delta from common base; excludes new integration evidence; Git LF normalization as GIT_BLOB_SOURCE",
+  "sourceManifestSha256": "58292c1c1dde81aa9b4d65b420e68ef9605d3120e884e15bea530e94c88e3b67"
+}

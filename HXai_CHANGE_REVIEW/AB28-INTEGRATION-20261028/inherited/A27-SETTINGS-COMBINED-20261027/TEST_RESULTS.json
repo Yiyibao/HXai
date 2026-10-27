@@ -1,0 +1,310 @@
+{
+  "verdict": "PASS_SCOPED",
+  "scope": "A27 Settings publication + frozen B27 synthetic local/API26 combination and ordinary package checks",
+  "rows": [
+    {
+      "name": "ordinary-debug-release-jvm-lint-resume01",
+      "status": "PASS",
+      "evidence": "E3",
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a27-settings-combined-20261027\\client",
+      "command": [
+        "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\gradle-9.6.0\\bin\\gradle.bat",
+        ":app:assembleDebug",
+        ":app:assembleRelease",
+        ":app:lintDebug",
+        ":app:lintRelease",
+        "-PagentNativeTest=false",
+        "--offline",
+        "--console=plain",
+        "--max-workers=2"
+      ],
+      "exit_code": 0,
+      "enforced_environment": {
+        "npm_config_offline": "true",
+        "COREPACK_ENABLE_NETWORK": "0"
+      },
+      "seconds": 1102.636,
+      "log": "logs\\ordinary-debug-release-jvm-lint-resume01.log",
+      "sha256": "1e0a420cba936f1fd6e912894b28b8d07432f1f9b7f2517670e463cbf05190a8"
+    },
+    {
+      "name": "freeze-ordinary-products",
+      "status": "PASS",
+      "evidence": "E3",
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+      "command": [
+        "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\A27-SETTINGS-COMBINED-20261027\\package_outputs.py"
+      ],
+      "exit_code": 0,
+      "enforced_environment": {
+        "npm_config_offline": "true",
+        "COREPACK_ENABLE_NETWORK": "0"
+      },
+      "seconds": 233.446,
+      "log": "logs\\freeze-ordinary-products.log",
+      "sha256": "ced15def8c3859224bae78a2cee48bcc4149bd418246d9d241a09fb4cf3d198c"
+    },
+    {
+      "name": "build-qa-fixture-fixed",
+      "status": "PASS",
+      "evidence": "E3",
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a27-settings-combined-20261027\\client",
+      "command": [
+        "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\gradle-9.6.0\\bin\\gradle.bat",
+        ":app:assembleDebug",
+        ":app:assembleDebugAndroidTest",
+        "-PagentNativeTest=true",
+        "--offline",
+        "--console=plain",
+        "--max-workers=2"
+      ],
+      "exit_code": 0,
+      "enforced_environment": {
+        "npm_config_offline": "true",
+        "COREPACK_ENABLE_NETWORK": "0"
+      },
+      "seconds": 157.092,
+      "log": "logs\\build-qa-fixture-fixed.log",
+      "sha256": "678d02e545840691f659e0564dcf8bf5fcb2780144adbb9b2b12c443ab075170"
+    },
+    {
+      "name": "native-fixture-publication",
+      "status": "PASS",
+      "evidence": "E4",
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+      "command": [
+        "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\A27-SETTINGS-COMBINED-20261027\\run_native.py",
+        "--phase",
+        "fixture-publication",
+        "--classes",
+        "me.rerere.rikkahub.data.datastore.SettingsPublicationRuntimeTest",
+        "--apk-dir",
+        "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\A27-SETTINGS-COMBINED-20261027\\final-fixture-qa-apks"
+      ],
+      "exit_code": 0,
+      "enforced_environment": {
+        "npm_config_offline": "true",
+        "COREPACK_ENABLE_NETWORK": "0"
+      },
+      "seconds": 31.072,
+      "log": "logs\\native-fixture-publication.log",
+      "sha256": "9a938b407bfa2592fdc2c1a87ab8395486eb16b641024ccf10b176d8e245bcee"
+    },
+    {
+      "name": "native-fixture-original-mixture",
+      "status": "PASS",
+      "evidence": "E4",
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+      "command": [
+        "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\A27-SETTINGS-COMBINED-20261027\\run_native.py",
+        "--phase",
+        "fixture-original-mixture",
+        "--classes",
+        "me.rerere.rikkahub.feature.material.OfficeSafetyRuntimeTest,me.rerere.rikkahub.feature.material.DocxEquationRuntimeTest,me.rerere.rikkahub.feature.material.DocxPrecisionRuntimeTest,me.rerere.rikkahub.feature.material.PptShapeRuntimeTest,me.rerere.rikkahub.feature.material.PdfAssemblyRuntimeTest,me.rerere.rikkahub.feature.material.PdfOcrDraftRuntimeTest,me.rerere.rikkahub.feature.material.MathWorkCandidateRuntimeTest,me.rerere.rikkahub.feature.material.MathWorkInputsRuntimeTest,me.rerere.rikkahub.feature.material.MaterialMathQualityRuntimeTest,me.rerere.rikkahub.feature.material.MaterialLibraryLifecycleRuntimeTest,me.rerere.rikkahub.feature.material.SourceReceiptRuntimeTest,me.rerere.rikkahub.feature.material.SourceLocationReadRuntimeTest,me.rerere.rikkahub.feature.material.SourceSearchRuntimeTest,me.rerere.rikkahub.feature.material.SourceRevalidationRuntimeTest,me.rerere.rikkahub.feature.material.ChapterIndexRuntimeTest,me.rerere.rikkahub.feature.material.ChapterReadRuntimeTest,me.rerere.rikkahub.feature.material.ChapterSearchRuntimeTest,me.rerere.rikkahub.feature.math.MathVerificationRuntimeTest,me.rerere.rikkahub.feature.math.RationalMathRuntimeTest,me.rerere.rikkahub.feature.math.InequalityRuntimeTest,me.rerere.rikkahub.feature.math.EquationRuntimeTest,me.rerere.rikkahub.feature.math.RationalChainRuntimeTest,me.rerere.rikkahub.feature.math.EquationEquivalenceRuntimeTest,me.rerere.rikkahub.feature.math.RationalLimitRuntimeTest,me.rerere.rikkahub.feature.math.MonotonicityRuntimeTest,me.rerere.rikkahub.feature.math.PolynomialIntegralRuntimeTest,me.rerere.rikkahub.feature.math.RationalPrimitiveIntegralRuntimeTest,me.rerere.rikkahub.feature.math.PolynomialTaylorRuntimeTest,me.rerere.rikkahub.feature.math.PolynomialUniformBoundRuntimeTest,me.rerere.rikkahub.feature.math.PolynomialUniformSubdivisionRuntimeTest,me.rerere.rikkahub.feature.math.PolynomialSturmBoundRuntimeTest,me.rerere.rikkahub.feature.math.RationalSturmBoundRuntimeTest,me.rerere.rikkahub.feature.math.ProfessionalMathRuntimeTest,me.rerere.rikkahub.feature.math.CertifiedCalculusRuntimeTest,me.rerere.rikkahub.feature.math.ProfessionalPlotRuntimeTest,me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest,me.rerere.rikkahub.feature.material.MaterialLibrarySurfaceRuntimeTest",
+        "--apk-dir",
+        "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\A27-SETTINGS-COMBINED-20261027\\final-fixture-qa-apks"
+      ],
+      "exit_code": 0,
+      "enforced_environment": {
+        "npm_config_offline": "true",
+        "COREPACK_ENABLE_NETWORK": "0"
+      },
+      "seconds": 104.277,
+      "log": "logs\\native-fixture-original-mixture.log",
+      "sha256": "028a7089b29b1c267aecb132453198cffc0144cf639cd779ea1dc0e0b936e4fc"
+    },
+    {
+      "name": "native-fixture-platform",
+      "status": "PASS",
+      "evidence": "E4",
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+      "command": [
+        "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\A27-SETTINGS-COMBINED-20261027\\run_native.py",
+        "--phase",
+        "fixture-platform",
+        "--classes",
+        "me.rerere.rikkahub.feature.agent.AgentAccountTransportRuntimeTest,me.rerere.rikkahub.feature.agent.ExecutorStopBoundaryTest,me.rerere.rikkahub.feature.agent.ExecutorHandoffRuntimeTest,me.rerere.rikkahub.feature.agent.ExecutorHandoffSchedulerTest,me.rerere.rikkahub.feature.agent.AgentTaskRuntimeTest,me.rerere.rikkahub.feature.agent.AgentCredentialRuntimeTest,me.rerere.rikkahub.feature.agent.AgentSchema6MigrationTest,me.rerere.rikkahub.feature.agent.AgentApprovalBoundaryTest,me.rerere.rikkahub.feature.agent.TaskResumeReceiptRuntimeTest,me.rerere.rikkahub.service.AgentChatAcceptanceTest,me.rerere.rikkahub.service.FlutterMemoryToggleTest,me.rerere.rikkahub.data.sync.BackupManagerTest",
+        "--apk-dir",
+        "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\A27-SETTINGS-COMBINED-20261027\\final-fixture-qa-apks"
+      ],
+      "exit_code": 0,
+      "enforced_environment": {
+        "npm_config_offline": "true",
+        "COREPACK_ENABLE_NETWORK": "0"
+      },
+      "seconds": 99.534,
+      "log": "logs\\native-fixture-platform.log",
+      "sha256": "29df74fa6234f279d5b87f0f7f2bacc22df97107bd22e405908aa8431292f776"
+    },
+    {
+      "name": "account-process-recovery-fixed",
+      "status": "PASS",
+      "evidence": "E4",
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+      "command": [
+        "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\A27-SETTINGS-COMBINED-20261027\\run_process_death.py"
+      ],
+      "exit_code": 0,
+      "enforced_environment": {
+        "npm_config_offline": "true",
+        "COREPACK_ENABLE_NETWORK": "0"
+      },
+      "seconds": 22.916,
+      "log": "logs\\account-process-recovery-fixed.log",
+      "sha256": "9100b21fac1bed31d3c3f82866a93ccd00516315aca9d43a8eb54f2b7d28df3b"
+    },
+    {
+      "name": "settings-process-recovery-readiness-fixed",
+      "status": "PASS",
+      "evidence": "E4",
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+      "command": [
+        "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\A27-SETTINGS-COMBINED-20261027\\run_settings_restart.py",
+        "readiness-fixed"
+      ],
+      "exit_code": 0,
+      "enforced_environment": {
+        "npm_config_offline": "true",
+        "COREPACK_ENABLE_NETWORK": "0"
+      },
+      "seconds": 7.171,
+      "log": "logs\\settings-process-recovery-readiness-fixed.log",
+      "sha256": "d078c59fd1c6993eceed18cbe52334fea23ee5e2f005e1f052d4badfb4c3731d"
+    },
+    {
+      "name": "ordinary-debug-smoke-labels-fixed",
+      "status": "PASS",
+      "evidence": "E4",
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+      "command": [
+        "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\A27-SETTINGS-COMBINED-20261027\\ordinary_smoke.py",
+        "debug",
+        "labels-fixed"
+      ],
+      "exit_code": 0,
+      "enforced_environment": {
+        "npm_config_offline": "true",
+        "COREPACK_ENABLE_NETWORK": "0"
+      },
+      "seconds": 18.952,
+      "log": "logs\\ordinary-debug-smoke-labels-fixed.log",
+      "sha256": "3db5a31432408916c0dbfca3da4748fe72b1e43425d3f811805f500e19c41add"
+    },
+    {
+      "name": "ordinary-release-smoke",
+      "status": "PASS",
+      "evidence": "E4",
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+      "command": [
+        "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\A27-SETTINGS-COMBINED-20261027\\ordinary_smoke.py",
+        "release"
+      ],
+      "exit_code": 0,
+      "enforced_environment": {
+        "npm_config_offline": "true",
+        "COREPACK_ENABLE_NETWORK": "0"
+      },
+      "seconds": 22.822,
+      "log": "logs\\ordinary-release-smoke.log",
+      "sha256": "5cc690cedcbc26e38c5175c0208f62443bb43339b13cb70ce905d559ec9d2654"
+    },
+    {
+      "name": "fixture-publication",
+      "status": "PASS",
+      "evidence": "E4",
+      "successfulCount": 5,
+      "skippedCount": 0,
+      "rawReport": "native-fixture-publication/RESULT.json"
+    },
+    {
+      "name": "fixture-original-mixture",
+      "status": "PASS",
+      "evidence": "E4",
+      "successfulCount": 211,
+      "skippedCount": 1,
+      "rawReport": "native-fixture-original-mixture/RESULT.json"
+    },
+    {
+      "name": "fixture-platform",
+      "status": "PASS",
+      "evidence": "E4",
+      "successfulCount": 86,
+      "skippedCount": 0,
+      "rawReport": "native-fixture-platform/RESULT.json"
+    }
+  ],
+  "jvm": {
+    "app": {
+      "tests": 525,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "ai": {
+      "tests": 214,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "search": {
+      "tests": 33,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "flutter": {
+    "status": "PASS",
+    "tests": 416,
+    "analyze": "No issues found"
+  },
+  "lint": {
+    "debug": {
+      "errors": 0,
+      "warnings": 30,
+      "sha256": "0a72a2babc75e50fd4fc6c4496e06e9adc7be96559a4b7da801df84894d5d274"
+    },
+    "release": {
+      "errors": 0,
+      "warnings": 28,
+      "sha256": "b730c1560d7f856182132b6a911dac0875510e7fdc72e9b57453a08861b67cf1"
+    }
+  },
+  "negativeControls": [
+    {
+      "name": "old publication / functional updates",
+      "status": "FAIL",
+      "expected": true,
+      "report": "BASELINE_NEGATIVE_VERDICT.json"
+    },
+    {
+      "name": "old acceptance fixture mixed platform",
+      "status": "FAIL",
+      "expected": false,
+      "supersededBy": "native-fixture-platform/RESULT.json",
+      "report": "native-final-platform/RESULT.json"
+    },
+    {
+      "name": "original Pro Windows recheck",
+      "status": "FAIL",
+      "scope": "POSIX dir fsync and symlink privileges; separate reference portability; not repaired",
+      "report": "logs/pro-copy-verification.json"
+    }
+  ],
+  "interruptedBuild": {
+    "status": "BLOCKED",
+    "report": "INTERRUPTION.json",
+    "supersededBy": "ordinary-debug-release-jvm-lint-resume01"
+  },
+  "independentReview": "NOT_EVALUATED",
+  "fullProjectReview": "NOT_EVALUATED",
+  "realProviderOcrCloudTargetDeviceFormalSigning": "NOT_RUN"
+}

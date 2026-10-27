@@ -4,33 +4,30 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class TokenUsage(
-    val promptTokens: Int = 0,
-    val completionTokens: Int = 0,
-    val cachedTokens: Int = 0,
-    val totalTokens: Int = 0,
+    val promptTokens: Int? = null,
+    val completionTokens: Int? = null,
+    val cachedTokens: Int? = null,
+    val totalTokens: Int? = null,
+    val costUsd: String? = null,
+    val costSource: String? = null,
 )
 
 fun TokenUsage?.merge(other: TokenUsage): TokenUsage {
-    val promptTokens = if (other.promptTokens > 0) {
-        other.promptTokens
-    } else {
-        this?.promptTokens ?: 0
-    }
-    val completionTokens = if (other.completionTokens > 0) {
-        other.completionTokens
-    } else {
-        this?.completionTokens ?: 0
-    }
-    val totalTokens = promptTokens + completionTokens
-    val cachedTokens = if (other.cachedTokens > 0) {
-        other.cachedTokens
-    } else {
-        this?.cachedTokens ?: 0
-    }
+    val countsChanged = (other.promptTokens != null && other.promptTokens != this?.promptTokens) ||
+        (other.completionTokens != null && other.completionTokens != this?.completionTokens)
     return TokenUsage(
-        promptTokens = promptTokens,
-        completionTokens = completionTokens,
-        totalTokens = totalTokens,
-        cachedTokens = cachedTokens
+        promptTokens = other.promptTokens ?: this?.promptTokens,
+        completionTokens = other.completionTokens ?: this?.completionTokens,
+        totalTokens = other.totalTokens ?: if (countsChanged) null else this?.totalTokens,
+        cachedTokens = other.cachedTokens ?: this?.cachedTokens,
+        costUsd = other.costUsd ?: if (countsChanged) null else this?.costUsd,
+        costSource = other.costSource ?: if (countsChanged) null else this?.costSource,
     )
+}
+
+/** Unknown input keeps an aggregate unknown; never turn a missing counter into zero. */
+internal fun sumTokenCounts(first: Int?, second: Int?): Int? {
+    if (first == null || second == null) return null
+    val sum = first.toLong() + second
+    return sum.takeIf { it in 0..Int.MAX_VALUE.toLong() }?.toInt()
 }

@@ -88,6 +88,14 @@ void main() {
     mock('getMemories', (args) async => [[memory(args[0] as String)]]);
     messenger.setMockMethodCallHandler(FrontendFeatures.channel, (call) async {
       if (call.method == 'docTasks') return [task((call.arguments as Map)['profileId'] as String)];
+      if (call.method == 'library.snapshot') {
+        final m = material((call.arguments as Map)['profileId'] as String);
+        return {'contractVersion': 1, 'trash': <Object?>[], 'files': [
+          {'id': m.id, 'name': m.name, 'sha256': m.sha256, 'extension': m.extension, 'folder': '', 'tags': <String>[],
+            'createdAt': m.createdAt, 'size': m.size, 'state': m.state, 'detail': m.detail, 'output': false,
+            'symbolCheckPending': m.symbolCheckPending, 'symbolCorrection': m.symbolCorrection},
+        ]};
+      }
       return null;
     });
   });

@@ -1,5 +1,7 @@
 package me.rerere.ai.provider.providers.openai
 
+import me.rerere.ai.core.beginProviderRequest
+import me.rerere.ai.core.StreamingRequestReceipt
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
@@ -89,18 +91,21 @@ class ChatCompletionsAPI(
                 params = params,
                 providerSetting = providerSetting
             )
+        val encodedBody = json.encodeToString(requestBody)
 
         val request = Request.Builder()
             .url("${providerSetting.baseUrl}${providerSetting.chatCompletionsPath}")
             .headers(providerSetting.mergeCustomHeaders(params.customHeaders))
-            .post(json.encodeToString(requestBody).toRequestBody("application/json".toMediaType()))
+            .post(encodedBody.toRequestBody("application/json".toMediaType()))
             .addHeader("Authorization", "Bearer ${keyRoulette.next(providerSetting.apiKey, providerSetting.id.toString())}")
             .configureReferHeaders(providerSetting.baseUrl)
             .configureSessionHeaders(providerSetting.baseUrl, params.sessionId)
             .build()
+        val receipt = beginProviderRequest(providerSetting,params,requestBody,encodedBody)
 
         val response = client.newCall(request).await()
         if (!response.isSuccessful) {
+            if(response.code==401 || response.code==403) receipt?.authorizationRejected(response.code)
             throw me.rerere.ai.util.parseModelHttpError(response.code, response.body.readModelErrorBody())
         }
 
@@ -117,7 +122,12 @@ class ChatCompletionsAPI(
             ?.jsonPrimitive
             ?.content
             ?: "unknown"
-        val usage = parseTokenUsage(bodyJson["usage"] as? JsonObject)
+        val usage = parseTokenUsage(bodyJson["usage"] as? JsonObject)?.let {
+            if (response.request.url.toString() == "https://openrouter.ai/api/v1/chat/completions")
+                it.copy(costSource = "https://openrouter.ai/api/v1/chat/completions")
+            else it.copy(costUsd = null, costSource = null)
+        }
+        receipt?.complete(usage)
 
         TextGenerationResult(
             id = id,
@@ -139,29 +149,39 @@ class ChatCompletionsAPI(
             providerSetting = providerSetting,
             stream = true,
         )
+        val encodedBody = json.encodeToString(requestBody)
 
         val request = Request.Builder()
             .url("${providerSetting.baseUrl}${providerSetting.chatCompletionsPath}")
             .headers(providerSetting.mergeCustomHeaders(params.customHeaders))
-            .post(json.encodeToString(requestBody).toRequestBody("application/json".toMediaType()))
+            .post(encodedBody.toRequestBody("application/json".toMediaType()))
             .addHeader("Authorization", "Bearer ${keyRoulette.next(providerSetting.apiKey, providerSetting.id.toString())}")
             .addHeader("Content-Type", "application/json")
             .configureReferHeaders(providerSetting.baseUrl)
             .configureSessionHeaders(providerSetting.baseUrl, params.sessionId)
             .build()
+        val receipt = beginProviderRequest(providerSetting,params,requestBody,encodedBody)?.let(::StreamingRequestReceipt)
 
         // just for debugging response body
 
         val decoder = ChatCompletionsStreamDecoder()
+        var reportedCostSource: String? = null
 
         fun sendChunks(chunks: Iterable<StreamChunk>) {
             chunks.forEach { chunk ->
-                trySend(chunk).onFailure { Log.w(TAG, "Stream chunk dropped") }
+                val trustedChunk = if (chunk is StreamChunk.Usage) StreamChunk.Usage(
+                    if (reportedCostSource != null) chunk.usage.copy(costSource = reportedCostSource)
+                    else chunk.usage.copy(costUsd = null, costSource = null)) else chunk
+                receipt?.observe(trustedChunk)
+                trySend(trustedChunk).onFailure { Log.w(TAG, "Stream chunk dropped") }
             }
         }
 
         var streamCompleted = false
         val listener = object : EventSourceListener() {
+            override fun onOpen(eventSource: EventSource, response: Response) {
+                reportedCostSource = response.request.url.toString().takeIf { it == "https://openrouter.ai/api/v1/chat/completions" }
+            }
             override fun onEvent(
                 eventSource: EventSource,
                 id: String?,
@@ -172,6 +192,7 @@ class ChatCompletionsAPI(
                     val result = decoder.accept(SseEvent(id = id, event = type, data = data))
                     sendChunks(result.chunks)
                     if (result.completed) {
+                        receipt?.complete()
                         streamCompleted = true
                         close()
                     }
@@ -182,6 +203,10 @@ class ChatCompletionsAPI(
 
             override fun onFailure(eventSource: EventSource, t: Throwable?, response: Response?) {
                 var exception = t
+                if(response!=null && (response.code==401 || response.code==403)) {
+                    try { receipt?.authorizationRejected(response.code) }
+                    catch(error: Throwable) { close(error); return }
+                }
 
                 val bodyRaw = response?.body?.readModelErrorBody()
                 try {
@@ -792,15 +817,15 @@ class ChatCompletionsAPI(
     private fun parseTokenUsage(jsonObject: JsonObject?): TokenUsage? {
         if (jsonObject == null) return null
         return TokenUsage(
-            promptTokens = jsonObject["prompt_tokens"]?.jsonPrimitive?.intOrNull ?: 0,
-            completionTokens = jsonObject["completion_tokens"]?.jsonPrimitive?.intOrNull ?: 0,
-            totalTokens = jsonObject["total_tokens"]?.jsonPrimitive?.intOrNull ?: 0,
+            costUsd = (jsonObject["cost"] as? JsonPrimitive)?.takeUnless { it.isString }?.content,
+            promptTokens = jsonObject["prompt_tokens"]?.jsonPrimitive?.intOrNull,
+            completionTokens = jsonObject["completion_tokens"]?.jsonPrimitive?.intOrNull,
+            totalTokens = jsonObject["total_tokens"]?.jsonPrimitive?.intOrNull,
             // 各 provider 汇报缓存命中的字段形状不统一，按方言兜底解析（#1576）：
             // OpenAI 嵌套 -> Moonshot 顶层 cached_tokens -> DeepSeek prompt_cache_hit_tokens
             cachedTokens = jsonObject["prompt_tokens_details"]?.jsonObjectOrNull?.get("cached_tokens")?.jsonPrimitive?.intOrNull
                 ?: jsonObject["cached_tokens"]?.jsonPrimitive?.intOrNull
                 ?: jsonObject["prompt_cache_hit_tokens"]?.jsonPrimitive?.intOrNull
-                ?: 0
         )
     }
 

@@ -1,0 +1,15 @@
+{
+  "label": "ordinary-drawer-hierarchy",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\platform-tools\\adb.exe",
+    "-s",
+    "emulator-5622",
+    "exec-out",
+    "cat",
+    "/sdcard/ab28-hierarchy.xml"
+  ],
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "exitCode": 0,
+  "seconds": 0.044,
+  "logSha256": "cfc9fb6406d173c4dba3385f565208b0bc73f05c8f36e7bbba3aa1cf477101d7"
+}

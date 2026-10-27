@@ -57,6 +57,11 @@ class SettingsPage extends ConsumerWidget {
                   onTap: () => context.push('/settings/memories'),
                 ),
                 StudyRow(
+                  icon: Icons.hub_outlined,
+                  title: 'MCP 与 Skill 计算服务',
+                  onTap: () => context.push('/settings/extensions'),
+                ),
+                StudyRow(
                   icon: Icons.description_outlined,
                   title: '文件与文档服务',
                   onTap: () => context.push('/settings/doc-service'),

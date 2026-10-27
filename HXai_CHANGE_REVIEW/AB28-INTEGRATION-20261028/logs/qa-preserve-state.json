@@ -1,0 +1,21 @@
+{
+  "label": "qa-preserve-state",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\platform-tools\\adb.exe",
+    "-s",
+    "emulator-5622",
+    "exec-out",
+    "run-as",
+    "org.hxsi.agent.nativeqa",
+    "tar",
+    "--exclude=./app_flutter",
+    "--exclude=./app_dxmaker_cache",
+    "-cf",
+    "-",
+    "."
+  ],
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "exitCode": 0,
+  "seconds": 4.277,
+  "logSha256": "446e01aded481eea5eeaeb6e40db773f13df312ac70d00dd769fd6d757b34962"
+}

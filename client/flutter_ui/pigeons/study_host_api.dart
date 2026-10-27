@@ -211,6 +211,206 @@ class ProjectDto {
   final List<ConversationSummaryDto> conversations;
 }
 
+class AgentTaskDto {
+  AgentTaskDto({
+    required this.id, required this.owner, required this.state,
+    required this.providerId, required this.modelId, required this.reasoning,
+    required this.providerName, required this.modelName, required this.providerOrigin,
+    required this.revision, required this.fence, required this.grantEpoch,
+    required this.authorization, required this.manualPaused,
+    required this.inputBlocked, required this.deviceBlocked,
+    required this.deviceConfirmation, required this.goalRevision,
+    required this.plannedRevision, required this.acceptanceVerified,
+    required this.verifiedSteps, required this.approvalCallIds,
+    this.credentialRequestId, this.credentialState,
+  });
+  final String id;
+  final String owner;
+  final String state;
+  final String providerId;
+  final String modelId;
+  final String reasoning;
+  final String providerName;
+  final String modelName;
+  final String providerOrigin;
+  final int revision;
+  final int fence;
+  final int grantEpoch;
+  final String authorization;
+  final bool manualPaused;
+  final bool inputBlocked;
+  final bool deviceBlocked;
+  final bool deviceConfirmation;
+  final int goalRevision;
+  final int plannedRevision;
+  final bool acceptanceVerified;
+  final List<String> verifiedSteps;
+  final List<String> approvalCallIds;
+  final String? credentialRequestId;
+  final String? credentialState;
+}
+
+class AgentUsageMetricDto {
+  AgentUsageMetricDto({this.reported, this.estimated, required this.unknownRequests});
+  final int? reported;
+  final int? estimated;
+  final int unknownRequests;
+}
+
+class AgentCatalogTaskDto {
+  AgentCatalogTaskDto({required this.id, required this.owner, required this.conversationId,
+    required this.role, required this.goal, required this.state, required this.providerId,
+    required this.modelId, required this.reasoning, required this.revision, required this.fence,
+    required this.manualPaused, required this.authorization, required this.inputBlocked,
+    required this.deviceBlocked, required this.deviceConfirmation, required this.approvalBlocked,
+    required this.goalRevision, required this.plannedRevision, required this.acceptanceVerified});
+  final String id;
+  final String owner;
+  final String conversationId;
+  final String role;
+  final String goal;
+  final String state;
+  final String providerId;
+  final String modelId;
+  final String reasoning;
+  final int revision;
+  final int fence;
+  final int goalRevision;
+  final int plannedRevision;
+  final bool manualPaused;
+  final bool inputBlocked;
+  final bool deviceBlocked;
+  final bool deviceConfirmation;
+  final bool approvalBlocked;
+  final bool acceptanceVerified;
+  final String authorization;
+}
+class AgentCatalogPageDto {
+  AgentCatalogPageDto({required this.owner, required this.kind, required this.tasks, this.nextCursor});
+  final String owner;
+  final String kind;
+  final List<AgentCatalogTaskDto> tasks;
+  final String? nextCursor;
+}
+class AgentCatalogStepDto {
+  AgentCatalogStepDto({required this.id, required this.tool, required this.purpose, required this.state, this.callId});
+  final String id;
+  final String tool;
+  final String purpose;
+  final String state;
+  final String? callId;
+}
+class AgentCatalogCallDto {
+  AgentCatalogCallDto({required this.id, required this.tool, required this.state, required this.inputHash,
+    this.resultHash, this.capability, this.grantEpoch});
+  final String id;
+  final String tool;
+  final String state;
+  final String inputHash;
+  final String? resultHash;
+  final String? capability;
+  final int? grantEpoch;
+}
+class AgentCatalogArtifactDto {
+  AgentCatalogArtifactDto({required this.id, required this.name, required this.sha256});
+  final String id;
+  final String name;
+  final String sha256;
+}
+class AgentCatalogDetailDto {
+  AgentCatalogDetailDto({required this.task, required this.steps, required this.calls, required this.artifacts,
+    required this.resultsPartial, required this.conversationAvailable, this.nextCursor, this.providerName, this.modelName});
+  final AgentCatalogTaskDto task;
+  final List<AgentCatalogStepDto> steps;
+  final List<AgentCatalogCallDto> calls;
+  final List<AgentCatalogArtifactDto> artifacts;
+  final bool resultsPartial;
+  final bool conversationAvailable;
+  final String? nextCursor;
+  final String? providerName;
+  final String? modelName;
+}
+
+class AgentUsageEntryDto {
+  AgentUsageEntryDto({required this.requestId, required this.taskId, required this.conversationId,
+    required this.role, this.providerId, this.modelId, this.reasoning, this.createdAt,
+    required this.state, required this.provenance, this.inputTokens, this.outputTokens,
+    this.cachedTokens, this.totalTokens, this.costJson});
+  final String requestId;
+  final String taskId;
+  final String conversationId;
+  final String role;
+  final String? providerId;
+  final String? modelId;
+  final String? reasoning;
+  final int? createdAt;
+  final String state;
+  final String provenance;
+  final int? inputTokens;
+  final int? outputTokens;
+  final int? cachedTokens;
+  final int? totalTokens;
+  final String? costJson;
+}
+
+class AgentUsagePageDto {
+  AgentUsagePageDto({required this.owner, this.taskId, this.from, this.until,
+    required this.requestCount, required this.reportedRequests, required this.estimatedRequests,
+    required this.unknownRequests, required this.undatedRequests, required this.input,
+    required this.output, required this.cached, required this.total, required this.entries, this.nextCursor, this.costJson});
+  final String owner;
+  final String? taskId;
+  final int? from;
+  final int? until;
+  final int requestCount;
+  final int reportedRequests;
+  final int estimatedRequests;
+  final int unknownRequests;
+  final int undatedRequests;
+  final AgentUsageMetricDto input;
+  final AgentUsageMetricDto output;
+  final AgentUsageMetricDto cached;
+  final AgentUsageMetricDto total;
+  final List<AgentUsageEntryDto> entries;
+  final String? nextCursor;
+  final String? costJson;
+}
+
+class AgentUsageGroupDto {
+  AgentUsageGroupDto({this.providerId, this.modelId, this.role, required this.requestCount,
+    required this.reportedRequests, required this.estimatedRequests, required this.unknownRequests,
+    required this.input, required this.output, required this.cached, required this.total, this.costJson});
+  final String? providerId;
+  final String? modelId;
+  final String? role;
+  final int requestCount;
+  final int reportedRequests;
+  final int estimatedRequests;
+  final int unknownRequests;
+  final AgentUsageMetricDto input;
+  final AgentUsageMetricDto output;
+  final AgentUsageMetricDto cached;
+  final AgentUsageMetricDto total;
+  final String? costJson;
+}
+
+class AgentUsageGroupsPageDto {
+  AgentUsageGroupsPageDto({required this.owner, this.taskId, this.from, this.until, required this.groupBy,
+    required this.requestCount, required this.groupCount, required this.undatedRequests,
+    required this.groups, this.nextCursor, this.costJson});
+  final String owner;
+  final String? taskId;
+  final int? from;
+  final int? until;
+  final String groupBy;
+  final int requestCount;
+  final int groupCount;
+  final int undatedRequests;
+  final List<AgentUsageGroupDto> groups;
+  final String? nextCursor;
+  final String? costJson;
+}
+
 class ConversationDetailDto {
   ConversationDetailDto({
     required this.id,
@@ -371,6 +571,88 @@ class SkillDto {
   final String? allowedTools;
 }
 
+class AgentUsageExportDto {
+  AgentUsageExportDto({required this.owner,this.taskId,this.from,this.until,required this.groupBy,
+    required this.requestId,required this.artifactId,required this.sha256,required this.size,
+    required this.sourceSha256,required this.capturedAt,required this.requestCount,required this.recordCount,required this.reused});
+  final String owner;
+  final String? taskId;
+  final int? from;
+  final int? until;
+  final String groupBy;
+  final String requestId;
+  final String artifactId;
+  final String sha256;
+  final int size;
+  final String sourceSha256;
+  final int capturedAt;
+  final int requestCount;
+  final int recordCount;
+  final bool reused;
+}
+
+class AgentUsageExportIntentDto {
+  AgentUsageExportIntentDto({required this.owner,this.taskId,this.from,this.until,required this.groupBy,
+    required this.requestId,required this.artifactId,required this.sha256,required this.size,required this.createdAt});
+  final String owner;
+  final String? taskId;
+  final int? from;
+  final int? until;
+  final String groupBy;
+  final String requestId;
+  final String artifactId;
+  final String sha256;
+  final int size;
+  final int createdAt;
+}
+
+class AgentUsageExportHistoryPageDto {
+  AgentUsageExportHistoryPageDto({required this.owner,required this.entries,this.nextCursor});
+  final String owner;
+  final List<AgentUsageExportIntentDto> entries;
+  final String? nextCursor;
+}
+
+class AgentUsageAlertsDto {
+  AgentUsageAlertsDto({required this.owner, this.taskId, this.from, this.until,
+    required this.evaluatedAt, required this.uncertainRequests, required this.unreportedCompletedRequests,
+    required this.denseTaskCount, required this.denseRequests, required this.undatedRequests});
+  final String owner;
+  final String? taskId;
+  final int? from;
+  final int? until;
+  final int evaluatedAt;
+  final int uncertainRequests;
+  final int unreportedCompletedRequests;
+  final int denseTaskCount;
+  final int denseRequests;
+  final int undatedRequests;
+}
+
+class TaskResumeReceiptDto {
+  TaskResumeReceiptDto({required this.owner, required this.taskId,
+    required this.conversationId, required this.requestId,
+    required this.expectedRevision, required this.expectedFence,
+    required this.canCoordinate});
+  final String owner;
+  final String taskId;
+  final String conversationId;
+  final String requestId;
+  final int expectedRevision;
+  final int expectedFence;
+  final bool canCoordinate;
+}
+
+// Appended to preserve all existing type codec ids (128..163).
+class MemoryProtectionDto {
+  MemoryProtectionDto({required this.profileId, required this.contextEpoch,
+    required this.configuredEnabled, required this.recoveryBlocked});
+  final String profileId;
+  final int contextEpoch;
+  final bool configuredEnabled;
+  final bool recoveryBlocked;
+}
+
 @HostApi()
 abstract class StudyHostApi {
   @async
@@ -428,6 +710,48 @@ abstract class StudyHostApi {
   ConversationDetailDto getConversationDetails(String profileId, String conversationId);
 
   @async
+  AgentTaskDto? getConversationTask(String profileId, String conversationId, int expectedEpoch);
+  @async
+  AgentCatalogPageDto getAgentTaskCatalog(String profileId, String kind, String? cursor, int limit, int expectedEpoch);
+  @async
+  AgentCatalogDetailDto getAgentTaskDetail(String profileId, String taskId, String? cursor, int limit, int expectedEpoch);
+  @async
+  AgentUsagePageDto getAgentUsage(String profileId, String? taskId, int? from, int? until,
+      String? cursor, int limit, int expectedEpoch);
+  @async
+  AgentUsageGroupsPageDto getAgentUsageGroups(String profileId, String? taskId, int? from, int? until,
+      String groupBy, String? cursor, int limit, int expectedEpoch);
+  @async
+  AgentUsageExportDto exportAgentUsage(String profileId, String? taskId, int? from, int? until,
+      String groupBy, String requestId, int expectedEpoch);
+  @async
+  AgentUsageExportIntentDto? getAgentUsageLastExport(String profileId, String? taskId, int? from, int? until,
+      String groupBy, int expectedEpoch);
+  @async
+  AgentUsageExportHistoryPageDto getAgentUsageExportHistory(String profileId, String? cursor, int limit, int expectedEpoch);
+  @async
+  AgentUsageExportDto verifyAgentUsageExport(String profileId, String? taskId, int? from, int? until,
+      String groupBy, String requestId, String expectedSha256, int expectedEpoch);
+
+  @async
+  SimpleCommandResult taskCommand(String profileId, String conversationId, String taskId,
+      String requestId, int expectedEpoch, int expectedRevision, int expectedFence,
+      String action, String payload);
+
+  @async
+  SimpleCommandResult taskSafetyCommand(String profileId, String taskId, String requestId,
+      int expectedEpoch, int expectedRevision, int expectedFence, String action);
+
+  @async
+  SimpleCommandResult updateTaskCredential(String profileId, String conversationId, String taskId,
+      String requestId, int expectedEpoch, int expectedRevision, int expectedFence,
+      String apiKey);
+
+  @async
+  SimpleCommandResult continueTaskCredential(String profileId, String conversationId, String taskId,
+      String requestId, int expectedEpoch);
+
+  @async
   SimpleCommandResult sendMessage(SendMessageRequest request);
 
   @async
@@ -473,7 +797,7 @@ abstract class StudyHostApi {
   SimpleCommandResult deleteMemory(String profileId, String memoryId, String requestId);
 
   @async
-  SimpleCommandResult toggleAutoMemory(String profileId, bool enabled);
+  SimpleCommandResult toggleAutoMemory(String profileId, bool enabled, int expectedEpoch);
 
   @async
   List<ArtifactDto> getArtifacts(String profileId);
@@ -506,5 +830,14 @@ abstract class StudyHostApi {
   DiagnosticsDto getDiagnostics();
 
   @async
+  AgentUsageAlertsDto getAgentUsageAlerts(String profileId, String? taskId, int? from, int? until, int expectedEpoch);
+
+  @async
   SimpleCommandResult exportDiagnostics();
+
+  @async
+  TaskResumeReceiptDto? getTaskResumeReceipt(String profileId, String taskId, String? requestId, int expectedEpoch);
+
+  @async
+  MemoryProtectionDto getMemoryProtection(String profileId, int expectedEpoch);
 }

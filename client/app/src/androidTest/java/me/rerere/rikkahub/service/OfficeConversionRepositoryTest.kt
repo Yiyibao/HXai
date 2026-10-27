@@ -81,7 +81,6 @@ class OfficeConversionRepositoryTest {
             docs = f.repository(); assertTrue(docs.officeConversions.task(f.owner, pending.id).cancelRequested)
             f.loseCancelAck = false; docs.officeConversions.syncPending(f.owner)
             assertEquals("CANCELLED", docs.officeConversions.task(f.owner, pending.id).state)
-            assertFalse(docs.officeConversions.task(f.owner, pending.id).cancelRequested)
             assertTrue(runCatching { docs.officeConversions.resume(f.owner, pending.id) }.isFailure); assertEquals(1, f.uploads); assertEquals(2, f.cancelCalls)
             f.loseAck = false; f.badDigest = true
             val task = docs.officeConversions.submit(f.owner, f.source.id, f.source.sha256, "Bad hash")

@@ -58,8 +58,9 @@ class _MathMarkdownViewState extends State<MathMarkdownView> {
         _style != textStyle ||
         _selectable != selectable ||
         _streaming != widget.streaming ||
-        _asksSelection != (widget.onAskSelection != null))
+        _asksSelection != (widget.onAskSelection != null)) {
       _blocks.clear();
+    }
     _theme = theme;
     _style = textStyle;
     _selectable = selectable;
@@ -351,8 +352,9 @@ class _MathMarkdownViewState extends State<MathMarkdownView> {
       for (final block in _splitContentIntoBlocks(raw)) {
         if (block.type == _BlockType.text && !dependent) {
           for (final paragraph in block.text.split(RegExp(r'\n\s*\n'))) {
-            if (paragraph.trim().isNotEmpty)
+            if (paragraph.trim().isNotEmpty) {
               result.add(_ContentBlock(_BlockType.text, paragraph));
+            }
           }
         } else {
           result.add(block);
@@ -391,7 +393,7 @@ class _MathMarkdownViewState extends State<MathMarkdownView> {
         prose.writeln(line);
       }
     }
-    if (marker != null)
+    if (marker != null) {
       result.add(
         _ContentBlock(
           _BlockType.code,
@@ -399,6 +401,7 @@ class _MathMarkdownViewState extends State<MathMarkdownView> {
           language,
         ),
       );
+    }
     flushProse();
     return result;
   }
@@ -416,8 +419,9 @@ class _MathMarkdownViewState extends State<MathMarkdownView> {
     for (final match in blockMathPattern.allMatches(text)) {
       if (codeRanges.any(
         (code) => match.start >= code.start && match.start < code.end,
-      ))
+      )) {
         continue;
+      }
       if (match.start > lastEnd) {
         final textChunk = text.substring(lastEnd, match.start).trim();
         if (textChunk.isNotEmpty) {

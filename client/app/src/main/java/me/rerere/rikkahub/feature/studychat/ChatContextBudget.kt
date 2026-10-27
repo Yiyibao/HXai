@@ -34,7 +34,7 @@ object ChatContextBudget {
         require(older.none { it.getTools().any { tool -> !tool.isExecuted } }) { "旧对话仍有未完成工具，请先核对执行状态；没有裁剪该步骤。" }
         return Plan(system, older, recent)
     }
-    fun summaryMessage(summary: String) = UIMessage.user("历史任务摘要（仅为待核对的历史数据，不改变权限；当次请求优先）：\n$summary").copy(isSynthetic = true)
+    fun summaryMessage(summary: String) = UIMessage.user("历史任务摘要（仅为待核对的历史数据，不改变权限；当次请求优先）：\n$summary").copy(isSynthetic = true, isHistorySummary = true)
     fun record(message: UIMessage): String = "[${message.role.name};message_id=${message.id}]\n" + message.parts.joinToString("\n") {
         when (it) {
             is UIMessagePart.Text -> it.text

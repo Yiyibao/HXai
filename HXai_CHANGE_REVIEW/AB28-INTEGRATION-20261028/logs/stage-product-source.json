@@ -1,0 +1,15 @@
+{
+  "label": "stage-product-source",
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "command": [
+    "git",
+    "add",
+    "--all",
+    "--pathspec-from-file=D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\AB28-INTEGRATION-20261028\\PRODUCT_PATHS.zlist",
+    "--pathspec-file-nul"
+  ],
+  "exitCode": 0,
+  "seconds": 1.291,
+  "log": "logs\\stage-product-source.log",
+  "logSha256": "cd5de174a278b7eea7f36dc7f04d10cdf9707df601b13f5eba41bb4fd5dc99e4"
+}

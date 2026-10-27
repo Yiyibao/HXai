@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "scope": "SYNTHETIC_CLI_AND_NO_FALSE_SUCCESS",
+  "totals": {
+    "cases": 32,
+    "mathematics": {
+      "CORRECT": 0,
+      "INCORRECT": 0,
+      "INCOMPLETE": 0,
+      "UNDETERMINED": 32
+    },
+    "engineering": {
+      "PASS": 0,
+      "FAIL": 0,
+      "NOT_RUN": 32,
+      "BLOCKED": 0
+    },
+    "obligations": {
+      "UNDETERMINED": 81
+    },
+    "unresolvedReasons": {
+      "UNKNOWN": 81
+    }
+  },
+  "oldReportPreserved": true,
+  "incompleteRejected": true,
+  "modelQuality": "NOT_ATTESTED",
+  "realModelCalls": 0
+}

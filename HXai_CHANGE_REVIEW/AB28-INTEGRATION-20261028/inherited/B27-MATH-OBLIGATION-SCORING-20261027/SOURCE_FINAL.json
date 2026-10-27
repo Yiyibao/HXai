@@ -1,0 +1,101 @@
+{
+  "featureId": "B27-MATH-OBLIGATION-SCORING-20261027",
+  "branch": "codex/b27-math-obligation-scoring-20261027",
+  "head": "5d826d5d7d8755ed42db834d6cd6dc52ae914c69",
+  "scope": "OFFLINE_CLI_INCREMENT_AND_EXECUTED_PYTHON_DEPENDENCIES",
+  "files": {
+    "scripts/score_b_math_evaluation.py": {
+      "bytes": 16677,
+      "sha256": "92de156bf8e9c5f21cc3da24d5d0d3c20f680327a8a1df5b44dae739bb86a733"
+    },
+    "scripts/tests/test_score_b_math_evaluation.py": {
+      "bytes": 10514,
+      "sha256": "b9bad398cce4a8518fa44417053b2c04db0240a6108166d91586b50ededf18c7"
+    },
+    "docs/b27-math-obligation-scoring-contract1.md": {
+      "bytes": 6946,
+      "sha256": "ced572454f2bde213d66c21330ca11d416ee6658f818c43b2efd3d3d4f4565d4"
+    },
+    "BUILD_AND_TEST.md": {
+      "bytes": 18851,
+      "sha256": "17620009875be6be23b68cf0f2f620a2b80fac6670fc4bb2068056ea677e263e"
+    },
+    "docs/parallel-development-20261026/B_TASK.md": {
+      "bytes": 9376,
+      "sha256": "3a17b5d8b8cd8c71268db678d18bdf4a9dbc796df152dc7e984a0a44fac2e386"
+    },
+    "docs/remaining-development-20261027.md": {
+      "bytes": 20207,
+      "sha256": "2398b22685aba64bba80b2fa0c67347e43eb4a9d66dd3c67ec41d23b21545cf2"
+    },
+    "docs/pro-development-baseline-20261012.md": {
+      "bytes": 69788,
+      "sha256": "b8a6015fe96a258e4b48183b31d899919423c28bb197d2ca119d73a6b7e98fc3"
+    },
+    "scripts/prepare_b_math_evaluation.py": {
+      "bytes": 4655,
+      "sha256": "220d8bd3890c880a4aaf5304da9cb1c6062ab211d20546c7506d346970866836"
+    },
+    "scripts/fixtures/b26_math_quality_v1.json": {
+      "bytes": 31569,
+      "sha256": "b968f7700f254a541c02b4b19dc0f6d90d03ca5b9a1d1d3235bcc4398ddb39e7"
+    },
+    "scripts/fixtures/b26_math_questions_extension_v2.json": {
+      "bytes": 8583,
+      "sha256": "9f1d99e0c95037686f44c32e311bbe40502fba4e99af66fac71caaba3e7c50b1"
+    },
+    "scripts/verify_b_ocr_corpus.py": {
+      "bytes": 18681,
+      "sha256": "aa60ada2f1eded463246933a28d293c298331bb7802011efbec6936f8cd7af83"
+    },
+    "scripts/verify_b_windows_ocr.py": {
+      "bytes": 8822,
+      "sha256": "baa2bd641a45028449dbb50d5459b601f171789b089efe43e9fe816e40044d03"
+    },
+    "scripts/tests/test_verify_b_ocr_corpus.py": {
+      "bytes": 7623,
+      "sha256": "23dd0528bc27f27f092cc4338da168e61a321c976c7e3b4774bf632f295805ed"
+    },
+    "scripts/tests/test_verify_b_windows_ocr.py": {
+      "bytes": 2747,
+      "sha256": "1e02045db5f617fda3d846e941ab0692dd1ccfb9491b0c929994992f24b507e8"
+    }
+  },
+  "changes": {
+    "scripts/score_b_math_evaluation.py": {
+      "beforeSha256": null,
+      "candidateSha256": "92de156bf8e9c5f21cc3da24d5d0d3c20f680327a8a1df5b44dae739bb86a733",
+      "currentSha256": "92de156bf8e9c5f21cc3da24d5d0d3c20f680327a8a1df5b44dae739bb86a733"
+    },
+    "scripts/tests/test_score_b_math_evaluation.py": {
+      "beforeSha256": null,
+      "candidateSha256": "b9bad398cce4a8518fa44417053b2c04db0240a6108166d91586b50ededf18c7",
+      "currentSha256": "b9bad398cce4a8518fa44417053b2c04db0240a6108166d91586b50ededf18c7"
+    },
+    "docs/b27-math-obligation-scoring-contract1.md": {
+      "beforeSha256": null,
+      "candidateSha256": "ced572454f2bde213d66c21330ca11d416ee6658f818c43b2efd3d3d4f4565d4",
+      "currentSha256": "ced572454f2bde213d66c21330ca11d416ee6658f818c43b2efd3d3d4f4565d4"
+    },
+    "BUILD_AND_TEST.md": {
+      "beforeSha256": "71df22bc5832018eee75a36a4e7170cbe7fe08aa667dca625f8960ce92a7783f",
+      "candidateSha256": "17620009875be6be23b68cf0f2f620a2b80fac6670fc4bb2068056ea677e263e",
+      "currentSha256": "17620009875be6be23b68cf0f2f620a2b80fac6670fc4bb2068056ea677e263e"
+    },
+    "docs/parallel-development-20261026/B_TASK.md": {
+      "beforeSha256": "70cee2037e461b922d011879e00ba852ca047b2b6586e139e557c9c11f650b58",
+      "candidateSha256": "3a17b5d8b8cd8c71268db678d18bdf4a9dbc796df152dc7e984a0a44fac2e386",
+      "currentSha256": "3a17b5d8b8cd8c71268db678d18bdf4a9dbc796df152dc7e984a0a44fac2e386"
+    },
+    "docs/remaining-development-20261027.md": {
+      "beforeSha256": "9b1a8fd8a6b85adb4143c2ddf2cdf0a6b73aa62fc681c9a2296618cc920f7ac6",
+      "candidateSha256": "2398b22685aba64bba80b2fa0c67347e43eb4a9d66dd3c67ec41d23b21545cf2",
+      "currentSha256": "2398b22685aba64bba80b2fa0c67347e43eb4a9d66dd3c67ec41d23b21545cf2"
+    },
+    "docs/pro-development-baseline-20261012.md": {
+      "beforeSha256": "92801fb807af9e4a0bc4f585262a5a2fbb72d044d2870ab52acfdd60d625b4c2",
+      "candidateSha256": "b8a6015fe96a258e4b48183b31d899919423c28bb197d2ca119d73a6b7e98fc3",
+      "currentSha256": "b8a6015fe96a258e4b48183b31d899919423c28bb197d2ca119d73a6b7e98fc3"
+    }
+  }
+}

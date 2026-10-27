@@ -47,6 +47,14 @@ internal class CredentialVault(context: Context, private val keyAlias: String = 
         throw CredentialUnavailableException()
     }
 
+    /** Only explicit extension uninstall/replacement uses its own immutable reference. */
+    fun discard(reference: String) {
+        require(isReference(reference))
+        val target = record(reference)
+        AtomicFile(target).delete()
+        check(!target.exists() && !File(target.path + ".bak").exists()) { "Credential removal incomplete" }
+    }
+
     private fun decrypt(value: String): String {
         if (!isReference(value)) return value // Legacy input, only before migration.
         val bytes = AtomicFile(record(value)).readFully()

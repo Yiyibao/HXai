@@ -1,5 +1,7 @@
 package me.rerere.ai.provider.providers.openai
 
+import me.rerere.ai.core.beginProviderRequest
+import me.rerere.ai.core.StreamingRequestReceipt
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
@@ -88,10 +90,11 @@ class ResponseAPI(
             params = params,
             stream = false,
         )
+        val encodedBody = json.encodeToString(requestBody)
         val request = Request.Builder()
             .url("${providerSetting.baseUrl}${providerSetting.responsesPath}")
             .headers(providerSetting.mergeCustomHeaders(params.customHeaders))
-            .post(json.encodeToString(requestBody).toRequestBody("application/json".toMediaType()))
+            .post(encodedBody.toRequestBody("application/json".toMediaType()))
             .addHeader(
                 "Authorization",
                 "Bearer ${keyRoulette.next(providerSetting.apiKey, providerSetting.id.toString())}"
@@ -100,16 +103,18 @@ class ResponseAPI(
             .configureReferHeaders(providerSetting.baseUrl)
             .configureSessionHeaders(providerSetting.baseUrl, params.sessionId)
             .build()
+        val receipt = beginProviderRequest(providerSetting,params,requestBody,encodedBody)
 
         // await() waits for the response headers; reading the body can still block.
         client.newCall(request).await().use { response ->
             if (!response.isSuccessful) {
+                if(response.code==401 || response.code==403) receipt?.authorizationRejected(response.code)
                 throw me.rerere.ai.util.parseModelHttpError(response.code, response.body.readModelErrorBody())
             }
 
             val bodyStr = response.body.string()
             val bodyJson = json.parseToJsonElement(bodyStr).jsonObject
-            parseResponseOutput(bodyJson)
+            parseResponseOutput(bodyJson).also { receipt?.complete(it.usage) }
         }
     }
 
@@ -124,10 +129,11 @@ class ResponseAPI(
             params = params,
             stream = true,
         )
+        val encodedBody = json.encodeToString(requestBody)
         val request = Request.Builder()
             .url("${providerSetting.baseUrl}${providerSetting.responsesPath}")
             .headers(providerSetting.mergeCustomHeaders(params.customHeaders))
-            .post(json.encodeToString(requestBody).toRequestBody("application/json".toMediaType()))
+            .post(encodedBody.toRequestBody("application/json".toMediaType()))
             .addHeader(
                 "Authorization",
                 "Bearer ${keyRoulette.next(providerSetting.apiKey, providerSetting.id.toString())}"
@@ -135,11 +141,13 @@ class ResponseAPI(
             .configureReferHeaders(providerSetting.baseUrl)
             .configureSessionHeaders(providerSetting.baseUrl, params.sessionId)
             .build()
+        val receipt = beginProviderRequest(providerSetting,params,requestBody,encodedBody)?.let(::StreamingRequestReceipt)
 
         val decoder = ResponseApiStreamDecoder()
 
         fun sendChunks(chunks: Iterable<StreamChunk>) {
             chunks.forEach { chunk ->
+                receipt?.observe(chunk)
                 trySend(chunk).onFailure { Log.w(TAG, "Stream chunk dropped") }
             }
         }
@@ -156,6 +164,7 @@ class ResponseAPI(
                     val result = decoder.accept(SseEvent(id = id, event = type, data = data))
                     sendChunks(result.chunks)
                     if (result.completed) {
+                        receipt?.complete()
                         streamCompleted = true
                         close()
                     }
@@ -166,6 +175,10 @@ class ResponseAPI(
 
             override fun onFailure(eventSource: EventSource, t: Throwable?, response: Response?) {
                 var exception = t
+                if(response!=null && (response.code==401 || response.code==403)) {
+                    try { receipt?.authorizationRejected(response.code) }
+                    catch(error: Throwable) { close(error); return }
+                }
 
                 val bodyRaw = response?.body?.readModelErrorBody()
                 try {
@@ -643,11 +656,10 @@ class ResponseAPI(
     private fun parseTokenUsage(jsonObject: JsonObject?): TokenUsage? {
         if (jsonObject == null) return null
         return TokenUsage(
-            promptTokens = jsonObject["input_tokens"]?.jsonPrimitive?.intOrNull ?: 0,
-            completionTokens = jsonObject["output_tokens"]?.jsonPrimitive?.intOrNull ?: 0,
-            totalTokens = jsonObject["total_tokens"]?.jsonPrimitive?.intOrNull ?: 0,
+            promptTokens = jsonObject["input_tokens"]?.jsonPrimitive?.intOrNull,
+            completionTokens = jsonObject["output_tokens"]?.jsonPrimitive?.intOrNull,
+            totalTokens = jsonObject["total_tokens"]?.jsonPrimitive?.intOrNull,
             cachedTokens = jsonObject["input_tokens_details"]?.jsonObjectOrNull?.get("cached_tokens")?.jsonPrimitive?.intOrNull
-                ?: 0
         )
     }
 }

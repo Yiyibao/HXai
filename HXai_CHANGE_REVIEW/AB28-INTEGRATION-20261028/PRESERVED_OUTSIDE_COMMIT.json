@@ -1,0 +1,17 @@
+{
+  "trackedChanges": [
+    "qa/rendering-upgrade-20261010/render-390-dark.png",
+    "qa/rendering-upgrade-20261010/render-390-light.png",
+    "qa/rendering-upgrade-20261010/render-960-dark.png",
+    "qa/rendering-upgrade-20261010/render-960-light.png"
+  ],
+  "untrackedCategories": [
+    "HXai_CHANGE_REVIEW historical batches",
+    "HXai_FULL_REVIEW",
+    "HXai_Pro_Delivery (original read-only distribution)",
+    "qa historical evidence",
+    "artifacts",
+    "local build directories"
+  ],
+  "policy": "Unrelated and historical material remains untouched in original workspace; do not git add -A."
+}

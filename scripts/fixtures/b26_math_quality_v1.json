@@ -1,0 +1,685 @@
+[
+  {
+    "id": "HS-PARAM-DERIVATIVE",
+    "category": "high_school",
+    "prompt": "实数a固定，求f(x)=a*x^3-3*a*x的导数，并说明此计算是否已完成含参单调性分类。",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "a为常数，逐项求导得3*a*x^2-3*a；a正、零、负的单调分支仍需分别讨论。",
+      "obligations": [
+        "参数对x恒定",
+        "a=0退化分支不得遗漏"
+      ],
+      "notCertified": [
+        "只认证导数，不认证全参数单调分类"
+      ],
+      "sourceRefs": []
+    },
+    "input": {
+      "operation": "professional_multivariate",
+      "request": "{\"action\":\"derivative\",\"variables\":[\"x\",\"a\"],\"expression\":\"a*x^3-3*a*x\",\"variable\":\"x\",\"claimed\":\"3*a*x^2-3*a\"}"
+    },
+    "expected": {
+      "status": "VERIFIED"
+    }
+  },
+  {
+    "id": "HS-SEQUENCE",
+    "category": "high_school",
+    "prompt": "a_0=0，a_(n+1)=a_n+2n+1，n为非负整数。证明a_n=n^2。",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "n=0成立；假设a_n=n^2，则a_(n+1)=n^2+2n+1=(n+1)^2。",
+      "obligations": [
+        "初值",
+        "所有n>=0的归纳步"
+      ],
+      "notCertified": [
+        "不由有限样例证明"
+      ],
+      "sourceRefs": []
+    },
+    "input": {
+      "operation": "professional_induction",
+      "request": "{\"start\":\"0\",\"initial\":\"0\",\"next\":\"u+2*n+1\",\"claimed\":\"n^2\"}"
+    },
+    "expected": {
+      "status": "VERIFIED"
+    }
+  },
+  {
+    "id": "HS-SEQUENCE-SAMPLING",
+    "category": "high_school",
+    "prompt": "同上初值，但递推增加n(n-1)(n-2)。学生根据前几项宣称仍为n^2，是否有效？",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "n=0,1,2新增项为0不代表恒零；n=3增加6，a_4=22而非16。",
+      "obligations": [
+        "验证完整递推而非只看前三项"
+      ],
+      "notCertified": [
+        "不推导修正闭式"
+      ],
+      "sourceRefs": []
+    },
+    "input": {
+      "operation": "professional_induction",
+      "request": "{\"start\":\"0\",\"initial\":\"0\",\"next\":\"u+2*n+1+n*(n-1)*(n-2)\",\"claimed\":\"n^2\"}"
+    },
+    "expected": {
+      "status": "DISPROVED"
+    }
+  },
+  {
+    "id": "HS-CONIC-IDENTITY",
+    "category": "high_school",
+    "prompt": "x,y为实数。验证(x+y)^2+(x-y)^2=2x^2+2y^2，并说明能否直接视为已证明某圆锥曲线的几何结论。",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "展开后交叉项相消；几何变量与点/焦点的对应、分母非零和退化条件未给出。",
+      "obligations": [
+        "恒等展开",
+        "几何建模另验"
+      ],
+      "notCertified": [
+        "仅代数恒等，不认证未声明几何结论"
+      ],
+      "sourceRefs": []
+    },
+    "input": {
+      "operation": "professional_multivariate",
+      "request": "{\"action\":\"identity\",\"variables\":[\"x\",\"y\"],\"left\":\"(x+y)^2+(x-y)^2\",\"right\":\"2*x^2+2*y^2\"}"
+    },
+    "expected": {
+      "status": "VERIFIED"
+    }
+  },
+  {
+    "id": "HS-FINITE-SAMPLES",
+    "category": "high_school",
+    "prompt": "学生因p(x)=x(x-1)(x-2)(x-3)在0,1,2,3均为0，称p恒为0。判断。",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "该多项式首项系数为1，非零；x=4时为24。",
+      "obligations": [
+        "恒等需系数或完整论证"
+      ],
+      "notCertified": [
+        "有限采样只能找反例"
+      ],
+      "sourceRefs": []
+    },
+    "input": {
+      "operation": "identity",
+      "left": "x*(x-1)*(x-2)*(x-3)",
+      "right": "0"
+    },
+    "expected": {
+      "status": "DISPROVED"
+    }
+  },
+  {
+    "id": "CALC-REMOVABLE-LIMIT",
+    "category": "calculus",
+    "prompt": "求x趋于1时(x^2-1)/(x-1)的极限，原函数在1处有定义吗？",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "x不等于1时为x+1，极限2，但原分母在1为0，原点值不存在。",
+      "obligations": [
+        "区分极限与点值",
+        "保留原域"
+      ],
+      "notCertified": [
+        "不能自动填补原孔洞"
+      ],
+      "sourceRefs": []
+    },
+    "input": {
+      "operation": "rational_limit",
+      "expression": "(x^2-1)/(x-1)",
+      "at": "1",
+      "side": "both"
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "point_defined": false,
+      "point_value": null,
+      "limit": {
+        "kind": "finite",
+        "value": "2"
+      }
+    }
+  },
+  {
+    "id": "CALC-POLE-TWO-SIDES",
+    "category": "calculus",
+    "prompt": "求x趋于0时1/x的双侧极限；左右极限是否一致？",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "左侧负无穷，右侧正无穷；双侧极限不存在。",
+      "obligations": [
+        "两侧方向",
+        "不能把分类完成当作极限存在"
+      ],
+      "notCertified": [
+        "不认证有限极限"
+      ],
+      "sourceRefs": []
+    },
+    "input": {
+      "operation": "rational_limit",
+      "expression": "1/x",
+      "at": "0",
+      "side": "both"
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "limit": {
+        "kind": "does_not_exist",
+        "reason": "unequal_one_sided_limits"
+      }
+    }
+  },
+  {
+    "id": "CALC-WRONG-PRIMITIVE",
+    "category": "calculus",
+    "prompt": "学生声称积分_0^1 2x dx=1，但给原函数F=0。原函数错是否证明积分值也错？",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "积分值确为1；F导数0不等于2x，只反驳此证书。",
+      "obligations": [
+        "区分证书错误与积分结论错误"
+      ],
+      "notCertified": [
+        "错误证书不等于错误答案"
+      ],
+      "sourceRefs": []
+    },
+    "input": {
+      "operation": "rational_primitive_integral",
+      "expression": "2*x",
+      "primitive": "0",
+      "lower": "0",
+      "upper": "1",
+      "claimed_value": "1"
+    },
+    "expected": {
+      "status": "DISPROVED",
+      "claim_status": "NOT_EVALUATED"
+    }
+  },
+  {
+    "id": "CALC-NONSMOOTH-VALID",
+    "category": "calculus",
+    "prompt": "求积分_-1^1 |x| dx。若闭区间C8证书拒绝，能否据此判学生答案1错误？",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "分段积分两半均1/2，总和1；|x|在0不光滑，C8充分证书不适用。",
+      "obligations": [
+        "分段与0的处理",
+        "UNSUPPORTED不是反驳"
+      ],
+      "notCertified": [
+        "当前C8证书不认证该正确积分"
+      ],
+      "sourceRefs": []
+    },
+    "input": {
+      "operation": "professional_calculus",
+      "request": "{\"action\":\"integral\",\"expression\":\"abs(x)\",\"variable\":\"x\",\"lower\":\"-1\",\"upper\":\"1\",\"digits\":\"4\",\"bindings\":{}}"
+    },
+    "expected": {
+      "status": "UNSUPPORTED"
+    }
+  },
+  {
+    "id": "CALC-ROOT-NOT-UNIQUE",
+    "category": "calculus",
+    "prompt": "解x^2=1在[-2,2]内全部实根。局部严格单调唯一根工具能否代替全部根枚举？",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "因式分解(x-1)(x+1)=0，根为±1；导数2x在区间不严格同号。",
+      "obligations": [
+        "两个根",
+        "不得由唯一根证书拒绝推断无根"
+      ],
+      "notCertified": [
+        "此唯一根算法应UNSUPPORTED"
+      ],
+      "sourceRefs": []
+    },
+    "input": {
+      "operation": "professional_calculus",
+      "request": "{\"action\":\"root\",\"expression\":\"x^2-1\",\"variable\":\"x\",\"lower\":\"-2\",\"upper\":\"2\",\"digits\":\"4\",\"bindings\":{}}"
+    },
+    "expected": {
+      "status": "UNSUPPORTED"
+    }
+  },
+  {
+    "id": "ANALYSIS-MTEST",
+    "category": "analysis",
+    "prompt": "给定级数s在D上逐项满足|s_n|<=M_n，且非负数项级数sum M_n收敛。说明一致绝对收敛，并列明条件。",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "任意尾和的绝对值<=对应M尾和，后者与x无关且趋0，得到一致Cauchy性。",
+      "obligations": [
+        "所有x与n的统一界",
+        "非负可和majorant"
+      ],
+      "notCertified": [
+        "这里把题设条件作显式假设，未机器证明其成立"
+      ],
+      "sourceRefs": [
+        {
+          "url": "https://ocw.mit.edu/courses/18-100a-real-analysis-fall-2020/mit18_100af20_lec24.pdf",
+          "locator": "physical page 1, Theorem 3; page 2, interchange-of-limits warning",
+          "scope": "M-test hypotheses; not proof of any supplied hypothesis"
+        }
+      ]
+    },
+    "input": {
+      "operation": "professional_proof",
+      "request": "{\"assumptions\":[{\"id\":\"h0\",\"formula\":{\"atom\":\"termwise_bound(s,M,D)\"}},{\"id\":\"h1\",\"formula\":{\"atom\":\"summable_nonnegative(M)\"}}],\"goal\":{\"atom\":\"uniformly_absolutely_convergent(s,D)\"},\"steps\":[{\"id\":\"p0\",\"rule\":\"assumption\",\"assumption\":\"h0\",\"conclusion\":{\"atom\":\"termwise_bound(s,M,D)\"}},{\"id\":\"p1\",\"rule\":\"assumption\",\"assumption\":\"h1\",\"conclusion\":{\"atom\":\"summable_nonnegative(M)\"}},{\"id\":\"done\",\"rule\":\"theorem\",\"theorem\":\"weierstrass_m_test\",\"parameters\":{\"series\":\"s\",\"majorant\":\"M\",\"domain\":\"D\"},\"premises\":[\"p0\",\"p1\"],\"conclusion\":{\"atom\":\"uniformly_absolutely_convergent(s,D)\"}}]}"
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "claim_is_conditional": true,
+      "undischarged_assumptions": [
+        "h0",
+        "h1"
+      ]
+    }
+  },
+  {
+    "id": "ANALYSIS-MTEST-MISSING",
+    "category": "analysis",
+    "prompt": "只知道|s_n(x)|<=M_n，未给sum M_n收敛；学生直接用M判别法。此推理成立吗？",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "不成立的定理应用；例如M_n=1且s_n=1，级数发散。不能因条件缺失就宣称所有这样的s均发散。",
+      "obligations": [
+        "必须有可和majorant"
+      ],
+      "notCertified": [
+        "DISPROVED只指给定推理不合规则"
+      ],
+      "sourceRefs": [
+        {
+          "url": "https://ocw.mit.edu/courses/18-100a-real-analysis-fall-2020/mit18_100af20_lec24.pdf",
+          "locator": "physical page 1, Theorem 3; page 2, interchange-of-limits warning",
+          "scope": "M-test hypotheses; not proof of any supplied hypothesis"
+        }
+      ]
+    },
+    "input": {
+      "operation": "professional_proof",
+      "request": "{\"assumptions\":[{\"id\":\"h0\",\"formula\":{\"atom\":\"termwise_bound(s,M,D)\"}}],\"goal\":{\"atom\":\"uniformly_absolutely_convergent(s,D)\"},\"steps\":[{\"id\":\"p0\",\"rule\":\"assumption\",\"assumption\":\"h0\",\"conclusion\":{\"atom\":\"termwise_bound(s,M,D)\"}},{\"id\":\"done\",\"rule\":\"theorem\",\"theorem\":\"weierstrass_m_test\",\"parameters\":{\"series\":\"s\",\"majorant\":\"M\",\"domain\":\"D\"},\"premises\":[\"p0\"],\"conclusion\":{\"atom\":\"uniformly_absolutely_convergent(s,D)\"}}]}"
+    },
+    "expected": {
+      "status": "DISPROVED",
+      "first_error_step": 2
+    }
+  },
+  {
+    "id": "ANALYSIS-POINTWISE",
+    "category": "analysis",
+    "prompt": "学生称[0,1]上x^n逐点收敛所以一致收敛。应如何反驳？",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "极限在[0,1)为0，在1为1，不连续；连续函数的一致极限必连续。也可取x_n=2^(-1/n)，误差1/2。",
+      "obligations": [
+        "量词次序",
+        "端点1"
+      ],
+      "notCertified": [
+        "自由文本反例不由当前命题规则自动证明"
+      ],
+      "sourceRefs": [
+        {
+          "url": "https://ocw.mit.edu/courses/18-100a-real-analysis-fall-2020/mit18_100af20_lec24.pdf",
+          "locator": "physical page 1, Theorem 3; page 2, interchange-of-limits warning",
+          "scope": "M-test hypotheses; not proof of any supplied hypothesis"
+        }
+      ]
+    },
+    "input": {
+      "operation": "professional_proof",
+      "request": "{\"assumptions\":[{\"id\":\"h\",\"formula\":{\"atom\":\"pointwise_limit(s,f,D)\"}}],\"goal\":{\"atom\":\"uniform_limit(s,f,D)\"},\"steps\":[{\"id\":\"s1\",\"rule\":\"assumption\",\"assumption\":\"h\",\"conclusion\":{\"atom\":\"pointwise_limit(s,f,D)\"}},{\"id\":\"s2\",\"rule\":\"narrative\",\"premises\":[\"s1\"],\"conclusion\":{\"atom\":\"uniform_limit(s,f,D)\"}}]}"
+    },
+    "expected": {
+      "status": "UNSUPPORTED",
+      "first_error_step": null,
+      "first_unverified_step": 2
+    }
+  },
+  {
+    "id": "REAL-DCT",
+    "category": "real_analysis",
+    "prompt": "f_n可测且几乎处处趋于可测f，|f_n|<=g几乎处处，g可积。能否交换极限与积分？",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "满足控制收敛定理；由g±f_n及Fatou界或DCT得积分收敛。",
+      "obligations": [
+        "可测",
+        "a.e.收敛",
+        "同一个可积支配函数"
+      ],
+      "notCertified": [
+        "条件是明确假设，不宣称已经从教材/原题证明"
+      ],
+      "sourceRefs": [
+        {
+          "url": "https://ocw.mit.edu/courses/18-102-introduction-to-functional-analysis-spring-2021/e407e57ea631a29148ee94afecef7d33_MIT18_102s21_lec12.pdf",
+          "locator": "physical page 3, Theorem 125",
+          "scope": "dominated convergence hypotheses"
+        }
+      ]
+    },
+    "input": {
+      "operation": "professional_proof",
+      "request": "{\"assumptions\":[{\"id\":\"h0\",\"formula\":{\"atom\":\"measurable_terms(s,mu)\"}},{\"id\":\"h1\",\"formula\":{\"atom\":\"measurable(f,mu)\"}},{\"id\":\"h2\",\"formula\":{\"atom\":\"pointwise_ae_limit(s,f,mu)\"}},{\"id\":\"h3\",\"formula\":{\"atom\":\"integrable(g,mu)\"}},{\"id\":\"h4\",\"formula\":{\"atom\":\"absolute_domination_ae(s,g,mu)\"}}],\"goal\":{\"atom\":\"integral_limit_commutes(s,f,mu)\"},\"steps\":[{\"id\":\"p0\",\"rule\":\"assumption\",\"assumption\":\"h0\",\"conclusion\":{\"atom\":\"measurable_terms(s,mu)\"}},{\"id\":\"p1\",\"rule\":\"assumption\",\"assumption\":\"h1\",\"conclusion\":{\"atom\":\"measurable(f,mu)\"}},{\"id\":\"p2\",\"rule\":\"assumption\",\"assumption\":\"h2\",\"conclusion\":{\"atom\":\"pointwise_ae_limit(s,f,mu)\"}},{\"id\":\"p3\",\"rule\":\"assumption\",\"assumption\":\"h3\",\"conclusion\":{\"atom\":\"integrable(g,mu)\"}},{\"id\":\"p4\",\"rule\":\"assumption\",\"assumption\":\"h4\",\"conclusion\":{\"atom\":\"absolute_domination_ae(s,g,mu)\"}},{\"id\":\"done\",\"rule\":\"theorem\",\"theorem\":\"dominated_convergence\",\"parameters\":{\"sequence\":\"s\",\"limit\":\"f\",\"dominator\":\"g\",\"measure\":\"mu\"},\"premises\":[\"p0\",\"p1\",\"p2\",\"p3\",\"p4\"],\"conclusion\":{\"atom\":\"integral_limit_commutes(s,f,mu)\"}}]}"
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "claim_is_conditional": true,
+      "undischarged_assumptions": [
+        "h0",
+        "h1",
+        "h2",
+        "h3",
+        "h4"
+      ]
+    }
+  },
+  {
+    "id": "REAL-DCT-MISSING",
+    "category": "real_analysis",
+    "prompt": "只给f_n几乎处处趋于f、可测且各项可积，学生直接交换极限和积分。缺什么？",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "缺共同可积支配等充分条件。f_n=n*1_(0,1/n)在(0,1)逐点趋0但积分恒1。",
+      "obligations": [
+        "不能把各项可积替代共同支配"
+      ],
+      "notCertified": [
+        "拒绝定理应用不自动认证这个反例"
+      ],
+      "sourceRefs": [
+        {
+          "url": "https://ocw.mit.edu/courses/18-102-introduction-to-functional-analysis-spring-2021/e407e57ea631a29148ee94afecef7d33_MIT18_102s21_lec12.pdf",
+          "locator": "physical page 3, Theorem 125",
+          "scope": "dominated convergence hypotheses"
+        }
+      ]
+    },
+    "input": {
+      "operation": "professional_proof",
+      "request": "{\"assumptions\":[{\"id\":\"h0\",\"formula\":{\"atom\":\"measurable_terms(s,mu)\"}},{\"id\":\"h1\",\"formula\":{\"atom\":\"measurable(f,mu)\"}},{\"id\":\"h2\",\"formula\":{\"atom\":\"pointwise_ae_limit(s,f,mu)\"}},{\"id\":\"h3\",\"formula\":{\"atom\":\"integrable(g,mu)\"}}],\"goal\":{\"atom\":\"integral_limit_commutes(s,f,mu)\"},\"steps\":[{\"id\":\"p0\",\"rule\":\"assumption\",\"assumption\":\"h0\",\"conclusion\":{\"atom\":\"measurable_terms(s,mu)\"}},{\"id\":\"p1\",\"rule\":\"assumption\",\"assumption\":\"h1\",\"conclusion\":{\"atom\":\"measurable(f,mu)\"}},{\"id\":\"p2\",\"rule\":\"assumption\",\"assumption\":\"h2\",\"conclusion\":{\"atom\":\"pointwise_ae_limit(s,f,mu)\"}},{\"id\":\"p3\",\"rule\":\"assumption\",\"assumption\":\"h3\",\"conclusion\":{\"atom\":\"integrable(g,mu)\"}},{\"id\":\"done\",\"rule\":\"theorem\",\"theorem\":\"dominated_convergence\",\"parameters\":{\"sequence\":\"s\",\"limit\":\"f\",\"dominator\":\"g\",\"measure\":\"mu\"},\"premises\":[\"p0\",\"p1\",\"p2\",\"p3\"],\"conclusion\":{\"atom\":\"integral_limit_commutes(s,f,mu)\"}}]}"
+    },
+    "expected": {
+      "status": "DISPROVED",
+      "first_error_step": 5
+    }
+  },
+  {
+    "id": "REAL-FUBINI-SAME",
+    "category": "real_analysis",
+    "prompt": "在同一sigma有限测度空间的自乘积上，f可测且绝对可积。用一次sigma有限性证明能否用于两个因子？",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "两因子为同一测度，sigma有限性可重复引用；Fubini要求另有积可测与绝对可积。",
+      "obligations": [
+        "按两个有序前提位置复用同一事实",
+        "保留所有依赖"
+      ],
+      "notCertified": [
+        "并未机器证明f绝对可积"
+      ],
+      "sourceRefs": [
+        {
+          "url": "https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/6fe5ce4d56945ce7241679998922fb3a_MIT6_436JF18_lec09.pdf",
+          "locator": "physical pages 5–8, sigma-finiteness and Theorems 2/3",
+          "scope": "nonnegative extended integral versus absolutely integrable finite integral"
+        }
+      ]
+    },
+    "input": {
+      "operation": "professional_proof",
+      "request": "{\"assumptions\":[{\"id\":\"h0\",\"formula\":{\"atom\":\"sigma_finite(mu)\"}},{\"id\":\"h1\",\"formula\":{\"atom\":\"product_measurable(f,mu,mu)\"}},{\"id\":\"h2\",\"formula\":{\"atom\":\"absolutely_product_integrable(f,mu,mu)\"}}],\"goal\":{\"atom\":\"finite_iterated_integrals_equal(f,mu,mu)\"},\"steps\":[{\"id\":\"p0\",\"rule\":\"assumption\",\"assumption\":\"h0\",\"conclusion\":{\"atom\":\"sigma_finite(mu)\"}},{\"id\":\"p1\",\"rule\":\"assumption\",\"assumption\":\"h1\",\"conclusion\":{\"atom\":\"product_measurable(f,mu,mu)\"}},{\"id\":\"p2\",\"rule\":\"assumption\",\"assumption\":\"h2\",\"conclusion\":{\"atom\":\"absolutely_product_integrable(f,mu,mu)\"}},{\"id\":\"done\",\"rule\":\"theorem\",\"theorem\":\"fubini\",\"parameters\":{\"function\":\"f\",\"measure_a\":\"mu\",\"measure_b\":\"mu\"},\"premises\":[\"p0\",\"p0\",\"p1\",\"p2\"],\"conclusion\":{\"atom\":\"finite_iterated_integrals_equal(f,mu,mu)\"}}]}"
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "claim_is_conditional": true,
+      "undischarged_assumptions": [
+        "h0",
+        "h1",
+        "h2"
+      ]
+    }
+  },
+  {
+    "id": "REAL-FUBINI-MISSING",
+    "category": "real_analysis",
+    "prompt": "同一sigma有限测度空间，f积可测且已给绝对可积。学生应用Fubini时只引用两次sigma有限性和一次积可测，遗漏已知的绝对可积前提。这个显式推理步骤完整吗？如何最小修复？",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "结论在题设下成立，但这个显式定理应用少一个前提位置；应补引已有绝对可积证明p2，不能用重复sigma有限性代替。拒绝该证书不等于结论被反驳。",
+      "obligations": [
+        "所有定理前提必须按序引用，即使遗漏的事实已经在假设或前序步骤中"
+      ],
+      "notCertified": [
+        "拒绝的是给定证明，不宣判任意f结论假"
+      ],
+      "sourceRefs": [
+        {
+          "url": "https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/6fe5ce4d56945ce7241679998922fb3a_MIT6_436JF18_lec09.pdf",
+          "locator": "physical pages 5–8, sigma-finiteness and Theorems 2/3",
+          "scope": "nonnegative extended integral versus absolutely integrable finite integral"
+        }
+      ]
+    },
+    "input": {
+      "operation": "professional_proof",
+      "request": "{\"assumptions\":[{\"id\":\"h0\",\"formula\":{\"atom\":\"sigma_finite(mu)\"}},{\"id\":\"h1\",\"formula\":{\"atom\":\"product_measurable(f,mu,mu)\"}},{\"id\":\"h2\",\"formula\":{\"atom\":\"absolutely_product_integrable(f,mu,mu)\"}}],\"goal\":{\"atom\":\"finite_iterated_integrals_equal(f,mu,mu)\"},\"steps\":[{\"id\":\"p0\",\"rule\":\"assumption\",\"assumption\":\"h0\",\"conclusion\":{\"atom\":\"sigma_finite(mu)\"}},{\"id\":\"p1\",\"rule\":\"assumption\",\"assumption\":\"h1\",\"conclusion\":{\"atom\":\"product_measurable(f,mu,mu)\"}},{\"id\":\"p2\",\"rule\":\"assumption\",\"assumption\":\"h2\",\"conclusion\":{\"atom\":\"absolutely_product_integrable(f,mu,mu)\"}},{\"id\":\"done\",\"rule\":\"theorem\",\"theorem\":\"fubini\",\"parameters\":{\"function\":\"f\",\"measure_a\":\"mu\",\"measure_b\":\"mu\"},\"premises\":[\"p0\",\"p0\",\"p1\"],\"conclusion\":{\"atom\":\"finite_iterated_integrals_equal(f,mu,mu)\"}}]}"
+    },
+    "expected": {
+      "status": "DISPROVED",
+      "first_error_step": 4
+    }
+  },
+  {
+    "id": "REAL-TONELLI-EXTENDED",
+    "category": "real_analysis",
+    "prompt": "同一sigma有限测度空间，f积可测且非负。无需绝对可积能得什么积分交换结论？",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "Tonelli给扩展非负积分相等，可为+infinity，不能自动声称有限。",
+      "obligations": [
+        "非负几乎处处",
+        "区分有限与扩展积分"
+      ],
+      "notCertified": [
+        "不证明积分有限"
+      ],
+      "sourceRefs": [
+        {
+          "url": "https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/6fe5ce4d56945ce7241679998922fb3a_MIT6_436JF18_lec09.pdf",
+          "locator": "physical pages 5–8, sigma-finiteness and Theorems 2/3",
+          "scope": "nonnegative extended integral versus absolutely integrable finite integral"
+        }
+      ]
+    },
+    "input": {
+      "operation": "professional_proof",
+      "request": "{\"assumptions\":[{\"id\":\"h0\",\"formula\":{\"atom\":\"sigma_finite(mu)\"}},{\"id\":\"h1\",\"formula\":{\"atom\":\"product_measurable(f,mu,mu)\"}},{\"id\":\"h2\",\"formula\":{\"atom\":\"nonnegative_ae(f,mu,mu)\"}}],\"goal\":{\"atom\":\"extended_iterated_integrals_equal(f,mu,mu)\"},\"steps\":[{\"id\":\"p0\",\"rule\":\"assumption\",\"assumption\":\"h0\",\"conclusion\":{\"atom\":\"sigma_finite(mu)\"}},{\"id\":\"p1\",\"rule\":\"assumption\",\"assumption\":\"h1\",\"conclusion\":{\"atom\":\"product_measurable(f,mu,mu)\"}},{\"id\":\"p2\",\"rule\":\"assumption\",\"assumption\":\"h2\",\"conclusion\":{\"atom\":\"nonnegative_ae(f,mu,mu)\"}},{\"id\":\"done\",\"rule\":\"theorem\",\"theorem\":\"tonelli\",\"parameters\":{\"function\":\"f\",\"measure_a\":\"mu\",\"measure_b\":\"mu\"},\"premises\":[\"p0\",\"p0\",\"p1\",\"p2\"],\"conclusion\":{\"atom\":\"extended_iterated_integrals_equal(f,mu,mu)\"}}]}"
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "claim_is_conditional": true,
+      "undischarged_assumptions": [
+        "h0",
+        "h1",
+        "h2"
+      ]
+    }
+  },
+  {
+    "id": "REVIEW-ALTERNATIVE",
+    "category": "ordered_review",
+    "prompt": "学生用配方而参考解用展开：x^2+2x+1=(x+1)^2。这是否因解法不同被判错？",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "两式恒等，方法顺序与参考不同不影响正确性。",
+      "obligations": [
+        "保留原步",
+        "精确恒等"
+      ],
+      "notCertified": [
+        "非OCR、整题正确性仍需原题覆盖"
+      ],
+      "sourceRefs": []
+    },
+    "input": {
+      "operation": "professional_review",
+      "request": "{\"steps\":[{\"original\":\"x^2+2*x+1=(x+1)^2\",\"locator\":\"physical-page:2/line:1\",\"check\":{\"operation\":\"identity\",\"left\":\"x^2+2*x+1\",\"right\":\"(x+1)^2\"}}],\"reference_note\":\"参考方法不作为字串评分标准；只检查明确映射出的声明。\"}"
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "verified_prefix_steps": 1,
+      "first_error_step": null
+    }
+  },
+  {
+    "id": "REVIEW-MULTIPAGE-FIRST",
+    "category": "ordered_review",
+    "prompt": "第一页末行展开(x+1)^2=x^2+2x+1，第二页首行删去2x得x^2+1。定位首错。",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "第一步恒等；第二步差2x并非零，首错在第二页首行。",
+      "obligations": [
+        "先证完整前缀",
+        "物理页/行定位来自固定转录"
+      ],
+      "notCertified": [
+        "不认证OCR或转录页是真实材料"
+      ],
+      "sourceRefs": []
+    },
+    "input": {
+      "operation": "professional_review",
+      "request": "{\"steps\":[{\"original\":\"(x+1)^2=x^2+2*x+1\",\"locator\":\"physical-page:1/line:8\",\"check\":{\"operation\":\"identity\",\"left\":\"(x+1)^2\",\"right\":\"x^2+2*x+1\"}},{\"original\":\"x^2+2*x+1=x^2+1\",\"locator\":\"physical-page:2/line:1\",\"check\":{\"operation\":\"identity\",\"left\":\"x^2+2*x+1\",\"right\":\"x^2+1\"}}],\"reference_note\":\"参考方法不作为字串评分标准；只检查明确映射出的声明。\"}"
+    },
+    "expected": {
+      "status": "DISPROVED",
+      "verified_prefix_steps": 1,
+      "first_error_step": 2
+    }
+  },
+  {
+    "id": "REVIEW-UNKNOWN-PREFIX",
+    "category": "ordered_review",
+    "prompt": "第一页字迹不清，第二页有错误恒等式x^2+2x+1=x^2+1。能否断言第二页就是首错？",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "不能；第一步未核对，第二页可指出局部不等但不能认定全稿首错。",
+      "obligations": [
+        "先确认未知字迹",
+        "不能跳过未知前缀"
+      ],
+      "notCertified": [
+        "不是机器识别质量"
+      ],
+      "sourceRefs": []
+    },
+    "input": {
+      "operation": "professional_review",
+      "request": "{\"steps\":[{\"original\":\"关键符号待用户确认\",\"locator\":\"physical-page:1/line:1\",\"check\":null},{\"original\":\"x^2+2*x+1=x^2+1\",\"locator\":\"physical-page:2/line:1\",\"check\":{\"operation\":\"identity\",\"left\":\"x^2+2*x+1\",\"right\":\"x^2+1\"}}],\"reference_note\":\"参考方法不作为字串评分标准；只检查明确映射出的声明。\"}"
+    },
+    "expected": {
+      "status": "UNSUPPORTED",
+      "verified_prefix_steps": 0,
+      "first_error_step": null,
+      "first_unverified_step": 1
+    }
+  },
+  {
+    "id": "LOGIC-CONTRACTION",
+    "category": "logic",
+    "prompt": "在显式假设P下，从同一前提P两次使用合取引入得到P∧P。有效吗？",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "自然演绎允许前提复用；合取两个位置均为P，依赖仍为P。",
+      "obligations": [
+        "同一事实可重复用",
+        "不能抹去假设"
+      ],
+      "notCertified": [
+        "仅条件证明"
+      ],
+      "sourceRefs": []
+    },
+    "input": {
+      "operation": "professional_proof",
+      "request": "{\"assumptions\":[{\"id\":\"h\",\"formula\":{\"atom\":\"P\"}}],\"goal\":{\"and\":[{\"atom\":\"P\"},{\"atom\":\"P\"}]},\"steps\":[{\"id\":\"s1\",\"rule\":\"assumption\",\"assumption\":\"h\",\"conclusion\":{\"atom\":\"P\"}},{\"id\":\"s2\",\"rule\":\"and_intro\",\"premises\":[\"s1\",\"s1\"],\"conclusion\":{\"and\":[{\"atom\":\"P\"},{\"atom\":\"P\"}]}}]}"
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "claim_is_conditional": true,
+      "undischarged_assumptions": [
+        "h"
+      ]
+    }
+  },
+  {
+    "id": "LOGIC-DISCHARGE",
+    "category": "logic",
+    "prompt": "证明P蕴含(P∧P)，要求解除P假设。",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "假设P，合取引入P∧P，再蕴含引入解除P。",
+      "obligations": [
+        "解除恰当假设",
+        "结果无剩余依赖"
+      ],
+      "notCertified": [
+        "不是自然语言命题真值的自动判定器"
+      ],
+      "sourceRefs": []
+    },
+    "input": {
+      "operation": "professional_proof",
+      "request": "{\"assumptions\":[{\"id\":\"h\",\"formula\":{\"atom\":\"P\"}}],\"goal\":{\"implies\":[{\"atom\":\"P\"},{\"and\":[{\"atom\":\"P\"},{\"atom\":\"P\"}]}]},\"steps\":[{\"id\":\"s1\",\"rule\":\"assumption\",\"assumption\":\"h\",\"conclusion\":{\"atom\":\"P\"}},{\"id\":\"s2\",\"rule\":\"and_intro\",\"premises\":[\"s1\",\"s1\"],\"conclusion\":{\"and\":[{\"atom\":\"P\"},{\"atom\":\"P\"}]}},{\"id\":\"s3\",\"rule\":\"implies_intro\",\"assumption\":\"h\",\"premises\":[\"s2\"],\"conclusion\":{\"implies\":[{\"atom\":\"P\"},{\"and\":[{\"atom\":\"P\"},{\"atom\":\"P\"}]}]}}]}"
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "claim_is_conditional": false,
+      "undischarged_assumptions": []
+    }
+  },
+  {
+    "id": "LOGIC-REUSE-NO-INVENTION",
+    "category": "logic",
+    "prompt": "只给P，重复引用P，能否推出P∧Q？",
+    "reference": {
+      "status": "AUTHOR_DERIVED_NOT_INDEPENDENTLY_REVIEWED",
+      "argument": "合取引入的第二位置也是P，不是Q；此推理无效。",
+      "obligations": [
+        "逐位置匹配",
+        "重复不创造新事实"
+      ],
+      "notCertified": [
+        "拒绝推理不判定任意Q假"
+      ],
+      "sourceRefs": []
+    },
+    "input": {
+      "operation": "professional_proof",
+      "request": "{\"assumptions\":[{\"id\":\"h\",\"formula\":{\"atom\":\"P\"}}],\"goal\":{\"and\":[{\"atom\":\"P\"},{\"atom\":\"Q\"}]},\"steps\":[{\"id\":\"s1\",\"rule\":\"assumption\",\"assumption\":\"h\",\"conclusion\":{\"atom\":\"P\"}},{\"id\":\"s2\",\"rule\":\"and_intro\",\"premises\":[\"s1\",\"s1\"],\"conclusion\":{\"and\":[{\"atom\":\"P\"},{\"atom\":\"Q\"}]}}]}"
+    },
+    "expected": {
+      "status": "DISPROVED",
+      "first_error_step": 2
+    }
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "label": "ordinary-chat-screenshot",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\platform-tools\\adb.exe",
+    "-s",
+    "emulator-5622",
+    "exec-out",
+    "screencap",
+    "-p"
+  ],
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "exitCode": 0,
+  "seconds": 0.12,
+  "logSha256": "90151fde1fb8d23cbccdd78b9e70b9957b4c268d17e4d58d1ad2f17d64d55284"
+}

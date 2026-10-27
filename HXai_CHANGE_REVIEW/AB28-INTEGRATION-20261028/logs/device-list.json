@@ -1,0 +1,11 @@
+{
+  "label": "device-list",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\platform-tools\\adb.exe",
+    "devices"
+  ],
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "exitCode": 0,
+  "seconds": 2.118,
+  "logSha256": "ac9fd94b93b346ecc084a0d814ba581789fb0d9c6f725ada84b0f7abc7ba8f07"
+}

@@ -6,35 +6,38 @@ import re
 import time
 import uuid
 from fastapi import Header, HTTPException, Request
+from office_worker.contracts import RECALCULATION_OPTIONS
 
 OFFICE_OPTIONS = {"scope": "print_layout", "includeHiddenSlides": False, "includeNotes": False}
 
 
-def readiness(store):
+def readiness(store, operation="office_pdf"):
     path = store.root / "office-ready.json"
     if not path.is_file() or path.is_symlink():
         return {"ready": False, "formats": [], "renderer": "LibreOffice"}
     value = json.loads(path.read_text())
-    return {"ready": True, "formats": ["docx", "xlsx", "pptx"], "renderer": "LibreOffice",
-            "rendererVersion": value["rendererVersion"], "options": OFFICE_OPTIONS,
+    recalculation = operation == "xlsx_recalculate"
+    if recalculation and value.get("recalculationContractVersion") != 1:
+        return {"ready": False, "formats": [], "renderer": "LibreOffice"}
+    return {"ready": True, "formats": ["xlsx"] if recalculation else ["docx", "xlsx", "pptx"], "renderer": "LibreOffice",
+            "rendererVersion": value["rendererVersion"], "options": RECALCULATION_OPTIONS if recalculation else OFFICE_OPTIONS,
             "maxUploadBytes": 30 * 1024 * 1024, "maxOutputPages": 200, "taskTimeoutSeconds": 300}
 
 
 def register_office(app, store, identity, public):
     @app.post("/api/v1/conversion-requests/{request_key}/cancel")
-    def cancel_request(request_key: str, authorization: str | None = Header(None)):
+    @app.post("/api/v1/recalculation-requests/{request_key}/cancel")
+    def cancel_request(request: Request, request_key: str, authorization: str | None = Header(None)):
         owner = identity(authorization)
         if not re.fullmatch(r"[A-Za-z0-9_-]{16,128}", request_key):
             raise HTTPException(422, "invalid_request_key")
         row = store.cancel_request(owner, request_key)
-        return public(row) if row else {"taskId": None, "state": "CANCELLED", "operation": "office_pdf"}
+        operation = "xlsx_recalculate" if "/recalculation-requests/" in request.url.path else "office_pdf"
+        return public(row) if row else {"taskId": None, "state": "CANCELLED", "operation": operation}
 
-    @app.post("/api/v1/conversions", status_code=202)
-    async def submit_conversion(request: Request, authorization: str | None = Header(None),
-                                idempotency_key: str = Header(...), x_source_sha256: str = Header(...),
-                                extension: str = "docx"):
+    async def submit(request, authorization, idempotency_key, x_source_sha256, extension, operation):
         owner = identity(authorization)
-        ready = readiness(store)
+        ready = readiness(store, operation)
         if not ready["ready"]:
             raise HTTPException(503, "office_renderer_not_ready")
         if (extension not in ready["formats"] or not re.fullmatch(r"[A-Za-z0-9_-]{16,128}", idempotency_key)
@@ -60,8 +63,8 @@ def register_office(app, store, identity, public):
                     digest.update(chunk); output.write(chunk)
             if prefix != b"PK\x03\x04" or digest.hexdigest() != x_source_sha256:
                 raise HTTPException(422, "invalid_file_or_digest")
-            options = {"operation": "office_pdf", "sourceSha256": x_source_sha256, "extension": extension,
-                       "rendererVersion": ready["rendererVersion"], "renderOptions": OFFICE_OPTIONS}
+            options = {"operation": operation, "sourceSha256": x_source_sha256, "extension": extension,
+                       "rendererVersion": ready["rendererVersion"], "renderOptions": ready["options"]}
             fingerprint = hashlib.sha256(json.dumps(options, sort_keys=True).encode()).hexdigest()
             try:
                 return public(store.enqueue(owner, idempotency_key, fingerprint, options, staged))
@@ -69,3 +72,15 @@ def register_office(app, store, identity, public):
                 raise HTTPException(409 if str(error) == "idempotency_conflict" else 429, str(error)) from None
         finally:
             staged.unlink(missing_ok=True)
+
+    @app.post("/api/v1/conversions", status_code=202)
+    async def submit_conversion(request: Request, authorization: str | None = Header(None),
+                                idempotency_key: str = Header(...), x_source_sha256: str = Header(...),
+                                extension: str = "docx"):
+        return await submit(request, authorization, idempotency_key, x_source_sha256, extension, "office_pdf")
+
+    @app.post("/api/v1/recalculations", status_code=202)
+    async def submit_recalculation(request: Request, authorization: str | None = Header(None),
+                                  idempotency_key: str = Header(...), x_source_sha256: str = Header(...),
+                                  extension: str = "xlsx"):
+        return await submit(request, authorization, idempotency_key, x_source_sha256, extension, "xlsx_recalculate")

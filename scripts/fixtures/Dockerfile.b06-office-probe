@@ -1,0 +1,7 @@
+# Qualification-only: BASE_IMAGE must be the recorded immutable product image ID.
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
+ARG PROBE_MODE
+COPY b06_linux_worker_probe.py /app/b06_linux_worker_probe.py
+ENV B06_PROBE_MODE=${PROBE_MODE}
+ENTRYPOINT ["/usr/bin/python3", "/app/b06_linux_worker_probe.py"]

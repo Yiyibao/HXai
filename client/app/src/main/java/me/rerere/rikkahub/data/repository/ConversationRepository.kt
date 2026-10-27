@@ -24,6 +24,7 @@ import me.rerere.rikkahub.data.db.entity.ConversationEntity
 import me.rerere.rikkahub.data.db.entity.MessageNodeEntity
 import me.rerere.rikkahub.data.files.FilesManager
 import me.rerere.rikkahub.data.model.Conversation
+import me.rerere.rikkahub.data.model.toMessageNode
 import me.rerere.rikkahub.data.model.MessageNode
 import me.rerere.rikkahub.utils.JsonInstant
 import java.time.Instant
@@ -39,6 +40,19 @@ class ConversationRepository(
     private val settingsStore: me.rerere.rikkahub.data.datastore.SettingsStore,
     private val learningMemories: me.rerere.rikkahub.feature.memory.LearningMemoryStore,
 ) {
+    private val derivedMetadata = me.rerere.rikkahub.feature.memory.DerivedMetadataEvidence(database, learningMemories)
+    suspend fun projectDerivedMetadata(conversation: Conversation): Conversation = derivedMetadata.project(conversation)
+    suspend fun markManualTitle(conversation: Conversation) = database.withTransaction {
+        requireIncarnation(conversation)
+        val stored = requireNotNull(conversationDAO.getConversationById(conversation.id.toString()))
+        require(stored.profileId == conversation.profileId && stored.title == conversation.title)
+        derivedMetadata.recordManual(conversation)
+    }
+    /** Only eligible selected-branch text may leave through a history tool; never reuse FTS snippets. */
+    suspend fun providerHistory(conversation: Conversation): Conversation {
+        val visible = learningMemories.projectHistory(conversation.profileId, conversation.currentMessages)
+        return projectDerivedMetadata(conversation).copy(messageNodes = visible.map { it.toMessageNode() })
+    }
     val activeProfileId get() = settingsStore.settingsFlow.value.activeProfileId
     val profileFlow = settingsStore.settingsFlow.map { it.activeProfileId }
 
@@ -380,11 +394,39 @@ class ConversationRepository(
             )
         }
         if (suggestions != null && conversationDAO.updateSuggestions(id, expected.profileId, JsonInstant.encodeToString(suggestions)) != 1) return@withTransaction false
+        val visible = learningMemories.projectHistory(expected.profileId, expected.currentMessages)
+        if (title != null) derivedMetadata.record(expected, "title", title, visible)
+        if (suggestions != null && suggestions.isNotEmpty()) derivedMetadata.record(expected, "suggestion", JsonInstant.encodeToString(suggestions), visible)
         true
     }
 
     suspend fun countConversations(profileId: String = activeProfileId): Int {
         return conversationDAO.countAll(profileId = profileId)
+    }
+
+    /** Update-only translation CAS. Never replace a conversation, queue or another message. */
+    internal suspend fun updateMessageTranslation(expected: Conversation, visible: List<UIMessage>,
+                                                  messageId: Uuid, text: String, validate: () -> Unit): Boolean = database.withTransaction {
+        validate()
+        if (activeProfileId != expected.profileId) return@withTransaction false
+        requireIncarnation(expected)
+        val id = expected.id.toString()
+        val stored = conversationDAO.getConversationById(id) ?: return@withTransaction false
+        if (stored.profileId != expected.profileId || stored.lifecycleRevision != expected.lifecycleRevision ||
+            loadMessageNodes(id) != expected.messageNodes) return@withTransaction false
+        check(learningMemories.projectHistory(expected.profileId, expected.currentMessages) == visible) {
+            "来源删除约束已变化；旧译文未保存，原聊天保留。"
+        }
+        if (visible.none { it.id == messageId }) return@withTransaction false
+        val index = expected.messageNodes.indexOfFirst { it.currentMessage.id == messageId }
+        if (index < 0) return@withTransaction false
+        val node = expected.messageNodes[index]
+        validate()
+        messageNodeDAO.update(MessageNodeEntity(id = node.id.toString(), conversationId = id, nodeIndex = index,
+            selectIndex = node.selectIndex, messages = JsonInstant.encodeToString(node.messages.map {
+                if (it.id == messageId) it.copy(translation = text) else it
+            })))
+        true
     }
 
     suspend fun countConversationsByAssistant(profileId: String = activeProfileId): Map<Uuid, Int> {
@@ -431,11 +473,22 @@ class ConversationRepository(
 
     suspend fun updateConversation(conversation: Conversation) = updateConversationState(conversation, persistQueue = false)
 
+    /** Keep source validation and the durable replacement atomic; index work stays after commit. */
+    internal suspend fun updateConversationWithHistory(conversation: Conversation, original: List<UIMessage>,
+                                                       expected: List<UIMessage>) =
+        updateConversationState(conversation, persistQueue = false) {
+            check(learningMemories.projectHistory(conversation.profileId, original) == expected) {
+                "来源删除约束已变化；旧摘要未保存，原聊天保留。"
+            }
+        }
+
     /** An approval retry must persist its in-memory safety pause with the decision. */
     suspend fun commitToolApproval(conversation: Conversation) = updateConversationState(conversation, persistQueue = true)
 
-    private suspend fun updateConversationState(conversation: Conversation, persistQueue: Boolean) {
+    private suspend fun updateConversationState(conversation: Conversation, persistQueue: Boolean,
+                                              beforeWrite: suspend () -> Unit = {}) {
         database.withTransaction {
+            beforeWrite()
             requireIncarnation(conversation)
             val stored = conversationDAO.getConversationById(conversation.id.toString())
             require(stored?.lifecycleRevision == conversation.lifecycleRevision && stored.profileId == conversation.profileId) { "Conversation ownership mismatch" }

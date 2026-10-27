@@ -1,6 +1,9 @@
 import contextlib
 import os
 import sqlite3
+import subprocess
+import sys
+import types
 import time
 import threading
 import uuid
@@ -165,8 +168,10 @@ def test_cancelled_inputs_keep_quota_until_cleanup_and_duplicate_is_allowed(tmp_
 
     with store.db() as db:
         db.execute("UPDATE jobs SET expires=0 WHERE id=?", (first["id"],))
+    if os.name == "nt":
+        monkeypatch.setitem(sys.modules, "fcntl", types.SimpleNamespace(LOCK_EX=2, LOCK_NB=4, flock=lambda *_: None))
     import dispatcher.main as dispatcher
-    monkeypatch.setattr(dispatcher, "docker", lambda *args, **kwargs: None)
+    monkeypatch.setattr(dispatcher, "docker", lambda *args, **kwargs: subprocess.CompletedProcess(args, 0, "", ""))
     dispatcher.cleanup(store)
     assert not (tmp_path / "jobs" / first["id"]).exists()
     assert store.get(owner, first["id"])["state"] == "EXPIRED"

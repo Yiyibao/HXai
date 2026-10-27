@@ -48,6 +48,10 @@ sudo /opt/mathdoc/api-env/bin/python -m api.admin revoke --identity <服务器�
 
 输出文件必须尚不存在；凭据只写入权限为 0600 的文件，不打印到终端。每个学习档案使用独立凭据，撤销后旧凭据不能访问任何接口。
 
+本地新增撤权围栏：`Store.revoke` 在同一事务中停用身份并取消其排队/运行任务；上传结束入队（含恢复旧回执）、claim 和 finish 重新校验身份。慢上传期间撤权返回通用 HTTP 401，晚到完成不能恢复任务或发布 manifest。旧管理员直接停用身份的任务也在 claim/finish 被围住。原件与存储预留保留到正常物理清理，不因撤权立即释放额度。
+
+撤权事务不是“运行容器已停止”的证明；已 dispatch 的容器仍由既有调度器取消路径终止。本次源码集成未部署生产，也未同步执行真实容器终止验收。
+
 部署修改前逐一保存站点配置、location snippet，以及 entry 模式的 rate-limit 配置；原内容和原存在性记录在 `/etc/mathdoc-nginx-backups/<UTC时间戳>-<模式>/`，文件权限为 0600。预检在写入前完成，`nginx -t` 成功后才 reload。任一写入、校验或 reload 失败时恢复全部受影响文件；原先不存在的文件会删除，回滚失败则明确报告路径和备份位置。暂停服务可先停 `mathdoc-dispatcher` 和 `mathdoc-api`，移除本项目 Nginx include 并验证后 reload；保留原件和版本记录，以便恢复。回滚前先确认任务容器已经停止，不覆盖既有 MathStudy 或博客配置。
 
 ## 验证
@@ -56,4 +60,69 @@ sudo /opt/mathdoc/api-env/bin/python -m api.admin revoke --identity <服务器�
 
 2026-10-11 修复复验：63 项 pytest 通过，另有 1 项 Starlette 弃用提示。真实本地 HTTP 验证了渲染器 A→B 的原回执恢复、17 次取消后的 429 拒绝和物理清理后的额度释放；Nginx 安装 CLI 在受控校验失败下恢复原 CRLF 字节并删除原先不存在的配置。该冒烟未运行转换容器、付费模型或真实 Nginx 部署，不替代生产验收。
 
+2026-10-12 撤权集成本地证据：新增事务/ASGI 撤权回归 15 项通过，既有 API/Office 合同 40 项通过（保留 1 项 Starlette 弃用提示）。真实本地 Uvicorn + 管理员 CLI 冒烟：正常入队 202，分块慢上传期间撤权返回 401，旧凭据状态查询 401，已入队任务持久化为 CANCELLED，原件字节不变，临时上传清空。证据在 `HXai_CHANGE_REVIEW/DOC-REV-OCR-LOG-20261012/`；合成格式头不代表真实解析/Office 渲染。Windows 无 `fcntl`，唯一 WSL 系统无 Python、Docker 引擎不可连接；Linux 调度器运行、生产和真实容器验收未执行。
+
 本批不提供 Office 增强解析、Standard/Advanced、服务端 Office 生成、Microsoft Office完全一致的排版或精确 bbox。Office→PDF 属于兼容渲染，复杂布局仍需核对。Basic 识别结果可能有错误，表格跨度未承诺保留；原页和公式/表格图片用于复核。Mate 50 与正式签名发布仍待验收。
+
+## B1a：保存后 XLSX 重算核验（2026-10-14，本地增量）
+
+`office_worker.engine.recalculate_xlsx(source, output, expected_sha256)` 先有界复制并冻结输入，预检该副本及其摘要，再真实调用 LibreOffice，另存新 XLSX，并用独立 ZIP/XML reader 核对全部工作表（含隐藏表）的公式位置、结果类型与保存缓存。引擎只读取已经核对的冻结字节，不能因原路径临时被替换又恢复而计算错版本。输出必须是未存在的新路径；发布前来源摘要改变或其他写者抢先创建目标时拒绝发布，不覆盖原件/已有版本。返回的 `scope=saved_formula_caches` 只覆盖保存后公式结果，`layout=NOT_VERIFIED`，不是一般数学证明或 Office 保真保证。数值序列化容差明确为相对 `1e-12`、绝对 `1e-15`。
+
+现有 `office_worker.run.export` 的 XLSX→PDF 也先另存临时 XLSX 并核对缓存，再导出 PDF；DOCX/PPT 使用同一独立 profile/pipe 生命周期。Office XML 预检现在严格解码 UTF-8/带 BOM UTF-16，检查及解析使用同一字符流；拒绝 DTD/ENTITY、实体编码 XInclude 和编码声明错配。原 `office_pdf` API/manifest v1、身份隔离队列和 Android schema 未变。
+
+本机复验入口（从仓库根目录，run-dir 必须未存在）：
+
+```powershell
+python scripts/verify_b_xlsx_readback.py --run-dir HXai_CHANGE_REVIEW/B-XLSX-READBACK-20261014/runs/new-unused-run
+```
+
+脚本使用已安装的 Kotlin/MuPDF jar、LibreOffice 自带 UNO Python 和系统 pypdf，不安装/下载，不运行共享 Gradle 或模拟器。2026-10-14 最终服务回归 111 项通过、1 项既有 Starlette 弃用提示；真实 Windows LibreOffice 26.2.4.2 完成 MaterialEditor 局部编辑→重算→保存→独立缓存回读→原生重开→PDF 导出，核对两表/七公式/日期/图表、公式错误及来源/目标发布竞态，并实际导出既有 DOCX/PPT 合成材料。证据：`HXai_CHANGE_REVIEW/B-XLSX-READBACK-20261014/`。
+
+该新 XLSX adapter 目前没有新增 App 上传/下载/版本注册入口；不能将本机产物说成 App 已交付。Docker 引擎不可连，Linux 固定镜像/资源/no-network 合同、跨 Microsoft Office、复杂版式视觉和 App E2E 均 NOT_RUN，生产未部署，独立外部审查 NOT_EVALUATED。新 worker 需要重新构建固定镜像并在隔离环境复验后，才可按既有发布流程考虑部署。
+
+## B1b：真实 XLSX 重算新版本交付（2026-10-14，本地增量）
+
+新增鉴权能力 `officeRecalculation`、`POST /api/v1/recalculations?extension=xlsx` 和丢回执取消 `/api/v1/recalculation-requests/{request_key}/cancel`。复用原身份隔离任务库、单并发队列、撤权与清理围栏，不另建执行器。固定操作 `xlsx_recalculate`，固定选项 `scope=recalculate_workbook`；只有可信 worker 就绪标记明确包含 `recalculationContractVersion=1` 才启用，旧 PDF worker 不会错误宣称支持新能力。
+
+结果 manifest v1 发布 `xlsx` 与 `calculation` 两项摘要绑定资产。真实 UNO 引擎记录实际公式值；独立输出校验器与 Android 下载回读分别检查保存缓存、工作表名称、公式位置、类型、数量与明示数值容差。Android 通过原 MaterialFiles 任务注册不可变子版本，保留原件，绑定 owner/sourceHash/parent/requestKey。重新打开或恢复缓存仍执行独立回读；取消意图持续保留，取消 ACK 不等于 worker 已停止。旧 `office_pdf` manifest 保持兼容。
+
+本机网关烟测入口：`python scripts/verify_b_xlsx_service.py --run-dir <未存在目录> --port 18864`。只监听本机，使用合成材料/身份、真实已安装 LibreOffice 26.2.4.2 和独立校验进程；该烟测不模拟 Docker 隔离，也不替代生产调度器。129 项服务回归通过；隔离 Android QA 包实际完成网关→UNO→下载→独立回读→材料版本→Flutter 成果预览，并通过原 Office 仓库四项及安全三项运行验证。
+
+证据及源码映射：`HXai_CHANGE_REVIEW/B-XLSX-SERVICE-20261014/`。B 领域代码已实现；共享 Chat/registry/facade 接线仅在 B 隔离副本编译运行，最小共享补丁交 Sol 做三方集成，未覆盖主工作区的 A 文件。改动 Flutter 已重建；未改动 Web 使用哈希绑定的既有静态资产，pnpm 缺失导致 Web 重建 NOT_RUN。Linux/Docker、跨 Microsoft Office、正式签名/Mate50、真实模型与生产仍 NOT_RUN；独立外部审查 NOT_EVALUATED。
+
+## B01：工作进程停止与 dispatch 围栏（2026-10-19，本地增量）
+
+上述 B1a/B1b 为历史交付边界；主 Chat XLSX 已由 `A-OFFICE-CHAT-20261019` 接通并有真实本机 UNO/Android 闭环证据。本批 `B-OFFICE-LIFECYCLE-20261019` 冻结该工具/Repository/manifest/witness/版本接口，仅修复领域调度的停止/授权竞态。
+
+调度器不能把 `docker rm -f` 失败当作工作进程已停止。现在必须获得 rm 成功，或通过成功的精确名称查询确认该 worker/validator 不存在；Docker/daemon 错误和仍存在容器均抛 `worker_stop_unconfirmed`，保留任务、原件及存储预留，不继续 claim 或删除。重启先确认所有旧 worker/validator 停止，再标记 RUNNING 为 `FAILED/server_restarted`；异常也先确认停止再记录失败和清理。
+
+`Store.dispatchable(owner, job_id)` 在创建 worker 前、create 后 start 前、运行轮询及 validator 派发前重查现有 owner/active/RUNNING/cancel，并围住旧管理员 SQL 撤权。已取消/撤权的旧 claim 不能启动新工作；已派发动作仍需停止证明，取消 ACK 不等于同步终止。没有数据库/API/Android schema 变更，没有新产品执行器或自动重放。
+
+可重复本机烟测：`python scripts/verify_b_office_lifecycle.py --run-dir <未存在目录>`（仓库根目录）。14 场景实际运行自有 Windows UNO/独立校验进程，覆盖上传/claim/运行/发布取消撤权、错资产、写后终止与同库显式新请求恢复；Docker/mount/flock 为明确本地适配，不是容器隔离证明。服务完整回归 143 项通过，原 3 个假停止/清理和 6 个撤权后启动 FAIL 保留；真实 Kotlin 编辑/重算/日期/图表/PDF 与 DOCX/PPT 导出另有本轮证据。
+
+`docker info` 实际失败，Linux 固定镜像/no-network/资源/flock、MS Office/WPS、Release/Mate50 和生产仍 NOT_RUN；未擅自启动 Docker 或部署。原失败、源码/接口 SHA、命令与裁决见 `HXai_CHANGE_REVIEW/B-OFFICE-LIFECYCLE-20261019/`；协议见 `docs/parallel-development-20261019/B01-OFFICE-LIFECYCLE-PROTOCOL.md`。独立与完整全项目审查 NOT_EVALUATED。
+
+
+## B06：Office清理丢确认与真实退出核验（2026-10-21）
+
+真实 Word 导出暴露正常 Office 退出0时 UNO close/terminate 的 DisposedException 丢 ACK。`office_worker.engine` 现在始终等待同一个自有 Office 进程；只有清理阶段的该异常且正常退出0、未经超时强停，才可恢复原操作的成功路径。非零退出、强停和其他清理错误仍失败，原操作异常不被覆盖；不重试或回放操作。后续独立 PDF/公式缓存/原件 hash 核验仍是发布前置，进程0或输出存在不是完成证据。
+
+本批 Root 相关服务75项回归及真实 Word 导出/独立页面读回通过；隔离树还实测 PPT全部可见/隐藏页、XLSX七公式/日期/图表和14个本地取消撤权/停止恢复场景。源码、原失败与实际版本见 [B06领域协议](../../docs/parallel-development-20261019/B06-API26-COMPAT-PROTOCOL.md) 和 `HXai_CHANGE_REVIEW/B06-API26-COMPAT-20261021/`。本机 Python3.13/LibreOffice26.2.4.2 不替代 Linux 镜像、WPS/MS Office、真实OCR、Release/真机或生产资格验证；独立审查 NOT_EVALUATED。
+
+## B06：真实 Linux / Docker Office 资格（2026-10-22）
+
+上述 Linux NOT_RUN 是各历史批次当时状态。本批已在专属 Ubuntu24.04 WSL2 Linux、
+私有 Docker29.1.3 和固定 LibreOffice24.2.7.2 镜像实际跑通
+非root HTTP API→原 Store/dispatcher→受限 worker→独立容器 validator→不可变发布→下载回读；
+未改产品实现或部署远端，不能把本机镜像版本当现有生产版本。
+最终24场景全部通过：复杂DOCX/OMML三页原/编辑版、PPT全可见页/母版/fallback、
+XLSX七公式/日期/隐藏表/更新图表缓存、取消撤权、worker及dispatcher写后SIGKILL、
+真实上传ACK丢失、控制面失联与停止未知保全、恢复和fcntl锁。
+完整服务回归149项通过，保留1项既有Starlette弃用提示；首次缺测试夹具失败原样保留。
+
+直接根cgroup启动daemon曾导致SwapLimit=false和MemorySwap=-1，真实资格断言FAIL。
+仅将自有daemon置于专属子cgroup后，内核回读memory.max=4GiB、memory.swap.max=0、
+4CPU/192PID；独立validator仅只读输出挂载、768MiB且无Swap。未放宽断言或改全局WSL设置。
+可重复命令、支持边界见 [Linux资格协议v1](../../docs/parallel-development-20261019/B06-LINUX-OFFICE-PROTOCOL.md)；
+全部原始证据见 `HXai_CHANGE_REVIEW/B06-LINUX-OFFICE-20261021/`。仅本机Linux Office为
+PASS_SCOPED；WPS/MSOffice、MinerU/OCR、完整App/目标设备、Release/生产和独立审查不由此通过。

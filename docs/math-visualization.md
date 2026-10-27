@@ -1,5 +1,7 @@
 # 数学可视化作为智能 Chat 的内置能力
 
+2026-10-22增量：当前实现增加2D原域排除点、真实交互3D、SVG/矢量PDF及原生可编辑采样路径PPTX；新协议与准确边界见[专业数学合同16](professional-math-contract16.md)。下文记录原始PNG/2D设计，不能用原时点范围覆盖新版，也不构成新版实际运行证据；本轮结果取 `HXai_CHANGE_REVIEW/P2-PROFESSIONAL-MATH-20261022/TEST_RESULTS.json`。
+
 ## 实施顺序与分工
 
 1. 内置 `math-visual-explainer` Skill：发现适合配图的文字/图片题，核对关键条件，组织解答和图像。应用随 APK 安装技能，加入模型可发现的 Skills 清单；不需要用户先手动启用。用户当次不画图、只提示等要求优先。

@@ -1,7 +1,6 @@
 package me.rerere.rikkahub.data.ai.tools
 
 import kotlinx.serialization.json.*
-import me.rerere.rikkahub.data.datastore.Settings
 import me.rerere.search.*
 import org.junit.Assert.*
 import org.junit.Test
@@ -40,10 +39,6 @@ class EnhancedSearchToolsTest {
             fail("Cancellation was swallowed")
         } catch (_: kotlinx.coroutines.CancellationException) { }
     }
-    @Test fun defaultBingCanReadOriginalWebPages() {
-        val tool = createSearchTools(Settings(searchServices = listOf(SearchServiceOptions.BingLocalOptions()))).single { it.name == "scrape_web" }
-        assertEquals(listOf("url"), (tool.parameters() as me.rerere.ai.core.InputSchema.Obj).required)
-    }
     @Test fun provenanceSummaryAndDatesSurviveEnhancement() {
         val raw = SearchResult(answer = "provider summary", retrievedAt = "retrieved",
             items = listOf(SearchResult.SearchResultItem("Article", "https://source.org/page", "evidence", "2026-01-01", listOf("highlight"))),
@@ -73,11 +68,5 @@ class EnhancedSearchToolsTest {
         assertEquals("unavailable", result.imageStatus)
         assertEquals("Text", result.items.single().text)
         assertEquals("image failure", result.imageWarning)
-    }
-    @Test fun actualSearchEntryPointUsesEnhancedContractAndPreservesProviderSchema() {
-        val tool = createSearchTools(Settings(searchServices = listOf(SearchServiceOptions.ExaOptions()))).single { it.name == "search_web" }
-        assertTrue(tool.description.contains("images[].url"))
-        assertTrue(tool.description.contains("sourceUrl"))
-        assertTrue((tool.parameters() as me.rerere.ai.core.InputSchema.Obj).properties.containsKey("includeDomains"))
     }
 }

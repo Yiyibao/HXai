@@ -27,13 +27,15 @@ class ArtifactPreviewPage extends ConsumerWidget {
       } else {
         await notifier.openArtifact(item.id);
       }
-      if (save && context.mounted)
+      if (save && context.mounted) {
         ScaffoldMessenger.of(context)
             .showSnackBar(const SnackBar(content: Text('文件已保存')));
+      }
     } catch (e) {
-      if (context.mounted)
+      if (context.mounted) {
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('$e')));
+      }
     }
   }
 

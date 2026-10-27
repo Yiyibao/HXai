@@ -1,0 +1,15 @@
+{
+  "label": "ordinary-task-center-screenshot",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\platform-tools\\adb.exe",
+    "-s",
+    "emulator-5622",
+    "exec-out",
+    "screencap",
+    "-p"
+  ],
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "exitCode": 0,
+  "seconds": 0.102,
+  "logSha256": "7dcfac2324880f22ee5c42b960490102e83837e55df611cdb4a03e4362ec886f"
+}

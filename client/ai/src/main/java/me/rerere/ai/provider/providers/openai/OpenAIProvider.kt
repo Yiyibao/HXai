@@ -41,6 +41,8 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 import kotlin.io.encoding.Base64
 import kotlin.io.encoding.ExperimentalEncodingApi
+import me.rerere.ai.core.beginProviderRequest
+import me.rerere.ai.core.imageTokenUsage
 
 private const val TAG = "OpenAIProvider"
 
@@ -235,12 +237,17 @@ class OpenAIProvider(
             .configureReferHeaders(providerSetting.baseUrl)
             .build()
 
+        val receipt = beginProviderRequest(providerSetting,TextGenerationParams(params.model),
+            json.parseToJsonElement(requestBody).jsonObject,requestBody)
         val items = withContext(Dispatchers.IO) {
             val response = client.newCall(request).await()
             if (!response.isSuccessful) {
+                if(response.code==401 || response.code==403) receipt?.authorizationRejected(response.code)
                 error("Failed to generate image: ${response.code}")
             }
-            parseImageResponse(response.body.string())
+            val body = response.body.string()
+            receipt?.complete(imageTokenUsage(json.parseToJsonElement(body).jsonObject))
+            parseImageResponse(body)
         }
 
         items.forEach { emit(it) }
@@ -283,6 +290,16 @@ class OpenAIProvider(
             )
         }
 
+        require(params.customBody.none { it.key=="model" && it.value.jsonPrimitive.contentOrNull!=params.model.modelId }) {
+            "Custom image request cannot replace the locked model"
+        }
+        val journalBody = buildJsonObject {
+            put("model",params.model.modelId); put("prompt",params.prompt); put("n",params.numOfImages)
+            put("size",params.size)
+            putJsonArray("images") { params.images.forEach { path ->
+                add(JsonPrimitive(java.security.MessageDigest.getInstance("SHA-256").digest(File(path).readBytes()).toHexString()))
+            } }
+        }.mergeCustomBody(params.customBody)
         params.customBody.forEach { customBody ->
             val value = when (val element = customBody.value) {
                 is JsonPrimitive -> element.contentOrNull ?: element.toString()
@@ -299,12 +316,16 @@ class OpenAIProvider(
             .configureReferHeaders(providerSetting.baseUrl)
             .build()
 
+        val receipt = beginProviderRequest(providerSetting,TextGenerationParams(params.model),journalBody,journalBody.toString())
         val items = withContext(Dispatchers.IO) {
             val response = client.newCall(request).await()
             if (!response.isSuccessful) {
+                if(response.code==401 || response.code==403) receipt?.authorizationRejected(response.code)
                 error("Failed to edit image: ${response.code}")
             }
-            parseImageResponse(response.body.string())
+            val body = response.body.string()
+            receipt?.complete(imageTokenUsage(json.parseToJsonElement(body).jsonObject))
+            parseImageResponse(body)
         }
 
         items.forEach { emit(it) }

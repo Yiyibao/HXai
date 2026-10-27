@@ -1,0 +1,15 @@
+{
+  "label": "installed-sha-org.hxsi.agent.nativeqa.test",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\platform-tools\\adb.exe",
+    "-s",
+    "emulator-5622",
+    "shell",
+    "sha256sum",
+    "/data/app/org.hxsi.agent.nativeqa.test-nPgcsad4yUk9Zyrzf8BG0w==/base.apk"
+  ],
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "exitCode": 0,
+  "seconds": 0.114,
+  "logSha256": "1b2f978cd868cb686abaa78e90c5d71a75658ccad9204f95a3f9cf87673287d0"
+}

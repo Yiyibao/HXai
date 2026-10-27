@@ -364,14 +364,16 @@ class _ArtifactsPageState extends ConsumerState<ArtifactsPage> {
                 try {
                   final res = await bridgeApi.saveArtifact(profile, item.id);
                   checkCommand(res);
-                  if (context.mounted)
+                  if (context.mounted) {
                     ScaffoldMessenger.of(
                       context,
                     ).showSnackBar(const SnackBar(content: Text('文件已保存到本地')));
+                  }
                 } catch (e) {
-                  if (context.mounted)
+                  if (context.mounted) {
                     ScaffoldMessenger.of(context)
                         .showSnackBar(SnackBar(content: Text('$e')));
+                  }
                 }
               },
             ),
@@ -387,9 +389,10 @@ class _ArtifactsPageState extends ConsumerState<ArtifactsPage> {
                 try {
                   await bridgeApi.shareArtifact(profile, item.id);
                 } catch (e) {
-                  if (context.mounted)
+                  if (context.mounted) {
                     ScaffoldMessenger.of(context)
                         .showSnackBar(SnackBar(content: Text('$e')));
+                  }
                 }
               },
             ),

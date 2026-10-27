@@ -1,0 +1,16 @@
+{
+  "label": "python-regression",
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "command": [
+    "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "scripts/tests",
+    "--junitxml=D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\AB28-INTEGRATION-20261028/python-regression.xml"
+  ],
+  "exitCode": 0,
+  "seconds": 14.298,
+  "log": "logs\\python-regression.log",
+  "logSha256": "b6352d50042b6773cdfa91ea80b3d6490d16d7d85195fc3851d16f3c591dd47a"
+}

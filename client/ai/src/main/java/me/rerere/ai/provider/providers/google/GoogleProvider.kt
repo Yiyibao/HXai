@@ -1,5 +1,7 @@
 package me.rerere.ai.provider.providers.google
 
+import me.rerere.ai.core.beginProviderRequest
+import me.rerere.ai.core.StreamingRequestReceipt
 import android.content.Context
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
@@ -176,6 +178,7 @@ class GoogleProvider(private val client: OkHttpClient, context: Context? = null)
         }
 
         val requestBody = buildCompletionRequestBody(messages, params)
+        val encodedBody = json.encodeToString(requestBody)
 
         val url = buildUrl(
             providerSetting = providerSetting,
@@ -193,14 +196,16 @@ class GoogleProvider(private val client: OkHttpClient, context: Context? = null)
                 .headers(providerSetting.mergeCustomHeaders(params.customHeaders))
                 .configureSessionHeaders(url.toString(), params.sessionId)
                 .post(
-                    json.encodeToString(requestBody).toRequestBody("application/json".toMediaType())
+                    encodedBody.toRequestBody("application/json".toMediaType())
                 )
                 .configureReferHeaders(providerSetting.baseUrl)
                 .build()
         )
+        val receipt = beginProviderRequest(providerSetting,params,requestBody,encodedBody)
 
         val response = client.newCall(request).await()
         if (!response.isSuccessful) {
+            if(response.code==401 || response.code==403) receipt?.authorizationRejected(response.code)
             throw Exception("Failed to get response: ${response.code}")
         }
 
@@ -215,7 +220,7 @@ class GoogleProvider(private val client: OkHttpClient, context: Context? = null)
             message = parseMessage(candidate),
             finishReason = candidate["finishReason"]?.jsonPrimitive?.contentOrNull,
             usage = parseUsageMeta(bodyJson["usageMetadata"] as? JsonObject),
-        )
+        ).also { receipt?.complete(it.usage) }
     }
 
     override suspend fun streamText(
@@ -234,6 +239,7 @@ class GoogleProvider(private val client: OkHttpClient, context: Context? = null)
         params: TextGenerationParams,
     ): Flow<StreamChunk> = callbackFlow {
         val requestBody = buildCompletionRequestBody(messages, params)
+        val encodedBody = json.encodeToString(requestBody)
 
         val url = buildUrl(
             providerSetting = providerSetting,
@@ -251,17 +257,19 @@ class GoogleProvider(private val client: OkHttpClient, context: Context? = null)
                 .headers(providerSetting.mergeCustomHeaders(params.customHeaders))
                 .configureSessionHeaders(url.toString(), params.sessionId)
                 .post(
-                    json.encodeToString(requestBody).toRequestBody("application/json".toMediaType())
+                    encodedBody.toRequestBody("application/json".toMediaType())
                 )
                 .configureReferHeaders(providerSetting.baseUrl)
                 .build()
         )
+        val receipt = beginProviderRequest(providerSetting,params,requestBody,encodedBody)?.let(::StreamingRequestReceipt)
 
         val responseId = Uuid.random().toString()
         val decoder = GoogleStreamDecoder(responseId, params.model.modelId)
 
         fun sendChunks(chunks: Iterable<StreamChunk>) {
             chunks.forEach { chunk ->
+                receipt?.observe(chunk)
                 trySend(chunk).onFailure { Log.w(TAG, "Stream chunk dropped") }
             }
         }
@@ -277,7 +285,7 @@ class GoogleProvider(private val client: OkHttpClient, context: Context? = null)
                 try {
                     val result = decoder.accept(SseEvent(id = id, event = type, data = data))
                     sendChunks(result.chunks)
-                    if (result.completed) close()
+                    if (result.completed) { receipt?.complete(); close() }
                 } catch (e: Throwable) {
                     close(e)
                 }
@@ -289,6 +297,10 @@ class GoogleProvider(private val client: OkHttpClient, context: Context? = null)
                 response: Response?
             ) {
                 var exception = t
+                if(response!=null && (response.code==401 || response.code==403)) {
+                    try { receipt?.authorizationRejected(response.code) }
+                    catch(error: Throwable) { close(error); return }
+                }
 
                 try {
                     if (t == null && response != null) {
@@ -885,14 +897,14 @@ class GoogleProvider(private val client: OkHttpClient, context: Context? = null)
         if (jsonObject == null) {
             return null
         }
-        val promptTokens = jsonObject["promptTokenCount"]?.jsonPrimitiveOrNull?.intOrNull ?: 0
-        val thoughtTokens = jsonObject["thoughtsTokenCount"]?.jsonPrimitiveOrNull?.intOrNull ?: 0
-        val cachedTokens = jsonObject["cachedContentTokenCount"]?.jsonPrimitiveOrNull?.intOrNull ?: 0
-        val candidatesTokens = jsonObject["candidatesTokenCount"]?.jsonPrimitiveOrNull?.intOrNull ?: 0
-        val totalTokens = jsonObject["totalTokenCount"]?.jsonPrimitiveOrNull?.intOrNull ?: 0
+        val promptTokens = jsonObject["promptTokenCount"]?.jsonPrimitiveOrNull?.intOrNull
+        val thoughtTokens = jsonObject["thoughtsTokenCount"]?.jsonPrimitiveOrNull?.intOrNull
+        val cachedTokens = jsonObject["cachedContentTokenCount"]?.jsonPrimitiveOrNull?.intOrNull
+        val candidatesTokens = jsonObject["candidatesTokenCount"]?.jsonPrimitiveOrNull?.intOrNull
+        val totalTokens = jsonObject["totalTokenCount"]?.jsonPrimitiveOrNull?.intOrNull
         return TokenUsage(
             promptTokens = promptTokens,
-            completionTokens = candidatesTokens + thoughtTokens,
+            completionTokens = me.rerere.ai.core.sumTokenCounts(candidatesTokens,thoughtTokens),
             totalTokens = totalTokens,
             cachedTokens = cachedTokens
         )

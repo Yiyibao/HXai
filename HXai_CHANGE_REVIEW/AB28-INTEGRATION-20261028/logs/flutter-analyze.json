@@ -1,0 +1,13 @@
+{
+  "label": "flutter-analyze",
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\flutter_ui",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\flutter\\bin\\flutter.bat",
+    "analyze",
+    "--no-pub"
+  ],
+  "exitCode": 0,
+  "seconds": 139.649,
+  "log": "logs\\flutter-analyze.log",
+  "logSha256": "951facebe76e0885eb950b7f9b70712721b224a5d78882f03abee5e190b48a0a"
+}

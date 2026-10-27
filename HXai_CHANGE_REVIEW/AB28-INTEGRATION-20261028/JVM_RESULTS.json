@@ -1,0 +1,23 @@
+{
+  "app": {
+    "tests": 525,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "suites": 87
+  },
+  "ai": {
+    "tests": 214,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "suites": 32
+  },
+  "search": {
+    "tests": 33,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "suites": 9
+  }
+}

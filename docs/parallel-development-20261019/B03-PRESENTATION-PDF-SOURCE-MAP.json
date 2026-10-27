@@ -1,0 +1,97 @@
+{
+  "featureId": "B03-PRESENTATION-PDF-20261019",
+  "domainProtocolVersion": 1,
+  "baseHead": "5d826d5d7d8755ed42db834d6cd6dc52ae914c69",
+  "versions": {
+    "editCache": "edit-v5",
+    "ocrDraftCache": "pdf-ocr-draft-v1",
+    "ocrDraftReceipt": 1,
+    "pdfAssemblyReceipt": 1,
+    "documentWire": 1,
+    "globalTaskSchema": "UNCHANGED",
+    "pigeon": "UNCHANGED"
+  },
+  "aSharedEdits": false,
+  "independentReview": "NOT_EVALUATED",
+  "sourceFiles": {
+    "client/app/src/main/java/me/rerere/rikkahub/feature/material/PresentationSlideOrder.kt": {
+      "kind": "product",
+      "sha256": "a8e39940ddf4ed50acccfc33096b493d54379f380402426789708070252a32f5"
+    },
+    "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialEditor.kt": {
+      "kind": "product",
+      "sha256": "45d3f88b27bd2b2aea83e9f05d718ffb89be0d381d0148e2b5a7b32d251feb92"
+    },
+    "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialWriter.kt": {
+      "kind": "product",
+      "sha256": "88a8d6ad91dd2e07a974d7d7bf8668801ae227b00fdf3bdda76ba5a1f2136463"
+    },
+    "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialPdfPages.kt": {
+      "kind": "product",
+      "sha256": "f08e87a30740e0420b4003ddef4f7848f8c3bb9b393e2c25a814033af182dfde"
+    },
+    "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialPdfOcrDraft.kt": {
+      "kind": "product",
+      "sha256": "89efef0a68e3be68b6a42cdb3ded26a2c7da833913d0a889c43d85e13454bd7b"
+    },
+    "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialEditTools.kt": {
+      "kind": "product",
+      "sha256": "df5464b8848e7f6b83a712b76bdd54f8f1e868d0d9c51019f13de8d035a06263"
+    },
+    "client/app/src/main/java/me/rerere/rikkahub/feature/material/DocumentContracts.kt": {
+      "kind": "product",
+      "sha256": "e31168ffe35c068dcc11999e7c74e2ac91d106101b4462bdd34e57f52b3903f9"
+    },
+    "client/app/src/main/java/me/rerere/rikkahub/feature/material/DocumentServiceRepository.kt": {
+      "kind": "product",
+      "sha256": "be528894234232a7df22e0c6f7c34728d87013966244a78f2569bf9462195f6b"
+    },
+    "server/document-service/office_worker/run.py": {
+      "kind": "product",
+      "sha256": "cb78d28565761b2c24eb2020d9f0eb5cb37ab3620853943f15b570aedb8d13ce"
+    },
+    "client/app/src/test/java/me/rerere/rikkahub/feature/material/PresentationPrecisionTest.kt": {
+      "kind": "regression",
+      "sha256": "45e64b4e740f5425c9f4844240090eb3b47ae5f1500a10bace8450e1a9aed460"
+    },
+    "client/app/src/androidTest/java/me/rerere/rikkahub/feature/material/PdfOcrDraftRuntimeTest.kt": {
+      "kind": "regression",
+      "sha256": "0341017d211b9a15d63cf306b2664f6c7093944e3279492ae47b33df2a1bd346"
+    },
+    "client/app/src/androidTest/java/me/rerere/rikkahub/feature/material/PresentationPdfRuntimeTest.kt": {
+      "kind": "regression",
+      "sha256": "850f1b758b7a6120e5f7e5cbd888789662b239a2aa70d996c539b5a3768a163b"
+    },
+    "client/app/src/androidTest/java/me/rerere/rikkahub/service/DocumentPermissionRegressionTest.kt": {
+      "kind": "regression",
+      "sha256": "2fd1deab7f53a6d276449ab1a7ca652a8eb4a955b535c87c7e586f5416849516"
+    },
+    "scripts/verify_b_pdf_ocr_draft.py": {
+      "kind": "runtimeVerification",
+      "sha256": "ef440ccb9be3b3f85daf9c351d231981e056c27b4f90afe0a24f518d199bbcd8"
+    },
+    "scripts/verify_b_presentation_pdf.py": {
+      "kind": "runtimeVerification",
+      "sha256": "76d8d76288cf1a0a0f030c7d69054455d23af4d4c3f2c462a3ab626340d777a4"
+    },
+    "scripts/verify_b_pdf_geometry.py": {
+      "kind": "runtimeVerification",
+      "sha256": "c2757d979fdbe3538a7ca1b43a27809e16d1241a0eb8a613136ed2dca13d0324"
+    },
+    "scripts/verify_b_office_filter_data.py": {
+      "kind": "runtimeVerification",
+      "sha256": "cd64cf5eee147dbd2d56e5897af87a9a8cb435a252416b092cc1a1128f81cc14"
+    },
+    "scripts/verify_b_pptx_compatibility.py": {
+      "kind": "runtimeVerification",
+      "sha256": "ce37ae3cc0d07b6e228e4f2237edd352b5ec1f165be0664bedda1362717e1374"
+    }
+  },
+  "authority": [
+    "B_TASK B03",
+    "B1d/B1e original protocols",
+    "HXai_Pro_Delivery inputs/04",
+    "B03 CHANGE_CONTRACT"
+  ],
+  "evidenceRoot": "HXai_CHANGE_REVIEW/B03-PRESENTATION-PDF-20261019"
+}

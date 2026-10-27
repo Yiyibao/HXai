@@ -1,0 +1,22 @@
+{
+  "base": "5d826d5d7d8755ed42db834d6cd6dc52ae914c69",
+  "branch": "codex/ab28-integration-20261028",
+  "sourceManifestSha256": "58292c1c1dde81aa9b4d65b420e68ef9605d3120e884e15bea530e94c88e3b67",
+  "schema": {
+    "Room": 33,
+    "TaskStore": 13,
+    "Pigeon": "unchanged",
+    "mathContracts": "1-17",
+    "offlineAssessmentContract": 1
+  },
+  "entryPoints": {
+    "chat": "client/flutter_ui/lib/pages/chat_page.dart -> StudyHostFacade -> ChatService -> ConversationSession -> GenerationLoop",
+    "taskAuthority": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/AgentScheduler.kt and AgentTaskStore.kt",
+    "settings": "client/app/src/main/java/me/rerere/rikkahub/data/datastore/PreferencesStore.kt",
+    "domain": "client/app/src/main/java/me/rerere/rikkahub/feature/material and feature/math; server/document-service",
+    "offlineAssessment": "scripts/prepare_b_math_evaluation.py and scripts/score_b_math_evaluation.py"
+  },
+  "inheritedSourceProof": "SOURCE_COMPARISONS.json",
+  "nativePackages": "NATIVE_RESULT.json",
+  "newProductionBehavior": false
+}

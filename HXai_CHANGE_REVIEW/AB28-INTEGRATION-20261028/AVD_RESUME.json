@@ -1,0 +1,21 @@
+{
+  "pid": 35516,
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\emulator\\emulator.exe",
+    "-avd",
+    "hxai-b27-api26-20261027",
+    "-port",
+    "5622",
+    "-no-window",
+    "-no-audio",
+    "-no-boot-anim",
+    "-no-snapshot",
+    "-memory",
+    "1024",
+    "-cores",
+    "1",
+    "-gpu",
+    "swiftshader_indirect"
+  ],
+  "wipe": false
+}

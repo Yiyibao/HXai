@@ -47,6 +47,10 @@ def validate_pdf(path):
 
 def check_output(directory):
     manifest = json.loads((directory / 'manifest.json').read_text())
+    if manifest.get('operation') == 'xlsx_recalculate':
+        from office_worker.recalculation import verify_output
+        verify_output(directory)
+        return
     path = directory / 'output.pdf'
     if manifest['pageCount'] != validate_pdf(path):
         raise ValueError('conversion_page_mismatch')

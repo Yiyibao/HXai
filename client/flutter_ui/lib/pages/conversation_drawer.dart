@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../bridge/study_host_api.g.dart';
 import '../providers/study_providers.dart';
+import '../providers/profile_resource.dart';
 import '../theme/study_theme.dart';
 import '../widgets/chat_more_sheet.dart';
 import '../widgets/profile_picker_sheet.dart';
@@ -130,6 +131,19 @@ class _ConversationDrawerState extends ConsumerState<ConversationDrawer> {
                     onTap: () {
                       Navigator.pop(context);
                       context.push('/images');
+                    },
+                  ),
+                  _buildNavItem(
+                    icon: CupertinoIcons.list_bullet,
+                    label: '任务中心',
+                    onTap: () { Navigator.pop(context); context.push('/tasks'); },
+                  ),
+                  _buildNavItem(
+                    icon: CupertinoIcons.chart_bar,
+                    label: '请求用量',
+                    onTap: () {
+                      final resource = ProfileResourceRoute.capture(ref, 'usage');
+                      Navigator.pop(context); context.push('/usage', extra: resource);
                     },
                   ),
                   _buildNavItem(

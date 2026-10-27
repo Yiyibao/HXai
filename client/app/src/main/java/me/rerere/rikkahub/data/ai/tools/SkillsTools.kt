@@ -20,6 +20,7 @@ fun createSkillTools(
     allSkills: List<SkillMetadata>,
     materials: me.rerere.rikkahub.feature.material.MaterialFiles? = null,
     profileId: String? = null,
+    checkEnabled: (String) -> Unit = {},
 ): List<Tool> {
     val available = allSkills.filter { it.name in enabledSkills }
     if (available.isEmpty()) return emptyList()
@@ -72,6 +73,7 @@ fun createSkillTools(
                 // 模型可能照抄系统提示中转义后的名称，两种形式都接受
                 val skill = available.firstOrNull { skill -> skill.name == name || skill.name.escapeXml() == name }
                     ?: error("Skill '$name' is not available. Available skills: ${available.joinToString { it.name }}")
+                checkEnabled(skill.name)
                 val path = it.jsonObject["path"]?.jsonPrimitive?.content
                 val content = if (path.isNullOrBlank()) {
                     val target = SkillPaths.resolveSkillFile(skill.skillDir, "SKILL.md")
@@ -91,6 +93,7 @@ fun createSkillTools(
                         val digest = me.rerere.rikkahub.feature.material.MaterialFiles.digest(target)
                         val existing = store.list(owner).firstOrNull { it.sha256 == digest && it.extension == target.extension.lowercase() && it.state == "SUCCEEDED" }
                         val item = existing ?: store.import(owner, android.net.Uri.fromFile(target), target.name)
+                        checkEnabled(skill.name)
                         val file = store.verifiedFile(owner, item.id)
                         val url = android.net.Uri.fromFile(file).toString()
                         val attachment = if (item.extension in setOf("png", "jpg", "jpeg", "webp")) UIMessagePart.Image(url) else UIMessagePart.Document(url, item.name, android.webkit.MimeTypeMap.getSingleton().getMimeTypeFromExtension(item.extension) ?: "application/octet-stream")
@@ -99,6 +102,7 @@ fun createSkillTools(
                     require(target.extension.lowercase() in setOf("md", "txt", "json", "yaml", "yml", "toml", "py", "js", "sh", "ps1", "r") || target.name in setOf("LICENSE", "NOTICE")) { "不支持读取此资源格式；不会将二进制数据当作文字或执行" }
                     target.inputStream().use { SkillImportLimits.read(it, SkillImportLimits.FILE_BYTES) }.toString(Charsets.UTF_8)
                 }
+                checkEnabled(skill.name)
                 listOf(UIMessagePart.Text(content))
             }
         )

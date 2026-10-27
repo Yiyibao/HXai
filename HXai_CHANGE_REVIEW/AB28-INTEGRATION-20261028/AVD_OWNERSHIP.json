@@ -1,0 +1,30 @@
+{
+  "name": "hxai-b27-api26-20261027",
+  "serial": "emulator-5622",
+  "pid": 14612,
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\emulator\\emulator.exe",
+    "-avd",
+    "hxai-b27-api26-20261027",
+    "-port",
+    "5622",
+    "-no-window",
+    "-no-audio",
+    "-no-boot-anim",
+    "-no-snapshot",
+    "-memory",
+    "1024",
+    "-cores",
+    "1",
+    "-gpu",
+    "swiftshader_indirect"
+  ],
+  "avd_home": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b27-api26-avd-20261027",
+  "created_this_batch": false,
+  "api": 26,
+  "abi": "x86_64",
+  "resumed_from": "HXai_CHANGE_REVIEW\\B27-B-LINE-CLOSURE-20261027\\API26_OWNERSHIP.json",
+  "priorOwnershipSha256": "576b36e26e886896b7fcce44e734f3a49dcb09401a731b18c1b62962c707fe1b",
+  "resumedBy": "AB28-INTEGRATION-20261028",
+  "ownershipSourceSha256": "282e8d7df8efbf12bf8714b75c926b2b747a8c32457d4828b7ea9ced24f93ace"
+}

@@ -42,8 +42,9 @@ class _SurfaceChartViewState extends State<SurfaceChartView> {
     if (jsonEncode(
           oldWidget.definition['series'] ?? oldWidget.definition['points'],
         ) !=
-        jsonEncode(widget.definition['series'] ?? widget.definition['points']))
+        jsonEncode(widget.definition['series'] ?? widget.definition['points'])) {
       hidden.clear();
+    }
   }
 
   @override
@@ -280,11 +281,12 @@ class _SurfaceChartViewState extends State<SurfaceChartView> {
             ),
             touchCallback: (event, response) {
               final spot = response?.spot;
-              if (event is FlTapUpEvent && spot != null)
+              if (event is FlTapUpEvent && spot != null) {
                 widget.onSelect?.call(
                   groupIndexes[spot.touchedBarGroupIndex][spot
                       .touchedRodDataIndex],
                 );
+              }
             },
           ),
         ),
@@ -480,7 +482,7 @@ class _SurfaceTableViewState extends State<SurfaceTableView> {
             '${data[i][c['filterColumn']]}' == widget.filter)
           i,
     ];
-    if (sortColumn != null)
+    if (sortColumn != null) {
       indexed.sort((a, b) {
         final av = data[a][sortColumn], bv = data[b][sortColumn];
         final result = av == null
@@ -493,19 +495,22 @@ class _SurfaceTableViewState extends State<SurfaceTableView> {
         final order = ascending ? result : -result;
         return order == 0 ? a.compareTo(b) : order;
       });
+    }
     String value(dynamic v, int col) {
       if (v == null) return '--';
       if (types[col] == 'date' && v is String) {
         final date = DateTime.tryParse(v);
-        if (date != null)
+        if (date != null) {
           return '${date.year.toString().padLeft(4, '0')}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
+        }
       }
-      if (v is num && ['number', 'currency', 'percent'].contains(types[col]))
+      if (v is num && ['number', 'currency', 'percent'].contains(types[col])) {
         return surfaceNumber(
           types[col] == 'percent' ? v * 100 : v,
           digits: digits,
           unit: types[col] == 'percent' ? '%' : units[col] as String,
         );
+      }
       return '$v';
     }
 

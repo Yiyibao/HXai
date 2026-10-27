@@ -150,7 +150,7 @@ void main() {
         expect(find.text('Plan: 2.0 day, 40.0 USD'), findsOneWidget);
         await tester.tap(find.text('Actual'));
         await tester.pump();
-        if (type != 'bar_chart')
+        if (type != 'bar_chart') {
           expect(
             tester
                 .widget<LineChart>(find.byType(LineChart))
@@ -159,9 +159,10 @@ void main() {
                 .length,
             1,
           );
+        }
         await tester.tap(find.text('Plan'));
         await tester.pump();
-        if (type != 'bar_chart')
+        if (type != 'bar_chart') {
           expect(
             tester
                 .widget<LineChart>(find.byType(LineChart))
@@ -170,6 +171,7 @@ void main() {
                 .length,
             1,
           );
+        }
         expect(tester.takeException(), isNull);
       }
     },

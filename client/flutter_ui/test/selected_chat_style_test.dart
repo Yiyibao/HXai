@@ -245,6 +245,9 @@ void main() {
   testWidgets('Capture selected styles in mobile light and dark themes', (
     tester,
   ) async {
+    final evidenceRoot = Directory(Platform.environment['HXAI_QA_OUTPUT'] ?? '../../qa/flutter-visual-runs')
+      ..createSync(recursive: true);
+    final outputDirectory = evidenceRoot.createTempSync('selected-chat-style-');
     for (final font in <String, String>{
       'QAFont': '../../.local/flutter/bin/cache/artifacts/material_fonts/roboto-regular.ttf',
       'QAChinese': 'C:/Windows/Fonts/msyh.ttc',
@@ -309,7 +312,7 @@ void main() {
           final image = await boundary.toImage(pixelRatio: 1);
           final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
           final file = File(
-            '../../qa/chat-style-selected-20261011/$name-${dark ? 'dark' : 'light'}.png',
+            '${outputDirectory.path}/$name-${dark ? 'dark' : 'light'}.png',
           );
           await file.parent.create(recursive: true);
           await file.writeAsBytes(bytes!.buffer.asUint8List());

@@ -1,5 +1,18 @@
 # Repository Guidelines
 
+## HXai product baseline (2026-10-12)
+
+Read and follow the repository-root `../AGENTS.md` and the authoritative Pro
+implementation and review prompts in `../HXai_Pro_Delivery/`. The user adopted
+that delivery as the mandatory baseline for subsequent HXai development.
+The current product uses Flutter Add-to-App with a Kotlin host; the upstream
+overview below is technical background. Product scope and current evidence are
+defined by the Pro requirements and the verified current source, respectively.
+Every feature/fix/refactor follows both NEW_FEATURE_REVIEW_STANDARD.md and
+PROMPT_NEW_FEATURE_REVIEW.md. Architecture, database, authorization, release,
+and cross-profile milestones additionally follow the full-project standard and
+audit prompt. Do not treat ZIP-only candidates as integrated App functionality.
+
 ## Project Overview
 
 RikkaHub is a native Android LLM chat client that supports switching between different AI providers

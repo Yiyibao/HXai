@@ -49,7 +49,9 @@ object MathPlotImage {
             paint.style=Paint.Style.FILL; paint.color=Color.BLACK; paint.textSize=22f
             plot["points"]?.jsonArray?.forEach { item ->
                 val p=item.jsonObject; val px=x(MathPlot.number(p,"x")); val py=y(MathPlot.number(p,"y"))
-                canvas.drawCircle(px,py,5f,paint); canvas.drawText(p.getValue("label").jsonPrimitive.content,px+8,py-8,paint)
+                paint.style = if (p["open"] == JsonPrimitive(true)) Paint.Style.STROKE else Paint.Style.FILL
+                canvas.drawCircle(px,py,if (p["open"] == JsonPrimitive(true)) 7f else 5f,paint)
+                paint.style = Paint.Style.FILL; canvas.drawText(p.getValue("label").jsonPrimitive.content,px+8,py-8,paint)
             }
             }
             curves.forEachIndexed { index,curve ->

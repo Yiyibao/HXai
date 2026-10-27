@@ -3,17 +3,20 @@ package me.rerere.rikkahub.feature.material
 import com.artifex.mupdf.fitz.PDFDocument
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.ensureActive
-import org.xmlpull.v1.XmlPullParser
-import org.xmlpull.v1.XmlPullParserFactory
 import java.io.File
 import java.nio.ByteBuffer
 import java.nio.charset.CodingErrorAction
-import java.util.zip.ZipFile
+
+@kotlinx.serialization.Serializable data class MaterialTextLocation(
+    val kind: String, val number: Int, val start: Int, val end: Int,
+    val part: String? = null, val hidden: Boolean? = null,
+)
 
 @kotlinx.serialization.Serializable data class MaterialContent(
     val text: String, val coverage: String,
     val totalPages: Int? = null, val extractedPages: Int? = null,
     val pagesWithoutExtractableText: List<Int> = emptyList(),
+    val textLocations: List<MaterialTextLocation> = emptyList(),
 )
 
 object MaterialReader {
@@ -40,6 +43,7 @@ object MaterialReader {
             require(!doc.needsPassword()) { "PDF 已加密，请先解密" }
             val total = doc.countPages(); val text = StringBuilder(); var read = 0
             val withoutText = mutableListOf<Int>()
+            val locations = mutableListOf<MaterialTextLocation>()
             for (i in 0 until minOf(total, 200)) {
                 currentCoroutineContext().ensureActive()
                 val page = doc.loadPage(i)
@@ -49,95 +53,90 @@ object MaterialReader {
                         // Android PDF font subsets may map ordinary CJK glyphs to Kangxi radicals.
                         // Normalize that range only; global NFKC would destroy superscript math.
                         val body = structured.asText().map { ch -> if (ch.code in 0x2F00..0x2FD5) java.text.Normalizer.normalize(ch.toString(), java.text.Normalizer.Form.NFKC) else ch.toString() }.joinToString("")
-                        if (body.isBlank()) withoutText += i + 1
-                        text.append("\n[物理页 ${i + 1}]\n").append(if (body.isBlank()) "[无可提取文本；扫描/图像内容未识别]" else body)
+                        val blank = body.isBlank()
+                        if (blank) withoutText += i + 1
+                        val marker = "\n[物理页 ${i + 1}]\n"
+                        text.append(marker, 0, minOf(marker.length, LIMIT - text.length))
+                        val start = text.length
+                        val extracted = if (blank) "[无可提取文本；扫描/图像内容未识别]" else body
+                        text.append(extracted, 0, minOf(extracted.length, LIMIT - text.length))
+                        if (!blank && start < text.length) locations += MaterialTextLocation("pdf_physical_page", i + 1, start, text.length)
                     }
                     finally { structured.destroy() }
                 } finally { page.destroy() }
                 read++
                 if (text.length >= LIMIT) break
             }
-            return MaterialContent(text.toString().take(LIMIT), "共 $total 页；尝试提取前 $read 页，最多 $LIMIT 字符；图片、扫描、公式视觉及布局未处理，末页可能截断", total, read, withoutText)
+            return MaterialContent(text.toString(), "共 $total 页；尝试提取前 $read 页，最多 $LIMIT 字符；图片、扫描、公式视觉及布局未处理，末页可能截断", total, read, withoutText, locations)
         } finally { doc.destroy() }
     }
-    private suspend fun office(file: File, ext: String): MaterialContent = ZipFile(file).use { zip ->
-        require(zip.size() <= 2000) { "Office 包条目过多" }
-        var expanded = 0L
-        fun xml(name: String): String {
-            val entry = zip.getEntry(name) ?: error("Office 包缺少 $name")
-            require(entry.size in 0..(4L * 1024 * 1024)) { "Office XML 过大或大小未知" }
-            expanded += entry.size; require(expanded <= 16L * 1024 * 1024) { "Office 解压内容超限" }
-            return zip.getInputStream(entry).use { input ->
-                val buffer = ByteArray(8192); val output = java.io.ByteArrayOutputStream()
-                while (true) { val n = input.read(buffer); if (n < 0) break; require(output.size() + n <= 4 * 1024 * 1024) { "Office XML 实际内容超限" }; output.write(buffer, 0, n) }
-                output.toString("UTF-8")
-            }.also {
-                require(!it.contains("<!DOCTYPE", true) && !it.contains("<!ENTITY", true)) { "不允许外部实体" }
-            }
+    private suspend fun office(file: File, ext: String): MaterialContent {
+        val parts = OfficePackage.read(file)
+        fun xml(name: String) = SafeOfficeXml.parse(parts.getValue(name))
+        fun elements(root: org.w3c.dom.Element, ns: String, name: String) = root.getElementsByTagNameNS(ns, name).let { nodes ->
+            (0 until nodes.length).map { nodes.item(it) as org.w3c.dom.Element }
         }
-        fun parse(source: String, onTag: (XmlPullParser) -> Unit) {
-            val parser = XmlPullParserFactory.newInstance().apply { isNamespaceAware = true }.newPullParser()
-            parser.setInput(source.reader())
-            while (parser.eventType != XmlPullParser.END_DOCUMENT) { onTag(parser); parser.next() }
-        }
+        fun children(root: org.w3c.dom.Element) = (0 until root.childNodes.length).map { root.childNodes.item(it) }.filterIsInstance<org.w3c.dom.Element>()
+        val x = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"
+        val r = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
         val text = StringBuilder()
+        val locations = mutableListOf<MaterialTextLocation>()
         when (ext) {
             "docx" -> text.append(MaterialWordContent.text(xml("word/document.xml")))
             "pptx" -> {
-                // Follow presentation relationships, rather than assuming slideN order.
-                val rels = mutableMapOf<String, String>()
-                parse(xml("ppt/_rels/presentation.xml.rels")) { p -> if (p.eventType == XmlPullParser.START_TAG && p.name == "Relationship") {
-                    val target = p.getAttributeValue(null, "Target") ?: ""
-                    if (target.matches(Regex("slides/slide\\d+\\.xml"))) rels[p.getAttributeValue(null, "Id")] = "ppt/$target"
-                } }
-                val slides = mutableListOf<String>()
-                parse(xml("ppt/presentation.xml")) { p -> if (p.eventType == XmlPullParser.START_TAG && p.name == "sldId") {
-                    val id = p.getAttributeValue("http://schemas.openxmlformats.org/officeDocument/2006/relationships", "id")
-                    slides += rels[id] ?: error("无法解析幻灯片关系")
-                } }
-                for ((i, slide) in slides.withIndex()) {
+                for ((i, slide) in PresentationSlideOrder.slides(parts).withIndex()) {
                     currentCoroutineContext().ensureActive(); if (text.length >= LIMIT) break
-                    text.append("\n[幻灯片 ${i + 1}]\n")
-                    parse(xml(slide)) { p -> if (p.eventType == XmlPullParser.START_TAG && p.name == "t") text.append(p.nextText()).append('\n') }
+                    val marker = "\n[幻灯片 ${i + 1}；逻辑顺序含隐藏页；${if (slide.hidden) "隐藏" else "可见"}]\n"
+                    text.append(marker, 0, minOf(marker.length, LIMIT - text.length))
+                    val start = text.length
+                    var hasBody = false
+                    elements(xml(slide.part), "http://schemas.openxmlformats.org/drawingml/2006/main", "t").forEach {
+                        if (text.length < LIMIT) {
+                            val body = it.textContent
+                            if (body.isNotEmpty()) hasBody = true
+                            text.append(body, 0, minOf(body.length, LIMIT - text.length))
+                            if (text.length < LIMIT) text.append('\n')
+                        }
+                    }
+                    if (hasBody && start < text.length) locations += MaterialTextLocation("ppt_logical_slide", i + 1, start, text.length, slide.part, slide.hidden)
                 }
             }
             "xlsx" -> {
-                val strings = mutableListOf<String>(); var shared = StringBuilder()
-                if (zip.getEntry("xl/sharedStrings.xml") != null) parse(xml("xl/sharedStrings.xml")) { p ->
-                    if (p.eventType == XmlPullParser.START_TAG && p.name == "si") shared = StringBuilder()
-                    if (p.eventType == XmlPullParser.START_TAG && p.name == "t") shared.append(p.nextText())
-                    if (p.eventType == XmlPullParser.END_TAG && p.name == "si") strings += shared.toString()
-                }
-                val relationships = mutableMapOf<String, String>()
-                parse(xml("xl/_rels/workbook.xml.rels")) { p ->
-                    if (p.eventType == XmlPullParser.START_TAG && p.name == "Relationship" && p.getAttributeValue(null, "TargetMode") != "External") {
-                        val target = p.getAttributeValue(null, "Target").orEmpty()
-                        val path = if (target.startsWith("/xl/")) target.drop(1) else "xl/$target"
-                        if (path.matches(Regex("xl/worksheets/[A-Za-z0-9_.-]+\\.xml"))) relationships[p.getAttributeValue(null, "Id")] = path
-                    }
-                }
-                val sheets = mutableListOf<Pair<String, String>>()
-                parse(xml("xl/workbook.xml")) { p -> if (p.eventType == XmlPullParser.START_TAG && p.name == "sheet") {
-                    val id = p.getAttributeValue("http://schemas.openxmlformats.org/officeDocument/2006/relationships", "id")
-                    sheets += (p.getAttributeValue(null, "name") ?: "未命名") to (relationships[id] ?: error("无法解析工作表关系"))
-                } }
+                val strings = if ("xl/sharedStrings.xml" in parts) elements(xml("xl/sharedStrings.xml"), x, "si").map { si ->
+                    elements(si, x, "t").joinToString("") { it.textContent }
+                } else emptyList()
+                val rels = children(xml("xl/_rels/workbook.xml.rels")).associateBy { it.getAttribute("Id") }
+                val sheets = elements(xml("xl/workbook.xml"), x, "sheet")
                 require(sheets.isNotEmpty()) { "没有可读取工作表" }
-                for ((name, sheet) in sheets) {
+                for (sheet in sheets) {
                     currentCoroutineContext().ensureActive(); if (text.length >= LIMIT) break
-                    text.append("\n[工作表 $name]\n")
-                    var type = ""; var cell = ""
-                    parse(xml(sheet)) { p ->
-                        if (p.eventType == XmlPullParser.START_TAG) when (p.name) {
-                            "c" -> { type = p.getAttributeValue(null, "t") ?: "n"; cell = p.getAttributeValue(null, "r") ?: "?"; text.append("$cell [${when(type) { "n" -> "number"; "b" -> "boolean"; "e" -> "error"; "d" -> "date"; else -> "string" }}]: ") }
-                            "f" -> text.append("公式=").append(p.nextText()).append("；缓存值=")
-                            "v" -> { val value = p.nextText(); text.append(when(type) { "s" -> strings.getOrNull(value.toIntOrNull() ?: -1) ?: error("无效共享字符串索引"); "b" -> if (value == "1") "true" else "false"; else -> value }) }
-                            "t" -> text.append(p.nextText())
+                    val relation = rels[sheet.getAttributeNS(r, "id")] ?: error("无法解析工作表关系")
+                    require(relation.getAttribute("Type") == "$r/worksheet") { "invalid_worksheet_relationship" }
+                    val target = relation.getAttribute("Target")
+                    val path = if (target.startsWith("/xl/")) target.drop(1) else "xl/$target"
+                    require(path.matches(Regex("xl/worksheets/[A-Za-z0-9_.-]+\\.xml"))) { "invalid_worksheet_path" }
+                    text.append("\n[工作表 ${sheet.getAttribute("name")}]\n")
+                    for (cell in elements(xml(path), x, "c")) {
+                        if (text.length >= LIMIT) break
+                        val type = cell.getAttribute("t").ifBlank { "n" }
+                        text.append("${cell.getAttribute("r")} [${when(type) { "n" -> "number"; "b" -> "boolean"; "e" -> "error"; "d" -> "date"; else -> "string" }}]: ")
+                        for (node in children(cell)) when (node.localName) {
+                            "f" -> text.append("公式=").append(node.textContent).append("；缓存值=")
+                            "v" -> {
+                                val value = node.textContent
+                                text.append(when(type) {
+                                    "s" -> strings.getOrNull(value.toIntOrNull() ?: -1) ?: error("无效共享字符串索引")
+                                    "b" -> { require(value in setOf("0", "1")); if (value == "1") "true" else "false" }
+                                    else -> value
+                                })
+                            }
+                            "is" -> text.append(elements(node, x, "t").joinToString("") { it.textContent })
                         }
-                        if (p.eventType == XmlPullParser.END_TAG && p.name == "c") text.append('\n')
+                        text.append('\n')
                     }
                 }
             }
         }
-        MaterialContent(text.toString().take(LIMIT), "Office 文本提取，最多 $LIMIT 字符${if (text.length >= LIMIT) "，内容已截断" else ""}；Word 常见 OMML 结构转为括号表达，图片以关系 ID 标记并可单独读取；复杂公式、图表、样式、合并单元格、日期格式和演示备注未保证；DOCX 无页码，Excel 公式未重算")
+        return MaterialContent(text.toString().take(LIMIT), "Office 文本提取，最多 $LIMIT 字符${if (text.length >= LIMIT) "，内容已截断" else ""}；PPT 按 presentation.xml 逻辑顺序，包含隐藏页，不等于可见页或 PDF 页码；Word 常见 OMML 结构转为括号表达，图片以关系 ID 标记并可单独读取；复杂公式、图表、样式、合并单元格、日期格式和演示备注未保证；DOCX 无页码；本次文本提取不执行 Excel 公式重算，实际引擎重算状态以绑定版本的核验记录为准", textLocations = locations)
     }
 }

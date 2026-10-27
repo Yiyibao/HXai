@@ -1,0 +1,15 @@
+{
+  "label": "patch-replay-check",
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\ab28-patch-replay-20261028",
+  "command": [
+    "git",
+    "apply",
+    "--check",
+    "--index",
+    "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\AB28-INTEGRATION-20261028\\FIXES.patch"
+  ],
+  "exitCode": 0,
+  "seconds": 0.163,
+  "log": "logs\\patch-replay-check.log",
+  "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

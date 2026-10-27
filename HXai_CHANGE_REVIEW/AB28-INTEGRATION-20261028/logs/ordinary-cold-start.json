@@ -1,0 +1,18 @@
+{
+  "label": "ordinary-cold-start",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\platform-tools\\adb.exe",
+    "-s",
+    "emulator-5622",
+    "shell",
+    "am",
+    "start",
+    "-W",
+    "-n",
+    "org.hxsi.agent.debug/me.rerere.rikkahub.flutter.StudyFlutterActivity"
+  ],
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "exitCode": 0,
+  "seconds": 5.262,
+  "logSha256": "e82a41a85bcd8ed86691787cb4fbb277a96adcf0f15ff21ab6a7d93e1e37bf75"
+}

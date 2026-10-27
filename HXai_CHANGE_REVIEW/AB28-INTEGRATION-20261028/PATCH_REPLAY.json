@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "base": "5d826d5d7d8755ed42db834d6cd6dc52ae914c69",
+  "patchSha256": "57e892073d9b82815f704c578c1ac4297660ea93cfb1c211266f4cd7f2f01a7e",
+  "replayWorktree": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\ab28-patch-replay-20261028",
+  "expectedProductTree": "f08bf5bd46890d1c19179d204aa667bc90cd7be0",
+  "replayedProductTree": "f08bf5bd46890d1c19179d204aa667bc90cd7be0",
+  "completeTreeMatches": true,
+  "scope": "Product source delta; integration evidence excluded from this tree; no build/model/device operations in replay"
+}

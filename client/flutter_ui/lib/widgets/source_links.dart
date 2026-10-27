@@ -15,8 +15,9 @@ Future<void> openSourceLink(BuildContext context, String value) async {
     await const MethodChannel('me.rerere.rikkahub/external_links')
         .invokeMethod<void>('open', value);
   } catch (_) {
-    if (context.mounted)
+    if (context.mounted) {
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text('无法打开来源链接')));
+    }
   }
 }

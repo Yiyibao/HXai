@@ -1,0 +1,5 @@
+# B2b — 可信PDF物理页/PPT逻辑页定位 v2
+
+现read_material_text_page传expected_sha256才从真实冻结源生成receipt。contractVersion=2/extraction_contract=material_reader_text_v2；source_locations每项kind/number/start/end/unit=utf16；PPT另含part/hidden。物理PDF页来自实际document.loadPage序号；逻辑PPT页来自presentation.xml/r:id，与part命名/可见页/PDF页无关。仅提取正文位置可引用；生成页标题、扫描诊断、纯空PPT无正文位置。与主quote相交的半开范围使用完整提取文本坐标，不是quote局部坐标。
+
+Markdown/DOCX/XLSX不会获得伪物理页；printed_page不猜造。source_locations空并非未读取字节，更不能当数学证明。v6读缓存与v5并存，verified路径全部绕过cache。不能对v1回执补页码当v2。入口既有注册不变；A全Agent引用验收/contextEpoch/完成谓词未在本批升级或授予通过。证据HXai_CHANGE_REVIEW/B-SOURCE-LOCATIONS-20261014：实际nativeQA模拟器15例、本机独立PDF回读、精确六源码补丁。

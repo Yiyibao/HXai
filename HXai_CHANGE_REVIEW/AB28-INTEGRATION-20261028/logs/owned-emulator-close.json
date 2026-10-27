@@ -1,0 +1,14 @@
+{
+  "label": "owned-emulator-close",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\platform-tools\\adb.exe",
+    "-s",
+    "emulator-5622",
+    "emu",
+    "kill"
+  ],
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "exitCode": 0,
+  "seconds": 0.038,
+  "logSha256": "b2477f077209feac60f7d79993134fbfdc7057a25d3ba65f5763d20258c0aeed"
+}

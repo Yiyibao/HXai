@@ -1,0 +1,15 @@
+{
+  "label": "device-owned-name",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\platform-tools\\adb.exe",
+    "-s",
+    "emulator-5622",
+    "emu",
+    "avd",
+    "name"
+  ],
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "exitCode": 0,
+  "seconds": 0.034,
+  "logSha256": "4199f30842c42111d8f5553d8d23611c09cd694a9a4c57f1fc464024873b5686"
+}

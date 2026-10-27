@@ -54,7 +54,7 @@ fun createConversationTools(
                 profileId = profileId,
             )
             val payload = buildJsonArray {
-                recent.forEach { conversation ->
+                recent.map { conversationRepo.providerHistory(it) }.forEach { conversation ->
                     add(buildJsonObject {
                         put("id", conversation.id.toString())
                         put("title", conversation.title.ifBlank { "Untitled" })
@@ -70,7 +70,7 @@ fun createConversationTools(
         description = """
             Full-text search across the user's past conversations to recall specific information they mentioned before.
             Use focused keywords. Run multiple searches with different keywords if needed.
-            Each result includes the conversation title, a snippet with matched keywords wrapped in [brackets], and the date.
+            Each result includes a source-checked title, a fresh selected-branch snippet, and the date.
         """.trimIndent(),
         parameters = {
             InputSchema.Obj(
@@ -97,8 +97,20 @@ fun createConversationTools(
             val results = conversationRepo
                 .searchMessages(query, MessageSearchSort.RELEVANCE, profileId = profileId)
                 .take(limit)
+            val safe = results.mapNotNull { result ->
+                val original = conversationRepo.getConversationById(Uuid.parse(result.conversationId), profileId) ?: return@mapNotNull null
+                val projected = conversationRepo.providerHistory(original)
+                val message = projected.currentMessages.singleOrNull { it.id.toString() == result.messageId } ?: return@mapNotNull null
+                val text = message.toText()
+                // FTS supports multiple terms; requiring the complete query as a literal
+                // substring rejects valid AND queries. The index identifies candidates,
+                // while only the freshly authorized message supplies returned content.
+                val at = query.split(Regex("\\s+")).filter { it.isNotBlank() }
+                    .map { text.indexOf(it, ignoreCase = true) }.filter { it >= 0 }.minOrNull() ?: 0
+                result.copy(title = projected.title, snippet = text.substring(maxOf(0, at - 60), minOf(text.length, at + query.length + 120)))
+            }
             val payload = buildJsonArray {
-                results.forEach { result ->
+                safe.forEach { result ->
                     add(buildJsonObject {
                         put("conversation_id", result.conversationId)
                         put("title", result.title.ifBlank { "Untitled" })

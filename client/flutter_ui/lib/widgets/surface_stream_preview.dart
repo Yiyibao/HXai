@@ -77,8 +77,9 @@ class SurfaceStreamSnapshot {
               'line_chart',
               'bar_chart',
               'scatter_chart',
-            ].contains(c['type']))
+            ].contains(c['type'])) {
           continue;
+        }
         try {
           SurfaceDefinition.parse({
             'version': 4,
@@ -106,8 +107,9 @@ class SurfaceStreamSnapshot {
       final keyEnd = _end(raw, i);
       if (keyEnd < 0 || raw[i] != '"') break;
       final key = jsonDecode(raw.substring(i, keyEnd)) as String;
-      if (result.containsKey(key))
+      if (result.containsKey(key)) {
         throw const FormatException('Duplicate prefix key');
+      }
       i = _space(raw, keyEnd);
       if (i >= raw.length || raw[i++] != ':') break;
       i = _space(raw, i);
@@ -222,8 +224,9 @@ class _SurfaceStreamingPreviewState extends State<SurfaceStreamingPreview> {
     scheduled = true;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       scheduled = false;
-      if (mounted)
+      if (mounted) {
         setState(() => snapshot = SurfaceStreamSnapshot.parse(widget.input));
+      }
     });
   }
 

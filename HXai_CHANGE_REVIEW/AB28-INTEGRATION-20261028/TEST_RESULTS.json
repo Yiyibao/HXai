@@ -1,0 +1,304 @@
+{
+  "verdict": "PASS_SCOPED",
+  "scope": "AB28 source inheritance + current-source offline regression + source-identical A27 frozen Android smoke",
+  "implementation": "WIRED inherited App; PRESENT offline CLI",
+  "tests": [
+    {
+      "label": "python-regression",
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+      "command": [
+        "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "scripts/tests",
+        "--junitxml=D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\AB28-INTEGRATION-20261028/python-regression.xml"
+      ],
+      "exitCode": 0,
+      "seconds": 14.298,
+      "log": "logs\\python-regression.log",
+      "logSha256": "b6352d50042b6773cdfa91ea80b3d6490d16d7d85195fc3851d16f3c591dd47a"
+    },
+    {
+      "label": "flutter-test",
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\flutter_ui",
+      "command": [
+        "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\flutter\\bin\\flutter.bat",
+        "test",
+        "--no-pub",
+        "--reporter",
+        "expanded"
+      ],
+      "exitCode": 0,
+      "seconds": 75.726,
+      "log": "logs\\flutter-test.log",
+      "logSha256": "b1a724aed7ece61be50c56bba17c14d7ff6ed218d9bf5181e5939caff4941db0"
+    },
+    {
+      "label": "jvm-regression",
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\client",
+      "command": [
+        "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\gradle-9.6.0\\bin\\gradle.bat",
+        ":app:testDebugUnitTest",
+        ":ai:testDebugUnitTest",
+        ":search:testDebugUnitTest",
+        "-PagentNativeTest=true",
+        "--offline",
+        "--console=plain",
+        "--max-workers=2"
+      ],
+      "exitCode": 0,
+      "seconds": 321.059,
+      "log": "logs\\jvm-regression.log",
+      "logSha256": "ed4c9000b95fa6c2d0f167042b782644743a9551b57edc3893e27849be163eb1"
+    },
+    {
+      "label": "document-service-regression",
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\server\\document-service",
+      "command": [
+        "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "--junitxml=D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\AB28-INTEGRATION-20261028/document-service-regression.xml"
+      ],
+      "exitCode": 0,
+      "seconds": 14.686,
+      "log": "logs\\document-service-regression.log",
+      "logSha256": "8f88403b6a968f2673dc79fa174fb8cc4a9f175a0a9fcf370ed34b18cc6bd9fc"
+    },
+    {
+      "label": "flutter-analyze",
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\flutter_ui",
+      "command": [
+        "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\flutter\\bin\\flutter.bat",
+        "analyze",
+        "--no-pub"
+      ],
+      "exitCode": 0,
+      "seconds": 139.649,
+      "log": "logs\\flutter-analyze.log",
+      "logSha256": "951facebe76e0885eb950b7f9b70712721b224a5d78882f03abee5e190b48a0a"
+    }
+  ],
+  "native": {
+    "status": "PASS",
+    "sourceBinding": "All client inputs identical to A27 SOURCE_FINAL",
+    "newBuild": false,
+    "apks": {
+      "org.hxsi.agent.nativeqa": {
+        "path": "HXai_CHANGE_REVIEW\\A27-SETTINGS-COMBINED-20261027\\final-fixture-qa-apks\\app-x86_64-debug.apk",
+        "sha256": "1e930b26ae385f706d8c4b5695e2ecc923e0d58e924e4f0f33afc845d7571bf8"
+      },
+      "org.hxsi.agent.nativeqa.test": {
+        "path": "HXai_CHANGE_REVIEW\\A27-SETTINGS-COMBINED-20261027\\final-fixture-qa-apks\\app-debug-androidTest.apk",
+        "sha256": "695ddb9a08eadf55d7e2d3781373d5c2cbfe6ddea281a22a2faad41bcf68de78"
+      }
+    },
+    "methods": [
+      {
+        "method": "me.rerere.rikkahub.data.datastore.SettingsPublicationRuntimeTest#noSelectedModelStillRejectsAdmissionAndDoesNotSubstitute",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.data.datastore.SettingsPublicationRuntimeTest#staleFullSettingsCannotUndoDurableMemorySelection",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.data.datastore.SettingsPublicationRuntimeTest#updateAcknowledgementWaitsForDurableCollectorPublication",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.data.datastore.SettingsPublicationRuntimeTest#concurrentFunctionalUpdatesRetainEveryCommittedIncrement",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.data.datastore.SettingsPublicationRuntimeTest#equalValueCommitIsPublishedAndMetadataStaysOutOfSerializedSettings",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.material.MaterialMathQualityRuntimeTest#actualPublicDomainTextbookBindsPhysicalPageAndPartialCoverageNotMathematicalTruth",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.material.MaterialMathQualityRuntimeTest#everyExistingContractAndFirstErrorBoundariesUseRealNativeExactTool",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.material.MaterialMathQualityRuntimeTest#ambiguousImageRequiresExplicitVersionBoundTranscriptionAndRejectsStaleConfirmation",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#repeatedPremiseCannotLoseItsConditionalDependencyInReceipt",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#incompleteProfessionalSolutionCannotBecomeSuccessDespiteModelClaim",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#originalDomainHoleCannotSucceedDespiteModelSuccess",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#wrongInputCannotReuseAnotherExactCertificate",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#repeatedPremiseProofPassesLockedChatAndCompleteTaskAcceptance",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#missingRepeatedPremiseCannotSucceedDespiteModelClaim",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#validDurableExactReceiptCanBeVerified",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#certifiedIntegralUsesTheLockedChatAndActualGoalAcceptance",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#uncertainNumericInputCannotBecomeSuccessDespiteModelClaim",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#factoryExposesTrustedMathTool",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#unsupportedImproperIntegralCannotBecomeSuccessDespiteModelClaim",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#forgedVerifiedStatusCannotTurnDisproofIntoSuccess",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#certifiedTranscendentalRootUsesTheSameTaskAuthority",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#generalFunctionCannotBorrowAnExactPolynomialSuccess",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#realChatRationalBoundPassesCompleteTaskAcceptance",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#wrongSemanticEvidenceHashCannotAcceptAnExactFact",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#modifiedCertificateFieldCannotPassIndependentRecomputation",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#falseClaimCannotSucceedDespiteModelSuccess",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#repeatedPremiseProofCanCompleteTheOriginalLockedChatTask",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#professionalMatrixUsesTheSameLockedChatAndDurableAcceptance",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#realChatIdentityPassesCompleteTaskAcceptance",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#failedCertificateCannotBecomeFalseStudentClaimOrAcceptedTask",
+        "code": 0
+      },
+      {
+        "method": "me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest#receiptCannotCrossOwner",
+        "code": 0
+      }
+    ],
+    "passed": 31,
+    "skipped": 0,
+    "serial": "emulator-5622"
+  },
+  "surface": {
+    "status": "PASS",
+    "package": "org.hxsi.agent.debug",
+    "installedSha256": "9d89f9bc12fe018a454abec11c7a2ac2cf37aadb9e0675ceb78203ea225eca8f",
+    "coldLaunch": "ok",
+    "surface": "actual Flutter task center -> real Host empty snapshot",
+    "newBuild": false,
+    "realModelCalls": 0,
+    "serial": "emulator-5622"
+  },
+  "cli": {
+    "status": "PASS",
+    "scope": "SYNTHETIC_CLI_AND_NO_FALSE_SUCCESS",
+    "totals": {
+      "cases": 32,
+      "mathematics": {
+        "CORRECT": 0,
+        "INCORRECT": 0,
+        "INCOMPLETE": 0,
+        "UNDETERMINED": 32
+      },
+      "engineering": {
+        "PASS": 0,
+        "FAIL": 0,
+        "NOT_RUN": 32,
+        "BLOCKED": 0
+      },
+      "obligations": {
+        "UNDETERMINED": 81
+      },
+      "unresolvedReasons": {
+        "UNKNOWN": 81
+      }
+    },
+    "oldReportPreserved": true,
+    "incompleteRejected": true,
+    "modelQuality": "NOT_ATTESTED",
+    "realModelCalls": 0
+  },
+  "jvm": {
+    "app": {
+      "tests": 525,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 87
+    },
+    "ai": {
+      "tests": 214,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 32
+    },
+    "search": {
+      "tests": 33,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 9
+    }
+  },
+  "notRun": [
+    "New APK/AAR/Release build in this batch",
+    "Real provider math quality",
+    "Real OCR/handwriting/MinerU",
+    "WPS",
+    "Mate50/HarmonyOS4.2",
+    "Independent network/cloud execution",
+    "Formal signing/release/production",
+    "Independent/full project review"
+  ],
+  "warnings": [
+    "Existing Starlette TestClient/httpx deprecation",
+    "Existing Kotlin/Compose compile deprecations retained"
+  ]
+}

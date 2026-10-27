@@ -57,12 +57,15 @@ data class EnhancedImageInfo(
     val height: Int? = null,
     val contentType: String? = null,
     val verifiedAt: String? = null,
+    val remoteUrl: String? = null,
+    val materialId: String? = null,
+    val sha256: String? = null,
 )
 
 /**
  * 创建增强的搜索工具（支持自动配图）
  */
-fun createEnhancedSearchTools(settings: Settings): Set<Tool> {
+fun createEnhancedSearchTools(settings: Settings, materials: me.rerere.rikkahub.feature.material.MaterialFiles, profileId: String): Set<Tool> {
     return buildSet {
         add(
             Tool(
@@ -99,7 +102,7 @@ fun createEnhancedSearchTools(settings: Settings): Set<Tool> {
                     - Select 1 to 3 most relevant images from the `images[]` array based on the question context.
                     - Use the provided alt text or create descriptive alt text in Chinese.
                     - Place images near the relevant paragraph they illustrate.
-                    - Use images[].url verbatim (never fabricate or alter urls). Images are downloaded and decoded before return; verification does not establish relevance or future availability.
+                    - Use images[].url verbatim: it is the owned local copy of the downloaded and decoded bytes. Never fetch remoteUrl again. Verification does not establish relevance or copyright authorization.
                     - For focused image discovery use search_images; for images from a specific page use extract_web_images.
                     - Embed with Markdown or display_image, and add a visible sourceUrl link near each image.
                     - Cite sourceUrl when present; do not invent an author, publication date, or source page.
@@ -107,16 +110,6 @@ fun createEnhancedSearchTools(settings: Settings): Set<Tool> {
                     - If images are requested and imageStatus is unavailable, use search_images once. Explain the limitation only if image discovery also fails.
                     - If no relevant images exist in the results, skip images entirely.
 
-                    Example with images:
-                    极光的颜色取决于大气成分和高度。
-
-                    ![国际空间站拍摄的绿色极光](https://example.com/aurora1.jpg)
-
-                    绿色极光主要由氧原子发出，通常出现在100-300公里高度。[NASA](https://example.com/aurora1)
-
-                    ![地面拍摄的粉红色极光](https://example.com/aurora2.jpg)
-
-                    粉红色和紫色极光则与氮分子有关。[NASA](https://example.com/aurora2)
                     """.trimIndent(),
                 parameters = {
                     val options = settings.searchServices.getOrElse(
@@ -141,7 +134,7 @@ fun createEnhancedSearchTools(settings: Settings): Set<Tool> {
                     // 增强搜索结果，添加图片元数据
                     val raw = enhanceSearchResult(result, params.jsonObject)
                     val enhancedResult = if (raw.images.isEmpty()) raw else
-                        withTimeoutOrNull(5000) { verifyEnhancedImages(raw, webImageService) }
+                        withTimeoutOrNull(5000) { verifyEnhancedImages(raw, webImageService, materials, profileId) }
                             ?: raw.copy(images = emptyList(), imageStatus = "unavailable", imageWarning = "图片验证超时，网页结果仍可使用。")
 
                     // 序列化返回

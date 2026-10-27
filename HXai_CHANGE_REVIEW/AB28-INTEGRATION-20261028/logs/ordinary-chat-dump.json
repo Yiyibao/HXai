@@ -1,0 +1,16 @@
+{
+  "label": "ordinary-chat-dump",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\platform-tools\\adb.exe",
+    "-s",
+    "emulator-5622",
+    "shell",
+    "uiautomator",
+    "dump",
+    "/sdcard/ab28-hierarchy.xml"
+  ],
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "exitCode": 0,
+  "seconds": 1.635,
+  "logSha256": "1af0251c813955f05a2d7b49da48e5148aa5af83a044ce35ec66d3d8c412658e"
+}

@@ -86,6 +86,28 @@ class MessageNodeStatsTest {
     }
 
     @Test
+    fun missingReportsDoNotBecomeZeroOrPartialTotals() = runBlocking {
+        insertMessages("""[{"role":"assistant","usage":{"promptTokens":100,"completionTokens":40,"cachedTokens":20}}]""")
+        insertMessages("""[{"role":"assistant","usage":{"promptTokens":50,"completionTokens":10}}]""")
+        val partial=dao.getTokenStats()
+        assertEquals(150L,partial.promptTokens)
+        assertEquals(50L,partial.completionTokens)
+        org.junit.Assert.assertNull(partial.cachedTokens)
+        insertMessages("""[{"role":"assistant"}]""")
+        val unknown=dao.getTokenStats()
+        assertEquals(3,unknown.totalMessages)
+        org.junit.Assert.assertNull(unknown.promptTokens)
+        org.junit.Assert.assertNull(unknown.completionTokens)
+        org.junit.Assert.assertNull(unknown.cachedTokens)
+    }
+
+    @Test
+    fun explicitReportedZerosAreKnownCounts() = runBlocking {
+        insertMessages("""[{"role":"assistant","usage":{"promptTokens":0,"completionTokens":0,"cachedTokens":0}}]""")
+        assertEquals(MessageTokenStats(1,0,0,0),dao.getTokenStats())
+    }
+
+    @Test
     fun emptyDatabaseProducesEmptyStats() = runBlocking {
         assertEquals(MessageTokenStats(), dao.getTokenStats())
         assertEquals(emptyList<MessageDayCount>(), dao.getMessageCountPerDay("2026-08-12"))

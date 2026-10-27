@@ -1,0 +1,15 @@
+{
+  "label": "flutter-test",
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\client\\flutter_ui",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\flutter\\bin\\flutter.bat",
+    "test",
+    "--no-pub",
+    "--reporter",
+    "expanded"
+  ],
+  "exitCode": 0,
+  "seconds": 75.726,
+  "log": "logs\\flutter-test.log",
+  "logSha256": "b1a724aed7ece61be50c56bba17c14d7ff6ed218d9bf5181e5939caff4941db0"
+}

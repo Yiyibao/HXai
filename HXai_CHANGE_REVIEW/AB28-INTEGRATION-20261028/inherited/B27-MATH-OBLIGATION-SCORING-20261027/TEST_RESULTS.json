@@ -1,0 +1,55 @@
+{
+  "featureId": "B27-MATH-OBLIGATION-SCORING-20261027",
+  "verdict": "PASS_SCOPED",
+  "scope": "OFFLINE_EVALUATION_CONSISTENCY_ONLY",
+  "implementation": "WIRED_LOCAL_CLI",
+  "evidence": "E3-local",
+  "regression": {
+    "status": "PASS",
+    "tests": 73,
+    "groups": {
+      "scripts.tests.test_score_b_math_evaluation": 34,
+      "scripts.tests.test_verify_b_ocr_corpus": 27,
+      "scripts.tests.test_verify_b_windows_ocr": 12
+    },
+    "failures": 0,
+    "errors": 0,
+    "junit": "regression.xml",
+    "commandLabel": "scoring-and-ocr-regression"
+  },
+  "cli": {
+    "status": "PASS",
+    "evidence": "SMOKE_RESULTS.json",
+    "syntheticCases": 32,
+    "syntheticObligations": 81,
+    "expectedRejections": 7,
+    "realModelCalls": 0,
+    "repeatReadBytesEqual": true
+  },
+  "patch": {
+    "status": "PASS",
+    "files": 7,
+    "byteExact": true,
+    "evidence": "PATCH_REPLAY.json"
+  },
+  "notRun": [
+    {
+      "item": "Real provider answers and actual usage/receipt attestation",
+      "status": "BLOCKED",
+      "reason": "No explicit provider/endpoint/model/reasoning and 32-question transmission/charging authorization."
+    },
+    {
+      "item": "Independent reference adjudication / independent code review",
+      "status": "NOT_RUN",
+      "reason": "No independent evaluator; no subagents started."
+    },
+    {
+      "item": "Android/Gradle/Flutter/Office/OCR engines/current combined package/device checks",
+      "status": "NOT_RUN",
+      "reason": "No runtime App/engine/product source changes in this offline CLI increment; previous B27 failures and target gates remain unchanged."
+    }
+  ],
+  "baseline": "Feature was absent; no existing product bug or historical failing test claimed.",
+  "commands": "COMMANDS.json",
+  "source": "SOURCE_FINAL.json"
+}

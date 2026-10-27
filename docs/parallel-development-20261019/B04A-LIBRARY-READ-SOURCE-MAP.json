@@ -1,0 +1,40 @@
+{
+  "protocol": "b04a_library_read_v1",
+  "featureId": "B04A-LIBRARY-READ-LIFECYCLE-20261020",
+  "base": "5d826d5d7d8755ed42db834d6cd6dc52ae914c69",
+  "branch": "codex/b04a-library-read-lifecycle-20261020",
+  "sourceState": "Current working tree including existing A/B changes; not a committed HEAD snapshot",
+  "files": {
+    "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialFiles.kt": "fb8b5cca20e06ab5869c6e88d9a313ef2cbda9a7d45c61ffb2aa0aa32cbbd3cb",
+    "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialTools.kt": "16d75fbd691e95ad5a28f3b05d02f4707a68e0bedace44924ceaf93abbccbd87",
+    "client/app/src/androidTest/java/me/rerere/rikkahub/feature/material/MaterialReadLifecycleRuntimeTest.kt": "a56092383f40d48826e35b5f9dd13170e758123c8d9764ad5462ef16791c1168",
+    "client/app/src/androidTest/java/me/rerere/rikkahub/feature/material/MaterialReadChatRuntimeTest.kt": "d3084dd7378f9012501ecf576fc7e2a62c3d6f6f56cc2c8569f93d3cccc0b32a",
+    "client/app/src/main/java/me/rerere/rikkahub/data/ai/transformers/DocumentAsPromptTransformer.kt": "c70462c66b27a10314111d51026f20644eeb1fb37138414abff75e947be1bbd4",
+    "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialPage.kt": "d95a4f378c648b944e79d2d7463b67a9f06ff9db43099a2633839b61de2780a4",
+    "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialReader.kt": "9bb3ff9ba1740360f0dfbe5e271a2764f12bed3b9dcace5668a49bc8d586cc2c",
+    "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialLibrarySearch.kt": "bf2f5b297096f661ed4b9ebba8de67c2aeb9dc4bb41a40267aa8df8253ebabe0"
+  },
+  "symbols": {
+    "MaterialFiles.kt": [
+      "readContent",
+      "readContentUsing",
+      "withSourceText",
+      "sameSource",
+      "updateReadState"
+    ],
+    "MaterialTools.kt": [
+      "read_material_file",
+      "read_material_text_page"
+    ]
+  },
+  "preserved": {
+    "Room": 32,
+    "sidecar": 9,
+    "Pigeon": 164,
+    "materialFileJson": "unchanged",
+    "toolSchema": "unchanged",
+    "expectedHashReads": "fresh source-bound receipts; unchanged"
+  },
+  "scope": "Actual source extraction and metadata publication only; full B04 remains PARTIAL",
+  "evidence": "HXai_CHANGE_REVIEW/B04A-LIBRARY-READ-LIFECYCLE-20261020/TEST_RESULTS.json"
+}

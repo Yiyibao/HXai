@@ -48,9 +48,10 @@ class _DiagnosticsPageState extends ConsumerState<DiagnosticsPage> {
             .showSnackBar(const SnackBar(content: Text('诊断包已脱敏并导出至本地存储')));
       }
     } catch (e) {
-      if (mounted)
+      if (mounted) {
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('导出失败: $e')));
+      }
     } finally {
       if (mounted) setState(() => _exporting = false);
     }

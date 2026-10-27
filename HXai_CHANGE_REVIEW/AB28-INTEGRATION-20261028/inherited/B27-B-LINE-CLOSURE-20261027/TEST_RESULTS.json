@@ -1,0 +1,196 @@
+{
+  "featureId": "B27-B-LINE-CLOSURE-20261027",
+  "head": "5d826d5d7d8755ed42db834d6cd6dc52ae914c69",
+  "branch": "codex/b27-file-math-closure-20261027",
+  "fullBVerdict": "BLOCK",
+  "localImplementedScopeVerdict": "PASS_SCOPED",
+  "independentReview": "NOT_EVALUATED",
+  "fullProjectAudit": "NOT_EVALUATED",
+  "currentInstalledApks": {
+    "app-x86_64-debug.apk": "65ea365bb2e1619676720583bc69eb5d8b8c9bc6d22aff37507acf7c0e6aa493",
+    "app-debug-androidTest.apk": "7aeb6defe97e24fcbca1e4b6db525a7857709f3a08c8fa66e24b0b660a6dee8e"
+  },
+  "runs": [
+    {
+      "id": "app-jvm",
+      "status": "PASS",
+      "tests": 525,
+      "raw": "APP_JVM_METADATA_RESULTS.json",
+      "build": "BUILD_USER-SYNC.json"
+    },
+    {
+      "id": "math105",
+      "status": "PASS",
+      "cases": 105,
+      "raw": "math-current/RESULT.json"
+    },
+    {
+      "id": "math-legacy",
+      "status": "PASS",
+      "cases": 4330,
+      "raw": "MATH_LEGACY_RESULT.json"
+    },
+    {
+      "id": "theorem-catalogue",
+      "status": "PASS",
+      "scope": "catalogue-readback-only",
+      "raw": "MATH_CATALOGUE_READBACK.json"
+    },
+    {
+      "id": "document-service",
+      "status": "PASS",
+      "tests": 154,
+      "warnings": 1,
+      "raw": "logs/document-service-current.log"
+    },
+    {
+      "id": "ocr-adapter-and-score",
+      "status": "PASS",
+      "tests": 39,
+      "raw": "logs/ocr-adapter-score-current.log"
+    },
+    {
+      "id": "api34-current",
+      "status": "PASS",
+      "passed": 49,
+      "failed": 0,
+      "skipped": 0,
+      "raw": "native-current-api34/RESULT.json"
+    },
+    {
+      "id": "api26-current-core-domains",
+      "status": "PASS",
+      "verdict": "PASS_SCOPED",
+      "methods": 188,
+      "passed": 187,
+      "skipped": 1,
+      "failed": 0,
+      "raw": "native-current-api26/RESULT.json",
+      "selection": "all methods except MathSharedChatRuntimeTest and MaterialLibrarySurfaceRuntimeTest"
+    },
+    {
+      "id": "api26-current-mixed",
+      "status": "FAIL",
+      "methods": 212,
+      "passed": 210,
+      "failed": 1,
+      "skipped": 1,
+      "raw": "native-current-api26/RESULT.json",
+      "failure": "No chat model selected during admission; no model substitution or mathematical disproof observed"
+    },
+    {
+      "id": "api26-shared-chat-supported-isolation",
+      "status": "PASS",
+      "methods": 23,
+      "raw": "ISOLATED_SHARED_CHAT_RESULT.json",
+      "note": "Original mixed-process FAIL remains recorded"
+    },
+    {
+      "id": "api26-current-ui",
+      "status": "PASS",
+      "methods": 1,
+      "raw": "native-current-api26/RESULT.json",
+      "selection": "MaterialLibrarySurfaceRuntimeTest only; snapshots from same production main also preserved in final-api26-surface-and-metadata"
+    },
+    {
+      "id": "actual-office-five-inputs",
+      "status": "PASS",
+      "jobs": 5,
+      "raw": "microsoft-office-final/INDEPENDENT_READBACK.json"
+    },
+    {
+      "id": "actual-native-words",
+      "status": "PASS",
+      "jobs": 2,
+      "raw": "FINAL_NATIVE_WORD_READBACK.json",
+      "productionMainUnchangedBySharedTestSync": true
+    },
+    {
+      "id": "actual-word-edit-layout",
+      "status": "PASS",
+      "raw": "OFFICE_LAYOUT_AND_LOCALITY.json"
+    },
+    {
+      "id": "old-hidden-pdf-rejection",
+      "status": "PASS",
+      "raw": "OFFICE_HIDDEN_OMISSION_NEGATIVE.json"
+    },
+    {
+      "id": "actual-ocr-engine",
+      "status": "PASS",
+      "raw": "windows-ocr-en-us/RECOGNITION_RECEIPT.json"
+    },
+    {
+      "id": "actual-ocr-math-transcription-quality",
+      "status": "FAIL",
+      "raw": "OCR_QUALITY_VERDICT.json"
+    },
+    {
+      "id": "question-reference-separation",
+      "status": "PASS",
+      "cases": 32,
+      "modelCalls": 0,
+      "raw": "math-quality-v2/CORPUS_SEAL.json"
+    },
+    {
+      "id": "scoped-byte-patch",
+      "status": "PASS",
+      "files": 7,
+      "raw": "SCOPED_PATCH_REPLAY.json"
+    },
+    {
+      "id": "combined-byte-patch",
+      "status": "PASS",
+      "files": 10,
+      "raw": "COMBINED_PATCH_REPLAY.json"
+    }
+  ],
+  "retainedEarlierFailures": [
+    {
+      "raw": "native-cancellation-baseline/RESULT.json",
+      "status": "FAIL",
+      "classification": "original cancellation candidate bug; repaired"
+    },
+    {
+      "raw": "native-final-api26/RESULT.json",
+      "status": "FAIL",
+      "classification": "discovered dynamic createdAt omission; repaired"
+    },
+    {
+      "raw": "microsoft-office-current/INDEPENDENT_READBACK.json",
+      "status": "FAIL",
+      "classification": "all-logical-page acceptance not satisfied despite prior scoped visible-page report"
+    },
+    {
+      "raw": "logs/create-api26-avd.log",
+      "status": "FAIL",
+      "classification": "setup stdin missing; retry with explicit no completed"
+    },
+    {
+      "raw": "B27_METADATA_INCREMENT.patch",
+      "status": "FAIL",
+      "classification": "first replay LF-normalized one CRLF file; exact final patch retained"
+    }
+  ],
+  "notRun": [
+    "real authorized provider mathematical answers",
+    "independent human reference adjudication",
+    "licensed real student handwriting scoring",
+    "real MinerU service/container recognition",
+    "exclusive WPS",
+    "Mate50 HarmonyOS4.2",
+    "TalkBack actual speech",
+    "ordinary Debug/Release qualification for this source",
+    "production"
+  ],
+  "commands": "COMMANDS.json; BUILD_*.json; native-*/COMMANDS.json; isolated run TEST_RUNS.json",
+  "sourceBinding": "FINAL_BUILD_BINDING.json",
+  "sourceManifest": "SOURCE_FINAL.json",
+  "inputOutputBinding": "INPUT_OUTPUT_SHA256.json",
+  "notes": [
+    "Do not sum overlapping cases or use certificate hit rate as model accuracy",
+    "Current API26 mixed-process FAIL remains open for A-line settings/fixture sequencing assessment",
+    "SELinux hard-link assumption is SKIP, never PASS",
+    "No real model/secret/private-upload/installation/deployment/subagent used"
+  ]
+}

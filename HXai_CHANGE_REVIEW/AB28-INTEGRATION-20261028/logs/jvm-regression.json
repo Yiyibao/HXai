@@ -1,0 +1,18 @@
+{
+  "label": "jvm-regression",
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\client",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\gradle-9.6.0\\bin\\gradle.bat",
+    ":app:testDebugUnitTest",
+    ":ai:testDebugUnitTest",
+    ":search:testDebugUnitTest",
+    "-PagentNativeTest=true",
+    "--offline",
+    "--console=plain",
+    "--max-workers=2"
+  ],
+  "exitCode": 0,
+  "seconds": 321.059,
+  "log": "logs\\jvm-regression.log",
+  "logSha256": "ed4c9000b95fa6c2d0f167042b782644743a9551b57edc3893e27849be163eb1"
+}

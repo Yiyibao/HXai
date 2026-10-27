@@ -8,9 +8,9 @@ import uuid
 from pathlib import Path
 
 from fastapi import FastAPI, Header, HTTPException, Request
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 
-from api.store import Store
+from api.store import Store, AuthorizationRevoked
 from api.office import readiness, register_office
 
 MAX_UPLOAD = 30 * 1024 * 1024
@@ -22,6 +22,11 @@ def create_app(root=None):
     store = Store(Path(root or os.environ.get("MATHDOC_DATA", "/var/lib/mathdoc")))
     app = FastAPI(title="MathStudy document service", docs_url=None, redoc_url=None)
     app.state.store = store
+
+    @app.exception_handler(AuthorizationRevoked)
+    async def revoked_after_authentication(_request, _error):
+        # Shared by parse/Office uploads; never return identity or token details.
+        return JSONResponse(status_code=401, content={"detail": "authentication_required"})
 
     def identity(authorization):
         if not authorization or not authorization.startswith("Bearer "):
@@ -58,7 +63,7 @@ def create_app(root=None):
                 "offline": True, "ready": ready, "maxUploadBytes": MAX_UPLOAD,
                 "maxDocumentPages": 200, "maxRequestPages": 5, "maxConcurrentJobs": 1,
                 "taskTimeoutSeconds": 900, "retentionSeconds": 86400,
-                "officePdf": readiness(store)}
+                "officePdf": readiness(store), "officeRecalculation": readiness(store, "xlsx_recalculate")}
 
     @app.post("/api/v1/parse-requests/{request_key}/cancel")
     def cancel_parse_request(request_key: str, authorization: str | None = Header(None)):

@@ -1,0 +1,53 @@
+{
+  "contractVersion": 1,
+  "corpusId": "b24-synthetic-scan-v1",
+  "provenance": {
+    "origin": "ORIGINAL_SYNTHETIC_TYPESET_AND_STROKES",
+    "author": "HXai B24-02 development assistant",
+    "license": "CC0-1.0",
+    "scope": "Original text, elementary expressions and synthetic strokes only; no font files redistributed.",
+    "truthBasis": "Author-specified literal transcription fixed before any recognition; not human handwriting labels or an authoritative mathematics benchmark."
+  },
+  "pages": [
+    {
+      "page": 1,
+      "kind": "printed_chinese_problem",
+      "tags": ["chinese", "problem_statement", "physical_page"],
+      "lines": ["合成扫描题（一）", "设函数 f(x)=x²−1，求 f(2)。", "本页只测试识别，不认证数学解答。"],
+      "ambiguous": false
+    },
+    {
+      "page": 2,
+      "kind": "literal_math_symbols",
+      "tags": ["formula", "minus_sign", "superscript", "subscript", "one_ell", "multiplication"],
+      "lines": ["x²−1=0", "x₁=1; x₂=−1", "1 ≠ l; x ≠ ×", "∫₀¹ x dx = 1/2"],
+      "ambiguous": false
+    },
+    {
+      "page": 3,
+      "kind": "table_transcription",
+      "tags": ["table_cells", "decimals", "negative_value"],
+      "lines": ["x\ty", "0\t−1", "1\t0", "2\t3", "0.5\t−0.75"],
+      "ambiguous": false
+    },
+    {
+      "page": 4,
+      "kind": "synthetic_ambiguous_stroke",
+      "tags": ["one_ell", "requires_user_confirmation", "not_real_handwriting"],
+      "lines": ["x ="],
+      "ambiguous": true,
+      "ambiguity": {
+        "description": "A single vertical stroke after x = has no disambiguating serif/context.",
+        "alternatives": ["1", "l"],
+        "resolution": "USER_CONFIRMATION_REQUIRED; neither alternative is scored as known truth."
+      }
+    },
+    {
+      "page": 5,
+      "kind": "blank",
+      "tags": ["blank", "hallucination_control"],
+      "lines": [],
+      "ambiguous": false
+    }
+  ]
+}

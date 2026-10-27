@@ -1,0 +1,21 @@
+{
+  "label": "cli-reject-incomplete",
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "command": [
+    "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "D:\\Office\\Study\\code\\MathStudyAgent\\scripts\\score_b_math_evaluation.py",
+    "score",
+    "--corpus",
+    "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\AB28-INTEGRATION-20261028\\cli-smoke\\corpus",
+    "--sealed",
+    "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\AB28-INTEGRATION-20261028\\cli-smoke\\sealed",
+    "--judgments",
+    "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\AB28-INTEGRATION-20261028\\cli-smoke\\INCOMPLETE.json",
+    "--out",
+    "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\AB28-INTEGRATION-20261028\\cli-smoke\\REJECTED.json"
+  ],
+  "exitCode": 1,
+  "seconds": 0.146,
+  "log": "logs\\cli-reject-incomplete.log",
+  "logSha256": "1e82903fe29fefdf0466dfefa05671fc3fa35300cc5f79d137be079cd10516f1"
+}

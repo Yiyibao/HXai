@@ -1,0 +1,836 @@
+[
+  {
+    "id": "contract-derivative",
+    "originalCorpusIndex": 1879,
+    "input": {
+      "operation": "derivative",
+      "expression": "(1/1)*x^0+(-5/1)*x^1+(-1/1)*x^2+(3/1)*x^3+(-1/2)*x^4",
+      "claimed_derivative": "(-5/1)*x^0+(-2/1)*x^1+(9/1)*x^2+(-2/1)*x^3"
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "canonical_coefficients": {
+        "0": "-5",
+        "1": "-2",
+        "2": "9",
+        "3": "-2"
+      }
+    }
+  },
+  {
+    "id": "contract-identity",
+    "originalCorpusIndex": 1878,
+    "input": {
+      "operation": "identity",
+      "left": "((1/1)*x^0+(-5/1)*x^1+(-1/1)*x^2+(3/1)*x^3+(-1/2)*x^4)*((-5/2)*x^0+(-2/5)*x^1+(3/2)*x^2+(-4/5)*x^3)",
+      "right": "(-5/2)*x^0+(121/10)*x^1+(6/1)*x^2+(-77/5)*x^3+(51/20)*x^4+(11/2)*x^5+(-63/20)*x^6+(2/5)*x^7"
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "canonical_coefficients": {
+        "0": "-5/2",
+        "1": "121/10",
+        "2": "6",
+        "3": "-77/5",
+        "4": "51/20",
+        "5": "11/2",
+        "6": "-63/20",
+        "7": "2/5"
+      }
+    }
+  },
+  {
+    "id": "contract-polynomial_definite_integral",
+    "originalCorpusIndex": 2247,
+    "input": {
+      "operation": "polynomial_definite_integral",
+      "expression": "(-1)*x^2+(-2/9)*x^4+(-2/3)*x^6+(5/3)*x^8",
+      "lower": "-5",
+      "upper": "-5",
+      "claimed_value": "0"
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "exact_value": "0"
+    },
+    "oracle_coefficients": [
+      "0",
+      "0",
+      "-1",
+      "0",
+      "-2/9",
+      "0",
+      "-2/3",
+      "0",
+      "5/3"
+    ]
+  },
+  {
+    "id": "contract-polynomial_taylor",
+    "originalCorpusIndex": 2764,
+    "input": {
+      "operation": "polynomial_taylor",
+      "expression": "(x+2)^0/3+x/5-7",
+      "center": "0",
+      "order": "0",
+      "claimed_coefficients": [
+        "-20/3"
+      ]
+    },
+    "expected": {
+      "status": "VERIFIED"
+    }
+  },
+  {
+    "id": "contract-polynomial_uniform_bound",
+    "originalCorpusIndex": 3104,
+    "input": {
+      "operation": "polynomial_uniform_bound",
+      "expression": "(x+1)^0/3-2*x/5",
+      "approximation": "0",
+      "lower": "-1",
+      "upper": "1",
+      "claimed_bound": "11/15"
+    },
+    "expected": {
+      "status": "VERIFIED"
+    }
+  },
+  {
+    "id": "contract-polynomial_uniform_bound_sturm",
+    "originalCorpusIndex": 3745,
+    "input": {
+      "operation": "polynomial_uniform_bound_sturm",
+      "expression": "x*(1-x)^2",
+      "approximation": "0",
+      "lower": "0",
+      "upper": "1",
+      "claimed_bound": "4/27"
+    },
+    "expected": {
+      "status": "VERIFIED"
+    }
+  },
+  {
+    "id": "contract-polynomial_uniform_bound_subdivision",
+    "originalCorpusIndex": 3439,
+    "input": {
+      "operation": "polynomial_uniform_bound_subdivision",
+      "expression": "x-x^2",
+      "approximation": "0",
+      "lower": "0",
+      "upper": "1",
+      "claimed_bound": "1/4",
+      "max_depth": "1"
+    },
+    "expected": {
+      "status": "VERIFIED"
+    }
+  },
+  {
+    "id": "contract-rational_derivative",
+    "originalCorpusIndex": 1520,
+    "input": {
+      "operation": "rational_derivative",
+      "expression": "((1/1)+(4/1)*x)/((3/1)+(-5/1)*x)",
+      "claimed_derivative": "((17/1))/((9/1)+(-30/1)*x+(25/1)*x^2)"
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "computed_left": {
+        "numerator": {
+          "0": "17/25"
+        },
+        "denominator": {
+          "0": "9/25",
+          "1": "-6/5",
+          "2": "1"
+        }
+      },
+      "claimed_right": {
+        "numerator": {
+          "0": "17/25"
+        },
+        "denominator": {
+          "0": "9/25",
+          "1": "-6/5",
+          "2": "1"
+        }
+      },
+      "cross_difference_coefficients": {},
+      "left_nonzero_polynomials": [
+        {
+          "0": "-3/5",
+          "1": "1"
+        }
+      ],
+      "right_nonzero_polynomials": [
+        {
+          "0": "9/25",
+          "1": "-6/5",
+          "2": "1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "contract-rational_equation",
+    "originalCorpusIndex": 1098,
+    "input": {
+      "operation": "rational_equation",
+      "left": "2/((x-5))+(0/1)*((x-(3/1))^3*(x^2+1))/((x-(1/1))*(x-(0/1))^2*(x^2+1))+0*(1/((x-(-1/1))))",
+      "right": "2/((x-5))+0*(1/(1))"
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "contractVersion": 4,
+      "scope": "rational_equation_on_common_defined_real_domain",
+      "domain": "Q(x)",
+      "relation": "==",
+      "canonical_sides": {
+        "left": {
+          "numerator": {
+            "0": "2"
+          },
+          "denominator": {
+            "0": "-5",
+            "1": "1"
+          }
+        },
+        "right": {
+          "numerator": {
+            "0": "2"
+          },
+          "denominator": {
+            "0": "-5",
+            "1": "1"
+          }
+        }
+      },
+      "canonical_rational_function": {
+        "numerator": {},
+        "denominator": {
+          "0": "1"
+        }
+      },
+      "left_nonzero_polynomials": [
+        {
+          "0": "-5",
+          "1": "1"
+        },
+        {
+          "2": "-1",
+          "3": "1",
+          "4": "-1",
+          "5": "1"
+        },
+        {
+          "0": "1",
+          "1": "1"
+        }
+      ],
+      "right_nonzero_polynomials": [
+        {
+          "0": "-5",
+          "1": "1"
+        }
+      ],
+      "original_nonzero_polynomials": [
+        {
+          "0": "-5",
+          "1": "1"
+        },
+        {
+          "2": "-1",
+          "3": "1",
+          "4": "-1",
+          "5": "1"
+        },
+        {
+          "0": "1",
+          "1": "1"
+        },
+        {
+          "0": "-5",
+          "1": "1"
+        }
+      ],
+      "original_domain": {
+        "ambient": "real_numbers",
+        "predicate": "all_polynomials_nonzero",
+        "nonzero_polynomials": [
+          {
+            "0": "-5",
+            "1": "1"
+          },
+          {
+            "2": "-1",
+            "3": "1",
+            "4": "-1",
+            "5": "1"
+          },
+          {
+            "0": "1",
+            "1": "1"
+          }
+        ]
+      },
+      "excluded_squarefree_coefficients": {
+        "1": "5",
+        "2": "-1",
+        "5": "-5",
+        "6": "1"
+      },
+      "critical_squarefree_coefficients": {
+        "1": "5",
+        "2": "-1",
+        "5": "-5",
+        "6": "1"
+      },
+      "real_root_count": 4,
+      "solution_intervals": [
+        {
+          "lower": {
+            "kind": "negative_infinity"
+          },
+          "upper": {
+            "kind": "root",
+            "index": 0
+          },
+          "lower_closed": false,
+          "upper_closed": false
+        },
+        {
+          "lower": {
+            "kind": "root",
+            "index": 0
+          },
+          "upper": {
+            "kind": "root",
+            "index": 1
+          },
+          "lower_closed": false,
+          "upper_closed": false
+        },
+        {
+          "lower": {
+            "kind": "root",
+            "index": 1
+          },
+          "upper": {
+            "kind": "root",
+            "index": 2
+          },
+          "lower_closed": false,
+          "upper_closed": false
+        },
+        {
+          "lower": {
+            "kind": "root",
+            "index": 2
+          },
+          "upper": {
+            "kind": "root",
+            "index": 3
+          },
+          "lower_closed": false,
+          "upper_closed": false
+        },
+        {
+          "lower": {
+            "kind": "root",
+            "index": 3
+          },
+          "upper": {
+            "kind": "positive_infinity"
+          },
+          "lower_closed": false,
+          "upper_closed": false
+        }
+      ]
+    },
+    "oracle_roots": [
+      "-1",
+      "0",
+      "1",
+      "5"
+    ],
+    "oracle_excluded": [
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  {
+    "id": "contract-rational_equation_equivalence",
+    "originalCorpusIndex": 743,
+    "input": {
+      "operation": "rational_equation_equivalence",
+      "before_left": "x^2",
+      "before_right": "-1",
+      "after_left": "1",
+      "after_right": "0"
+    },
+    "oracle_removed_polynomial": {
+      "0": "1",
+      "2": "1"
+    },
+    "oracle_added_polynomial": {
+      "0": "1"
+    },
+    "expected": {
+      "before": {
+        "canonical_sides": {
+          "left": {
+            "numerator": {
+              "2": "1"
+            },
+            "denominator": {
+              "0": "1"
+            }
+          },
+          "right": {
+            "numerator": {
+              "0": "-1"
+            },
+            "denominator": {
+              "0": "1"
+            }
+          }
+        },
+        "left_nonzero_polynomials": [],
+        "right_nonzero_polynomials": [],
+        "canonical_difference": {
+          "numerator": {
+            "0": "1",
+            "2": "1"
+          },
+          "denominator": {
+            "0": "1"
+          }
+        },
+        "excluded_squarefree_coefficients": {
+          "0": "1"
+        },
+        "solution_kind": "finite_real_roots",
+        "root_set_polynomial": {
+          "0": "1",
+          "2": "1"
+        }
+      },
+      "after": {
+        "canonical_sides": {
+          "left": {
+            "numerator": {
+              "0": "1"
+            },
+            "denominator": {
+              "0": "1"
+            }
+          },
+          "right": {
+            "numerator": {},
+            "denominator": {
+              "0": "1"
+            }
+          }
+        },
+        "left_nonzero_polynomials": [],
+        "right_nonzero_polynomials": [],
+        "canonical_difference": {
+          "numerator": {
+            "0": "1"
+          },
+          "denominator": {
+            "0": "1"
+          }
+        },
+        "excluded_squarefree_coefficients": {
+          "0": "1"
+        },
+        "solution_kind": "finite_real_roots",
+        "root_set_polynomial": {
+          "0": "1"
+        }
+      },
+      "status": "VERIFIED",
+      "verified": true,
+      "equivalent": true,
+      "proof_kind": "exact_real_solution_set_symmetric_difference",
+      "common_root_factor": {
+        "0": "1"
+      }
+    }
+  },
+  {
+    "id": "contract-rational_expression_chain",
+    "originalCorpusIndex": 947,
+    "input": {
+      "operation": "rational_expression_chain",
+      "expressions": [
+        "(x)/(x)",
+        "1",
+        "(x)/(x)"
+      ]
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "first_error_transition": null,
+      "unverified_transition": null,
+      "verified_prefix_transitions": 2
+    },
+    "oracle_domains": [
+      [
+        {
+          "1": "1"
+        }
+      ],
+      [],
+      [
+        {
+          "1": "1"
+        }
+      ]
+    ],
+    "oracle_values": [
+      {
+        "numerator": {
+          "0": "1"
+        },
+        "denominator": {
+          "0": "1"
+        }
+      },
+      {
+        "numerator": {
+          "0": "1"
+        },
+        "denominator": {
+          "0": "1"
+        }
+      },
+      {
+        "numerator": {
+          "0": "1"
+        },
+        "denominator": {
+          "0": "1"
+        }
+      }
+    ]
+  },
+  {
+    "id": "contract-rational_identity",
+    "originalCorpusIndex": 1518,
+    "input": {
+      "operation": "rational_identity",
+      "left": "((1/1)+(4/1)*x)/((3/1)+(-5/1)*x)",
+      "right": "((2/1)+(8/1)*x)/((6/1)+(-10/1)*x)"
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "computed_left": {
+        "numerator": {
+          "0": "-1/5",
+          "1": "-4/5"
+        },
+        "denominator": {
+          "0": "-3/5",
+          "1": "1"
+        }
+      },
+      "claimed_right": {
+        "numerator": {
+          "0": "-1/5",
+          "1": "-4/5"
+        },
+        "denominator": {
+          "0": "-3/5",
+          "1": "1"
+        }
+      },
+      "cross_difference_coefficients": {},
+      "left_nonzero_polynomials": [
+        {
+          "0": "-3/5",
+          "1": "1"
+        }
+      ],
+      "right_nonzero_polynomials": [
+        {
+          "0": "-3/5",
+          "1": "1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "contract-rational_inequality",
+    "originalCorpusIndex": 1238,
+    "input": {
+      "operation": "rational_inequality",
+      "expression": "(2/3)*((x-(-1/2))*(x^2+1))/((x-(2/1))*(x-(-1/2))*(x^2+1))+0*(1/(1))",
+      "relation": ">"
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "real_root_count": 2,
+      "critical_squarefree_coefficients": {
+        "0": "-1",
+        "1": "-3/2",
+        "3": "-3/2",
+        "4": "1"
+      },
+      "canonical_rational_function": {
+        "numerator": {
+          "0": "2/3"
+        },
+        "denominator": {
+          "0": "-2",
+          "1": "1"
+        }
+      },
+      "original_nonzero_polynomials": [
+        {
+          "0": "-1",
+          "1": "-3/2",
+          "3": "-3/2",
+          "4": "1"
+        }
+      ],
+      "original_domain": {
+        "ambient": "real_numbers",
+        "predicate": "all_polynomials_nonzero",
+        "nonzero_polynomials": [
+          {
+            "0": "-1",
+            "1": "-3/2",
+            "3": "-3/2",
+            "4": "1"
+          },
+          {
+            "0": "-2",
+            "1": "1"
+          }
+        ]
+      },
+      "solution_intervals": [
+        {
+          "lower": {
+            "kind": "root",
+            "index": 1
+          },
+          "upper": {
+            "kind": "positive_infinity"
+          },
+          "lower_closed": false,
+          "upper_closed": false
+        }
+      ]
+    },
+    "oracle_roots": [
+      "-1/2",
+      "2"
+    ],
+    "oracle_excluded": [
+      true,
+      true
+    ]
+  },
+  {
+    "id": "contract-rational_limit",
+    "originalCorpusIndex": 146,
+    "input": {
+      "operation": "rational_limit",
+      "expression": "(x^2-1)/(x-1)",
+      "at": "1",
+      "side": "left"
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "verified": true,
+      "canonical_rational_function": {
+        "numerator": {
+          "0": "1",
+          "1": "1"
+        },
+        "denominator": {
+          "0": "1"
+        }
+      },
+      "original_domain": {
+        "ambient": "real_numbers",
+        "predicate": "all_polynomials_nonzero",
+        "nonzero_polynomials": [
+          {
+            "0": "-1",
+            "1": "1"
+          }
+        ]
+      },
+      "side": "left",
+      "at": "1",
+      "limit": {
+        "kind": "finite",
+        "value": "2"
+      },
+      "point_defined": false,
+      "point_value": null,
+      "one_sided_limits": {
+        "left": {
+          "kind": "finite",
+          "value": "2"
+        },
+        "right": {
+          "kind": "finite",
+          "value": "2"
+        }
+      }
+    }
+  },
+  {
+    "id": "contract-rational_monotonicity",
+    "originalCorpusIndex": 0,
+    "input": {
+      "operation": "rational_monotonicity",
+      "expression": "x^3"
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "canonical_rational_function": {
+        "numerator": {
+          "3": "1"
+        },
+        "denominator": {
+          "0": "1"
+        }
+      },
+      "stationary_everywhere": false
+    },
+    "oracle_conditions": [],
+    "oracle_roots": [
+      "0"
+    ],
+    "oracle_excluded": [
+      false
+    ]
+  },
+  {
+    "id": "contract-rational_primitive_integral",
+    "originalCorpusIndex": 2423,
+    "input": {
+      "operation": "rational_primitive_integral",
+      "expression": "(3/2)/(x+2)^2",
+      "primitive": "0+(-3/2)/(x+2)^1",
+      "lower": "-1",
+      "upper": "1",
+      "claimed_value": "1"
+    },
+    "expected": {
+      "status": "VERIFIED"
+    }
+  },
+  {
+    "id": "contract-rational_uniform_bound_sturm",
+    "originalCorpusIndex": 4028,
+    "input": {
+      "operation": "rational_uniform_bound_sturm",
+      "expression": "1/(x+1)",
+      "approximation": "0",
+      "lower": "0",
+      "upper": "1",
+      "claimed_bound": "1"
+    },
+    "expected": {
+      "status": "VERIFIED"
+    }
+  },
+  {
+    "id": "nonstandard-correct-chain",
+    "input": {
+      "operation": "equal_expression_chain",
+      "expressions": [
+        "(x+1)^2",
+        "1+x+x+x*x",
+        "x*x+2*x+1"
+      ]
+    },
+    "expected": {
+      "status": "VERIFIED",
+      "verified_prefix_transitions": 2,
+      "first_error_transition": null
+    }
+  },
+  {
+    "id": "unknown-before-later-error",
+    "input": {
+      "operation": "equal_expression_chain",
+      "expressions": [
+        "x",
+        "x+0",
+        "sin(x)",
+        "x+1"
+      ]
+    },
+    "expected": {
+      "status": "UNSUPPORTED",
+      "verified_prefix_transitions": 1,
+      "first_error_transition": null,
+      "unverified_transition": 2
+    }
+  },
+  {
+    "id": "first-substantive-error",
+    "input": {
+      "operation": "equal_expression_chain",
+      "expressions": [
+        "(x+1)^2",
+        "x*x+2*x+1",
+        "x*x+1",
+        "x*x"
+      ]
+    },
+    "expected": {
+      "status": "DISPROVED",
+      "verified_prefix_transitions": 1,
+      "first_error_transition": 2
+    }
+  },
+  {
+    "id": "sampling-is-not-proof",
+    "input": {
+      "operation": "identity",
+      "left": "x*(x-1)*(x-2)*(x-3)",
+      "right": "0"
+    },
+    "expected": {
+      "status": "DISPROVED"
+    }
+  },
+  {
+    "id": "true-domain-hole-in-chain",
+    "input": {
+      "operation": "rational_expression_chain",
+      "expressions": [
+        "x+1",
+        "(x*x-1)/(x-1)"
+      ]
+    },
+    "expected": {
+      "status": "DISPROVED",
+      "first_error_transition": 1
+    }
+  },
+  {
+    "id": "unknown-transcendental-not-wrong",
+    "input": {
+      "operation": "derivative",
+      "expression": "sin(x)",
+      "claimed_derivative": "cos(x)"
+    },
+    "expected": {
+      "status": "UNSUPPORTED"
+    }
+  }
+]

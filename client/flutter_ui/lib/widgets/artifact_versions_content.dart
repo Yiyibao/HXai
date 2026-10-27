@@ -26,8 +26,9 @@ class ArtifactVersionsContent extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final artifact = watchResource(ref, resource, artifactsProvider, (item) => item.id);
-    if (artifact == null)
+    if (artifact == null) {
       return const Scaffold(body: Center(child: Text('成果不可用')));
+    }
     final artifactId = artifact.id;
     final versions = ref.watch(artifactVersionFamilyProvider(artifactId));
     return Scaffold(

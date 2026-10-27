@@ -158,7 +158,10 @@ class DocumentServiceRepository(private val context: Context, private val materi
     }
     private fun request(config: DocumentServiceConfig, route: String): Request.Builder = Request.Builder()
         .url((config.baseUrl + route).toHttpUrl()).header("Authorization", "Bearer " + vault.resolve(config.credentialReference))
-    private suspend fun execute(request: Request, beforeEnqueue: (() -> Unit)? = null): Response = suspendCancellableCoroutine { continuation ->
+    private suspend fun execute(request: Request, beforeEnqueue: (() -> Unit)? = null): Response {
+        val dispatch=currentCoroutineContext()[me.rerere.rikkahub.feature.agent.AgentToolDispatch]
+        dispatch?.check()
+        return suspendCancellableCoroutine { continuation ->
         val call = http.newCall(request)
         continuation.invokeOnCancellation { call.cancel() }
         val callback = object : Callback {
@@ -169,13 +172,18 @@ class DocumentServiceRepository(private val context: Context, private val materi
                 continuation.resume(response) { _, value, _ -> value.close() }
             }
         }
-        if (beforeEnqueue == null) call.enqueue(callback)
+        if (beforeEnqueue == null) {
+            dispatch?.check()
+            call.enqueue(callback)
+        }
         else synchronized(this@DocumentServiceRepository) {
             // Cancellation writes use this same monitor. Once intent is durable,
             // no later upload can enqueue; do not hold the monitor for the reply.
             beforeEnqueue()
+            dispatch?.check()
             call.enqueue(callback)
         }
+    }
     }
     private fun readJson(response: Response, limit: Int = 2 * 1024 * 1024): JsonObject {
         check(response.isSuccessful) { "文档服务请求失败（HTTP ${response.code}）；请核对服务配置及任务状态" }
@@ -218,7 +226,8 @@ class DocumentServiceRepository(private val context: Context, private val materi
         val source = materials.get(owner, sourceId)
         materials.verifiedFile(owner, sourceId)
         val currentConfiguration = configurationKey(config(owner))
-        val entries = tasks(owner).filter { it.sourceId == sourceId && it.sourceSha256 == source.sha256 && !it.cancelRequested }
+        val entries = tasks(owner).filter { it.sourceId == sourceId && it.sourceSha256 == source.sha256 &&
+            !it.cancelRequested && it.state != "CANCELLING" && it.state != "CANCELLED" }
             .sortedBy { it.id }.mapNotNull { task ->
                 val document = if (task.downloaded) runCatching { read(owner, task.id) }.getOrNull() ?: return@mapNotNull null else null
                 if (document == null && (task.configurationKey != currentConfiguration || task.state !in setOf("SUBMITTING", "QUEUED", "RUNNING", "SUCCEEDED", "PARTIAL"))) return@mapNotNull null
@@ -315,12 +324,25 @@ class DocumentServiceRepository(private val context: Context, private val materi
         require(state in setOf("SUCCEEDED", "PARTIAL", "FAILED", "CANCELLED", "EXPIRED"))
         return save(owner, task.copy(remoteId = remote, state = state, cancelRequested = true, cancelConfirmed = true))
     }
+    private fun sourcePageCount(file: File, extension: String): Int {
+        if (extension != "pdf") {
+            require(extension in setOf("png", "jpg", "jpeg", "webp"))
+            return 1
+        }
+        val document = com.artifex.mupdf.fitz.Document.openDocument(file.absolutePath)
+        try {
+            require(document is com.artifex.mupdf.fitz.PDFDocument && !document.needsPassword())
+            return document.countPages()
+        } finally { document.destroy() }
+    }
+
     suspend fun download(owner: String, id: String): ParsedDocument = withContext(Dispatchers.IO) {
         mutex.withLock {
             val task = task(owner, id)
             check(!task.cancelRequested) { "任务已请求取消，不会下载或交付" }
-            materials.verifiedFile(owner, task.sourceId)
-            check(materials.get(owner, task.sourceId).sha256 == task.sourceSha256) { "原文件版本已改变" }
+            val source = materials.get(owner, task.sourceId)
+            val sourceFile = materials.verifiedFile(owner, source.id)
+            check(source.sha256 == task.sourceSha256) { "原文件版本已改变" }
             if (task.downloaded) return@withLock read(owner, id)
             val config = taskConfig(owner, task); val remote = task.remoteId ?: error("提交未完成")
             val manifestJson = execute(request(config, "/api/v1/jobs/$remote/manifest").get().build()).use { readJson(it) }
@@ -347,7 +369,9 @@ class DocumentServiceRepository(private val context: Context, private val materi
                     }
                 }
                 val document = json.decodeFromString<ParsedDocument>(File(staging, "document").readText())
-                validateDocument(document, manifest)
+                DocumentContract.validateDocument(document, manifest)
+                check(document.totalPages == sourcePageCount(sourceFile, source.extension)) { "解析总页数与真实源材料不一致" }
+                materials.verifiedFile(owner, source.id)
                 File(staging, "manifest.json").writeText(manifestJson.toString())
                 val committed = File(directory(owner), "$id.result")
                 if (committed.exists()) committed.deleteRecursively()
@@ -359,24 +383,22 @@ class DocumentServiceRepository(private val context: Context, private val materi
             } finally { staging.deleteRecursively() }
         }
     }
-    private fun validateDocument(document: ParsedDocument, manifest: DocumentManifest) {
-        require(document.sourceSha256 == manifest.sourceSha256 && document.requestedRange == manifest.requestedRange && document.processedPages == manifest.processedPages && document.complete == manifest.complete)
-        require(document.contractVersion == 1 && document.tier == manifest.tier && document.parserVersion == manifest.parserVersion && document.resultRevision == manifest.resultRevision)
-        require(document.blocks.size <= 10000 && document.blocks.sumOf { it.text.length } <= 1_000_000)
-        require(document.blocks.map { it.blockId }.distinct().size == document.blocks.size)
-        document.blocks.forEach { require(it.page in document.processedPages && it.blockId.matches(Regex("p[0-9]+-b[0-9.]+")) && (it.assetId == null || manifest.assets.any { a -> a.assetId == it.assetId })) }
-    }
     fun read(owner: String, id: String): ParsedDocument {
         val task = task(owner, id); check(task.downloaded) { "结果尚未下载" }
-        materials.verifiedFile(owner, task.sourceId)
-        check(materials.get(owner, task.sourceId).sha256 == task.sourceSha256)
+        val source = materials.get(owner, task.sourceId)
+        val sourceFile = materials.verifiedFile(owner, source.id)
+        check(source.sha256 == task.sourceSha256)
         val directory = File(directory(owner), "$id.result")
         val manifest = json.decodeFromString<DocumentManifest>(File(directory, "manifest.json").readText())
         DocumentContract.validate(manifest, task.sourceSha256, task.start, task.end)
         val asset = manifest.assets.single { it.assetId == "document" }
         val file = File(directory, "document")
         check(file.length() == asset.size && MaterialFiles.digest(file) == asset.sha256)
-        return json.decodeFromString<ParsedDocument>(file.readText()).also { validateDocument(it, manifest) }
+        return json.decodeFromString<ParsedDocument>(file.readText()).also {
+            DocumentContract.validateDocument(it, manifest)
+            check(it.totalPages == sourcePageCount(sourceFile, source.extension)) { "解析总页数与真实源材料不一致" }
+            materials.verifiedFile(owner, source.id)
+        }
     }
     suspend fun cleanupRemote(owner: String, id: String) = mutex.withLock { cleanupRemoteUnlocked(owner, id) }
     private suspend fun cleanupRemoteUnlocked(owner: String, id: String) {

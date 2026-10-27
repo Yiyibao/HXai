@@ -34,7 +34,9 @@ class ProfileResourceRoute {
     String Function(T) idOf,
   ) {
     if (profileId != activeProfile || epoch != activeEpoch ||
-        list.isLoading || list.hasError) return null;
+        list.isLoading || list.hasError) {
+      return null;
+    }
     return list.value?.where((item) => idOf(item) == id).firstOrNull;
   }
 }

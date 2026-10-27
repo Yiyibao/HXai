@@ -1,0 +1,21 @@
+{
+  "label": "native-ab-mixture",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\platform-tools\\adb.exe",
+    "-s",
+    "emulator-5622",
+    "shell",
+    "am",
+    "instrument",
+    "-w",
+    "-r",
+    "-e",
+    "class",
+    "me.rerere.rikkahub.data.datastore.SettingsPublicationRuntimeTest,me.rerere.rikkahub.feature.material.MaterialMathQualityRuntimeTest,me.rerere.rikkahub.feature.agent.MathSharedChatRuntimeTest",
+    "org.hxsi.agent.nativeqa.test/me.rerere.rikkahub.feature.agent.AgentNativeTestRunner"
+  ],
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "exitCode": 0,
+  "seconds": 38.981,
+  "logSha256": "fb08a8f141cfb73e8ce089eb01b96dc5b32e23f81729222fe30ebef1a7855d4d"
+}

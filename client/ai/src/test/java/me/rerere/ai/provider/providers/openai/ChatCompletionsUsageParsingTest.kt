@@ -57,10 +57,5 @@ class ChatCompletionsUsageParsingTest {
             12,
             usage("""{"prompt_tokens":1,"completion_tokens":1,"total_tokens":2,"prompt_tokens_details":{"cached_tokens":12},"cached_tokens":7}""")?.cachedTokens
         )
-        // 都没有时为 0
-        assertEquals(
-            0,
-            usage("""{"prompt_tokens":1,"completion_tokens":1,"total_tokens":2}""")?.cachedTokens
-        )
     }
 }

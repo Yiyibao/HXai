@@ -37,11 +37,13 @@ class SurfaceLayout {
     var count = 0;
     final used = <String>[];
     void visit(dynamic node, int depth) {
-      if (++count > 64 || depth > 5)
+      if (++count > 64 || depth > 5) {
         throw const FormatException('Layout too deep');
+      }
       if (node is String) {
-        if (!ids.contains(node))
+        if (!ids.contains(node)) {
           throw const FormatException('Unknown layout reference');
+        }
         used.add(node);
         return;
       }
@@ -61,28 +63,33 @@ class SurfaceLayout {
               'weights',
               'columns',
             ].contains(k),
-          ))
+          )) {
         throw const FormatException('Invalid layout node');
+      }
       final children = node['children'];
-      if (children is! List || children.isEmpty || children.length > 24)
+      if (children is! List || children.isEmpty || children.length > 24) {
         throw const FormatException('Invalid layout children');
+      }
       if (node.containsKey('label') &&
-          (node['label'] is! String || (node['label'] as String).length > 200))
+          (node['label'] is! String || (node['label'] as String).length > 200)) {
         throw const FormatException('Invalid layout label');
+      }
       if (node.containsKey('weights')) {
         final weights = node['weights'];
         if (node['type'] != 'row' ||
             weights is! List ||
             weights.length != children.length ||
-            weights.any((w) => w is! int || w < 1 || w > 12))
+            weights.any((w) => w is! int || w < 1 || w > 12)) {
           throw const FormatException('Invalid row weights');
+        }
       }
       if (node.containsKey('columns') &&
           (node['type'] != 'grid' ||
               node['columns'] is! int ||
               node['columns'] < 1 ||
-              node['columns'] > 3))
+              node['columns'] > 3)) {
         throw const FormatException('Invalid grid columns');
+      }
       if (node['type'] == 'tabs' || node['type'] == 'accordion') {
         if (children.length > 8 ||
             children.any(
@@ -90,8 +97,9 @@ class SurfaceLayout {
                   child is! Map ||
                   child['label'] is! String ||
                   (child['label'] as String).isEmpty,
-            ))
+            )) {
           throw const FormatException('Groups need labels');
+        }
       }
       for (final child in children) {
         visit(child, depth + 1);
@@ -101,8 +109,9 @@ class SurfaceLayout {
     visit(root, 0);
     if (used.length != ids.length ||
         used.toSet().length != used.length ||
-        !used.toSet().containsAll(ids))
+        !used.toSet().containsAll(ids)) {
       throw const FormatException('Layout must contain every component once');
+    }
   }
 }
 
@@ -221,7 +230,7 @@ class SurfaceCompositionView extends StatelessWidget {
                   160,
             ) &&
             !largeText;
-        if (horizontal)
+        if (horizontal) {
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -239,6 +248,7 @@ class SurfaceCompositionView extends StatelessWidget {
                 ),
             ],
           );
+        }
         if (n['type'] == 'grid' && !largeText) {
           final columns = (n['columns'] as int? ?? 2).clamp(
             1,

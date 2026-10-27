@@ -64,9 +64,10 @@ class _ProviderEditPageState extends ConsumerState<ProviderEditPage> {
     try {
       checkCommand(await bridgeApi.openNativePage('providers'));
     } catch (e) {
-      if (mounted)
+      if (mounted) {
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('$e')));
+      }
     }
   }
 

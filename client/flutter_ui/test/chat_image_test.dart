@@ -1,12 +1,13 @@
-import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_ui/providers/frontend_feature_providers.dart';
+import 'package:flutter_ui/providers/study_providers.dart';
 import 'package:flutter_ui/bridge/study_host_api.g.dart';
 import 'package:flutter_ui/widgets/chat_image.dart';
 import 'package:flutter_ui/widgets/enhanced_image_view.dart';
@@ -14,49 +15,27 @@ import 'package:flutter_ui/widgets/interactive_surface.dart';
 import 'package:flutter_ui/widgets/math_markdown.dart';
 import 'package:flutter_ui/widgets/message_bubble.dart';
 
-class ImageClient extends Fake implements HttpClient {
-  final Uint8List bytes;
-  ImageClient(this.bytes);
+class _ImageProfile extends ActiveProfileIdNotifier {
   @override
-  Future<HttpClientRequest> getUrl(Uri url) async => ImageRequest(bytes);
+  String build() => 'image-fixture';
 }
 
-class ImageRequest extends Fake implements HttpClientRequest {
-  final Uint8List bytes;
-  ImageRequest(this.bytes);
+class _ImageEpoch extends ContextEpochNotifier {
   @override
-  Future<HttpClientResponse> close() async => ImageResponse(bytes);
+  int build() => 1;
 }
 
-class ImageResponse extends Stream<List<int>> implements HttpClientResponse {
-  final Uint8List bytes;
-  ImageResponse(this.bytes);
+class _ImageConversation extends ActiveConversationIdNotifier {
   @override
-  int get statusCode => 200;
-  @override
-  int get contentLength => bytes.length;
-  @override
-  HttpClientResponseCompressionState get compressionState =>
-      HttpClientResponseCompressionState.notCompressed;
-  @override
-  StreamSubscription<List<int>> listen(
-    void Function(List<int>)? onData, {
-    Function? onError,
-    void Function()? onDone,
-    bool? cancelOnError,
-  }) => Stream<List<int>>.value(bytes).listen(
-    onData,
-    onError: onError,
-    onDone: onDone,
-    cancelOnError: cancelOnError,
-  );
-  @override
-  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
+  String? build() => null;
 }
 
 void main() {
   late Uint8List png;
-  late String dataUrl;
+  late Directory directory;
+  late File file;
+  late String imageUrl;
+  TestWidgetsFlutterBinding.ensureInitialized();
   final boundary = GlobalKey();
 
   setUpAll(() async {
@@ -69,23 +48,52 @@ void main() {
     final image = await picture.toImage(120, 60);
     png = (await image.toByteData(format: ui.ImageByteFormat.png))!.buffer
         .asUint8List();
-    dataUrl = 'data:image/png;base64,${base64Encode(png)}';
+    directory = Directory.systemTemp.createTempSync('owned-chat-image-');
+    file = File('${directory.path}/image with spaces.png')..writeAsBytesSync(png);
+    imageUrl = file.uri.toString();
     image.dispose();
     picture.dispose();
   });
 
+  tearDownAll(() => directory.deleteSync(recursive: true));
+  setUp(() {
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(FrontendFeatures.channel, (call) async {
+          final source = (call.arguments as Map)['source'];
+          if (source == imageUrl || source == 'https://example.org/figure.png') {
+            return file.path;
+          }
+          throw PlatformException(code: 'FEATURE_FAILED', message: '图片不可用');
+        });
+  });
+  tearDown(() {
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(FrontendFeatures.channel, null);
+  });
+
+  Widget withOwner(Widget child) => ProviderScope(
+    overrides: [
+      activeProfileIdProvider.overrideWith(_ImageProfile.new),
+      contextEpochProvider.overrideWith(_ImageEpoch.new),
+      activeConversationIdProvider.overrideWith(_ImageConversation.new),
+    ],
+    child: child,
+  );
+
   Future<void> render(WidgetTester tester, Widget child) async {
     await tester.runAsync(() async {
       await tester.pumpWidget(
-        MaterialApp(
+        withOwner(MaterialApp(
           home: Scaffold(
             body: RepaintBoundary(
               key: boundary,
               child: SingleChildScrollView(child: child),
             ),
           ),
-        ),
+        )),
       );
+      await Future<void>.delayed(Duration.zero);
+      await tester.pump();
       // Wait for the engine to decode, not merely for a widget to exist.
       final images = tester.widgetList<Image>(find.byType(Image)).toList();
       for (final image in images) {
@@ -113,7 +121,7 @@ void main() {
       await render(
         tester,
         MathMarkdownView(
-          content: '这是配图前的解释。\n\n![结构示意图]($dataUrl)\n\n这是配图后的说明。',
+          content: '这是配图前的解释。\n\n![结构示意图]($imageUrl)\n\n这是配图后的说明。',
         ),
       );
       expectDecoded(tester);
@@ -127,7 +135,10 @@ void main() {
         final bytes = await screenshot.toByteData(
           format: ui.ImageByteFormat.png,
         );
-        final output = File('../../qa/chat-images-20261010/markdown.png');
+        final evidenceRoot = Directory(Platform.environment['HXAI_QA_OUTPUT'] ?? '../../qa/flutter-visual-runs')
+          ..createSync(recursive: true);
+        final outputDirectory = evidenceRoot.createTempSync('chat-image-');
+        final output = File('${outputDirectory.path}/markdown.png');
         await output.parent.create(recursive: true);
         await output.writeAsBytes(bytes!.buffer.asUint8List());
         screenshot.dispose();
@@ -152,11 +163,7 @@ void main() {
   testWidgets('image message displays local files, including user bubble', (
     tester,
   ) async {
-    final directory = Directory.systemTemp.createTempSync('chat-image-');
-    addTearDown(() => directory.deleteSync(recursive: true));
-    final file = File('${directory.path}/image with spaces.png');
-    file.writeAsBytesSync(png);
-    for (final source in [file.uri.toString(), file.path]) {
+    for (final source in [imageUrl]) {
       await render(
         tester,
         EnhancedImageView(
@@ -184,10 +191,8 @@ void main() {
   });
 
   testWidgets(
-    'interactive image loads real image bytes from network response',
+    'interactive image displays host-verified bytes without Dart networking',
     (tester) async {
-      debugNetworkImageHttpClientProvider = () => ImageClient(png);
-      addTearDown(() => debugNetworkImageHttpClientProvider = null);
       final definition = SurfaceDefinition.parse({
         'version': 3,
         'title': '带图解释',
@@ -210,7 +215,6 @@ void main() {
       );
       expectDecoded(tester);
       expect(find.text('图与说明一同展示'), findsOneWidget);
-      debugNetworkImageHttpClientProvider = null;
     },
   );
 
@@ -221,7 +225,7 @@ void main() {
         'javascript:alert(1)',
         'data:image/png;base64,broken',
       ]) {
-        await tester.pumpWidget(MaterialApp(home: ChatImage(source: source)));
+        await tester.pumpWidget(withOwner(MaterialApp(home: ChatImage(source: source))));
         await tester.pumpAndSettle();
         expect(find.text('图片加载失败'), findsOneWidget);
         expect(find.text('重新加载'), findsOneWidget);
@@ -236,7 +240,6 @@ void main() {
       for (final url in [
         null,
         'javascript:alert(1)',
-        'file:///private/photo.png',
       ]) {
         expect(
           () => SurfaceDefinition.parse({

@@ -1,0 +1,9 @@
+# SOL_CHANGE_REVIEW
+
+按Pro NEW_FEATURE_REVIEW_STANDARD/PROMPT_NEW_FEATURE_REVIEW确定继承边界、精确清单、三方文档保全与适用门禁；本批不改任务/凭据/数据库架构或做完整项目审查。独立/完整审查NOT_EVALUATED，无子代理。
+
+原始status/diff保留；集成不是两个同base分支的空merge。已有源码hash一致不重复apply；共享文档精确继承后仅追加本批说明。被测入口/源码封印/实际差异分别固定。测试/烟测详见SOL_TEST_EVIDENCE，定向假成功和正确输入/保全反证见ADVERSARIAL_REVIEW。
+
+本轮没有新增生产逻辑或测试断言，不通过改期望、隔离失败或扩大授权放行。原B真实质量FAIL继续保留；A27已经完成的修复不因为历史记录仍写FAIL而被重做。APK/AAR/Release本轮无新构建，源同一冻结包运行资格单列。
+
+裁决PASS_SCOPED仅本地源码集成及已实跑范围；回滚见VERDICT_AND_ROLLBACK。实际feature分支不推main、不部署，不恢复授权、不降库或重放未知副作用。

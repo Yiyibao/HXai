@@ -92,17 +92,22 @@ class ImageCreation internal constructor(
     private val context: Context, private val settings: SettingsStore, private val materials: MaterialFiles,
     private val configuration: () -> me.rerere.rikkahub.data.datastore.Settings = { settings.settingsFlow.value },
     private val root: File = context.filesDir.resolve("image_creation"),
+    private val requests: me.rerere.rikkahub.feature.agent.ModelRequestRunner =
+        me.rerere.rikkahub.feature.agent.ModelRequestRunner(context,settings),
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
     private val jobs = ConcurrentHashMap<String, Job>()
     private val calls = ConcurrentHashMap<String, okhttp3.Call>()
     private val json = Json { ignoreUnknownKeys = true }
     private val client = OkHttpClient.Builder().callTimeout(5, TimeUnit.MINUTES)
-        .readTimeout(5, TimeUnit.MINUTES).retryOnConnectionFailure(false).build()
+        .readTimeout(5, TimeUnit.MINUTES).retryOnConnectionFailure(false)
+        .followRedirects(false).followSslRedirects(false).build()
     private val keys = KeyRoulette.lru(context)
     init {
         root.listFiles().orEmpty().filter { MaterialFiles.validProfile(it.name) }.forEach { dir ->
-            list(dir.name).filter { it.state == "RUNNING" }.forEach { record(it.copy(state = "INTERRUPTED", error = "上次生成已中断，服务结果未知；请手动重试。")) }
+            list(dir.name).filter { it.state in setOf("RUNNING","QUEUED") }.forEach {
+                record(it.copy(state = "INTERRUPTED", error = "上次生成已中断，须核验持久请求回执；不会自动重试。"))
+            }
         }
     }
     private fun directory(owner: String): File {
@@ -137,6 +142,7 @@ class ImageCreation internal constructor(
         }
         require(list(owner).none { it.state == "RUNNING" }) { "当前档案已有图片正在生成" }
         val config = configuration()
+        require(config.activeProfileId==owner) { "图片任务配置不属于提交档案" }
         val model = config.findModelById(config.imageGenerationModelId) ?: error("请先选择图片创作模型")
         val provider = model.findProvider(config.providers) as? ProviderSetting.OpenAI ?: error("图片创作需使用 OpenAI 兼容提供商")
         require(provider.enabled && provider.apiKey.isNotBlank()) { "请启用提供商并配置模型凭据" }
@@ -149,6 +155,7 @@ class ImageCreation internal constructor(
             require(file.extension in setOf("png", "jpg", "jpeg", "webp") && file.length() <= 8 * 1024 * 1024) { "参考图格式无效或超过 8 MB" }
             file
         }
+        val referenceHashes=allRefs.associateWith { materials.get(owner,it).sha256 }
         val effectiveSize = parent?.size ?: size
         // Direct edits stream the files as multipart, without a redundant base64 copy.
         val body = if (direct) ImageCreationProtocol.imageBody(model.modelId, prompt, effectiveSize, quality)
@@ -157,12 +164,24 @@ class ImageCreation internal constructor(
                 "data:$mime;base64," + Base64.encodeToString(file.readBytes(), Base64.NO_WRAP)
             })
         val task = ImageCreationTask(id, owner, conversationId, prompt, references, parentId, parent?.rootId ?: id,
+            // The image UI projects this accepted task, not a second executor.
             (list(owner).filter { it.rootId == parent?.rootId }.maxOfOrNull { it.revision } ?: 0) + 1,
-            effectiveSize, quality, model.modelId)
+            effectiveSize, quality, model.modelId, state="QUEUED")
         record(task)
+        val accepted = requests.accept(config,"image",body.toString() + referenceHashes.values.joinToString(),
+            conversationId,requestId,if (direct) me.rerere.ai.core.ReasoningLevel.OFF else me.rerere.ai.core.ReasoningLevel.LOW)
         val job = scope.launch(start = CoroutineStart.LAZY) {
             try {
                 onChange(task)
+                requests.run(accepted,validate={ require(configuration().activeProfileId==owner) }) { lockedModel,lockedProvider,reasoning ->
+                val provider = lockedProvider as ProviderSetting.OpenAI
+                val model = lockedModel
+                allRefs.forEach { ref ->
+                    require(materials.get(owner,ref).sha256==referenceHashes.getValue(ref)) { "参考图版本已改变" }
+                    materials.verifiedFile(owner,ref)
+                }
+                val active = task.copy(state="RUNNING")
+                record(active); onChange(active)
                 val requestBody = if (!direct) body.toString().toRequestBody("application/json".toMediaType())
                     else if (allRefs.isEmpty()) body.toString().toRequestBody("application/json".toMediaType())
                     else MultipartBody.Builder().setType(MultipartBody.FORM).apply {
@@ -180,12 +199,21 @@ class ImageCreation internal constructor(
                     .post(requestBody).build()
                 val call = client.newCall(request).also { calls[id] = it }
                 ensureActive()
+                val receipt = me.rerere.ai.core.beginProviderRequest(provider,
+                    me.rerere.ai.provider.TextGenerationParams(model,reasoningLevel=reasoning),body,
+                    body.toString() + referenceHashes.values.joinToString())
                 val encoded = call.await().use { response ->
-                    if (response.code in setOf(401, 403)) throw ImageCreationFailure("图片服务凭据不可用，请检查提供商配置。")
+                    if (response.code==401 || response.code==403) {
+                        receipt?.authorizationRejected(response.code)
+                        throw ImageCreationFailure("图片服务凭据不可用，请检查提供商配置。")
+                    }
                     if (response.code == 429) throw ImageCreationFailure("图片服务达到额度或频率限制，请稍后手动重试。")
                     check(response.isSuccessful) { "HTTP ${response.code}" }
                     val source = response.body.source(); require(source.request(48L * 1024 * 1024).not()) { "图片响应过大" }
-                    if (direct) ImageCreationProtocol.imageResult(source.readUtf8()) else ImageCreationProtocol.result(source.readUtf8())
+                    val responseBody = source.readUtf8()
+                    val encoded = if (direct) ImageCreationProtocol.imageResult(responseBody) else ImageCreationProtocol.result(responseBody)
+                    receipt?.complete(me.rerere.ai.core.imageTokenUsage(Json.parseToJsonElement(responseBody).jsonObject))
+                    encoded
                 }
                 require(encoded.length <= 42 * 1024 * 1024)
                 val bytes = Base64.decode(encoded, Base64.DEFAULT)
@@ -200,19 +228,20 @@ class ImageCreation internal constructor(
                 }
                 val completed = task.copy(state = "SUCCEEDED", artifactId = artifact.id)
                 record(completed); onChange(completed)
+                }
             } catch (e: CancellationException) {
                 withContext(NonCancellable) { val cancelled = task.copy(state = "CANCELLED", error = "已停止接收生成结果；远端可能已产生费用。")
                     if (get(owner, id).state != "SUCCEEDED") { record(cancelled); runCatching { onChange(cancelled) } } }
             } catch (e: Exception) {
                 val failed = if (!isActive) task.copy(state = "CANCELLED", error = "已停止接收生成结果；远端可能已产生费用。")
-                    else task.copy(state = "FAILED", error = if (e is ImageCreationFailure) e.message else "图片生成未完成，请检查模型、接口或网络后手动重试。")
+                    else task.copy(state = "FAILED", error = if (e is ImageCreationFailure) e.message else "图片生成未完成；请核验持久请求状态，未知请求不会自动重放。")
                 if (get(owner, id).state != "SUCCEEDED") { record(failed); withContext(NonCancellable) { runCatching { onChange(failed) } } }
             } finally { calls.remove(id)?.cancel(); jobs.remove(id) }
         }
         jobs[id] = job; job.start()
         return task
     }
-    fun cancel(owner: String, id: String) { require(get(owner, id).state == "RUNNING"); jobs[id]?.cancel(); calls[id]?.cancel() }
+    fun cancel(owner: String, id: String) { require(get(owner, id).state in setOf("RUNNING","QUEUED")); jobs[id]?.cancel(); calls[id]?.cancel() }
     fun registerToolImage(owner: String, conversationId: String, artifact: MaterialFile, prompt: String, model: String) {
         require(artifact.profileId == owner && artifact.state == "SUCCEEDED" && artifact.extension == "png")
         materials.verifiedFile(owner, artifact.id)

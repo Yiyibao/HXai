@@ -35,4 +35,51 @@ class MemoryRestoreTest {
             MemoryState(fingerprintVersion = 1, recoveryBlocked = true)) { it }
         assertTrue(merged.recoveryBlocked); assertTrue(merged.items.isEmpty())
     }
+
+    @Test fun oldBackupCannotDiscardUnmappedLiveSourcesOrReviveMissingRecords() {
+        val saved = MemoryState(fingerprintVersion = 1, items = listOf(item("deleted")))
+        val live = MemoryState(fingerprintVersion = 1, legacySuppressedSources = setOf("opaque-live-v0"))
+        val merged = MemoryRestore.merge(saved, live) { it }
+        assertEquals(setOf("opaque-live-v0"), merged.legacySuppressedSources)
+        assertTrue(merged.recoveryBlocked)
+        assertTrue(merged.items.isEmpty())
+        assertEquals(2, merged.schemaVersion)
+    }
+
+    @Test fun emptyInstallationPreservesArchivedManagementRecordsAndOpaqueSources() {
+        val saved = MemoryState(fingerprintVersion = 1, items = listOf(item("kept")),
+            legacySuppressedSources = setOf("opaque-backup-v0"))
+        val merged = MemoryRestore.merge(saved, MemoryState(fingerprintVersion = 1)) { it }
+        assertEquals(saved.items, merged.items)
+        assertEquals(saved.legacySuppressedSources, merged.legacySuppressedSources)
+        assertTrue(merged.recoveryBlocked)
+        assertEquals(2, merged.schemaVersion)
+        val roundTrip = kotlinx.serialization.json.Json.decodeFromString<MemoryState>(
+            kotlinx.serialization.json.Json.encodeToString(merged))
+        assertEquals(merged, roundTrip)
+    }
+
+    @Test fun deletionMergeUnionsBothOpaqueSetsAndNeverClearsProtection() {
+        val saved = MemoryState(fingerprintVersion = 1, legacySuppressedSources = setOf("saved", "both"))
+        val live = MemoryState(fingerprintVersion = 1, legacySuppressedSources = setOf("live", "both"))
+        val merged = MemoryRestore.merge(saved, live) { it }
+        assertEquals(setOf("saved", "live", "both"), merged.legacySuppressedSources)
+        assertTrue(merged.recoveryBlocked)
+        assertEquals(merged.legacySuppressedSources,
+            MemoryRestore.merge(merged, MemoryState(fingerprintVersion = 1)) { it }.legacySuppressedSources)
+    }
+
+    @Test fun oldJsonWithoutOpaqueFieldRemainsReadable() {
+        val old = """{"fingerprintVersion":1,"epoch":3}"""
+        val state = kotlinx.serialization.json.Json.decodeFromString<MemoryState>(old)
+        assertTrue(state.legacySuppressedSources.isEmpty())
+        assertFalse(state.recoveryBlocked)
+        assertEquals(3L, state.epoch)
+    }
+
+    @Test fun futurePayloadVersionIsRejectedInsteadOfDowngraded() {
+        val future = MemoryState(schemaVersion = 3, fingerprintVersion = 1)
+        assertTrue(runCatching { MemoryRestore.merge(future, MemoryState(fingerprintVersion = 1)) { it } }.isFailure)
+        assertTrue(runCatching { MemoryRestore.merge(MemoryState(fingerprintVersion = 1), future) { it } }.isFailure)
+    }
 }

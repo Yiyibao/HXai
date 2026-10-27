@@ -1,0 +1,16 @@
+{
+  "label": "ordinary-installed-path",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\platform-tools\\adb.exe",
+    "-s",
+    "emulator-5622",
+    "shell",
+    "pm",
+    "path",
+    "org.hxsi.agent.debug"
+  ],
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "exitCode": 0,
+  "seconds": 0.273,
+  "logSha256": "92bd8b287b154e71480e0a0ea9c3df174b00a25fd19630553a657e080e2eda5e"
+}

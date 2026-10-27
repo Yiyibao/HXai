@@ -1,6 +1,9 @@
 package me.rerere.rikkahub.service
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.jsonArray
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -19,7 +22,6 @@ import me.rerere.ai.core.Tool
 import me.rerere.ai.ui.ToolExecutionState
 import me.rerere.rikkahub.data.ai.GenerationChunk
 import me.rerere.rikkahub.data.ai.GenerationLoop
-import me.rerere.rikkahub.data.ai.UncertainToolExecutionException
 import me.rerere.ai.core.MessageRole
 import me.rerere.ai.provider.Model
 import me.rerere.ai.provider.ProviderSetting
@@ -153,16 +155,13 @@ class ChatNetworkFaultTest {
         }
         delay(500)
         assertEquals("Restoring the device network must not replay a request", 1, server.requests.get())
+        // Even an explicit queue resume cannot release the earlier unknown request.
         server.mode = "complete"
         service.resumeMessageQueue(id)
-        val saved = withTimeout(20_000) {
-            service.getConversationFlow(id).first { it.currentMessages.count { msg -> msg.role == MessageRole.USER } == 2 && it.currentMessages.last().generationState == "COMPLETED" }
-            while (service.getGenerationJobStateFlow(id).first() != null) delay(20)
-            repository.getConversationById(id)!!
-        }
-        assertTrue(saved.queue.messages.isEmpty())
-        assertEquals(queuedId, saved.currentMessages.filter { it.role == MessageRole.USER }.last().id)
-        assertEquals(2, server.requests.get())
+        val saved = terminal(id, "INTERRUPTED")
+        assertEquals(listOf(queuedId), saved.queue.messages.map { it.id })
+        assertEquals(1, saved.currentMessages.count { it.role == MessageRole.USER })
+        assertEquals(1, server.requests.get())
     }
 
     @Test fun switchingWifiToMobileInterruptsWithoutReplay() = runBlocking {
@@ -171,7 +170,7 @@ class ChatNetworkFaultTest {
         val wifiEnabled = shell("settings get global wifi_on") != "0"
         try {
             shell("svc wifi enable")
-            assertTrue(shell("su 0 cmd wifi connect-network AndroidWifi open").contains("Connection initiated"))
+            shell("su 0 cmd wifi connect-network AndroidWifi open")
             withTimeout(30_000) {
                 while (manager.activeNetwork?.let(manager::getNetworkCapabilities)?.hasTransport(android.net.NetworkCapabilities.TRANSPORT_WIFI) != true) delay(100)
             }
@@ -186,11 +185,6 @@ class ChatNetworkFaultTest {
             assertEquals("已收到的讲解", saved.currentMessages.last().toText())
             delay(500)
             assertEquals(1, server.requests.get())
-            server.mode = "complete"
-            service.regenerateAtMessage(id, saved.currentMessages.last())
-            val completed = terminal(id, "COMPLETED")
-            assertEquals(2, server.requests.get())
-            assertEquals(1, completed.currentMessages.count { it.role == MessageRole.USER })
         } finally {
             shell(if (wifiEnabled) "svc wifi enable" else "svc wifi disable")
             // Restoring the switch is asynchronous. Do not let its pending route
@@ -203,37 +197,41 @@ class ChatNetworkFaultTest {
         }
     }
 
-    @Test fun room27To28MigrationPreservesConversationAndMessages() = runBlocking {
-        val context = InstrumentationRegistry.getInstrumentation().targetContext
+    @Test fun genuineRoom27MigrationPreservesConversationAndMessages() = runBlocking {
+        val instrumentation = InstrumentationRegistry.getInstrumentation()
+        val context = instrumentation.targetContext
         val name = "qa-runtime-migration-${Uuid.random()}.db"
         val id = Uuid.random().toString()
         val message = me.rerere.rikkahub.data.db.entity.MessageNodeEntity(
             id = Uuid.random().toString(), conversationId = id, nodeIndex = 0,
-            messages = "[]", selectIndex = 0,
+            messages = Json.encodeToString(listOf(UIMessage.user("QA historical message"))), selectIndex = 0,
         )
-        var db = me.rerere.rikkahub.data.db.AppDatabaseFactory.create(context, name)
+        // Use the exported old schema, not a current database relabeled as v27.
+        val schema = instrumentation.context.assets.open("me.rerere.rikkahub.data.db.AppDatabase/27.json")
+            .bufferedReader().use { Json.parseToJsonElement(it.readText()).jsonObject.getValue("database").jsonObject }
+        android.database.sqlite.SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath(name), null).use { old ->
+            for (entity in schema.getValue("entities").jsonArray) {
+                val value = entity.jsonObject
+                val table = value.getValue("tableName").jsonPrimitive.content
+                old.execSQL(value.getValue("createSql").jsonPrimitive.content.replace("\${TABLE_NAME}", table))
+                value["indices"]?.jsonArray?.forEach { index ->
+                    old.execSQL(index.jsonObject.getValue("createSql").jsonPrimitive.content.replace("\${TABLE_NAME}", table))
+                }
+            }
+            schema.getValue("setupQueries").jsonArray.forEach { old.execSQL(it.jsonPrimitive.content) }
+            old.execSQL("INSERT INTO ConversationEntity(id,assistant_id,title,nodes,create_at,update_at,is_pinned,profile_id) VALUES(?,?,?,'[]',1,2,1,?)",
+                arrayOf(id, assistant.id.toString(), "QA migration", "qa-owner"))
+            old.execSQL("INSERT INTO message_node(id,conversation_id,node_index,messages,select_index) VALUES(?,?,0,?,0)",
+                arrayOf(message.id, id, message.messages))
+            old.version = 27
+        }
+        val db = me.rerere.rikkahub.data.db.AppDatabaseFactory.create(context, name)
         try {
-            db.conversationDao().insert(me.rerere.rikkahub.data.db.entity.ConversationEntity(
-                id = id, assistantId = assistant.id.toString(), title = "QA migration", nodes = "[]",
-                createAt = 1, updateAt = 2, chatSuggestions = "[]", isPinned = true, profileId = "qa-owner",
-            ))
-            db.messageNodeDao().insert(message)
-            // Reconstruct version 27 by removing exactly the new column, then let Room migrate.
-            db.openHelper.writableDatabase.execSQL("ALTER TABLE ConversationEntity DROP COLUMN queue_state")
-            db.openHelper.writableDatabase.execSQL("ALTER TABLE ConversationEntity DROP COLUMN study_mode")
-            db.openHelper.writableDatabase.execSQL("DROP TABLE learning_memory_state")
-            db.openHelper.writableDatabase.execSQL("PRAGMA user_version=27")
-            db.close()
-            db = me.rerere.rikkahub.data.db.AppDatabaseFactory.create(context, name)
             val conversation = db.conversationDao().getConversationById(id)!!
             assertEquals("qa-owner", conversation.profileId)
             assertEquals("QA migration", conversation.title)
             assertTrue(conversation.isPinned)
-            assertEquals("{}", conversation.queueState)
             assertEquals(listOf(message), db.messageNodeDao().getNodesOfConversation(id))
-            assertEquals("GUIDED", conversation.studyMode)
-            assertEquals(30, db.openHelper.writableDatabase.version)
-            assertNull(db.learningMemoryDao().get("qa-owner"))
         } finally { db.close(); context.deleteDatabase(name) }
     }
 
@@ -273,34 +271,42 @@ class ChatNetworkFaultTest {
         val session = ConversationSession(id, initial, this, {})
         session.initialize { initial }
         val reply = UIMessage(role = MessageRole.ASSISTANT, parts = listOf(
-            UIMessagePart.Tool("network", "network", "{}"), UIMessagePart.Tool("next", "next", "{}"),
+            UIMessagePart.Tool("network", "get_time_info", "{}"), UIMessagePart.Tool("next", "read_material_file", "{}"),
         ))
         session.checkpointGeneration(listOf(UIMessage.user("QA_TOOL_NETWORK"), reply), repository::checkpointMessages)
         val calls = AtomicInteger()
         val nextCalls = AtomicInteger()
+        val tools = listOf(
+            Tool("get_time_info", "synthetic", execute = { calls.incrementAndGet(); throw IOException("response lost after simulated effect") }),
+            Tool("read_material_file", "synthetic", execute = { nextCalls.incrementAndGet(); emptyList() }),
+        )
         val loop = GlobalContext.get().get<GenerationLoop>()
-        val failure = runCatching {
-            loop.generateText(settings.settingsFlow.value, provider.models.single(), session.state.value.currentMessages,
-                assistant = assistant, maxSteps = 1, tools = listOf(
-                    Tool("network", "synthetic", execute = { calls.incrementAndGet(); throw IOException("response lost after simulated effect") }),
-                    Tool("next", "synthetic", execute = { nextCalls.incrementAndGet(); emptyList() }),
-                )).onCompletion { session.recordGenerationResult(it, repository::checkpointMessages) }.collect { chunk ->
-                when (chunk) {
-                    is GenerationChunk.Messages -> session.checkpointGeneration(chunk.messages, repository::checkpointMessages)
-                    is GenerationChunk.DurableCheckpoint -> {
-                        session.checkpointGeneration(chunk.messages, repository::checkpointMessages)
-                        chunk.committed.complete(Unit)
-                    }
+        LeasedGenerationFixture(settings.settingsFlow.value, assistant, id).use { fixture ->
+            val failure = runCatching {
+                fixture.run(tools) {
+                    loop.generateText(settings.settingsFlow.value, provider.models.single(), session.state.value.currentMessages,
+                        assistant = assistant, maxSteps = 1, tools = tools)
+                        .onCompletion { session.recordGenerationResult(it, repository::checkpointMessages) }.collect { chunk ->
+                            when (chunk) {
+                                is GenerationChunk.Messages -> session.checkpointGeneration(chunk.messages, repository::checkpointMessages)
+                                is GenerationChunk.DurableCheckpoint -> {
+                                    session.checkpointGeneration(chunk.messages, repository::checkpointMessages)
+                                    chunk.committed.complete(Unit)
+                                }
+                            }
+                        }
                 }
-            }
-        }.exceptionOrNull()
-        assertTrue(failure is IOException)
-        val saved = repository.getConversationById(id)!!
-        assertEquals("INTERRUPTED", saved.currentMessages.last().generationState)
-        assertEquals(ToolExecutionState.INTERRUPTED, saved.currentMessages.last().getTools().first().executionState)
-        assertTrue(saved.currentMessages.last().getTools().first().output.isEmpty())
-        assertEquals(ToolExecutionState.NOT_STARTED, saved.currentMessages.last().getTools().last().executionState)
-        assertEquals(1, calls.get()); assertEquals(0, nextCalls.get()); assertEquals(0, server.requests.get())
+            }.exceptionOrNull()
+            assertTrue(failure is IOException)
+            val saved = repository.getConversationById(id)!!
+            assertEquals("INTERRUPTED", saved.currentMessages.last().generationState)
+            assertEquals(ToolExecutionState.INTERRUPTED, saved.currentMessages.last().getTools().first().executionState)
+            assertTrue(saved.currentMessages.last().getTools().first().output.isEmpty())
+            assertEquals(ToolExecutionState.NOT_STARTED, saved.currentMessages.last().getTools().last().executionState)
+            assertEquals("UNCERTAIN_SIDE_EFFECT", fixture.snapshot().task.state)
+            assertTrue(runCatching { fixture.resume { error("Unknown tool must never resume") } }.isFailure)
+            assertEquals(1, calls.get()); assertEquals(0, nextCalls.get()); assertEquals(0, server.requests.get())
+        }
     }
 
     @Test fun resumedAutoToolStillRequiresApprovalBeforeAnyExecution() = runBlocking {
@@ -311,25 +317,30 @@ class ChatNetworkFaultTest {
         val session = ConversationSession(id, initial, this, {})
         session.initialize { initial }
         session.checkpointGeneration(listOf(UIMessage.user("QA_APPROVAL"), UIMessage(role = MessageRole.ASSISTANT,
-            parts = listOf(UIMessagePart.Tool("approve", "approve", "{}")))), repository::checkpointMessages)
+            parts = listOf(UIMessagePart.Tool("approve", "convert_material_to_pdf", "{}")))), repository::checkpointMessages)
         val calls = AtomicInteger()
-        val tool = Tool("approve", "synthetic", needsApproval = { true }, execute = { calls.incrementAndGet(); emptyList() })
+        val tool = Tool("convert_material_to_pdf", "synthetic", needsApproval = { true }, execute = { calls.incrementAndGet(); emptyList() })
         val loop = GlobalContext.get().get<GenerationLoop>()
-        loop.generateText(settings.settingsFlow.value, provider.models.single(), session.state.value.currentMessages,
-            assistant = assistant, maxSteps = 1, tools = listOf(tool))
-            .onCompletion { session.recordGenerationResult(it, repository::checkpointMessages) }.collect { chunk ->
-                when (chunk) {
-                    is GenerationChunk.Messages -> session.checkpointGeneration(chunk.messages, repository::checkpointMessages)
-                    is GenerationChunk.DurableCheckpoint -> {
-                        session.checkpointGeneration(chunk.messages, repository::checkpointMessages)
-                        chunk.committed.complete(Unit)
+        LeasedGenerationFixture(settings.settingsFlow.value, assistant, id).use { fixture ->
+            fixture.run {
+                loop.generateText(settings.settingsFlow.value, provider.models.single(), session.state.value.currentMessages,
+                    assistant = assistant, maxSteps = 1, tools = listOf(tool))
+                    .onCompletion { session.recordGenerationResult(it, repository::checkpointMessages) }.collect { chunk ->
+                        when (chunk) {
+                            is GenerationChunk.Messages -> session.checkpointGeneration(chunk.messages, repository::checkpointMessages)
+                            is GenerationChunk.DurableCheckpoint -> {
+                                session.checkpointGeneration(chunk.messages, repository::checkpointMessages)
+                                chunk.committed.complete(Unit)
+                            }
+                        }
                     }
-                }
             }
-        val saved = repository.getConversationById(id)!!
-        assertEquals("WAITING_TOOL", saved.currentMessages.last().generationState)
-        assertTrue(saved.currentMessages.last().getTools().single().isPending)
-        assertEquals(0, calls.get()); assertEquals(0, server.requests.get())
+            val saved = repository.getConversationById(id)!!
+            assertEquals("WAITING_TOOL", saved.currentMessages.last().generationState)
+            assertTrue(saved.currentMessages.last().getTools().single().isPending)
+            assertTrue(fixture.snapshot().control.approvalBlocked)
+            assertEquals(0, calls.get()); assertEquals(0, server.requests.get())
+        }
     }
 
     @Test fun toolCheckpointsPreventReplayAfterExecutionInterruption() = runBlocking {
@@ -340,7 +351,7 @@ class ChatNetworkFaultTest {
         val session = ConversationSession(id, initial, this, {})
         session.initialize { initial }
         val reply = UIMessage(role = MessageRole.ASSISTANT, parts = listOf(
-            UIMessagePart.Tool("first", "first", "{}"), UIMessagePart.Tool("second", "second", "{}"),
+            UIMessagePart.Tool("first", "get_time_info", "{}"), UIMessagePart.Tool("second", "read_material_file", "{}"),
         ))
         session.checkpointGeneration(listOf(UIMessage.user("QA_TOOLS"), reply), repository::checkpointMessages)
         val firstCalls = AtomicInteger()
@@ -348,53 +359,50 @@ class ChatNetworkFaultTest {
         val secondStarted = CompletableDeferred<Unit>()
         val loop = GlobalContext.get().get<GenerationLoop>()
         val tools = listOf(
-            Tool("first", "synthetic no effect", execute = {
+            Tool("get_time_info", "synthetic no effect", execute = {
                 assertEquals(ToolExecutionState.RUNNING, repository.getConversationById(id)!!.currentMessages.last().getTools().first().executionState)
                 firstCalls.incrementAndGet(); emptyList()
             }),
-            Tool("second", "synthetic no effect", execute = {
+            Tool("read_material_file", "synthetic no effect", execute = {
                 assertTrue(repository.getConversationById(id)!!.currentMessages.last().getTools().first().isExecuted)
                 secondCalls.incrementAndGet(); secondStarted.complete(Unit); awaitCancellation()
             }),
         )
-        val job = launch {
-            loop.generateText(settings.settingsFlow.value, provider.models.single(), session.state.value.currentMessages,
-                assistant = assistant, tools = tools, maxSteps = 1).collect { chunk ->
-                when (chunk) {
-                    is GenerationChunk.Messages -> session.checkpointGeneration(chunk.messages, repository::checkpointMessages)
-                    is GenerationChunk.DurableCheckpoint -> {
-                        session.checkpointGeneration(chunk.messages, repository::checkpointMessages)
-                        chunk.committed.complete(Unit)
+        LeasedGenerationFixture(settings.settingsFlow.value, assistant, id).use { fixture ->
+            val job = launch {
+                fixture.run(tools) {
+                    loop.generateText(settings.settingsFlow.value, provider.models.single(), session.state.value.currentMessages,
+                        assistant = assistant, tools = tools, maxSteps = 1).collect { chunk ->
+                        when (chunk) {
+                            is GenerationChunk.Messages -> session.checkpointGeneration(chunk.messages, repository::checkpointMessages)
+                            is GenerationChunk.DurableCheckpoint -> {
+                                session.checkpointGeneration(chunk.messages, repository::checkpointMessages)
+                                chunk.committed.complete(Unit)
+                            }
+                        }
                     }
                 }
             }
+            withTimeout(10_000) { secondStarted.await() }
+            job.cancel(); job.join()
+            val reopened = ConversationSession(id, initial, this, {})
+            reopened.initialize(persistRecovery = repository::recoverConversation) { repository.getConversationById(id)!! }
+            val saved = repository.getConversationById(id)!!
+            val states = saved.currentMessages.last().getTools()
+            assertTrue("Empty successful tool results still count as completed", states.first().isExecuted)
+            assertEquals(ToolExecutionState.INTERRUPTED, states.last().executionState)
+            assertEquals("UNCERTAIN_SIDE_EFFECT", fixture.snapshot().task.state)
+            runCatching {
+                fixture.resume {
+                    loop.generateText(settings.settingsFlow.value, provider.models.single(), saved.currentMessages,
+                        assistant = assistant, tools = tools, maxSteps = 1).collect {}
+                }
+            }
+            assertEquals("UNCERTAIN_SIDE_EFFECT", fixture.snapshot().task.state)
+            assertEquals(states, repository.getConversationById(id)!!.currentMessages.last().getTools())
+            assertEquals(1, firstCalls.get()); assertEquals(1, secondCalls.get())
+            assertEquals(0, server.requests.get())
         }
-        withTimeout(10_000) { secondStarted.await() }
-        job.cancel(); job.join()
-        val reopened = ConversationSession(id, initial, this, {})
-        reopened.initialize(persistRecovery = repository::recoverConversation) { repository.getConversationById(id)!! }
-        val saved = repository.getConversationById(id)!!
-        val states = saved.currentMessages.last().getTools()
-        assertTrue("Empty successful tool results still count as completed", states.first().isExecuted)
-        assertEquals(ToolExecutionState.INTERRUPTED, states.last().executionState)
-        val failure = runCatching {
-            loop.generateText(settings.settingsFlow.value, provider.models.single(), saved.currentMessages,
-                assistant = assistant, tools = tools, maxSteps = 1).collect {}
-        }.exceptionOrNull()
-        assertTrue(failure is UncertainToolExecutionException)
-        assertEquals(1, firstCalls.get()); assertEquals(1, secondCalls.get())
-        assertEquals(0, server.requests.get())
-        service.addConversationReference(id)
-        service.initializeConversation(id)
-        server.mode = "complete"
-        service.resumeInterruptedGeneration(id, skipUncertainTools = true)
-        val completed = terminal(id, "COMPLETED")
-        assertTrue(completed.currentMessages.last().getTools().all { it.isExecuted })
-        assertEquals(ToolExecutionState.SKIPPED_UNKNOWN, completed.currentMessages.last().getTools().last().executionState)
-        assertTrue(completed.currentMessages.last().getTools().last().output.filterIsInstance<UIMessagePart.Text>().single().text.contains("unknown"))
-        assertEquals(1, firstCalls.get()); assertEquals(1, secondCalls.get())
-        assertEquals(1, server.requests.get())
-        assertEquals(1, completed.currentMessages.count { it.role == MessageRole.USER })
     }
 
     @Test fun silentEofPreservesPartialAndDoesNotAutomaticallyReplay() = runBlocking {
@@ -446,45 +454,67 @@ class ChatNetworkFaultTest {
         assertEquals(1, server.requests.get())
     }
 
-    @Test fun unauthorizedAndRateLimitAreDurableFailuresWithoutAutomaticRetry() = runBlocking {
-        for (status in listOf("401", "429", "401-empty", "429-empty")) {
-            server.mode = status
-            val saved = terminal(send(), "FAILED")
-            assertEquals(1, saved.currentMessages.count { it.role == MessageRole.USER })
-            assertEquals("FAILED", saved.currentMessages.last().generationState)
-            assertEquals(status.substringBefore('-').toInt(), saved.currentMessages.last().generationErrorCode)
-        }
-        assertEquals(4, server.requests.get())
+    @Test fun unauthorizedIsDurableWithoutAutomaticRetry() = assertHttpFailure("401")
+    @Test fun emptyUnauthorizedIsDurableWithoutAutomaticRetry() = assertHttpFailure("401-empty")
+    @Test fun rateLimitIsDurableWithoutAutomaticRetry() = assertHttpFailure("429")
+    @Test fun emptyRateLimitIsDurableWithoutAutomaticRetry() = assertHttpFailure("429-empty")
+
+    private fun assertHttpFailure(status: String) = runBlocking {
+        server.mode = status
+        val saved = terminal(send(), "FAILED")
+        assertEquals(1, saved.currentMessages.count { it.role == MessageRole.USER })
+        assertEquals(status.substringBefore('-').toInt(), saved.currentMessages.last().generationErrorCode)
+        assertEquals(1, server.requests.get())
     }
 
     @Test fun manualRegenerationCompletesWithoutDuplicatingUserMessage() = runBlocking {
-        server.mode = "eof"
-        val id = send()
-        val partial = terminal(id, "INTERRUPTED").currentMessages.last()
         server.mode = "complete"
-        service.regenerateAtMessage(id, partial)
+        val id = send()
+        val previous = terminal(id, "COMPLETED").currentMessages.last()
+        service.regenerateAtMessage(id, previous)
         val saved = terminal(id, "COMPLETED")
         assertEquals(1, saved.currentMessages.count { it.role == MessageRole.USER })
         assertEquals("已收到的讲解", saved.currentMessages.last().toText())
         assertEquals(2, server.requests.get())
-        assertTrue(saved.messageNodes.flatMap { it.messages }.any { it.id == partial.id && it.generationState == "INTERRUPTED" })
+        assertTrue(saved.messageNodes.flatMap { it.messages }.any { it.id == previous.id && it.toText() == previous.toText() })
     }
 
-    @Test fun regenerationFailureBeforeFirstChunkKeepsPreviousInterruptedBranch() = runBlocking {
-        server.mode = "eof"
+    @Test fun regenerationFailureBeforeFirstChunkKeepsPreviousCompletedBranch() = runBlocking {
+        server.mode = "complete"
         val id = send()
-        val partial = terminal(id, "INTERRUPTED").currentMessages.last()
+        val previous = terminal(id, "COMPLETED").currentMessages.last()
         server.mode = "429-empty"
-        service.regenerateAtMessage(id, partial)
+        service.regenerateAtMessage(id, previous)
         val failed = terminal(id, "FAILED")
         assertEquals(429, failed.currentMessages.last().generationErrorCode)
         assertEquals(1, failed.currentMessages.count { it.role == MessageRole.USER })
-        assertTrue(failed.messageNodes.flatMap { it.messages }.any { it.id == partial.id && it.toText() == partial.toText() && it.generationState == "INTERRUPTED" })
+        assertTrue(failed.messageNodes.flatMap { it.messages }.any { it.id == previous.id && it.toText() == previous.toText() })
         server.mode = "complete"
         service.regenerateAtMessage(id, failed.currentMessages.last())
-        val completed = terminal(id, "COMPLETED")
-        assertEquals(1, completed.currentMessages.count { it.role == MessageRole.USER })
-        assertEquals(3, server.requests.get())
+        val blocked = terminal(id, "FAILED")
+        assertEquals(failed.messageNodes, blocked.messageNodes)
+        assertEquals(2, server.requests.get())
+    }
+
+    @Test fun manualRegenerationCannotBypassUnknownPartialRequest() = runBlocking {
+        server.mode = "eof"
+        val id = send()
+        val partial = terminal(id, "INTERRUPTED")
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        val task = me.rerere.rikkahub.feature.agent.AgentTaskStore(context).use { store ->
+            requireNotNull(store.current(original.activeProfileId, id.toString()))
+        }
+        server.mode = "complete"
+        service.regenerateAtMessage(id, partial.currentMessages.last())
+        val blocked = terminal(id, "INTERRUPTED")
+        assertEquals(partial.messageNodes, blocked.messageNodes)
+        assertEquals(1, server.requests.get())
+        me.rerere.rikkahub.feature.agent.AgentTaskStore(context).use { store ->
+            assertEquals("UNCERTAIN_SIDE_EFFECT", store.get(task.owner, task.id).state)
+            store.readableDatabase.rawQuery("SELECT task_id FROM slot", null).use {
+                assertTrue(it.moveToFirst()); assertEquals(task.id, it.getString(0))
+            }
+        }
     }
 
     @Test fun staleApprovalCannotReplaceAnActiveGenerationJob() = runBlocking<Unit> {

@@ -501,13 +501,12 @@ object ChatboxImporter {
 
     private fun parseUsage(usage: JsonObject?): TokenUsage? {
         usage ?: return null
-        val promptTokens = usage["inputTokens"]?.asInt ?: 0
-        val completionTokens = usage["outputTokens"]?.asInt ?: 0
+        val promptTokens = usage["inputTokens"]?.asInt
+        val completionTokens = usage["outputTokens"]?.asInt
         val cachedTokens = usage["cachedInputTokens"]?.asInt
             ?: usage["inputTokenDetails"]?.jsonObjectOrNull?.get("cacheReadTokens")?.asInt
-            ?: 0
-        val totalTokens = usage["totalTokens"]?.asInt ?: (promptTokens + completionTokens)
-        if (promptTokens == 0 && completionTokens == 0 && cachedTokens == 0 && totalTokens == 0) {
+        val totalTokens = usage["totalTokens"]?.asInt
+        if (promptTokens == null && completionTokens == null && cachedTokens == null && totalTokens == null) {
             return null
         }
         return TokenUsage(

@@ -54,9 +54,9 @@ interface MessageNodeDAO {
 
 data class MessageTokenStats(
     val totalMessages: Int = 0,
-    val promptTokens: Long = 0,
-    val completionTokens: Long = 0,
-    val cachedTokens: Long = 0,
+    val promptTokens: Long? = 0,
+    val completionTokens: Long? = 0,
+    val cachedTokens: Long? = 0,
 )
 
 data class MessageDayCount(val day: String, val count: Int)
@@ -65,12 +65,19 @@ data class MessageDayCount(val day: String, val count: Int)
 // 使用 CASE 而非依赖 WHERE 条件的求值顺序，无效 JSON 按空数组处理。
 private const val VALID_MESSAGES_JSON = "CASE WHEN json_valid(mn.messages) THEN mn.messages ELSE '[]' END"
 
+private fun tokenAggregate(field: String): String {
+    val assistant = "json_extract(j.value, '$.role') = 'assistant'"
+    val counter = "CAST(json_extract(j.value, '$.usage.$field') AS INTEGER)"
+    return "CASE WHEN COUNT(CASE WHEN $assistant THEN 1 END) = COUNT(CASE WHEN $assistant THEN $counter END) " +
+        "THEN COALESCE(SUM(CASE WHEN $assistant THEN $counter END),0) ELSE NULL END"
+}
+
 // SQLite json_each() 展开 messages JSON 数组，json_extract() 提取 Token 字段并聚合
 private val TOKEN_STATS_SQL = SimpleSQLiteQuery(
     "SELECT COUNT(*) AS totalMessages, " +
-        "COALESCE(SUM(CAST(json_extract(j.value, '$.usage.promptTokens') AS INTEGER)), 0) AS promptTokens, " +
-        "COALESCE(SUM(CAST(json_extract(j.value, '$.usage.completionTokens') AS INTEGER)), 0) AS completionTokens, " +
-        "COALESCE(SUM(CAST(json_extract(j.value, '$.usage.cachedTokens') AS INTEGER)), 0) AS cachedTokens " +
+        "${tokenAggregate("promptTokens")} AS promptTokens, " +
+        "${tokenAggregate("completionTokens")} AS completionTokens, " +
+        "${tokenAggregate("cachedTokens")} AS cachedTokens " +
         "FROM message_node mn, json_each($VALID_MESSAGES_JSON) j"
 )
 

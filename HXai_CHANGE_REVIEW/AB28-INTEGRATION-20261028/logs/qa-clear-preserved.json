@@ -1,0 +1,16 @@
+{
+  "label": "qa-clear-preserved",
+  "command": [
+    "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk\\platform-tools\\adb.exe",
+    "-s",
+    "emulator-5622",
+    "shell",
+    "pm",
+    "clear",
+    "org.hxsi.agent.nativeqa"
+  ],
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "exitCode": 0,
+  "seconds": 0.609,
+  "logSha256": "5a5a7a717444d3997c2a66ec5fc395ec00fc0c35a051d44db5171df42282bce1"
+}

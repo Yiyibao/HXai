@@ -72,9 +72,10 @@ class _SymbolEditorState extends ConsumerState<_SymbolEditor> {
       ref.read(materialsProvider.notifier).refresh();
       if (mounted && widget.resource.isCurrent(ref)) context.pop();
     } catch (e) {
-      if (current())
+      if (mounted && current()) {
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('$e')));
+      }
     } finally {
       if (mounted) setState(() => busy = false);
     }
@@ -106,7 +107,9 @@ class _SymbolEditorState extends ConsumerState<_SymbolEditor> {
                     label: const Text('打开原文件核对'),
                     onPressed: () async {
                       if (readResource(ref, widget.resource, materialsProvider,
-                          (m) => m.id) == null) return;
+                          (m) => m.id) == null) {
+                        return;
+                      }
                       try {
                         checkCommand(
                           await bridgeApi.openArtifact(
@@ -117,9 +120,10 @@ class _SymbolEditorState extends ConsumerState<_SymbolEditor> {
                       } catch (e) {
                         if (context.mounted &&
                             readResource(ref, widget.resource, materialsProvider,
-                                (m) => m.id) != null)
+                                (m) => m.id) != null) {
                           ScaffoldMessenger.of(context)
                               .showSnackBar(SnackBar(content: Text('$e')));
+                        }
                       }
                     },
                   ),

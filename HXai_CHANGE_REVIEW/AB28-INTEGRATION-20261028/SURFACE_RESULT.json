@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "package": "org.hxsi.agent.debug",
+  "installedSha256": "9d89f9bc12fe018a454abec11c7a2ac2cf37aadb9e0675ceb78203ea225eca8f",
+  "coldLaunch": "ok",
+  "surface": "actual Flutter task center -> real Host empty snapshot",
+  "newBuild": false,
+  "realModelCalls": 0,
+  "serial": "emulator-5622"
+}

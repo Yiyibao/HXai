@@ -1,0 +1,16 @@
+{
+  "BUILD_AND_TEST.md": {
+    "b27Sha256": "17620009875be6be23b68cf0f2f620a2b80fac6670fc4bb2068056ea677e263e",
+    "currentSha256": "cb647f896843287df8b5e942e42857eff4d2ed2a284c018b4c979ed58038fc69",
+    "appendBytes": 594,
+    "b27PrefixPreserved": true,
+    "a27AppendBeforeMatchesB27": true
+  },
+  "docs/pro-development-baseline-20261012.md": {
+    "b27Sha256": "b8a6015fe96a258e4b48183b31d899919423c28bb197d2ca119d73a6b7e98fc3",
+    "currentSha256": "94dbd4280a730fefe430c1473a75bea8624908886f25ee544c40bfb9af322322",
+    "appendBytes": 585,
+    "b27PrefixPreserved": true,
+    "a27AppendBeforeMatchesB27": true
+  }
+}
