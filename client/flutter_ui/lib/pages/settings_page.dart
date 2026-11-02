@@ -62,6 +62,11 @@ class SettingsPage extends ConsumerWidget {
                   onTap: () => context.push('/settings/extensions'),
                 ),
                 StudyRow(
+                  icon: Icons.cloud_sync_outlined,
+                  title: '云端协作与手机执行',
+                  onTap: () => context.push('/settings/cloud'),
+                ),
+                StudyRow(
                   icon: Icons.description_outlined,
                   title: '文件与文档服务',
                   onTap: () => context.push('/settings/doc-service'),

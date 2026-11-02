@@ -1,0 +1,512 @@
+[
+  {
+    "path": "BUILD_AND_TEST.md",
+    "bytes": 26279,
+    "sha256": "c9e6a898ad43d6cf1abf9fa7edecc56dc07a410823125f4f8a8c736ec67d5fe2"
+  },
+  {
+    "path": "client/ai/src/main/java/me/rerere/ai/provider/HostedConfiguration.kt",
+    "bytes": 3366,
+    "sha256": "35a80283e284b9349f624403fee29445d9cf7f52fe51478eccf2f6d0ca3a5665"
+  },
+  {
+    "path": "client/ai/src/main/java/me/rerere/ai/provider/providers/claude/ClaudeProvider.kt",
+    "bytes": 38735,
+    "sha256": "b99808b1341f60340ee4215f874749966564867e70aaa07d2170c87538566573"
+  },
+  {
+    "path": "client/ai/src/main/java/me/rerere/ai/provider/providers/google/GoogleProvider.kt",
+    "bytes": 38493,
+    "sha256": "4c0860348713e81716a1579ef61f3f5241bcd67ab79c92014f0b046512a28b49"
+  },
+  {
+    "path": "client/ai/src/main/java/me/rerere/ai/provider/providers/openai/ChatCompletionsAPI.kt",
+    "bytes": 38520,
+    "sha256": "31869576bd23aba11f1bdaf6a5db173e93844eb6a72c88edb28789d1e0515b09"
+  },
+  {
+    "path": "client/ai/src/test/java/me/rerere/ai/provider/providers/claude/ClaudePromptCacheRequestTest.kt",
+    "bytes": 9789,
+    "sha256": "a0956aa4416a9ecb72dbbc090194cbbd87d98afb4387e89cd5e62f3d67ea5a26"
+  },
+  {
+    "path": "client/ai/src/test/java/me/rerere/ai/provider/providers/claude/ClaudeServerToolTest.kt",
+    "bytes": 18263,
+    "sha256": "50dcebec6825948d18183eb873d6283c6018593946d8efdced67089e4102d223"
+  },
+  {
+    "path": "client/ai/src/test/java/me/rerere/ai/provider/providers/google/GoogleToolCombinationTest.kt",
+    "bytes": 7565,
+    "sha256": "a8209ced8c1cce5be6646a2a6269418320343f274c828f799022538421a0cd89"
+  },
+  {
+    "path": "client/ai/src/test/java/me/rerere/ai/provider/providers/openai/ChatCompletionsMoonshotRequestTest.kt",
+    "bytes": 2823,
+    "sha256": "040d1b900cc4a46a9e9678ffbe96af2e4a231875a7b803b9658e84eca2f154d2"
+  },
+  {
+    "path": "client/ai/src/test/java/me/rerere/ai/provider/providers/openai/ChatCompletionsToolSchemaTest.kt",
+    "bytes": 2166,
+    "sha256": "fcab3f5736e64581504bd6a42518d8a0f6fdb2f5672a415e7c64312ede1f154a"
+  },
+  {
+    "path": "client/app/build.gradle.kts",
+    "bytes": 12402,
+    "sha256": "5386926a167c229e6f823b17ff0b48d5f7865d5dd224381b52f2f64a0a172052"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/AgentEvaluationDeathProbe.kt",
+    "bytes": 3544,
+    "sha256": "0978f61aa7e654c3bbb2442c767452beae478798308f4e833792743471a9b019"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/AgentEvaluationRuntimeTest.kt",
+    "bytes": 11595,
+    "sha256": "e65583cddf3c33d5b03c760e3d28546f77f01d2914cd806f9a8ed4a2b79bb4bb"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/AgentTaskSurfaceTest.kt",
+    "bytes": 11786,
+    "sha256": "81951ce7eb7c0c3d8beb01c05f85e503abcabf449e87d90b565651f986d20068"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/AgentUsageExportSurfaceTest.kt",
+    "bytes": 9786,
+    "sha256": "c7ba7d38b6847ae4e805176970f0cfb96e070bc37c5c3fff78a10548fa02e84b"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/AgentUsageGroupsSurfaceTest.kt",
+    "bytes": 7611,
+    "sha256": "82b7631c2a584fa557a038fe3318ba1130d0cb377378f88e777a3d699741726b"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/AgentUsageNotificationSurfaceTest.kt",
+    "bytes": 8865,
+    "sha256": "7ae749caf6f9bbed9e5c37fa820dccb7e8d07fa82f7ab629bbe96d4ed433f40a"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/AgentUsageNotificationsRuntimeTest.kt",
+    "bytes": 13105,
+    "sha256": "23a868cb000e0086a7aa4f9d5fe0db6db99d4288a3f4af7f947b76d424bb0309"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/CloudDeviceProcessProbe.kt",
+    "bytes": 41281,
+    "sha256": "35560563619494172ea8a0f1b2ae9c6546b798b89a2733628389542567f75c78"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/service/ChatNetworkFaultTest.kt",
+    "bytes": 41332,
+    "sha256": "b901d5b7066613876536ed32bcb9a98757f926dda82b17db5de795136f26749e"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/service/CredentialVaultTest.kt",
+    "bytes": 11032,
+    "sha256": "9fa3df337e70523b7af13b8b5b246d5cfe3297518127c4d6998fd6eb053a0cf8"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/service/FlutterChatBridgeTest.kt",
+    "bytes": 69007,
+    "sha256": "8c4928acb6f19ff9db69eb48402344ce1e1cb33c7a8e646cd5db0c6ef97d98ce"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/data/ai/GenerationLoop.kt",
+    "bytes": 42770,
+    "sha256": "f26d9f1aab1d8427af66c5ff23fe7b5729a7619f9b4244cf89360877f766327b"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/data/ai/GenerationPrompts.kt",
+    "bytes": 2616,
+    "sha256": "6bd3c063131226e41b0bbc0b3ab60b1edb6c3443a26677d08b10fffd69af92b2"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/data/datastore/CredentialVault.kt",
+    "bytes": 5060,
+    "sha256": "d80364bdf5d093920aa37ec8a8cb1432dff4feacf2f0393edf4633486f3e66e8"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/AgentEvaluationExport.kt",
+    "bytes": 7187,
+    "sha256": "7c725c6213aaee87cc4d9c1343e7346d6ab7a5cfdca41332d5ff4567f1157924"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/AgentEvaluationSnapshot.kt",
+    "bytes": 6041,
+    "sha256": "cf4e085f97a71ec074114f4525b7de48b0f13e1f93816a32fbcb7a3507e94bcc"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/AgentScheduler.kt",
+    "bytes": 34694,
+    "sha256": "8ebb85d386234cf1bc7ba4aab7bff2e02bbd6ccea8f311d9b2bdf1bc203806eb"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/AgentTaskStore.kt",
+    "bytes": 73953,
+    "sha256": "30b4f92fff52d6189980c69ad0820e0ad1d5bfa68d01b119458a935534a9bdf1"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/AgentUsageNotifications.kt",
+    "bytes": 5901,
+    "sha256": "d0d0d6d183ff972033a79d2c11a832abba456fe86c83f8ea5830bad949972b8a"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/CloudFrontend.kt",
+    "bytes": 36075,
+    "sha256": "46a9f9138b478620ad1463acf0401c89a29d23ed1bd7b5502787bea9cb5362c3"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/CloudNativeEvidence.kt",
+    "bytes": 1819,
+    "sha256": "f81957ca32870642dd15a34e7acefa1d169b10585922f1fc29e46af1b3a7ae49"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/CloudWorkspace.kt",
+    "bytes": 21648,
+    "sha256": "20726e00b7ee1b08a3c003c6426b1f89d6ded9949503700a1816d8e4eaace8fb"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/HostedUsage.kt",
+    "bytes": 5395,
+    "sha256": "8b7998bcf97eaf0444a24a4383780f25c996b55fb3f44e6be68a7e3652154654"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/TaskPlanner.kt",
+    "bytes": 29724,
+    "sha256": "5485ce272433fcab5b41e70ca92e645776fcd42646271f9bb54fb93ae9dc1e29"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/material/DocumentServiceRepository.kt",
+    "bytes": 32459,
+    "sha256": "4e1fb05eda27149d7bcd91475425183c64085531385c103aa294d543e5eec33a"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/flutter/StudyHostFacade.kt",
+    "bytes": 115960,
+    "sha256": "9ee8869256449729ed3acd5923b74c1e295169255278fdf44ca4293c37900dbd"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/service/ChatService.kt",
+    "bytes": 111675,
+    "sha256": "57e4db1a15d3f9560378526be4c4658af9bb4475ed4ed7259378bb9679ecaec9"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/service/ConversationSession.kt",
+    "bytes": 19158,
+    "sha256": "7d87b440536e17603dd2aa20bffd61d915b6028d329f120f2f797784050d1c1e"
+  },
+  {
+    "path": "client/app/src/test/java/me/rerere/rikkahub/service/ConversationSessionTest.kt",
+    "bytes": 28461,
+    "sha256": "421397df892a9c00e8bdbb6436f92523493f509da3b6522b095ddfdf3a0ecb26"
+  },
+  {
+    "path": "client/flutter_ui/lib/pages/agent_task_detail_page.dart",
+    "bytes": 15437,
+    "sha256": "9c5e144877e256c6188c780822e94471bef4ba3ee7a714c6a3802fce9c4cde67"
+  },
+  {
+    "path": "client/flutter_ui/lib/pages/cloud_workspace_page.dart",
+    "bytes": 4768,
+    "sha256": "c0a7d855e14c97017d8922c223796123bc408ad7f315ff31b856149fc009133e"
+  },
+  {
+    "path": "client/flutter_ui/lib/pages/settings_page.dart",
+    "bytes": 4077,
+    "sha256": "221afad46200fc18056dbdc7bf5f73456456c03a583aefef15a5fc90a175f179"
+  },
+  {
+    "path": "client/flutter_ui/lib/router.dart",
+    "bytes": 9625,
+    "sha256": "997449f5d5ecad64fe6d8421fadf97c917202c510062f30edc4421dd448cd9a4"
+  },
+  {
+    "path": "client/flutter_ui/lib/widgets/agent_evaluation_export.dart",
+    "bytes": 8003,
+    "sha256": "7cae7fe65201884b9aa8cad6ead1db69c6cba69fc463f64e45a39e62e797c8c6"
+  },
+  {
+    "path": "client/flutter_ui/lib/widgets/cloud_task_panel.dart",
+    "bytes": 18220,
+    "sha256": "59a45ae5e367c1a996f9569ccc6e53f1cdc1c663ba13a8a1772cedb24ca912e5"
+  },
+  {
+    "path": "client/flutter_ui/test/agent_evaluation_export_test.dart",
+    "bytes": 4939,
+    "sha256": "32e8bbb82eea3200419ac6dc93a7c52eb1d9f440b5ec8c88e3df9675ee7fcde6"
+  },
+  {
+    "path": "client/flutter_ui/test/agent_task_catalog_test.dart",
+    "bytes": 18798,
+    "sha256": "92b4317b6e44f3ff16c5f7479498fa805d569c872d7cb4eaf634657e0ddb4b68"
+  },
+  {
+    "path": "client/flutter_ui/test/agent_task_resume_test.dart",
+    "bytes": 12418,
+    "sha256": "da3c06c9f43f32c51b0794f68e48b0bc83be4d9072724cd35bde1606b3bbf0f8"
+  },
+  {
+    "path": "client/flutter_ui/test/agent_task_safety_test.dart",
+    "bytes": 11874,
+    "sha256": "f3a3e1c9ebed0ad850321d04a2e3dc3f7c109898ce7dde6c372fb517c6d05ddc"
+  },
+  {
+    "path": "client/flutter_ui/test/cloud_workspace_accessibility_test.dart",
+    "bytes": 1414,
+    "sha256": "6ff7ef74be7bf1668d4c1b2ddf6c8732d3e83bdb27b39337073106d28985298a"
+  },
+  {
+    "path": "docs/pro-development-baseline-20261012.md",
+    "bytes": 77153,
+    "sha256": "539069aaf97b0033cff2c8e063a8ae128a605ffb7aff6cbb5cc033d2a16004bf"
+  },
+  {
+    "path": "docs/quality-06-09-contract1.md",
+    "bytes": 9887,
+    "sha256": "163104e95d831139819a503854c977d02f69472e50635e87bbc62e28769a74af"
+  },
+  {
+    "path": "docs/r27-cloud-device-protocol-v1.md",
+    "bytes": 18250,
+    "sha256": "f7603e7807d86e9eb8fb9cf272694a6079c95bf40f4813fef2724698a251ffc7"
+  },
+  {
+    "path": "qa/rendering-upgrade-20261010/render-390-dark.png",
+    "bytes": 47665,
+    "sha256": "40f7ea77444a8a0b6a34462a309b2a1715d7c0424d4073ce4e946598fd67e14f"
+  },
+  {
+    "path": "qa/rendering-upgrade-20261010/render-390-light.png",
+    "bytes": 47835,
+    "sha256": "e6356c244538feaaade0ab3f797bb3da31cd29310d4a89426fdec5825951bc09"
+  },
+  {
+    "path": "qa/rendering-upgrade-20261010/render-960-dark.png",
+    "bytes": 55121,
+    "sha256": "424c31cf2a4dc7a4069dd6a5f1bac7433d13f2802fbfc16d2c209d776bab7239"
+  },
+  {
+    "path": "qa/rendering-upgrade-20261010/render-960-light.png",
+    "bytes": 55541,
+    "sha256": "70c687635b57c353d4787370ec82fad28e38b8a54b800d85c01873ac10852c56"
+  },
+  {
+    "path": "scripts/b_windows_ocr.ps1",
+    "bytes": 5961,
+    "sha256": "f6645a9a74998fbc79176dc52bf26bb9762fa7e6ed67b5f1dd0369bb9fd2ade2"
+  },
+  {
+    "path": "scripts/import_agent_evaluation.py",
+    "bytes": 8361,
+    "sha256": "a8112ee5c4d423c497c184ef4728370b3c06a9dd1e3242e780f3b5e5834c1149"
+  },
+  {
+    "path": "scripts/office_roundtrip_contract.py",
+    "bytes": 13430,
+    "sha256": "c7b940fb70009e7af15c666033f82b69f902a9dbdc14578907c8335317e0e04b"
+  },
+  {
+    "path": "scripts/tests/test_import_agent_evaluation.py",
+    "bytes": 5690,
+    "sha256": "330fc2c3c36698ba82bca67814407f71ecdb4f645a6ad63818d97ee1d7cf38cf"
+  },
+  {
+    "path": "scripts/tests/test_verify_b_ocr_corpus.py",
+    "bytes": 9248,
+    "sha256": "35d68b514c44320e6611633ff6f50e82557c9f645a68911658f02aa380b44770"
+  },
+  {
+    "path": "scripts/tests/test_verify_b_office_roundtrip.py",
+    "bytes": 8241,
+    "sha256": "18294dd466e879111c72a08b226e6e8062c86b82ade31c6c0810c291c051b605"
+  },
+  {
+    "path": "scripts/tests/test_verify_b_windows_ocr.py",
+    "bytes": 3985,
+    "sha256": "f54bb7cb11df6366c9925d67ec64847169393a2b9ab4f233c8cbba75f098bdc4"
+  },
+  {
+    "path": "scripts/verify_agent_evaluation_process.py",
+    "bytes": 5775,
+    "sha256": "047248afe0593ae26288e51b0d46d893f282652c9b806ca14ef485c84773aada"
+  },
+  {
+    "path": "scripts/verify_b_microsoft_office.py",
+    "bytes": 14456,
+    "sha256": "b5293cb533086331620697a5250f436e1b3bf31b3be3da7a0a2ae98d436c1aa9"
+  },
+  {
+    "path": "scripts/verify_b_ocr_corpus.py",
+    "bytes": 19507,
+    "sha256": "457db24039c7927cf35a62f1dfb621408c600eea812bb597d875a8f0748970ad"
+  },
+  {
+    "path": "scripts/verify_b_office_compatibility.py",
+    "bytes": 9013,
+    "sha256": "05d32f03f77f6be57f3280e69d057788593a495696377cca323dad097a911745"
+  },
+  {
+    "path": "scripts/verify_b_windows_ocr.py",
+    "bytes": 11632,
+    "sha256": "52d440d318faeca5e066411eaf904a5b70525976b66684fa8d50191713c6e5c0"
+  },
+  {
+    "path": "scripts/verify_b_xlsx_service.py",
+    "bytes": 7190,
+    "sha256": "fef00b6ae11482953b00c97565f830eb296831db1b11151fa18779738e02ec54"
+  },
+  {
+    "path": "scripts/verify_r27_android.py",
+    "bytes": 28692,
+    "sha256": "42668fb9af5b231377eaf73fb1b7fabef31caf6796d9127de06e50ef3eb1ac35"
+  },
+  {
+    "path": "scripts/verify_r27_authority.py",
+    "bytes": 10739,
+    "sha256": "faf0592cede1ee540561f17e685ea01210435cf0609647d21a6e5ca29d11323d"
+  },
+  {
+    "path": "scripts/verify_r27_cloud.py",
+    "bytes": 11798,
+    "sha256": "e0e835996097b0117f89a6e43f189b7ff01406008e7e0eea8f356cb86fff882a"
+  },
+  {
+    "path": "scripts/verify_r29_documents.py",
+    "bytes": 14357,
+    "sha256": "9ecf4510ac0fc8819f45191a549238023ec6de43597cfc0174215b7da266a9f9"
+  },
+  {
+    "path": "scripts/verify_r29_tls.py",
+    "bytes": 11679,
+    "sha256": "ebaeb6ad305c36539bc8a3f6146f6cdc4b9bda4c4534a80645b54d9b8a73f48e"
+  },
+  {
+    "path": "scripts/verify_r29_validation.py",
+    "bytes": 8961,
+    "sha256": "7aaa81dfadefa6b9b66a01c08f6eafdcbc5cf47191ee570f90ea40530889d14d"
+  },
+  {
+    "path": "server/agent-runtime/README.md",
+    "bytes": 8629,
+    "sha256": "fbb49502b0323fbf431c5850415ca287d75a7081589ae0d95fe10f07cd5b87e9"
+  },
+  {
+    "path": "server/agent-runtime/hxai_agent/authority.py",
+    "bytes": 24881,
+    "sha256": "6aaabe8117c64910db9f8200be2c10ccdc20cc0ba0c5944f6a45bcfc476f558c"
+  },
+  {
+    "path": "server/agent-runtime/hxai_agent/cloud.py",
+    "bytes": 64891,
+    "sha256": "83b2badbe94cf69d14dd703266ae0291f246ddc893753c0d7ab4bd5044ad14af"
+  },
+  {
+    "path": "server/agent-runtime/hxai_agent/documents.py",
+    "bytes": 25832,
+    "sha256": "e5d4d752beec4a7085e455ecc8f810679df6fc2696e69ae8aa4271118fd31109"
+  },
+  {
+    "path": "server/agent-runtime/hxai_agent/domain.py",
+    "bytes": 3977,
+    "sha256": "60a2092bf16c52fa381b647830f5cf8d3d9f70f2c4e033d790ddbec2c893fe6e"
+  },
+  {
+    "path": "server/agent-runtime/hxai_agent/hosting.py",
+    "bytes": 1108,
+    "sha256": "71e2f97f0a0a94df377832193c0318f5d1092e58f221435155ee0e12afcf78ae"
+  },
+  {
+    "path": "server/agent-runtime/hxai_agent/provider.py",
+    "bytes": 10801,
+    "sha256": "2de06ba2463a98fc70cb87d9a7a87616005c5639f81107dd9e2eb104514f148b"
+  },
+  {
+    "path": "server/agent-runtime/hxai_agent/service.py",
+    "bytes": 12176,
+    "sha256": "e9dc72591b7634dd0220e2795c56e421f4f002318a6bfa59e9888ff0441468af"
+  },
+  {
+    "path": "server/agent-runtime/hxai_agent/store.py",
+    "bytes": 37583,
+    "sha256": "818c92ff049eab65ada2a31d6647efcbbdc0bae34b7a06ea27ec161148c7851e"
+  },
+  {
+    "path": "server/agent-runtime/hxai_agent/vault.py",
+    "bytes": 1920,
+    "sha256": "f5bc12d50b4e297f11542030b976009b46afe58a3c7a456ba562ef878f4fc9b6"
+  },
+  {
+    "path": "server/agent-runtime/hxai_agent/worker.py",
+    "bytes": 17765,
+    "sha256": "690003989a2e3d27db3d4d900caee761b6d075bc111abec5470cd448eea00cae"
+  },
+  {
+    "path": "server/agent-runtime/protocol/agent_semantics_v6.json",
+    "bytes": 1702,
+    "sha256": "357707d833f068b86aaf4f2ee667b2531760268f9f4590c751a33172d1f6a789"
+  },
+  {
+    "path": "server/agent-runtime/tests/test_cloud_device.py",
+    "bytes": 15696,
+    "sha256": "2bbaf085cdacdb1fb9950572c8811392605017a60ba8779a14ce89295fae6f9e"
+  },
+  {
+    "path": "server/agent-runtime/tests/test_hosted_documents.py",
+    "bytes": 7484,
+    "sha256": "52d1b1d2b62985a92de289178fddfd83d52438da8e70285ce08012c8a5a5d915"
+  },
+  {
+    "path": "server/agent-runtime/tests/test_hosting_lifecycle.py",
+    "bytes": 10312,
+    "sha256": "197d3841d2a1059817be29b4acfe7d8847e23677b1ccc05831bd65fd35b66923"
+  },
+  {
+    "path": "server/agent-runtime/tests/test_network_authority.py",
+    "bytes": 7506,
+    "sha256": "9ee585c12c246262483bbd2197af82b44127590e0ae6276d4e7990a27d283010"
+  },
+  {
+    "path": "server/agent-runtime/tests/test_tls_recovery.py",
+    "bytes": 2255,
+    "sha256": "c408dc720c5b55d0dc0471c543b0443a57049c3f5b1e55bd83655fa3501e3a9e"
+  },
+  {
+    "path": "server/document-service/README.md",
+    "bytes": 20638,
+    "sha256": "eb84edeb49c67c10182e49a9b4076e1ee8f145a0f76f6e28fb52de36ce14ffe7"
+  },
+  {
+    "path": "server/document-service/api/main.py",
+    "bytes": 9154,
+    "sha256": "fb5fea82161b20671d616d7a3b06369f1b2772327caaec24574ad4d4bb7bc413"
+  },
+  {
+    "path": "server/document-service/api/office_output.py",
+    "bytes": 2173,
+    "sha256": "8f003affb11d9b821cbedcb97287257d1291fc632889ebbeec86d8fc6f4cfb59"
+  },
+  {
+    "path": "server/document-service/api/output.py",
+    "bytes": 4841,
+    "sha256": "2ea49cea3077fbd21f1075d6c010fe93cbebe2f00dbb09c84c937d7d1ac8e7e0"
+  },
+  {
+    "path": "server/document-service/api/recalculation_output.py",
+    "bytes": 1183,
+    "sha256": "890ca083ebce8697d9a59cd3fe23842fd89e2321f7614c038f98ca9455f531d4"
+  },
+  {
+    "path": "server/document-service/api/store.py",
+    "bytes": 14478,
+    "sha256": "3d441107a386af65b1ca67516208d405ba2bb0a193ff3ae8ad4e20ca667a88ab"
+  },
+  {
+    "path": "server/document-service/dispatcher/main.py",
+    "bytes": 12303,
+    "sha256": "4fbcc4525efa2bf50a346f9acbf0ae97696897b1eb5dc731c265539fd5573fa5"
+  },
+  {
+    "path": "server/document-service/tests/test_execution_receipts.py",
+    "bytes": 2174,
+    "sha256": "c4358c84f48ecfc95a18b2fa36c925690488237317a622c8c3289efefa6701be"
+  }
+]

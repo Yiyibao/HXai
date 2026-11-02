@@ -43,7 +43,7 @@ internal object AgentUsageNotificationReader {
 
 /** At most one attempt per task/rule, including across process exit. Not a delivery receipt. */
 internal class AgentUsageNotificationJournal(context: Context, name: String = "agent-usage-notifications-v1.db") :
-    SQLiteOpenHelper(context,context.noBackupFilesDir.resolve(name).absolutePath,null,1) {
+    SQLiteOpenHelper(context,context.noBackupFilesDir.resolve(name).absolutePath,null,1), java.io.Closeable {
     override fun onConfigure(db: SQLiteDatabase) { db.execSQL("PRAGMA synchronous=FULL") }
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL("CREATE TABLE attempts (event_key TEXT PRIMARY KEY, attempted_at INTEGER NOT NULL)")

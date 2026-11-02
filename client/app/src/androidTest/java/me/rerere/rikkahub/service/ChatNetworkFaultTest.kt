@@ -129,12 +129,21 @@ class ChatNetworkFaultTest {
         InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand(command)
     ).bufferedReader().use { it.readText().trim() }
 
+    private fun airplane(enabled: Boolean) {
+        if(android.os.Build.VERSION.SDK_INT>=30) {
+            shell("cmd connectivity airplane-mode ${if(enabled) "enable" else "disable"}")
+        } else {
+            shell("su 0 settings put global airplane_mode_on ${if(enabled) 1 else 0}")
+            check(shell("su 0 am broadcast -a android.intent.action.AIRPLANE_MODE --ez state $enabled").contains("Broadcast completed"))
+        }
+    }
+
     @Test fun deviceAirplaneModeInterruptsStreamAndQueueRequiresManualResume() = runBlocking {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         val manager = context.getSystemService(ConnectivityManager::class.java)
-        val airplane = shell("settings get global airplane_mode_on") == "1"
+        val wasAirplane = shell("settings get global airplane_mode_on") == "1"
         assertNotNull("Fixture needs an initial device default network", manager.activeNetwork)
-        assertFalse("Fixture starts with airplane mode disabled", airplane)
+        assertFalse("Fixture starts with airplane mode disabled", wasAirplane)
         server.mode = "stall"
         val id = send()
         withTimeout(20_000) { service.getConversationFlow(id).first { it.currentMessages.lastOrNull()?.toText() == "已收到的讲解" } }
@@ -142,7 +151,7 @@ class ChatNetworkFaultTest {
         withTimeout(10_000) { service.getConversationFlow(id).first { it.queue.messages.size == 1 } }
         val queuedId = service.getConversationFlow(id).value.queue.messages.single().id
         try {
-            shell("cmd connectivity airplane-mode enable")
+            airplane(true)
             withTimeout(20_000) { while (manager.activeNetwork != null) delay(100) }
             val saved = terminal(id, "INTERRUPTED")
             assertEquals("已收到的讲解", saved.currentMessages.last().toText())
@@ -150,7 +159,7 @@ class ChatNetworkFaultTest {
             assertEquals(queuedId, repository.getConversationById(id)!!.queue.messages.single().id)
             assertEquals(1, server.requests.get())
         } finally {
-            shell("cmd connectivity airplane-mode disable")
+            airplane(false)
             withTimeout(30_000) { while (manager.activeNetwork == null) delay(100) }
         }
         delay(500)
@@ -168,9 +177,11 @@ class ChatNetworkFaultTest {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         val manager = context.getSystemService(ConnectivityManager::class.java)
         val wifiEnabled = shell("settings get global wifi_on") != "0"
+        val mobileEnabled=shell("settings get global mobile_data")!="0"
         try {
             shell("svc wifi enable")
-            shell("su 0 cmd wifi connect-network AndroidWifi open")
+            if(android.os.Build.VERSION.SDK_INT>=30) shell("su 0 cmd wifi connect-network AndroidWifi open")
+            shell("svc data enable")
             withTimeout(30_000) {
                 while (manager.activeNetwork?.let(manager::getNetworkCapabilities)?.hasTransport(android.net.NetworkCapabilities.TRANSPORT_WIFI) != true) delay(100)
             }
@@ -186,13 +197,16 @@ class ChatNetworkFaultTest {
             delay(500)
             assertEquals(1, server.requests.get())
         } finally {
-            shell(if (wifiEnabled) "svc wifi enable" else "svc wifi disable")
-            // Restoring the switch is asynchronous. Do not let its pending route
-            // change interrupt the next HTTP-only fixture before it sends a request.
-            val restoredTransport = if (wifiEnabled) android.net.NetworkCapabilities.TRANSPORT_WIFI
-                else android.net.NetworkCapabilities.TRANSPORT_CELLULAR
-            withTimeout(30_000) {
-                while (manager.activeNetwork?.let(manager::getNetworkCapabilities)?.hasTransport(restoredTransport) != true) delay(100)
+            try {
+                shell(if (wifiEnabled) "svc wifi enable" else "svc wifi disable")
+                // Wait for the original route before the next HTTP-only fixture.
+                val restoredTransport = if (wifiEnabled) android.net.NetworkCapabilities.TRANSPORT_WIFI
+                    else android.net.NetworkCapabilities.TRANSPORT_CELLULAR
+                withTimeout(30_000) {
+                    while (manager.activeNetwork?.let(manager::getNetworkCapabilities)?.hasTransport(restoredTransport) != true) delay(100)
+                }
+            } finally {
+                if(!mobileEnabled) shell("svc data disable")
             }
         }
     }

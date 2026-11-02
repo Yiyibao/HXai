@@ -178,6 +178,13 @@ WHEN NEW.model_json != OLD.model_json BEGIN SELECT RAISE(ABORT,'model_lock_immut
 
 
 class TaskStore:
+    # A network host may add a separately versioned, exact table set. The local
+    # reference never accepts that database or silently downgrades its schema.
+    schema_version = SCHEMA_VERSION
+    extension_schema = ''
+    extension_tables = frozenset()
+    extension_migrations = {}
+
     def __init__(self, path: Path):
         self.path = Path(path).absolute()
         self.path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
@@ -188,7 +195,8 @@ class TaskStore:
             application = db.execute('PRAGMA application_id').fetchone()[0]
             tables = {r[0] for r in db.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'")}
             expected = {'tasks', 'execution_slot', 'calls', 'events', 'usage'}
-            if version not in (0, 1, SCHEMA_VERSION):
+            expected |= self.extension_tables if version == self.schema_version else self.extension_migrations.get(version,(set(),''))[0]
+            if version not in {0, 1, SCHEMA_VERSION, self.schema_version, *self.extension_migrations}:
                 raise RuntimeError('unsupported_schema_do_not_reset')
             if version == 0 and (tables or application not in (0, APPLICATION_ID)):
                 raise RuntimeError('unrelated_database_do_not_modify')
@@ -198,7 +206,7 @@ class TaskStore:
                 columns = {r[1] for r in db.execute('PRAGMA table_info(tasks)')}
                 if application not in (0, APPLICATION_ID) or not {'intent_hash','device_confirmation','acceptance_json','auth_epoch','model_json'} <= columns:
                     raise RuntimeError('unrecognized_legacy_task_schema')
-            if version == SCHEMA_VERSION and application != APPLICATION_ID:
+            if version >= SCHEMA_VERSION and application != APPLICATION_ID:
                 raise RuntimeError('wrong_database_application_id')
             db.execute('PRAGMA journal_mode=WAL')
             if version == 1:
@@ -207,6 +215,10 @@ class TaskStore:
             elif version == 0:
                 db.executescript('BEGIN IMMEDIATE;\n' + SCHEMA +
                     f'\nPRAGMA application_id={APPLICATION_ID};\nPRAGMA user_version={SCHEMA_VERSION};\nCOMMIT;')
+            if self.schema_version != SCHEMA_VERSION and version != self.schema_version:
+                migration=self.extension_migrations.get(version,(None,self.extension_schema))[1]
+                db.executescript('BEGIN IMMEDIATE;\n' + migration +
+                    f'\nPRAGMA user_version={self.schema_version};\nCOMMIT;')
         self.path.chmod(0o600)
 
     @contextlib.contextmanager

@@ -10,6 +10,7 @@ import 'package:flutter_ui/pages/agent_tasks_page.dart';
 import 'package:flutter_ui/pages/agent_task_detail_page.dart';
 import 'package:flutter_ui/providers/profile_resource.dart';
 import 'package:flutter_ui/providers/study_providers.dart';
+import 'package:flutter_ui/providers/frontend_feature_providers.dart';
 
 import 'agent_usage_view_test.dart' show page;
 
@@ -102,9 +103,16 @@ void main() {
     );
   }
 
-  setUp(() { mock('getTaskResumeReceipt', (_) async => [null]); });
+  setUp(() {
+    mock('getTaskResumeReceipt', (_) async => [null]);
+    messenger.setMockMethodCallHandler(FrontendFeatures.channel, (call) async {
+      if (call.method == 'cloud.state') return {'enabled': false, 'delegations': <String>[]};
+      throw MissingPluginException(call.method);
+    });
+  });
 
   tearDown(() {
+    messenger.setMockMethodCallHandler(FrontendFeatures.channel, null);
     for (final c in channels) {
       messenger.setMockDecodedMessageHandler<Object?>(c, null);
     }

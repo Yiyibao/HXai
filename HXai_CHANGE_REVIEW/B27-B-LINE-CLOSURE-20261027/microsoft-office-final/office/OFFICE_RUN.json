@@ -1,0 +1,139 @@
+{
+  "status": "PASS",
+  "engine": "Actual Microsoft Office COM",
+  "jobs": [
+    {
+      "label": "word-source",
+      "kind": "docx",
+      "engine": "Word.Application",
+      "version": "16.0",
+      "ownedProcessId": 53924,
+      "sourceSha256": "46165653283e9e68f3a37b36aa26d812d9280e39f3d439a2fd1bed20040dbf8f",
+      "outputSha256": "6aa1f563a0d3c5546c28309f8c1aa873f1fb41209dbe95f290a5b2ccd7181172",
+      "pdfSha256": "b1f2635e9b1480f5e88b6567f9292590adc187948a040bb1d1fdd3d37b680201",
+      "metrics": {
+        "equationsBefore": 4,
+        "equationsAfter": 4,
+        "textEqualAfterReopen": true,
+        "pages": 3,
+        "tables": 1
+      },
+      "ownedProcessExitConfirmedAfterHostExit": true
+    },
+    {
+      "label": "word-edited",
+      "kind": "docx",
+      "engine": "Word.Application",
+      "version": "16.0",
+      "ownedProcessId": 21100,
+      "sourceSha256": "a8a5cd3222a50246085fa8dfadd332a16b2f53d59624f4a70ee80242dfd52cc5",
+      "outputSha256": "da3cb86960bb29986372e893770fa0e0a056e63c988c0cd76c821c7f2ad2ab89",
+      "pdfSha256": "0cb4e9e840955a0ee2843ce8290279a5b2c567ccf2106752c0f4206b5afd9c39",
+      "metrics": {
+        "equationsBefore": 4,
+        "equationsAfter": 4,
+        "textEqualAfterReopen": true,
+        "pages": 3,
+        "tables": 1
+      },
+      "ownedProcessExitConfirmedAfterHostExit": true
+    },
+    {
+      "label": "word-notes",
+      "kind": "docx",
+      "engine": "Word.Application",
+      "version": "16.0",
+      "ownedProcessId": 43032,
+      "sourceSha256": "622133aa360fd10bba862bc952bb0aecc7cee31cb20fdf591e6aad6091db61b3",
+      "outputSha256": "315e0aa38fc68342ee94620f52a6e7612aded91958c47455edd3944adf7c0173",
+      "pdfSha256": "79f79edc35ec0214cc14d1c358ca3f0dad2150819e13f52e464db492f2b76c47",
+      "metrics": {
+        "equationsBefore": 1,
+        "equationsAfter": 1,
+        "textEqualAfterReopen": true,
+        "pages": 1,
+        "tables": 1
+      },
+      "ownedProcessExitConfirmedAfterHostExit": true
+    },
+    {
+      "label": "excel-rich",
+      "kind": "xlsx",
+      "engine": "Excel.Application",
+      "version": "16.0",
+      "ownedProcessId": 38992,
+      "sourceSha256": "a760480c9e243da0ecda3fd5b90490c6acc1f2228441f8e66a2f8e25f6396e86",
+      "outputSha256": "8301aac5cb8c70b4184b416dfa6abb35856a50e76ab372b2456f151cfc9a813d",
+      "pdfSha256": "2a0610e7fb5abc6f6e2ad8955deaa0ff5dfcdbe780478e41b73dbae7a992cbae",
+      "metrics": {
+        "sheets": 2,
+        "dataA2": 7,
+        "dataB2": 21,
+        "dataB2Formula": "=A2*3",
+        "dataC2": "001",
+        "dataD2": 46307,
+        "dataD2Text": "2026/10/12",
+        "dataE2": 22,
+        "summaryA1": 22,
+        "summaryB1": "sum=22",
+        "summaryC1": true,
+        "summaryD1": "",
+        "summaryE1": 0.30000000000000004,
+        "summaryVisible": 0,
+        "charts": 1
+      },
+      "ownedProcessExitConfirmedAfterHostExit": true
+    },
+    {
+      "label": "powerpoint-logical",
+      "kind": "pptx",
+      "engine": "PowerPoint.Application",
+      "version": "16.0",
+      "ownedProcessId": 40868,
+      "sourceSha256": "032597407a90c7082ea9a035d25bd410d7c96aa3beeb1a49f77f5739be9a3207",
+      "outputSha256": "15ecb1667911448296e3f185a25b4746d54231103013b3de34658d8880640925",
+      "pdfSha256": "1443ef15e63128896d58c32fb9342f1567d1f5d681da739b3766872cdd0c2c96",
+      "metrics": {
+        "slides": 5,
+        "allLogicalSlides": [
+          {
+            "logicalPage": 1,
+            "hidden": true,
+            "text": "HIDDEN FIRST\nDUPLICATE\n1",
+            "shapes": 5
+          },
+          {
+            "logicalPage": 2,
+            "hidden": false,
+            "text": "VISIBLE EDIT PAGE\nDUPLICATE\n2",
+            "shapes": 5
+          },
+          {
+            "logicalPage": 3,
+            "hidden": false,
+            "text": "VISIBLE COMPAT PAGE\nDUPLICATE\n3\nVISIBLE FALLBACK",
+            "shapes": 6
+          },
+          {
+            "logicalPage": 4,
+            "hidden": true,
+            "text": "HIDDEN MIDDLE\nDUPLICATE\n4",
+            "shapes": 5
+          },
+          {
+            "logicalPage": 5,
+            "hidden": false,
+            "text": "VISIBLE LAST\nDUPLICATE\n5",
+            "shapes": 5
+          }
+        ],
+        "allSlidesExportedIncludingHidden": true,
+        "pdfRenderView": "ALL_LOGICAL_SLIDES_UNHIDDEN_IN_MEMORY_ONLY",
+        "savedPresentationUnchangedByRender": true
+      },
+      "ownedProcessExitConfirmedAfterHostExit": true
+    }
+  ],
+  "ownedProcessesStopped": true,
+  "wpsAccessed": false
+}

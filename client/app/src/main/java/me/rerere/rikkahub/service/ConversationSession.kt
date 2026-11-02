@@ -108,10 +108,12 @@ class ConversationSession(
         queued: QueuedMessage,
         parts: List<me.rerere.ai.ui.UIMessagePart>,
         persist: suspend (Conversation) -> Unit,
+        delegated: Boolean = false,
     ) = metadataMutex.withLock {
         requireActive()
         val draft = MessageQueue(messageQueue.state.value, notifyObservers = false)
-        check(draft.takeNext()?.id == queued.id) { "Queued input changed before submission" }
+        if(delegated) check(draft.remove(queued.id)?.id==queued.id) { "Delegated input changed before handoff" }
+        else check(draft.takeNext()?.id == queued.id) { "Queued input changed before submission" }
         val current = state.value
         val messages = if (current.currentMessages.any { it.id == queued.id }) current.messageNodes else
             current.messageNodes + UIMessage(id = queued.id, role = me.rerere.ai.core.MessageRole.USER, parts = parts).toMessageNode()

@@ -52,6 +52,23 @@ class CredentialVaultTest {
         assertEquals(value, vault.resolve(ref)) // old snapshots stay valid until commit
     }
 
+    @Test fun concurrentFirstWritesPreserveEveryImmutableCredential() {
+        val workers = java.util.concurrent.Executors.newFixedThreadPool(12)
+        val barrier = java.util.concurrent.CyclicBarrier(12)
+        try {
+            val writes = (0 until 12).map { index ->
+                workers.submit<Pair<String, String>> {
+                    barrier.await(10, java.util.concurrent.TimeUnit.SECONDS)
+                    val value = "SYNTHETIC_CONCURRENT_CREDENTIAL_$index"
+                    CredentialVault(context).protect(value) to value
+                }
+            }.map { it.get(30, java.util.concurrent.TimeUnit.SECONDS) }
+            val reopened = CredentialVault(context)
+            writes.forEach { (reference, value) -> assertEquals(value, reopened.resolve(reference)) }
+            assertEquals(12, writes.map { it.first }.toSet().size)
+        } finally { workers.shutdownNow() }
+    }
+
     @Test fun tamperedCiphertextIsRejected() {
         val ref = vault.protect("synthetic")
         val record = directory.walkTopDown().first { it.extension == "bin" }

@@ -165,13 +165,7 @@ class GoogleToolCombinationTest {
         messages: List<UIMessage>,
         params: TextGenerationParams,
     ): JsonObject {
-        val method = GoogleProvider::class.java.getDeclaredMethod(
-            "buildCompletionRequestBody",
-            List::class.java,
-            TextGenerationParams::class.java,
-        )
-        method.isAccessible = true
-        return method.invoke(provider, messages, params) as JsonObject
+        return provider.buildCompletionRequestBody(messages, params)
     }
 
     private fun invokeBuildContents(messages: List<UIMessage>): JsonArray {

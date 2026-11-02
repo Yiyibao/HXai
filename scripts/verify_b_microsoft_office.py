@@ -14,6 +14,7 @@ from zipfile import ZipFile
 
 from verify_b_windows_ocr import digest, write_new
 from verify_b_xlsx_readback import make_source, parts, package, X
+from office_roundtrip_contract import package as checked_package, word_roundtrip, presentation, xlsx_roundtrip
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -60,6 +61,7 @@ def check_outputs(folder, jobs, date_serial):
                  'sourceSha256': job['sourceSha256'], 'savedSha256': digest(saved),
                  'pdfSha256': digest(pdf_path), 'pdfPhysicalPages': len(pdf.pages)}
         if job['kind'] == 'docx':
+            check['structuralReadback'] = word_roundtrip(checked_package(source, 'docx'), checked_package(saved, 'docx'))
             w = '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}'
             m = '{http://schemas.openxmlformats.org/officeDocument/2006/math}'
             with ZipFile(source) as z:
@@ -79,6 +81,7 @@ def check_outputs(folder, jobs, date_serial):
                 raise ValueError('word_physical_page_count_mismatch')
             check['editableOmmlCount'] = len(after_math)
         elif job['kind'] == 'xlsx':
+            check['structuralReadback'] = xlsx_roundtrip(checked_package(source, 'xlsx'), checked_package(saved, 'xlsx'))
             saved_parts = parts(saved)
             workbook = ET.fromstring(saved_parts['xl/workbook.xml'])
             relationships = ET.fromstring(saved_parts['xl/_rels/workbook.xml.rels'])
@@ -104,6 +107,8 @@ def check_outputs(folder, jobs, date_serial):
             check.update(actualFullRebuildAndReopen=True, crossSheetValuesReadBack=True,
                          dateSerial=date_serial, typedBooleanReadBack=True, chartRetained=True)
         else:
+            if presentation(checked_package(source, 'pptx')) != presentation(checked_package(saved, 'pptx')):
+                raise ValueError('presentation_logical_content_changed')
             fixture = json.loads((ROOT / 'HXai_CHANGE_REVIEW/B03-PRESENTATION-PDF-20261019/fixtures/FIXTURE.json').read_text(encoding='utf-8'))
             slides = row['metrics']['allLogicalSlides']
             if [s['hidden'] for s in slides] != fixture['hidden'] or [s['logicalPage'] for s in slides] != list(range(1, 6)):

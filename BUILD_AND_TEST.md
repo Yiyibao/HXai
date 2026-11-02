@@ -1,5 +1,41 @@
 # 构建与测试指南
 
+## R27-05 前台确认与离线停止接续
+
+协议更新为 [v3](docs/r27-cloud-device-protocol-v1.md)。本批旧确认越代授权、离线 Stop 丢失及迟到 claim 覆写 controls 的反例保留在 `HXai_CHANGE_REVIEW/R29-05-FOREGROUND-BINDING-20261029/`。新派发须绑定确认框所见动作/输入/授权代次/任务修订；已有 lease/receipt 仅按原身份结算。跨 App 与截图继续关闭。
+
+使用该批最终冻结的 `qa-final/`、原 R29 专属设备归属文件和新目录运行：
+
+```powershell
+python scripts/verify_r27_android.py --ownership HXai_CHANGE_REVIEW/R29-TLS-HOSTING-DEVICE-20261029/OWNERSHIP_API34.json --apk-dir HXai_CHANGE_REVIEW/R29-05-FOREGROUND-BINDING-20261029/qa-final --run-dir .local/r29-05-api34-NEXT --scenarios stale_confirmation offline_claim lock_pending lock_claim stop_claim profile_claim claim_restart receipt_restart
+```
+
+API26 换为同目录 `OWNERSHIP_API26.json`，不得复用已存在的 run-dir；先按归属文件恢复对应 AVD，不能操作外来模拟器。改源码后须重新冻结/构建 AAR 和宿主；同版本号 AAR 可被外部构建替换，必须用实际 APK/冻结 AAR 的资源/engine 校验，不以当前 mutable Maven repo 代替构建输入。准确运行状态与当前剩余门禁只取本批 TEST_RESULTS/HANDOFF，不授整个05、完整App或生产通过。
+
+## R27-06–09 质量接续（2026-10-29）
+
+本机任务快照/32题导入、OCR公式候选评分和Office跨应用读回，见
+[合同1](docs/quality-06-09-contract1.md)及`HXai_CHANGE_REVIEW/R29-QUALITY-06-09-20261029/`。
+任务详情右上角可明确保存/核验原Chat任务证据，页面重开从原材料意图发现原请求；不调用模型或自动外传。
+已核对项目记录中的固定37项真实模型授权，沿原06–09专用工作树和加密App配置续测；与根目录增量分别记录，不自动授予同源集成资格。独立参考、免确认OCR、真实手写/MinerU新范围、WPS实际运行分别另验。
+
+```powershell
+python -m pytest -q scripts/tests/test_import_agent_evaluation.py scripts/tests/test_score_b_math_evaluation.py scripts/tests/test_verify_b_ocr_corpus.py scripts/tests/test_verify_b_windows_ocr.py scripts/tests/test_verify_b_office_roundtrip.py
+```
+
+只用新输出目录和已核归属的独占QA模拟器复验，先读脚本的安装/归档/清理范围。
+`verify_agent_evaluation_process.py`只验证已安装匹配SHA的QA包，不安装/清库；真实退出后只读原件。
+WinRT默认预处理保持none；ink-crop在固定样本未改善，不作产品自动fallback。
+
+## R27-04/05 云执行与手机协作（2026-10-28/29）
+
+普通App入口：设置 → 云端协作与手机执行；任务中心 → 任务详情 → 云端协作。版本、授予范围、唯一权威退役、换钥/前台确认、限制和直接复验命令见 [R27协议v1](docs/r27-cloud-device-protocol-v1.md)。本轮证据在 `HXai_CHANGE_REVIEW/R27-CLOUD-DEVICE-20261028/continuation-04-05-final/`，原失败与早期Launcher截图保留，不冒充云UI证明。
+
+新驱动 `scripts/verify_r27_android.py` 要求 `--ownership`、`--apk-dir` 与未使用的 `--run-dir`。只接受本批专属AVD/serial，冻结并核两QA包及安装SHA，归档后仅清nativeqa，真实force-stop手机进程，自有loopback权威/Provider/worker随结束关闭。不得在用户设备或普通包上运行该清库/故障流程；没有依赖安装、真实模型或生产调用。
+
+本批当前双AAR、普通Debug/unsigned Release与双lint/engine/AOT绑定已实跑；普通Debug冷启/云配置及API34 QA完整主故事分别取证。源码变化须重建对应冻结包；不能用这里的构建资格宣称Release已安装、正式签名、Mate50、跨App或生产通过。JVM/Flutter/Python/native准确结果见本批TEST_RESULTS，不累计历史计数。
+
+
 ## B27 数学回答封存与离线评分（2026-10-27）
 
 新增 `scripts/score_b_math_evaluation.py seal/template/score`，复用原32题分离包。输入字段、Unicode证据定位、全部义务与完整分母、数学/工程结果分离及可直接执行命令见[评分合同1](docs/b27-math-obligation-scoring-contract1.md)。本批证据在 `HXai_CHANGE_REVIEW/B27-MATH-OBLIGATION-SCORING-20261027/`；只授本机离线一致性资格，不授真实模型、独立裁决、完整App或数学质量通过。真实调用仍沿原授权App，不能把合成烟测回答当真实成绩。
@@ -275,3 +311,17 @@ python scripts/verify_a045_persistence.py --serial emulator-5588 --run-dir HXai_
 当前本地集成分支 `codex/ab28-integration-20261028`；A27设置/组合修复、B27文件数学领域与离线逐义务评分均按最终字节封印继承。来源与可执行复验命令见 [AB28集成基线](docs/ab28-integration-20261028.md)，本轮新证据取 `HXai_CHANGE_REVIEW/AB28-INTEGRATION-20261028/TEST_RESULTS.json`。
 
 本轮实际运行 JVM App525/AI214/搜索33、Flutter416/analyze、Python123及22子用例、文档服务154、API26混合31方法及普通Debug任务中心Host查询。APK/AAR/Release没有本轮重建；Android复用所有client输入一致的A27冻结包并核实际安装SHA，不因离线评分CLI而代授真实模型数学质量。原有构建/签名/归属/QA隔离门禁不变，历史证据和失败保留。
+
+## R27-05 离线安全控制接续（2026-10-30）
+
+协议与源码映射为 `docs/r27-cloud-device-protocol-v1.md` v4；本批证据在 `HXai_CHANGE_REVIEW/R30-05-DURABLE-CONTROLS-20261030/`。使用其中冻结的 `qa-final/` 两包和原 R29 的专属 AVD 归属文件，新的 run-dir；源码变化必须重新构建，不能借旧包授予当前工作树资格。
+
+```powershell
+python scripts/verify_r27_android.py --ownership HXai_CHANGE_REVIEW/R29-TLS-HOSTING-DEVICE-20261029/OWNERSHIP_API34.json --apk-dir HXai_CHANGE_REVIEW/R30-05-DURABLE-CONTROLS-20261030/qa-final --run-dir .local/r30-05-api34-NEXT --scenarios offline_pause offline_cancel offline_revoke offline_pause_restart lock_pending lock_claim stale_confirmation offline_claim stop_claim profile_claim claim_restart receipt_restart
+```
+
+API26 使用同目录 `OWNERSHIP_API26.json` 及另一全新 run-dir，不能在同一 AVD 上同时运行。驱动核 AVD/API/ABI/包名和实际安装 SHA，先归档再仅清 nativeqa；真实断 claim ACK、离线控制、强停/重启、PIN 锁屏、单一 DOCX 的独立 XML/hash 读回，不调用真实模型/私料/生产。`offline_cancel/revoke` 验证零 DOCX 和仅前两次请求，不强制其继续至 SUCCEEDED。
+
+每个 AVD 只保持一个本地 ADB transport。若共享 ADB 重启后高端口实例丢失，按归属重启自有 AVD并保留用户数据，不启动同 AVD 第二实例、不 wipe、不杀共享 ADB、不接管其他会话的模拟器。API26 的多传输 reverse 错误及 API34 失效连接安装超时是本批保留的环境失败，不计产品通过。
+
+冻结副本 `.local/r30-05-frozen/client` 的实际构建为 `:app:assembleDebug :app:assembleDebugAndroidTest :app:testDebugUnitTest :ai:testDebugUnitTest :app:lintDebug -PagentNativeTest=true --offline --no-daemon --console=plain --max-workers=2 -x :web:buildWebUi`，AAR在其 `flutter_ui` 以 `flutter build aar --debug --no-release --no-profile --no-pub` 新建。最终两包/38项Flutter资源与引擎绑定及分项结果取本批 JSON；不是普通最终 Release、Mate50、真实无线网或完整项目/独立审查的放行。

@@ -79,6 +79,13 @@ class DocumentServiceRepository(private val context: Context, private val materi
         changes.value++
     }
     fun enabled(owner: String) = config(owner).enabled
+    /** Trusted handoff only: sealed immediately, never returned to Flutter. */
+    internal fun hostedConfiguration(owner: String): JsonObject {
+        val current=config(owner)
+        check(current.enabled && current.credentialReference.isNotBlank()) { "请先启用当前档案的独立文档服务配置" }
+        DocumentContract.endpoint(current.baseUrl)
+        return buildJsonObject { put("endpoint",current.baseUrl);put("secret",vault.resolve(current.credentialReference));put("consent",true) }
+    }
     @Synchronized fun batch(owner: String, id: String): DocumentBatch {
         require(id.matches(Regex("[a-f0-9]{64}")))
         return json.decodeFromString<DocumentBatch>(AtomicFile(File(directory(owner), "$id.batch.json")).readFully().toString(Charsets.UTF_8))

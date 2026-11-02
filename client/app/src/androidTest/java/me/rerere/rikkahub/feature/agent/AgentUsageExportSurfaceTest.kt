@@ -36,9 +36,14 @@ class AgentUsageExportSurfaceTest {
         }
         fun click(label: String,n: AccessibilityNodeInfo?=automation.rootInActiveWindow): Boolean {
             if(n==null)return false
-            if(n.text?.toString()?.contains(label)==true || n.contentDescription?.toString()?.contains(label)==true) {
+            if(n.text?.toString()==label || n.contentDescription?.toString()==label) {
                 var c=n;while(c!=null && !c.isClickable)c=c.parent
-                return c?.let { it.isEnabled && it.isVisibleToUser && it.performAction(AccessibilityNodeInfo.ACTION_CLICK) }?:false
+                if(c==null || !c.isEnabled || !c.isVisibleToUser)return false
+                val bounds=android.graphics.Rect();c.getBoundsInScreen(bounds)
+                if(bounds.width()<=0 || bounds.height()<=0)return false
+                android.os.ParcelFileDescriptor.AutoCloseInputStream(automation.executeShellCommand(
+                    "input tap ${bounds.centerX()} ${bounds.centerY()}")).use { it.readBytes() }
+                return true
             };return (0 until n.childCount).any { click(label,n.getChild(it)) }
         }
         fun swipe(forward: Boolean,n: AccessibilityNodeInfo?=automation.rootInActiveWindow): Boolean {

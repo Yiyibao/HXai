@@ -1,0 +1,39 @@
+{
+  "contractVersion": 1,
+  "fixtureRevision": 2,
+  "layout": "Explicit date column D width 14; original narrow-column FAIL retained separately.",
+  "provenance": "PUBLIC_SYNTHETIC_NATIVE_FIXTURES",
+  "jobs": [
+    {
+      "label": "word-source",
+      "kind": "docx",
+      "source": "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\B27-B-LINE-CLOSURE-20261027\\microsoft-office-final\\inputs\\word-source.docx",
+      "sourceSha256": "46165653283e9e68f3a37b36aa26d812d9280e39f3d439a2fd1bed20040dbf8f"
+    },
+    {
+      "label": "word-edited",
+      "kind": "docx",
+      "source": "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\B27-B-LINE-CLOSURE-20261027\\microsoft-office-final\\inputs\\word-edited.docx",
+      "sourceSha256": "a8a5cd3222a50246085fa8dfadd332a16b2f53d59624f4a70ee80242dfd52cc5"
+    },
+    {
+      "label": "word-notes",
+      "kind": "docx",
+      "source": "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\B27-B-LINE-CLOSURE-20261027\\microsoft-office-final\\inputs\\word-notes.docx",
+      "sourceSha256": "622133aa360fd10bba862bc952bb0aecc7cee31cb20fdf591e6aad6091db61b3"
+    },
+    {
+      "label": "excel-rich",
+      "kind": "xlsx",
+      "source": "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\B27-B-LINE-CLOSURE-20261027\\microsoft-office-final\\inputs\\workbook-edited.xlsx",
+      "sourceSha256": "a760480c9e243da0ecda3fd5b90490c6acc1f2228441f8e66a2f8e25f6396e86"
+    },
+    {
+      "label": "powerpoint-logical",
+      "kind": "pptx",
+      "source": "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\B27-B-LINE-CLOSURE-20261027\\microsoft-office-final\\inputs\\presentation.pptx",
+      "sourceSha256": "032597407a90c7082ea9a035d25bd410d7c96aa3beeb1a49f77f5739be9a3207"
+    }
+  ],
+  "dateSerial": 46307
+}

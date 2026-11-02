@@ -61,3 +61,33 @@ def test_oversized_line_is_rejected_not_silently_truncated():
     raw['pages'][0]['lines'] = [{'text': 'x' * 10001}]
     with pytest.raises(ValueError, match='engine_text_limit'):
         ocr.normalize(raw, 'a' * 64, 1, 1, 1, images)
+
+
+def test_explicit_ink_crop_preserves_source_and_records_coordinate_mapping():
+    from PIL import Image, ImageDraw
+    source = Image.new('RGB', (800, 1200), 'white')
+    ImageDraw.Draw(source).rectangle((100, 150, 400, 260), fill='black')
+    before = source.tobytes()
+    candidate, transform = ocr.recognition_image(source, 'ink-crop')
+    try:
+        assert source.tobytes() == before
+        assert transform['cropBox'] == [68, 118, 433, 293]
+        assert candidate.width <= 2000 and max(transform['scaleX'], transform['scaleY']) <= 3
+        assert transform['characterSubstitution'] is False
+        assert candidate.size == (1095, 525)
+    finally:
+        candidate.close();source.close()
+
+
+def test_white_page_is_not_upscaled_into_hallucinated_content_and_none_is_identity():
+    from PIL import Image
+    source = Image.new('RGB', (100, 200), 'white')
+    for mode in ('none', 'ink-crop'):
+        candidate, transform = ocr.recognition_image(source, mode)
+        try:
+            assert candidate.tobytes() == source.tobytes()
+            assert transform['cropBox'] == [0, 0, 100, 200]
+            assert transform['scaleX'] == transform['scaleY'] == 1
+        finally:
+            candidate.close()
+    source.close()

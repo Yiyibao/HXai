@@ -7,6 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_ui/bridge/study_host_api.g.dart';
 import 'package:flutter_ui/pages/agent_task_detail_page.dart';
 import 'package:flutter_ui/providers/study_providers.dart';
+import 'package:flutter_ui/providers/frontend_feature_providers.dart';
 
 import 'agent_task_catalog_test.dart' show bootstrap, resource;
 
@@ -63,9 +64,16 @@ void main() {
     );
   }
 
-  setUp(() { mock('getTaskResumeReceipt', (_) async => [null]); });
+  setUp(() {
+    mock('getTaskResumeReceipt', (_) async => [null]);
+    messenger.setMockMethodCallHandler(FrontendFeatures.channel, (call) async {
+      if (call.method == 'cloud.state') return {'enabled': false, 'delegations': <String>[]};
+      throw MissingPluginException(call.method);
+    });
+  });
 
   tearDown(() {
+    messenger.setMockMethodCallHandler(FrontendFeatures.channel, null);
     for (final channel in channels) {
       messenger.setMockDecodedMessageHandler<Object?>(channel, null);
     }

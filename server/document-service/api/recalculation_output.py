@@ -6,12 +6,13 @@ import shutil
 from office_worker.recalculation import verify_output
 
 
-def validate_recalculation_output(directory, options):
+def validate_recalculation_output(directory, options, *, publish=True):
     manifest = verify_output(directory / 'output')
     if (manifest['sourceSha256'] != options['sourceSha256'] or manifest['sourceExtension'] != options['extension']
             or manifest['rendererVersion'] != options['rendererVersion'] or manifest['renderOptions'] != options['renderOptions']
             or manifest['operation'] != options['operation']):
         raise ValueError('recalculation_binding_mismatch')
+    if not publish:return manifest
     staging = directory / 'publishing'
     staging.mkdir()
     for asset in manifest['assets']:

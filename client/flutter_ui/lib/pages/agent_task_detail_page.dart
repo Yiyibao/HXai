@@ -11,6 +11,8 @@ import '../widgets/agent_usage_view.dart';
 import '../widgets/agent_task_safety_controls.dart';
 import '../widgets/agent_task_resume_control.dart';
 import 'agent_tasks_page.dart';
+import '../widgets/cloud_task_panel.dart';
+import '../widgets/agent_evaluation_export.dart';
 
 class AgentTaskDetailPage extends ConsumerStatefulWidget {
   const AgentTaskDetailPage({super.key, required this.resource});
@@ -26,6 +28,7 @@ class _AgentTaskDetailPageState extends ConsumerState<AgentTaskDetailPage> {
   String? _error;
   int _generation = 0;
   bool _busy = false, _opening = false;
+  bool _cloudDelegated = false;
   bool _retryMore = false;
   bool get _current {
     final bootstrap = ref.read(bootstrapProvider).value;
@@ -59,6 +62,7 @@ class _AgentTaskDetailPageState extends ConsumerState<AgentTaskDetailPage> {
       _busy = false;
       _opening = false;
       _retryMore = false;
+      _cloudDelegated = false;
       unawaited(_read());
     }
   }
@@ -215,7 +219,9 @@ class _AgentTaskDetailPageState extends ConsumerState<AgentTaskDetailPage> {
       Future.microtask(_read);
     }
     return Scaffold(
-      appBar: AppBar(title: const Text('任务详情')),
+      appBar: AppBar(title: const Text('任务详情'), actions: [
+        if (detail != null) AgentEvaluationExport(resource: widget.resource!, revision: detail.task.revision, fence: detail.task.fence, compact: true),
+      ]),
       body: !current
           ? const Center(child: Text('档案或上下文已变化，请重新打开任务详情。'))
           : ListView(
@@ -243,6 +249,14 @@ class _AgentTaskDetailPageState extends ConsumerState<AgentTaskDetailPage> {
                 ),
                 const Text('历史任务、成果与用量独立保留；查看不会继续执行。'),
                 if (detail != null)
+                  CloudTaskPanel(
+                    key: ValueKey('cloud:${widget.resource!.profileId}:${widget.resource!.epoch}:${detail.task.id}'),
+                    resource: widget.resource!,
+                    onDelegation: (value) {
+                      if (_current && value != _cloudDelegated) setState(() => _cloudDelegated = value);
+                    },
+                  ),
+                if (detail != null && !_cloudDelegated)
                   AgentTaskSafetyControls(
                     key: ValueKey(
                       '${widget.resource!.profileId}:${widget.resource!.epoch}:${detail.task.id}',
@@ -251,7 +265,7 @@ class _AgentTaskDetailPageState extends ConsumerState<AgentTaskDetailPage> {
                     resource: widget.resource!,
                     refresh: () => _read(keepDetail: true),
                   ),
-                if (detail != null)
+                if (detail != null && !_cloudDelegated)
                   AgentTaskResumeControl(
                     key: ValueKey(
                       'resume:${widget.resource!.profileId}:${widget.resource!.epoch}:${detail.task.id}',

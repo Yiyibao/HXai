@@ -109,6 +109,36 @@ class StudyHostFacade(
                                 check(foregroundConfirmationAllowed()) { "扩展管理需保持应用前台" }
                             }
                         }
+                    } else if (method.startsWith("cloud.")) {
+                        me.rerere.rikkahub.feature.agent.CloudFrontend(context,settingsStore,conversationRepo,
+                            chatService,materialFiles).handle(method,owner,args,{ requireProfile(owner,epoch) },
+                            foregroundConfirmationAllowed)
+                    } else if (method == "evaluation.last") {
+                        val taskId=args["taskId"] as? String ?: error("缺少任务")
+                        agentScheduler.get(owner,taskId)
+                        me.rerere.rikkahub.feature.agent.AgentEvaluationExport.last(materialFiles,owner,taskId)
+                    } else if (method == "evaluation.export") {
+                        check(args["consent"] == true) { "请先确认保存本任务公开文本与回执引用" }
+                        check(foregroundConfirmationAllowed()) { "请在应用前台导出" }
+                        val taskId=args["taskId"] as? String ?: error("缺少任务")
+                        val request=args["requestId"] as? String ?: error("缺少请求标识")
+                        val revision=(args["revision"] as? Number)?.toLong() ?: error("缺少任务修订")
+                        val fence=(args["fence"] as? Number)?.toLong() ?: error("缺少执行代次")
+                        fun allowed() { requireProfile(owner,epoch);check(foregroundConfirmationAllowed()) { "导出需保持应用前台" } }
+                        val item=me.rerere.rikkahub.feature.agent.AgentEvaluationExport.export(materialFiles,owner,taskId,request,revision,fence,
+                            capture={
+                                val before=agentScheduler.captureEvaluation(owner,taskId,revision,fence)
+                                val conversationId=before.getValue("task").jsonObject.getValue("conversationId").jsonPrimitive.content
+                                val conversation=conversationRepo.getConversationById(Uuid.parse(conversationId),owner)
+                                val answer=me.rerere.rikkahub.feature.agent.AgentEvaluationSnapshot.answer(conversation,owner,taskId,conversationId)
+                                allowed()
+                                check(before==agentScheduler.captureEvaluation(owner,taskId,revision,fence)) { "任务或用量变化，请刷新后创建新快照" }
+                                check(answer==me.rerere.rikkahub.feature.agent.AgentEvaluationSnapshot.answer(
+                                    conversationRepo.getConversationById(Uuid.parse(conversationId),owner),owner,taskId,conversationId)) { "回答分支变化，请刷新后创建新快照" }
+                                me.rerere.rikkahub.feature.agent.AgentEvaluationSnapshot.assemble(before,answer)
+                            },allowed=::allowed)
+                        allowed()
+                        mapOf("owner" to owner,"taskId" to taskId,"artifactId" to item.id,"sha256" to item.sha256,"size" to item.size)
                     } else if (method.startsWith("library.")) {
                         me.rerere.rikkahub.feature.material.MaterialLibraryFrontend(context, materialFiles)
                             .handle(method, owner, args, { requireProfile(owner, epoch) }, pickDirectory)

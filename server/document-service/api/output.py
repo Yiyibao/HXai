@@ -6,7 +6,7 @@ import struct
 import re
 from pathlib import PurePosixPath
 
-def validate_output(directory, options):
+def validate_output(directory, options, *, publish=True):
     manifest_file = directory / "output" / "manifest.json"
     if not manifest_file.is_file() or manifest_file.is_symlink() or manifest_file.stat().st_size > 2 * 1024 * 1024:
         raise ValueError("invalid_manifest")
@@ -28,8 +28,8 @@ def validate_output(directory, options):
     assets = manifest["assets"]
     if len(assets) > 2000 or len({a["assetId"] for a in assets}) != len(assets):
         raise ValueError("invalid_assets")
-    staging = directory / "publishing"
-    staging.mkdir(exist_ok=True)
+    staging = directory / ("publishing" if publish else "output")
+    if publish:staging.mkdir(exist_ok=True)
     size = 0
     for asset in assets:
         if not re.fullmatch(r"[a-z0-9-]{1,64}", asset["assetId"]):
@@ -57,9 +57,13 @@ def validate_output(directory, options):
         if asset["assetId"] == "document" and source.stat().st_size > 8 * 1024 * 1024:
             raise ValueError("document_limit")
         target = staging / source.name
-        shutil.copyfile(source, target)
-        asset["size"] = target.stat().st_size
-        asset["sha256"] = hashlib.sha256(target.read_bytes()).hexdigest()
+        if publish:shutil.copyfile(source, target)
+        actual_size=target.stat().st_size
+        with target.open("rb") as stream:actual_hash=hashlib.file_digest(stream,"sha256").hexdigest()
+        if not publish and (asset["size"]!=actual_size or asset["sha256"]!=actual_hash):
+            raise ValueError("asset_integrity_mismatch")
+        asset["size"] = actual_size
+        asset["sha256"] = actual_hash
     document = json.loads((staging / "document.json").read_text())
     for field in ("contractVersion", "tier", "parserVersion", "adapterVersion", "resultRevision", "totalPages", "requestedRange", "processedPages", "blankPages", "failedPages", "complete"):
         if document.get(field) != manifest.get(field):
@@ -74,6 +78,6 @@ def validate_output(directory, options):
     if any(b["page"] in blank and (b["text"].strip() or (b.get("latex") or "").strip() or b.get("assetId") is not None)
            for b in document["blocks"]):
         raise ValueError("blank_page_content_conflict")
-    os.replace(staging, directory / "published")
+    if publish:os.replace(staging, directory / "published")
     return manifest
 

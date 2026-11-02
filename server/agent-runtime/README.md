@@ -1,6 +1,8 @@
-# HXai local task-protocol reference, v0.3.0 + Windows compatibility
+# HXai task runtime: local protocol and opt-in network host
 
-This is executable local infrastructure, NOT a model-driven planner, a public API, a production cloud Agent, or Android-integrated functionality. It uses one SQLite database/global execution slot per user work domain, with multiple learner profile owners. Production multi-user deployment requires account isolation and authenticated adapters.
+The local `TaskStore`/demo below remains the v0.3.0 + Windows compatibility reference. The opt-in `hxai_agent.service` network host adds an authenticated schema3 authority, task-scoped encrypted file-key vault, independently supervised model/tool worker and paired Android adapter. These are separate entry modes over the same task protocol, not two uncoordinated schedulers.
+
+Current network/App contract, source map, safety limits and exact smoke commands: [R27 cloud/device protocol v1](../../docs/r27-cloud-device-protocol-v1.md). Actual loopback/owned-emulator evidence is in `HXai_CHANGE_REVIEW/R27-CLOUD-DEVICE-20261028/continuation-04-05-final/`. Real Provider quality, hosted TLS/KMS, target devices, optional cross-App automation and production are not certified by those synthetic runs. No server starts by default.
 
 From this directory, using preinstalled Python and pytest:
 
@@ -53,6 +55,55 @@ Schema version 2 uses application_id=1213743433. `migrations/001_task_runtime.sq
 
 Database arguments/results are not encrypted. Credential-shaped fields are rejected but that is not a general secret/DLP detector. Use an app-private, trusted filesystem root; do not expose writable directories to malicious same-user processes. There is no arbitrary Python/code execution tool. Files are bounded UTF-8/Markdown, not professional Office editing.
 
-## Next integration
+## Android and network integration
 
-Port the protocol invariants into the existing Kotlin ChatService/GenerationLoop and native TaskStore rather than running parallel uncoordinated Agents. Preserve ConversationSession checkpoints and MaterialVersions. Add trusted provider/device/verifier adapters, vault-backed authorization, account-aware transport, and versioned Pigeon snapshots before claiming App or cloud Agent support. See the delivery's 02/03/11 documents.
+The opt-in adapter wraps the existing Kotlin ChatService/GenerationLoop, Scheduler, original tool/verifier and MaterialVersions. Native tasks also require network admission while bound; disabling a client cannot authorize replay of a delegated task. The worker shares the V6 planning/acceptance contract, journals physical Provider requests, and independently verifies actual artifacts. Native-only work waits for explicit foreground device confirmation.
+
+Normal service transport requires TLS; the explicit HTTP exception is restricted to loopback QA. Enrollment and one-way domain retirement are trusted local operator commands, never public model tools. See the linked protocol before configuring any real host or transmitting credentials. This file-key backend is not a hardware KMS; the local store/database itself is not fully encrypted.
+
+## R29 network extension (2026-10-29)
+
+The current network database is schema **4**, not local schema 2. The exact
+schema-3 migration adds `net_document_calls` without discarding receipts,
+encrypted configurations, unknown effects or the global slot. RPC remains
+protocolVersion 1 with additive `hosting.update`, `source.chunk` and artifact
+chunk reads; Room33/native TaskStore13/Pigeon are unchanged.
+
+Use `--cert-file` / `--tls-key-file` for the listener and, when its bind address
+is not the certificate identity, `--worker-url https://<certificate-name>:<port>`
+plus `--worker-ca-file <private-CA.pem>`. Worker TLS verifies hostname, expiry and
+CA; it never infers a valid identity from `0.0.0.0` or silently disables checking.
+The local IPv4 smoke covers real TLS, invalid CA/hostname/expired certificates
+and authority crash while its original supervised worker remains alive.
+
+Explicit UNTIL_REVOKED hosting retains the original goal, selected sources and
+pinned model; it is not an unrestricted file or lifetime data grant. Duration
+renewal can leave authorization EXPIRED and never clears pause/input/device
+blockers or revocation. Credential validation is a separately journaled role.
+An explicit same-scope recovery reuses known successful physical responses;
+UNKNOWN and physically live instances cannot be superseded to bypass the slot.
+
+Optional document hosting requires a separate encrypted, pinned document role.
+Only explicitly selected binary versions may be uploaded or read. The trusted
+tools reuse the original document API and validators; uploads are journaled
+before dispatch and lost ACKs are resolved by authenticated original-request
+lookup, not re-upload. Cancellation, terminal status and missing lookup are not
+stop witnesses. Verified PDF/XLSX/text artifacts retain immutable source lineage;
+unknown document-role usage/cost remains unknown/null.
+
+From repository root, use new output directories:
+
+```sh
+python scripts/verify_r29_tls.py --run-dir .local/r29-tls-NEXT
+python scripts/verify_r29_validation.py --run-dir .local/r29-validation-NEXT
+python scripts/verify_r29_documents.py --run-dir .local/r29-documents-NEXT
+```
+
+These commands use only synthetic model credentials and owned loopback services.
+The Office smoke requires the existing local LibreOffice installation; it does
+not certify Docker isolation, MinerU quality or production. IPv6 qualification
+is opt-in (`verify_r29_tls.py --ipv6`) and currently blocked by local Windows
+`::1` connect WinError10013. See the [versioned protocol](../../docs/r27-cloud-device-protocol-v1.md)
+and `HXai_CHANGE_REVIEW/R29-TLS-HOSTING-DEVICE-20261029/` for exact source/evidence
+and external acceptance prerequisites. No real host, account or paid model is
+authorized by these local smoke commands.

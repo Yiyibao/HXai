@@ -406,16 +406,7 @@ class ClaudeServerToolTest {
         messages: List<UIMessage>,
         params: TextGenerationParams,
     ): kotlinx.serialization.json.JsonObject {
-        val method = ClaudeProvider::class.java.getDeclaredMethod(
-            "buildMessageRequest",
-            ProviderSetting.Claude::class.java,
-            List::class.java,
-            TextGenerationParams::class.java,
-            Boolean::class.javaPrimitiveType,
-        )
-        method.isAccessible = true
-        return method.invoke(provider, providerSetting, messages, params, false)
-            as kotlinx.serialization.json.JsonObject
+        return provider.buildMessageRequest(providerSetting, messages, params, false)
     }
 
     private fun buildMessages(messages: List<UIMessage>): JsonArray {
