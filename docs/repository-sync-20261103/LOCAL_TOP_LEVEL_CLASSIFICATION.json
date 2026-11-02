@@ -1,0 +1,3607 @@
+[
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-b-chapter-patch-tsd5c5k7",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-b-math-patch-lcbodoqq",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-b-source-patch-2974a2vm",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-b-source-patch-z7vd5s8a",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-b-source-readback-j1fxbtpm",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-b-source-readback-u96uto5o",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-center-patch-xmr_udv8",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-center-patch-zwk8fqip",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-checkpoint-patch-ea411ddf39e14327ad1b306a5c58102c",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-export-normal-debug-20261014",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-export-patch-1wbt2jqq",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-groups-patch-edj1xt0c",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-history-patch-8298c9f20cbe46de9a5ad5885eccfc81",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-history-patch-b7b8dba0d92642309cc67fe1cdecb387",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-history-patch-f737e7783162497dad498e0ba66b03e3",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-legacy-context-patch-d906ca47de91499182a88e4994312a59",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-legacy-source-patch-7g7k4wia",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-legacy-source-patch-wjtmaieb",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-manual-memory-patch-1caa73621b8b4916a343246226c90f2a",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-manual-memory-patch-7d87b11cd94f49de886108cad4b51cf1",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-memory-context-patch-237130b0b8444485b06ea8ad29363c5b",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-memory-context-patch-d1635154b7ca465ebea24d9119fd28f9",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-memory-extraction-build-20261019-01",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-memory-extraction-patch-pcnkcplw",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-memory-protection-patch-3b8e8d992ff3481dacc277c70032d747",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-memory-protection-patch-79debca506bf4daf8878731e6ed23c18",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-memory-unknown-readback-3oa0_941",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-ocr-patch-8vpbhpok",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-receipt-patch-85ec88d2c6514983981c9acfebd850cb",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-receipt-patch-90e65f5ad5fe4cda92a296f45cbc1bce",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-replan-patch-71irzfi4",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-resume-patch-0090db5c4393459e93b08af3a98e33e5",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-resume-patch-547662f8e34b46c5903951fad3de28d4",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-safety-patch-32897ad92e594ad68e6c5f7297516260",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-safety-patch-624bcb751fdf45d894ddf2712e598cc4",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-safety-patch-8882cfdcc8854734a9653a2e6f0801a9",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-safety-patch-9352262032f24f6dbee47201eb43e93a",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-translation-patch-f3_idlus",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-translation-patch-sr_1he7c",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-usage-patch-8ov6wv2p",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a-usage-patch-lf-hwhs7kpq",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a02-a03-debug-20261021",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a02-a03-debug-final-20261021",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a02-a03-patch-readback-20261020",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a02-a03-patch-readback-20261021-final",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a02-a03-qa-apks-20261021",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a02-a03-qa-apks-final-20261021",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a02-a03-verified-20261021",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a02-original-gradle-config-readback-20261021",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a04-delta-ju1f12xg",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a04-durable-patch-_fjq9awv",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a04-patch-1bcac112a72945c0a1d87a1cec5e3d7e",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a04-patch-7b5bd28e691f41d2b8ce6f7247108af9",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a04-patch-be09b216b9864b10b7eb9e2ab04dab84",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a04-replay-1819fc039aec4fbcb0a3e74aa4dbc574",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a04-replay-3tin4s2v",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a04-replay-ac7d825a7b724cd6b9906f0a924ae384",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a04-replay-bec8986cbcd44bd48d70e9c4a351e1bc",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a07-pro-replay",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a07-release",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a07-release-avd",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a07-test-signing",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a24-01-avd-20261024",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a24-01-release-20261024",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a24-01-test-signing",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a24-02-avd-20261024",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a24-02-handoff-20261024",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a26-01-b-math-integration-20261026",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a26-account-avd-20261026",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a26-account-transport-20261026",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a26-r01-avd-20261026",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a26-r01-combined-build-20261026",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a26-r01-patch-20261026",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a26-r01-replay-20261026",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a26-r01-replay-lf-20261027",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a26-r01-test-signing-20261026",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a27-doc-patch-6vqrm1r5",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a27-doc-replay-ebkzpjf0",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a27-final-patch-replay-_20vv9_z",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a27-final-patch-source-26h3j9lf",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a27-patch-replay-ys4e1n44",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a27-patch-source-4omdvr8w",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a27-settings-combined-20261027",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\a27-test-signing-20261027",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\ab-merge-avd-20261021",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\ab-merge-doc-readback-20261021",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\ab-merge-patch-readback-20261021",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\ab-merge-patch-readback-20261021-lf",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\ab-merge-runner-readback-20261021",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\ab28-patch-replay-20261028",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\agent-model-patch-0eeaea0e5a5f4539a7a7187815fd7770",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\agent-model-patch-b60d62c8e9ec4effa6f6a7605eaa771e",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\agent-model-patch-e076f60880ba46b386bea7d46325d003",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\agent-model-patch-final-0b96141c27d946ae875be2ce48b8189a",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\agent-model-patch-final-998dbbc434b14a54a2d3f500e706cdaf",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\agent-usage-ui.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\agent-usage-ui.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-ndk-r28c-windows.zip",
+    "type": "file",
+    "decision": "REDUNDANT_INSTALLER"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-repository.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\android-sdk",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\AndroidManifest-neutral-baseline.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\api26-a04-doc-replay-2wkez95e",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\api26-a04-doc-replay-a83bhswo",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\api26-a04-doc-replay-aml74es7",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\api26-a04-doc-source-24ptqml2",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\api26-a04-doc-source-8mpoliot",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\api26-a04-doc-source-lxaeohjq",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\api26-a04-normal-output-20261022",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\api26-a04-patch-replay-8pobokx8",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\api26-a04-patch-source-lddueh0_",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\apk-delivery",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\appearance-page.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\approval-body-wrapper-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\approval-boundary-test-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\approval-contract-before.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\approval-delivery-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\approval-final-regression-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\approval-fix-build-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\approval-fix-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\approval-focused-build-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\approval-focused-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\approval-install-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\approval-probe-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\approval-prompt-filter-fix-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\approval-real-before.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\approval-rejection-capture-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\approval-rejection-capture.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\approval-workspace-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\avd",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b-chain-patch-dflfyf8j",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b-chapter-search-patch-readback",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b-equivalence-patch-2ooa_rlz",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b-limit-patch-d4qne7h5",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b-monotonicity-patch-z2m0vtyr",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b-rational-integral-patch-readback",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b-taylor-patch-readback",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b-uniform-bound-patch-readback",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b04-b05-complete-20261020",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b04a-patch-readback-30jw390a",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b06-api26-avd",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b06-api26-compat-20261021",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b06-linux-assets-20261021",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b06-linux-image.py",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b06-linux-office-20261021",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b06-linux-record.py",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b06-linux-wsl-20261021",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b24-c17-avd-20261024",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b24-c17-replay-ui1vutze",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b26-all-avd-20261026",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b26-all-domains-20261026",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b27-api26-avd-20261027",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b27-b-line-20261027",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\b3b-rational-worktree",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\back-chat-page.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\baseline-build-20261006-resume.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\baseline-build-20261006.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\baseline-build-complete.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\baseline-build-proxy.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\baseline-build-sdk.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\baseline-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\bing-image-candidates.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\bing-image-probe.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\bing-image-smoke.html",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\build-thread-20261006.txt",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-image-analyze.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-image-android-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-image-flutter-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-image-flutter-regression.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-image-instrumentation-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-image-kotlin.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-image-profile-retest.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-image-runtime.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-image-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-office-patch-25mv5r9q",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-visual-aar.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-visual-analyze.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-visual-android-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-visual-file-runtime-test.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-visual-file-test-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-visual-final-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-visual-final-install-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-visual-parameters-test.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-visual-runtime-test.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-visual-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\chat-visual-validation-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\checkpoint-after-kill.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\checkpoint-cancel.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\checkpoint-emulator-error.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\checkpoint-emulator.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\checkpoint-final-observation.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\checkpoint-final.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\checkpoint-kill-action.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\checkpoint-reopened.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\checkpoint-switch-after.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\checkpoint_kill_monitor.py",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\checkpoint_stream_action.py",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\commandlinetools-win-13114758_latest.zip",
+    "type": "file",
+    "decision": "REDUNDANT_INSTALLER"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\commandlinetools-win-16111833_latest.zip",
+    "type": "file",
+    "decision": "REDUNDANT_INSTALLER"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\composer-layout-aar.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\composer-layout-analyze.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\composer-layout-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\composer-layout-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\core-v1-community",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\current-screen.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\current-ui.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\dark-appearance-page.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\delivery-latest-android-20261011.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\delivery-latest-flutter-20261011.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\diagnostics-android.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\diagnostics-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\diagnostics-final-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\diagnostics-regression.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\diagnostics-test-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\document-service",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\drawer-screen.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\emulator-install-20261006-proxy.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\emulator-install-20261006.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\emulator-run-20261006.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\emulator-show-20261009-error.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\emulator-show-20261009.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\emulator-visible-20261006-error.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\emulator-visible-20261006.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\emulator-visible.stderr.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\emulator-visible.stdout.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\enhanced-search-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\failed-compression-ledger.db",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\file-05-baseline-jvm",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\file-05-fixed-jvm",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\file-05-jvm-final19",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\file05-final-patch-cim3fxbt",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\file05-patch-0ffh07r3",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\file05-patch-vpainsj_",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\flutter",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\fresh-apk-verification.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\fresh-screen-2.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\fresh-screen-3.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\fresh-screen.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\frontend-before.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\frontend-neutral-baseline-20261010.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\frontend-neutral-baseline-20261010.zip",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\frontend-review-emulator-error.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\frontend-review-emulator.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\frontend-review-feedback-seed.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\frontend-review-feedback-verify.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\frontend-review-fixes-validation.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\frontend-review-runtime-large-font.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\frontend-review-runtime.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\frontend-style-album-20261011",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\frontend-style-capture-20261011.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\frontend-style-components-20261011.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\gemini-handoff-template.html",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\github-commit.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\github-push.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\github-stage.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\github-upload-scan.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\gradle-9.6.0",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\gradle-9.6.0-bin.zip",
+    "type": "file",
+    "decision": "REDUNDANT_INSTALLER"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\hxsi-apk-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\hxsi-apk-verification.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\hxsi-config-helper",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\hxsi-emulator-error.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\hxsi-emulator-launch.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\hxsi-emulator.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\hxsi-flutter-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\hxsi-model-configured.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-aar-delivery.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-aar-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-aar-last.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-aar.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-all-flutter.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-analyze-delivery.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-analyze-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-analyze.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-build-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-delivery-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-delivery-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-dot-aar.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-dot-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-dot-preview.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-dot-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-final-apk.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-flutter-final-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-flutter-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-install-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-kotlin.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-live-ui-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-live-ui-persisted.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-live-ui-resume.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-live-ui.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-loading-aar.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-loading-analyze.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-loading-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-loading-final-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-loading-preview-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-loading-preview.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-loading-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-next-aar.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-next-analyze.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-next-apk.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-next-native.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-next-runtime.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-next-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-protocol-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-protocol-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-runtime-delivery.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-runtime-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-runtime.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-creation-ui-test-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-studio-aar.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-studio-all-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-studio-analyze.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-studio-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-studio-emulator-error.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-studio-emulator.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-studio-final-analyze.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-studio-final-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-studio-final-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-studio-preview-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-studio-template-runtime.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-studio-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\image-studio-ui-runtime.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\initial-commit.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\material-color-utilities.zip",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\material-receiver",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-aar-accessibility.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-aar-delivery.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-aar-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-aar.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-accessibility-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-analyze.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-background-test-fixed.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-background-test.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-build-fixed.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-delivery-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-final-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-final-validation.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-flutter-all-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-flutter-all.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-flutter-closure.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-flutter-complete.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-flutter-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-flutter-semantics-closure.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-flutter.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-kotlin.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-live-diagnostic-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-live-ellipse-diagnostic.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-live-ellipse-resume.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-live-fixed.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-live-resume-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-live.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-new-code-analyze-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-new-code-analyze.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-release-validation.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-reviewed-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-runtime-accessibility-closure.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-runtime-closure.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-runtime-diagnostics-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-runtime-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-runtime-fixed.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-runtime-isolation-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-runtime.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-semantics-test.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\math-plot-verification-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\memory-protection-generator-7aa23e3181ff4dac848674fd8dce0379",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\memory-protection-generator-7e524653a2e34de58b419a2d16bc4fba",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\ndk-download.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\ndk-install.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\ndk-parts",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-aar-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-aar-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-all-tests-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-all-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-analyze-delivery.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-analyze-fifth.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-analyze-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-analyze-final2.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-analyze-final3.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-analyze-fourth.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-analyze-initial.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-analyze-second.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-analyze-third.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-apk-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-apk-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-format.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-layout-tests-second.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-layout-tests-third.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-layout-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-placeholders-audit.txt",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-test-format.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-tests-initial.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-tests-second.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\neutral-window.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\omp-b1b-android-home",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\omp-b1b-avd",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\omp-b1b-worktree",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\omp-b1d-worktree",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\p2-calculus-ocr-avd-20261022",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\p2-math-avd-20261022",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\p2-math-office-integrated-20261022",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\p2-math-office-profile-20261022",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\p2-professional-math-20261022",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\platform-tools_r37.0.1-win.zip",
+    "type": "file",
+    "decision": "REDUNDANT_INSTALLER"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\profile_ui_probe.py",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\project-memory-aar.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\project-memory-analyze-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\project-memory-analyze.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\project-memory-android-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\project-memory-flutter-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\project-memory-flutter-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\project-memory-jvm.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\project-memory-widget-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\QA_CANCEL_A_FIX-action.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\QA_SWITCH_A_FIX-action.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\r27-0405-owned-avd",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\r29-05-frozen",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\r29-05-launch-avd.py",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\r29-05-native-cache",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\r29-05-native-output",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\r29-05-native-output.init.gradle",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\r29-05-patch-create",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\r29-05-patch-replay",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\r29-05-patch-replay-exact",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\r29-api26-owned-avd",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\r29-quality-inherited-images",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\r29-quality-patch-replay",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\r30-05-frozen",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\r30-05-patch-create",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\r30-05-patch-replay",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\r30-05-patch-replay-exact",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\real-loaded-screen.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\real-new-screen.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\real-screen.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\reasoning-aar.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\reasoning-final-test.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\reasoning-flutter-analyze.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\reasoning-flutter-test.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\reasoning-settings.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\render-v4-astra.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\render-v4-emulator-error.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\render-v4-emulator.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\render-v4-live.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\render-v4-ui.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\repository-sync-20261103",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\responses-after-process-kill.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\responses-b-complete.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\responses-cancel-first.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\responses-cancel-stable.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\responses-final.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\responses-followup.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\responses-live.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\responses-process-kill.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\responses-reopened.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\responses-restart-followup.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\responses-switch-after.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\responses-switch-before-2.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\responses-switch-before-3.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\responses-switch-before.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\responses-switch-stable.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\review-fixes-apk.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\review-fixes-arm64-assets.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\review-fixes-x64-assets.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\review-material3-sources.jar",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\rikkahub-2.5.6-arm64-v8a.apk",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\rikkahub-2.5.6.zip",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\rollback-aar-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\rollback-aar.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\rollback-analyze.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\rollback-android-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\rollback-android-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\rollback-neutral.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\rollback-original-reads.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\rollback-outputs",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\rollback-reads",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\rollback-response.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\rollback-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\rollback-tool-output.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s0-baseline-apks",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s0-launch.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s0-menu.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s0-window.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-assistant.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-build-20261006.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-checkpoint-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-checkpoint-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-completion-android-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-completion-android.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-completion-auxiliary-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-completion-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-completion-credentials-cold.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-completion-final-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-completion-process-seed.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-completion-process-verify.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-completion-real-model-fixture-fail.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-completion-real-model-initial-fail.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-completion-real-model-retry.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-completion-real-model.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-completion-runner-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-completion-runner.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-completion-test-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-completion-visual-cleanup.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-completion-visual-fixture.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-completion-visual-id.txt",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-continuation-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-credentials-android-20261007.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-credentials-build-20261007.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-credentials-cold-restart-20261007.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-credentials-emulator-error.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-credentials-emulator.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-credentials-final-20261007.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-credentials-final-android-20261007.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-credentials-initial-20261007.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-credentials-network-regression-20261007.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-credentials-verified-20261007.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-defaults.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-defaults.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-device-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-device-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-drawer.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-fault-branch-final-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-fault-chat-test-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-fault-final-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-fault-instrumentation-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-fault-instrumentation-build2.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-fault-instrumentation-run.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-fault-recovery-final-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-favorite-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-favorite-final-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-final-runtime-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-home.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-large.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-launch.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-layout.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-menu.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-network-fault-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-network-fault-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-original-font-scale.txt",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-orphan-cleanup.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-orphan-qa-ids.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-pre-upgrade-rikka_hub.sqlite",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-profile-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-profile-emulator-error.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-profile-emulator.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-profile-final-validation.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-profile-runtime-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-profile-ui-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-profile-ui-compatible-validation.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-profile-ui-final-validation.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-profile-ui-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-profile-ui-migration-validation.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-profile-upgrade-crash.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-provider-log-build-20261007.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-provider-log-final-20261007.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-provider-log-tests-20261007.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-queue-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-approval-id.txt",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-approval.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-cleanup-approval.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-cleanup-kill.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-cleanup-network.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-cleanup-switch.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-cleanup-tools-fixed.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-cleanup-tools.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-fix-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-fix-regression.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-kill-id.txt",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-kill.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-network-id.txt",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-network.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-restore.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-select-tools-fixed.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-select-tools.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-select.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-switch-id.txt",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-switch.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-tools-fixed-id.txt",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-tools-fixed.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-tools-id.txt",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-tools.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-real-verify.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-recovery-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-recovery-ui.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-recovery-validation.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-recovery-visual-id.txt",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-runtime-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-runtime-final-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-runtime-fixture-id.txt",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-runtime-process-seed.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-runtime-process-verify.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s1-runtime-runner.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s2-android-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s2-android.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s2-build-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s2-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s2-delivery-android.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s2-delivery-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s2-delivery-real.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s2-emulator-error.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s2-emulator.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s2-final-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s2-process-seed.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s2-process-verify.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s2-real-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s2-real.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s2-runner.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s3-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s3-final-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s3-instrumentation-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s5-android.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s5-backup-android.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s5-build-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s5-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s5-completion-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s5-completion-runner-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s5-completion-runner.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s5-final-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s5-legacy-source-android.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s5-legacy-validation-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s5-portable-chat-android.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s5-portable-chat-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s5-process-seed.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s5-process-verify.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s5-regression-android.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s5-runtime-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\s5-verification-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\sdk-buildtools.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\sdk-platform37.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\sdk-thread-20261006.txt",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\sdk-tools19.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\sdk19-install.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\sdk19-licenses.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\sdk19-platforms.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\search-changed-analyze.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\search-check",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\search-delivery-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\search-emulator-error.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\search-emulator.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\search-flutter-aar-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\search-flutter-aar.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\search-flutter-analyze.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\search-flutter-tests-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\search-flutter-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\search-reliability-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\search-reliability-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\search-runtime-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\search-runtime.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\search-thinking-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\search-thinking-final-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\send_synthetic.py",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\settings-page.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\settings-screen.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\smart-ui-aar.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\smart-ui-all-flutter.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\smart-ui-analyze.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\smart-ui-android-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\smart-ui-final-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\smart-ui-final-flutter.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\smart-ui-final-runtime.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\smart-ui-flutter-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\smart-ui-kotlin.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\smart-ui-runtime-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\smart-ui-runtime.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\smart-ui-visual-runtime.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\sol-patch-readback-01ad58a00b35463a8196ed6ff4bb5474",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\sol-patch-readback-3e670cf680e748d88f6e18deadbe26bd",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\sol-patch-readback-6307bb495967416f9a087be5e92a4a76",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\sol-patch-readback-b8ac452996914920afc534faf010304a",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\StudyFlutterActivity-neutral-baseline.kt",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\StudyHostFacade-neutral-baseline.kt",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\trime-menu.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\trime-screen.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\trime-setup.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\trime-test.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\trime-v3.3.12-x86_64.apk",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-chinese-ui.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-current-ui.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-emulator-20261009-190348-error.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-emulator-20261009-190348.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-emulator-error.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-emulator-host-gpu-error.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-emulator-host-gpu.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-emulator.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-latest-emulator-error.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-latest-emulator.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-latest-preview.png",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-launch-20261011-error.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-launch-20261011.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-launch-correct-20261011-error.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-launch-correct-20261011.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-preview-android-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-preview-android-final-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-preview-android-fixed-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-preview-android-offline-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-preview-android-ready-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-preview-android-runtime-fix.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-preview-apk-verification.json",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-preview-build-threads.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-preview-flutter-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-preview-visible-emulator-error.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\user-preview-visible-emulator.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\web-image-chain-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\web-image-chain-runtime-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\web-image-chain-runtime-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\web-image-chain-runtime.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\web-image-chain-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\web-image-search-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\web-ui-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\web-ui-install.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\white-pink-aar.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\white-pink-analyze.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\white-pink-android-build.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\white-pink-layout-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\white-pink-tests.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\white-pink.xml",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\workspace-classpath-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\workspace-classpath.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\workspace-posix",
+    "type": "directory",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\workspace-posix-final.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\workspace-windows-fixed.log",
+    "type": "file",
+    "decision": "KEEP_OR_ARCHIVE_AND_COMPARE_FIRST"
+  }
+]
