@@ -36,10 +36,12 @@ suspend fun beginProviderRequest(
     params: TextGenerationParams,
     body: JsonObject,
     encodedBody: String,
-): ProviderRequestReceipt? {
+): ProviderRequestReceipt {
     val context = currentCoroutineContext()
     context[ProviderRequestGuard]?.validate?.invoke()
-    return context[ProviderRequestAccounting]?.begin(provider, params, body, encodedBody)
+    val accounting = context[ProviderRequestAccounting]
+        ?: error("Provider request requires accepted task accounting")
+    return accounting.begin(provider, params, body, encodedBody)
 }
 
 

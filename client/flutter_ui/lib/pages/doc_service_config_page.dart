@@ -205,6 +205,52 @@ class _DocServiceConfigPageState extends ConsumerState<DocServiceConfigPage> {
                 child: Text(busy ? '处理中…' : '保存'),
               ),
               TextButton(
+                onPressed: busy || value['hasCredential'] != true
+                    ? null
+                    : () async {
+                        final owner = ref.read(activeProfileIdProvider);
+                        final epoch = ref.read(contextEpochProvider);
+                        final confirmed = await showDialog<bool>(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: const Text('撤销服务身份'),
+                            content: const Text('将停用服务端当前凭据，并取消该身份排队或运行中的任务。服务端确认前不会删除本地凭据。'),
+                            actions: [
+                              TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('取消')),
+                              TextButton(onPressed: () => Navigator.pop(context, true), child: const Text('撤销')),
+                            ],
+                          ),
+                        );
+                        if (confirmed != true || !mounted ||
+                            owner != ref.read(activeProfileIdProvider) ||
+                            epoch != ref.read(contextEpochProvider)) {
+                          return;
+                        }
+                        setState(() => busy = true);
+                        try {
+                          await FrontendFeatures.fromWidget(ref, 'revokeDocService');
+                          if (mounted &&
+                              owner == ref.read(activeProfileIdProvider) &&
+                              epoch == ref.read(contextEpochProvider)) {
+                            token.clear();
+                            enabled = false;
+                            dirty = false;
+                            status = '服务端撤权已确认，本地凭据已删除';
+                            ref.invalidate(documentConfigProvider);
+                          }
+                        } catch (e) {
+                          if (mounted && owner == ref.read(activeProfileIdProvider)) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text('撤权未确认，本地凭据保留：$e')),
+                            );
+                          }
+                        } finally {
+                          if (mounted) setState(() => busy = false);
+                        }
+                      },
+                child: const Text('撤销服务身份'),
+              ),
+              TextButton(
                 onPressed: () => context.push('/settings/doc-service/tasks'),
                 child: const Text('查看文档任务'),
               ),

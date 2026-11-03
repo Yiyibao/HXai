@@ -34,8 +34,10 @@ object OcrTransformer : InputMessageTransformer, KoinComponent {
     private val cache by lazy {
         val context = get<Context>()
         val json = Json { allowStructuredMapKeys = true }
+        val legacy = File(context.cacheDir, "ocr_cache.json")
+        if (legacy.exists() && !legacy.delete()) error("Cannot remove backup-eligible OCR cache")
         val store = SingleFileCacheStore(
-            file = File(context.cacheDir, "ocr_cache.json"),
+            file = File(context.noBackupFilesDir, "ocr-cache-v1.json"),
             keySerializer = String.serializer(),
             valueSerializer = String.serializer(),
             json = json

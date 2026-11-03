@@ -205,3 +205,29 @@ def test_reopening_database_preserves_state_and_source(tmp_path):
     assert reopened.get(owner, job['id'])['state'] == 'CANCELLED'
     assert source.read_bytes() == expected
     assert reopened.claim() is None
+
+def test_self_revoke_is_idempotent_and_does_not_leak_identity(tmp_path):
+    app = create_app(tmp_path)
+    store = app.state.store
+    owner, token = store.issue()
+    other, other_token = store.issue()
+    job = enqueue(store, owner)
+    other_job = enqueue(store, other, key='other-request-key-0001')
+    async def run():
+        async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app), base_url='http://test.invalid') as client:
+            headers = {'Authorization': 'Bearer ' + token}
+            first = await client.post('/api/v1/identity/revoke', headers=headers)
+            second = await client.post('/api/v1/identity/revoke', headers=headers)
+            denied = await client.get('/api/v1/capabilities', headers=headers)
+            missing = await client.post('/api/v1/identity/revoke', headers={'Authorization': 'Bearer not-a-real-token'})
+            still = await client.get('/api/v1/capabilities', headers={'Authorization': 'Bearer ' + other_token})
+            return first, second, denied, missing, still
+    first, second, denied, missing, still = asyncio.run(run())
+    assert first.status_code == 200 and first.json() == {'revoked': True}
+    assert owner not in first.text and token not in first.text
+    assert second.status_code == 200 and second.json() == {'revoked': True}
+    assert denied.status_code == 401 and missing.status_code == 401
+    assert still.status_code == 200
+    assert store.get(owner, job['id'])['state'] == 'CANCELLED'
+    assert store.get(other, other_job['id'])['state'] == 'QUEUED'
+    assert store.claim()['id'] == other_job['id']

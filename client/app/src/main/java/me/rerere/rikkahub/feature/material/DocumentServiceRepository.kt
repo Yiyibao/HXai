@@ -79,6 +79,24 @@ class DocumentServiceRepository(private val context: Context, private val materi
         changes.value++
     }
     fun enabled(owner: String) = config(owner).enabled
+    /** Deletes the local credential only after the service confirms revocation. */
+    suspend fun revokeIdentity(owner: String) = withContext(Dispatchers.IO) {
+        val current = config(owner)
+        check(current.baseUrl.isNotBlank() && current.credentialReference.isNotBlank()) { "没有可撤销的服务凭据" }
+        val response = execute(request(current, "/api/v1/identity/revoke").post(ByteArray(0).toRequestBody(null)).build())
+        response.use { readJson(it).also { body -> check(body["revoked"]?.jsonPrimitive?.booleanOrNull == true) { "服务端撤权未确认" } } }
+        synchronized(this@DocumentServiceRepository) {
+            val latest = config(owner)
+            check(latest.credentialReference == current.credentialReference) { "凭据已变化，请重新撤销" }
+            val reference = latest.credentialReference
+            write(File(directory(owner), "config.json"), json.encodeToString(DocumentServiceConfig(false, latest.baseUrl, "")))
+            vault.discard(reference)
+            tasks(owner).filter { it.state in setOf("SUBMITTING", "QUEUED", "RUNNING", "CANCELLING") }.forEach { task ->
+                save(owner, task.copy(cancelRequested = true, cancelConfirmed = true, state = "CANCELLED", errorCode = "authorization_revoked"))
+            }
+            changes.value++
+        }
+    }
     /** Trusted handoff only: sealed immediately, never returned to Flutter. */
     internal fun hostedConfiguration(owner: String): JsonObject {
         val current=config(owner)

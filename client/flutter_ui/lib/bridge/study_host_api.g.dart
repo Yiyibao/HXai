@@ -3964,14 +3964,14 @@ class StudyHostApi {
     return pigeonVar_replyValue! as SimpleCommandResult;
   }
 
-  Future<SimpleCommandResult> stopGeneration(String profileId, String conversationId, String requestId) async {
+  Future<SimpleCommandResult> stopGeneration(String profileId, String conversationId, String requestId, int expectedEpoch) async {
     final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.stopGeneration$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
       binaryMessenger: pigeonVar_binaryMessenger,
     );
-    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, conversationId, requestId]);
+    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, conversationId, requestId, expectedEpoch]);
     final pigeonVar_replyList = await pigeonVar_sendFuture as List<Object?>?;
 
     final Object? pigeonVar_replyValue = _extractReplyValueOrThrow(
@@ -3983,14 +3983,14 @@ class StudyHostApi {
     return pigeonVar_replyValue! as SimpleCommandResult;
   }
 
-  Future<SimpleCommandResult> retryMessage(String profileId, String conversationId, String nodeId, String requestId) async {
+  Future<SimpleCommandResult> retryMessage(String profileId, String conversationId, String nodeId, String requestId, int expectedEpoch) async {
     final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.retryMessage$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
       binaryMessenger: pigeonVar_binaryMessenger,
     );
-    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, conversationId, nodeId, requestId]);
+    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, conversationId, nodeId, requestId, expectedEpoch]);
     final pigeonVar_replyList = await pigeonVar_sendFuture as List<Object?>?;
 
     final Object? pigeonVar_replyValue = _extractReplyValueOrThrow(
@@ -4002,14 +4002,14 @@ class StudyHostApi {
     return pigeonVar_replyValue! as SimpleCommandResult;
   }
 
-  Future<SimpleCommandResult> switchBranch(String profileId, String conversationId, String nodeId, int branchIndex) async {
+  Future<SimpleCommandResult> switchBranch(String profileId, String conversationId, String nodeId, int branchIndex, int expectedEpoch) async {
     final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.switchBranch$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
       binaryMessenger: pigeonVar_binaryMessenger,
     );
-    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, conversationId, nodeId, branchIndex]);
+    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, conversationId, nodeId, branchIndex, expectedEpoch]);
     final pigeonVar_replyList = await pigeonVar_sendFuture as List<Object?>?;
 
     final Object? pigeonVar_replyValue = _extractReplyValueOrThrow(
@@ -4021,14 +4021,14 @@ class StudyHostApi {
     return pigeonVar_replyValue! as SimpleCommandResult;
   }
 
-  Future<SimpleCommandResult> setStudyMode(String profileId, String conversationId, String studyMode) async {
+  Future<SimpleCommandResult> setStudyMode(String profileId, String conversationId, String studyMode, int expectedEpoch) async {
     final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.setStudyMode$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
       binaryMessenger: pigeonVar_binaryMessenger,
     );
-    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, conversationId, studyMode]);
+    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, conversationId, studyMode, expectedEpoch]);
     final pigeonVar_replyList = await pigeonVar_sendFuture as List<Object?>?;
 
     final Object? pigeonVar_replyValue = _extractReplyValueOrThrow(
@@ -4040,14 +4040,14 @@ class StudyHostApi {
     return pigeonVar_replyValue! as SimpleCommandResult;
   }
 
-  Future<SimpleCommandResult> approveToolCall(String profileId, String conversationId, String toolCallId, bool approved, String requestId) async {
+  Future<SimpleCommandResult> approveToolCall(String profileId, String conversationId, String toolCallId, bool approved, String requestId, int expectedEpoch) async {
     final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.approveToolCall$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
       binaryMessenger: pigeonVar_binaryMessenger,
     );
-    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, conversationId, toolCallId, approved, requestId]);
+    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, conversationId, toolCallId, approved, requestId, expectedEpoch]);
     final pigeonVar_replyList = await pigeonVar_sendFuture as List<Object?>?;
 
     final Object? pigeonVar_replyValue = _extractReplyValueOrThrow(

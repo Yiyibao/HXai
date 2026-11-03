@@ -2,8 +2,9 @@
 import hashlib
 import re
 import xml.etree.ElementTree as ET
+import zipfile
+import zlib
 from zipfile import ZipFile
-
 MAIN = {"docx": "word/document.xml", "xlsx": "xl/workbook.xml", "pptx": "ppt/presentation.xml"}
 
 
@@ -47,7 +48,11 @@ def inspect_package(source, extension, digest):
     if hashlib.sha256(source.read_bytes()).hexdigest() != digest:
         raise ValueError("source_digest_mismatch")
     fonts = set()
-    with ZipFile(source) as archive:
+    try:
+        opened = ZipFile(source)
+    except zipfile.BadZipFile as error:
+        raise ValueError("office_zip_integrity") from error
+    with opened as archive:
         entries = archive.infolist()
         names = [entry.filename for entry in entries]
         if not 1 <= len(entries) <= 2000 or len(names) != len(set(names)) or MAIN[extension] not in names or "[Content_Types].xml" not in names:
@@ -55,22 +60,38 @@ def inspect_package(source, extension, digest):
         expanded = 0
         for entry in entries:
             name = entry.filename
+            folded = name.casefold()
             if name.startswith('/') or '\\' in name or ':' in name or '..' in name.split('/') or entry.flag_bits & 1:
                 raise ValueError("encrypted_or_unsafe_office")
-            if (name.startswith('_xmlsignatures/') or name.lower().endswith('vbaproject.bin') or
-                    '/activex/' in name.lower() or '/embeddings/' in name.lower() or name.startswith('xl/externalLinks/')):
+            if (folded.startswith('_xmlsignatures/') or folded.endswith('vbaproject.bin') or folded.endswith('vbadata.xml') or
+                    '/activex/' in folded or '/embeddings/' in folded or folded.startswith('xl/externallinks/')):
                 raise ValueError("active_or_external_office_content")
             expanded += entry.file_size
             if entry.file_size > 16 * 1024 * 1024 or expanded > 64 * 1024 * 1024:
                 raise ValueError("office_expansion_limit")
-            if name.endswith(('.xml', '.rels')):
+            try:
+                payload = archive.read(entry)
+            except zipfile.BadZipFile as error:
+                raise ValueError("office_zip_integrity") from error
+            if len(payload) != entry.file_size or (zlib.crc32(payload) & 0xffffffff) != (entry.CRC & 0xffffffff):
+                raise ValueError("office_zip_integrity")
+            if folded.endswith(('.xml', '.rels')):
                 if entry.file_size > 4 * 1024 * 1024:
                     raise ValueError("office_xml_limit")
-                root = parse_office_xml(archive.read(entry))
+                root = parse_office_xml(payload)
+                if name == "[Content_Types].xml":
+                    for node in root.iter():
+                        content = (node.get("ContentType") or "").casefold()
+                        if any(token in content for token in ("macroenabled", "vbaproject", "digital-signature")):
+                            raise ValueError("active_or_external_office_content")
                 for node in root.iter():
                     local = node.tag.rsplit('}', 1)[-1]
-                    if local == 'Relationship' and node.get('TargetMode') == 'External' and not node.get('Type', '').endswith('/hyperlink'):
-                        raise ValueError("external_office_resource")
+                    if local == 'Relationship':
+                        if (node.get('TargetMode') or '') not in ('', 'Internal'):
+                            raise ValueError("external_office_resource")
+                        rel_type = (node.get('Type') or '').casefold()
+                        if 'vbaproject' in rel_type or 'digital-signature' in rel_type:
+                            raise ValueError("active_or_external_office_content")
                     if local == 'rFonts':
                         for key, value in node.attrib.items():
                             if key.rsplit('}', 1)[-1] in {'ascii', 'hAnsi', 'eastAsia', 'cs'}:

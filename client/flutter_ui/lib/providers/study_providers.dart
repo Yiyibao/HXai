@@ -490,6 +490,7 @@ class ActiveConversationNotifier extends AsyncNotifier<ConversationDetailDto?> {
   Future<void> stopGeneration() async {
     final convId = ref.read(activeConversationIdProvider);
     final profileId = ref.read(activeProfileIdProvider);
+    final epoch = ref.read(contextEpochProvider);
     if (convId == null) return;
 
     checkCommand(
@@ -497,14 +498,21 @@ class ActiveConversationNotifier extends AsyncNotifier<ConversationDetailDto?> {
         profileId,
         convId,
         'stop_${DateTime.now().millisecondsSinceEpoch}',
+        epoch,
       ),
     );
+    if (!ref.mounted ||
+        ref.read(activeProfileIdProvider) != profileId ||
+        ref.read(contextEpochProvider) != epoch) {
+      return;
+    }
     await refresh();
   }
 
   Future<void> retryMessage(String nodeId) async {
     final convId = ref.read(activeConversationIdProvider);
     final profileId = ref.read(activeProfileIdProvider);
+    final epoch = ref.read(contextEpochProvider);
     if (convId == null) return;
 
     checkCommand(
@@ -513,25 +521,38 @@ class ActiveConversationNotifier extends AsyncNotifier<ConversationDetailDto?> {
         convId,
         nodeId,
         'retry_${DateTime.now().millisecondsSinceEpoch}',
+        epoch,
       ),
     );
+    if (!ref.mounted ||
+        ref.read(activeProfileIdProvider) != profileId ||
+        ref.read(contextEpochProvider) != epoch) {
+      return;
+    }
     await refresh();
   }
 
   Future<void> switchBranch(String nodeId, int branchIndex) async {
     final convId = ref.read(activeConversationIdProvider);
     final profileId = ref.read(activeProfileIdProvider);
+    final epoch = ref.read(contextEpochProvider);
     if (convId == null) return;
 
     checkCommand(
-      await bridgeApi.switchBranch(profileId, convId, nodeId, branchIndex),
+      await bridgeApi.switchBranch(profileId, convId, nodeId, branchIndex, epoch),
     );
+    if (!ref.mounted ||
+        ref.read(activeProfileIdProvider) != profileId ||
+        ref.read(contextEpochProvider) != epoch) {
+      return;
+    }
     await refresh();
   }
 
   Future<void> approveTool(String toolCallId, bool approved) async {
     final convId = ref.read(activeConversationIdProvider);
     final profileId = ref.read(activeProfileIdProvider);
+    final epoch = ref.read(contextEpochProvider);
     if (convId == null) return;
 
     checkCommand(
@@ -541,10 +562,17 @@ class ActiveConversationNotifier extends AsyncNotifier<ConversationDetailDto?> {
         toolCallId,
         approved,
         'approve_${DateTime.now().millisecondsSinceEpoch}',
+        epoch,
       ),
     );
+    if (!ref.mounted ||
+        ref.read(activeProfileIdProvider) != profileId ||
+        ref.read(contextEpochProvider) != epoch) {
+      return;
+    }
     await refresh();
   }
+
 }
 
 /// 6. Materials Provider

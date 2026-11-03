@@ -196,6 +196,13 @@ class StudyHostFacade(
                             }
                             null
                         }
+                        "revokeDocService" -> {
+                            commandMutex.withLock {
+                                requireProfile(owner, epoch)
+                                documents.revokeIdentity(owner)
+                            }
+                            null
+                        }
                         "testDocService" -> documents.capabilities(owner).let { mapOf("ready" to (it["ready"]?.jsonPrimitive?.booleanOrNull == true)) }
                         "docTasks" -> documents.tasks(owner).map { task ->
                             val source = materialFiles.list(owner).firstOrNull { it.id == task.sourceId }
@@ -851,7 +858,7 @@ class StudyHostFacade(
             )
         }
 
-        val activeModel = runCatching { settingsStore.settingsFlow.value.getCurrentChatModel() }.getOrNull()
+        // Current selection lives on bootstrap, not this DTO.
 
         ConversationDetailDto(
             id = conv.id.toString(),
@@ -862,8 +869,8 @@ class StudyHostFacade(
             isGenerating = isGenerating,
             lifecycleRevision = conv.lifecycleRevision,
             draftText = "",
-            activeModelId = activeModel?.id?.toString(),
-            activeModelName = activeModel?.displayName
+            activeModelId = null,
+            activeModelName = null
         )
     }
 
@@ -1210,16 +1217,19 @@ class StudyHostFacade(
         result
     } }
 
-    override suspend fun stopGeneration(profileId: String, conversationId: String, requestId: String): SimpleCommandResult = withContext(Dispatchers.IO) {
+    override suspend fun stopGeneration(profileId: String, conversationId: String, requestId: String, expectedEpoch: Long): SimpleCommandResult = withContext(Dispatchers.IO) {
+        requireProfile(profileId, expectedEpoch)
         val uuid = runCatching { Uuid.parse(conversationId) }.getOrNull()
             ?: return@withContext SimpleCommandResult(success = false, error = StudyErrorDto("INVALID_ID", "无效会话ID", false, requestId))
 
         ownedConversation(profileId, conversationId)
+        requireProfile(profileId, expectedEpoch)
         chatService.stopGeneration(uuid)
         SimpleCommandResult(success = true, idResult = conversationId)
     }
 
-    override suspend fun retryMessage(profileId: String, conversationId: String, nodeId: String, requestId: String): SimpleCommandResult = withContext(Dispatchers.IO) {
+    override suspend fun retryMessage(profileId: String, conversationId: String, nodeId: String, requestId: String, expectedEpoch: Long): SimpleCommandResult = withContext(Dispatchers.IO) {
+        requireProfile(profileId, expectedEpoch)
         val convUuid = runCatching { Uuid.parse(conversationId) }.getOrNull()
             ?: return@withContext SimpleCommandResult(success = false, error = StudyErrorDto("INVALID_ID", "无效会话ID", false, requestId))
 
@@ -1231,11 +1241,13 @@ class StudyHostFacade(
         val targetMsg = targetNode.messages.getOrNull(targetNode.selectIndex)
             ?: return@withContext SimpleCommandResult(success = false, error = StudyErrorDto("NOT_FOUND", "消息不存在", false, requestId))
 
+        requireProfile(profileId, expectedEpoch)
         chatService.regenerateAtMessage(convUuid, targetMsg)
         SimpleCommandResult(success = true, idResult = requestId)
     }
 
-    override suspend fun switchBranch(profileId: String, conversationId: String, nodeId: String, branchIndex: Long): SimpleCommandResult = withContext(Dispatchers.IO) {
+    override suspend fun switchBranch(profileId: String, conversationId: String, nodeId: String, branchIndex: Long, expectedEpoch: Long): SimpleCommandResult = withContext(Dispatchers.IO) {
+        requireProfile(profileId, expectedEpoch)
         val convUuid = runCatching { Uuid.parse(conversationId) }.getOrNull()
             ?: return@withContext SimpleCommandResult(success = false, error = StudyErrorDto("INVALID_ID", "无效会话ID", false, ""))
 
@@ -1243,11 +1255,13 @@ class StudyHostFacade(
             ?: return@withContext SimpleCommandResult(success = false, error = StudyErrorDto("NOT_FOUND", "会话不存在", false, ""))
 
         ownedConversation(profileId, conversationId)
+        requireProfile(profileId, expectedEpoch)
         chatService.selectMessageNode(convUuid, Uuid.parse(nodeId), branchIndex.toInt())
         SimpleCommandResult(success = true)
     }
 
-    override suspend fun setStudyMode(profileId: String, conversationId: String, studyMode: String): SimpleCommandResult = withContext(Dispatchers.IO) {
+    override suspend fun setStudyMode(profileId: String, conversationId: String, studyMode: String, expectedEpoch: Long): SimpleCommandResult = withContext(Dispatchers.IO) {
+        requireProfile(profileId, expectedEpoch)
         val convUuid = runCatching { Uuid.parse(conversationId) }.getOrNull()
             ?: return@withContext SimpleCommandResult(success = false, error = StudyErrorDto("INVALID_ID", "无效会话ID", false, ""))
 
@@ -1257,16 +1271,18 @@ class StudyHostFacade(
         val mode = runCatching { StudyMode.valueOf(studyMode.uppercase()) }.getOrThrow()
         ownedConversation(profileId, conversationId)
         check(chatService.getGenerationJobStateFlow(convUuid).firstOrNull()?.isActive != true) { "请先停止生成" }
+        requireProfile(profileId, expectedEpoch)
         chatService.updateStudyMode(convUuid, mode)
         SimpleCommandResult(success = true)
     }
 
-    override suspend fun approveToolCall(profileId: String, conversationId: String, toolCallId: String, approved: Boolean, requestId: String): SimpleCommandResult = withContext(Dispatchers.IO) {
+    override suspend fun approveToolCall(profileId: String, conversationId: String, toolCallId: String, approved: Boolean, requestId: String, expectedEpoch: Long): SimpleCommandResult = withContext(Dispatchers.IO) {
+        requireProfile(profileId, expectedEpoch)
         val convUuid = runCatching { Uuid.parse(conversationId) }.getOrNull()
             ?: return@withContext SimpleCommandResult(success = false, error = StudyErrorDto("INVALID_ID", "无效会话ID", false, requestId))
 
-        val conv = ownedConversation(profileId, conversationId)
-
+        ownedConversation(profileId, conversationId)
+        requireProfile(profileId, expectedEpoch)
         chatService.handleToolApproval(convUuid, toolCallId, approved)
         SimpleCommandResult(success = true, idResult = requestId)
     }

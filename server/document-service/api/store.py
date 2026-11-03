@@ -87,9 +87,15 @@ class Store:
         return owner, token
 
     def authenticate(self, token):
+        owner = self.token_owner(token)
+        return owner
+
+    def token_owner(self, token, include_inactive=False):
         with self.db() as db:
-            row = db.execute("SELECT id FROM identities WHERE token_hash=? AND active=1", (hashlib.sha256(token.encode()).hexdigest(),)).fetchone()
-        return row[0] if row else None
+            row = db.execute("SELECT id, active FROM identities WHERE token_hash=?", (hashlib.sha256(token.encode()).hexdigest(),)).fetchone()
+        if not row or (not include_inactive and not row[1]):
+            return None
+        return row[0]
 
     def revoke(self, owner):
         """Atomically revoke and cancel admission/publication, not kill workers."""

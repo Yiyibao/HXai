@@ -755,19 +755,19 @@ abstract class StudyHostApi {
   SimpleCommandResult sendMessage(SendMessageRequest request);
 
   @async
-  SimpleCommandResult stopGeneration(String profileId, String conversationId, String requestId);
+  SimpleCommandResult stopGeneration(String profileId, String conversationId, String requestId, int expectedEpoch);
 
   @async
-  SimpleCommandResult retryMessage(String profileId, String conversationId, String nodeId, String requestId);
+  SimpleCommandResult retryMessage(String profileId, String conversationId, String nodeId, String requestId, int expectedEpoch);
 
   @async
-  SimpleCommandResult switchBranch(String profileId, String conversationId, String nodeId, int branchIndex);
+  SimpleCommandResult switchBranch(String profileId, String conversationId, String nodeId, int branchIndex, int expectedEpoch);
 
   @async
-  SimpleCommandResult setStudyMode(String profileId, String conversationId, String studyMode);
+  SimpleCommandResult setStudyMode(String profileId, String conversationId, String studyMode, int expectedEpoch);
 
   @async
-  SimpleCommandResult approveToolCall(String profileId, String conversationId, String toolCallId, bool approved, String requestId);
+  SimpleCommandResult approveToolCall(String profileId, String conversationId, String toolCallId, bool approved, String requestId, int expectedEpoch);
 
   @async
   List<MaterialFileDto> getMaterials(String profileId, String filter);

@@ -88,9 +88,12 @@ def test_cancel_lost_ack_and_cancel_before_enqueue_do_not_require_reupload(offic
 
 
 @pytest.mark.parametrize('extra', [
-    {'../outside.xml':'<x/>'}, {'word/vbaProject.bin':b'bad'}, {'word/embeddings/ole.bin':b'bad'},
-    {'_xmlsignatures/sig.xml':'<sig/>'}, {'word/external.xml':'<!DOCTYPE x [<!ENTITY y SYSTEM "file:///etc/passwd">]><x/>'},
+    {'../outside.xml':'<x/>'}, {'word/vbaProject.bin':b'bad'}, {'word/vbaData.xml':'<vba/>'}, {'word/embeddings/ole.bin':b'bad'},
+    {'_xmlsignatures/sig.xml':'<sig/>'}, {'_XMLSIGNATURES/sig.xml':'<sig/>'}, {'word/external.xml':'<!DOCTYPE x [<!ENTITY y SYSTEM "file:///etc/passwd">]><x/>'},
     {'word/_rels/document.xml.rels':'<Relationships><Relationship Type="image" TargetMode="External" Target="https://outside"/></Relationships>'},
+    {'word/_rels/document.xml.rels':'<Relationships><Relationship Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" TargetMode="External" Target="https://example.invalid"/></Relationships>'},
+    {'word/_rels/document.xml.rels':'<Relationships><Relationship Type="http://schemas.microsoft.com/office/2006/relationships/vbaProject" Target="vba"/></Relationships>'},
+    {'[Content_Types].xml':'<Types><Default ContentType="application/vnd.ms-office.macroEnabled.12"/></Types>'},
 ])
 def test_active_expanding_and_external_packages_rejected(tmp_path,extra):
     file=tmp_path/'input.docx'; file.write_bytes(package(extra))

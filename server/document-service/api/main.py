@@ -53,6 +53,16 @@ def create_app(root=None):
     def health():
         return {"status": "ok", "contractVersion": 1}
 
+    @app.post("/api/v1/identity/revoke")
+    def revoke_self(authorization: str | None = Header(None)):
+        if not authorization or not authorization.startswith("Bearer "):
+            raise HTTPException(401, "authentication_required")
+        owner = store.token_owner(authorization[7:], include_inactive=True)
+        if not owner:
+            raise HTTPException(401, "authentication_required")
+        store.revoke(owner)
+        return {"revoked": True}
+
     @app.get("/api/v1/capabilities")
     def capabilities(authorization: str | None = Header(None)):
         identity(authorization)

@@ -122,7 +122,7 @@ class _ChatPageState extends ConsumerState<ChatPage>
         ref.read(conversationSelectionRevisionProvider) == selection;
     try {
       if (id != null) {
-        checkCommand(await bridgeApi.setStudyMode(profile, id, mode));
+        checkCommand(await bridgeApi.setStudyMode(profile, id, mode, epoch));
       }
       if (current()) ref.read(activeStudyModeProvider.notifier).state = mode;
     } catch (error) {

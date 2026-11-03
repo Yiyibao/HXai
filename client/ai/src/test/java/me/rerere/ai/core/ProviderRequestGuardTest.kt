@@ -30,6 +30,11 @@ class ProviderRequestGuardTest {
         assertEquals("synthetic source revoked", failure.exceptionOrNull()?.message)
         assertEquals(0, admitted)
     }
+    @Test fun missingAccountingCannotAdmitAPhysicalRequest() = runBlocking {
+        val failure = runCatching { beginProviderRequest(provider, params, buildJsonObject {}, "{}") }
+        assertEquals("Provider request requires accepted task accounting", failure.exceptionOrNull()?.message)
+    }
+
 
     @Test fun sourceRecheckedForEveryPhysicalAdmissionAndUnguardedRequestsRemainCompatible() = runBlocking {
         var checked = 0

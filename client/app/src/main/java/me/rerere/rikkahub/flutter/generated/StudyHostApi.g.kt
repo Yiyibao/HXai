@@ -3037,11 +3037,11 @@ interface StudyHostApi {
   suspend fun updateTaskCredential(profileId: String, conversationId: String, taskId: String, requestId: String, expectedEpoch: Long, expectedRevision: Long, expectedFence: Long, apiKey: String): SimpleCommandResult
   suspend fun continueTaskCredential(profileId: String, conversationId: String, taskId: String, requestId: String, expectedEpoch: Long): SimpleCommandResult
   suspend fun sendMessage(request: SendMessageRequest): SimpleCommandResult
-  suspend fun stopGeneration(profileId: String, conversationId: String, requestId: String): SimpleCommandResult
-  suspend fun retryMessage(profileId: String, conversationId: String, nodeId: String, requestId: String): SimpleCommandResult
-  suspend fun switchBranch(profileId: String, conversationId: String, nodeId: String, branchIndex: Long): SimpleCommandResult
-  suspend fun setStudyMode(profileId: String, conversationId: String, studyMode: String): SimpleCommandResult
-  suspend fun approveToolCall(profileId: String, conversationId: String, toolCallId: String, approved: Boolean, requestId: String): SimpleCommandResult
+  suspend fun stopGeneration(profileId: String, conversationId: String, requestId: String, expectedEpoch: Long): SimpleCommandResult
+  suspend fun retryMessage(profileId: String, conversationId: String, nodeId: String, requestId: String, expectedEpoch: Long): SimpleCommandResult
+  suspend fun switchBranch(profileId: String, conversationId: String, nodeId: String, branchIndex: Long, expectedEpoch: Long): SimpleCommandResult
+  suspend fun setStudyMode(profileId: String, conversationId: String, studyMode: String, expectedEpoch: Long): SimpleCommandResult
+  suspend fun approveToolCall(profileId: String, conversationId: String, toolCallId: String, approved: Boolean, requestId: String, expectedEpoch: Long): SimpleCommandResult
   suspend fun getMaterials(profileId: String, filter: String): List<MaterialFileDto>
   suspend fun checkSymbol(profileId: String, materialId: String, chosenSymbol: String, requestId: String): SimpleCommandResult
   suspend fun getProjects(profileId: String): List<ProjectDto>
@@ -3810,9 +3810,10 @@ interface StudyHostApi {
             val profileIdArg = args[0] as String
             val conversationIdArg = args[1] as String
             val requestIdArg = args[2] as String
+            val expectedEpochArg = args[3] as Long
             CoroutineScope(Dispatchers.Main).launch {
               val wrapped: List<Any?> = try {
-                listOf(api.stopGeneration(profileIdArg, conversationIdArg, requestIdArg))
+                listOf(api.stopGeneration(profileIdArg, conversationIdArg, requestIdArg, expectedEpochArg))
               } catch (exception: Throwable) {
                 StudyHostApiPigeonUtils.wrapError(exception)
               }
@@ -3832,9 +3833,10 @@ interface StudyHostApi {
             val conversationIdArg = args[1] as String
             val nodeIdArg = args[2] as String
             val requestIdArg = args[3] as String
+            val expectedEpochArg = args[4] as Long
             CoroutineScope(Dispatchers.Main).launch {
               val wrapped: List<Any?> = try {
-                listOf(api.retryMessage(profileIdArg, conversationIdArg, nodeIdArg, requestIdArg))
+                listOf(api.retryMessage(profileIdArg, conversationIdArg, nodeIdArg, requestIdArg, expectedEpochArg))
               } catch (exception: Throwable) {
                 StudyHostApiPigeonUtils.wrapError(exception)
               }
@@ -3854,9 +3856,10 @@ interface StudyHostApi {
             val conversationIdArg = args[1] as String
             val nodeIdArg = args[2] as String
             val branchIndexArg = args[3] as Long
+            val expectedEpochArg = args[4] as Long
             CoroutineScope(Dispatchers.Main).launch {
               val wrapped: List<Any?> = try {
-                listOf(api.switchBranch(profileIdArg, conversationIdArg, nodeIdArg, branchIndexArg))
+                listOf(api.switchBranch(profileIdArg, conversationIdArg, nodeIdArg, branchIndexArg, expectedEpochArg))
               } catch (exception: Throwable) {
                 StudyHostApiPigeonUtils.wrapError(exception)
               }
@@ -3875,9 +3878,10 @@ interface StudyHostApi {
             val profileIdArg = args[0] as String
             val conversationIdArg = args[1] as String
             val studyModeArg = args[2] as String
+            val expectedEpochArg = args[3] as Long
             CoroutineScope(Dispatchers.Main).launch {
               val wrapped: List<Any?> = try {
-                listOf(api.setStudyMode(profileIdArg, conversationIdArg, studyModeArg))
+                listOf(api.setStudyMode(profileIdArg, conversationIdArg, studyModeArg, expectedEpochArg))
               } catch (exception: Throwable) {
                 StudyHostApiPigeonUtils.wrapError(exception)
               }
@@ -3898,9 +3902,10 @@ interface StudyHostApi {
             val toolCallIdArg = args[2] as String
             val approvedArg = args[3] as Boolean
             val requestIdArg = args[4] as String
+            val expectedEpochArg = args[5] as Long
             CoroutineScope(Dispatchers.Main).launch {
               val wrapped: List<Any?> = try {
-                listOf(api.approveToolCall(profileIdArg, conversationIdArg, toolCallIdArg, approvedArg, requestIdArg))
+                listOf(api.approveToolCall(profileIdArg, conversationIdArg, toolCallIdArg, approvedArg, requestIdArg, expectedEpochArg))
               } catch (exception: Throwable) {
                 StudyHostApiPigeonUtils.wrapError(exception)
               }
