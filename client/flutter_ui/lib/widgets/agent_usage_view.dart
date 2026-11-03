@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -191,29 +190,6 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
       if (_current && generation == _generation) {
         setState(() => _busy = false);
       }
-    }
-  }
-
-  String _cost(String? encoded) {
-    if (encoded == null) return '费用未知';
-    try {
-      final data = jsonDecode(encoded) as Map;
-      if (data['amount'] is String && data['currency'] is String) {
-        return "费用：${data['currency']} ${data['amount']} · ${data['status'] == 'reported' ? '供应商报告' : '价格估算'}";
-      }
-      final totals = (data['totals'] as List? ?? []).cast<Map>();
-      final parts = totals
-          .map(
-            (v) =>
-                "${v['currency']} ${v['amount']}（${v['provenance'] == 'reported' ? '报告' : '估算'}）",
-          )
-          .toList();
-      if (data['unknownRequests'] != '0') {
-        parts.add("${data['unknownRequests'] ?? '?'} 次费用未知");
-      }
-      return parts.isEmpty ? '暂无可计金额' : '费用：${parts.join(' · ')}';
-    } catch (_) {
-      return '费用读取失败';
     }
   }
 
@@ -644,9 +620,7 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
               ),
             ],
           ),
-          const Text(
-            '周期按设备时区；展示实际请求账本。费用区分供应商报告、价格估算与未知；无适用来源时费用未知。已知小计不能当完整账单。',
-          ),
+          const Text('周期按设备时区；展示实际请求账本。已知小计不能当完整账单。费用未知：当前账本没有供应商费用来源。'),
           if (_notificationSettingsError != null)
             Text(_notificationSettingsError!),
           AgentUsageAlertsView(
@@ -708,7 +682,7 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
                       '时间：${DateTime.fromMillisecondsSinceEpoch(result.capturedAt).toLocal()} · ${result.reused ? '复用原快照' : '新快照'}',
                     ),
                     const Text(
-                      '已保存到当前档案成果库。未知字段为 null，整数使用十进制字符串。可在预览页另存，包含当时的费用来源与未知覆盖。',
+                      '已保存到当前档案成果库。未知字段为 null，整数使用十进制字符串。可在预览页另存，费用保持未知。',
                     ),
                     SelectableText('文件 SHA256：${result.sha256}'),
                     TextButton(
@@ -755,7 +729,6 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
                     ? '${page.undatedRequests} 次请求的时间未知。'
                     : '${page.undatedRequests} 次时间未知的请求未计入本周期，可在“全部”查看。',
               ),
-            if (page.costJson != null) Text(_cost(page.costJson)),
             if (page.requestCount == 0) const Text('此范围没有请求记录。'),
             for (final entry in _entries)
               Card(
@@ -777,17 +750,6 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
                         '时间：${entry.createdAt == null ? '未知' : DateTime.fromMillisecondsSinceEpoch(entry.createdAt!).toLocal()}\n'
                         '请求：${entry.requestId}\n任务：${entry.taskId}',
                       ),
-                      if (entry.costJson != null) Text(_cost(entry.costJson)),
-                      if (entry.costJson != null)
-                        ExpansionTile(
-                          title: const Text('费用来源'),
-                          children: [
-                            SelectableText(
-                              const JsonEncoder.withIndent('  ')
-                                  .convert(jsonDecode(entry.costJson!)),
-                            ),
-                          ],
-                        ),
                     ],
                   ),
                 ),
@@ -811,7 +773,6 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
                     ? '${grouped.undatedRequests} 次请求的时间未知。'
                     : '${grouped.undatedRequests} 次时间未知的请求未计入本周期，可在“全部”查看。',
               ),
-            if (grouped.costJson != null) Text(_cost(grouped.costJson)),
             if (grouped.groupCount == 0) const Text('此范围没有分组记录。'),
             for (final item in _groups)
               Card(
@@ -834,7 +795,6 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
                       Text(_metric('输出 Token', item.output)),
                       Text(_metric('缓存 Token', item.cached)),
                       Text(_metric('总 Token', item.total)),
-                      if (item.costJson != null) Text(_cost(item.costJson)),
                     ],
                   ),
                 ),

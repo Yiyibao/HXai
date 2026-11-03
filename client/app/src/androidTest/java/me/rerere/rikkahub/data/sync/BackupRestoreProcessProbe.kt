@@ -58,18 +58,11 @@ class BackupRestoreProcessProbe {
                 val queue = ConversationQueue(messages = listOf(PendingInput(Uuid.random(), listOf(UIMessagePart.Text("queued synthetic goal")))))
                 db.conversationDao().insert(entity(survivor, JsonInstant.encodeToString(queue)))
                 val memories = LearningMemoryStore(db, MemoryFingerprints(context))
-                val manual = memories.addManual(owner, "deleted-memory", MemoryType.PREFERENCE, "synthetic preference")
-                val source = MemorySource(UUID.randomUUID().toString(), deleted, UUID.randomUUID().toString(),
-                    UUID.randomUUID().toString(), memories.fingerprint(owner, "content:synthetic source"), 1)
-                val derived = LearningMemory(type = MemoryType.PREFERENCE, topicKey = "synthetic", factKey = "derived",
-                    content = "synthetic derived preference", evidenceType = EvidenceType.SELF_REPORTED,
-                    sourceIds = listOf(source.id), status = "ACTIVE", createdAt = 1, updatedAt = 1)
-                memories.change(owner) { it.copy(sources = listOf(source), items = it.items + derived) to Unit }
+                memories.addManual(owner, "deleted-memory", MemoryType.PREFERENCE, "synthetic preference")
                 val manager = BackupManager(context, db, settings, JsonInstant)
                 val archive = manager.createEncryptedBackup("synthetic process backup!".toCharArray())
-                val item = memories.read(owner).items.single { it.id == manual }
+                val item = memories.read(owner).items.single()
                 memories.delete(owner, item.id, item.revision)
-                memories.invalidateConversation(owner, deleted)
                 db.conversationDao().recordDeletion(ConversationDeletionEntity(deleted, owner, 4, true))
                 db.conversationDao().deleteById(deleted)
                 manager.confirmRestore(manager.prepareEncryptedRestore(archive, "synthetic process backup!".toCharArray()))
@@ -93,12 +86,7 @@ class BackupRestoreProcessProbe {
                 assertTrue(chat.lifecycleRevision > 0)
                 val queue = JsonInstant.decodeFromString<ConversationQueue>(chat.queueState)
                 assertTrue(queue.paused); assertEquals(1, queue.messages.size)
-                val memories = LearningMemoryStore(db, MemoryFingerprints(context))
-                val state = memories.read(owner)
-                assertFalse(state.sources.single().valid)
-                assertEquals("SUPERSEDED", state.items.single().status)
-                assertEquals("synthetic derived preference", state.items.single().content)
-                assertTrue(memories.relevant(owner, "synthetic").isEmpty())
+                assertTrue(LearningMemoryStore(db, MemoryFingerprints(context)).read(owner).items.isEmpty())
             }
             assertFalse(pending.apply {})
         }

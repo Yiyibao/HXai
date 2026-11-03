@@ -115,7 +115,6 @@ import org.koin.compose.koinInject
 
 @Composable
 fun SettingMcpPage(vm: SettingVM = koinViewModel()) {
-    val context = LocalContext.current
     val settings by vm.settings.collectAsStateWithLifecycle()
     val mcpConfigs = settings.mcpServers
     val creationState = useEditState<McpServerConfig> {
@@ -198,12 +197,6 @@ fun SettingMcpPage(vm: SettingVM = koinViewModel()) {
                     bottom = innerPadding.calculateBottomPadding() + 16.dp,
                 )
             ) {
-                if (me.rerere.rikkahub.BuildConfig.SYNTHETIC_MCP && me.rerere.rikkahub.BuildConfig.APPLICATION_ID == "org.hxsi.agent.nativeqa") {
-                    item {
-                        Button(onClick = { context.startActivity(android.content.Intent().setClassName(context,
-                            "me.rerere.rikkahub.feature.agent.McpFixtureManagementActivity")) }) { Text("管理合成只读 MCP（QA）") }
-                    }
-                }
                 items(mcpConfigs, key = { it.id }) { mcpConfig ->
                     McpServerItem(
                         item = mcpConfig,

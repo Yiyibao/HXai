@@ -22,7 +22,6 @@ object MaterialWriter {
         "pptx" -> "application/vnd.openxmlformats-officedocument.presentationml.presentation"
         "pdf" -> "application/pdf"
         "png" -> "image/png"
-        "svg" -> "image/svg+xml"
         "jpg", "jpeg" -> "image/jpeg"
         "webp" -> "image/webp"
         "txt" -> "text/plain"

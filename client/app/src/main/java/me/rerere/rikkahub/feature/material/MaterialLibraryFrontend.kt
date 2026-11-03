@@ -59,18 +59,6 @@ class MaterialLibraryFrontend(private val context: Context, private val files: M
                 val item = current()
                 MaterialMathEvidence.source(files, owner, item.id, item.sha256, number("offset", 0), number("count", 4000)).toString()
             }
-            "library.mathWork.list" -> files.mathWorkInputs.list(owner, number("offset", 0), 20).toString()
-            "library.mathWork.parseResults" -> {
-                val item = current()
-                files.mathWorkInputs.parseResults(owner, item.id, item.sha256, number("offset", 0)).toString()
-            }
-            "library.mathWork.parseCandidate" -> {
-                val item = current()
-                files.mathWorkInputs.parseCandidate(owner, item.id, item.sha256, number("number", 1), string("task_id")).toString()
-            }
-            "library.mathWork.create" -> files.mathWorkInputs.create(owner, string("request"),
-                args["confirmed"] as? Boolean ?: false, checkAccess).toString()
-            "library.mathWork.read" -> files.mathWorkInputs.read(owner, string("work_id")).toString()
             else -> error("未接入的资料库操作")
         }
         checkAccess()

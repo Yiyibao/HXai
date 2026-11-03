@@ -88,7 +88,8 @@ class AgentUsageGroupsSurfaceTest {
                     assertFalse(text(automation.rootInActiveWindow).contains("task-model"))
                     capture("$theme-$scale-model")
                     choose("按模型","按提供商")
-                    waitFor("actual grouped provider DTO not returned") { text(automation.rootInActiveWindow).contains("共 3 个分组") }
+                    waitFor("actual grouped provider DTO not returned") { text(automation.rootInActiveWindow).contains("共 3 个分组") &&
+                        text(automation.rootInActiveWindow).contains("提供商：未知提供商") && !text(automation.rootInActiveWindow).contains("模型：") }
                     capture("$theme-$scale-provider")
                     choose("按提供商","按角色")
                     waitFor("actual grouped role DTO not returned") { text(automation.rootInActiveWindow).contains("共 2 个分组") }

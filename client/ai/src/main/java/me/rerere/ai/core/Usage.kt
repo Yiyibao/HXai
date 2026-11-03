@@ -8,8 +8,6 @@ data class TokenUsage(
     val completionTokens: Int? = null,
     val cachedTokens: Int? = null,
     val totalTokens: Int? = null,
-    val costUsd: String? = null,
-    val costSource: String? = null,
 )
 
 fun TokenUsage?.merge(other: TokenUsage): TokenUsage {
@@ -20,8 +18,6 @@ fun TokenUsage?.merge(other: TokenUsage): TokenUsage {
         completionTokens = other.completionTokens ?: this?.completionTokens,
         totalTokens = other.totalTokens ?: if (countsChanged) null else this?.totalTokens,
         cachedTokens = other.cachedTokens ?: this?.cachedTokens,
-        costUsd = other.costUsd ?: if (countsChanged) null else this?.costUsd,
-        costSource = other.costSource ?: if (countsChanged) null else this?.costSource,
     )
 }
 

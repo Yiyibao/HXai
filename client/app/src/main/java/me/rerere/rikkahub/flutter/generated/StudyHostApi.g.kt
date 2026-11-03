@@ -1440,8 +1440,7 @@ data class AgentUsageEntryDto (
   val inputTokens: Long? = null,
   val outputTokens: Long? = null,
   val cachedTokens: Long? = null,
-  val totalTokens: Long? = null,
-  val costJson: String? = null
+  val totalTokens: Long? = null
 )
  {
   companion object {
@@ -1460,8 +1459,7 @@ data class AgentUsageEntryDto (
       val outputTokens = pigeonVar_list[11] as Long?
       val cachedTokens = pigeonVar_list[12] as Long?
       val totalTokens = pigeonVar_list[13] as Long?
-      val costJson = pigeonVar_list[14] as String?
-      return AgentUsageEntryDto(requestId, taskId, conversationId, role, providerId, modelId, reasoning, createdAt, state, provenance, inputTokens, outputTokens, cachedTokens, totalTokens, costJson)
+      return AgentUsageEntryDto(requestId, taskId, conversationId, role, providerId, modelId, reasoning, createdAt, state, provenance, inputTokens, outputTokens, cachedTokens, totalTokens)
     }
   }
   fun toList(): List<Any?> {
@@ -1480,7 +1478,6 @@ data class AgentUsageEntryDto (
       outputTokens,
       cachedTokens,
       totalTokens,
-      costJson,
     )
   }
   override fun equals(other: Any?): Boolean {
@@ -1491,7 +1488,7 @@ data class AgentUsageEntryDto (
       return true
     }
     val other = other as AgentUsageEntryDto
-    return StudyHostApiPigeonUtils.deepEquals(this.requestId, other.requestId) && StudyHostApiPigeonUtils.deepEquals(this.taskId, other.taskId) && StudyHostApiPigeonUtils.deepEquals(this.conversationId, other.conversationId) && StudyHostApiPigeonUtils.deepEquals(this.role, other.role) && StudyHostApiPigeonUtils.deepEquals(this.providerId, other.providerId) && StudyHostApiPigeonUtils.deepEquals(this.modelId, other.modelId) && StudyHostApiPigeonUtils.deepEquals(this.reasoning, other.reasoning) && StudyHostApiPigeonUtils.deepEquals(this.createdAt, other.createdAt) && StudyHostApiPigeonUtils.deepEquals(this.state, other.state) && StudyHostApiPigeonUtils.deepEquals(this.provenance, other.provenance) && StudyHostApiPigeonUtils.deepEquals(this.inputTokens, other.inputTokens) && StudyHostApiPigeonUtils.deepEquals(this.outputTokens, other.outputTokens) && StudyHostApiPigeonUtils.deepEquals(this.cachedTokens, other.cachedTokens) && StudyHostApiPigeonUtils.deepEquals(this.totalTokens, other.totalTokens) && StudyHostApiPigeonUtils.deepEquals(this.costJson, other.costJson)
+    return StudyHostApiPigeonUtils.deepEquals(this.requestId, other.requestId) && StudyHostApiPigeonUtils.deepEquals(this.taskId, other.taskId) && StudyHostApiPigeonUtils.deepEquals(this.conversationId, other.conversationId) && StudyHostApiPigeonUtils.deepEquals(this.role, other.role) && StudyHostApiPigeonUtils.deepEquals(this.providerId, other.providerId) && StudyHostApiPigeonUtils.deepEquals(this.modelId, other.modelId) && StudyHostApiPigeonUtils.deepEquals(this.reasoning, other.reasoning) && StudyHostApiPigeonUtils.deepEquals(this.createdAt, other.createdAt) && StudyHostApiPigeonUtils.deepEquals(this.state, other.state) && StudyHostApiPigeonUtils.deepEquals(this.provenance, other.provenance) && StudyHostApiPigeonUtils.deepEquals(this.inputTokens, other.inputTokens) && StudyHostApiPigeonUtils.deepEquals(this.outputTokens, other.outputTokens) && StudyHostApiPigeonUtils.deepEquals(this.cachedTokens, other.cachedTokens) && StudyHostApiPigeonUtils.deepEquals(this.totalTokens, other.totalTokens)
   }
 
   override fun hashCode(): Int {
@@ -1510,11 +1507,10 @@ data class AgentUsageEntryDto (
     result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.outputTokens)
     result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.cachedTokens)
     result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.totalTokens)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.costJson)
     return result
   }
   override fun toString(): String {
-    return "AgentUsageEntryDto(requestId=$requestId, taskId=$taskId, conversationId=$conversationId, role=$role, providerId=$providerId, modelId=$modelId, reasoning=$reasoning, createdAt=$createdAt, state=$state, provenance=$provenance, inputTokens=$inputTokens, outputTokens=$outputTokens, cachedTokens=$cachedTokens, totalTokens=$totalTokens, costJson=$costJson)"
+    return "AgentUsageEntryDto(requestId=$requestId, taskId=$taskId, conversationId=$conversationId, role=$role, providerId=$providerId, modelId=$modelId, reasoning=$reasoning, createdAt=$createdAt, state=$state, provenance=$provenance, inputTokens=$inputTokens, outputTokens=$outputTokens, cachedTokens=$cachedTokens, totalTokens=$totalTokens)"
   }
 }
 
@@ -1534,8 +1530,7 @@ data class AgentUsagePageDto (
   val cached: AgentUsageMetricDto,
   val total: AgentUsageMetricDto,
   val entries: List<AgentUsageEntryDto>,
-  val nextCursor: String? = null,
-  val costJson: String? = null
+  val nextCursor: String? = null
 )
  {
   companion object {
@@ -1555,8 +1550,7 @@ data class AgentUsagePageDto (
       val total = pigeonVar_list[12] as AgentUsageMetricDto
       val entries = pigeonVar_list[13] as List<AgentUsageEntryDto>
       val nextCursor = pigeonVar_list[14] as String?
-      val costJson = pigeonVar_list[15] as String?
-      return AgentUsagePageDto(owner, taskId, from, until, requestCount, reportedRequests, estimatedRequests, unknownRequests, undatedRequests, input, output, cached, total, entries, nextCursor, costJson)
+      return AgentUsagePageDto(owner, taskId, from, until, requestCount, reportedRequests, estimatedRequests, unknownRequests, undatedRequests, input, output, cached, total, entries, nextCursor)
     }
   }
   fun toList(): List<Any?> {
@@ -1576,7 +1570,6 @@ data class AgentUsagePageDto (
       total,
       entries,
       nextCursor,
-      costJson,
     )
   }
   override fun equals(other: Any?): Boolean {
@@ -1587,7 +1580,7 @@ data class AgentUsagePageDto (
       return true
     }
     val other = other as AgentUsagePageDto
-    return StudyHostApiPigeonUtils.deepEquals(this.owner, other.owner) && StudyHostApiPigeonUtils.deepEquals(this.taskId, other.taskId) && StudyHostApiPigeonUtils.deepEquals(this.from, other.from) && StudyHostApiPigeonUtils.deepEquals(this.until, other.until) && StudyHostApiPigeonUtils.deepEquals(this.requestCount, other.requestCount) && StudyHostApiPigeonUtils.deepEquals(this.reportedRequests, other.reportedRequests) && StudyHostApiPigeonUtils.deepEquals(this.estimatedRequests, other.estimatedRequests) && StudyHostApiPigeonUtils.deepEquals(this.unknownRequests, other.unknownRequests) && StudyHostApiPigeonUtils.deepEquals(this.undatedRequests, other.undatedRequests) && StudyHostApiPigeonUtils.deepEquals(this.input, other.input) && StudyHostApiPigeonUtils.deepEquals(this.output, other.output) && StudyHostApiPigeonUtils.deepEquals(this.cached, other.cached) && StudyHostApiPigeonUtils.deepEquals(this.total, other.total) && StudyHostApiPigeonUtils.deepEquals(this.entries, other.entries) && StudyHostApiPigeonUtils.deepEquals(this.nextCursor, other.nextCursor) && StudyHostApiPigeonUtils.deepEquals(this.costJson, other.costJson)
+    return StudyHostApiPigeonUtils.deepEquals(this.owner, other.owner) && StudyHostApiPigeonUtils.deepEquals(this.taskId, other.taskId) && StudyHostApiPigeonUtils.deepEquals(this.from, other.from) && StudyHostApiPigeonUtils.deepEquals(this.until, other.until) && StudyHostApiPigeonUtils.deepEquals(this.requestCount, other.requestCount) && StudyHostApiPigeonUtils.deepEquals(this.reportedRequests, other.reportedRequests) && StudyHostApiPigeonUtils.deepEquals(this.estimatedRequests, other.estimatedRequests) && StudyHostApiPigeonUtils.deepEquals(this.unknownRequests, other.unknownRequests) && StudyHostApiPigeonUtils.deepEquals(this.undatedRequests, other.undatedRequests) && StudyHostApiPigeonUtils.deepEquals(this.input, other.input) && StudyHostApiPigeonUtils.deepEquals(this.output, other.output) && StudyHostApiPigeonUtils.deepEquals(this.cached, other.cached) && StudyHostApiPigeonUtils.deepEquals(this.total, other.total) && StudyHostApiPigeonUtils.deepEquals(this.entries, other.entries) && StudyHostApiPigeonUtils.deepEquals(this.nextCursor, other.nextCursor)
   }
 
   override fun hashCode(): Int {
@@ -1607,11 +1600,10 @@ data class AgentUsagePageDto (
     result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.total)
     result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.entries)
     result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.nextCursor)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.costJson)
     return result
   }
   override fun toString(): String {
-    return "AgentUsagePageDto(owner=$owner, taskId=$taskId, from=$from, until=$until, requestCount=$requestCount, reportedRequests=$reportedRequests, estimatedRequests=$estimatedRequests, unknownRequests=$unknownRequests, undatedRequests=$undatedRequests, input=$input, output=$output, cached=$cached, total=$total, entries=$entries, nextCursor=$nextCursor, costJson=$costJson)"
+    return "AgentUsagePageDto(owner=$owner, taskId=$taskId, from=$from, until=$until, requestCount=$requestCount, reportedRequests=$reportedRequests, estimatedRequests=$estimatedRequests, unknownRequests=$unknownRequests, undatedRequests=$undatedRequests, input=$input, output=$output, cached=$cached, total=$total, entries=$entries, nextCursor=$nextCursor)"
   }
 }
 
@@ -1627,8 +1619,7 @@ data class AgentUsageGroupDto (
   val input: AgentUsageMetricDto,
   val output: AgentUsageMetricDto,
   val cached: AgentUsageMetricDto,
-  val total: AgentUsageMetricDto,
-  val costJson: String? = null
+  val total: AgentUsageMetricDto
 )
  {
   companion object {
@@ -1644,8 +1635,7 @@ data class AgentUsageGroupDto (
       val output = pigeonVar_list[8] as AgentUsageMetricDto
       val cached = pigeonVar_list[9] as AgentUsageMetricDto
       val total = pigeonVar_list[10] as AgentUsageMetricDto
-      val costJson = pigeonVar_list[11] as String?
-      return AgentUsageGroupDto(providerId, modelId, role, requestCount, reportedRequests, estimatedRequests, unknownRequests, input, output, cached, total, costJson)
+      return AgentUsageGroupDto(providerId, modelId, role, requestCount, reportedRequests, estimatedRequests, unknownRequests, input, output, cached, total)
     }
   }
   fun toList(): List<Any?> {
@@ -1661,7 +1651,6 @@ data class AgentUsageGroupDto (
       output,
       cached,
       total,
-      costJson,
     )
   }
   override fun equals(other: Any?): Boolean {
@@ -1672,7 +1661,7 @@ data class AgentUsageGroupDto (
       return true
     }
     val other = other as AgentUsageGroupDto
-    return StudyHostApiPigeonUtils.deepEquals(this.providerId, other.providerId) && StudyHostApiPigeonUtils.deepEquals(this.modelId, other.modelId) && StudyHostApiPigeonUtils.deepEquals(this.role, other.role) && StudyHostApiPigeonUtils.deepEquals(this.requestCount, other.requestCount) && StudyHostApiPigeonUtils.deepEquals(this.reportedRequests, other.reportedRequests) && StudyHostApiPigeonUtils.deepEquals(this.estimatedRequests, other.estimatedRequests) && StudyHostApiPigeonUtils.deepEquals(this.unknownRequests, other.unknownRequests) && StudyHostApiPigeonUtils.deepEquals(this.input, other.input) && StudyHostApiPigeonUtils.deepEquals(this.output, other.output) && StudyHostApiPigeonUtils.deepEquals(this.cached, other.cached) && StudyHostApiPigeonUtils.deepEquals(this.total, other.total) && StudyHostApiPigeonUtils.deepEquals(this.costJson, other.costJson)
+    return StudyHostApiPigeonUtils.deepEquals(this.providerId, other.providerId) && StudyHostApiPigeonUtils.deepEquals(this.modelId, other.modelId) && StudyHostApiPigeonUtils.deepEquals(this.role, other.role) && StudyHostApiPigeonUtils.deepEquals(this.requestCount, other.requestCount) && StudyHostApiPigeonUtils.deepEquals(this.reportedRequests, other.reportedRequests) && StudyHostApiPigeonUtils.deepEquals(this.estimatedRequests, other.estimatedRequests) && StudyHostApiPigeonUtils.deepEquals(this.unknownRequests, other.unknownRequests) && StudyHostApiPigeonUtils.deepEquals(this.input, other.input) && StudyHostApiPigeonUtils.deepEquals(this.output, other.output) && StudyHostApiPigeonUtils.deepEquals(this.cached, other.cached) && StudyHostApiPigeonUtils.deepEquals(this.total, other.total)
   }
 
   override fun hashCode(): Int {
@@ -1688,11 +1677,10 @@ data class AgentUsageGroupDto (
     result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.output)
     result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.cached)
     result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.total)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.costJson)
     return result
   }
   override fun toString(): String {
-    return "AgentUsageGroupDto(providerId=$providerId, modelId=$modelId, role=$role, requestCount=$requestCount, reportedRequests=$reportedRequests, estimatedRequests=$estimatedRequests, unknownRequests=$unknownRequests, input=$input, output=$output, cached=$cached, total=$total, costJson=$costJson)"
+    return "AgentUsageGroupDto(providerId=$providerId, modelId=$modelId, role=$role, requestCount=$requestCount, reportedRequests=$reportedRequests, estimatedRequests=$estimatedRequests, unknownRequests=$unknownRequests, input=$input, output=$output, cached=$cached, total=$total)"
   }
 }
 
@@ -1707,8 +1695,7 @@ data class AgentUsageGroupsPageDto (
   val groupCount: Long,
   val undatedRequests: Long,
   val groups: List<AgentUsageGroupDto>,
-  val nextCursor: String? = null,
-  val costJson: String? = null
+  val nextCursor: String? = null
 )
  {
   companion object {
@@ -1723,8 +1710,7 @@ data class AgentUsageGroupsPageDto (
       val undatedRequests = pigeonVar_list[7] as Long
       val groups = pigeonVar_list[8] as List<AgentUsageGroupDto>
       val nextCursor = pigeonVar_list[9] as String?
-      val costJson = pigeonVar_list[10] as String?
-      return AgentUsageGroupsPageDto(owner, taskId, from, until, groupBy, requestCount, groupCount, undatedRequests, groups, nextCursor, costJson)
+      return AgentUsageGroupsPageDto(owner, taskId, from, until, groupBy, requestCount, groupCount, undatedRequests, groups, nextCursor)
     }
   }
   fun toList(): List<Any?> {
@@ -1739,7 +1725,6 @@ data class AgentUsageGroupsPageDto (
       undatedRequests,
       groups,
       nextCursor,
-      costJson,
     )
   }
   override fun equals(other: Any?): Boolean {
@@ -1750,7 +1735,7 @@ data class AgentUsageGroupsPageDto (
       return true
     }
     val other = other as AgentUsageGroupsPageDto
-    return StudyHostApiPigeonUtils.deepEquals(this.owner, other.owner) && StudyHostApiPigeonUtils.deepEquals(this.taskId, other.taskId) && StudyHostApiPigeonUtils.deepEquals(this.from, other.from) && StudyHostApiPigeonUtils.deepEquals(this.until, other.until) && StudyHostApiPigeonUtils.deepEquals(this.groupBy, other.groupBy) && StudyHostApiPigeonUtils.deepEquals(this.requestCount, other.requestCount) && StudyHostApiPigeonUtils.deepEquals(this.groupCount, other.groupCount) && StudyHostApiPigeonUtils.deepEquals(this.undatedRequests, other.undatedRequests) && StudyHostApiPigeonUtils.deepEquals(this.groups, other.groups) && StudyHostApiPigeonUtils.deepEquals(this.nextCursor, other.nextCursor) && StudyHostApiPigeonUtils.deepEquals(this.costJson, other.costJson)
+    return StudyHostApiPigeonUtils.deepEquals(this.owner, other.owner) && StudyHostApiPigeonUtils.deepEquals(this.taskId, other.taskId) && StudyHostApiPigeonUtils.deepEquals(this.from, other.from) && StudyHostApiPigeonUtils.deepEquals(this.until, other.until) && StudyHostApiPigeonUtils.deepEquals(this.groupBy, other.groupBy) && StudyHostApiPigeonUtils.deepEquals(this.requestCount, other.requestCount) && StudyHostApiPigeonUtils.deepEquals(this.groupCount, other.groupCount) && StudyHostApiPigeonUtils.deepEquals(this.undatedRequests, other.undatedRequests) && StudyHostApiPigeonUtils.deepEquals(this.groups, other.groups) && StudyHostApiPigeonUtils.deepEquals(this.nextCursor, other.nextCursor)
   }
 
   override fun hashCode(): Int {
@@ -1765,11 +1750,10 @@ data class AgentUsageGroupsPageDto (
     result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.undatedRequests)
     result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.groups)
     result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.nextCursor)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.costJson)
     return result
   }
   override fun toString(): String {
-    return "AgentUsageGroupsPageDto(owner=$owner, taskId=$taskId, from=$from, until=$until, groupBy=$groupBy, requestCount=$requestCount, groupCount=$groupCount, undatedRequests=$undatedRequests, groups=$groups, nextCursor=$nextCursor, costJson=$costJson)"
+    return "AgentUsageGroupsPageDto(owner=$owner, taskId=$taskId, from=$from, until=$until, groupBy=$groupBy, requestCount=$requestCount, groupCount=$groupCount, undatedRequests=$undatedRequests, groups=$groups, nextCursor=$nextCursor)"
   }
 }
 
