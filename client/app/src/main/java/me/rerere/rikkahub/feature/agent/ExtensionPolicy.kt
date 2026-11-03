@@ -15,11 +15,7 @@ internal data class ExtensionToolPin(
     val scopes: List<ExtensionScope> = emptyList(),
     // User-authored permission to read again; annotations from the server are never used.
     val verification: String = "consistent_read",
-    val imageSha256: String? = null,
 )
-
-@Serializable
-internal data class ExtensionOAuthBinding(val issuer: String,val resource: String,val clientId: String,val scopes: List<String>,val expiresAt: Long)
 
 @Serializable
 internal data class ExtensionConfig(
@@ -30,17 +26,12 @@ internal data class ExtensionConfig(
     val serverVersion: String,
     val protocol: String = "2025-11-25",
     val tools: List<ExtensionToolPin>,
-    val oauth: ExtensionOAuthBinding? = null,
 ) {
     fun validate(allowLoopback: Boolean = false) {
         require(version == 1 && name.length in 1..100 && serverName.length in 1..100 && serverVersion.length in 1..80)
         ExtensionPolicy.endpoint(endpoint, allowLoopback)
-        oauth?.let {
-            ExtensionPolicy.endpoint(it.issuer,allowLoopback)
-            require(it.resource==endpoint && it.clientId.length in 1..2048 && it.scopes.size<=100 && it.scopes.all { scope -> scope.length in 1..200 } && it.expiresAt>0)
-        }
         require(protocol in setOf("2025-03-26", "2025-06-18", "2025-11-25"))
-        require(tools.size in 0..32 && tools.map { it.name }.distinct().size == tools.size)
+        require(tools.size in 1..32 && tools.map { it.name }.distinct().size == tools.size)
         tools.forEach { tool ->
             require(tool.name.matches(Regex("[A-Za-z0-9_.-]{1,100}")))
             require(tool.verification in setOf("consistent_read", "sandbox_receipt"))
@@ -56,10 +47,8 @@ internal data class ExtensionConfig(
             }
             if (tool.verification == "sandbox_receipt") {
                 require(tool.name == "run_python")
-                require(tool.imageSha256?.matches(Regex("sha256:[a-f0-9]{64}")) == true) { "沙箱镜像及其依赖需明确确认" }
                 val props = tool.schema.getValue("properties").jsonObject
-                require(props.keys == setOf("script_id", "script_sha256", "input_json", "run_id"))
-                require(props["run_id"] == buildJsonObject { put("type","string");put("minLength",64);put("maxLength",64) })
+                require(props.keys == setOf("script_id", "script_sha256", "input_json"))
                 for (key in listOf("script_id", "script_sha256")) {
                     require(props.getValue(key).jsonObject["enum"]?.jsonArray?.size == 1)
                 }

@@ -51,7 +51,6 @@ internal object AgentUsageSnapshot {
                 put("role",text(row.role));put("providerId",text(row.providerId));put("modelId",text(row.modelId));put("reasoning",text(row.reasoning))
                 put("state",text(row.state));put("provenance",text(row.provenance));put("createdAtMs",number(row.createdAt))
                 put("tokens",buildJsonObject { put("input",number(row.inputTokens));put("output",number(row.outputTokens));put("cached",number(row.cachedTokens));put("total",number(row.totalTokens)) })
-                put("cost",Json.parseToJsonElement(requireNotNull(row.costJson)))
             }
         } else {
             val page=AgentUsageGroups.snapshot(db,owner,taskId,from,until,groupBy)
@@ -61,14 +60,13 @@ internal object AgentUsageSnapshot {
                 put("providerId",text(row.providerId));put("modelId",text(row.modelId));put("role",text(row.role));put("requestCount",number(row.requestCount))
                 put("reportedRequests",number(row.reportedRequests));put("estimatedRequests",number(row.estimatedRequests));put("unknownRequests",number(row.unknownRequests))
                 put("tokens",metrics(row.input,row.output,row.cached,row.total))
-                put("cost",Json.parseToJsonElement(requireNotNull(row.costJson)))
             }
         }
         return buildJsonObject {
             put("schemaVersion",1);put("kind","hxai_usage_snapshot");put("integerEncoding","decimal_strings")
             put("owner",text(owner));put("taskId",text(taskId));put("requestId",text(requestId));put("fromMs",number(from));put("untilMs",number(until))
             put("groupBy",groupBy);put("capturedAtMs",number(System.currentTimeMillis()));put("summary",summary);put("recordCount",number(records.size.toLong()))
-            put("cost",AgentCostLedger.summary(db,scope,args));put("costSchemaVersion",1);put("records",JsonArray(records))
+            put("cost",buildJsonObject { put("status","unknown");put("amount",JsonNull);put("currency",JsonNull) });put("records",JsonArray(records))
         }
     }
     fun digest(bytes: ByteArray)=MessageDigest.getInstance("SHA-256").digest(bytes).joinToString("") { "%02x".format(it) }

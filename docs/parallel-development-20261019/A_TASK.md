@@ -1,7 +1,5 @@
 # A线：统一Agent、共享接线和最终App集成
 
-2026-10-22 A04 通用MCP/Skills本批已实现并在声明范围 PASS_SCOPED：多安装/按档案范围授权/前台管理 → 原统一Chat/journal/独立回读 → 独立Linux Python沙箱。实际Android→容器→独立回执故事PASS；普通Debug编译/单测/lint、43项原生方法、4种真实进程恢复与Linux15项通过。协议 `../a04-general-mcp-skills-protocol-v1.md`，精确交付 `HXai_CHANGE_REVIEW/A04-GENERAL-MCP-SKILLS-20261022/HANDOFF_STATUS.md`。下面保留历史任务书；OAuth/额外transport/任意外部写入适配器等仍按支持边界禁用，独立/完整项目审查及发布资格未评估。
-
 这是可交给 Sol/A 开发会话的执行任务书；本轮仅规划，尚未派发或实施。先读本目录 PLAN、根/client AGENTS及指定Pro原文。使用完整产品快照，不从旧HEAD丢弃未提交成果；不开子代理，不重做已接线数学/章节/来源和用量功能。
 
 ## A01 首批：接通现有XLSX重算

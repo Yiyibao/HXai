@@ -17,10 +17,6 @@ import java.util.UUID
 
 /** User-confirmed ordered transcriptions. Not model-writable, not included in backups. */
 internal class MathWorkInputs(private val context: Context, private val files: MaterialFiles) {
-    private val candidates by lazy { MathWorkCandidates(files, DocumentServiceRepository(context, files)) }
-    fun parseResults(owner: String, id: String, sha256: String, offset: Int) = candidates.list(owner, id, sha256, offset)
-    fun parseCandidate(owner: String, id: String, sha256: String, number: Int, taskId: String) =
-        MathWorkCandidates.response(candidates.read(owner, id, sha256, number, taskId))
     private fun directory(owner: String) = File(context.noBackupFilesDir, "math-work-inputs/${ownerKey(owner)}").apply { mkdirs() }
     private fun file(owner: String, id: String): File {
         require(UUID.fromString(id).toString() == id)
@@ -33,15 +29,7 @@ internal class MathWorkInputs(private val context: Context, private val files: M
         return me.rerere.rikkahub.feature.math.ProfessionalMath.request(raw)
     }
     private fun checkPage(owner: String, page: JsonObject) {
-        val fields = setOf("id", "sha256", "number", "transcription", "ambiguities")
-        require(page.keys == fields || page.keys == fields + "candidate")
-        if ("candidate" in page) {
-            val ref = page.getValue("candidate").jsonObject
-            require(ref.keys == setOf("task_id", "result_revision", "candidate_sha256"))
-            require(ref.getValue("task_id").jsonPrimitive.let { it.isString && UUID.fromString(it.content).toString() == it.content })
-            require(ref.getValue("result_revision").jsonPrimitive.let { !it.isString && it.int > 0 })
-            require(ref.getValue("candidate_sha256").jsonPrimitive.let { it.isString && it.content.matches(Regex("[a-f0-9]{64}")) })
-        }
+        require(page.keys == setOf("id", "sha256", "number", "transcription", "ambiguities"))
         fun text(key: String) = page.getValue(key).jsonPrimitive.also { require(it.isString) }.content
         val item = files.get(owner, text("id")); check(item.sha256 == text("sha256")) { "手写来源版本已改变" }
         val original = files.verifiedFile(owner, item.id)
@@ -64,41 +52,23 @@ internal class MathWorkInputs(private val context: Context, private val files: M
         val pages = input.getValue("pages").jsonArray
         require(pages.size in 1..12)
         val identities = HashSet<String>()
-        val candidateEvidence = ArrayList<JsonElement>(pages.size)
         for (value in pages) {
             currentCoroutineContext().ensureActive(); stillAllowed()
             val page = value.jsonObject; checkPage(owner, page)
             check(identities.add("${page.getValue("id")}:${page.getValue("number")}")) { "同一源物理页重复，请明确页序" }
             if (confirmed) require(page.getValue("ambiguities").jsonArray.isEmpty()) { "仍有关键符号歧义，不能确认完整输入" }
-            val snapshot = if ("candidate" in page) {
-                candidates.read(owner, page.getValue("id").jsonPrimitive.content, page.getValue("sha256").jsonPrimitive.content,
-                    page.getValue("number").jsonPrimitive.int, page.getValue("candidate").jsonObject.getValue("task_id").jsonPrimitive.content)
-                    .also { MathWorkCandidates.validate(page, it) }
-            } else null
-            candidateEvidence += snapshot ?: JsonNull
         }
-        val version = if (pages.any { "candidate" in it.jsonObject }) 2 else 1
-        require(candidateEvidence.toString().length <= 65536) { "整份候选证据过长，未删减原文或覆盖旧草稿" }
-        val key = "math-work-v$version:$owner:$confirmed:$input"
+        val key = "math-work-v1:$owner:$confirmed:$input"
         val id = UUID.nameUUIDFromBytes(key.toByteArray(Charsets.UTF_8)).toString()
         val record = buildJsonObject {
-            put("version", version); put("id", id); put("owner", owner); put("title", title)
+            put("version", 1); put("id", id); put("owner", owner); put("title", title)
             put("state", if (confirmed) "CONFIRMED" else "WAITING_INPUT"); put("pages", pages)
-            put("transcription_origin", if (version == 1) {
-                if (confirmed) "USER_CONFIRMED_NOT_MACHINE_OCR" else "USER_DRAFT_NOT_MACHINE_OCR"
-            } else if (confirmed) "USER_CONFIRMED_WITH_PARSE_PROVENANCE" else "PARSE_CANDIDATE_NOT_CONFIRMED")
-            if (version == 2) put("candidate_evidence", JsonArray(candidateEvidence))
+            put("transcription_origin", "USER_CONFIRMED_NOT_MACHINE_OCR")
         }
         stillAllowed()
         val target = file(owner, id)
         files.withSourceMutationLock {
             pages.forEach { checkPage(owner, it.jsonObject) }
-            if (version == 2) pages.forEachIndexed { index, element ->
-                val page = element.jsonObject
-                if ("candidate" in page) check(candidates.read(owner, page.getValue("id").jsonPrimitive.content,
-                    page.getValue("sha256").jsonPrimitive.content, page.getValue("number").jsonPrimitive.int,
-                    page.getValue("candidate").jsonObject.getValue("task_id").jsonPrimitive.content) == candidateEvidence[index]) { "保存期间解析候选改变" }
-            }
             stillAllowed()
             synchronized(lock) {
                 if (target.exists()) check(Json.parseToJsonElement(target.readText()) == record) { "既有确认记录不同或已撤销，未覆盖" }
@@ -113,27 +83,16 @@ internal class MathWorkInputs(private val context: Context, private val files: M
             val source = file(owner, id); check(source.length() in 1..MAX_RECORD_BYTES)
             Json.parseToJsonElement(source.readText()).jsonObject
         }
-        val version = record["version"]?.jsonPrimitive?.int
-        check(version in setOf(1, 2) && record["owner"] == JsonPrimitive(owner) && record["id"] == JsonPrimitive(id))
+        check(record["version"] == JsonPrimitive(1) && record["owner"] == JsonPrimitive(owner) && record["id"] == JsonPrimitive(id))
         check(record["state"]?.jsonPrimitive?.content in setOf("CONFIRMED", "WAITING_INPUT")) { "来源已删除或确认记录已撤销" }
         val pages = record.getValue("pages").jsonArray
         pages.forEach { checkPage(owner, it.jsonObject) }
-        if (version == 2) {
-            val evidence = record.getValue("candidate_evidence").jsonArray
-            check(evidence.size == pages.size)
-            pages.forEachIndexed { index, page ->
-                if ("candidate" in page.jsonObject) MathWorkCandidates.validate(page.jsonObject, evidence[index].jsonObject)
-                else check(evidence[index] == JsonNull)
-            }
-        } else check(pages.none { "candidate" in it.jsonObject })
         return buildJsonObject {
-            put("contractVersion", version); put("status", if (record["state"] == JsonPrimitive("CONFIRMED")) "SOURCE_READY" else "WAITING_INPUT")
+            put("contractVersion", 1); put("status", if (record["state"] == JsonPrimitive("CONFIRMED")) "SOURCE_READY" else "WAITING_INPUT")
             put("work_id", id); put("title", record.getValue("title")); put("pages", pages)
             put("page_order", "TRUSTED_USER_ORDER"); put("transcription_origin", record.getValue("transcription_origin"))
-            if (version == 2) put("candidate_evidence", record.getValue("candidate_evidence"))
             put("mathematics_status", "NOT_EVALUATED")
-            put("notice", if (version == 1) "页序、物理页与用户转录绑定固定真实源。用户确认不是机器OCR、教材逐字引文或数学证明；任一源删除/改变即拒绝旧确认。"
-                else "页序、物理页、用户修订与固定真实源及原解析候选快照绑定。候选不是真值，确认不是识别准确率或数学证明；任一原源删除/改变即拒绝旧确认。快照独立保留，缓存清理不丢失已确认转录。")
+            put("notice", "页序、物理页与用户转录绑定固定真实源。用户确认不是机器OCR、教材逐字引文或数学证明；任一源删除/改变即拒绝旧确认。")
         }
     }
     fun list(owner: String, offset: Int, limit: Int): JsonObject {
@@ -189,7 +148,7 @@ internal class MathWorkInputs(private val context: Context, private val files: M
         }
     }
     companion object {
-        private const val MAX_RECORD_BYTES = 8L * 65536 + 4096
+        private const val MAX_RECORD_BYTES = 4L * 65536 + 4096
         private val lock = Any()
         private fun ownerKey(owner: String) = MaterialSourceReceipt.hex(MessageDigest.getInstance("SHA-256").digest(owner.toByteArray(Charsets.UTF_8)))
         fun invalidateSource(context: Context, owner: String, sourceId: String) = synchronized(lock) {

@@ -13,7 +13,7 @@ internal data class DecimalEnclosure(val lower: BigDecimal, val upper: BigDecima
 }
 
 /** Directed decimal arithmetic and analytic series remainders, never Double certification. */
-internal class RealEnclosures(val digits: Int) : RealAlgebra<DecimalEnclosure> {
+internal class RealEnclosures(val digits: Int) {
     private val precision = digits + 80
     private val down = MathContext(precision, RoundingMode.FLOOR)
     private val up = MathContext(precision, RoundingMode.CEILING)
@@ -23,20 +23,20 @@ internal class RealEnclosures(val digits: Int) : RealAlgebra<DecimalEnclosure> {
     val zero = point(BigDecimal.ZERO)
     val one = point(BigDecimal.ONE)
     fun point(value: BigDecimal) = DecimalEnclosure(value, value)
-    override fun rational(value: Rational) = DecimalEnclosure(BigDecimal(value.numerator).divide(BigDecimal(value.denominator), down), BigDecimal(value.numerator).divide(BigDecimal(value.denominator), up))
-    override fun negate(a: DecimalEnclosure) = DecimalEnclosure(a.upper.negate(), a.lower.negate())
-    override fun add(a: DecimalEnclosure, b: DecimalEnclosure) = bounded(DecimalEnclosure(a.lower.add(b.lower, down), a.upper.add(b.upper, up)))
-    override fun subtract(a: DecimalEnclosure, b: DecimalEnclosure) = add(a, negate(b))
-    override fun multiply(a: DecimalEnclosure, b: DecimalEnclosure): DecimalEnclosure {
+    fun rational(value: Rational) = DecimalEnclosure(BigDecimal(value.numerator).divide(BigDecimal(value.denominator), down), BigDecimal(value.numerator).divide(BigDecimal(value.denominator), up))
+    fun negate(a: DecimalEnclosure) = DecimalEnclosure(a.upper.negate(), a.lower.negate())
+    fun add(a: DecimalEnclosure, b: DecimalEnclosure) = bounded(DecimalEnclosure(a.lower.add(b.lower, down), a.upper.add(b.upper, up)))
+    fun subtract(a: DecimalEnclosure, b: DecimalEnclosure) = add(a, negate(b))
+    fun multiply(a: DecimalEnclosure, b: DecimalEnclosure): DecimalEnclosure {
         val low = arrayOf(a.lower.multiply(b.lower, down), a.lower.multiply(b.upper, down), a.upper.multiply(b.lower, down), a.upper.multiply(b.upper, down)).minOrNull()!!
         val high = arrayOf(a.lower.multiply(b.lower, up), a.lower.multiply(b.upper, up), a.upper.multiply(b.lower, up), a.upper.multiply(b.upper, up)).maxOrNull()!!
         return bounded(DecimalEnclosure(low, high))
     }
-    override fun divide(a: DecimalEnclosure, b: DecimalEnclosure): DecimalEnclosure {
+    fun divide(a: DecimalEnclosure, b: DecimalEnclosure): DecimalEnclosure {
         if (b.lower.signum() <= 0 && b.upper.signum() >= 0) throw MathUnsupported("division_interval_contains_zero")
         return multiply(a, DecimalEnclosure(BigDecimal.ONE.divide(b.upper, down), BigDecimal.ONE.divide(b.lower, up)))
     }
-    override fun power(a: DecimalEnclosure, exponent: Int): DecimalEnclosure {
+    fun power(a: DecimalEnclosure, exponent: Int): DecimalEnclosure {
         if (exponent !in -32..32) throw MathUnsupported("numeric_power_limit")
         if (exponent == 0 && a.lower.signum() <= 0 && a.upper.signum() >= 0) throw MathUnsupported("zero_power_zero_not_defined")
         if (exponent < 0) return divide(one, power(a, -exponent))
@@ -135,9 +135,7 @@ internal class RealEnclosures(val digits: Int) : RealAlgebra<DecimalEnclosure> {
         throw MathUnsupported("pi_series_limit")
     }
     val pi by lazy { subtract(multiply(point(BigDecimal(16)), atanReciprocal(5)), multiply(point(BigDecimal(4)), atanReciprocal(239))) }
-    private val e by lazy { expPoint(BigDecimal.ONE) }
-    override fun constant(name: String) = when (name) { "pi" -> pi; "e" -> e; else -> throw MathUnsupported("unknown_numeric_constant") }
-    override fun function(name: String, a: DecimalEnclosure): DecimalEnclosure = when (name) {
+    fun function(name: String, a: DecimalEnclosure): DecimalEnclosure = when (name) {
         "sqrt" -> { val low = sqrtPoint(a.lower); val high = sqrtPoint(a.upper); DecimalEnclosure(low.lower, high.upper) }
         "exp" -> DecimalEnclosure(expPoint(a.lower).lower, expPoint(a.upper).upper)
         "ln", "log" -> {
@@ -153,17 +151,69 @@ internal class RealEnclosures(val digits: Int) : RealAlgebra<DecimalEnclosure> {
         "abs" -> when { a.lower.signum() >= 0 -> a; a.upper.signum() <= 0 -> negate(a); else -> DecimalEnclosure(BigDecimal.ZERO, absolute(a)) }
         else -> throw MathUnsupported("unsupported_numeric_function")
     }
-    fun bindings(input: JsonObject): Map<String, DecimalEnclosure> {
-        if (input.size > 8) throw MathUnsupported("numeric_input_limit")
-        return input.mapValues { (name, raw) ->
-            RealExpression.checkVariable(name)
+    fun evaluate(source: String, bindings: JsonObject): DecimalEnclosure {
+        if (source.length !in 1..4096 || bindings.size > 8) throw MathUnsupported("numeric_input_limit")
+        val variables = bindings.mapValues { (name, raw) ->
+            if (!name.matches(Regex("[A-Za-z][A-Za-z0-9_]{0,15}")) || name in setOf("pi", "e", "sin", "cos", "tan", "ln", "log", "exp", "sqrt", "abs")) throw MathUnsupported("invalid_numeric_variable")
             val pair = raw as? JsonArray ?: throw MathUnsupported("variable_interval_pair_required")
             if (pair.size != 2) throw MathUnsupported("variable_interval_pair_required")
-            bounded(DecimalEnclosure(rational(ProfessionalScalar.read(pair[0])).lower, rational(ProfessionalScalar.read(pair[1])).upper))
+            DecimalEnclosure(rational(ProfessionalScalar.read(pair[0])).lower, rational(ProfessionalScalar.read(pair[1])).upper)
         }
+        var position = 0; var nodes = 0; var depth = 0
+        fun token(c: Char): Boolean {
+            while (position < source.length && source[position].isWhitespace()) position++
+            if (position < source.length && source[position] == c) { position++; return true }; return false
+        }
+        fun count() { if (++nodes > 256) throw MathUnsupported("numeric_node_limit") }
+        lateinit var sum: () -> DecimalEnclosure
+        lateinit var unary: () -> DecimalEnclosure
+        fun atom(): DecimalEnclosure {
+            count()
+            if (token('(')) { val v = sum(); if (!token(')')) throw MathUnsupported("missing_numeric_parenthesis"); return v }
+            token(' '); val rest = source.substring(position)
+            NUMBER.find(rest)?.let { match -> position += match.value.length; return rational(ProfessionalScalar.parse(match.value)) }
+            val name = NAME.find(rest)?.value ?: throw MathUnsupported("invalid_numeric_expression")
+            position += name.length
+            if (token('(')) { val value = sum(); if (!token(')')) throw MathUnsupported("missing_numeric_parenthesis"); return function(name, value) }
+            return when (name) { "pi" -> pi; "e" -> expPoint(BigDecimal.ONE); else -> variables[name] ?: throw MathUnsupported("unknown_numeric_variable") }
+        }
+        unary = {
+            if (++depth > 32) throw MathUnsupported("numeric_depth_limit")
+            try {
+                when {
+                    token('+') -> unary()
+                    token('-') -> { count(); negate(unary()) }
+                    else -> {
+                        var value = atom()
+                        if (token('^')) {
+                            token(' '); val negative = token('-'); token('+'); val start = position
+                            while (position < source.length && source[position].isDigit()) position++
+                            val exponent = source.substring(start, position).toIntOrNull() ?: throw MathUnsupported("numeric_integer_power_required")
+                            count(); value = power(value, if (negative) -exponent else exponent)
+                        }
+                        value
+                    }
+                }
+            } finally { depth-- }
+        }
+        fun product(): DecimalEnclosure {
+            var value = unary()
+            while (true) { val division = if (token('*')) false else if (token('/')) true else return value; count(); val other = unary(); value = if (division) divide(value, other) else multiply(value, other) }
+        }
+        sum = {
+            var value = product()
+            var more = true
+            while (more) { if (token('+')) { count(); value = add(value, product()) } else if (token('-')) { count(); value = subtract(value, product()) } else more = false }
+            value
+        }
+        val result = sum(); token(' ')
+        if (position != source.length) throw MathUnsupported("invalid_numeric_expression")
+        return bounded(result)
     }
-    fun evaluate(source: String, bindings: JsonObject): DecimalEnclosure =
-        bounded(RealExpression.compile(source).evaluate(this, this.bindings(bindings)))
+    companion object {
+        private val NUMBER = Regex("^(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?")
+        private val NAME = Regex("^[A-Za-z][A-Za-z0-9_]*")
+    }
 }
 
 internal object CertifiedRealArithmetic {

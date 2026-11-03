@@ -6,7 +6,7 @@ import kotlinx.serialization.json.*
 
 /** Professional workflows reuse the existing verifier and never create task authority. */
 internal object ProfessionalMath {
-    val operations = setOf("professional_linear_algebra", "professional_multivariate", "professional_induction", "professional_proof", "professional_numeric", "professional_solution", "professional_review", "professional_theorems", "professional_calculus")
+    val operations = setOf("professional_linear_algebra", "professional_multivariate", "professional_induction", "professional_proof", "professional_numeric", "professional_solution", "professional_review", "professional_theorems")
     val workflowOperations = setOf("professional_proof", "professional_solution", "professional_review")
     const val REQUEST_CHARS = 65536
     fun request(raw: String): JsonObject {
@@ -29,7 +29,6 @@ internal object ProfessionalMath {
         "professional_multivariate" -> MultivariateCertificate.verify(input)
         "professional_induction" -> MultivariateCertificate.induction(input)
         "professional_numeric" -> CertifiedRealArithmetic.verify(input)
-        "professional_calculus" -> CertifiedCalculus.verify(input)
         "professional_proof" -> ProofDerivation.verify(input)
         "professional_theorems" -> {
             if (input.isNotEmpty()) throw MathUnsupported("theorem_catalogue_takes_empty_request")

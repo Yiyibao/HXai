@@ -5,7 +5,7 @@ import os
 import shutil
 
 
-def validate_office_output(directory, options, *, publish=True):
+def validate_office_output(directory, options):
     file = directory / 'output/manifest.json'
     if not file.is_file() or file.is_symlink() or file.stat().st_size > 65536:
         raise ValueError('invalid_conversion_manifest')
@@ -26,7 +26,6 @@ def validate_office_output(directory, options, *, publish=True):
              'sha256': hashlib.sha256(source.read_bytes()).hexdigest()}
     if manifest['assets'] != [asset]:
         raise ValueError('conversion_asset_mismatch')
-    if not publish:return manifest
     staging = directory / 'publishing'; staging.mkdir()
     shutil.copyfile(source, staging / 'output.pdf')
     if hashlib.sha256((staging / 'output.pdf').read_bytes()).hexdigest() != asset['sha256']:

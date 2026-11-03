@@ -18,14 +18,12 @@ class _PageInput {
   final number = TextEditingController(text: '1');
   final transcription = TextEditingController();
   final ambiguities = TextEditingController();
-  Map<String, dynamic>? candidate, candidateEvidence;
   _PageInput(this.source);
   void dispose() { number.dispose(); transcription.dispose(); ambiguities.dispose(); }
   Map<String, Object?> value() => {
     ...source.identity, 'number': int.tryParse(number.text) ?? 0,
     'transcription': transcription.text,
     'ambiguities': ambiguities.text.split('\n').map((e) => e.trim()).where((e) => e.isNotEmpty).toList(),
-    if (candidate != null) 'candidate': candidate,
   };
 }
 
@@ -43,12 +41,7 @@ class _MathWorkPageState extends ConsumerState<MathWorkPage> {
   void initState() { super.initState(); pages.add(_PageInput(widget.initial)); Future.microtask(() => loadSaved()); }
   @override
   void dispose() { title.dispose(); for (final page in pages) { page.dispose(); } super.dispose(); }
-  void changed([_PageInput? detached]) {
-    setState(() {
-      receipt = null;
-      if (detached != null) { detached.candidate = null; detached.candidateEvidence = null; }
-    });
-  }
+  void changed() { if (receipt != null) setState(() => receipt = null); }
   Future<void> loadSaved({bool more = false}) async {
     if (!current || historyLoading) return;
     setState(() => historyLoading = true);
@@ -77,10 +70,7 @@ class _MathWorkPageState extends ConsumerState<MathWorkPage> {
       final restored = [for (var i=0;i<originals.length;i++) _PageInput(sources[i])
         ..number.text = '${originals[i]['number']}'
         ..transcription.text = originals[i]['transcription'] as String
-        ..ambiguities.text = (originals[i]['ambiguities'] as List).join('\n')
-        ..candidate = originals[i]['candidate'] == null ? null : Map<String, dynamic>.from(originals[i]['candidate'] as Map)
-        ..candidateEvidence = record['candidate_evidence'] == null || (record['candidate_evidence'] as List)[i] == null
-          ? null : Map<String, dynamic>.from((record['candidate_evidence'] as List)[i] as Map)];
+        ..ambiguities.text = (originals[i]['ambiguities'] as List).join('\n')];
       setState(() { for(final page in pages) {page.dispose();} pages..clear()..addAll(restored);title.text = record['title'] as String;receipt = record;});
     } catch (e) { if (current) setState(() => error = '无法恢复旧输入：$e'); }
     finally { if (current) setState(() => busy = false); }
@@ -114,71 +104,6 @@ class _MathWorkPageState extends ConsumerState<MathWorkPage> {
       checkCommand(await bridgeApi.openArtifact(widget.access.profile, page.source.id));
     } catch (e) { if (current) setState(() => error = '$e'); }
   }
-  Widget guardedDialog(BuildContext dialog, Widget child) => Consumer(builder: (_, ref, _) {
-    ref.watch(activeProfileIdProvider); ref.watch(contextEpochProvider);
-    if (widget.access.current(ref)) return child;
-    return AlertDialog(title: const Text('档案已改变；旧候选不再显示'),
-      actions: [TextButton(onPressed: () => Navigator.pop(dialog), child: const Text('关闭'))]);
-  });
-  Future<void> loadCandidate(_PageInput page) async {
-    if (!current || busy) return;
-    setState(() { busy = true; error = null; });
-    try {
-      var offset = 0;
-      String? task;
-      while (current) {
-        final raw = await widget.access.call<String>('library.mathWork.parseResults', {...page.source.identity, 'offset': offset});
-        if (!current) return;
-        final result = jsonDecode(raw!) as Map<String, dynamic>;
-        final rows = (result['results'] as List).cast<Map>();
-        if (!mounted) return;
-        task = await showDialog<String>(context: context, builder: (dialog) => guardedDialog(dialog, AlertDialog(
-          title: const Text('复用已下载解析（不上传）'),
-          content: SizedBox(width: 420, child: ListView(shrinkWrap: true, children: [
-            const Text('候选不是识别真值。只读同档案、同版本已有缓存；页号必须属于实际成功解析范围。'),
-            if (rows.isEmpty) const Text('当前范围没有可复用结果；可使用已授权识别能力或手工核对，不会自动新建任务。'),
-            for (final row in rows) ListTile(
-              title: Text('物理页 ${row['start_page']}–${row['end_page']} · ${row['downloaded'] == true ? '已下载' : row['state']}'),
-              subtitle: Text('已处理页 ${row['processed_pages'] ?? '尚未下载核验'}\n解析ID ${row['task_id']}'),
-              enabled: row['downloaded'] == true,
-              onTap: row['downloaded'] == true ? () => Navigator.pop(dialog, row['task_id'] as String) : null,
-            ),
-          ])),
-          actions: [
-            TextButton(onPressed: () => Navigator.pop(dialog), child: const Text('取消')),
-            if (result['next_offset'] != null) TextButton(onPressed: () => Navigator.pop(dialog, '__next__'), child: const Text('下一批结果')),
-          ],
-        )));
-        if (!current || task == null) return;
-        if (task != '__next__') break;
-        offset = result['next_offset'] as int;
-      }
-      if (!current || task == null) return;
-      final raw = await widget.access.call<String>('library.mathWork.parseCandidate', {
-        ...page.source.identity, 'number': int.tryParse(page.number.text) ?? 0, 'task_id': task,
-      });
-      if (!current) return;
-      final result = jsonDecode(raw!) as Map<String, dynamic>;
-      if (page.transcription.text.isNotEmpty) {
-        if (!mounted) return;
-        final overwrite = await showDialog<bool>(context: context, builder: (dialog) => guardedDialog(dialog, AlertDialog(
-          title: const Text('用候选替换本页未保存的转录？'),
-          content: const Text('已保存草稿不变；当前编辑区将载入完整候选，并重新等待关键符号确认。'),
-          actions: [TextButton(onPressed: () => Navigator.pop(dialog, false), child: const Text('保留当前转录')),
-            TextButton(onPressed: () => Navigator.pop(dialog, true), child: const Text('载入候选'))],
-        )));
-        if (!current || overwrite != true) return;
-      }
-      setState(() {
-        final evidence = Map<String, dynamic>.from(result['untrusted_candidate'] as Map);
-        page.transcription.text = evidence['transcription'] as String;
-        page.ambiguities.text = (result['ambiguities'] as List).join('\n');
-        page.candidate = Map<String, dynamic>.from(result['reference'] as Map);
-        page.candidateEvidence = evidence; receipt = null;
-      });
-    } catch (e) { if (current) setState(() => error = '候选未载入，当前转录保留：$e'); }
-    finally { if (current) setState(() => busy = false); }
-  }
   @override
   Widget build(BuildContext context) {
     ref.watch(activeProfileIdProvider); ref.watch(contextEpochProvider);
@@ -190,7 +115,7 @@ class _MathWorkPageState extends ConsumerState<MathWorkPage> {
       : Column(children: [
         if (busy) const LinearProgressIndicator(),
         Expanded(child: ListView(padding: const EdgeInsets.all(16), children: [
-          const Text('仍使用同一Chat Agent和已选模型。先核页序与关键符号，再批改；手工转录或解析候选都不是识别真值或数学证明。'),
+          const Text('仍使用同一Chat Agent和已选模型。先核页序与关键符号，再批改；用户转录不是机器OCR或数学证明。'),
           if (saved.isNotEmpty) DropdownButtonFormField<String>(
             key: ValueKey('saved-${receipt?['work_id']}'),
             isExpanded: true, decoration: const InputDecoration(labelText: '继续已保存的草稿 / 确认输入'),
@@ -210,26 +135,18 @@ class _MathWorkPageState extends ConsumerState<MathWorkPage> {
               isExpanded: true,
               decoration: const InputDecoration(labelText: '固定来源版本'),
               items: candidates.map((e) => DropdownMenuItem(value: e.id, child: Text(e.name, maxLines: 2, overflow: TextOverflow.ellipsis))).toList(),
-              onChanged: busy || !valid ? null : (id) { if (id == null) return; setState(() { pages[index].source = candidates.singleWhere((e) => e.id == id); pages[index].number.text = '1'; pages[index].candidate = null; pages[index].candidateEvidence = null; receipt = null; }); },
+              onChanged: busy || !valid ? null : (id) { if (id == null) return; setState(() { pages[index].source = candidates.singleWhere((e) => e.id == id); pages[index].number.text = '1'; receipt = null; }); },
             ),
             SelectableText('SHA-256 ${pages[index].source.hash}', style: Theme.of(context).textTheme.bodySmall),
             Wrap(spacing: 8, children: [
               TextButton(onPressed: busy ? null : () => open(pages[index]), child: const Text('打开原件核对')),
-              TextButton(onPressed: busy || !valid ? null : () => loadCandidate(pages[index]), child: const Text('载入已有解析/OCR候选（不上传）')),
               IconButton(tooltip: '向前移一页', onPressed: busy || index == 0 ? null : () => setState(() { final p = pages.removeAt(index); pages.insert(index - 1, p); receipt = null; }), icon: const Icon(Icons.arrow_upward)),
               IconButton(tooltip: '向后移一页', onPressed: busy || index == pages.length - 1 ? null : () => setState(() { final p = pages.removeAt(index); pages.insert(index + 1, p); receipt = null; }), icon: const Icon(Icons.arrow_downward)),
               IconButton(tooltip: '移除这页，不删除原件', onPressed: busy || pages.length == 1 ? null : () => setState(() { pages.removeAt(index).dispose(); receipt = null; }), icon: const Icon(Icons.remove_circle_outline)),
             ]),
-            TextField(controller: pages[index].number, enabled: !busy, keyboardType: TextInputType.number, onChanged: (_) => changed(pages[index]), decoration: InputDecoration(labelText: pages[index].source.extension == 'pdf' ? 'PDF物理页（从1开始）' : '图片页号固定为1')),
+            TextField(controller: pages[index].number, enabled: !busy, keyboardType: TextInputType.number, onChanged: (_) => changed(), decoration: InputDecoration(labelText: pages[index].source.extension == 'pdf' ? 'PDF物理页（从1开始）' : '图片页号固定为1')),
             TextField(controller: pages[index].transcription, enabled: !busy, minLines: 4, maxLines: 12, maxLength: 4000, onChanged: (_) => changed(), decoration: const InputDecoration(labelText: '对照原页的完整转录，一步一行；保留原方法')),
             TextField(controller: pages[index].ambiguities, enabled: !busy, minLines: 1, maxLines: 4, onChanged: (_) => changed(), decoration: const InputDecoration(labelText: '尚不确定的关键符号/条件，一项一行；有内容时只能存草稿')),
-            if (pages[index].candidateEvidence != null) ...[
-              const Text('本页由已下载解析候选起草；可修订转录。请对照原页核对，再清除已解决的歧义。'),
-              ExpansionTile(title: const Text('原候选、公式与真实覆盖证据（不可信内容）'), children: [
-                SelectableText(const JsonEncoder.withIndent('  ').convert(pages[index].candidateEvidence)),
-              ]),
-              TextButton(onPressed: busy ? null : () => changed(pages[index]), child: const Text('改为手工转录（保留文字，解除候选绑定）')),
-            ],
           ]))),
           OutlinedButton.icon(onPressed: busy || pages.length >= 12 || candidates.isEmpty ? null : () => setState(() { pages.add(_PageInput(candidates.first)); receipt = null; }), icon: const Icon(Icons.add), label: const Text('添加下一原稿页')),
           Wrap(spacing: 12, runSpacing: 8, children: [

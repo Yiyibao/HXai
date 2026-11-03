@@ -5,7 +5,6 @@ from pathlib import Path
 import subprocess
 import sys
 import time
-sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'HXai_CHANGE_REVIEW/A04-GENERAL-MCP-SKILLS-20261022'
@@ -25,10 +24,6 @@ def snapshot():
         (OUT / 'logs' / ('before-' + name + '.log')).write_bytes(subprocess.check_output(['git', *args], cwd=ROOT))
 
 def run(name, args, cwd=ROOT):
-    if args[0].startswith('--cwd='):
-        cwd = ROOT / args.pop(0).removeprefix('--cwd=')
-    if (ROOT / args[0]).is_file():
-        args[0] = str((ROOT / args[0]).resolve())
     folder = OUT / 'logs'
     folder.mkdir(parents=True, exist_ok=True)
     log = folder / (name + '.log')

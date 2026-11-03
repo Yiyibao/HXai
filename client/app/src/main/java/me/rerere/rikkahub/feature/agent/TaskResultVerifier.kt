@@ -21,9 +21,6 @@ internal class TaskResultVerifier(private val materials: MaterialFiles,private v
         } ?: error("Missing durable tool receipt")
         require(receipt.executionState == me.rerere.ai.ui.ToolExecutionState.COMPLETED && receipt.output == completed.output) { "Durable result differs from executed result" }
         val contract=TrustedToolRegistry.require(receipt.toolName)
-        if(contract.verifier==TrustedToolRegistry.Verifier.EXTENSION_READBACK) {
-            return ExtensionMcpRuntime.verify(owner,receipt)
-        }
         if(contract.verifier==TrustedToolRegistry.Verifier.MCP_FIXTURE_READBACK) {
             return SyntheticMcpRuntime.verify(owner,receipt)
         }

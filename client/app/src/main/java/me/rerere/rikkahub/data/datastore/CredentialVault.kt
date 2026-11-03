@@ -25,7 +25,7 @@ internal class CredentialVault(context: Context, private val keyAlias: String = 
         cipher.init(Cipher.ENCRYPT_MODE, key(create = true))
         cipher.updateAAD(reference.toByteArray(Charsets.UTF_8))
         val encrypted = cipher.doFinal(value.toByteArray(Charsets.UTF_8))
-        check(directory.isDirectory || directory.mkdirs() || directory.isDirectory) { "Cannot create credential storage" }
+        check(directory.exists() || directory.mkdirs()) { "Cannot create credential storage" }
         val file = AtomicFile(record(reference))
         val stream = file.startWrite()
         try {
@@ -45,14 +45,6 @@ internal class CredentialVault(context: Context, private val keyAlias: String = 
         decrypt(value)
     } catch (_: Exception) {
         throw CredentialUnavailableException()
-    }
-
-    /** Only explicit extension uninstall/replacement uses its own immutable reference. */
-    fun discard(reference: String) {
-        require(isReference(reference))
-        val target = record(reference)
-        AtomicFile(target).delete()
-        check(!target.exists() && !File(target.path + ".bak").exists()) { "Credential removal incomplete" }
     }
 
     private fun decrypt(value: String): String {

@@ -9,7 +9,6 @@ internal data class AgentUsageEntry(
     val providerId: String?, val modelId: String?, val reasoning: String?, val createdAt: Long?,
     val state: String, val provenance: String, val inputTokens: Long?, val outputTokens: Long?,
     val cachedTokens: Long?, val totalTokens: Long?,
-    val costJson: String? = null,
 )
 internal data class AgentUsagePage(
     val owner: String, val taskId: String?, val from: Long?, val until: Long?, val requestCount: Long,
@@ -17,7 +16,6 @@ internal data class AgentUsagePage(
     val undatedRequests: Long, val input: AgentUsageMetric, val output: AgentUsageMetric,
     val cached: AgentUsageMetric, val total: AgentUsageMetric, val entries: List<AgentUsageEntry>,
     val nextCursor: String?,
-    val costJson: String? = null,
 )
 
 /** Read within the store transaction. No credentials, inputs, results or configuration references. */
@@ -97,12 +95,12 @@ internal object AgentUsageLedger {
                 fun tokens(index: Int) = if (provenance == "unknown") null else it.number(index)?.takeIf { n -> n >= 0 }
                 entries += AgentUsageEntry(it.getString(1), it.getString(2), it.getString(3), it.getString(4),
                     it.getString(5), it.getString(6), it.getString(7), it.number(8), it.getString(9), provenance,
-                    tokens(11), tokens(12), tokens(13), tokens(14),AgentCostLedger.receipt(db,it.getString(1)).toString())
+                    tokens(11), tokens(12), tokens(13), tokens(14))
             }
         }
         val next = if (entries.size > limit) "v1:$scopeHash:$upper:${ordinals[limit - 1]}" else null
         return AgentUsagePage(owner, taskId, from, until, counts.first, counts.second, counts.third,
             counts.first - counts.second - counts.third, undated, values[0], values[1], values[2], values[3],
-            entries.take(limit), next, AgentCostLedger.summary(db,where,args).toString())
+            entries.take(limit), next)
     }
 }

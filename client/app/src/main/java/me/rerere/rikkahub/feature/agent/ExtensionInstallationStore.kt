@@ -45,12 +45,12 @@ internal class ExtensionInstallationStore(private val context: Context, name: St
         val secret = if (token.isEmpty()) "" else CredentialVault(context).protect(token)
         val next = ExtensionInstallation(owner,slot,UUID.randomUUID().toString(),Math.addExact(expectedRevision,1),Math.addExact(old?.grantEpoch ?: 0,1),"DISABLED",config,secret)
         guard(); write(db,next,"install"); next
-    }.also { collectDetachedCredentials(owner) }
+    }
     fun command(owner: String, slot: String, id: String, revision: Long, action: String, guard: () -> Unit = {}): ExtensionInstallation = transaction { db ->
         guard(); val old = requireNotNull(read(db,owner,slot))
         require(old.id == id && old.revision == revision) { "旧管理命令已拒绝，请刷新" }
         val state = when(action) {
-            "enable" -> { require(old.state == "DISABLED" && old.config.tools.isNotEmpty()); require(old.config.oauth?.expiresAt.let { it==null || it>System.currentTimeMillis() }) { "OAuth 已过期，请前台重新授权" }; "ENABLED" }
+            "enable" -> { require(old.state == "DISABLED"); "ENABLED" }
             "disable" -> { require(old.state == "ENABLED"); "DISABLED" }
             "revoke" -> { require(old.state in setOf("ENABLED","DISABLED")); "REVOKED" }
             "uninstall" -> { require(old.state != "UNINSTALLED"); "UNINSTALLED" }
@@ -59,11 +59,8 @@ internal class ExtensionInstallationStore(private val context: Context, name: St
         val next = old.copy(id=UUID.randomUUID().toString(),revision=Math.addExact(old.revision,1),grantEpoch=Math.addExact(old.grantEpoch,1),state=state,
             credential=if(state in setOf("REVOKED","UNINSTALLED")) "" else old.credential)
         guard(); write(db,next,action); next
-    }.also { collectDetachedCredentials(owner);ExtensionOAuth(context).use { oauth -> oauth.cancel(owner,slot) } }
-    fun check(pin: ExtensionInstallation) {
-        require(pin.state == "ENABLED" && get(pin.owner,pin.slot) == pin) { "扩展已停用、撤权或更新" }
-        require(pin.config.oauth?.expiresAt.let { it==null || it>System.currentTimeMillis() }) { "NEEDS_AUTH：OAuth 已过期，请前台重新授权；任务许可保持" }
     }
+    fun check(pin: ExtensionInstallation) { require(pin.state == "ENABLED" && get(pin.owner,pin.slot) == pin) { "扩展已停用、撤权或更新" } }
     fun events(owner: String): List<Map<String,Any>> = readableDatabase.rawQuery("SELECT slot,revision,action,created_at FROM events WHERE owner=? ORDER BY sequence DESC LIMIT 100", arrayOf(owner)).use { c ->
         buildList { while(c.moveToNext()) add(mapOf("slot" to c.getString(0),"revision" to c.getLong(1),"action" to c.getString(2),"time" to c.getLong(3))) }
     }
@@ -74,24 +71,10 @@ internal class ExtensionInstallationStore(private val context: Context, name: St
         }
     }
     private fun write(db: SQLiteDatabase, pin: ExtensionInstallation, action: String) {
-        val old=read(db,pin.owner,pin.slot)
-        if(old != null && old.credential.isNotEmpty() && old.credential != pin.credential) {
-            db.execSQL("CREATE TABLE IF NOT EXISTS credential_cleanup(owner TEXT NOT NULL,reference TEXT PRIMARY KEY)")
-            db.execSQL("INSERT OR IGNORE INTO credential_cleanup VALUES(?,?)",arrayOf(pin.owner,old.credential))
-        }
         check(db.insertWithOnConflict("installations",null,ContentValues().apply {
             put("owner",pin.owner);put("slot",pin.slot);put("id",pin.id);put("revision",pin.revision);put("grant_epoch",pin.grantEpoch);put("state",pin.state);put("config",json.encodeToString(pin.config));put("credential",pin.credential)
         },SQLiteDatabase.CONFLICT_REPLACE) != -1L)
         check(db.insertOrThrow("events",null,ContentValues().apply { put("owner",pin.owner);put("slot",pin.slot);put("revision",pin.revision);put("action",action);put("created_at",System.currentTimeMillis()) }) != -1L)
-    }
-    private fun collectDetachedCredentials(owner: String) {
-        val db=writableDatabase
-        db.execSQL("CREATE TABLE IF NOT EXISTS credential_cleanup(owner TEXT NOT NULL,reference TEXT PRIMARY KEY)")
-        val references=db.rawQuery("SELECT reference FROM credential_cleanup WHERE owner=?",arrayOf(owner)).use { c -> buildList { while(c.moveToNext()) add(c.getString(0)) } }
-        references.forEach { reference ->
-            CredentialVault(context).discard(reference)
-            db.delete("credential_cleanup","owner=? AND reference=?",arrayOf(owner,reference))
-        }
     }
     private fun <T> transaction(block: (SQLiteDatabase) -> T): T {
         val db=writableDatabase;db.beginTransaction()

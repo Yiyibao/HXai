@@ -36,7 +36,6 @@ object MathVerification {
         return digest(buildJsonObject { for (key in input.keys.sorted()) put(key, input.getValue(key)) }.toString())
     }
     private fun scope(operation: String) = when (operation) {
-        "professional_calculus" -> "professional_calculus_explicit_scope_contract17"
         in ProfessionalMath.operations -> "${operation}_explicit_scope_contract16"
         "identity" -> "formal_univariate_rational_polynomial_identity"
         "derivative" -> "formal_polynomial_derivative"
@@ -216,7 +215,7 @@ object MathVerification {
         currentCoroutineContext().ensureActive()
         buildJsonObject {
             for ((key, value) in result) put(key, value)
-            put("contractVersion", if (operation == "professional_calculus") 17 else if (professional) 16 else if (rationalBound) 15 else if (sturmBound) 14 else if (subdividedBound) 13 else if (uniformBound) 12 else if (taylor) 11 else if (rationalIntegral) 10 else if (integral) 9 else if (monotonicity) 8 else if (rationalLimit) 7 else if (equationEquivalence) 6 else if (rationalChain) 5 else if (equation) 4 else if (inequality) 3 else if (rational) 2 else 1)
+            put("contractVersion", if (professional) 16 else if (rationalBound) 15 else if (sturmBound) 14 else if (subdividedBound) 13 else if (uniformBound) 12 else if (taylor) 11 else if (rationalIntegral) 10 else if (integral) 9 else if (monotonicity) 8 else if (rationalLimit) 7 else if (equationEquivalence) 6 else if (rationalChain) 5 else if (equation) 4 else if (inequality) 3 else if (rational) 2 else 1)
             put("operation", operation)
             put("domain", if (professional) "explicit_Q_R_or_conditional_logic_scope" else if (rational) "Q(x)" else "Q[x]")
             put("scope", scope(operation))
@@ -240,7 +239,6 @@ object MathVerification {
                 if (subdividedBound) { put("subdivision_depth", PolynomialUniformSubdivision.MAX_DEPTH); put("subdivision_leaves", 1 shl PolynomialUniformSubdivision.MAX_DEPTH); put("certificate_chars", PolynomialUniformSubdivision.MAX_CERTIFICATE_CHARS) }
                 if (sturmBound) { put("endpoint_and_claim_bits", QxLimits.BITS); put("certificate_chars", PolynomialSturmBound.MAX_CERTIFICATE_CHARS) }
                 if (rationalBound) { put("endpoint_and_claim_bits", QxLimits.BITS); put("obligation_degree", RealRootLimits.DEGREE); put("certificate_chars", PolynomialSturmBound.MAX_CERTIFICATE_CHARS) }
-                if (operation == "professional_calculus") { put("absolute_digits", 24); put("taylor_order", CertifiedCalculus.ORDER); put("subintervals", CertifiedCalculus.MAX_CELLS); put("bisection_iterations", 2048) }
             })
             put("notice", if (professional)
                 (result["notice"] as? JsonPrimitive)?.content ?: "仅认证当前operation所陈述的明确范围，不是OCR、授权或完整用户目标成功。"

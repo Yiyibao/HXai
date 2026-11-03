@@ -9,7 +9,6 @@ internal class AgentToolDispatch(private val execution: AgentExecution,private v
     private val validateSource: (() -> Unit)? = null) :
     AbstractCoroutineContextElement(Key) {
     companion object Key : CoroutineContext.Key<AgentToolDispatch>
-    val callId: String get() = tool.toolCallId
     fun checkInput(owner: String, name: String, input: kotlinx.serialization.json.JsonElement) {
         require(execution.lease.task.owner==owner && tool.toolName==name &&
             kotlinx.serialization.json.Json.parseToJsonElement(tool.input)==input) { "MCP dispatch identity differs" }

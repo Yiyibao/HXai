@@ -102,18 +102,12 @@ class ChatToolFactory(
                     allSkills = availableSkills,
                     materials = materialFiles,
                     profileId = profileId,
-                    checkEnabled = { name ->
-                        val current = org.koin.core.context.GlobalContext.get().get<me.rerere.rikkahub.data.datastore.SettingsStore>().settingsFlow.value
-                        require(skillManager.findSkill(name) != null && (name == mathBuiltin?.name ||
-                            current.assistants.singleOrNull { it.id == assistant.id }?.enabledSkills?.contains(name) == true)) { "技能已停用或卸载" }
-                    },
                 )
             )
         }
 
         // Shared MCP tools have no profile authorization contract yet.
         me.rerere.rikkahub.feature.agent.SyntheticMcpRuntime.toolFor(profileId)?.let { add(it) }
-        me.rerere.rikkahub.feature.agent.ExtensionMcpRuntime.toolFor(profileId)?.let { add(it) }
 
     }.map { original ->
         val trusted=me.rerere.rikkahub.feature.agent.TrustedToolRegistry.require(original.name)

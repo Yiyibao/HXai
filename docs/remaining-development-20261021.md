@@ -1,11 +1,5 @@
 # 当前待开发与待验收清单（2026-10-21）
 
-2026-10-22专业数学继续推进：新增合同17的有限C8积分区间余项证书、指定区间唯一根证书，以及已有已校验解析缓存→真实物理页候选→用户修订/歧义确认→原统一Chat批改。来源schema2快照与旧schema1并存，不上传、不猜缺页、不把候选或用户确认当数学证明。协议[合同17](professional-math-contract17.md)，本轮证据 `HXai_CHANGE_REVIEW/P2-CALCULUS-OCR-20261022/`。仍需真实Provider的高中综合/分析实变解题质量、OCR逐符号真值及权威盲评；下文历史缺口不用于否认本轮已接线能力，也不缩减完整产品目标。
-
-2026-10-22专业数学接续：合同16已接入当前统一Chat，新增精确线代/多元与归纳、解析余项高精度区间、显式条件证明/子目标与首错工作流、多页可信转录及3D/矢量导出。实现与边界见[专业数学合同16](professional-math-contract16.md)，当前验证取 `HXai_CHANGE_REVIEW/P2-PROFESSIONAL-MATH-20261022/`。本地计算/合成链路不替代真实模型综合题、分析/实变推理、真实OCR或权威题库质量验收，完整P2仍未授予通过；下文P2行保留为原检查时点。
-
-2026-10-22 A04 本批完成，声明范围 PASS_SCOPED，见 [通用 MCP/Skills 协议](a04-general-mcp-skills-protocol-v1.md) 和 `HXai_CHANGE_REVIEW/A04-GENERAL-MCP-SKILLS-20261022/HANDOFF_STATUS.md`。已新增普通App的按档案管理/多服务器/逐工具参数授权、任务级调用与多次独立回读，以及独立受限Python服务。实际主Chat→Linux容器→独立回执及4种真实进程恢复通过。下文固定合成MCP/脚本ABSENT等为历史检查点；最新实现与证据取本批交付。OAuth交互授权、任意远端写入专属verifier、额外transport/schema/二进制脚本产物均按明确支持边界拒绝，不当完整协议或生产放行。
-
 2026-10-22接续：**API26 与当前 A04 合流已完成（本机声明范围 PASS_SCOPED）**，不再列作待合流。精确接入原两文件候选，并由真实旧版反例补上后增 McpInstallationStore 的 API26 关闭接口。当前新包139原生方法、四MCP live模式、JVM/普通Debug/lint与包隔离实际证据见 `HXai_CHANGE_REVIEW/API26-A04-INTEGRATION-20261022/HANDOFF.md`；协议 `api26-a04-integration-20261022.md`。下文旧时点关于“尚待A合流”的描述保留为历史。A04通用MCP/沙箱、A05、A06、A07以及真实Provider/OCR/目标设备/跨Office仍分别待做；本批不授独立/全项目或发布通过。
 
 2026-10-22 B06 Linux Office 已收尾：真实专属WSL2 Linux/私有Docker/固定UNO镜像的

@@ -1,8 +1,6 @@
 package me.rerere.rikkahub.service
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
-import me.rerere.ai.ui.limitContext
-import me.rerere.rikkahub.feature.agent.AgentTaskStore
 
 import android.app.Application
 import android.util.Log
@@ -1528,117 +1526,6 @@ class ChatService(
             }
             session.updateMetadata(update, persist)
         }
-    }
-
-    /** Move an already accepted queued input through the original atomic Room commit. */
-    internal suspend fun cloudPrepareSource(owner: String,taskId: String,validate: () -> Unit) {
-        val task=agentScheduler.get(owner,taskId)
-        queueMutationMutex.lock()
-        try {
-            sessionManager.withSession(Uuid.parse(task.conversationId)) { session ->
-                session.initialize(persistRecovery=conversationRepo::recoverConversation) {
-                    conversationRepo.getConversationById(Uuid.parse(task.conversationId),owner) ?: error("原会话不存在")
-                }
-                validate();require(session.state.value.profileId==owner)
-                session.messageQueue.state.value.messages.singleOrNull { it.id.toString()==task.requestId }?.let { queued ->
-                    session.commitQueuedInput(queued,queued.parts,{ pending -> validate();conversationRepo.commitRuntimeState(pending) },delegated=true)
-                }
-            }
-        } finally { queueMutationMutex.unlock() }
-    }
-
-    internal fun cloudBranch(owner: String,taskId: String): String {
-        val task=agentScheduler.get(owner,taskId)
-        val current=getConversationFlow(Uuid.parse(task.conversationId)).value
-        require(current.profileId==owner)
-        val answer=java.util.UUID.nameUUIDFromBytes("cloud-answer:$taskId".toByteArray()).toString()
-        val base=current.currentMessages.filterNot { it.id.toString()==answer ||
-            it.generationTaskId==taskId && it.getTools().any { tool -> tool.toolCallId.startsWith("cloud_") } }
-        return AgentTaskStore.hash(Json.encodeToString(base))
-    }
-
-    internal suspend fun cloudPublishResult(owner: String,taskId: String,branch: String?,answer: String,validate: () -> Unit): Boolean {
-        if(branch==null || cloudBranch(owner,taskId)!=branch)return false
-        val task=agentScheduler.get(owner,taskId)
-        var applied=false
-        val messageId=Uuid.parse(java.util.UUID.nameUUIDFromBytes("cloud-answer:$taskId".toByteArray()).toString())
-        updateConversationMetadata(Uuid.parse(task.conversationId),update={ current ->
-            validate();require(current.profileId==owner)
-            if(cloudBranch(owner,taskId)!=branch)current else {
-                val message=me.rerere.ai.ui.UIMessage(id=messageId,role=MessageRole.ASSISTANT,
-                    modelId=Uuid.parse(task.modelId),parts=listOf(UIMessagePart.Text(answer)),generationTaskId=taskId,generationState="COMPLETED")
-                val nodes=current.messageNodes.toMutableList()
-                val index=nodes.indexOfFirst { node -> node.messages.any { it.id==messageId } }
-                if(index<0)nodes.add(me.rerere.rikkahub.data.model.MessageNode.of(message))
-                else nodes[index]=nodes[index].copy(messages=listOf(message),selectIndex=0)
-                applied=true;current.copy(messageNodes=nodes)
-            }
-        },persist=conversationRepo::checkpointMessages,profileId=owner)
-        return applied
-    }
-
-    internal suspend fun cloudContext(owner: String,taskId: String,includeHistory: Boolean,
-        tools: List<me.rerere.ai.core.Tool>): kotlinx.serialization.json.JsonObject {
-        val task=agentScheduler.get(owner,taskId)
-        val conversation=conversationRepo.getConversationById(Uuid.parse(task.conversationId),owner) ?: error("原会话不存在")
-        val config=agentScheduler.hostedConfiguration(owner,taskId)
-        val model=requireNotNull(config.settings.findModelById(config.assistant.chatModelId ?: config.settings.chatModelId))
-        val visible=learningMemories.projectHistory(owner,conversation.currentMessages,learningMemories.hiddenMessageIds(owner))
-        return kotlinx.serialization.json.buildJsonObject {
-            put("sourceHash",kotlinx.serialization.json.JsonPrimitive(AgentTaskStore.hash(Json.encodeToString(visible))))
-            put("instructions",kotlinx.serialization.json.JsonPrimitive(me.rerere.rikkahub.data.ai.buildGenerationPrefix(
-                config.assistant,conversation.studyMode,conversation.customSystemPrompt,emptyList(),"",model,tools)))
-            put("messages",kotlinx.serialization.json.JsonArray(if(!includeHistory) emptyList() else
-                visible.limitContext(config.assistant.contextMessageLimit).filter { it.role in setOf(MessageRole.USER,MessageRole.ASSISTANT) && it.toText().isNotBlank() }.map { message ->
-                    kotlinx.serialization.json.buildJsonObject {
-                        put("role",kotlinx.serialization.json.JsonPrimitive(message.role.name.lowercase()))
-                        put("content",kotlinx.serialization.json.JsonPrimitive(message.toText()))
-                    }
-                }))
-            put("coverage",kotlinx.serialization.json.JsonPrimitive("SOURCE_PROJECTED_TEXT_ONLY_NO_IMAGE_BYTES_OR_AUTOMATIC_MEMORY_EXPORT"))
-        }
-    }
-
-    /** Cloud continuation uses this same factory and independent verifier, never remote code. */
-    internal suspend fun cloudTools(owner: String, taskId: String): List<me.rerere.ai.core.Tool> {
-        val task=agentScheduler.get(owner,taskId)
-        val conversation=conversationRepo.getConversationById(Uuid.parse(task.conversationId),owner)
-            ?: error("原会话不存在，不能执行设备动作")
-        val configuration=agentScheduler.hostedConfiguration(owner,taskId)
-        val model=requireNotNull(configuration.settings.findModelById(
-            configuration.assistant.chatModelId ?: configuration.settings.chatModelId))
-        return chatToolFactory.createTools(settings=configuration.settings,assistant=configuration.assistant,
-            model=model,workspaceCwd=conversation.workspaceCwd,sourceConversation=conversation,
-            profileId=owner,allowRemoteDocuments=false)
-    }
-
-    internal suspend fun cloudVerify(owner: String,taskId: String,tool: me.rerere.ai.ui.UIMessagePart.Tool): Boolean {
-        val task=agentScheduler.get(owner,taskId)
-        val persisted=conversationRepo.getConversationById(Uuid.parse(task.conversationId),owner)
-            ?: error("原会话不存在")
-        check(learningMemories.projectHistory(owner,persisted.currentMessages,learningMemories.hiddenMessageIds(owner))
-            .flatMap { it.getTools() }.any { it.toolCallId==tool.toolCallId && it.input==tool.input && it.output==tool.output }) {
-            "该步骤的上下文来源已撤销，不能将旧结果外传为新回执"
-        }
-        return taskResultVerifier.verify(owner,persisted,tool)
-    }
-
-    internal suspend fun cloudCheckpoint(owner: String,taskId: String,tool: me.rerere.ai.ui.UIMessagePart.Tool,
-        validate: () -> Unit) {
-        val task=agentScheduler.get(owner,taskId)
-        val messageId=Uuid.parse(java.util.UUID.nameUUIDFromBytes(
-            "cloud-device:$taskId:${tool.toolCallId}".toByteArray()).toString())
-        updateConversationMetadata(Uuid.parse(task.conversationId),update={ current ->
-            validate()
-            require(current.profileId==owner)
-            val message=me.rerere.ai.ui.UIMessage(id=messageId,
-                role=me.rerere.ai.core.MessageRole.ASSISTANT,parts=listOf(tool),generationTaskId=taskId)
-            val nodes=current.messageNodes.toMutableList()
-            val index=nodes.indexOfFirst { node -> node.messages.any { it.id==messageId } }
-            if(index<0) nodes.add(me.rerere.rikkahub.data.model.MessageNode.of(message))
-            else nodes[index]=nodes[index].copy(messages=listOf(message),selectIndex=0)
-            current.copy(messageNodes=nodes)
-        },persist=conversationRepo::checkpointMessages,profileId=owner)
     }
 
     /** Image jobs update only their own deterministic nodes under the session lock. */
