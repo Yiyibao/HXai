@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.memory.HistorySourceProjectionTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:35:40.740Z" hostname="DESKTOP-QH4J0RS" time="0.003">
+  <properties/>
+  <testcase name="healthySummariesAndSystemDataRemainUnchanged" classname="me.rerere.rikkahub.feature.memory.HistorySourceProjectionTest" time="0.002"/>
+  <testcase name="sameTextWithNewIdentityIsNotGuessedToBeDeleted" classname="me.rerere.rikkahub.feature.memory.HistorySourceProjectionTest" time="0.001"/>
+  <testcase name="protectedSummaryOnlyHistoryProjectsToEmptyWithoutModifyingIt" classname="me.rerere.rikkahub.feature.memory.HistorySourceProjectionTest" time="0.0"/>
+  <testcase name="deletedTurnIncludesAllFollowingAssistantMessagesUntilNextUser" classname="me.rerere.rikkahub.feature.memory.HistorySourceProjectionTest" time="0.0"/>
+  <testcase name="untraceableSummaryCannotResetADeletedTurnIntoVisibleContext" classname="me.rerere.rikkahub.feature.memory.HistorySourceProjectionTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

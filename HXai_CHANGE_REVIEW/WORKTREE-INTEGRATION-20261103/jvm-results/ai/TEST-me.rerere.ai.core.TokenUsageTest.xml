@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.core.TokenUsageTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:32:44.260Z" hostname="DESKTOP-QH4J0RS" time="0.001">
+  <properties/>
+  <testcase name="unknownOrOverflowingCountsCannotProduceAKnownAggregate" classname="me.rerere.ai.core.TokenUsageTest" time="0.0"/>
+  <testcase name="cacheOnlyUpdateKeepsTheSameRequestTotal" classname="me.rerere.ai.core.TokenUsageTest" time="0.0"/>
+  <testcase name="changingReportedCountsInvalidatesAnOlderTotal" classname="me.rerere.ai.core.TokenUsageTest" time="0.0"/>
+  <testcase name="explicitZeroReplacesPreviousReportedCounts" classname="me.rerere.ai.core.TokenUsageTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

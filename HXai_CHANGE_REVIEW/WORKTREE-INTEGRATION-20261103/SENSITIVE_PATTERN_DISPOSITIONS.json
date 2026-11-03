@@ -1,0 +1,27 @@
+[
+  {
+    "label": "a02-a03-verified-20261021",
+    "path": "client/.agents/skills/claude-api/go/managed-agents/README.md",
+    "decision": "EXCLUDE_INSTALLED_AGENT_SKILL_NOT_PRODUCT_SOURCE"
+  },
+  {
+    "label": "a02-a03-verified-20261021",
+    "path": "client/.agents/skills/claude-api/java/managed-agents/README.md",
+    "decision": "EXCLUDE_INSTALLED_AGENT_SKILL_NOT_PRODUCT_SOURCE"
+  },
+  {
+    "label": "a02-a03-verified-20261021",
+    "path": "client/.agents/skills/claude-api/php/managed-agents/README.md",
+    "decision": "EXCLUDE_INSTALLED_AGENT_SKILL_NOT_PRODUCT_SOURCE"
+  },
+  {
+    "label": "a02-a03-verified-20261021",
+    "path": "client/.agents/skills/claude-api/ruby/managed-agents/README.md",
+    "decision": "EXCLUDE_INSTALLED_AGENT_SKILL_NOT_PRODUCT_SOURCE"
+  },
+  {
+    "label": "a02-a03-verified-20261021",
+    "path": "client/ai/src/main/java/me/rerere/ai/provider/providers/google/vertex/ServiceAccountTokenProvider.kt",
+    "decision": "UNCHANGED_TRACKED_PEM_HEADER_PARSER_LITERAL"
+  }
+]

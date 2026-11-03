@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.math.ProofBranchRulesTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:35:40.582Z" hostname="DESKTOP-QH4J0RS" time="0.013">
+  <properties/>
+  <testcase name="bothAlternativeBranchesMustHaveTheSameConclusion" classname="me.rerere.rikkahub.feature.math.ProofBranchRulesTest" time="0.008"/>
+  <testcase name="missingBranchCannotBeInventedAndExtraPremisesAreRejected" classname="me.rerere.rikkahub.feature.math.ProofBranchRulesTest" time="0.001"/>
+  <testcase name="negationIntroductionRemovesOnlyTheSpecifiedAssumption" classname="me.rerere.rikkahub.feature.math.ProofBranchRulesTest" time="0.002"/>
+  <testcase name="modusTollensPreservesConditionsAndCannotUseAffirmingConsequent" classname="me.rerere.rikkahub.feature.math.ProofBranchRulesTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

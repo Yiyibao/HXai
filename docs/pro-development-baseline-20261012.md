@@ -543,3 +543,12 @@ Pigeon原类型ID保持、4种Usage DTO追加nullable costJson并生成两端；
 来源 `HXai_CHANGE_REVIEW/R29-05-FOREGROUND-BINDING-20261029/CHANGE_CONTRACT.md`。复用原云端权威与原生工具链，新前台批准逐项绑定 callId/inputHash/grantEpoch/taskRevision，旧确认不能升级为新授权；先结算原 lease/receipt，再允许新确认。Stop 在网络读前持久化，安全 journal 不得被迟到 claim/receipt 覆写，未确认安全命令阻断后续派发。
 
 Room33/TaskStore13/网络schema4/Pigeon/RPC1保持，noBackup controls兼容增量与回滚门禁、源码地图见 `r27-cloud-device-protocol-v1.md` v3。真实旧版FAIL、同源冻结包、实际确认框/文件读回、各设备场景与限制以本批 TEST_RESULTS/六类SOL/HANDOFF为准，不用历史计数或并发变化的整树冒充最终资格。跨App/截图仍DISABLED；独立及完整全项目审查NOT_EVALUATED，真实模型/目标设备/生产另验。未启动子代理或提交/推送/部署。
+
+
+## v1.40 — 工作树源码合流（2026-11-03）
+
+来源 `HXai_CHANGE_REVIEW/WORKTREE-INTEGRATION-20261103/`。在已同步 f10841b4 基线上保存20个登记工作树的产品源码；旧变体作为源码存档提交保留，当前产品合入 R30 质量分支的回复交付、最终计划修复、Office原请求只读恢复、数学/公式编辑保护与本机独立读回增量。R30-05离线安全控制v4保持，不用旧文档/源码覆盖当前版本。
+
+入口地图：`ChatService → ConversationRepository.readTaskResponse/commitTaskResponse → GenerationLoop.DurableCheckpoint → TaskPlanner.acceptResponse → AgentTaskStore.recordResponse`；仅持久原分支回复可作为response_delivery，数学真实性仍NOT_EVALUATED，不能替代工具/成果验收。`PlanProposal.decode/FinalPlanRepair`不提升RETURNED数学拒绝为证明；Office原requestKey读回经owner/active identity事务校验，不enqueue或盲重发。`MaterialEditor → SpreadsheetEditRegions`保护多单元格公式，`MathWorkInputs → MathTranscription`保留确认边界；原始材料/版本/UNKNOWN保持。
+
+Room33、TaskStore13、网络schema4、Pigeon/RPC和模型/授权边界不迁移；共享规划语义version6增contractRevision2字段类型约束，原生reply evidence为response-delivery-v1。源码保存不等于旧工作树全部历史证据已远端备份；原件/原树保持。定向验证、旧版失败、夹具失败、精确源码/产物hash及适用裁决取本批日志与交接；独立及完整项目审查NOT_EVALUATED，不预授目标设备/真实模型/生产通过。

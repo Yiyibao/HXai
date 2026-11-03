@@ -411,7 +411,14 @@ object MaterialEditor {
         require(offset >= 0 && count in 1..50)
         val parts = parts(file); val root = xml(parts.getValue(sheet(parts, sheetName))); val cells = elements(root, X, "c")
         require(offset <= cells.size)
-        return buildJsonObject { put("sheet", sheetName); put("total", cells.size); put("cells", buildJsonArray { cells.drop(offset).take(count).forEach { c -> add(buildJsonObject { put("cell", c.getAttribute("r")); if (elements(c, X, "f").isNotEmpty()) { put("editable", false); put("formula", elements(c, X, "f").single().textContent) } else { put("editable", true); put("value", cellValue(c, parts)) } }) } }) }
+        val regions = SpreadsheetEditRegions(root)
+        return buildJsonObject { put("sheet", sheetName); put("total", cells.size); put("cells", buildJsonArray { cells.drop(offset).take(count).forEach { c -> add(buildJsonObject {
+            put("cell", c.getAttribute("r"))
+            val blocked = regions.rejection(c.getAttribute("r"))
+            if (elements(c, X, "f").isNotEmpty()) { put("editable", false); put("formula", elements(c, X, "f").single().textContent) }
+            else { put("editable", blocked == null); put("value", cellValue(c, parts)) }
+            if (blocked != null) put("edit_blocked_reason", blocked)
+        }) } }) }
     }
     fun setCells(source: File, output: File, spec: JsonObject) {
         requireCopyTarget(source, output)
@@ -419,6 +426,7 @@ object MaterialEditor {
         val parts = parts(source)
         val path = sheet(parts, spec.getValue("sheet").jsonPrimitive.content); val root = xml(parts.getValue(path))
         val data = elements(root, X, "sheetData").single()
+        val regions = SpreadsheetEditRegions(root)
         val changes = spec.getValue("changes").jsonArray; require(changes.size in 1..200)
         val addresses = mutableSetOf<String>()
         changes.forEach { item ->
@@ -427,6 +435,7 @@ object MaterialEditor {
             require(address.matches(Regex("[A-Z]{1,3}[1-9][0-9]{0,5}")) && addresses.add(address))
             val column = address.takeWhile(Char::isLetter).fold(0) { n, c -> n * 26 + c.code - 64 }; require(column <= 16384)
             val number = address.dropWhile(Char::isLetter).toInt(); require(number <= 100000)
+            require(regions.rejection(address) == null) { "单元格 $address 属于合并从属格或多单元格公式区域，请修改合法锚点或明确重建该区域" }
             var cell = elements(root, X, "c").singleOrNull { it.getAttribute("r") == address }
             val expected = change.getValue("expected").jsonPrimitive; val actual = cellValue(cell, parts)
             fun equal(a: JsonPrimitive, b: JsonPrimitive): Boolean = if (!a.isString && !b.isString && a.doubleOrNull != null && b.doubleOrNull != null) BigDecimal(a.content).compareTo(BigDecimal(b.content)) == 0 else a == b

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 11, in <module>
+    assert rejected,'False success: changed chart legend accepted with unchanged reference list'
+           ^^^^^^^^
+AssertionError: False success: changed chart legend accepted with unchanged reference list

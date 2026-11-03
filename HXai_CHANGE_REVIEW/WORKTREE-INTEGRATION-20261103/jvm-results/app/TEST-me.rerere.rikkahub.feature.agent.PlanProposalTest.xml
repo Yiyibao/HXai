@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.agent.PlanProposalTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:35:34.665Z" hostname="DESKTOP-QH4J0RS" time="0.015">
+  <properties/>
+  <testcase name="malformedAndOversizedNarrativeDoesNotHideOtherInvalidData" classname="me.rerere.rikkahub.feature.agent.PlanProposalTest" time="0.011"/>
+  <testcase name="unknownMissingOrMistypedToolIsNotSilentlyDropped" classname="me.rerere.rikkahub.feature.agent.PlanProposalTest" time="0.001"/>
+  <testcase name="narrativeCannotClaimToolOrArtifactAcceptance" classname="me.rerere.rikkahub.feature.agent.PlanProposalTest" time="0.002"/>
+  <testcase name="actualNullToolExplanationKeepsTheExactExecutableStepAndPredicate" classname="me.rerere.rikkahub.feature.agent.PlanProposalTest" time="0.0"/>
+  <testcase name="canonicalPlanIsUnchangedAndPureNarrativeDoesNotGainAcceptance" classname="me.rerere.rikkahub.feature.agent.PlanProposalTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

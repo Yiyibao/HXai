@@ -103,7 +103,10 @@ class GenerationLoop(
         conversationModeInjectionIds: Set<Uuid> = emptySet(),
         conversationLorebookIds: Set<Uuid> = emptySet(),
         workspaceCwd: String? = null,
+        readTaskResponse: (suspend (UIMessage) -> UIMessage?)? = null,
+        commitTaskResponse: (suspend (UIMessage, () -> Unit) -> Boolean)? = null,
     ): Flow<GenerationChunk> = flow {
+        require((readTaskResponse==null)==(commitTaskResponse==null)) { "Response reader and publisher must be connected together" }
         val provider = model.findProvider(settings.providers) ?: error("Provider not found")
         val execution = requireNotNull(currentCoroutineContext()[AgentExecution]) { "Model generation requires an accepted task lease" }
         require(profileId==execution.lease.task.owner) { "Generation owner differs from the accepted task" }
@@ -147,7 +150,7 @@ class GenerationLoop(
             }
             execution.let { active ->
                 val plan=active.store.plan(active.lease.task.owner,active.lease.task.id)
-                if(plan.plan!=null && plan.plannedRevision!=plan.revision) withContext(taskSourceGuard) { taskPlanner.ensure(active,tools,emptyList()) }
+                if(plan.plan?.steps?.isNotEmpty()==true && plan.plannedRevision!=plan.revision) withContext(taskSourceGuard) { taskPlanner.ensure(active,tools,emptyList()) }
             }
             Log.i(TAG, "streamText: start step #$stepIndex (${model.id})")
 
@@ -447,7 +450,16 @@ class GenerationLoop(
                 )
             )
         }
-        withContext(taskSourceGuard) { taskPlanner.accept(execution,messages.flatMap { it.getTools() }) }
+        // A final explicit barrier survives conflate; acceptance can only inspect committed Room bytes.
+        val response=messages.lastOrNull()?.takeIf {readTaskResponse!=null && commitTaskResponse!=null &&
+            me.rerere.rikkahub.feature.agent.ResponseCompletion.eligible(it)}
+        if(response!=null && execution.store.responseEligible(execution.lease)) {
+            val committed=CompletableDeferred<Unit>()
+            emit(GenerationChunk.DurableCheckpoint(messages,committed));committed.await()
+        }
+        withContext(taskSourceGuard) { taskPlanner.accept(execution,messages.flatMap { it.getTools() },response,
+            readResponse={response?.let {readTaskResponse?.invoke(it)}},
+            commitResponse={commit -> response?.let {commitTaskResponse?.invoke(it,commit)} ?: false}) }
 
     }.flowOn(Dispatchers.IO)
 

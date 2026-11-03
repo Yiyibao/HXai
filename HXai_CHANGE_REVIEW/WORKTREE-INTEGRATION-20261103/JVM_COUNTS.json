@@ -1,0 +1,23 @@
+{
+  "app": {
+    "reportFiles": 94,
+    "tests": 554,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "ai": {
+    "reportFiles": 32,
+    "tests": 214,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "search": {
+    "reportFiles": 9,
+    "tests": 33,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

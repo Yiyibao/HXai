@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.util.JsonTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:32:45.126Z" hostname="DESKTOP-QH4J0RS" time="0.003">
+  <properties/>
+  <testcase name="mergeCustomBody should override existing simple keys" classname="me.rerere.ai.util.JsonTest" time="0.001"/>
+  <testcase name="mergeCustomBody should handle deeply nested JsonObjects" classname="me.rerere.ai.util.JsonTest" time="0.0"/>
+  <testcase name="mergeCustomBody should merge nested JsonObjects" classname="me.rerere.ai.util.JsonTest" time="0.0"/>
+  <testcase name="mergeCustomBody should ignore empty keys" classname="me.rerere.ai.util.JsonTest" time="0.0"/>
+  <testcase name="mergeCustomBody with empty list should return original object" classname="me.rerere.ai.util.JsonTest" time="0.0"/>
+  <testcase name="custom body cannot replace selected reasoning effort" classname="me.rerere.ai.util.JsonTest" time="0.001"/>
+  <testcase name="unchanged selection permits unrelated nested protocol options" classname="me.rerere.ai.util.JsonTest" time="0.0"/>
+  <testcase name="custom nested body cannot replace selected thinking budget" classname="me.rerere.ai.util.JsonTest" time="0.0"/>
+  <testcase name="mergeCustomBody with simple keys should merge correctly" classname="me.rerere.ai.util.JsonTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

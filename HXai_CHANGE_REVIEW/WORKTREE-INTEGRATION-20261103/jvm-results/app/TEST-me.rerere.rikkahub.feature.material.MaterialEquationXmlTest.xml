@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.material.MaterialEquationXmlTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:35:35.949Z" hostname="DESKTOP-QH4J0RS" time="0.031">
+  <properties/>
+  <testcase name="nestedFractionsPowersRadicalsAndRowsHaveRealEditableStructure" classname="me.rerere.rikkahub.feature.material.MaterialEquationXmlTest" time="0.008"/>
+  <testcase name="legacyEquationsRemainNativeAndEscapedTextRemainsLiteral" classname="me.rerere.rikkahub.feature.material.MaterialEquationXmlTest" time="0.009"/>
+  <testcase name="depthNodesAndCharacterBoundariesAreEnforcedWithoutRejectingTheirLimits" classname="me.rerere.rikkahub.feature.material.MaterialEquationXmlTest" time="0.011"/>
+  <testcase name="malformedUnicodeAndForbiddenXmlCharactersNeverBecomeReplacementCharacters" classname="me.rerere.rikkahub.feature.material.MaterialEquationXmlTest" time="0.002"/>
+  <testcase name="unknownKeysAndNonTextLeavesCannotBeSilentlyDiscarded" classname="me.rerere.rikkahub.feature.material.MaterialEquationXmlTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,464 @@
+[
+  {
+    "path": "BUILD_AND_TEST.md",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": false,
+    "sha256": "c9e6a898ad43d6cf1abf9fa7edecc56dc07a410823125f4f8a8c736ec67d5fe2"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/ArtifactEvidenceRuntimeTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "8b30ccbec98ffb9e0e70fe3d947160c90c45da2d9e92daf070bdedf45e9f2254"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/EmptySuppressionKeyRuntimeTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "bd9bcd203631e5d16c931cd9a66a3d80832617ed3a23578da6a6da2f2cb1a682"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/FinalPlanJournalRuntimeTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "eff9af61f52724cb97a22d848c09f7779fa48babcfa26f29e348921773c8870b"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/FinalPlanRuntimeTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "cbd3d7f6441574e9a75ec0e2478f358bb3668c0d23c11adba76dfa04265698f8"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/LiveQualityEvaluationTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "6d33b7e295c0af1a33390e183226163444900fa46aab62e07c92e3ba2cea4b21"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/MathSharedChatRuntimeTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "36fcc7fdd2f569ce4a3b6ebd364319329e7294ecf5cddd68adf33c0fb695e075"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/PublicQualityFixtureGuardTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "2f3a4f94801152bdca4ef9fe505c352013b0472c675983f90ce172175eac63a1"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/QualityCoordinatorObserver.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "8f525d2cc81740abe5d73da6a4f61cc885e369164cc94132ab435d63aa48cc2f"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/QualityEvidenceFiles.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "0e3374376f8796ad47995711accd0f4512b553974a8e7bbc52cd6dc224436b33"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/QualityEvidenceFilesTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "2f5f4b6cbff66a2e086c0361db3b047420909497080a0acac70900158b91e4d0"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/QualityEvidenceProcessProbe.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "b5a085e3bdb0c18267a51384cb196b7eb598b81b01879bc7ae82cfa8dd634851"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/ReadOnlyOfficeReconciliationTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "ba2b2164b7d7b7d5276d70aa38213087bf80480ce1ccc40baf3d505db0952e47"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/ResponseCompletionProcessProbe.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "b68157e7dfa657a0960efff454f67901a2b9e652077a8fb5e6cb730850df1028"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/ResponseCompletionRuntimeTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "f1c7cd38f5bc18d1fbe6b1f2677c0fe4c1d88b7f7a1a6fe76e14e54fd5a90a39"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/ResponseCompletionStoreTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "7a7429fb21f4b115861d55a1de7d02267143bcf3bf60eca73222ad36526d230d"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/TaskPlanningRuntimeTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "0e2a18f827314dc5b47160ddd5808b88489035037003817c68beacb9c5a5dd8a"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/material/LiveOcrQualityTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "5e334a15f6c71c4300d82da27a9cf2b68d9148c85dbdcde743a9d39eb5688649"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/material/LiveOfficeCandidateTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "d3babc42cc11e239bed0da39742a2b39b158cba6f5690490bdb253feee51313c"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/material/MathWorkInputsRuntimeTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "3a6b5d7c23a1baeb68cdc5b115b42d11aa1a1a0b86b4c2b0f21d0274d73f25b2"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/math/MathToolEnvelopeRuntimeTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "74eccbadf4e2c8c664e8007c49e69b5b342d1dca7be39f73608afb7688c451d7"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/service/HistorySourceSuppressionTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "ab65c1ddff606f3a5cc27ba07b3175f768d106ff0f1b6c36686c1e65e570c40b"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/service/LegacySourceProviderBoundaryTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "0b3762ba1bbd26119b3841e0ab5540acf85f081ec5284dace09e28936de246ad"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/service/OfficeConversionRepositoryTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "1c0c176731f3c5ab6eee6c28ad1f9121ff827be37a0156a13b7b916b03daa90e"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/data/ai/GenerationLoop.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "3ef6e91a84d6f067838341e68263a2645b764d07a27439c668bc95b9bdff852e"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/data/repository/ConversationRepository.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "2a189c62daef308d2f71fa0cb9c5c1c4cd7d1ce88750f3981f4594e9c5ba755a"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/AgentPlan.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "37557b866d43a639fb7f1bfa602268e4bcb3df0d49d2c4f727760551e7557c19"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/AgentTaskStore.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "fbe6ff0563034b1721462b03c6b5ea6b497066ed7d4e6ed34a6540e92df2c40d"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/FinalPlanRepair.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "8b207e2c7ae91b6b4d85bf8781e27230730541db7c54745aa10a42101ad90340"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/PlanProposal.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "086596bb14418cc5c59f8df1ac2cc4d3358c4c337a863e0a9b09b69ecca42948"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/ResponseCompletion.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "6aa53580b7ec76713509d7e9604f85568cdbd97c03144b1cdd584f0d5cb5d949"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/TaskPlanner.kt",
+    "decision": "MANUAL_RESOLUTION_KEEP_NEW_VALIDATED_EXTENSION_AND_CURRENT_NONCONFLICTING_GUARDS",
+    "changed": true,
+    "sha256": "431cdc20c5812ba7b2aad2ee644ca5d099641c39713e69d9d014c04830c51408"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialEditor.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "918737d086ab3b103dc466d0302932151a88e895afa97e1677a05261ce2e471c"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/material/MathTranscription.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "6e110e73ff1a107752d098379ea017bd5d651c1bd8898d4cd54862c3d4b1de02"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/material/MathWorkInputs.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "4e22f836818d1b6204db5dbbb55151a3c9c88e84176cf89c734e8026aa264aa5"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/material/OfficeConversionRepository.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "0262e624d1f228754cb874e36dc805333f29062e203a5df5a419503748826c37"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/material/SpreadsheetEditRegions.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "cc2b93b2f88b599aa25c62adff37cccc8f6c4c61575a3078760bc35e68f17bb3"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/math/MathTools.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "add2e01b86ad995ca6433434d721bade1b636cdce6b0ff415022de5bd0a0f35d"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/math/MathVerification.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "686ccc510059fe43cc4f5a48c45b940f16daf849566d309d8d9dd262bdedc51a"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/math/ProfessionalMathGuidance.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "57594d3ec0e0b4f14e67a54f1cf4ad433b975a7be6d41d922ad1aaf923e07703"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/math/ProofDerivation.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "dcae25c02670aac04f9a9df03c25108a4091a74407017f722decb19405b24ce4"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/memory/LearningMemoryStore.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "023eadb28d7550f371a4d67bf85e8ef560b40fdc417d2a2209c1705f89515852"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/service/ChatService.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "66d759945cc7229a33dcb3f8917caaedc0b5797d656f2624a6fafb558a6e51b9"
+  },
+  {
+    "path": "client/app/src/test/java/me/rerere/rikkahub/feature/agent/FinalPlanRepairTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "e9fcabe490d87c8b5e5abc431c30ec1badbc304acd03c375c2a5720b4cc5d053"
+  },
+  {
+    "path": "client/app/src/test/java/me/rerere/rikkahub/feature/agent/PlanProposalTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "e680141610188bc84fef5021ce5b79c58e8c1cd43f650c40a3e7f50e00f3409a"
+  },
+  {
+    "path": "client/app/src/test/java/me/rerere/rikkahub/feature/agent/ResponseCompletionTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "96d45aeba6d11f16bbb629fd3f08bd323f330315cf3cb601729da19b25a6832e"
+  },
+  {
+    "path": "client/app/src/test/java/me/rerere/rikkahub/feature/material/MathTranscriptionTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "7541c07255b505b91789adc81b336a8b3c8ba14c135164a274542e1e78562424"
+  },
+  {
+    "path": "client/app/src/test/java/me/rerere/rikkahub/feature/material/SpreadsheetEditRegionsTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "b13f3df6adae6e8a1e4b5097cb98dd9b21a2ca9ca00291ae40721238434bfb42"
+  },
+  {
+    "path": "client/app/src/test/java/me/rerere/rikkahub/feature/math/MathToolEnvelopeTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "1a9a705de19677529fc47356d64ece7474e127e00264ffbf16589b5aef3c882b"
+  },
+  {
+    "path": "client/app/src/test/java/me/rerere/rikkahub/feature/math/ProofBranchRulesTest.kt",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "9ea434a3c4e7a3c4c74c262aa6dcfad79b6409c166c1bc59ca132f35ca6bef1f"
+  },
+  {
+    "path": "client/flutter_ui/lib/pages/agent_task_detail_page.dart",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "d3b323b0a6a04c8e2fa94311134a4a9aa9c3b9f6f62f7b631025505d2d4a22a2"
+  },
+  {
+    "path": "docs/pro-development-baseline-20261012.md",
+    "decision": "KEEP_CURRENT_OFFLINE_SAFETY_V4_DOCUMENTATION",
+    "changed": false,
+    "sha256": "bc3204f3dc02be310b8633e9e999a94c5c617a1fa9272bead6d9f9a92c47c267"
+  },
+  {
+    "path": "docs/quality-06-09-contract2.md",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "fff39d51d8f808bbde6920bd6360617e7a3d0b31f213be07b2221c59f913f457"
+  },
+  {
+    "path": "docs/r27-cloud-device-protocol-v1.md",
+    "decision": "KEEP_CURRENT_OFFLINE_SAFETY_V4_DOCUMENTATION",
+    "changed": false,
+    "sha256": "f7603e7807d86e9eb8fb9cf272694a6079c95bf40f4813fef2724698a251ffc7"
+  },
+  {
+    "path": "docs/r27-final-plan-repair-contract1.md",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "ed3a90ab32bdb81ede41ba9b58af18369597e7992c622b18d498503a046847f4"
+  },
+  {
+    "path": "docs/r27-quality-06-09-protocol-v1.md",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "f2fb24802020e76189792d15c2dbd8a978f6a3c4069898f62ebd6c7d92944706"
+  },
+  {
+    "path": "docs/r29-planner-narrative-v1.md",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "53ab6f6db65a4538270795dbb4902c459ef9bcbbce2982d2e59ddba0e4cf360f"
+  },
+  {
+    "path": "docs/r29-response-delivery-office-recovery-v1.md",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "9fcddba12ac6ba65f252817b8da20538fb6decb473873ecff731db54b7ecc65c"
+  },
+  {
+    "path": "scripts/import_r27_quality_answers.py",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "90d81eb89d517b29b1df2b210ba4511ec5e3016274ab56c0b2fd30c02fc10a6a"
+  },
+  {
+    "path": "scripts/office_roundtrip_contract.py",
+    "decision": "MANUAL_RESOLUTION_KEEP_NEW_VALIDATED_EXTENSION_AND_CURRENT_NONCONFLICTING_GUARDS",
+    "changed": true,
+    "sha256": "b51bacd7ae870253188276ae4dd2245c7379c3173ab5e52082ded8b193f37737"
+  },
+  {
+    "path": "scripts/prepare_r27_live_quality.py",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "2ae0010db253b4379184d3d04c96154f88690795bf97aa581deb917603feca87"
+  },
+  {
+    "path": "scripts/tests/test_import_r27_quality_answers.py",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "ca4e1f34657fa95c364790b1c89539a17a6e3b1204caebeab5d35f17fbbffe5d"
+  },
+  {
+    "path": "scripts/tests/test_prepare_r27_live_quality.py",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "af19e781b618ae9960be2660270197aba61a74f4b926a4853f4e356fbd145585"
+  },
+  {
+    "path": "scripts/tests/test_verify_b_ocr_corpus.py",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "689b60f68625924754397dd6d2e0042bd0d9eb44732a076ad025dba7b5b4e99f"
+  },
+  {
+    "path": "scripts/tests/test_verify_b_office_roundtrip.py",
+    "decision": "MANUAL_RESOLUTION_KEEP_NEW_VALIDATED_EXTENSION_AND_CURRENT_NONCONFLICTING_GUARDS",
+    "changed": true,
+    "sha256": "81de297e0e620916ccba93f7e53f3e6a2b48e0a8a251ceccf3673d88417d8139"
+  },
+  {
+    "path": "scripts/verify_agent_process_death.py",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "9aea181273b6120866e8001cf137f0f71a3da9fed4fc5fd6fd50722149e4a5d9"
+  },
+  {
+    "path": "scripts/verify_b_microsoft_office.ps1",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "487fb16aad0c3667486d50f0e07f31b3227fad391c7596c9abb4f34b53fa415b"
+  },
+  {
+    "path": "scripts/verify_b_ocr_corpus.py",
+    "decision": "MANUAL_RESOLUTION_KEEP_NEW_VALIDATED_EXTENSION_AND_CURRENT_NONCONFLICTING_GUARDS",
+    "changed": true,
+    "sha256": "42985f51dd4b3e6e49936b3ffec0820339a6dcef743c722ab7e944a1b24bb845"
+  },
+  {
+    "path": "scripts/verify_b_office_compatibility.py",
+    "decision": "MANUAL_RESOLUTION_KEEP_NEW_VALIDATED_EXTENSION_AND_CURRENT_NONCONFLICTING_GUARDS",
+    "changed": true,
+    "sha256": "5487cb52f61e339e377a5c3415326dea1909cffc1d1dbd081319a26c7032d546"
+  },
+  {
+    "path": "scripts/verify_b_windows_ocr.py",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "f94e48ab851e740a3cee99e943482d3c5bfe8902efc4d1658a9e6877e1ea27af"
+  },
+  {
+    "path": "scripts/verify_b_wps.ps1",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "ce7b42f8a6ca45daf51107ea156f2048d1c92704725d415a787719b7052a622c"
+  },
+  {
+    "path": "scripts/verify_quality_evidence_process.py",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "a1b7f4fd2efb75ca25c3bd1284349acbecaca29b87ed4ef8588048312c1dff85"
+  },
+  {
+    "path": "scripts/verify_r27_quality_jvm.py",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "3917ad70ce5ba06ac07f6a412fdc4492d3bb0f4715d76d901b7b9327370f8bb6"
+  },
+  {
+    "path": "server/agent-runtime/protocol/agent_semantics_v6.json",
+    "decision": "MANUAL_RESOLUTION_KEEP_NEW_VALIDATED_EXTENSION_AND_CURRENT_NONCONFLICTING_GUARDS",
+    "changed": true,
+    "sha256": "4c05674a686ffa7fbf838252bb439bc30c4d2a7ecdb2d29a919604c2282680b9"
+  },
+  {
+    "path": "server/document-service/api/office.py",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "111841f94b5da59e88a31f5efe5b2061efa59a28ca3fa1cf265b55f811002e16"
+  },
+  {
+    "path": "server/document-service/api/store.py",
+    "decision": "MANUAL_RESOLUTION_KEEP_NEW_VALIDATED_EXTENSION_AND_CURRENT_NONCONFLICTING_GUARDS",
+    "changed": true,
+    "sha256": "fa73e41fcd10e990cf1db3c9ec1dff4abc003acbf7c0a73ab6c4b10827a97355"
+  },
+  {
+    "path": "server/document-service/tests/test_request_readback.py",
+    "decision": "THREE_WAY_CLEAN",
+    "changed": true,
+    "sha256": "9590a132ed0e333afe1ddee3dee3ca37279728d17752b7b68df3979caf1e64b9"
+  }
+]

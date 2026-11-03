@@ -1,0 +1,7 @@
+# 来源与完整差异
+
+集成base=f10841b4bd2107e3203c255975ea3dec96bfc0b6。20工作树来源与源码overlay提交见SOURCE_ARCHIVES，逐项旧变体/活动代码处置见WORKTREE_DISPOSITIONS，R30三方冲突定位与最终hash见MERGE_RESOLUTIONS。原status和原HEAD完整binary-safe diff在主根目录.local/worktree-integration-audit-20261103，只读保存未覆盖。
+
+新源SHA和规范化Git blob见SOURCE_SHA256；当前可审阅二进制安全差异见FIXES.patch。回复→Room屏障→接受谓词、Office原request→owner事务只读恢复、数学/公式保护与UI的真实链详见SOL_IMPLEMENTATION及基线v1.40。R30-05现有离线安全控制实现保持。
+
+旧raw QA父历史不作为新源码存档parent；安装工具/生成CMake/agent技能安装目录、缓存、私密配置和设备数据不装入产品。存档提交的originalHead是来源元数据，活动产品树的行为以本次集成commit为准。

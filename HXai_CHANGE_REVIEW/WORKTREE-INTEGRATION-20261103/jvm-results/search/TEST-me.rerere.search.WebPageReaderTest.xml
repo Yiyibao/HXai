@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.search.WebPageReaderTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:32:53.406Z" hostname="DESKTOP-QH4J0RS" time="0.011">
+  <properties/>
+  <testcase name="rejectsPrivateAddressesAndCredentials" classname="me.rerere.search.WebPageReaderTest" time="0.001"/>
+  <testcase name="redirectToPrivateNetworkIsRejectedBeforeSecondRequest" classname="me.rerere.search.WebPageReaderTest" time="0.005"/>
+  <testcase name="readerExtractsMainContentAndActualPublicationDate" classname="me.rerere.search.WebPageReaderTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

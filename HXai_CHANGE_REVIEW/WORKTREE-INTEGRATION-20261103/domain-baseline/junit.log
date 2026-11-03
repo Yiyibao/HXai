@@ -1,0 +1,80 @@
+JUnit version 4.13.2
+.E.E.E.E...........E.E.E.E...
+Time: 0.383
+There were 8 failures:
+1) bothAlternativeBranchesMustHaveTheSameConclusion(me.rerere.rikkahub.feature.math.ProofBranchRulesTest)
+java.lang.AssertionError: expected:<"VERIFIED"> but was:<"UNSUPPORTED">
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at me.rerere.rikkahub.feature.math.ProofBranchRulesTest.bothAlternativeBranchesMustHaveTheSameConclusion(ProofBranchRulesTest.kt:27)
+2) missingBranchCannotBeInventedAndExtraPremisesAreRejected(me.rerere.rikkahub.feature.math.ProofBranchRulesTest)
+java.lang.AssertionError: expected:<"DISPROVED"> but was:<"UNSUPPORTED">
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at me.rerere.rikkahub.feature.math.ProofBranchRulesTest.missingBranchCannotBeInventedAndExtraPremisesAreRejected(ProofBranchRulesTest.kt:54)
+3) negationIntroductionRemovesOnlyTheSpecifiedAssumption(me.rerere.rikkahub.feature.math.ProofBranchRulesTest)
+java.lang.AssertionError: expected:<"VERIFIED"> but was:<"UNSUPPORTED">
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at me.rerere.rikkahub.feature.math.ProofBranchRulesTest.negationIntroductionRemovesOnlyTheSpecifiedAssumption(ProofBranchRulesTest.kt:44)
+4) modusTollensPreservesConditionsAndCannotUseAffirmingConsequent(me.rerere.rikkahub.feature.math.ProofBranchRulesTest)
+java.lang.AssertionError: expected:<"VERIFIED"> but was:<"UNSUPPORTED">
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at me.rerere.rikkahub.feature.math.ProofBranchRulesTest.modusTollensPreservesConditionsAndCannotUseAffirmingConsequent(ProofBranchRulesTest.kt:37)
+5) exactEnvelopeIsVerifiedAndIndependentReadbackUsesTheActualWireHash(me.rerere.rikkahub.feature.math.MathToolEnvelopeTest)
+java.lang.AssertionError: expected:<"VERIFIED"> but was:<"UNSUPPORTED">
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at me.rerere.rikkahub.feature.math.MathToolEnvelopeTest$exactEnvelopeIsVerifiedAndIndependentReadbackUsesTheActualWireHash$1.invokeSuspend(MathToolEnvelopeTest.kt:15)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:263)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:94)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:70)
+	at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:48)
+	at kotlinx.coroutines.BuildersKt.runBlocking$default(Unknown Source)
+	at me.rerere.rikkahub.feature.math.MathToolEnvelopeTest.exactEnvelopeIsVerifiedAndIndependentReadbackUsesTheActualWireHash(MathToolEnvelopeTest.kt:11)
+6) disproofUnsupportedDomainsAndModifiedInputsCannotBorrowSuccess(me.rerere.rikkahub.feature.math.MathToolEnvelopeTest)
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at me.rerere.rikkahub.feature.math.MathToolEnvelopeTest$disproofUnsupportedDomainsAndModifiedInputsCannotBorrowSuccess$1.invokeSuspend(MathToolEnvelopeTest.kt:34)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:263)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:94)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:70)
+	at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:48)
+	at kotlinx.coroutines.BuildersKt.runBlocking$default(Unknown Source)
+	at me.rerere.rikkahub.feature.math.MathToolEnvelopeTest.disproofUnsupportedDomainsAndModifiedInputsCannotBorrowSuccess(MathToolEnvelopeTest.kt:31)
+7) mergedFollowerIsRejectedWithoutPublishingOrMutatingSource(me.rerere.rikkahub.feature.material.SpreadsheetEditRegionsTest)
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at me.rerere.rikkahub.feature.material.SpreadsheetEditRegionsTest.mergedFollowerIsRejectedWithoutPublishingOrMutatingSource(SpreadsheetEditRegionsTest.kt:26)
+8) multiCellFormulaFollowerCannotBeOverwrittenEvenWithoutItsOwnFormulaNode(me.rerere.rikkahub.feature.material.SpreadsheetEditRegionsTest)
+java.lang.AssertionError: array
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at me.rerere.rikkahub.feature.material.SpreadsheetEditRegionsTest.multiCellFormulaFollowerCannotBeOverwrittenEvenWithoutItsOwnFormulaNode(SpreadsheetEditRegionsTest.kt:41)
+
+FAILURES!!!
+Tests run: 21,  Failures: 8
+
+
+STDERR

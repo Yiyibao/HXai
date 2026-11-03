@@ -1,0 +1,9 @@
+# 适用源码追踪
+
+回复：ChatService→ConversationRepository→GenerationLoop→TaskPlanner→AgentTaskStore。
+Office：OfficeConversionRepository→原requestKey→api.office→Store.read_request；原worker_stopped/撤权保留。
+数学与材料：MathTools/MathVerification/ProofDerivation、MaterialEditor/SpreadsheetEditRegions、MathWorkInputs/MathTranscription。
+云离线安全：CloudFrontend/CloudWorkspace/AgentScheduler保持现v4代码，本轮不回退。
+UI：AgentTaskDetailPage仅识别response_delivery的真实已验收条件；不伪造数学证明。
+
+入口细节、版本、hash和逐工作树处置见HXai_CHANGE_REVIEW/WORKTREE-INTEGRATION-20261103及docs/pro-development-baseline-20261012.md v1.40。

@@ -1,0 +1,32 @@
+[
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103\\client\\app\\build\\outputs\\apk\\debug\\app-arm64-v8a-debug.apk",
+    "bytes": 157105869,
+    "sha256": "d4ff4357ed5eb7b445068ce064a89733a5c46beb8b3082e071203b2eec9aea96",
+    "gitIncluded": false
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103\\client\\app\\build\\outputs\\apk\\debug\\app-universal-debug.apk",
+    "bytes": 183889329,
+    "sha256": "ce8ec5dd64c3dc44e112cf4536599ca50fd7a9601f96315871adb88d8e07230b",
+    "gitIncluded": false
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103\\client\\app\\build\\outputs\\apk\\debug\\app-x86_64-debug.apk",
+    "bytes": 153761924,
+    "sha256": "7195c07ceac14ee66801bde88e3164af6ee164cea200bc050c2e00f6a1ce064d",
+    "gitIncluded": false
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103\\client\\app\\build\\outputs\\apk\\androidTest\\debug\\app-debug-androidTest.apk",
+    "bytes": 6410856,
+    "sha256": "3aef4380e436fe188e8d2074122e16dbcd32012f7ed6298f74c479ebcc63c0da",
+    "gitIncluded": false
+  },
+  {
+    "path": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103\\client\\flutter_ui\\build\\host\\outputs\\repo\\me\\rerere\\rikkahub\\flutter_ui\\flutter_debug\\1.0\\flutter_debug-1.0.aar",
+    "bytes": 48757052,
+    "sha256": "e83fd30b12e562c90766d43a611310791b33aa48e69218dd17f808774c5c7f23",
+    "gitIncluded": false
+  }
+]

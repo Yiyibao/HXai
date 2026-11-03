@@ -1,0 +1,90 @@
+[
+  {
+    "case": "blank-ocr-image",
+    "variant": "baseline",
+    "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+    "command": [
+      "python",
+      "-c",
+      "import sys,pathlib\nsys.path.insert(0,str(pathlib.Path.cwd()))\nfrom scripts.tests.test_verify_b_ocr_corpus import sample\nimport verify_b_ocr_corpus as module\ntruth,document=sample()\ndocument['blocks'].append({'blockId':'hidden-image','page':3,'text':'','type':'image','assetId':'public-synthetic'})\nrejected=False\ntry:module.score_document(truth,document)\nexcept ValueError as e:rejected=str(e)=='blank_with_content'\nassert rejected,'False success: a declared blank page accepted hidden nontext content'\nprint('PASS: blank-page nontext content rejected')\n"
+    ],
+    "exitCode": 1,
+    "expectedExitCode": 1,
+    "status": "FAIL",
+    "log": "blank-ocr-image-baseline.log",
+    "failureKind": "HARNESS_IMPORT_ERROR_NOT_PRODUCT_EVIDENCE"
+  },
+  {
+    "case": "blank-ocr-image",
+    "variant": "integrated",
+    "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103",
+    "command": [
+      "python",
+      "-c",
+      "import sys,pathlib\nsys.path.insert(0,str(pathlib.Path.cwd()))\nfrom scripts.tests.test_verify_b_ocr_corpus import sample\nimport verify_b_ocr_corpus as module\ntruth,document=sample()\ndocument['blocks'].append({'blockId':'hidden-image','page':3,'text':'','type':'image','assetId':'public-synthetic'})\nrejected=False\ntry:module.score_document(truth,document)\nexcept ValueError as e:rejected=str(e)=='blank_with_content'\nassert rejected,'False success: a declared blank page accepted hidden nontext content'\nprint('PASS: blank-page nontext content rejected')\n"
+    ],
+    "exitCode": 1,
+    "expectedExitCode": 0,
+    "status": "FAIL",
+    "log": "blank-ocr-image-integrated.log",
+    "failureKind": "HARNESS_IMPORT_ERROR_NOT_PRODUCT_EVIDENCE"
+  },
+  {
+    "case": "changed-chart-literal",
+    "variant": "baseline",
+    "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+    "command": [
+      "python",
+      "-c",
+      "import pathlib,sys,xml.etree.ElementTree as ET\nsys.path.insert(0,str(pathlib.Path.cwd()/'scripts'))\nimport office_roundtrip_contract as module\np=pathlib.Path.cwd()/'HXai_CHANGE_REVIEW/B27-B-LINE-CLOSURE-20261027/microsoft-office-final/office/excel-rich.xlsx'\nbefore=module.package(p,'xlsx');after=dict(before);c='{http://schemas.openxmlformats.org/drawingml/2006/chart}'\nxml=module.parse_office_xml(after['xl/charts/chart1.xml']);next(xml.iter(c+'ser')).find(c+'tx/'+c+'v').text='Changed legend'\nafter['xl/charts/chart1.xml']=ET.tostring(xml)\nrejected=False\ntry:module.xlsx_roundtrip(before,after)\nexcept ValueError as e:rejected=str(e)=='workbook_chart_references_changed'\nassert rejected,'False success: changed chart legend accepted with unchanged reference list'\nprint('PASS: chart literal damage independently rejected')\n"
+    ],
+    "exitCode": 1,
+    "expectedExitCode": 1,
+    "status": "FAIL_BASELINE",
+    "log": "changed-chart-literal-baseline.log"
+  },
+  {
+    "case": "changed-chart-literal",
+    "variant": "integrated",
+    "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103",
+    "command": [
+      "python",
+      "-c",
+      "import pathlib,sys,xml.etree.ElementTree as ET\nsys.path.insert(0,str(pathlib.Path.cwd()/'scripts'))\nimport office_roundtrip_contract as module\np=pathlib.Path.cwd()/'HXai_CHANGE_REVIEW/B27-B-LINE-CLOSURE-20261027/microsoft-office-final/office/excel-rich.xlsx'\nbefore=module.package(p,'xlsx');after=dict(before);c='{http://schemas.openxmlformats.org/drawingml/2006/chart}'\nxml=module.parse_office_xml(after['xl/charts/chart1.xml']);next(xml.iter(c+'ser')).find(c+'tx/'+c+'v').text='Changed legend'\nafter['xl/charts/chart1.xml']=ET.tostring(xml)\nrejected=False\ntry:module.xlsx_roundtrip(before,after)\nexcept ValueError as e:rejected=str(e)=='workbook_chart_references_changed'\nassert rejected,'False success: changed chart legend accepted with unchanged reference list'\nprint('PASS: chart literal damage independently rejected')\n"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "status": "PASS",
+    "log": "changed-chart-literal-integrated.log"
+  },
+  {
+    "case": "blank-ocr-image",
+    "attempt": 2,
+    "variant": "baseline",
+    "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+    "command": [
+      "python",
+      "-c",
+      "import sys,pathlib\nsys.path.insert(0,str(pathlib.Path.cwd()))\nfrom scripts.tests.test_verify_b_ocr_corpus import sample, ocr as module\ntruth,document=sample()\ndocument['blocks'].append({'blockId':'hidden-image','page':3,'text':'','type':'image','assetId':'public-synthetic'})\nrejected=False\ntry:module.score_document(truth,document)\nexcept ValueError as e:rejected=str(e)=='blank_with_content'\nassert rejected,'False success: a declared blank page accepted hidden nontext content'\nprint('PASS: blank-page nontext content rejected')\n"
+    ],
+    "exitCode": 1,
+    "expectedExitCode": 1,
+    "status": "FAIL_BASELINE",
+    "log": "blank-ocr-image-baseline-02.log"
+  },
+  {
+    "case": "blank-ocr-image",
+    "attempt": 2,
+    "variant": "integrated",
+    "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103",
+    "command": [
+      "python",
+      "-c",
+      "import sys,pathlib\nsys.path.insert(0,str(pathlib.Path.cwd()))\nfrom scripts.tests.test_verify_b_ocr_corpus import sample, ocr as module\ntruth,document=sample()\ndocument['blocks'].append({'blockId':'hidden-image','page':3,'text':'','type':'image','assetId':'public-synthetic'})\nrejected=False\ntry:module.score_document(truth,document)\nexcept ValueError as e:rejected=str(e)=='blank_with_content'\nassert rejected,'False success: a declared blank page accepted hidden nontext content'\nprint('PASS: blank-page nontext content rejected')\n"
+    ],
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "status": "PASS",
+    "log": "blank-ocr-image-integrated-02.log"
+  }
+]

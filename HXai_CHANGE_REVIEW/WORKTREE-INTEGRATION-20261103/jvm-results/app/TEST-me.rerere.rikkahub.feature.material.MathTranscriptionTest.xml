@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.material.MathTranscriptionTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:35:37.368Z" hostname="DESKTOP-QH4J0RS" time="0.002">
+  <properties/>
+  <testcase name="originalUnicodeAndLineBreaksArePreserved" classname="me.rerere.rikkahub.feature.material.MathTranscriptionTest" time="0.002"/>
+  <testcase name="invisibleOrInvalidTextCannotBecomeConfirmedInput" classname="me.rerere.rikkahub.feature.material.MathTranscriptionTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

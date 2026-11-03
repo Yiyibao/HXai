@@ -1,0 +1,37 @@
+[
+  {
+    "label": "domain-baseline",
+    "command": [
+      "python",
+      "scripts/verify_r27_quality_jvm.py",
+      "--runtime-root",
+      "D:\\Office\\Study\\code\\MathStudyAgent",
+      "--run-dir",
+      "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103\\HXai_CHANGE_REVIEW\\WORKTREE-INTEGRATION-20261103\\domain-baseline",
+      "--baseline"
+    ],
+    "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103",
+    "exitCode": 1,
+    "seconds": 43.8,
+    "tail": [
+      "{\"status\": \"FAIL\", \"baseline\": true, \"scope\": \"REAL_KOTLIN_JVM_NOT_ANDROID_OR_MODEL_QUALITY\"}"
+    ]
+  },
+  {
+    "label": "domain-integrated",
+    "command": [
+      "python",
+      "scripts/verify_r27_quality_jvm.py",
+      "--runtime-root",
+      "D:\\Office\\Study\\code\\MathStudyAgent",
+      "--run-dir",
+      "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103\\HXai_CHANGE_REVIEW\\WORKTREE-INTEGRATION-20261103\\domain-integrated"
+    ],
+    "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103",
+    "exitCode": 0,
+    "seconds": 27.74,
+    "tail": [
+      "{\"status\": \"PASS\", \"baseline\": false, \"scope\": \"REAL_KOTLIN_JVM_NOT_ANDROID_OR_MODEL_QUALITY\"}"
+    ]
+  }
+]

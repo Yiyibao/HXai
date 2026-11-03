@@ -1,0 +1,480 @@
+00:00 +0: loading D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_cost_view_test.dart
+00:00 +0: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_cost_view_test.dart: reported amount stays visible with unknown token counters and partial totals
+00:01 +1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_cost_view_test.dart: reported amount stays visible with unknown token counters and partial totals
+00:01 +2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_catalog_test.dart: catalog returns cross-conversation records and preserves stop and blocker truth
+00:01 +3: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_center_entry_test.dart: Global task and usage entries exist without any accepted Chat task
+00:01 +4: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_center_entry_test.dart: Global task and usage entries exist without any accepted Chat task
+00:01 +5: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_center_entry_test.dart: Global task and usage entries exist without any accepted Chat task
+00:01 +6: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_center_entry_test.dart: Global task and usage entries exist without any accepted Chat task
+00:01 +7: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_panel_test.dart: Unconfirmed resume cannot disable pause, cancellation or revocation
+00:02 +8: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_panel_test.dart: Unconfirmed resume cannot disable pause, cancellation or revocation
+00:02 +9: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_panel_test.dart: Unconfirmed resume cannot disable pause, cancellation or revocation
+00:02 +10: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_panel_test.dart: Unconfirmed resume cannot disable pause, cancellation or revocation
+00:02 +11: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_panel_test.dart: Unconfirmed resume cannot disable pause, cancellation or revocation
+00:02 +12: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_panel_test.dart: Unconfirmed resume cannot disable pause, cancellation or revocation
+00:02 +13: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_panel_test.dart: Unconfirmed resume cannot disable pause, cancellation or revocation
+00:02 +14: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_resume_test.dart: each reopened detail queries durable resume receipt without execution
+00:03 +15: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_resume_test.dart: each reopened detail queries durable resume receipt without execution
+00:03 +16: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_resume_test.dart: each reopened detail queries durable resume receipt without execution
+00:03 +17: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_safety_test.dart: missing conversation can pause exact task and only refreshed DTO changes state
+00:03 +18: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_safety_test.dart: missing conversation can pause exact task and only refreshed DTO changes state
+00:03 +19: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_safety_test.dart: missing conversation can pause exact task and only refreshed DTO changes state
+00:03 +20: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_safety_test.dart: missing conversation can pause exact task and only refreshed DTO changes state
+00:03 +21: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_safety_test.dart: missing conversation can pause exact task and only refreshed DTO changes state
+00:03 +22: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_safety_test.dart: missing conversation can pause exact task and only refreshed DTO changes state
+00:03 +23: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_safety_test.dart: missing conversation can pause exact task and only refreshed DTO changes state
+00:03 +24: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_alert_entry_test.dart: Usage scope automatically has a truthful alert query surface
+00:03 +25: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_alert_entry_test.dart: Usage scope automatically has a truthful alert query surface
+00:03 +26: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_entry_test.dart: Accepted task exposes actual request ledger entry
+00:03 +27: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_entry_test.dart: Accepted task exposes actual request ledger entry
+00:03 +28: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_entry_test.dart: Accepted task exposes actual request ledger entry
+00:03 +29: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_entry_test.dart: Accepted task exposes actual request ledger entry
+00:03 +30: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_entry_test.dart: Accepted task exposes actual request ledger entry
+00:03 +31: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_entry_test.dart: Accepted task exposes actual request ledger entry
+00:03 +32: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_entry_test.dart: Accepted task exposes actual request ledger entry
+00:03 +33: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_entry_test.dart: Accepted task exposes actual request ledger entry
+00:04 +34: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_entry_test.dart: Accepted task exposes actual request ledger entry
+00:04 +35: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_export_entry_test.dart: Actual usage page exposes a complete scope export action
+00:04 +36: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_export_entry_test.dart: Actual usage page exposes a complete scope export action
+00:04 +37: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_export_entry_test.dart: Actual usage page exposes a complete scope export action
+00:04 +38: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_export_entry_test.dart: Actual usage page exposes a complete scope export action
+00:04 +39: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_export_test.dart: Export calls actual full scope and only opens a validated owned receipt
+00:04 +40: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_export_test.dart: Export calls actual full scope and only opens a validated owned receipt
+00:04 +41: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_export_test.dart: Export calls actual full scope and only opens a validated owned receipt
+00:04 +42: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_export_test.dart: Export calls actual full scope and only opens a validated owned receipt
+00:04 +43: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_export_test.dart: Export calls actual full scope and only opens a validated owned receipt
+00:04 +44: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_export_test.dart: Export calls actual full scope and only opens a validated owned receipt
+00:04 +45: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_export_test.dart: Export calls actual full scope and only opens a validated owned receipt
+00:04 +46: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_export_test.dart: Export calls actual full scope and only opens a validated owned receipt
+00:05 +47: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_groups_entry_test.dart: Actual usage page exposes provider model and role grouping without a Chat
+00:05 +48: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_groups_entry_test.dart: Actual usage page exposes provider model and role grouping without a Chat
+00:05 +49: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_groups_entry_test.dart: Actual usage page exposes provider model and role grouping without a Chat
+00:05 +50: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_groups_test.dart: Groups use full window counts physical identity and nullable fields
+00:05 +51: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_groups_test.dart: Groups use full window counts physical identity and nullable fields
+00:05 +52: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_groups_test.dart: Groups use full window counts physical identity and nullable fields
+00:05 +53: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_history_test.dart: Cross-scope original period and task are displayed; manual verification never exports
+00:05 +54: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_history_test.dart: Cross-scope original period and task are displayed; manual verification never exports
+00:05 +55: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_history_test.dart: Cross-scope original period and task are displayed; manual verification never exports
+00:06 +56: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_resume_test.dart: unavailable conversation independent blockers unknown and terminals disable resume
+00:06 +57: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_resume_test.dart: unavailable conversation independent blockers unknown and terminals disable resume
+00:06 +58: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_task_resume_test.dart: unavailable conversation independent blockers unknown and terminals disable resume
+00:06 +59: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_notification_settings_test.dart: Settings opens real host route once, waits for ACK and reports a rejection
+00:06 +60: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_notification_settings_test.dart: Settings opens real host route once, waits for ACK and reports a rejection
+00:06 +61: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_notification_settings_test.dart: Settings opens real host route once, waits for ACK and reports a rejection
+00:06 +62: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_notification_settings_test.dart: Settings opens real host route once, waits for ACK and reports a rejection
+00:06 +63: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_notification_settings_test.dart: Settings opens real host route once, waits for ACK and reports a rejection
+00:06 +64: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_notification_settings_test.dart: Settings opens real host route once, waits for ACK and reports a rejection
+00:06 +65: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_notification_settings_test.dart: Settings opens real host route once, waits for ACK and reports a rejection
+00:06 +66: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_entry_test.dart: Restarted usage page exposes manual last export lookup
+00:06 +67: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_entry_test.dart: Restarted usage page exposes manual last export lookup
+00:06 +68: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_entry_test.dart: Restarted usage page exposes manual last export lookup
+00:06 +69: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Reopened page discovers durable intent but publishes only manual readback receipt
+00:06 +70: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Reopened page discovers durable intent but publishes only manual readback receipt
+00:06 +71: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Reopened page discovers durable intent but publishes only manual readback receipt
+00:06 +72: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Reopened page discovers durable intent but publishes only manual readback receipt
+00:06 +73: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Reopened page discovers durable intent but publishes only manual readback receipt
+00:06 +74: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Reopened page discovers durable intent but publishes only manual readback receipt
+00:06 +75: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Reopened page discovers durable intent but publishes only manual readback receipt
+00:06 +76: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Reopened page discovers durable intent but publishes only manual readback receipt
+00:07 +77: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Reopened page discovers durable intent but publishes only manual readback receipt
+00:07 +78: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Reopened page discovers durable intent but publishes only manual readback receipt
+00:07 +79: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Reopened page discovers durable intent but publishes only manual readback receipt
+00:07 +80: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Reopened page discovers durable intent but publishes only manual readback receipt
+00:07 +81: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Reopened page discovers durable intent but publishes only manual readback receipt
+00:07 +82: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_view_test.dart: Unknown counters never become zero and report zero stays visible
+00:07 +83: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_groups_test.dart: Owner epoch switch discards an outstanding private group result
+00:07 +84: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_history_test.dart: Reject false verification size and retry identical saved request
+00:07 +85: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Verification failure and retries use dedicated API without recapture or new ID
+00:07 +86: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Verification failure and retries use dedicated API without recapture or new ID
+00:07 +87: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_view_test.dart: Profile filter includes auxiliary requests and preserves estimates
+00:07 +88: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_view_test.dart: Profile filter includes auxiliary requests and preserves estimates
+00:07 +89: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_view_test.dart: Profile filter includes auxiliary requests and preserves estimates
+00:07 +90: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_view_test.dart: Profile filter includes auxiliary requests and preserves estimates
+00:07 +91: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_view_test.dart: Profile filter includes auxiliary requests and preserves estimates
+00:07 +92: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_groups_test.dart: 320px 200 percent grouped metadata remains scrollable dark
+00:07 +93: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Late epoch verification and old filter lookup are discarded
+00:07 +94: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Late epoch verification and old filter lookup are discarded
+00:07 +95: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_view_test.dart: Late old period result cannot replace newest filtered data
+00:07 +96: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Old filter lookup cannot replace current range intent
+00:07 +97: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Old filter lookup cannot replace current range intent
+00:08 +98: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_view_test.dart: Failed continuation can retry cursor and keeps full summary
+00:08 +99: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Paging keeps an outstanding lookup in the same scope usable
+00:08 +100: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_view_test.dart: Wrong-owner DTO is rejected instead of rendered
+00:08 +101: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Receipt status and reuse expose separate accessible text nodes
+00:08 +102: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Receipt status and reuse expose separate accessible text nodes
+00:08 +103: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_view_test.dart: 320px and 200% text remains scrollable (dark)
+00:08 +104: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Manual recovery at 320px 200 percent false
+00:08 +105: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/agent_usage_recovery_test.dart: Manual recovery at 320px 200 percent true
+00:09 +106: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/artifact_preview_content_test.dart: DOCX body is previewed separately from status and extraction scope
+00:09 +107: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/artifact_preview_content_test.dart: DOCX body is previewed separately from status and extraction scope
+00:09 +108: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/artifact_preview_content_test.dart: unsupported extraction retains system open guidance instead of status as body
+00:10 +109: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_bootstrap_test.dart: Generation is visible before an assistant node exists and clears on finish
+00:10 +110: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_bootstrap_test.dart: Generation is visible before an assistant node exists and clears on finish
+00:10 +111: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_bootstrap_test.dart: Generation is visible before an assistant node exists and clears on finish
+00:11 +112: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_image_test.dart: AI Markdown mixes decoded image and surrounding prose, opens fullscreen
+00:11 +113: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_image_test.dart: AI Markdown mixes decoded image and surrounding prose, opens fullscreen
+00:11 +114: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_image_test.dart: AI Markdown mixes decoded image and surrounding prose, opens fullscreen
+00:11 +115: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_image_test.dart: AI Markdown mixes decoded image and surrounding prose, opens fullscreen
+00:11 +116: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:11 +117: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:11 +118: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:11 +119: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:11 +120: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_stage1_test.dart: Unclosed code keeps formula delimiters literal and copies actual content
+00:12 +121: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_stage2_test.dart: Activity remains visible until generation finishes
+00:12 +122: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_bootstrap_test.dart: Failed send retains draft and startup failure renders retry
+00:12 +123: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_bootstrap_test.dart: Failed send retains draft and startup failure renders retry
+00:12 +124: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_transport_test.dart: Buffers initial patches, coalesces updates, rejects duplicate and wrong owner, recovers gaps
+00:12 +125: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:12 +126: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:12 +127: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:12 +128: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:12 +129: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:12 +130: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:12 +131: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:12 +132: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:12 +133: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:12 +134: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:12 +135: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:12 +136: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:12 +137: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:12 +138: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_upgrade_workspace_test.dart: Wide preview persists edits, restores inline state and closes on branch change
+00:13 +139: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_image_test.dart: invalid address and malformed image data show recoverable failure
+00:13 +140: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/chat_image_test.dart: invalid address and malformed image data show recoverable failure
+00:13 +141: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/conversation_management_test.dart: Native pins precede recent chats and archived chats can be restored
+00:13 +142: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/conversation_management_test.dart: Native pins precede recent chats and archived chats can be restored
+00:14 +143: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/conversation_management_test.dart: Native pins precede recent chats and archived chats can be restored
+00:14 +144: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/conversation_management_test.dart: Native pins precede recent chats and archived chats can be restored
+00:14 +145: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/conversation_management_test.dart: Native pins precede recent chats and archived chats can be restored
+00:14 +146: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/conversation_management_test.dart: Native pins precede recent chats and archived chats can be restored
+00:14 +147: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/conversation_management_test.dart: Native pins precede recent chats and archived chats can be restored
+00:14 +148: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/extensions_page_test.dart: OAuth callback requires explicit completion and never enables tools
+00:14 +149: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/extensions_page_test.dart: OAuth callback requires explicit completion and never enables tools
+00:14 +150: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/extensions_page_test.dart: OAuth callback requires explicit completion and never enables tools
+00:14 +151: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/extensions_page_test.dart: OAuth callback requires explicit completion and never enables tools
+00:15 +152: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/extensions_page_test.dart: OAuth callback requires explicit completion and never enables tools
+00:15 +153: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/extensions_page_test.dart: OAuth callback requires explicit completion and never enables tools
+00:15 +154: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/extensions_page_test.dart: OAuth callback requires explicit completion and never enables tools
+00:15 +155: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/extensions_page_test.dart: OAuth callback requires explicit completion and never enables tools
+00:15 +156: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Style fills a matching draft without any paid submission
+00:15 +157: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Style fills a matching draft without any paid submission
+00:15 +158: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Style fills a matching draft without any paid submission
+00:15 +159: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Style fills a matching draft without any paid submission
+00:15 +160: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Style fills a matching draft without any paid submission
+00:15 +161: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Style fills a matching draft without any paid submission
+00:16 +162: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Style fills a matching draft without any paid submission
+00:16 +163: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Style fills a matching draft without any paid submission
+00:16 +164: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Style fills a matching draft without any paid submission
+00:16 +165: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Style fills a matching draft without any paid submission
+00:16 +166: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Style fills a matching draft without any paid submission
+00:16 +167: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Style fills a matching draft without any paid submission
+00:16 +168: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Style fills a matching draft without any paid submission
+00:16 +169: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Style fills a matching draft without any paid submission
+00:16 +170: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Style fills a matching draft without any paid submission
+00:16 +171: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/material_library_profile_test.dart: Late old-profile library snapshot cannot publish private catalogue into the new profile
+00:16 +172: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/material_library_profile_test.dart: Late old-profile library snapshot cannot publish private catalogue into the new profile
+00:16 +173: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/material_library_profile_test.dart: Late old-profile library snapshot cannot publish private catalogue into the new profile
+00:16 +174: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/material_library_profile_test.dart: Late old-profile library snapshot cannot publish private catalogue into the new profile
+00:16 +175: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/material_library_profile_test.dart: Late old-profile library snapshot cannot publish private catalogue into the new profile
+00:16 +176: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/material_library_profile_test.dart: Late old-profile library snapshot cannot publish private catalogue into the new profile
+00:16 +177: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/material_library_profile_test.dart: Late old-profile library snapshot cannot publish private catalogue into the new profile
+00:16 +178: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/material_library_profile_test.dart: Late old-profile library snapshot cannot publish private catalogue into the new profile
+00:16 +179: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/material_library_profile_test.dart: Late old-profile library snapshot cannot publish private catalogue into the new profile
+00:16 +180: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/material_library_profile_test.dart: Late old-profile library snapshot cannot publish private catalogue into the new profile
+00:16 +181: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_plot_test.dart: implicit background computation uses latest parameters
+00:16 +182: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_plot_test.dart: implicit background computation uses latest parameters
+00:16 +183: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_plot_test.dart: implicit background computation uses latest parameters
+00:16 +184: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_plot_test.dart: implicit background computation uses latest parameters
+00:16 +185: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_plot_test.dart: implicit background computation uses latest parameters
+00:16 +186: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_plot_test.dart: implicit background computation uses latest parameters
+00:16 +187: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_plot_test.dart: implicit background computation uses latest parameters
+00:16 +188: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_plot_test.dart: implicit background computation uses latest parameters
+00:16 +189: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Purpose collects content and exposes an editable draft
+00:17 +190: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Purpose collects content and exposes an editable draft
+00:17 +191: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Purpose collects content and exposes an editable draft
+00:17 +192: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Purpose collects content and exposes an editable draft
+00:17 +193: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Purpose collects content and exposes an editable draft
+00:17 +194: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Purpose collects content and exposes an editable draft
+00:17 +195: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Purpose collects content and exposes an editable draft
+00:17 +196: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Purpose collects content and exposes an editable draft
+00:17 +197: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Purpose collects content and exposes an editable draft
+00:17 +198: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Purpose collects content and exposes an editable draft
+00:17 +199: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Purpose collects content and exposes an editable draft
+00:17 +200: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Purpose collects content and exposes an editable draft
+00:17 +201: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Purpose collects content and exposes an editable draft
+00:17 +202: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/image_studio_test.dart: Purpose collects content and exposes an editable draft
+00:17 +203: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:17 +204: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:17 +205: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:17 +206: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:17 +207: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:17 +208: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:17 +209: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:17 +210: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:17 +211: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:17 +212: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:17 +213: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:17 +214: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:17 +215: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:17 +216: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:17 +217: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:17 +218: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +219: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +220: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +221: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +222: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +223: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +224: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +225: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +226: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +227: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +228: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +229: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +230: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +231: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +232: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +233: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +234: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +235: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +236: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +237: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +238: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +239: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +240: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:18 +241: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:19 +242: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:19 +243: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:19 +244: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:19 +245: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:19 +246: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:19 +247: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:19 +248: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:19 +249: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:19 +250: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:19 +251: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:19 +252: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:19 +253: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:19 +254: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/math_work_candidate_test.dart: Declining candidate replacement preserves the users unsaved correction
+00:19 +255: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:19 +256: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:19 +257: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/neutral_frontend_layout_test.dart: settings: light mobile layout is usable
+00:19 +258: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:19 +259: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:19 +260: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:19 +261: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:19 +262: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:19 +263: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:19 +264: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:19 +265: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:19 +266: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:19 +267: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:20 +268: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:20 +269: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:20 +270: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:20 +271: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:20 +272: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:20 +273: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:20 +274: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:20 +275: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:20 +276: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:20 +277: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:20 +278: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:20 +279: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:20 +280: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:20 +281: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:20 +282: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:20 +283: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/p0_surface_test.dart: Phone parameters recalculate, reject invalid values and continue with edited state
+00:20 +284: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/project_memory_test.dart: Manual save reports failure and keeps draft; profile switch disables save
+00:20 +285: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/project_memory_test.dart: Manual save reports failure and keeps draft; profile switch disables save
+00:20 +286: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/project_memory_test.dart: Manual save reports failure and keeps draft; profile switch disables save
+00:20 +287: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/project_memory_test.dart: Manual save reports failure and keeps draft; profile switch disables save
+00:20 +288: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/project_memory_test.dart: Manual save reports failure and keeps draft; profile switch disables save
+00:20 +289: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/project_memory_test.dart: Manual save reports failure and keeps draft; profile switch disables save
+00:20 +290: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/project_memory_test.dart: Manual save reports failure and keeps draft; profile switch disables save
+00:21 +291: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/project_memory_test.dart: Manual save reports failure and keeps draft; profile switch disables save
+00:21 +292: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/project_memory_test.dart: Manual save reports failure and keeps draft; profile switch disables save
+00:21 +293: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/project_memory_test.dart: Manual save reports failure and keeps draft; profile switch disables save
+00:21 +294: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/project_memory_test.dart: Manual save reports failure and keeps draft; profile switch disables save
+00:21 +295: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/project_memory_test.dart: Manual save reports failure and keeps draft; profile switch disables save
+00:21 +296: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:21 +297: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:21 +298: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:21 +299: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:21 +300: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/profile_isolation_test.dart: Profile switch clears selected attachments along with the draft
+00:21 +301: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:21 +302: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:21 +303: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:21 +304: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:21 +305: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:21 +306: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:21 +307: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:21 +308: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:21 +309: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:21 +310: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:21 +311: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:22 +312: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:22 +313: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:22 +314: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:22 +315: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:22 +316: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:22 +317: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:22 +318: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:22 +319: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:22 +320: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/re_review_regression_test.dart: Attachment picker returning after A B A is ignored
+00:22 +321: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/selected_chat_style_test.dart: Two options are a table, many options are separated cards
+00:22 +322: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/selected_chat_style_test.dart: Two options are a table, many options are separated cards
+00:22 +323: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/selected_chat_style_test.dart: Two options are a table, many options are separated cards
+00:22 +324: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/selected_chat_style_test.dart: Two options are a table, many options are separated cards
+00:22 +325: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/selected_chat_style_test.dart: Two options are a table, many options are separated cards
+00:22 +326: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/selected_chat_style_test.dart: Two options are a table, many options are separated cards
+00:22 +327: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/selected_chat_style_test.dart: Two options are a table, many options are separated cards
+00:23 +328: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/selected_chat_style_test.dart: Two options are a table, many options are separated cards
+00:23 +329: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/selected_chat_style_test.dart: Two options are a table, many options are separated cards
+00:23 +330: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/selected_chat_style_test.dart: Two options are a table, many options are separated cards
+00:23 +331: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/selected_chat_style_test.dart: Two options are a table, many options are separated cards
+00:23 +332: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/selected_chat_style_test.dart: Two options are a table, many options are separated cards
+00:23 +333: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/selected_chat_style_test.dart: Two options are a table, many options are separated cards
+00:23 +334: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/sidebar_accent_test.dart: Picker updates preview and theme immediately (dark=false)
+00:23 +335: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/sidebar_accent_test.dart: Picker updates preview and theme immediately (dark=false)
+00:23 +336: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/sidebar_accent_test.dart: Picker updates preview and theme immediately (dark=false)
+00:23 +337: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/sidebar_accent_test.dart: Picker updates preview and theme immediately (dark=false)
+00:23 +338: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/sidebar_accent_test.dart: Picker updates preview and theme immediately (dark=false)
+00:23 +339: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/sidebar_accent_test.dart: Picker updates preview and theme immediately (dark=false)
+00:23 +340: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/sidebar_accent_test.dart: Picker updates preview and theme immediately (dark=false)
+00:23 +341: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/sidebar_accent_test.dart: Picker updates preview and theme immediately (dark=false)
+00:23 +342: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/sidebar_accent_test.dart: Picker updates preview and theme immediately (dark=false)
+00:23 +343: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/sidebar_accent_test.dart: Picker updates preview and theme immediately (dark=false)
+00:24 +344: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:24 +345: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:24 +346: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:24 +347: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:24 +348: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:24 +349: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:24 +349: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/selected_chat_style_test.dart: Capture selected styles in mobile light and dark themes
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following PathNotFoundException was thrown running a test:
+Cannot open file, path =
+'../../.local/flutter/bin/cache/artifacts/material_fonts/roboto-regular.ttf' (OS Error: 系统找不到指定的路径。,
+errno = 3)
+
+When the exception was thrown, this was the stack:
+#0      _File.throwIfError (dart:io/file_impl.dart:779:7)
+#1      _File.openSync (dart:io/file_impl.dart:572:5)
+#2      _File.readAsBytesSync (dart:io/file_impl.dart:660:18)
+#3      main.<anonymous closure> (file:///D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/selected_chat_style_test.dart:261:51)
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:29)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  Capture selected styles in mobile light and dark themes
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:24 +349 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:24 +349 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/selected_chat_style_test.dart: Capture selected styles in mobile light and dark themes [E]
+  Test failed. See exception logs above.
+  The test description was: Capture selected styles in mobile light and dark themes
+  
+00:24 +350 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:24 +351 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:24 +352 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:24 +353 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:24 +354 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:24 +355 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:24 +356 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:24 +357 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Point selection maps to global index even with hidden series
+00:24 +358 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:24 +359 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:24 +360 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:24 +361 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:24 +362 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:24 +363 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:25 +364 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:25 +365 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:25 +366 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:25 +367 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:25 +368 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:25 +369 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_layout_v4_test.dart: Narrow large text wraps weighted columns and opens accordion
+00:25 +370 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:25 +371 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:25 +371 -1: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following PathNotFoundException was thrown running a test:
+Cannot open file, path =
+'../../.local/flutter/bin/cache/artifacts/material_fonts/roboto-regular.ttf' (OS Error: 系统找不到指定的路径。,
+errno = 3)
+
+When the exception was thrown, this was the stack:
+#0      _File.throwIfError (dart:io/file_impl.dart:779:7)
+#1      _File.openSync (dart:io/file_impl.dart:572:5)
+#2      _File.readAsBytesSync (dart:io/file_impl.dart:660:18)
+#3      main.<anonymous closure> (file:///D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_rendering_visual_test.dart:100:60)
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:29)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  Capture mobile and wide light/dark rendering
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:25 +371 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:25 +371 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering [E]
+  Test failed. See exception logs above.
+  The test description was: Capture mobile and wide light/dark rendering
+  
+00:25 +372 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:25 +373 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:25 +374 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:25 +375 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:25 +376 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:25 +377 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:25 +378 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:25 +379 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:25 +380 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:25 +381 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:25 +382 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:26 +383 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:26 +384 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:26 +385 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Narrow screen with large text keeps long tables and controls usable
+00:26 +386 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Table sorts numerically, formats units and pins header while scrolling
+00:26 +387 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Table sorts numerically, formats units and pins header while scrolling
+00:26 +388 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Table sorts numerically, formats units and pins header while scrolling
+00:26 +389 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Table sorts numerically, formats units and pins header while scrolling
+00:26 +390 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_data_v4_test.dart: Table sorts numerically, formats units and pins header while scrolling
+00:26 +391 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_stream_preview_test.dart: Preview coalesces updates without controls or callbacks
+00:26 +392 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_stream_preview_test.dart: Preview coalesces updates without controls or callbacks
+00:26 +393 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_stream_preview_test.dart: Preview coalesces updates without controls or callbacks
+00:26 +394 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_stream_preview_test.dart: Preview coalesces updates without controls or callbacks
+00:26 +395 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_stream_preview_test.dart: Preview coalesces updates without controls or callbacks
+00:26 +396 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_stream_preview_test.dart: Preview coalesces updates without controls or callbacks
+00:26 +397 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_stream_preview_test.dart: Preview coalesces updates without controls or callbacks
+00:26 +398 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_stream_preview_test.dart: Preview coalesces updates without controls or callbacks
+00:26 +399 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_rendering_v4_test.dart: Rich semantics render on narrow dark screens with large text
+00:26 +400 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_rendering_v4_test.dart: Rich semantics render on narrow dark screens with large text
+00:26 +401 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/widget_test.dart: MathMarkdownView smoke test
+00:26 +402 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/widget_test.dart: MathMarkdownView smoke test
+00:26 +403 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/widget_test.dart: MathMarkdownView smoke test
+00:26 +404 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/widget_test.dart: MathMarkdownView smoke test
+00:26 +405 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/widget_test.dart: MathMarkdownView smoke test
+00:26 +406 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_stream_preview_test.dart: Unrelated nodes are retained while dependent calculations update
+00:26 +407 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_stream_preview_test.dart: Unrelated nodes are retained while dependent calculations update
+00:26 +408 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Expanded view saves before closing and updates the inline controls
+00:26 +409 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Expanded view saves before closing and updates the inline controls
+00:26 +410 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Expanded view saves before closing and updates the inline controls
+00:26 +411 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Expanded view saves before closing and updates the inline controls
+00:26 +412 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Expanded view saves before closing and updates the inline controls
+00:26 +413 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_reliability_test.dart: Expanded view saves before closing and updates the inline controls
+00:26 +414 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/neutral_frontend_layout_test.dart: parameters-entry: dark large narrow layout is usable
+00:26 +415 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/neutral_frontend_layout_test.dart: attachment-sheet: dark large narrow layout is usable
+00:26 +416 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/neutral_frontend_layout_test.dart: sources-sheet: dark large narrow layout is usable
+00:26 +417 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/neutral_frontend_layout_test.dart: Follow-up keeps draft when conversation changes during preparation
+00:27 +418 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/neutral_frontend_layout_test.dart: Source links and empty citations cannot manufacture references
+00:27 +419 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/neutral_frontend_layout_test.dart: Appearance preferences survive a provider recreation
+00:27 +420 -2: Some tests failed.
+
+Failing tests:
+  D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/selected_chat_style_test.dart: Capture selected styles in mobile light and dark themes
+  D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering

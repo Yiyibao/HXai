@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.material.MaterialWordPrecisionTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:35:35.990Z" hostname="DESKTOP-QH4J0RS" time="1.376">
+  <properties/>
+  <testcase name="structuralBarriersCannotBeCrossedButDoNotBlockAdjacentPlainText" classname="me.rerere.rikkahub.feature.material.MaterialWordPrecisionTest" time="0.72"/>
+  <testcase name="deletionMovedTextAndLockedControlsAreNotEditableThroughAlternateOperations" classname="me.rerere.rikkahub.feature.material.MaterialWordPrecisionTest" time="0.248"/>
+  <testcase name="malformedFieldRangesFailClosedEvenForOtherwiseSimpleParagraphs" classname="me.rerere.rikkahub.feature.material.MaterialWordPrecisionTest" time="0.143"/>
+  <testcase name="nestedCrossParagraphFieldsStayProtectedUntilTheOuterEnd" classname="me.rerere.rikkahub.feature.material.MaterialWordPrecisionTest" time="0.062"/>
+  <testcase name="normalUtf16AndAstralCharactersAcceptWholeCodePointsButRejectSplitPairs" classname="me.rerere.rikkahub.feature.material.MaterialWordPrecisionTest" time="0.078"/>
+  <testcase name="fullDeletionRetainsRunsAndStaleOrInvalidSpecificationsNeverWriteAnArtifact" classname="me.rerere.rikkahub.feature.material.MaterialWordPrecisionTest" time="0.124"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

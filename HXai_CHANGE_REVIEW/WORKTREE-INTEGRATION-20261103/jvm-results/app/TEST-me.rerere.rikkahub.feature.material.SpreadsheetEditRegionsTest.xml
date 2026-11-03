@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.material.SpreadsheetEditRegionsTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:35:39.713Z" hostname="DESKTOP-QH4J0RS" time="0.327">
+  <properties/>
+  <testcase name="mergedFollowerIsRejectedWithoutPublishingOrMutatingSource" classname="me.rerere.rikkahub.feature.material.SpreadsheetEditRegionsTest" time="0.083"/>
+  <testcase name="multiCellFormulaFollowerCannotBeOverwrittenEvenWithoutItsOwnFormulaNode" classname="me.rerere.rikkahub.feature.material.SpreadsheetEditRegionsTest" time="0.228"/>
+  <testcase name="rangesAreBoundedAndAbsoluteCoordinatesHaveTheSameOwnership" classname="me.rerere.rikkahub.feature.material.SpreadsheetEditRegionsTest" time="0.016"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

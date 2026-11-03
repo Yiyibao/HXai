@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.studychat.ChatContextBudgetTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:35:40.790Z" hostname="DESKTOP-QH4J0RS" time="0.017">
+  <properties/>
+  <testcase name="smallConversationIsUnchanged" classname="me.rerere.rikkahub.feature.studychat.ChatContextBudgetTest" time="0.001"/>
+  <testcase name="unresolvedToolsAndOversizedLatestTurnFailWithoutDroppingData" classname="me.rerere.rikkahub.feature.studychat.ChatContextBudgetTest" time="0.009"/>
+  <testcase name="oldTurnsCompressWithoutLosingCurrentConstraintsOrToolPair" classname="me.rerere.rikkahub.feature.studychat.ChatContextBudgetTest" time="0.006"/>
+  <testcase name="summaryBatchesKeepCompleteTurns" classname="me.rerere.rikkahub.feature.studychat.ChatContextBudgetTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 9, in <module>
+    assert rejected,'False success: a declared blank page accepted hidden nontext content'
+           ^^^^^^^^
+AssertionError: False success: a declared blank page accepted hidden nontext content

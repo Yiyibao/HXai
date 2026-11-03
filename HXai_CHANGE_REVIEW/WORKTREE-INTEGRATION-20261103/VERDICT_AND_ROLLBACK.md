@@ -1,0 +1,5 @@
+# 裁决与回滚
+
+裁决CONDITIONAL：源码归档与本机定向合流范围，最终检查结果见TEST_RESULTS；不是完整App或生产放行。独立及完整项目审查NOT_EVALUATED。
+
+所有原工作树保持；源码存档与基线可直接定位。撤回活动增量时在新feature分支revert本批实现提交，保留存档合并历史和原材料/任务数据；先停止不兼容response_delivery状态的恢复，不重放UNKNOWN或外部写入，不降库。

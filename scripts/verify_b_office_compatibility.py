@@ -6,6 +6,8 @@ execution is a separate prerequisite; a declared engine is not an attestation.
 import argparse
 import hashlib
 import json
+import math
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 import re
 import shutil
@@ -34,12 +36,56 @@ def pdf_signature(path):
     require(path.is_file() and not path.is_symlink() and 1 <= path.stat().st_size <= 30 * 1024 * 1024, 'invalid_pdf')
     reader = PdfReader(path, strict=True)
     require(not reader.is_encrypted and 1 <= len(reader.pages) <= 200, 'invalid_pdf')
-    return [{'width': round(float(page.mediabox.width), 1), 'height': round(float(page.mediabox.height), 1),
-             'text': ''.join(page.extract_text().split())} for page in reader.pages]
+    result = []
+    for page in reader.pages:
+        text = ''.join(page.extract_text().split())
+        # A broken ToUnicode map must not become a valid-looking replacement
+        # string, or break UTF-8 evidence serialization after a claimed PASS.
+        try:
+            text.encode('utf-8', errors='strict')
+        except UnicodeEncodeError:
+            raise ValueError('pdf_text_invalid_unicode') from None
+        result.append({'width': round(float(page.mediabox.width), 1),
+                       'height': round(float(page.mediabox.height), 1), 'text': text})
+    return result
 
 
 def workbook_signature(parts):
     return json.loads(json.dumps(workbook(parts), sort_keys=True, default=str))
+
+
+def recalculation_matches(actual, expected):
+    """Formula caches may differ by one binary64 ULP across Office engines.
+
+    All formulas, identities, types, non-formula data, dates and blank/unknown
+    caches stay exact. This is numerical cache agreement, never an exact proof.
+    """
+    if len(actual) != len(expected):
+        return False
+    for left, right in zip(actual, expected, strict=True):
+        if {k: v for k, v in left.items() if k != 'cells'} != {k: v for k, v in right.items() if k != 'cells'}:
+            return False
+        if left['cells'].keys() != right['cells'].keys():
+            return False
+        for address, cell in left['cells'].items():
+            reference = right['cells'][address]
+            if cell == reference:
+                continue
+            if {k: v for k, v in cell.items() if k != 'value'} != {k: v for k, v in reference.items() if k != 'value'}:
+                return False
+            if cell['type'] != 'n' or not cell['formula'] or cell['date'] or cell['value'] is None or reference['value'] is None:
+                return False
+            try:
+                a, b = Decimal(cell['value']), Decimal(reference['value'])
+                af, bf = float(a), float(b)
+                if not a.is_finite() or not b.is_finite() or not math.isfinite(af) or not math.isfinite(bf):
+                    return False
+                tolerance = Decimal.from_float(max(math.ulp(af), math.ulp(bf)))
+                if abs(a - b) > tolerance:
+                    return False
+            except (ValueError, TypeError, InvalidOperation, OverflowError):
+                return False
+    return True
 
 
 def prepare(manifest_path, reference_dir, output):
@@ -106,7 +152,7 @@ def verify(bundle, outputs, record_path, report):
             check = word_roundtrip(before, after)
         elif job['kind'] == 'xlsx':
             check = xlsx_roundtrip(before, after)
-            require(workbook_signature(after) == job['workbookSignature'], 'recalculated_values_or_types_mismatch')
+            require(recalculation_matches(workbook_signature(after), job['workbookSignature']), 'recalculated_values_or_types_mismatch')
         else:
             require(presentation(before) == presentation(after), 'presentation_logical_content_changed')
             check = {'logicalSlidesAndHiddenFlagsPreserved': True, 'logicalSlides': len(presentation(after))}
@@ -116,6 +162,7 @@ def verify(bundle, outputs, record_path, report):
         results.append({'label': job['label'], 'sourceSha256': job['sourceSha256'], 'savedSha256': sha(saved),
                         'pdfSha256': sha(pdf), 'independentReadback': check, 'pdfPhysicalPages': len(job['pdfSignature'])})
     write_new(report, {'contractVersion': 1, 'status': 'PASS', 'scope': 'OFFLINE_FROZEN_STRUCTURE_AND_PDF_TEXT_READBACK_ONLY',
+        'readbackRevision': 2, 'formulaCacheTolerance': 'ONE_BINARY64_ULP; exact non-formula data/types/dates/unknown preserved; not proof',
         'declaredEngine': record['engine'], 'declaredEngineVersion': record['engineVersion'],
         'engineExecution': 'EXTERNAL_UNATTESTED', 'visualLayout': 'NOT_EVALUATED', 'compatibilityQualification': 'NOT_EVALUATED',
         'bundleSha256': hashlib.sha256(raw_seal).hexdigest(), 'recordSha256': hashlib.sha256(record_raw).hexdigest(), 'jobs': results})

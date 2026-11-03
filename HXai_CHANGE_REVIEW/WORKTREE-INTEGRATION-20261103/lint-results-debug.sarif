@@ -1,0 +1,2289 @@
+{
+    "$schema" : "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json",
+    "version" : "2.1.0",
+    "runs" : [
+        {
+            "tool": {
+                "driver": {
+                    "name": "Android Lint",
+                    "fullName": "Android Lint (in gradle)",
+                    "version": "9.4.0",
+                    "semanticVersion": "9.4.0",
+                    "organization": "Google",
+                    "informationUri": "https://developer.android.com/studio/write/lint",
+                    "fullDescription": {
+                        "text": "Static analysis originally for Android source code but now performing general analysis"
+                    },
+                    "language": "en-US",
+                    "rules": [
+                        {
+                            "id": "Aligned16KB",
+                            "shortDescription": {
+                                "text": "Native library dependency not 16 KB aligned"
+                            },
+                            "fullDescription": {
+                                "text": "Android has traditionally used 4 KB memory page sizes. However, to support future devices that only work with 16 KB aligned libraries apps containing native libraries need to be built with 16 KB alignment.\n\nApps with 4 KB aligned native libraries may not work correctly on devices requiring 16 KB alignment. To ensure compatibility and future-proof your app, it is strongly recommended that your native libraries are aligned to 16 KB boundaries.\n\nIf your app uses any NDK libraries, directly or indirectly through an SDK, you should rebuild your app to meet this recommendation. Make sure all native libraries within your application, including those from dependencies, are built with 16 KB page alignment.\n\nThis lint check looks at all native libraries that your app depends on. If any are found to be aligned to 4 KB instead of 16 KB, you will need to address this.\n\nWhen a library is flagged, first try to update to a newer version that supports 16 KB alignment. If an updated version is not available, contact the library vendor to ask about their plans for 16 KB support and request a compatible version. Updating your libraries proactively will help ensure your app works properly on a wider range of devices."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning",
+                                "rank": 90
+                            },
+                            "properties": {
+                                "tags": [
+                                    "Correctness"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "DiscouragedPrivateApi",
+                            "shortDescription": {
+                                "text": "Using Discouraged Private API"
+                            },
+                            "fullDescription": {
+                                "text": "Usage of restricted non-SDK interface may throw an exception at runtime. Accessing non-SDK methods or fields through reflection has a high likelihood to break your app between versions, and is being restricted to facilitate future app compatibility."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning",
+                                "rank": 50
+                            },
+                            "properties": {
+                                "tags": [
+                                    "Correctness"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "ModifierFactoryExtensionFunction",
+                            "shortDescription": {
+                                "text": "Modifier factory functions should be extensions on Modifier"
+                            },
+                            "fullDescription": {
+                                "text": "Modifier factory functions should be defined as extension functions on Modifier to allow modifiers to be fluently chained."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning",
+                                "rank": 80
+                            },
+                            "properties": {
+                                "tags": [
+                                    "Correctness"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "RtlHardcoded",
+                            "shortDescription": {
+                                "text": "Using left/right instead of start/end attributes"
+                            },
+                            "fullDescription": {
+                                "text": "Using Gravity#LEFT and Gravity#RIGHT can lead to problems when a layout is rendered in locales where text flows from right to left. Use Gravity#START and Gravity#END instead. Similarly, in XML gravity and layout_gravity attributes, use start rather than left.\n\nFor XML attributes such as paddingLeft and layout_marginLeft, use paddingStart and layout_marginStart. NOTE: If your minSdkVersion is less than 17, you should add both the older left/right attributes as well as the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.\n\n(Note: For Gravity#LEFT and Gravity#START, you can use these constants even when targeting older platforms, because the start bitmask is a superset of the left bitmask. Therefore, you can use gravity=\"start\" rather than gravity=\"left|start\".)",
+                                "markdown": "Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.\n\nFor XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.\n\n(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=\"start\"` rather than `gravity=\"left|start\"`.)"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning",
+                                "rank": 60
+                            },
+                            "properties": {
+                                "tags": [
+                                    "Bidirectional Text",
+                                    "Internationalization"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "StaticFieldLeak",
+                            "shortDescription": {
+                                "text": "Static Field Leaks"
+                            },
+                            "fullDescription": {
+                                "text": "A static field will leak contexts.\n\nNon-static inner classes have an implicit reference to their outer class. If that outer class is for example a Fragment or Activity, then this reference means that the long-running handler/loader/task will hold a reference to the activity which prevents it from getting garbage collected.\n\nSimilarly, direct field references to activities and fragments from these longer running instances can cause leaks.\n\nViewModel classes should never point to Views or non-application Contexts.",
+                                "markdown": "A static field will leak contexts.\n\nNon-static inner classes have an implicit reference to their outer class. If that outer class is for example a `Fragment` or `Activity`, then this reference means that the long-running handler/loader/task will hold a reference to the activity which prevents it from getting garbage collected.\n\nSimilarly, direct field references to activities and fragments from these longer running instances can cause leaks.\n\nViewModel classes should never point to Views or non-application Contexts."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning",
+                                "rank": 50
+                            },
+                            "properties": {
+                                "tags": [
+                                    "Performance"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "Typos",
+                            "shortDescription": {
+                                "text": "Spelling error"
+                            },
+                            "fullDescription": {
+                                "text": "This check looks through the string definitions, and if it finds any words that look like likely misspellings, they are flagged."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning",
+                                "rank": 40
+                            },
+                            "properties": {
+                                "tags": [
+                                    "Messages",
+                                    "Correctness"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "UnusedResources",
+                            "shortDescription": {
+                                "text": "Unused resources"
+                            },
+                            "fullDescription": {
+                                "text": "Unused resources make applications larger and slow down builds.\n\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.\n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true.\n",
+                                "markdown": "Unused resources make applications larger and slow down builds.\n\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.\n\nYou can include test sources in the unused resource check by setting the system property `lint.unused-resources.include-tests=true`, and to exclude them (usually for performance reasons), use `lint.unused-resources.exclude-tests=true`.\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning",
+                                "rank": 80
+                            },
+                            "properties": {
+                                "tags": [
+                                    "Performance"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "UsableSpace",
+                            "shortDescription": {
+                                "text": "Using getUsableSpace()"
+                            },
+                            "fullDescription": {
+                                "text": "When you need to allocate disk space for large files, consider using the new allocateBytes(FileDescriptor, long) API, which will automatically clear cached files belonging to other apps (as needed) to meet your request.\n\nWhen deciding if the device has enough disk space to hold your new data, call getAllocatableBytes(UUID) instead of using getUsableSpace(), since the former will consider any cached data that the system is willing to clear on your behalf.\n\nNote that these methods require API level 26. If your app is running on older devices, you will probably need to use both APIs, conditionally switching on Build.VERSION.SDK_INT. Lint only looks in the same compilation unit to see if you are already using both APIs, so if it warns even though you are already using the new API, consider moving the calls to the same file or suppressing the warning.",
+                                "markdown": "When you need to allocate disk space for large files, consider using the new `allocateBytes(FileDescriptor, long)` API, which will automatically clear cached files belonging to other apps (as needed) to meet your request.\n\nWhen deciding if the device has enough disk space to hold your new data, call `getAllocatableBytes(UUID)` instead of using `getUsableSpace()`, since the former will consider any cached data that the system is willing to clear on your behalf.\n\nNote that these methods require API level 26. If your app is running on older devices, you will probably need to use both APIs, conditionally switching on `Build.VERSION.SDK_INT`. Lint only looks in the same compilation unit to see if you are already using both APIs, so if it warns even though you are already using the new API, consider moving the calls to the same file or suppressing the warning."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning",
+                                "rank": 80
+                            },
+                            "properties": {
+                                "tags": [
+                                    "Performance"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "UseKtx",
+                            "shortDescription": {
+                                "text": "Use KTX extension function"
+                            },
+                            "fullDescription": {
+                                "text": "The Android KTX libraries decorates the Android platform SDK as well as various libraries with more convenient extension functions available from Kotlin, allowing you to use default parameters, named parameters, and more."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning",
+                                "rank": 50
+                            },
+                            "properties": {
+                                "tags": [
+                                    "Productivity"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "UseTomlInstead",
+                            "shortDescription": {
+                                "text": "Use TOML Version Catalog Instead"
+                            },
+                            "fullDescription": {
+                                "text": "If your project is using a libs.versions.toml file, you should place all Gradle dependencies in the TOML file. This lint check looks for version declarations outside of the TOML file and suggests moving them (and in the IDE, provides a quickfix to performing the operation automatically).",
+                                "markdown": "If your project is using a `libs.versions.toml` file, you should place all Gradle dependencies in the TOML file. This lint check looks for version declarations outside of the TOML file and suggests moving them (and in the IDE, provides a quickfix to performing the operation automatically)."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning",
+                                "rank": 70
+                            },
+                            "properties": {
+                                "tags": [
+                                    "Productivity"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "originalUriBaseIds": {
+                "%SRCROOT%": {
+                    "uri": "file:///D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/"
+                },
+                "USER_HOME": {
+                    "uri": "file:///D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/"
+                }
+            },
+            "results": [
+                {
+                    "ruleId": "DiscouragedPrivateApi",
+                    "ruleIndex": 1,
+                    "message": {
+                        "text": "Reflective access to sCursorWindowSize, which is not part of the public SDK and therefore likely to change in future Android releases"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/utils/DatabaseUtil.kt"
+                                },
+                                "region": {
+                                    "startLine": 11,
+                                    "startColumn": 25,
+                                    "endLine": 11,
+                                    "endColumn": 87,
+                                    "charOffset": 237,
+                                    "charLength": 62,
+                                    "snippet": {
+                                        "text": "CursorWindow::class.java.getDeclaredField(\"sCursorWindowSize\")"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 9,
+                                    "endLine": 14,
+                                    "snippet": {
+                                        "text": "    fun setCursorWindowSize(size: Int) {\n        try {\n            val field = CursorWindow::class.java.getDeclaredField(\"sCursorWindowSize\")\n            field.isAccessible = true\n            val oldValue = field.get(null) as Int\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "7d1fcbbdd5ed73dc"
+                    }
+                },
+                {
+                    "ruleId": "ModifierFactoryExtensionFunction",
+                    "ruleIndex": 2,
+                    "message": {
+                        "text": "Modifier factory functions should be extensions on Modifier"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/ui/components/ui/ReorderableDrag.kt"
+                                },
+                                "region": {
+                                    "startLine": 27,
+                                    "startColumn": 36,
+                                    "endLine": 27,
+                                    "endColumn": 52,
+                                    "charOffset": 894,
+                                    "charLength": 16,
+                                    "snippet": {
+                                        "text": "longPressReorder"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 25,
+                                    "endLine": 30,
+                                    "snippet": {
+                                        "text": " */\n@Composable\nfun ReorderableCollectionItemScope.longPressReorder(\n    isDragging: Boolean,\n    enabled: Boolean = true,\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Change receiver to Modifier"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/src/main/java/me/rerere/rikkahub/ui/components/ui/ReorderableDrag.kt"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 27,
+                                                "startColumn": 5,
+                                                "charOffset": 863,
+                                                "endLine": 27,
+                                                "endColumn": 35,
+                                                "charLength": 30
+                                            },
+                                            "insertedContent": {
+                                                "text": "Modifier\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "fae27ab90c8e2950"
+                    }
+                },
+                {
+                    "ruleId": "ModifierFactoryExtensionFunction",
+                    "ruleIndex": 2,
+                    "message": {
+                        "text": "Modifier factory functions should be extensions on Modifier"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/ui/components/ui/ReorderableDrag.kt"
+                                },
+                                "region": {
+                                    "startLine": 45,
+                                    "startColumn": 30,
+                                    "endLine": 45,
+                                    "endColumn": 46,
+                                    "charOffset": 1383,
+                                    "charLength": 16,
+                                    "snippet": {
+                                        "text": "longPressReorder"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 43,
+                                    "endLine": 48,
+                                    "snippet": {
+                                        "text": " */\n@Composable\nfun ReorderableListItemScope.longPressReorder(\n    isDragging: Boolean,\n    enabled: Boolean = true,\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Change receiver to Modifier"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/src/main/java/me/rerere/rikkahub/ui/components/ui/ReorderableDrag.kt"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 45,
+                                                "startColumn": 5,
+                                                "charOffset": 1358,
+                                                "endLine": 45,
+                                                "endColumn": 29,
+                                                "charLength": 24
+                                            },
+                                            "insertedContent": {
+                                                "text": "Modifier\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "eadd32c6309e020e"
+                    }
+                },
+                {
+                    "ruleId": "Aligned16KB",
+                    "ruleIndex": 0,
+                    "message": {
+                        "text": "The native library arm64-v8a/libtermux.so (from com.termux.termux-app:terminal-emulator:0.118.0) is not 16 KB aligned",
+                        "markdown": "The native library `arm64-v8a/libtermux.so` (from `com.termux.termux-app:terminal-emulator:0.118.0`) is not 16 KB aligned"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "USER_HOME",
+                                    "uri": ".gradle/caches/9.6.0/transforms/d5752d6441a49c9b57f8f1824c642e4c/transformed/terminal-emulator-0.118.0/jni/arm64-v8a/libtermux.so"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                    }
+                },
+                {
+                    "ruleId": "Aligned16KB",
+                    "ruleIndex": 0,
+                    "message": {
+                        "text": "The native library arm64-v8a/libtermux.so (from com.termux.termux-app:terminal-emulator:0.118.0) is not 16 KB aligned",
+                        "markdown": "The native library `arm64-v8a/libtermux.so` (from `com.termux.termux-app:terminal-emulator:0.118.0`) is not 16 KB aligned"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "USER_HOME",
+                                    "uri": ".gradle/caches/9.6.0/transforms/d5752d6441a49c9b57f8f1824c642e4c/transformed/terminal-emulator-0.118.0/jni/arm64-v8a/libtermux.so"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                    }
+                },
+                {
+                    "ruleId": "Aligned16KB",
+                    "ruleIndex": 0,
+                    "message": {
+                        "text": "The native library arm64-v8a/libtermux.so (from com.termux.termux-app:terminal-emulator:0.118.0) is not 16 KB aligned",
+                        "markdown": "The native library `arm64-v8a/libtermux.so` (from `com.termux.termux-app:terminal-emulator:0.118.0`) is not 16 KB aligned"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "USER_HOME",
+                                    "uri": ".gradle/caches/9.6.0/transforms/d5752d6441a49c9b57f8f1824c642e4c/transformed/terminal-emulator-0.118.0/jni/arm64-v8a/libtermux.so"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                    }
+                },
+                {
+                    "ruleId": "Typos",
+                    "ruleIndex": 5,
+                    "message": {
+                        "text": "Did you mean \"central!\" instead of \"central1\"?"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/res/values/strings.xml"
+                                },
+                                "region": {
+                                    "startLine": 934,
+                                    "startColumn": 67,
+                                    "endLine": 934,
+                                    "endColumn": 75,
+                                    "charOffset": 74444,
+                                    "charLength": 8,
+                                    "snippet": {
+                                        "text": "central1"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 932,
+                                    "endLine": 937,
+                                    "snippet": {
+                                        "text": "  <string name=\"setting_provider_page_import_success\">Import successful</string>\n  <string name=\"setting_provider_page_input_modality\">Input Modality</string>\n  <string name=\"setting_provider_page_location\">Location (e.g. us-central1)</string>\n  <plurals name=\"setting_provider_page_model_count\">\n    <item quantity=\"one\">%d model</item>\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Replace with \"central!\""
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/src/main/res/values/strings.xml"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 934,
+                                                "startColumn": 67,
+                                                "charOffset": 74444,
+                                                "endLine": 934,
+                                                "endColumn": 75,
+                                                "charLength": 8
+                                            },
+                                            "insertedContent": {
+                                                "text": "central!\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "aa4165e9d1f619c8"
+                    }
+                },
+                {
+                    "ruleId": "StaticFieldLeak",
+                    "ruleIndex": 4,
+                    "message": {
+                        "text": "Do not place Android context classes in static fields (static reference to ImageCreation which has field context pointing to Context); this is a memory leak",
+                        "markdown": "Do not place Android context classes in static fields (static reference to `ImageCreation` which has field `context` pointing to `Context`); this is a memory leak"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/feature/imagecreation/ImageCreation.kt"
+                                },
+                                "region": {
+                                    "startLine": 258,
+                                    "startColumn": 9,
+                                    "endLine": 258,
+                                    "endColumn": 62,
+                                    "charOffset": 17200,
+                                    "charLength": 53,
+                                    "snippet": {
+                                        "text": "@Volatile private var instance: ImageCreation? = null"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 256,
+                                    "endLine": 261,
+                                    "snippet": {
+                                        "text": "    )\n    companion object {\n        @Volatile private var instance: ImageCreation? = null\n        fun get(context: Context, settings: SettingsStore, materials: MaterialFiles): ImageCreation = instance ?: synchronized(this) {\n            instance ?: ImageCreation(context.applicationContext, settings, materials).also { instance = it }\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "c665e96bf746d06f"
+                    }
+                },
+                {
+                    "ruleId": "UnusedResources",
+                    "ruleIndex": 6,
+                    "message": {
+                        "text": "The resource R.string.error_fast_model_provider_not_found appears to be unused",
+                        "markdown": "The resource `R.string.error_fast_model_provider_not_found` appears to be unused"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/res/values/strings.xml"
+                                },
+                                "region": {
+                                    "startLine": 1339,
+                                    "startColumn": 11,
+                                    "endLine": 1339,
+                                    "endColumn": 53,
+                                    "charOffset": 105655,
+                                    "charLength": 42,
+                                    "snippet": {
+                                        "text": "name=\"error_fast_model_provider_not_found\""
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 1337,
+                                    "endLine": 1342,
+                                    "snippet": {
+                                        "text": "  <string name=\"chart_series_name\">Series %1$d</string>\n  <string name=\"error_fast_model_not_found\">Fast model not found. Please select one in settings.</string>\n  <string name=\"error_fast_model_provider_not_found\">Provider of the fast model not found</string>\n  <string name=\"assistant_page_clone_with_memories\">Also copy memories</string>\n  <string name=\"skills_page_install_title\">Install Skills</string>\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "f768fd6c126ba0fc"
+                    }
+                },
+                {
+                    "ruleId": "UsableSpace",
+                    "ruleIndex": 7,
+                    "message": {
+                        "text": "Consider also using StorageManager#getAllocatableBytes and allocateBytes which will consider clearable cached data",
+                        "markdown": "Consider also using `StorageManager#getAllocatableBytes` and `allocateBytes` which will consider clearable cached data"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/feature/diagnostics/Diagnostics.kt"
+                                },
+                                "region": {
+                                    "startLine": 182,
+                                    "startColumn": 63,
+                                    "endLine": 182,
+                                    "endColumn": 74,
+                                    "charOffset": 9942,
+                                    "charLength": 11,
+                                    "snippet": {
+                                        "text": "usableSpace"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 180,
+                                    "endLine": 185,
+                                    "snippet": {
+                                        "text": "                    .put(\"abis\", JSONArray(Build.SUPPORTED_ABIS.toList())))\n                .put(\"runtime\", JSONObject().put(\"session\", session).put(\"uptimeMs\", SystemClock.elapsedRealtime())\n                    .put(\"freeStorageBytes\", context.filesDir.usableSpace)\n                    .put(\"memoryClassMb\", (context.getSystemService(Context.ACTIVITY_SERVICE) as android.app.ActivityManager).memoryClass))\n                .put(\"events\", read(context, \"events.json\").optJSONArray(\"events\") ?: JSONArray())\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "b1066608d3b66258"
+                    }
+                },
+                {
+                    "ruleId": "UseKtx",
+                    "ruleIndex": 8,
+                    "message": {
+                        "text": "Use the KTX extension function String.toUri instead?",
+                        "markdown": "Use the KTX extension function `String.toUri` instead?"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/feature/agent/AgentScheduler.kt"
+                                },
+                                "region": {
+                                    "startLine": 280,
+                                    "startColumn": 17,
+                                    "endLine": 280,
+                                    "endColumn": 43,
+                                    "charOffset": 18738,
+                                    "charLength": 26,
+                                    "snippet": {
+                                        "text": "android.net.Uri.parse(url)"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 278,
+                                    "endLine": 283,
+                                    "snippet": {
+                                        "text": "            is ProviderSetting.Google -> provider.baseUrl\n        }\n        val uri=android.net.Uri.parse(url)\n        val origin=\"${requireNotNull(uri.scheme)}://${requireNotNull(uri.host)}\"+if(uri.port>=0) \":${uri.port}\" else \"\"\n        return AcceptedModelIdentity(provider.name,model.modelId,origin).also { modelIdentities.put(task.configurationReference,it) }\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Replace with the toUri extension function"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/src/main/java/me/rerere/rikkahub/feature/agent/AgentScheduler.kt"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 280,
+                                                "startColumn": 17,
+                                                "charOffset": 18738,
+                                                "endLine": 280,
+                                                "endColumn": 43,
+                                                "charLength": 26
+                                            },
+                                            "insertedContent": {
+                                                "text": "url.toUri()\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "abe8c57a8378269c"
+                    }
+                },
+                {
+                    "ruleId": "UseKtx",
+                    "ruleIndex": 8,
+                    "message": {
+                        "text": "Use the KTX extension function SQLiteDatabase.transaction instead?",
+                        "markdown": "Use the KTX extension function `SQLiteDatabase.transaction` instead?"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/feature/agent/AgentUsageNotifications.kt"
+                                },
+                                "region": {
+                                    "startLine": 56,
+                                    "startColumn": 33,
+                                    "endLine": 56,
+                                    "endColumn": 54,
+                                    "charOffset": 3846,
+                                    "charLength": 21,
+                                    "snippet": {
+                                        "text": "db.beginTransaction()"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 54,
+                                    "endLine": 59,
+                                    "snippet": {
+                                        "text": "        require(now>=0 && candidate.owner.isNotBlank() && candidate.taskId.isNotBlank())\n        require(candidate.rules.isNotEmpty() && candidate.rules.all { it in setOf(\"uncertain\",\"unreported\",\"dense\") })\n        val db=writableDatabase;db.beginTransaction()\n        try {\n            var added=false\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Replace with the transaction extension function"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/src/main/java/me/rerere/rikkahub/feature/agent/AgentUsageNotifications.kt"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 56,
+                                                "startColumn": 36,
+                                                "charOffset": 3849,
+                                                "endLine": 56,
+                                                "endColumn": 53,
+                                                "charLength": 17
+                                            },
+                                            "insertedContent": {
+                                                "text": "transaction\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 56,
+                                                "startColumn": 53,
+                                                "charOffset": 3866,
+                                                "endLine": 56,
+                                                "endColumn": 54,
+                                                "charLength": 1
+                                            },
+                                            "insertedContent": {
+                                                "text": " {\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 65,
+                                                "startColumn": 1,
+                                                "charOffset": 4311,
+                                                "endLine": 66,
+                                                "endColumn": 56,
+                                                "charLength": 55
+                                            },
+                                            "insertedContent": {
+                                                "text": "\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 61,
+                                                "startColumn": 20,
+                                                "charOffset": 4101,
+                                                "endLine": 61,
+                                                "endColumn": 23,
+                                                "charLength": 3
+                                            },
+                                            "insertedContent": {
+                                                "text": "\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 66,
+                                                "startColumn": 21,
+                                                "charOffset": 4386,
+                                                "endLine": 66,
+                                                "endColumn": 40,
+                                                "charLength": 19
+                                            },
+                                            "insertedContent": {
+                                                "text": "}\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 57,
+                                                "startColumn": 1,
+                                                "charOffset": 3868
+                                            },
+                                            "insertedContent": {
+                                                "text": "    \n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 58,
+                                                "startColumn": 1,
+                                                "charOffset": 3882
+                                            },
+                                            "insertedContent": {
+                                                "text": "    \n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 59,
+                                                "startColumn": 1,
+                                                "charOffset": 3910
+                                            },
+                                            "insertedContent": {
+                                                "text": "    \n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 60,
+                                                "startColumn": 1,
+                                                "charOffset": 3953
+                                            },
+                                            "insertedContent": {
+                                                "text": "    \n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 61,
+                                                "startColumn": 1,
+                                                "charOffset": 4082
+                                            },
+                                            "insertedContent": {
+                                                "text": "    \n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 62,
+                                                "startColumn": 1,
+                                                "charOffset": 4165
+                                            },
+                                            "insertedContent": {
+                                                "text": "    \n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 63,
+                                                "startColumn": 1,
+                                                "charOffset": 4230
+                                            },
+                                            "insertedContent": {
+                                                "text": "    \n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 64,
+                                                "startColumn": 1,
+                                                "charOffset": 4297
+                                            },
+                                            "insertedContent": {
+                                                "text": "    \n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "eb876eea0b8882e5"
+                    }
+                },
+                {
+                    "ruleId": "UseKtx",
+                    "ruleIndex": 8,
+                    "message": {
+                        "text": "Use the KTX extension function String.toUri instead?",
+                        "markdown": "Use the KTX extension function `String.toUri` instead?"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/feature/agent/ExtensionOAuth.kt"
+                                },
+                                "region": {
+                                    "startLine": 108,
+                                    "startColumn": 65,
+                                    "endLine": 108,
+                                    "endColumn": 90,
+                                    "charOffset": 8091,
+                                    "charLength": 25,
+                                    "snippet": {
+                                        "text": "Uri.parse(url.toString())"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 106,
+                                    "endLine": 111,
+                                    "snippet": {
+                                        "text": "            .addQueryParameter(\"scope\",secret.getValue(\"scope\").jsonPrimitive.content).addQueryParameter(\"code_challenge_method\",\"S256\")\n            .addQueryParameter(\"code_challenge\",challenge(secret.getValue(\"verifier\").jsonPrimitive.content)).build()\n        guard();context.startActivity(Intent(Intent.ACTION_VIEW,Uri.parse(url.toString())).addCategory(Intent.CATEGORY_BROWSABLE).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))\n    }\n    fun callback(uri: Uri) = transaction { db ->\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Replace with the toUri extension function"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/src/main/java/me/rerere/rikkahub/feature/agent/ExtensionOAuth.kt"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 108,
+                                                "startColumn": 65,
+                                                "charOffset": 8091,
+                                                "endLine": 108,
+                                                "endColumn": 90,
+                                                "charLength": 25
+                                            },
+                                            "insertedContent": {
+                                                "text": "url.toString().toUri()\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "70cb13b50f2938d5"
+                    }
+                },
+                {
+                    "ruleId": "UseKtx",
+                    "ruleIndex": 8,
+                    "message": {
+                        "text": "Use the KTX function createBitmap instead?",
+                        "markdown": "Use the KTX function `createBitmap` instead?"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/feature/material/MaterialPdfAssembly.kt"
+                                },
+                                "region": {
+                                    "startLine": 141,
+                                    "startColumn": 26,
+                                    "endLine": 141,
+                                    "endColumn": 85,
+                                    "charOffset": 8530,
+                                    "charLength": 59,
+                                    "snippet": {
+                                        "text": "Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 139,
+                                    "endLine": 144,
+                                    "snippet": {
+                                        "text": "            val scale = EDGE.toDouble() / maxOf(visual.width, visual.height)\n            val width = maxOf(1, (visual.width * scale).toInt()); val height = maxOf(1, (visual.height * scale).toInt())\n            val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)\n            try {\n                bitmap.eraseColor(Color.WHITE)\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Replace with the createBitmap function"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/src/main/java/me/rerere/rikkahub/feature/material/MaterialPdfAssembly.kt"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 141,
+                                                "startColumn": 26,
+                                                "charOffset": 8530,
+                                                "endLine": 141,
+                                                "endColumn": 85,
+                                                "charLength": 59
+                                            },
+                                            "insertedContent": {
+                                                "text": "createBitmap(width, height)\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "a065d74faf1959a4"
+                    }
+                },
+                {
+                    "ruleId": "UseKtx",
+                    "ruleIndex": 8,
+                    "message": {
+                        "text": "Use the KTX extension function String.toColorInt instead?",
+                        "markdown": "Use the KTX extension function `String.toColorInt` instead?"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/feature/interactive/MathPlotExport.kt"
+                                },
+                                "region": {
+                                    "startLine": 82,
+                                    "startColumn": 105,
+                                    "endLine": 82,
+                                    "endColumn": 141,
+                                    "charOffset": 5971,
+                                    "charLength": 36,
+                                    "snippet": {
+                                        "text": "Color.parseColor(\"#${stroke.color}\")"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 80,
+                                    "endLine": 85,
+                                    "snippet": {
+                                        "text": "        canvas.drawColor(Color.WHITE); val paint = Paint(Paint.ANTI_ALIAS_FLAG)\n        for (stroke in strokes) {\n            paint.style = Paint.Style.STROKE; paint.strokeWidth = stroke.width.toFloat(); paint.color = Color.parseColor(\"#${stroke.color}\")\n            for (segment in stroke.segments) { val path = Path(); segment.forEachIndexed { i, p -> if (i == 0) path.moveTo(p.x.toFloat(),p.y.toFloat()) else path.lineTo(p.x.toFloat(),p.y.toFloat()) }; canvas.drawPath(path, paint) }\n        }\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Replace with the toColorInt extension function"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/src/main/java/me/rerere/rikkahub/feature/interactive/MathPlotExport.kt"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 82,
+                                                "startColumn": 105,
+                                                "charOffset": 5971,
+                                                "endLine": 82,
+                                                "endColumn": 141,
+                                                "charLength": 36
+                                            },
+                                            "insertedContent": {
+                                                "text": "\"#${stroke.color}\".toColorInt()\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "1d1f2e6e8c8ff918"
+                    }
+                },
+                {
+                    "ruleId": "UseKtx",
+                    "ruleIndex": 8,
+                    "message": {
+                        "text": "Use the KTX extension function String.toColorInt instead?",
+                        "markdown": "Use the KTX extension function `String.toColorInt` instead?"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/feature/interactive/MathPlotExport.kt"
+                                },
+                                "region": {
+                                    "startLine": 82,
+                                    "startColumn": 105,
+                                    "endLine": 82,
+                                    "endColumn": 141,
+                                    "charOffset": 5971,
+                                    "charLength": 36,
+                                    "snippet": {
+                                        "text": "Color.parseColor(\"#${stroke.color}\")"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 80,
+                                    "endLine": 85,
+                                    "snippet": {
+                                        "text": "        canvas.drawColor(Color.WHITE); val paint = Paint(Paint.ANTI_ALIAS_FLAG)\n        for (stroke in strokes) {\n            paint.style = Paint.Style.STROKE; paint.strokeWidth = stroke.width.toFloat(); paint.color = Color.parseColor(\"#${stroke.color}\")\n            for (segment in stroke.segments) { val path = Path(); segment.forEachIndexed { i, p -> if (i == 0) path.moveTo(p.x.toFloat(),p.y.toFloat()) else path.lineTo(p.x.toFloat(),p.y.toFloat()) }; canvas.drawPath(path, paint) }\n        }\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Replace with the toColorInt extension function"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/src/main/java/me/rerere/rikkahub/feature/interactive/MathPlotExport.kt"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 82,
+                                                "startColumn": 105,
+                                                "charOffset": 5971,
+                                                "endLine": 82,
+                                                "endColumn": 141,
+                                                "charLength": 36
+                                            },
+                                            "insertedContent": {
+                                                "text": "\"#${stroke.color}\".toColorInt()\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "1d1f2e6e8c8ff918"
+                    }
+                },
+                {
+                    "ruleId": "UseKtx",
+                    "ruleIndex": 8,
+                    "message": {
+                        "text": "Use the KTX extension function String.toColorInt instead?",
+                        "markdown": "Use the KTX extension function `String.toColorInt` instead?"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/feature/interactive/MathPlotExport.kt"
+                                },
+                                "region": {
+                                    "startLine": 87,
+                                    "startColumn": 47,
+                                    "endLine": 87,
+                                    "endColumn": 82,
+                                    "charOffset": 6549,
+                                    "charLength": 35,
+                                    "snippet": {
+                                        "text": "Color.parseColor(\"#${label.color}\")"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 85,
+                                    "endLine": 90,
+                                    "snippet": {
+                                        "text": "        for (p in markers) { paint.color = Color.rgb(35,40,50); paint.strokeWidth = 2f; paint.style = if (p.open) Paint.Style.STROKE else Paint.Style.FILL; canvas.drawCircle(p.x.toFloat(),p.y.toFloat(),4f,paint) }\n        paint.style = Paint.Style.FILL\n        for (label in labels) { paint.color = Color.parseColor(\"#${label.color}\"); paint.textSize = label.size.toFloat(); canvas.drawText(label.text,label.x.toFloat(),label.y.toFloat(),paint) }\n    }\n    suspend fun write(file: File, extension: String) {\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Replace with the toColorInt extension function"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/src/main/java/me/rerere/rikkahub/feature/interactive/MathPlotExport.kt"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 87,
+                                                "startColumn": 47,
+                                                "charOffset": 6549,
+                                                "endLine": 87,
+                                                "endColumn": 82,
+                                                "charLength": 35
+                                            },
+                                            "insertedContent": {
+                                                "text": "\"#${label.color}\".toColorInt()\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "b8985e337338a4b8"
+                    }
+                },
+                {
+                    "ruleId": "UseKtx",
+                    "ruleIndex": 8,
+                    "message": {
+                        "text": "Use the KTX extension function String.toColorInt instead?",
+                        "markdown": "Use the KTX extension function `String.toColorInt` instead?"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/feature/interactive/MathPlotExport.kt"
+                                },
+                                "region": {
+                                    "startLine": 87,
+                                    "startColumn": 47,
+                                    "endLine": 87,
+                                    "endColumn": 82,
+                                    "charOffset": 6549,
+                                    "charLength": 35,
+                                    "snippet": {
+                                        "text": "Color.parseColor(\"#${label.color}\")"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 85,
+                                    "endLine": 90,
+                                    "snippet": {
+                                        "text": "        for (p in markers) { paint.color = Color.rgb(35,40,50); paint.strokeWidth = 2f; paint.style = if (p.open) Paint.Style.STROKE else Paint.Style.FILL; canvas.drawCircle(p.x.toFloat(),p.y.toFloat(),4f,paint) }\n        paint.style = Paint.Style.FILL\n        for (label in labels) { paint.color = Color.parseColor(\"#${label.color}\"); paint.textSize = label.size.toFloat(); canvas.drawText(label.text,label.x.toFloat(),label.y.toFloat(),paint) }\n    }\n    suspend fun write(file: File, extension: String) {\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Replace with the toColorInt extension function"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/src/main/java/me/rerere/rikkahub/feature/interactive/MathPlotExport.kt"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 87,
+                                                "startColumn": 47,
+                                                "charOffset": 6549,
+                                                "endLine": 87,
+                                                "endColumn": 82,
+                                                "charLength": 35
+                                            },
+                                            "insertedContent": {
+                                                "text": "\"#${label.color}\".toColorInt()\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "b8985e337338a4b8"
+                    }
+                },
+                {
+                    "ruleId": "UseKtx",
+                    "ruleIndex": 8,
+                    "message": {
+                        "text": "Use the KTX extension function SharedPreferences.edit instead?",
+                        "markdown": "Use the KTX extension function `SharedPreferences.edit` instead?"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/feature/studychat/OneShotFeedback.kt"
+                                },
+                                "region": {
+                                    "startLine": 38,
+                                    "startColumn": 48,
+                                    "endLine": 38,
+                                    "endColumn": 66,
+                                    "charOffset": 1127,
+                                    "charLength": 18,
+                                    "snippet": {
+                                        "text": "preferences.edit()"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 36,
+                                    "endLine": 41,
+                                    "snippet": {
+                                        "text": "        ledger = FeedbackLedger(object : FeedbackStorage {\n            override fun contains(key: String) = preferences.getBoolean(key, false)\n            override fun record(key: String) = preferences.edit().putBoolean(key, true).commit()\n            override fun clear() { check(preferences.edit().clear().commit()) }\n        })\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Replace with the edit extension function"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/src/main/java/me/rerere/rikkahub/feature/studychat/OneShotFeedback.kt"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 38,
+                                                "startColumn": 60,
+                                                "charOffset": 1139,
+                                                "endLine": 38,
+                                                "endColumn": 65,
+                                                "charLength": 5
+                                            },
+                                            "insertedContent": {
+                                                "text": "edit\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 38,
+                                                "startColumn": 65,
+                                                "charOffset": 1144,
+                                                "endLine": 38,
+                                                "endColumn": 66,
+                                                "charLength": 1
+                                            },
+                                            "insertedContent": {
+                                                "text": "(commit = true) {\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 38,
+                                                "startColumn": 66,
+                                                "charOffset": 1145,
+                                                "endLine": 38,
+                                                "endColumn": 67,
+                                                "charLength": 1
+                                            },
+                                            "insertedContent": {
+                                                "text": "\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 38,
+                                                "startColumn": 88,
+                                                "charOffset": 1167,
+                                                "endLine": 38,
+                                                "endColumn": 97,
+                                                "charLength": 9
+                                            },
+                                            "insertedContent": {
+                                                "text": "}\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "361b616958de6222"
+                    }
+                },
+                {
+                    "ruleId": "UseKtx",
+                    "ruleIndex": 8,
+                    "message": {
+                        "text": "Use the KTX extension function SharedPreferences.edit instead?",
+                        "markdown": "Use the KTX extension function `SharedPreferences.edit` instead?"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/feature/studychat/OneShotFeedback.kt"
+                                },
+                                "region": {
+                                    "startLine": 39,
+                                    "startColumn": 42,
+                                    "endLine": 39,
+                                    "endColumn": 60,
+                                    "charOffset": 1218,
+                                    "charLength": 18,
+                                    "snippet": {
+                                        "text": "preferences.edit()"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 37,
+                                    "endLine": 42,
+                                    "snippet": {
+                                        "text": "            override fun contains(key: String) = preferences.getBoolean(key, false)\n            override fun record(key: String) = preferences.edit().putBoolean(key, true).commit()\n            override fun clear() { check(preferences.edit().clear().commit()) }\n        })\n    }\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Replace with the edit extension function"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/src/main/java/me/rerere/rikkahub/feature/studychat/OneShotFeedback.kt"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 39,
+                                                "startColumn": 54,
+                                                "charOffset": 1230,
+                                                "endLine": 39,
+                                                "endColumn": 59,
+                                                "charLength": 5
+                                            },
+                                            "insertedContent": {
+                                                "text": "edit\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 39,
+                                                "startColumn": 59,
+                                                "charOffset": 1235,
+                                                "endLine": 39,
+                                                "endColumn": 60,
+                                                "charLength": 1
+                                            },
+                                            "insertedContent": {
+                                                "text": "(commit = true) {\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 39,
+                                                "startColumn": 60,
+                                                "charOffset": 1236,
+                                                "endLine": 39,
+                                                "endColumn": 61,
+                                                "charLength": 1
+                                            },
+                                            "insertedContent": {
+                                                "text": "\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 39,
+                                                "startColumn": 68,
+                                                "charOffset": 1244,
+                                                "endLine": 39,
+                                                "endColumn": 77,
+                                                "charLength": 9
+                                            },
+                                            "insertedContent": {
+                                                "text": "}\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "3bd6fe3e1326c081"
+                    }
+                },
+                {
+                    "ruleId": "UseKtx",
+                    "ruleIndex": 8,
+                    "message": {
+                        "text": "Use the KTX extension function String.toUri instead?",
+                        "markdown": "Use the KTX extension function `String.toUri` instead?"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/flutter/StudyFlutterActivity.kt"
+                                },
+                                "region": {
+                                    "startLine": 122,
+                                    "startColumn": 31,
+                                    "endLine": 122,
+                                    "endColumn": 85,
+                                    "charOffset": 6469,
+                                    "charLength": 54,
+                                    "snippet": {
+                                        "text": "android.net.Uri.parse(call.arguments as? String ?: \"\")"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 120,
+                                    "endLine": 125,
+                                    "snippet": {
+                                        "text": "                if (call.method != \"open\") { result.notImplemented(); return@setMethodCallHandler }\n                try {\n                    val uri = android.net.Uri.parse(call.arguments as? String ?: \"\")\n                    require(uri.scheme in setOf(\"https\", \"http\") && !uri.host.isNullOrBlank() && uri.userInfo.isNullOrBlank())\n                    startActivity(Intent(Intent.ACTION_VIEW, uri))\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Replace with the toUri extension function"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/src/main/java/me/rerere/rikkahub/flutter/StudyFlutterActivity.kt"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 122,
+                                                "startColumn": 31,
+                                                "charOffset": 6469,
+                                                "endLine": 122,
+                                                "endColumn": 85,
+                                                "charLength": 54
+                                            },
+                                            "insertedContent": {
+                                                "text": "(call.arguments as? String ?: \"\").toUri()\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "c90a959de8b0c772"
+                    }
+                },
+                {
+                    "ruleId": "UseKtx",
+                    "ruleIndex": 8,
+                    "message": {
+                        "text": "Use the KTX extension function SharedPreferences.edit instead?",
+                        "markdown": "Use the KTX extension function `SharedPreferences.edit` instead?"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/flutter/StudyHostFacade.kt"
+                                },
+                                "region": {
+                                    "startLine": 309,
+                                    "startColumn": 13,
+                                    "endLine": 309,
+                                    "endColumn": 33,
+                                    "charOffset": 22083,
+                                    "charLength": 20,
+                                    "snippet": {
+                                        "text": "surfaceStates.edit()"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 307,
+                                    "endLine": 312,
+                                    "snippet": {
+                                        "text": "        if (recorded == null && legacy != null) {\n            chatService.saveInteractiveState(conv.id, messageId, toolCallId, revision, stored) { current -> requireProfile(profileId); checkedSurface(current, messageId, toolCallId, revision) }\n            surfaceStates.edit().remove(key).apply()\n        }\n        stored.toString()\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Replace with the edit extension function"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/src/main/java/me/rerere/rikkahub/flutter/StudyHostFacade.kt"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 309,
+                                                "startColumn": 27,
+                                                "charOffset": 22097,
+                                                "endLine": 309,
+                                                "endColumn": 32,
+                                                "charLength": 5
+                                            },
+                                            "insertedContent": {
+                                                "text": "edit\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 309,
+                                                "startColumn": 32,
+                                                "charOffset": 22102,
+                                                "endLine": 309,
+                                                "endColumn": 33,
+                                                "charLength": 1
+                                            },
+                                            "insertedContent": {
+                                                "text": " {\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 309,
+                                                "startColumn": 33,
+                                                "charOffset": 22103,
+                                                "endLine": 309,
+                                                "endColumn": 34,
+                                                "charLength": 1
+                                            },
+                                            "insertedContent": {
+                                                "text": "\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 309,
+                                                "startColumn": 45,
+                                                "charOffset": 22115,
+                                                "endLine": 309,
+                                                "endColumn": 53,
+                                                "charLength": 8
+                                            },
+                                            "insertedContent": {
+                                                "text": "}\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "77eccc2162b3622c"
+                    }
+                },
+                {
+                    "ruleId": "UseKtx",
+                    "ruleIndex": 8,
+                    "message": {
+                        "text": "Use the KTX extension function SharedPreferences.edit instead?",
+                        "markdown": "Use the KTX extension function `SharedPreferences.edit` instead?"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/flutter/StudyHostFacade.kt"
+                                },
+                                "region": {
+                                    "startLine": 331,
+                                    "startColumn": 19,
+                                    "endLine": 331,
+                                    "endColumn": 34,
+                                    "charOffset": 23891,
+                                    "charLength": 15,
+                                    "snippet": {
+                                        "text": "receipts.edit()"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 329,
+                                    "endLine": 334,
+                                    "snippet": {
+                                        "text": "            require(previous == null || previous == fingerprint) { \"动作请求内容已改变\" }\n            chatService.saveInteractiveState(conv.id, messageId, toolCallId, revision, values) { current -> requireProfile(profileId, expectedEpoch); checkedSurface(current, messageId, toolCallId, revision) }\n            check(receipts.edit().putString(inputId.toString(), fingerprint).commit())\n            val text = \"用户提交交互界面 ${surface.getValue(\"title\").jsonPrimitive.content} 的操作：${button.getValue(\"label\").jsonPrimitive.content}。\\n成果引用 message_id=$messageId tool_call_id=$toolCallId expected_revision=$revision。\\n用户选择数据：$values\"\n            chatService.sendMessageCommitted(conv.id, listOf(UIMessagePart.Text(text)), inputId) { current ->\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Replace with the edit extension function"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/src/main/java/me/rerere/rikkahub/flutter/StudyHostFacade.kt"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 331,
+                                                "startColumn": 28,
+                                                "charOffset": 23900,
+                                                "endLine": 331,
+                                                "endColumn": 33,
+                                                "charLength": 5
+                                            },
+                                            "insertedContent": {
+                                                "text": "edit\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 331,
+                                                "startColumn": 33,
+                                                "charOffset": 23905,
+                                                "endLine": 331,
+                                                "endColumn": 34,
+                                                "charLength": 1
+                                            },
+                                            "insertedContent": {
+                                                "text": "(commit = true) {\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 331,
+                                                "startColumn": 34,
+                                                "charOffset": 23906,
+                                                "endLine": 331,
+                                                "endColumn": 35,
+                                                "charLength": 1
+                                            },
+                                            "insertedContent": {
+                                                "text": "\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 331,
+                                                "startColumn": 77,
+                                                "charOffset": 23949,
+                                                "endLine": 331,
+                                                "endColumn": 86,
+                                                "charLength": 9
+                                            },
+                                            "insertedContent": {
+                                                "text": "}\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "d59ba7101b92183b"
+                    }
+                },
+                {
+                    "ruleId": "UseKtx",
+                    "ruleIndex": 8,
+                    "message": {
+                        "text": "Use the KTX extension function SharedPreferences.edit instead?",
+                        "markdown": "Use the KTX extension function `SharedPreferences.edit` instead?"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/flutter/StudyHostFacade.kt"
+                                },
+                                "region": {
+                                    "startLine": 1173,
+                                    "startColumn": 15,
+                                    "endLine": 1173,
+                                    "endColumn": 30,
+                                    "charOffset": 84618,
+                                    "charLength": 15,
+                                    "snippet": {
+                                        "text": "receipts.edit()"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 1171,
+                                    "endLine": 1176,
+                                    "snippet": {
+                                        "text": "        val oldFingerprint = receipts.getString(commandKey.toString(), null)\n        require(oldFingerprint == null || oldFingerprint == fingerprint) { \"同一请求标识不能用于不同消息\" }\n        check(receipts.edit().putString(commandKey.toString(), fingerprint).commit()) { \"请求状态保存失败\" }\n\n        val convUuid = if (!request.conversationId.isNullOrEmpty()) {\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Replace with the edit extension function"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/src/main/java/me/rerere/rikkahub/flutter/StudyHostFacade.kt"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 1173,
+                                                "startColumn": 24,
+                                                "charOffset": 84627,
+                                                "endLine": 1173,
+                                                "endColumn": 29,
+                                                "charLength": 5
+                                            },
+                                            "insertedContent": {
+                                                "text": "edit\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 1173,
+                                                "startColumn": 29,
+                                                "charOffset": 84632,
+                                                "endLine": 1173,
+                                                "endColumn": 30,
+                                                "charLength": 1
+                                            },
+                                            "insertedContent": {
+                                                "text": "(commit = true) {\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 1173,
+                                                "startColumn": 30,
+                                                "charOffset": 84633,
+                                                "endLine": 1173,
+                                                "endColumn": 31,
+                                                "charLength": 1
+                                            },
+                                            "insertedContent": {
+                                                "text": "\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 1173,
+                                                "startColumn": 76,
+                                                "charOffset": 84679,
+                                                "endLine": 1173,
+                                                "endColumn": 85,
+                                                "charLength": 9
+                                            },
+                                            "insertedContent": {
+                                                "text": "}\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "3ec39441c38c24be"
+                    }
+                },
+                {
+                    "ruleId": "UseTomlInstead",
+                    "ruleIndex": 9,
+                    "message": {
+                        "text": "Use version catalog instead"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/build.gradle.kts"
+                                },
+                                "region": {
+                                    "startLine": 347,
+                                    "startColumn": 25,
+                                    "endLine": 347,
+                                    "endColumn": 74,
+                                    "charOffset": 12268,
+                                    "charLength": 49,
+                                    "snippet": {
+                                        "text": "\"me.rerere.rikkahub.flutter_ui:flutter_debug:1.0\""
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 345,
+                                    "endLine": 350,
+                                    "snippet": {
+                                        "text": "\n    // Flutter Add-to-App\n    debugImplementation(\"me.rerere.rikkahub.flutter_ui:flutter_debug:1.0\")\n    releaseImplementation(\"me.rerere.rikkahub.flutter_ui:flutter_release:1.0\")\n}\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Replace with new library catalog declaration for flutter_debug"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "gradle/libs.versions.toml"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 5,
+                                                "startColumn": 1,
+                                                "charOffset": 73
+                                            },
+                                            "insertedContent": {
+                                                "text": "flutter_debug = \"1.0\"\n\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 71,
+                                                "startColumn": 1,
+                                                "charOffset": 1576
+                                            },
+                                            "insertedContent": {
+                                                "text": "flutter_debug = { module = \"me.rerere.rikkahub.flutter_ui:flutter_debug\", version.ref = \"flutter_debug\" }\n\n"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/build.gradle.kts"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 347,
+                                                "startColumn": 25,
+                                                "charOffset": 12268,
+                                                "endLine": 347,
+                                                "endColumn": 74,
+                                                "charLength": 49
+                                            },
+                                            "insertedContent": {
+                                                "text": "libs.flutter.debug\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "6f53151feb9ac9f5"
+                    }
+                },
+                {
+                    "ruleId": "UseTomlInstead",
+                    "ruleIndex": 9,
+                    "message": {
+                        "text": "Use version catalog instead"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/build.gradle.kts"
+                                },
+                                "region": {
+                                    "startLine": 348,
+                                    "startColumn": 27,
+                                    "endLine": 348,
+                                    "endColumn": 78,
+                                    "charOffset": 12345,
+                                    "charLength": 51,
+                                    "snippet": {
+                                        "text": "\"me.rerere.rikkahub.flutter_ui:flutter_release:1.0\""
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 346,
+                                    "endLine": 350,
+                                    "snippet": {
+                                        "text": "    // Flutter Add-to-App\n    debugImplementation(\"me.rerere.rikkahub.flutter_ui:flutter_debug:1.0\")\n    releaseImplementation(\"me.rerere.rikkahub.flutter_ui:flutter_release:1.0\")\n}\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Replace with new library catalog declaration for flutter_release"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "gradle/libs.versions.toml"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 5,
+                                                "startColumn": 1,
+                                                "charOffset": 73
+                                            },
+                                            "insertedContent": {
+                                                "text": "flutter_release = \"1.0\"\n\n"
+                                            }
+                                        },
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 71,
+                                                "startColumn": 1,
+                                                "charOffset": 1576
+                                            },
+                                            "insertedContent": {
+                                                "text": "flutter_release = { module = \"me.rerere.rikkahub.flutter_ui:flutter_release\", version.ref = \"flutter_release\" }\n\n"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "app/build.gradle.kts"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 348,
+                                                "startColumn": 27,
+                                                "charOffset": 12345,
+                                                "endLine": 348,
+                                                "endColumn": 78,
+                                                "charLength": 51
+                                            },
+                                            "insertedContent": {
+                                                "text": "libs.flutter.release\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "aff9eaea367fc3de"
+                    }
+                },
+                {
+                    "ruleId": "RtlHardcoded",
+                    "ruleIndex": 3,
+                    "message": {
+                        "text": "Use \"Gravity.START\" instead of \"Gravity.LEFT\" to ensure correct behavior in right-to-left locales",
+                        "markdown": "Use \"`Gravity.START`\" instead of \"`Gravity.LEFT`\" to ensure correct behavior in right-to-left locales"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/ui/components/ui/ViewText.kt"
+                                },
+                                "region": {
+                                    "startLine": 157,
+                                    "startColumn": 43,
+                                    "endLine": 157,
+                                    "endColumn": 47,
+                                    "charOffset": 5489,
+                                    "charLength": 4,
+                                    "snippet": {
+                                        "text": "LEFT"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 155,
+                                    "endLine": 160,
+                                    "snippet": {
+                                        "text": "        textStyle.textAlign.let {\n            gravity = when (it) {\n                TextAlign.Left -> Gravity.LEFT\n                TextAlign.Right -> Gravity.RIGHT\n                TextAlign.Center -> Gravity.CENTER_HORIZONTAL\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "72d42dc9d1ef6eba"
+                    }
+                },
+                {
+                    "ruleId": "RtlHardcoded",
+                    "ruleIndex": 3,
+                    "message": {
+                        "text": "Use \"Gravity.START\" instead of \"Gravity.LEFT\" to ensure correct behavior in right-to-left locales",
+                        "markdown": "Use \"`Gravity.START`\" instead of \"`Gravity.LEFT`\" to ensure correct behavior in right-to-left locales"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/ui/components/ui/ViewText.kt"
+                                },
+                                "region": {
+                                    "startLine": 157,
+                                    "startColumn": 43,
+                                    "endLine": 157,
+                                    "endColumn": 47,
+                                    "charOffset": 5489,
+                                    "charLength": 4,
+                                    "snippet": {
+                                        "text": "LEFT"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 155,
+                                    "endLine": 160,
+                                    "snippet": {
+                                        "text": "        textStyle.textAlign.let {\n            gravity = when (it) {\n                TextAlign.Left -> Gravity.LEFT\n                TextAlign.Right -> Gravity.RIGHT\n                TextAlign.Center -> Gravity.CENTER_HORIZONTAL\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "72d42dc9d1ef6eba"
+                    }
+                },
+                {
+                    "ruleId": "RtlHardcoded",
+                    "ruleIndex": 3,
+                    "message": {
+                        "text": "Use \"Gravity.END\" instead of \"Gravity.RIGHT\" to ensure correct behavior in right-to-left locales",
+                        "markdown": "Use \"`Gravity.END`\" instead of \"`Gravity.RIGHT`\" to ensure correct behavior in right-to-left locales"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/ui/components/ui/ViewText.kt"
+                                },
+                                "region": {
+                                    "startLine": 158,
+                                    "startColumn": 44,
+                                    "endLine": 158,
+                                    "endColumn": 49,
+                                    "charOffset": 5537,
+                                    "charLength": 5,
+                                    "snippet": {
+                                        "text": "RIGHT"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 156,
+                                    "endLine": 161,
+                                    "snippet": {
+                                        "text": "            gravity = when (it) {\n                TextAlign.Left -> Gravity.LEFT\n                TextAlign.Right -> Gravity.RIGHT\n                TextAlign.Center -> Gravity.CENTER_HORIZONTAL\n                TextAlign.Start -> Gravity.START\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "f7837fb5bc31ba25"
+                    }
+                },
+                {
+                    "ruleId": "RtlHardcoded",
+                    "ruleIndex": 3,
+                    "message": {
+                        "text": "Use \"Gravity.END\" instead of \"Gravity.RIGHT\" to ensure correct behavior in right-to-left locales",
+                        "markdown": "Use \"`Gravity.END`\" instead of \"`Gravity.RIGHT`\" to ensure correct behavior in right-to-left locales"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "app/src/main/java/me/rerere/rikkahub/ui/components/ui/ViewText.kt"
+                                },
+                                "region": {
+                                    "startLine": 158,
+                                    "startColumn": 44,
+                                    "endLine": 158,
+                                    "endColumn": 49,
+                                    "charOffset": 5537,
+                                    "charLength": 5,
+                                    "snippet": {
+                                        "text": "RIGHT"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 156,
+                                    "endLine": 161,
+                                    "snippet": {
+                                        "text": "            gravity = when (it) {\n                TextAlign.Left -> Gravity.LEFT\n                TextAlign.Right -> Gravity.RIGHT\n                TextAlign.Center -> Gravity.CENTER_HORIZONTAL\n                TextAlign.Start -> Gravity.START\n"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "f7837fb5bc31ba25"
+                    }
+                }
+            ]
+        }
+    ]
+}

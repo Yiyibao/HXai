@@ -1,0 +1,96 @@
+[
+  {
+    "label": "flutter-pub-offline",
+    "command": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\flutter\\bin\\flutter.bat",
+      "--no-version-check",
+      "pub",
+      "get",
+      "--offline"
+    ],
+    "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103\\client\\flutter_ui",
+    "exitCode": 0,
+    "seconds": 9.02,
+    "tail": [
+      "Resolving dependencies...",
+      "Downloading packages...",
+      "Got dependencies!"
+    ]
+  },
+  {
+    "label": "flutter-analyze",
+    "command": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\flutter\\bin\\flutter.bat",
+      "--no-version-check",
+      "analyze",
+      "--no-pub"
+    ],
+    "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103\\client\\flutter_ui",
+    "exitCode": 0,
+    "seconds": 131.93,
+    "tail": [
+      "Analyzing flutter_ui...                                         ",
+      "No issues found! (ran in 129.7s)"
+    ]
+  },
+  {
+    "label": "flutter-test",
+    "command": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\flutter\\bin\\flutter.bat",
+      "--no-version-check",
+      "test",
+      "--no-pub"
+    ],
+    "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103\\client\\flutter_ui",
+    "exitCode": 1,
+    "seconds": 41.18,
+    "tail": [
+      "00:26 +417 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/neutral_frontend_layout_test.dart: Follow-up keeps draft when conversation changes during preparation",
+      "00:27 +418 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/neutral_frontend_layout_test.dart: Source links and empty citations cannot manufacture references",
+      "00:27 +419 -2: D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/neutral_frontend_layout_test.dart: Appearance preferences survive a provider recreation",
+      "00:27 +420 -2: Some tests failed.",
+      "",
+      "Failing tests:",
+      "  D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/selected_chat_style_test.dart: Capture selected styles in mobile light and dark themes",
+      "  D:/Office/Study/code/MathStudyAgent/.local/worktree-source-integration-20261103/client/flutter_ui/test/surface_rendering_visual_test.dart: Capture mobile and wide light/dark rendering"
+    ]
+  },
+  {
+    "label": "flutter-aar-debug",
+    "command": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\flutter\\bin\\flutter.bat",
+      "--no-version-check",
+      "build",
+      "aar",
+      "--debug",
+      "--no-release",
+      "--no-profile",
+      "--no-pub"
+    ],
+    "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103\\client\\flutter_ui",
+    "exitCode": 0,
+    "seconds": 73.57,
+    "tail": [
+      "",
+      "  3. Make the host app depend on the Flutter module:",
+      "",
+      "    dependencies {",
+      "      debugImplementation 'me.rerere.rikkahub.flutter_ui:flutter_debug:1.0'",
+      "    }",
+      "",
+      "To learn more, visit https://flutter.dev/to/integrate-android-archive"
+    ]
+  }
+]

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.agent.FinalPlanRepairTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:35:34.640Z" hostname="DESKTOP-QH4J0RS" time="0.024">
+  <properties/>
+  <testcase name="artifactPredicateMustTargetAnActualVerifiedDocumentProducer" classname="me.rerere.rikkahub.feature.agent.FinalPlanRepairTest" time="0.019"/>
+  <testcase name="malformedOrOversizeEvidenceFailsClosedWithoutTruncatingStoredResults" classname="me.rerere.rikkahub.feature.agent.FinalPlanRepairTest" time="0.002"/>
+  <testcase name="finalProposalCannotAddDispatchSlotsOrDiscardAnyVerifiedStep" classname="me.rerere.rikkahub.feature.agent.FinalPlanRepairTest" time="0.001"/>
+  <testcase name="knownRejectedMathRequiresASeparateVerifiedResultAndDoesNotBecomeProof" classname="me.rerere.rikkahub.feature.agent.FinalPlanRepairTest" time="0.0"/>
+  <testcase name="ordinarySuccessfulOrIncompletePlansDoNotCauseAnExtraModelRequest" classname="me.rerere.rikkahub.feature.agent.FinalPlanRepairTest" time="0.001"/>
+  <testcase name="pendingUnknownOrUnverifiedWritesCannotBeSuperseded" classname="me.rerere.rikkahub.feature.agent.FinalPlanRepairTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

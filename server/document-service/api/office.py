@@ -25,6 +25,20 @@ def readiness(store, operation="office_pdf"):
 
 
 def register_office(app, store, identity, public):
+    @app.get("/api/v1/conversion-requests/{request_key}")
+    @app.get("/api/v1/recalculation-requests/{request_key}")
+    def read_request(request: Request, request_key: str, authorization: str | None = Header(None)):
+        owner = identity(authorization)
+        if not re.fullmatch(r"[A-Za-z0-9_-]{16,128}", request_key):
+            raise HTTPException(422, "invalid_request_key")
+        operation = "xlsx_recalculate" if "/recalculation-requests/" in request.url.path else "office_pdf"
+        row = store.read_request(owner, request_key, operation)
+        if row is None:
+            raise HTTPException(404, "request_not_found_or_not_observable")
+        options = json.loads(row["options"])
+        return {**public(row), "requestKey": row["request_key"],
+                "sourceSha256": options.get("sourceSha256"), "sourceExtension": options.get("extension")}
+
     @app.post("/api/v1/conversion-requests/{request_key}/cancel")
     @app.post("/api/v1/recalculation-requests/{request_key}/cancel")
     def cancel_request(request: Request, request_key: str, authorization: str | None = Header(None)):

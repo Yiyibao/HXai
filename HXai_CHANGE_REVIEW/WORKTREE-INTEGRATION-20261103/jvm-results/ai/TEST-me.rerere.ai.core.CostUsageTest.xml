@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.ai.core.CostUsageTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:32:44.113Z" hostname="DESKTOP-QH4J0RS" time="0.067">
+  <properties/>
+  <testcase name="lateCostOnlyChunkPreservesCountersWithoutInventingOrigin" classname="me.rerere.ai.core.CostUsageTest" time="0.002"/>
+  <testcase name="changedCountersDropAnEarlierCostWithoutNewEvidence" classname="me.rerere.ai.core.CostUsageTest" time="0.0"/>
+  <testcase name="decoderParsesMoneyAsDecimalTextWithoutInventingTrustedOrigin" classname="me.rerere.ai.core.CostUsageTest" time="0.06"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.material.OfficeSafetyTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:35:38.932Z" hostname="DESKTOP-QH4J0RS" time="0.361">
+  <properties/>
+  <testcase name="logicalSlideEditPreservesSourceAndOtherParts" classname="me.rerere.rikkahub.feature.material.OfficeSafetyTest" time="0.138"/>
+  <testcase name="utf16DtdIsRejectedAtRealEditorEntry" classname="me.rerere.rikkahub.feature.material.OfficeSafetyTest" time="0.019"/>
+  <testcase name="readerAndEditorAgreeOnHiddenLogicalSlidesAndRejectStaleOrSourceOutput" classname="me.rerere.rikkahub.feature.material.OfficeSafetyTest" time="0.11"/>
+  <testcase name="validUtf16WordIsReadableAndEditableWithNonTargetPartsPreserved" classname="me.rerere.rikkahub.feature.material.OfficeSafetyTest" time="0.078"/>
+  <testcase name="rejectsBrokenAmbiguousExternalOrMissingSlideRelations" classname="me.rerere.rikkahub.feature.material.OfficeSafetyTest" time="0.014"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

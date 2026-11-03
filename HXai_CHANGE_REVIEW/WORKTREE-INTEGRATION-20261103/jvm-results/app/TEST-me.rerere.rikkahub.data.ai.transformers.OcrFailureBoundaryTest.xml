@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.ai.transformers.OcrFailureBoundaryTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:35:24.709Z" hostname="DESKTOP-QH4J0RS" time="0.008">
+  <properties/>
+  <testcase name="source rejection cannot become ordinary OCR text" classname="me.rerere.rikkahub.data.ai.transformers.OcrFailureBoundaryTest" time="0.0"/>
+  <testcase name="source failure diagnostics never contain private details" classname="me.rerere.rikkahub.data.ai.transformers.OcrFailureBoundaryTest" time="0.002"/>
+  <testcase name="cancellation preserves control flow and original exception" classname="me.rerere.rikkahub.data.ai.transformers.OcrFailureBoundaryTest" time="0.001"/>
+  <testcase name="cancelling a suspended recognizer cannot continue downstream" classname="me.rerere.rikkahub.data.ai.transformers.OcrFailureBoundaryTest" time="0.003"/>
+  <testcase name="private provider failures never become recognized text" classname="me.rerere.rikkahub.data.ai.transformers.OcrFailureBoundaryTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

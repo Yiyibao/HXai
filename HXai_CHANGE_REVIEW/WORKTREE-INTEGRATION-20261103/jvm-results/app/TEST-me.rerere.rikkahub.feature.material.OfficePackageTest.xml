@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.material.OfficePackageTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:35:37.372Z" hostname="DESKTOP-QH4J0RS" time="1.558">
+  <properties/>
+  <testcase name="rejectsDuplicateNamesInCentralDirectory" classname="me.rerere.rikkahub.feature.material.OfficePackageTest" time="0.032"/>
+  <testcase name="rejectsPerPartExpandedAndEntryCountLimits" classname="me.rerere.rikkahub.feature.material.OfficePackageTest" time="1.218"/>
+  <testcase name="rejectsExternalAndDuplicateRelationshipsAndMacroContentTypes" classname="me.rerere.rikkahub.feature.material.OfficePackageTest" time="0.077"/>
+  <testcase name="normalDirectoriesAndUtf16PartsPassWithoutExtraction" classname="me.rerere.rikkahub.feature.material.OfficePackageTest" time="0.019"/>
+  <testcase name="rejectsTraversalWindowsPathsMacrosSignaturesAndMalformedUnusedXml" classname="me.rerere.rikkahub.feature.material.OfficePackageTest" time="0.212"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

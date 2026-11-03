@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.data.sync.ManualMemoryDeletionTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:35:32.757Z" hostname="DESKTOP-QH4J0RS" time="0.016">
+  <properties/>
+  <testcase name="changingOriginOrTopicCannotDisguiseDeletedManualIdentity" classname="me.rerere.rikkahub.data.sync.ManualMemoryDeletionTest" time="0.005"/>
+  <testcase name="independentIdentityTombstoneSurvivesFactReinstatementWithoutBlockingNewRecord" classname="me.rerere.rikkahub.data.sync.ManualMemoryDeletionTest" time="0.001"/>
+  <testcase name="legacyTypeTombstoneBlocksEveryClassificationOfTheSameRequest" classname="me.rerere.rikkahub.data.sync.ManualMemoryDeletionTest" time="0.002"/>
+  <testcase name="oldSerializedTombstoneSurvivesRoundtripAndRepeatedMergeWithoutMigration" classname="me.rerere.rikkahub.data.sync.ManualMemoryDeletionTest" time="0.002"/>
+  <testcase name="fingerprintDomainKeepsAnotherOwnerIndependent" classname="me.rerere.rikkahub.data.sync.ManualMemoryDeletionTest" time="0.005"/>
+  <testcase name="freshRequestAndUnrelatedLegacyRecordsRemainRestorable" classname="me.rerere.rikkahub.data.sync.ManualMemoryDeletionTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

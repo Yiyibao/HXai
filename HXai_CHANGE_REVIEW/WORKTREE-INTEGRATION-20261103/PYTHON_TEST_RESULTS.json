@@ -1,0 +1,76 @@
+[
+  {
+    "label": "agent-runtime",
+    "command": [
+      "python",
+      "-m",
+      "pytest",
+      "-q",
+      "server/agent-runtime/tests"
+    ],
+    "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103",
+    "envOverrides": {
+      "PYTHONPATH": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103\\server\\agent-runtime"
+    },
+    "exitCode": 0,
+    "seconds": 21.45,
+    "tail": [
+      "........................................................................ [ 55%]",
+      "..........................................................               [100%]",
+      "130 passed in 20.46s"
+    ]
+  },
+  {
+    "label": "document-service",
+    "command": [
+      "python",
+      "-m",
+      "pytest",
+      "-q",
+      "server/document-service/tests"
+    ],
+    "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103",
+    "envOverrides": {
+      "PYTHONPATH": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103\\server\\document-service"
+    },
+    "exitCode": 0,
+    "seconds": 11.43,
+    "tail": [
+      "........................................................................ [ 45%]",
+      "........................................................................ [ 91%]",
+      "..............                                                           [100%]",
+      "============================== warnings summary ===============================",
+      "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\fastapi\\testclient.py:1",
+      "  C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.",
+      "    from starlette.testclient import TestClient as TestClient  # noqa",
+      "",
+      "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+      "158 passed, 1 warning in 10.56s"
+    ]
+  },
+  {
+    "label": "scripts",
+    "command": [
+      "python",
+      "-m",
+      "pytest",
+      "-q",
+      "scripts/tests/test_import_agent_evaluation.py",
+      "scripts/tests/test_import_r27_quality_answers.py",
+      "scripts/tests/test_prepare_r27_live_quality.py",
+      "scripts/tests/test_score_b_math_evaluation.py",
+      "scripts/tests/test_verify_b_ocr_corpus.py",
+      "scripts/tests/test_verify_b_windows_ocr.py",
+      "scripts/tests/test_verify_b_office_roundtrip.py"
+    ],
+    "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\worktree-source-integration-20261103",
+    "envOverrides": {},
+    "exitCode": 0,
+    "seconds": 6.48,
+    "tail": [
+      "........................................................................ [ 55%]",
+      "..........................................................               [100%]",
+      "130 passed in 5.62s"
+    ]
+  }
+]

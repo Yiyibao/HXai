@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.material.MaterialChapterReadTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:35:35.221Z" hostname="DESKTOP-QH4J0RS" time="0.015">
+  <properties/>
+  <testcase name="pdfContinuationSkipsSyntheticGapsWithoutInventingAQuoteOrNextChapter" classname="me.rerere.rikkahub.feature.material.MaterialChapterReadTest" time="0.008"/>
+  <testcase name="wrongIndexAndUnknownHeadingNeverSelectAnotherRange" classname="me.rerere.rikkahub.feature.material.MaterialChapterReadTest" time="0.002"/>
+  <testcase name="surrogateBoundaryIsRejectedButWholeCharacterAndEmptyExtractedTailRemainAccurate" classname="me.rerere.rikkahub.feature.material.MaterialChapterReadTest" time="0.002"/>
+  <testcase name="fullChunkStopsBeforeNextHeadingInSameBodyAndDoesNotAdvertisePhantomContinuation" classname="me.rerere.rikkahub.feature.material.MaterialChapterReadTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

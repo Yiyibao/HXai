@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.interactive.MathPlotTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:35:34.801Z" hostname="DESKTOP-QH4J0RS" time="0.11">
+  <properties/>
+  <testcase name="precedenceConstantsFunctionsAndParameters" classname="me.rerere.rikkahub.feature.interactive.MathPlotTest" time="0.006"/>
+  <testcase name="rationalPoleDoesNotJoinBranchesEvenInLargeViewport" classname="me.rerere.rikkahub.feature.interactive.MathPlotTest" time="0.007"/>
+  <testcase name="ellipseSamplesSatisfyEquation" classname="me.rerere.rikkahub.feature.interactive.MathPlotTest" time="0.006"/>
+  <testcase name="rejectsCodeUnknownVariablesAndUnboundedGrammar" classname="me.rerere.rikkahub.feature.interactive.MathPlotTest" time="0.002"/>
+  <testcase name="hyperbolaParabolaAndRotatedEllipseKeepTheirEquations" classname="me.rerere.rikkahub.feature.interactive.MathPlotTest" time="0.014"/>
+  <testcase name="implicitCircleHasSmallResidualAndPoleHasNoZeroContour" classname="me.rerere.rikkahub.feature.interactive.MathPlotTest" time="0.061"/>
+  <testcase name="parameterChangesRecalculateFunctionAndDomain" classname="me.rerere.rikkahub.feature.interactive.MathPlotTest" time="0.007"/>
+  <testcase name="squareRootRespectsRealDomain" classname="me.rerere.rikkahub.feature.interactive.MathPlotTest" time="0.003"/>
+  <testcase name="mathToolUsesExistingSurfaceIdentityAndStateValidation" classname="me.rerere.rikkahub.feature.interactive.MathPlotTest" time="0.003"/>
+  <testcase name="validationRejectsMissingParameterBoundsAndUnknownFields" classname="me.rerere.rikkahub.feature.interactive.MathPlotTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

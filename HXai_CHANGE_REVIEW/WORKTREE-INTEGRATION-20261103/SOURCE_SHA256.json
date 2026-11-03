@@ -1,0 +1,452 @@
+[
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/ArtifactEvidenceRuntimeTest.kt",
+    "bytes": 3464,
+    "sha256Raw": "8b30ccbec98ffb9e0e70fe3d947160c90c45da2d9e92daf070bdedf45e9f2254",
+    "gitBlob": "ca482c9de0fac773ed9b9f09c28aad34abde8228"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/EmptySuppressionKeyRuntimeTest.kt",
+    "bytes": 2465,
+    "sha256Raw": "bd9bcd203631e5d16c931cd9a66a3d80832617ed3a23578da6a6da2f2cb1a682",
+    "gitBlob": "ef2d9c5e79eb1d92bc669433ebae417ac2d612b3"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/FinalPlanJournalRuntimeTest.kt",
+    "bytes": 4606,
+    "sha256Raw": "eff9af61f52724cb97a22d848c09f7779fa48babcfa26f29e348921773c8870b",
+    "gitBlob": "acd09500fc0d9d381dbf06a9c5986f3cf6a5b76f"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/FinalPlanRuntimeTest.kt",
+    "bytes": 11783,
+    "sha256Raw": "cbd3d7f6441574e9a75ec0e2478f358bb3668c0d23c11adba76dfa04265698f8",
+    "gitBlob": "fffa85dcb409204c10c8a2815a3516d947d8f45c"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/LiveQualityEvaluationTest.kt",
+    "bytes": 16646,
+    "sha256Raw": "6d33b7e295c0af1a33390e183226163444900fa46aab62e07c92e3ba2cea4b21",
+    "gitBlob": "bc48ec7f595b901ab79cd45a71755f0c7601079a"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/MathSharedChatRuntimeTest.kt",
+    "bytes": 20165,
+    "sha256Raw": "36fcc7fdd2f569ce4a3b6ebd364319329e7294ecf5cddd68adf33c0fb695e075",
+    "gitBlob": "a65cc9cb15d784bf4428043fb36017ba211fb82e"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/PublicQualityFixtureGuardTest.kt",
+    "bytes": 1148,
+    "sha256Raw": "2f3a4f94801152bdca4ef9fe505c352013b0472c675983f90ce172175eac63a1",
+    "gitBlob": "d90a14e039b2dc38fc859a85392ed5fb56b17d5e"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/QualityCoordinatorObserver.kt",
+    "bytes": 4283,
+    "sha256Raw": "8f525d2cc81740abe5d73da6a4f61cc885e369164cc94132ab435d63aa48cc2f",
+    "gitBlob": "b49fd752b4f5c66d7261069e6d2f246fe737d017"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/QualityEvidenceFiles.kt",
+    "bytes": 2600,
+    "sha256Raw": "0e3374376f8796ad47995711accd0f4512b553974a8e7bbc52cd6dc224436b33",
+    "gitBlob": "c85c826915e741651df06609698f05c48d8c919d"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/QualityEvidenceFilesTest.kt",
+    "bytes": 3244,
+    "sha256Raw": "2f5f4b6cbff66a2e086c0361db3b047420909497080a0acac70900158b91e4d0",
+    "gitBlob": "6939efe63dad0eb8c0bdb826fd38ae15dd2676e0"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/QualityEvidenceProcessProbe.kt",
+    "bytes": 2041,
+    "sha256Raw": "b5a085e3bdb0c18267a51384cb196b7eb598b81b01879bc7ae82cfa8dd634851",
+    "gitBlob": "5f515fca75570d29e8ce5a15062350aa77ad5ae6"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/ReadOnlyOfficeReconciliationTest.kt",
+    "bytes": 3889,
+    "sha256Raw": "ba2b2164b7d7b7d5276d70aa38213087bf80480ce1ccc40baf3d505db0952e47",
+    "gitBlob": "e5c59ee42853da293853f80193da80ddb926365c"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/ResponseCompletionProcessProbe.kt",
+    "bytes": 4046,
+    "sha256Raw": "b68157e7dfa657a0960efff454f67901a2b9e652077a8fb5e6cb730850df1028",
+    "gitBlob": "d33f15aa89b36bc062fc1363fca4a4f86d227821"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/ResponseCompletionRuntimeTest.kt",
+    "bytes": 7162,
+    "sha256Raw": "f1c7cd38f5bc18d1fbe6b1f2677c0fe4c1d88b7f7a1a6fe76e14e54fd5a90a39",
+    "gitBlob": "aad9788ae41c56e96903cb536f58149cc1aa08b2"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/ResponseCompletionStoreTest.kt",
+    "bytes": 6066,
+    "sha256Raw": "7a7429fb21f4b115861d55a1de7d02267143bcf3bf60eca73222ad36526d230d",
+    "gitBlob": "8006329cd194d7b7e85733760f155608b877e859"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/TaskPlanningRuntimeTest.kt",
+    "bytes": 16152,
+    "sha256Raw": "0e2a18f827314dc5b47160ddd5808b88489035037003817c68beacb9c5a5dd8a",
+    "gitBlob": "55d2c7bb4c1b216c32fd3179ad779c240d3c540b"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/material/LiveOcrQualityTest.kt",
+    "bytes": 5185,
+    "sha256Raw": "5e334a15f6c71c4300d82da27a9cf2b68d9148c85dbdcde743a9d39eb5688649",
+    "gitBlob": "ddad73a931845b3f05375eda1e3b3188af674402"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/material/LiveOfficeCandidateTest.kt",
+    "bytes": 3242,
+    "sha256Raw": "d3babc42cc11e239bed0da39742a2b39b158cba6f5690490bdb253feee51313c",
+    "gitBlob": "c1e5044ec3103bd90d49aab5977884aeb646421d"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/material/MathWorkInputsRuntimeTest.kt",
+    "bytes": 8869,
+    "sha256Raw": "3a6b5d7c23a1baeb68cdc5b115b42d11aa1a1a0b86b4c2b0f21d0274d73f25b2",
+    "gitBlob": "5fb96ef9ff7ae6beef688e8f9f37d35793c0ab0d"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/math/MathToolEnvelopeRuntimeTest.kt",
+    "bytes": 1900,
+    "sha256Raw": "74eccbadf4e2c8c664e8007c49e69b5b342d1dca7be39f73608afb7688c451d7",
+    "gitBlob": "4f9cf1be8e85be6643954a41b92888ebd68ae147"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/service/HistorySourceSuppressionTest.kt",
+    "bytes": 15453,
+    "sha256Raw": "ab65c1ddff606f3a5cc27ba07b3175f768d106ff0f1b6c36686c1e65e570c40b",
+    "gitBlob": "ad9f2cece5dbfadc7aec85e9477e6049de236e8d"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/service/LegacySourceProviderBoundaryTest.kt",
+    "bytes": 4836,
+    "sha256Raw": "0b3762ba1bbd26119b3841e0ab5540acf85f081ec5284dace09e28936de246ad",
+    "gitBlob": "d0c7a7a41512ceb8382d0c89fa19a5838102f8ed"
+  },
+  {
+    "path": "client/app/src/androidTest/java/me/rerere/rikkahub/service/OfficeConversionRepositoryTest.kt",
+    "bytes": 13517,
+    "sha256Raw": "1c0c176731f3c5ab6eee6c28ad1f9121ff827be37a0156a13b7b916b03daa90e",
+    "gitBlob": "767b1e91f2d193dde999aeae5f609992ea13dfa3"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/data/ai/GenerationLoop.kt",
+    "bytes": 43787,
+    "sha256Raw": "3ef6e91a84d6f067838341e68263a2645b764d07a27439c668bc95b9bdff852e",
+    "gitBlob": "68ac33119b1c8828d2b31b96c067a587d75e7d0d"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/data/repository/ConversationRepository.kt",
+    "bytes": 40686,
+    "sha256Raw": "2a189c62daef308d2f71fa0cb9c5c1c4cd7d1ce88750f3981f4594e9c5ba755a",
+    "gitBlob": "41e520c91ca374da30f9df43ce3e1c5fdbe186f4"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/AgentPlan.kt",
+    "bytes": 2961,
+    "sha256Raw": "37557b866d43a639fb7f1bfa602268e4bcb3df0d49d2c4f727760551e7557c19",
+    "gitBlob": "b15d44f2123001b7505973a9a5b58d59c03b804a"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/AgentTaskStore.kt",
+    "bytes": 78934,
+    "sha256Raw": "fbe6ff0563034b1721462b03c6b5ea6b497066ed7d4e6ed34a6540e92df2c40d",
+    "gitBlob": "9027d8a5355a95d6fca64799f3b38ba9b308895d"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/FinalPlanRepair.kt",
+    "bytes": 2828,
+    "sha256Raw": "8b207e2c7ae91b6b4d85bf8781e27230730541db7c54745aa10a42101ad90340",
+    "gitBlob": "980ce1bb7b61a4ea0cecb66df763706c7c8ba1fd"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/PlanProposal.kt",
+    "bytes": 2051,
+    "sha256Raw": "086596bb14418cc5c59f8df1ac2cc4d3358c4c337a863e0a9b09b69ecca42948",
+    "gitBlob": "ab91e0a339f1147e4e0e5fc07095743a6958a9f3"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/ResponseCompletion.kt",
+    "bytes": 1865,
+    "sha256Raw": "6aa53580b7ec76713509d7e9604f85568cdbd97c03144b1cdd584f0d5cb5d949",
+    "gitBlob": "60bb45f6a29c74553488600cb00e800a2ef05024"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/TaskPlanner.kt",
+    "bytes": 45195,
+    "sha256Raw": "1c347b03816705e84c42c173289ce24db9e125c612ca28b8fc60ae6f39c31953",
+    "gitBlob": "94e9a3cefb91ec48bc6801365beaca42fa2a10c9"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/material/MaterialEditor.kt",
+    "bytes": 34756,
+    "sha256Raw": "918737d086ab3b103dc466d0302932151a88e895afa97e1677a05261ce2e471c",
+    "gitBlob": "9912a810dc09f369f4fe896080fd0e1775d4dec5"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/material/MathTranscription.kt",
+    "bytes": 1031,
+    "sha256Raw": "6e110e73ff1a107752d098379ea017bd5d651c1bd8898d4cd54862c3d4b1de02",
+    "gitBlob": "65be12892800faa4cb8076f76b12c2e71e30a5f4"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/material/MathWorkInputs.kt",
+    "bytes": 15999,
+    "sha256Raw": "4e22f836818d1b6204db5dbbb55151a3c9c88e84176cf89c734e8026aa264aa5",
+    "gitBlob": "f815019f5213f6493934b2aec49c6284b684452d"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/material/OfficeConversionRepository.kt",
+    "bytes": 24601,
+    "sha256Raw": "0262e624d1f228754cb874e36dc805333f29062e203a5df5a419503748826c37",
+    "gitBlob": "efe2205a71b2609ffa89a6d715e3d47c805ed3e1"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/material/SpreadsheetEditRegions.kt",
+    "bytes": 2774,
+    "sha256Raw": "cc2b93b2f88b599aa25c62adff37cccc8f6c4c61575a3078760bc35e68f17bb3",
+    "gitBlob": "471c32c86b69b8f1ec296d6c9cab039043d2d6a6"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/math/MathTools.kt",
+    "bytes": 5786,
+    "sha256Raw": "add2e01b86ad995ca6433434d721bade1b636cdce6b0ff415022de5bd0a0f35d",
+    "gitBlob": "86410e09167a9c46e4c85687cd02ce104396d9c2"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/math/MathVerification.kt",
+    "bytes": 31025,
+    "sha256Raw": "686ccc510059fe43cc4f5a48c45b940f16daf849566d309d8d9dd262bdedc51a",
+    "gitBlob": "9a0a573fe392f62ed055f2785da8855f9eeb08c7"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/math/ProfessionalMathGuidance.kt",
+    "bytes": 6477,
+    "sha256Raw": "57594d3ec0e0b4f14e67a54f1cf4ad433b975a7be6d41d922ad1aaf923e07703",
+    "gitBlob": "6ea356c1363c094c4169450a9eeb0a1cadb05961"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/math/ProofDerivation.kt",
+    "bytes": 16493,
+    "sha256Raw": "dcae25c02670aac04f9a9df03c25108a4091a74407017f722decb19405b24ce4",
+    "gitBlob": "29731e0bfadd218856a20b05ee4e8e5079f074ca"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/feature/memory/LearningMemoryStore.kt",
+    "bytes": 30010,
+    "sha256Raw": "023eadb28d7550f371a4d67bf85e8ef560b40fdc417d2a2209c1705f89515852",
+    "gitBlob": "6f39dece619de1928cf9d74d997a766c99a22ad9"
+  },
+  {
+    "path": "client/app/src/main/java/me/rerere/rikkahub/service/ChatService.kt",
+    "bytes": 111946,
+    "sha256Raw": "66d759945cc7229a33dcb3f8917caaedc0b5797d656f2624a6fafb558a6e51b9",
+    "gitBlob": "3f6d630156a5af35942840d8ad8e1a612fd8b871"
+  },
+  {
+    "path": "client/app/src/test/java/me/rerere/rikkahub/feature/agent/FinalPlanRepairTest.kt",
+    "bytes": 4138,
+    "sha256Raw": "e9fcabe490d87c8b5e5abc431c30ec1badbc304acd03c375c2a5720b4cc5d053",
+    "gitBlob": "dae27582827711ab48211e0ad64ffcace3ef01df"
+  },
+  {
+    "path": "client/app/src/test/java/me/rerere/rikkahub/feature/agent/PlanProposalTest.kt",
+    "bytes": 2800,
+    "sha256Raw": "e680141610188bc84fef5021ce5b79c58e8c1cd43f650c40a3e7f50e00f3409a",
+    "gitBlob": "04fd289b7302d372fd65645bef9e119b304b5b34"
+  },
+  {
+    "path": "client/app/src/test/java/me/rerere/rikkahub/feature/agent/ResponseCompletionTest.kt",
+    "bytes": 2626,
+    "sha256Raw": "96d45aeba6d11f16bbb629fd3f08bd323f330315cf3cb601729da19b25a6832e",
+    "gitBlob": "bad607e8bf1143fa47fa694d329e31c23c0c3dac"
+  },
+  {
+    "path": "client/app/src/test/java/me/rerere/rikkahub/feature/material/MathTranscriptionTest.kt",
+    "bytes": 721,
+    "sha256Raw": "7541c07255b505b91789adc81b336a8b3c8ba14c135164a274542e1e78562424",
+    "gitBlob": "609754708fd821c3042b61b7865eb9c873bc81cd"
+  },
+  {
+    "path": "client/app/src/test/java/me/rerere/rikkahub/feature/material/SpreadsheetEditRegionsTest.kt",
+    "bytes": 3763,
+    "sha256Raw": "b13f3df6adae6e8a1e4b5097cb98dd9b21a2ca9ca00291ae40721238434bfb42",
+    "gitBlob": "ee614d56f5bffa3c433f9ade28c176840543fd1a"
+  },
+  {
+    "path": "client/app/src/test/java/me/rerere/rikkahub/feature/math/MathToolEnvelopeTest.kt",
+    "bytes": 2946,
+    "sha256Raw": "1a9a705de19677529fc47356d64ece7474e127e00264ffbf16589b5aef3c882b",
+    "gitBlob": "4c4898a29698a593b1bbbba1ee5afc104f761468"
+  },
+  {
+    "path": "client/app/src/test/java/me/rerere/rikkahub/feature/math/ProofBranchRulesTest.kt",
+    "bytes": 3648,
+    "sha256Raw": "9ea434a3c4e7a3c4c74c262aa6dcfad79b6409c166c1bc59ca132f35ca6bef1f",
+    "gitBlob": "6d9562085cc997b0e1ecf94363fb1614e4cb350d"
+  },
+  {
+    "path": "client/flutter_ui/lib/pages/agent_task_detail_page.dart",
+    "bytes": 15641,
+    "sha256Raw": "d3b323b0a6a04c8e2fa94311134a4a9aa9c3b9f6f62f7b631025505d2d4a22a2",
+    "gitBlob": "786fad9fc9b02485730ed93b683b1aa3fb8bc34d"
+  },
+  {
+    "path": "docs/pro-development-baseline-20261012.md",
+    "bytes": 78775,
+    "sha256Raw": "fa44a34ed914893e84fe6ab7a7494b4c2b4d07f312d90ca010d0509085da941e",
+    "gitBlob": "869e13089c678ce9abdc0e73ccecc78d4f6a09d9"
+  },
+  {
+    "path": "docs/quality-06-09-contract2.md",
+    "bytes": 7840,
+    "sha256Raw": "fff39d51d8f808bbde6920bd6360617e7a3d0b31f213be07b2221c59f913f457",
+    "gitBlob": "833ab8c6bc775869ff76857a6cab809fd053b8dc"
+  },
+  {
+    "path": "docs/r27-final-plan-repair-contract1.md",
+    "bytes": 6769,
+    "sha256Raw": "ed3a90ab32bdb81ede41ba9b58af18369597e7992c622b18d498503a046847f4",
+    "gitBlob": "5f2f71676e6211b64cafd505f83e9da878248e67"
+  },
+  {
+    "path": "docs/r27-quality-06-09-protocol-v1.md",
+    "bytes": 11926,
+    "sha256Raw": "f2fb24802020e76189792d15c2dbd8a978f6a3c4069898f62ebd6c7d92944706",
+    "gitBlob": "ad24d78774c616548919470fefbf3d91c22c2077"
+  },
+  {
+    "path": "docs/r29-planner-narrative-v1.md",
+    "bytes": 1659,
+    "sha256Raw": "53ab6f6db65a4538270795dbb4902c459ef9bcbbce2982d2e59ddba0e4cf360f",
+    "gitBlob": "58f9372a26b5b1b88f3a76878ca99c53c7b2bfc7"
+  },
+  {
+    "path": "docs/r29-response-delivery-office-recovery-v1.md",
+    "bytes": 6639,
+    "sha256Raw": "9fcddba12ac6ba65f252817b8da20538fb6decb473873ecff731db54b7ecc65c",
+    "gitBlob": "9eac93503898c0957d20169bd5f981c3fab70df6"
+  },
+  {
+    "path": "scripts/import_r27_quality_answers.py",
+    "bytes": 4890,
+    "sha256Raw": "90d81eb89d517b29b1df2b210ba4511ec5e3016274ab56c0b2fd30c02fc10a6a",
+    "gitBlob": "9b2bc52bf27755482fd61f77e893005a8fc49bc8"
+  },
+  {
+    "path": "scripts/office_roundtrip_contract.py",
+    "bytes": 15946,
+    "sha256Raw": "7ed9ea89148319a672353e9b76eac33a038b80ffb4e8d106e16f5da244514ffc",
+    "gitBlob": "0ad1e7926322c47a143fdc0a1178c2b76ec899d5"
+  },
+  {
+    "path": "scripts/prepare_r27_live_quality.py",
+    "bytes": 2523,
+    "sha256Raw": "2ae0010db253b4379184d3d04c96154f88690795bf97aa581deb917603feca87",
+    "gitBlob": "237013a5a3514ddfadbc07017b85e7ed8d3c9582"
+  },
+  {
+    "path": "scripts/tests/test_import_r27_quality_answers.py",
+    "bytes": 5868,
+    "sha256Raw": "ca4e1f34657fa95c364790b1c89539a17a6e3b1204caebeab5d35f17fbbffe5d",
+    "gitBlob": "0f886c316f82199b7771e4d4073fa1d68ac6b231"
+  },
+  {
+    "path": "scripts/tests/test_prepare_r27_live_quality.py",
+    "bytes": 1308,
+    "sha256Raw": "af19e781b618ae9960be2660270197aba61a74f4b926a4853f4e356fbd145585",
+    "gitBlob": "e2bdfda975ad3851a1736a7939e548e84ca1f6c9"
+  },
+  {
+    "path": "scripts/tests/test_verify_b_ocr_corpus.py",
+    "bytes": 9763,
+    "sha256Raw": "689b60f68625924754397dd6d2e0042bd0d9eb44732a076ad025dba7b5b4e99f",
+    "gitBlob": "c8a6cdd4b279f54d5e8fc36f648cded1344de103"
+  },
+  {
+    "path": "scripts/tests/test_verify_b_office_roundtrip.py",
+    "bytes": 11902,
+    "sha256Raw": "11ca0a6a0ad8519d00b8bd075559a530b535873c59911750e1e2dfc9e29f689c",
+    "gitBlob": "f2c49755c54e8b1610e67ee75aa9d0dca95a1a21"
+  },
+  {
+    "path": "scripts/verify_agent_process_death.py",
+    "bytes": 6597,
+    "sha256Raw": "9aea181273b6120866e8001cf137f0f71a3da9fed4fc5fd6fd50722149e4a5d9",
+    "gitBlob": "42138128cc564fc9c842af795853fbc87153a5a0"
+  },
+  {
+    "path": "scripts/verify_b_microsoft_office.ps1",
+    "bytes": 11152,
+    "sha256Raw": "487fb16aad0c3667486d50f0e07f31b3227fad391c7596c9abb4f34b53fa415b",
+    "gitBlob": "17f6092dfaa545c69c72c9715f19a474ea4b860d"
+  },
+  {
+    "path": "scripts/verify_b_ocr_corpus.py",
+    "bytes": 20203,
+    "sha256Raw": "82d03543d336f2852d7a5e6060d8aab50a9349cb5e93db7da55a5a7ce38f82ea",
+    "gitBlob": "b650025664d464ac52419450ffe0a12aa9b29230"
+  },
+  {
+    "path": "scripts/verify_b_office_compatibility.py",
+    "bytes": 11472,
+    "sha256Raw": "b784882fcb509e904b421f46d37d902f93860198ec66846eb86e3731cae6afc4",
+    "gitBlob": "e62c87a0c4df4df628c4a9b229e864e2655449fc"
+  },
+  {
+    "path": "scripts/verify_b_windows_ocr.py",
+    "bytes": 11959,
+    "sha256Raw": "f94e48ab851e740a3cee99e943482d3c5bfe8902efc4d1658a9e6877e1ea27af",
+    "gitBlob": "3611553b4d4c28dadd8e67f124003abb395f09b1"
+  },
+  {
+    "path": "scripts/verify_b_wps.ps1",
+    "bytes": 7214,
+    "sha256Raw": "ce7b42f8a6ca45daf51107ea156f2048d1c92704725d415a787719b7052a622c",
+    "gitBlob": "4cdbbea5aa4d0012d3f22674dedfd42911a8b13c"
+  },
+  {
+    "path": "scripts/verify_quality_evidence_process.py",
+    "bytes": 5448,
+    "sha256Raw": "a1b7f4fd2efb75ca25c3bd1284349acbecaca29b87ed4ef8588048312c1dff85",
+    "gitBlob": "5903cc5cd6b0f24df4ebd4c35e490566f4080923"
+  },
+  {
+    "path": "scripts/verify_r27_quality_jvm.py",
+    "bytes": 4889,
+    "sha256Raw": "3917ad70ce5ba06ac07f6a412fdc4492d3bb0f4715d76d901b7b9327370f8bb6",
+    "gitBlob": "a02c59c1ae3a91858fc06eea0f5f56dcfc2130ba"
+  },
+  {
+    "path": "server/agent-runtime/protocol/agent_semantics_v6.json",
+    "bytes": 2168,
+    "sha256Raw": "adf0e0f36334dd8619483aa74e4b2ea1d56516e70921916c095a4d9f832e4e91",
+    "gitBlob": "ea98a19bc5442756af25a27a37c2269d0dcff61d"
+  },
+  {
+    "path": "server/document-service/api/office.py",
+    "bytes": 5871,
+    "sha256Raw": "111841f94b5da59e88a31f5efe5b2061efa59a28ca3fa1cf265b55f811002e16",
+    "gitBlob": "b640318074313add5147e573e66fcdc559ffecf2"
+  },
+  {
+    "path": "server/document-service/api/store.py",
+    "bytes": 15356,
+    "sha256Raw": "5557ceb3ce03d3188d3876111d4d4484bf39302434be8645cb8e6c65866acb40",
+    "gitBlob": "7e87171d12b690472e5d4547f9b5610034961786"
+  },
+  {
+    "path": "server/document-service/tests/test_request_readback.py",
+    "bytes": 2880,
+    "sha256Raw": "9590a132ed0e333afe1ddee3dee3ca37279728d17752b7b68df3979caf1e64b9",
+    "gitBlob": "b1d0a1f7aa790744f373717443686a25baf29bf2"
+  }
+]

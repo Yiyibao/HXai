@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.search.CustomJsSearchServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:32:52.847Z" hostname="DESKTOP-QH4J0RS" time="0.264">
+  <properties/>
+  <testcase name="scraping supports async functions and response text" classname="me.rerere.search.CustomJsSearchServiceTest" time="0.218"/>
+  <testcase name="existing synchronous search and fetch options still work" classname="me.rerere.search.CustomJsSearchServiceTest" time="0.012"/>
+  <testcase name="script errors do not poison subsequent searches" classname="me.rerere.search.CustomJsSearchServiceTest" time="0.01"/>
+  <testcase name="cancellation stops an in flight fetch" classname="me.rerere.search.CustomJsSearchServiceTest" time="0.024"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

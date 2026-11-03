@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.math.ProofDerivationTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:35:40.597Z" hostname="DESKTOP-QH4J0RS" time="0.032">
+  <properties/>
+  <testcase name="invalidProofDoesNotRefuteTheTrueTargetProposition" classname="me.rerere.rikkahub.feature.math.ProofDerivationTest" time="0.003"/>
+  <testcase name="unknownRepeatedPremiseCannotInventFactOrFirstError" classname="me.rerere.rikkahub.feature.math.ProofDerivationTest" time="0.002"/>
+  <testcase name="reviewCannotCallFailedProofCertificateAFalseStudentStatement" classname="me.rerere.rikkahub.feature.math.ProofDerivationTest" time="0.004"/>
+  <testcase name="stepIdentityRemainsUniqueEvenWhenPremiseOccurrencesRepeat" classname="me.rerere.rikkahub.feature.math.ProofDerivationTest" time="0.003"/>
+  <testcase name="sameMeasureTheoremCanReuseSigmaFinitenessButNotOmitIntegrability" classname="me.rerere.rikkahub.feature.math.ProofDerivationTest" time="0.007"/>
+  <testcase name="implicationDischargesTheReusedAssumption" classname="me.rerere.rikkahub.feature.math.ProofDerivationTest" time="0.003"/>
+  <testcase name="repetitionCannotChangeConclusionOrPremiseArity" classname="me.rerere.rikkahub.feature.math.ProofDerivationTest" time="0.004"/>
+  <testcase name="repeatedPremisePreservesItsConditionalDependency" classname="me.rerere.rikkahub.feature.math.ProofDerivationTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

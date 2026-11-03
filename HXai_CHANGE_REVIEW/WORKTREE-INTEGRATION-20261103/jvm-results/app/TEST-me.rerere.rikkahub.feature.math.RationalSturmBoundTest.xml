@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.math.RationalSturmBoundTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:35:40.669Z" hostname="DESKTOP-QH4J0RS" time="0.068">
+  <properties/>
+  <testcase name="positiveAndNegativeDenominatorsAndBothErrorSidesAreExact" classname="me.rerere.rikkahub.feature.math.RationalSturmBoundTest" time="0.016"/>
+  <testcase name="legalHolesOutsideIntervalComplexOnlyDivisorsAndSingletonsRemainUsable" classname="me.rerere.rikkahub.feature.math.RationalSturmBoundTest" time="0.013"/>
+  <testcase name="cancellationAndZeroErrorNeverFillSyntacticHolesOrEndpointPoles" classname="me.rerere.rikkahub.feature.math.RationalSturmBoundTest" time="0.005"/>
+  <testcase name="algebraicAndNonDyadicTangenciesAreProvedButNarrowViolationIsDisproved" classname="me.rerere.rikkahub.feature.math.RationalSturmBoundTest" time="0.011"/>
+  <testcase name="degreeAndIsolationLimitsMalformedFieldsAndCancellationFailClosed" classname="me.rerere.rikkahub.feature.math.RationalSturmBoundTest" time="0.015"/>
+  <testcase name="recomputationRejectsOmittedDomainOppositeSideChangedDenominatorAndInput" classname="me.rerere.rikkahub.feature.math.RationalSturmBoundTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

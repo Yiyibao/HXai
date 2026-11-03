@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.rerere.rikkahub.feature.math.RationalPrimitiveIntegralTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-03T00:35:40.631Z" hostname="DESKTOP-QH4J0RS" time="0.035">
+  <properties/>
+  <testcase name="wrongPrimitiveDoesNotDisproveAnActuallyCorrectIntegralClaim" classname="me.rerere.rikkahub.feature.math.RationalPrimitiveIntegralTest" time="0.008"/>
+  <testcase name="intervalPoleAndIrrationalOrRemovableHolesAreNotFilledByEndpointArithmetic" classname="me.rerere.rikkahub.feature.math.RationalPrimitiveIntegralTest" time="0.006"/>
+  <testcase name="complexOnlyDenominatorAndExternalHoleAreValidAcrossClosedInterval" classname="me.rerere.rikkahub.feature.math.RationalPrimitiveIntegralTest" time="0.005"/>
+  <testcase name="validRationalPrimitiveWithConstantHasExactOrientedEndpointDifference" classname="me.rerere.rikkahub.feature.math.RationalPrimitiveIntegralTest" time="0.006"/>
+  <testcase name="equalEndpointStillRequiresDefinedValidPrimitiveAndStrictFields" classname="me.rerere.rikkahub.feature.math.RationalPrimitiveIntegralTest" time="0.004"/>
+  <testcase name="wrongClaimAndForgedDomainOrEndpointCertificatesFailRecomputation" classname="me.rerere.rikkahub.feature.math.RationalPrimitiveIntegralTest" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
