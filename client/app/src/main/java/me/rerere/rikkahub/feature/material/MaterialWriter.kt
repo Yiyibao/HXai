@@ -22,7 +22,6 @@ object MaterialWriter {
         "pptx" -> "application/vnd.openxmlformats-officedocument.presentationml.presentation"
         "pdf" -> "application/pdf"
         "png" -> "image/png"
-        "svg" -> "image/svg+xml"
         "jpg", "jpeg" -> "image/jpeg"
         "webp" -> "image/webp"
         "txt" -> "text/plain"
@@ -34,17 +33,16 @@ object MaterialWriter {
         require(s.none { it.code < 32 && it !in "\n\r\t" }) { "正文含无效控制字符" }
         return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("\"", "&quot;")
     }
-    suspend fun write(file: File, ext: String, body: String, rows: List<List<String>>, slides: List<String>, options: JsonObject = JsonObject(emptyMap()), images: List<ByteArray> = emptyList(), imageParagraphs: List<Int>? = null): String {
+    suspend fun write(file: File, ext: String, body: String, rows: List<List<String>>, slides: List<String>, options: JsonObject = JsonObject(emptyMap()), images: List<ByteArray> = emptyList()): String {
         require(body.length + rows.sumOf { r -> r.sumOf { it.length } } + slides.sumOf { it.length } <= 60000) { "生成内容过长，请拆分" }
         currentCoroutineContext().ensureActive()
-        require(images.size <= (if (imageParagraphs == null) 5 else 200) && images.sumOf { it.size.toLong() } <= 16L * 1024 * 1024)
-        require(imageParagraphs == null || ext == "docx")
+        require(images.size <= 5 && images.sumOf { it.size.toLong() } <= 16L * 1024 * 1024)
         require(ext == "docx" || (images.isEmpty() && options["equations"] == null)) { "图片与公式结构目前仅支持 Word 输出" }
         require(ext == "xlsx" || options["sheetName"] == null)
         when (ext) {
             "md" -> { require(body.isNotBlank()); file.writeText(body) }
             "pdf" -> pdf(file, body, rows)
-            "docx", "xlsx", "pptx" -> office(file, ext, body, rows, slides, options, images, imageParagraphs)
+            "docx", "xlsx", "pptx" -> office(file, ext, body, rows, slides, options, images)
             else -> error("此文件输出格式尚未实现")
         }
         return when (ext) {
@@ -124,7 +122,20 @@ object MaterialWriter {
         val parsed = com.artifex.mupdf.fitz.PDFDocument.openDocument(file.absolutePath)
         try { check(parsed.countPages() > 0) } finally { parsed.destroy() }
     }
-    private suspend fun office(file: File, ext: String, body: String, rows: List<List<String>>, slides: List<String>, options: JsonObject, images: List<ByteArray>, imageParagraphs: List<Int>?) {
+    /** Shared bounded OMML content for generation and targeted equation replacement. */
+    internal fun equationBody(eq: JsonObject): String {
+        require(eq.values.sumOf { it.jsonPrimitive.content.length } <= 2000)
+        fun value(key: String) = eq[key]?.jsonPrimitive?.content ?: error("公式缺少 $key")
+        fun run(text: String) = "<m:r><m:t>${escape(text)}</m:t></m:r>"
+        return when (value("type")) {
+            "fraction" -> "<m:f><m:num>${run(value("numerator"))}</m:num><m:den>${run(value("denominator"))}</m:den></m:f>"
+            "superscript" -> "<m:sSup><m:e>${run(value("base"))}</m:e><m:sup>${run(value("exponent"))}</m:sup></m:sSup>"
+            "text" -> run(value("text"))
+            else -> error("支持 fraction/superscript/text 公式")
+        }
+    }
+
+    private suspend fun office(file: File, ext: String, body: String, rows: List<List<String>>, slides: List<String>, options: JsonObject, images: List<ByteArray>) {
         val parts = linkedMapOf<String, String>()
         val binary = linkedMapOf<String, ByteArray>()
         val relNs = "http://schemas.openxmlformats.org/package/2006/relationships"
@@ -135,16 +146,9 @@ object MaterialWriter {
         when (ext) {
             "docx" -> {
                 require(body.isNotBlank() || rows.isNotEmpty() || images.isNotEmpty() || options["equations"] != null); main = "word/document.xml"
-                fun paragraph(s: String, keepNext: Boolean = false) =
-                    "<w:p>${if (keepNext) "<w:pPr><w:keepNext/></w:pPr>" else ""}<w:r><w:t xml:space=\"preserve\">${escape(s)}</w:t></w:r></w:p>"
-                val bodyLines = body.lines()
-                if (imageParagraphs != null) {
-                    require(imageParagraphs.size == images.size)
-                    var previous = -1
-                    imageParagraphs.forEach { index -> require(index in bodyLines.indices && index >= previous); previous = index }
-                }
+                fun paragraph(s: String) = "<w:p><w:r><w:t xml:space=\"preserve\">${escape(s)}</w:t></w:r></w:p>"
                 val equations = options["equations"]?.jsonArray.orEmpty().also { require(it.size <= 100) }.joinToString("") { element ->
-                    "<w:p><m:oMath>${MaterialEquationXml.body(element.jsonObject)}</m:oMath></w:p>"
+                    "<w:p><m:oMath>${equationBody(element.jsonObject)}</m:oMath></w:p>"
                 }
                 val pictureXml = images.mapIndexed { i, bytes ->
                     val bounds = android.graphics.BitmapFactory.Options().apply { inJustDecodeBounds = true }
@@ -157,27 +161,14 @@ object MaterialWriter {
                     val width = minOf(5486400L, bounds.outWidth * 9525L); val height = minOf(7315200L, width * bounds.outHeight / bounds.outWidth)
                     val actualWidth = height * bounds.outWidth / bounds.outHeight
                     "<w:p><w:r><w:drawing><wp:inline><wp:extent cx=\"$actualWidth\" cy=\"$height\"/><wp:docPr id=\"${i+1}\" name=\"Image ${i+1}\"/><a:graphic><a:graphicData uri=\"http://schemas.openxmlformats.org/drawingml/2006/picture\"><pic:pic><pic:nvPicPr><pic:cNvPr id=\"${i+1}\" name=\"Image ${i+1}\"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed=\"img${i+1}\"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x=\"0\" y=\"0\"/><a:ext cx=\"$actualWidth\" cy=\"$height\"/></a:xfrm><a:prstGeom prst=\"rect\"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>"
-                }
-                val bodyXml = buildString {
-                    var nextPicture = 0
-                    bodyLines.forEachIndexed { index, line ->
-                        if (imageParagraphs != null && nextPicture < pictureXml.size && imageParagraphs[nextPicture] == index) {
-                            append(paragraph(line, keepNext = true))
-                            do { append(pictureXml[nextPicture++]) }
-                            while (nextPicture < pictureXml.size && imageParagraphs[nextPicture] == index)
-                        } else {
-                            append(paragraph(line))
-                        }
-                    }
-                }
-                val remainingPictures = if (imageParagraphs == null) pictureXml.joinToString("") else ""
+                }.joinToString("")
                 parts["word/_rels/document.xml.rels"] = "<Relationships xmlns=\"$relNs\">" + images.indices.joinToString("") { rel("img${it+1}", "image", "media/image${it+1}.png") } + "</Relationships>"
                 val borders = listOf("top", "left", "bottom", "right", "insideH", "insideV").joinToString("") { "<w:$it w:val=\"single\" w:sz=\"4\"/>" }
                 val columns = rows.maxOfOrNull { it.size } ?: 0
                 require(rows.isEmpty() || (rows.size <= 1000 && columns in 1..20))
                 val cellWidth = if (columns == 0) 0 else 9026 / columns
                 val grid = "<w:tblGrid>" + (0 until columns).joinToString("") { "<w:gridCol w:w=\"$cellWidth\"/>" } + "</w:tblGrid>"
-                parts[main] = "<w:document xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\" xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:r=\"$officeRel\" xmlns:wp=\"http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing\" xmlns:a=\"http://schemas.openxmlformats.org/drawingml/2006/main\" xmlns:pic=\"http://schemas.openxmlformats.org/drawingml/2006/picture\"><w:body>" + bodyXml + equations + remainingPictures +
+                parts[main] = "<w:document xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\" xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:r=\"$officeRel\" xmlns:wp=\"http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing\" xmlns:a=\"http://schemas.openxmlformats.org/drawingml/2006/main\" xmlns:pic=\"http://schemas.openxmlformats.org/drawingml/2006/picture\"><w:body>" + body.lines().joinToString("") { paragraph(it) } + equations + pictureXml +
                     (if (rows.isEmpty()) "" else "<w:tbl><w:tblPr><w:tblW w:w=\"9026\" w:type=\"dxa\"/><w:tblBorders>$borders</w:tblBorders></w:tblPr>$grid" + rows.mapIndexed { index, row -> "<w:tr>${if(index == 0) "<w:trPr><w:tblHeader/></w:trPr>" else ""}" + (0 until columns).joinToString("") { col -> "<w:tc><w:tcPr><w:tcW w:w=\"$cellWidth\" w:type=\"dxa\"/></w:tcPr>${paragraph(row.getOrElse(col) { "" })}</w:tc>" } + "</w:tr>" }.joinToString("") + "</w:tbl>") +
                     "<w:sectPr><w:pgSz w:w=\"11906\" w:h=\"16838\"/><w:pgMar w:top=\"1440\" w:right=\"1440\" w:bottom=\"1440\" w:left=\"1440\"/></w:sectPr></w:body></w:document>"
                 override(main, "wordprocessingml.document.main")

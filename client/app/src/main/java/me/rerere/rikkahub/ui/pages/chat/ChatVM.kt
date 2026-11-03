@@ -323,7 +323,6 @@ class ChatVM(
         viewModelScope.launch {
             val updatedConversation = conversation.value.copy(title = title)
             chatService.saveConversation(_conversationId, updatedConversation)
-            conversationRepo.markManualTitle(updatedConversation)
         }
     }
 

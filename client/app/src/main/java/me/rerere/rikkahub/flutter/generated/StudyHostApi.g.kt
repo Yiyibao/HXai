@@ -1036,396 +1036,6 @@ data class AgentUsageMetricDto (
 }
 
 /** Generated class from Pigeon that represents data sent in messages. */
-data class AgentCatalogTaskDto (
-  val id: String,
-  val owner: String,
-  val conversationId: String,
-  val role: String,
-  val goal: String,
-  val state: String,
-  val providerId: String,
-  val modelId: String,
-  val reasoning: String,
-  val revision: Long,
-  val fence: Long,
-  val goalRevision: Long,
-  val plannedRevision: Long,
-  val manualPaused: Boolean,
-  val inputBlocked: Boolean,
-  val deviceBlocked: Boolean,
-  val deviceConfirmation: Boolean,
-  val approvalBlocked: Boolean,
-  val acceptanceVerified: Boolean,
-  val authorization: String
-)
- {
-  companion object {
-    fun fromList(pigeonVar_list: List<Any?>): AgentCatalogTaskDto {
-      val id = pigeonVar_list[0] as String
-      val owner = pigeonVar_list[1] as String
-      val conversationId = pigeonVar_list[2] as String
-      val role = pigeonVar_list[3] as String
-      val goal = pigeonVar_list[4] as String
-      val state = pigeonVar_list[5] as String
-      val providerId = pigeonVar_list[6] as String
-      val modelId = pigeonVar_list[7] as String
-      val reasoning = pigeonVar_list[8] as String
-      val revision = pigeonVar_list[9] as Long
-      val fence = pigeonVar_list[10] as Long
-      val goalRevision = pigeonVar_list[11] as Long
-      val plannedRevision = pigeonVar_list[12] as Long
-      val manualPaused = pigeonVar_list[13] as Boolean
-      val inputBlocked = pigeonVar_list[14] as Boolean
-      val deviceBlocked = pigeonVar_list[15] as Boolean
-      val deviceConfirmation = pigeonVar_list[16] as Boolean
-      val approvalBlocked = pigeonVar_list[17] as Boolean
-      val acceptanceVerified = pigeonVar_list[18] as Boolean
-      val authorization = pigeonVar_list[19] as String
-      return AgentCatalogTaskDto(id, owner, conversationId, role, goal, state, providerId, modelId, reasoning, revision, fence, goalRevision, plannedRevision, manualPaused, inputBlocked, deviceBlocked, deviceConfirmation, approvalBlocked, acceptanceVerified, authorization)
-    }
-  }
-  fun toList(): List<Any?> {
-    return listOf(
-      id,
-      owner,
-      conversationId,
-      role,
-      goal,
-      state,
-      providerId,
-      modelId,
-      reasoning,
-      revision,
-      fence,
-      goalRevision,
-      plannedRevision,
-      manualPaused,
-      inputBlocked,
-      deviceBlocked,
-      deviceConfirmation,
-      approvalBlocked,
-      acceptanceVerified,
-      authorization,
-    )
-  }
-  override fun equals(other: Any?): Boolean {
-    if (other == null || other.javaClass != javaClass) {
-      return false
-    }
-    if (this === other) {
-      return true
-    }
-    val other = other as AgentCatalogTaskDto
-    return StudyHostApiPigeonUtils.deepEquals(this.id, other.id) && StudyHostApiPigeonUtils.deepEquals(this.owner, other.owner) && StudyHostApiPigeonUtils.deepEquals(this.conversationId, other.conversationId) && StudyHostApiPigeonUtils.deepEquals(this.role, other.role) && StudyHostApiPigeonUtils.deepEquals(this.goal, other.goal) && StudyHostApiPigeonUtils.deepEquals(this.state, other.state) && StudyHostApiPigeonUtils.deepEquals(this.providerId, other.providerId) && StudyHostApiPigeonUtils.deepEquals(this.modelId, other.modelId) && StudyHostApiPigeonUtils.deepEquals(this.reasoning, other.reasoning) && StudyHostApiPigeonUtils.deepEquals(this.revision, other.revision) && StudyHostApiPigeonUtils.deepEquals(this.fence, other.fence) && StudyHostApiPigeonUtils.deepEquals(this.goalRevision, other.goalRevision) && StudyHostApiPigeonUtils.deepEquals(this.plannedRevision, other.plannedRevision) && StudyHostApiPigeonUtils.deepEquals(this.manualPaused, other.manualPaused) && StudyHostApiPigeonUtils.deepEquals(this.inputBlocked, other.inputBlocked) && StudyHostApiPigeonUtils.deepEquals(this.deviceBlocked, other.deviceBlocked) && StudyHostApiPigeonUtils.deepEquals(this.deviceConfirmation, other.deviceConfirmation) && StudyHostApiPigeonUtils.deepEquals(this.approvalBlocked, other.approvalBlocked) && StudyHostApiPigeonUtils.deepEquals(this.acceptanceVerified, other.acceptanceVerified) && StudyHostApiPigeonUtils.deepEquals(this.authorization, other.authorization)
-  }
-
-  override fun hashCode(): Int {
-    var result = javaClass.hashCode()
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.id)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.owner)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.conversationId)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.role)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.goal)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.state)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.providerId)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.modelId)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.reasoning)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.revision)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.fence)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.goalRevision)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.plannedRevision)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.manualPaused)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.inputBlocked)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.deviceBlocked)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.deviceConfirmation)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.approvalBlocked)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.acceptanceVerified)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.authorization)
-    return result
-  }
-  override fun toString(): String {
-    return "AgentCatalogTaskDto(id=$id, owner=$owner, conversationId=$conversationId, role=$role, goal=$goal, state=$state, providerId=$providerId, modelId=$modelId, reasoning=$reasoning, revision=$revision, fence=$fence, goalRevision=$goalRevision, plannedRevision=$plannedRevision, manualPaused=$manualPaused, inputBlocked=$inputBlocked, deviceBlocked=$deviceBlocked, deviceConfirmation=$deviceConfirmation, approvalBlocked=$approvalBlocked, acceptanceVerified=$acceptanceVerified, authorization=$authorization)"
-  }
-}
-
-/** Generated class from Pigeon that represents data sent in messages. */
-data class AgentCatalogPageDto (
-  val owner: String,
-  val kind: String,
-  val tasks: List<AgentCatalogTaskDto>,
-  val nextCursor: String? = null
-)
- {
-  companion object {
-    fun fromList(pigeonVar_list: List<Any?>): AgentCatalogPageDto {
-      val owner = pigeonVar_list[0] as String
-      val kind = pigeonVar_list[1] as String
-      val tasks = pigeonVar_list[2] as List<AgentCatalogTaskDto>
-      val nextCursor = pigeonVar_list[3] as String?
-      return AgentCatalogPageDto(owner, kind, tasks, nextCursor)
-    }
-  }
-  fun toList(): List<Any?> {
-    return listOf(
-      owner,
-      kind,
-      tasks,
-      nextCursor,
-    )
-  }
-  override fun equals(other: Any?): Boolean {
-    if (other == null || other.javaClass != javaClass) {
-      return false
-    }
-    if (this === other) {
-      return true
-    }
-    val other = other as AgentCatalogPageDto
-    return StudyHostApiPigeonUtils.deepEquals(this.owner, other.owner) && StudyHostApiPigeonUtils.deepEquals(this.kind, other.kind) && StudyHostApiPigeonUtils.deepEquals(this.tasks, other.tasks) && StudyHostApiPigeonUtils.deepEquals(this.nextCursor, other.nextCursor)
-  }
-
-  override fun hashCode(): Int {
-    var result = javaClass.hashCode()
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.owner)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.kind)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.tasks)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.nextCursor)
-    return result
-  }
-  override fun toString(): String {
-    return "AgentCatalogPageDto(owner=$owner, kind=$kind, tasks=$tasks, nextCursor=$nextCursor)"
-  }
-}
-
-/** Generated class from Pigeon that represents data sent in messages. */
-data class AgentCatalogStepDto (
-  val id: String,
-  val tool: String,
-  val purpose: String,
-  val state: String,
-  val callId: String? = null
-)
- {
-  companion object {
-    fun fromList(pigeonVar_list: List<Any?>): AgentCatalogStepDto {
-      val id = pigeonVar_list[0] as String
-      val tool = pigeonVar_list[1] as String
-      val purpose = pigeonVar_list[2] as String
-      val state = pigeonVar_list[3] as String
-      val callId = pigeonVar_list[4] as String?
-      return AgentCatalogStepDto(id, tool, purpose, state, callId)
-    }
-  }
-  fun toList(): List<Any?> {
-    return listOf(
-      id,
-      tool,
-      purpose,
-      state,
-      callId,
-    )
-  }
-  override fun equals(other: Any?): Boolean {
-    if (other == null || other.javaClass != javaClass) {
-      return false
-    }
-    if (this === other) {
-      return true
-    }
-    val other = other as AgentCatalogStepDto
-    return StudyHostApiPigeonUtils.deepEquals(this.id, other.id) && StudyHostApiPigeonUtils.deepEquals(this.tool, other.tool) && StudyHostApiPigeonUtils.deepEquals(this.purpose, other.purpose) && StudyHostApiPigeonUtils.deepEquals(this.state, other.state) && StudyHostApiPigeonUtils.deepEquals(this.callId, other.callId)
-  }
-
-  override fun hashCode(): Int {
-    var result = javaClass.hashCode()
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.id)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.tool)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.purpose)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.state)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.callId)
-    return result
-  }
-  override fun toString(): String {
-    return "AgentCatalogStepDto(id=$id, tool=$tool, purpose=$purpose, state=$state, callId=$callId)"
-  }
-}
-
-/** Generated class from Pigeon that represents data sent in messages. */
-data class AgentCatalogCallDto (
-  val id: String,
-  val tool: String,
-  val state: String,
-  val inputHash: String,
-  val resultHash: String? = null,
-  val capability: String? = null,
-  val grantEpoch: Long? = null
-)
- {
-  companion object {
-    fun fromList(pigeonVar_list: List<Any?>): AgentCatalogCallDto {
-      val id = pigeonVar_list[0] as String
-      val tool = pigeonVar_list[1] as String
-      val state = pigeonVar_list[2] as String
-      val inputHash = pigeonVar_list[3] as String
-      val resultHash = pigeonVar_list[4] as String?
-      val capability = pigeonVar_list[5] as String?
-      val grantEpoch = pigeonVar_list[6] as Long?
-      return AgentCatalogCallDto(id, tool, state, inputHash, resultHash, capability, grantEpoch)
-    }
-  }
-  fun toList(): List<Any?> {
-    return listOf(
-      id,
-      tool,
-      state,
-      inputHash,
-      resultHash,
-      capability,
-      grantEpoch,
-    )
-  }
-  override fun equals(other: Any?): Boolean {
-    if (other == null || other.javaClass != javaClass) {
-      return false
-    }
-    if (this === other) {
-      return true
-    }
-    val other = other as AgentCatalogCallDto
-    return StudyHostApiPigeonUtils.deepEquals(this.id, other.id) && StudyHostApiPigeonUtils.deepEquals(this.tool, other.tool) && StudyHostApiPigeonUtils.deepEquals(this.state, other.state) && StudyHostApiPigeonUtils.deepEquals(this.inputHash, other.inputHash) && StudyHostApiPigeonUtils.deepEquals(this.resultHash, other.resultHash) && StudyHostApiPigeonUtils.deepEquals(this.capability, other.capability) && StudyHostApiPigeonUtils.deepEquals(this.grantEpoch, other.grantEpoch)
-  }
-
-  override fun hashCode(): Int {
-    var result = javaClass.hashCode()
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.id)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.tool)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.state)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.inputHash)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.resultHash)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.capability)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.grantEpoch)
-    return result
-  }
-  override fun toString(): String {
-    return "AgentCatalogCallDto(id=$id, tool=$tool, state=$state, inputHash=$inputHash, resultHash=$resultHash, capability=$capability, grantEpoch=$grantEpoch)"
-  }
-}
-
-/** Generated class from Pigeon that represents data sent in messages. */
-data class AgentCatalogArtifactDto (
-  val id: String,
-  val name: String,
-  val sha256: String
-)
- {
-  companion object {
-    fun fromList(pigeonVar_list: List<Any?>): AgentCatalogArtifactDto {
-      val id = pigeonVar_list[0] as String
-      val name = pigeonVar_list[1] as String
-      val sha256 = pigeonVar_list[2] as String
-      return AgentCatalogArtifactDto(id, name, sha256)
-    }
-  }
-  fun toList(): List<Any?> {
-    return listOf(
-      id,
-      name,
-      sha256,
-    )
-  }
-  override fun equals(other: Any?): Boolean {
-    if (other == null || other.javaClass != javaClass) {
-      return false
-    }
-    if (this === other) {
-      return true
-    }
-    val other = other as AgentCatalogArtifactDto
-    return StudyHostApiPigeonUtils.deepEquals(this.id, other.id) && StudyHostApiPigeonUtils.deepEquals(this.name, other.name) && StudyHostApiPigeonUtils.deepEquals(this.sha256, other.sha256)
-  }
-
-  override fun hashCode(): Int {
-    var result = javaClass.hashCode()
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.id)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.name)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.sha256)
-    return result
-  }
-  override fun toString(): String {
-    return "AgentCatalogArtifactDto(id=$id, name=$name, sha256=$sha256)"
-  }
-}
-
-/** Generated class from Pigeon that represents data sent in messages. */
-data class AgentCatalogDetailDto (
-  val task: AgentCatalogTaskDto,
-  val steps: List<AgentCatalogStepDto>,
-  val calls: List<AgentCatalogCallDto>,
-  val artifacts: List<AgentCatalogArtifactDto>,
-  val resultsPartial: Boolean,
-  val conversationAvailable: Boolean,
-  val nextCursor: String? = null,
-  val providerName: String? = null,
-  val modelName: String? = null
-)
- {
-  companion object {
-    fun fromList(pigeonVar_list: List<Any?>): AgentCatalogDetailDto {
-      val task = pigeonVar_list[0] as AgentCatalogTaskDto
-      val steps = pigeonVar_list[1] as List<AgentCatalogStepDto>
-      val calls = pigeonVar_list[2] as List<AgentCatalogCallDto>
-      val artifacts = pigeonVar_list[3] as List<AgentCatalogArtifactDto>
-      val resultsPartial = pigeonVar_list[4] as Boolean
-      val conversationAvailable = pigeonVar_list[5] as Boolean
-      val nextCursor = pigeonVar_list[6] as String?
-      val providerName = pigeonVar_list[7] as String?
-      val modelName = pigeonVar_list[8] as String?
-      return AgentCatalogDetailDto(task, steps, calls, artifacts, resultsPartial, conversationAvailable, nextCursor, providerName, modelName)
-    }
-  }
-  fun toList(): List<Any?> {
-    return listOf(
-      task,
-      steps,
-      calls,
-      artifacts,
-      resultsPartial,
-      conversationAvailable,
-      nextCursor,
-      providerName,
-      modelName,
-    )
-  }
-  override fun equals(other: Any?): Boolean {
-    if (other == null || other.javaClass != javaClass) {
-      return false
-    }
-    if (this === other) {
-      return true
-    }
-    val other = other as AgentCatalogDetailDto
-    return StudyHostApiPigeonUtils.deepEquals(this.task, other.task) && StudyHostApiPigeonUtils.deepEquals(this.steps, other.steps) && StudyHostApiPigeonUtils.deepEquals(this.calls, other.calls) && StudyHostApiPigeonUtils.deepEquals(this.artifacts, other.artifacts) && StudyHostApiPigeonUtils.deepEquals(this.resultsPartial, other.resultsPartial) && StudyHostApiPigeonUtils.deepEquals(this.conversationAvailable, other.conversationAvailable) && StudyHostApiPigeonUtils.deepEquals(this.nextCursor, other.nextCursor) && StudyHostApiPigeonUtils.deepEquals(this.providerName, other.providerName) && StudyHostApiPigeonUtils.deepEquals(this.modelName, other.modelName)
-  }
-
-  override fun hashCode(): Int {
-    var result = javaClass.hashCode()
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.task)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.steps)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.calls)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.artifacts)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.resultsPartial)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.conversationAvailable)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.nextCursor)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.providerName)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.modelName)
-    return result
-  }
-  override fun toString(): String {
-    return "AgentCatalogDetailDto(task=$task, steps=$steps, calls=$calls, artifacts=$artifacts, resultsPartial=$resultsPartial, conversationAvailable=$conversationAvailable, nextCursor=$nextCursor, providerName=$providerName, modelName=$modelName)"
-  }
-}
-
-/** Generated class from Pigeon that represents data sent in messages. */
 data class AgentUsageEntryDto (
   val requestId: String,
   val taskId: String,
@@ -1440,8 +1050,7 @@ data class AgentUsageEntryDto (
   val inputTokens: Long? = null,
   val outputTokens: Long? = null,
   val cachedTokens: Long? = null,
-  val totalTokens: Long? = null,
-  val costJson: String? = null
+  val totalTokens: Long? = null
 )
  {
   companion object {
@@ -1460,8 +1069,7 @@ data class AgentUsageEntryDto (
       val outputTokens = pigeonVar_list[11] as Long?
       val cachedTokens = pigeonVar_list[12] as Long?
       val totalTokens = pigeonVar_list[13] as Long?
-      val costJson = pigeonVar_list[14] as String?
-      return AgentUsageEntryDto(requestId, taskId, conversationId, role, providerId, modelId, reasoning, createdAt, state, provenance, inputTokens, outputTokens, cachedTokens, totalTokens, costJson)
+      return AgentUsageEntryDto(requestId, taskId, conversationId, role, providerId, modelId, reasoning, createdAt, state, provenance, inputTokens, outputTokens, cachedTokens, totalTokens)
     }
   }
   fun toList(): List<Any?> {
@@ -1480,7 +1088,6 @@ data class AgentUsageEntryDto (
       outputTokens,
       cachedTokens,
       totalTokens,
-      costJson,
     )
   }
   override fun equals(other: Any?): Boolean {
@@ -1491,7 +1098,7 @@ data class AgentUsageEntryDto (
       return true
     }
     val other = other as AgentUsageEntryDto
-    return StudyHostApiPigeonUtils.deepEquals(this.requestId, other.requestId) && StudyHostApiPigeonUtils.deepEquals(this.taskId, other.taskId) && StudyHostApiPigeonUtils.deepEquals(this.conversationId, other.conversationId) && StudyHostApiPigeonUtils.deepEquals(this.role, other.role) && StudyHostApiPigeonUtils.deepEquals(this.providerId, other.providerId) && StudyHostApiPigeonUtils.deepEquals(this.modelId, other.modelId) && StudyHostApiPigeonUtils.deepEquals(this.reasoning, other.reasoning) && StudyHostApiPigeonUtils.deepEquals(this.createdAt, other.createdAt) && StudyHostApiPigeonUtils.deepEquals(this.state, other.state) && StudyHostApiPigeonUtils.deepEquals(this.provenance, other.provenance) && StudyHostApiPigeonUtils.deepEquals(this.inputTokens, other.inputTokens) && StudyHostApiPigeonUtils.deepEquals(this.outputTokens, other.outputTokens) && StudyHostApiPigeonUtils.deepEquals(this.cachedTokens, other.cachedTokens) && StudyHostApiPigeonUtils.deepEquals(this.totalTokens, other.totalTokens) && StudyHostApiPigeonUtils.deepEquals(this.costJson, other.costJson)
+    return StudyHostApiPigeonUtils.deepEquals(this.requestId, other.requestId) && StudyHostApiPigeonUtils.deepEquals(this.taskId, other.taskId) && StudyHostApiPigeonUtils.deepEquals(this.conversationId, other.conversationId) && StudyHostApiPigeonUtils.deepEquals(this.role, other.role) && StudyHostApiPigeonUtils.deepEquals(this.providerId, other.providerId) && StudyHostApiPigeonUtils.deepEquals(this.modelId, other.modelId) && StudyHostApiPigeonUtils.deepEquals(this.reasoning, other.reasoning) && StudyHostApiPigeonUtils.deepEquals(this.createdAt, other.createdAt) && StudyHostApiPigeonUtils.deepEquals(this.state, other.state) && StudyHostApiPigeonUtils.deepEquals(this.provenance, other.provenance) && StudyHostApiPigeonUtils.deepEquals(this.inputTokens, other.inputTokens) && StudyHostApiPigeonUtils.deepEquals(this.outputTokens, other.outputTokens) && StudyHostApiPigeonUtils.deepEquals(this.cachedTokens, other.cachedTokens) && StudyHostApiPigeonUtils.deepEquals(this.totalTokens, other.totalTokens)
   }
 
   override fun hashCode(): Int {
@@ -1510,11 +1117,10 @@ data class AgentUsageEntryDto (
     result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.outputTokens)
     result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.cachedTokens)
     result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.totalTokens)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.costJson)
     return result
   }
   override fun toString(): String {
-    return "AgentUsageEntryDto(requestId=$requestId, taskId=$taskId, conversationId=$conversationId, role=$role, providerId=$providerId, modelId=$modelId, reasoning=$reasoning, createdAt=$createdAt, state=$state, provenance=$provenance, inputTokens=$inputTokens, outputTokens=$outputTokens, cachedTokens=$cachedTokens, totalTokens=$totalTokens, costJson=$costJson)"
+    return "AgentUsageEntryDto(requestId=$requestId, taskId=$taskId, conversationId=$conversationId, role=$role, providerId=$providerId, modelId=$modelId, reasoning=$reasoning, createdAt=$createdAt, state=$state, provenance=$provenance, inputTokens=$inputTokens, outputTokens=$outputTokens, cachedTokens=$cachedTokens, totalTokens=$totalTokens)"
   }
 }
 
@@ -1534,8 +1140,7 @@ data class AgentUsagePageDto (
   val cached: AgentUsageMetricDto,
   val total: AgentUsageMetricDto,
   val entries: List<AgentUsageEntryDto>,
-  val nextCursor: String? = null,
-  val costJson: String? = null
+  val nextCursor: String? = null
 )
  {
   companion object {
@@ -1555,8 +1160,7 @@ data class AgentUsagePageDto (
       val total = pigeonVar_list[12] as AgentUsageMetricDto
       val entries = pigeonVar_list[13] as List<AgentUsageEntryDto>
       val nextCursor = pigeonVar_list[14] as String?
-      val costJson = pigeonVar_list[15] as String?
-      return AgentUsagePageDto(owner, taskId, from, until, requestCount, reportedRequests, estimatedRequests, unknownRequests, undatedRequests, input, output, cached, total, entries, nextCursor, costJson)
+      return AgentUsagePageDto(owner, taskId, from, until, requestCount, reportedRequests, estimatedRequests, unknownRequests, undatedRequests, input, output, cached, total, entries, nextCursor)
     }
   }
   fun toList(): List<Any?> {
@@ -1576,7 +1180,6 @@ data class AgentUsagePageDto (
       total,
       entries,
       nextCursor,
-      costJson,
     )
   }
   override fun equals(other: Any?): Boolean {
@@ -1587,7 +1190,7 @@ data class AgentUsagePageDto (
       return true
     }
     val other = other as AgentUsagePageDto
-    return StudyHostApiPigeonUtils.deepEquals(this.owner, other.owner) && StudyHostApiPigeonUtils.deepEquals(this.taskId, other.taskId) && StudyHostApiPigeonUtils.deepEquals(this.from, other.from) && StudyHostApiPigeonUtils.deepEquals(this.until, other.until) && StudyHostApiPigeonUtils.deepEquals(this.requestCount, other.requestCount) && StudyHostApiPigeonUtils.deepEquals(this.reportedRequests, other.reportedRequests) && StudyHostApiPigeonUtils.deepEquals(this.estimatedRequests, other.estimatedRequests) && StudyHostApiPigeonUtils.deepEquals(this.unknownRequests, other.unknownRequests) && StudyHostApiPigeonUtils.deepEquals(this.undatedRequests, other.undatedRequests) && StudyHostApiPigeonUtils.deepEquals(this.input, other.input) && StudyHostApiPigeonUtils.deepEquals(this.output, other.output) && StudyHostApiPigeonUtils.deepEquals(this.cached, other.cached) && StudyHostApiPigeonUtils.deepEquals(this.total, other.total) && StudyHostApiPigeonUtils.deepEquals(this.entries, other.entries) && StudyHostApiPigeonUtils.deepEquals(this.nextCursor, other.nextCursor) && StudyHostApiPigeonUtils.deepEquals(this.costJson, other.costJson)
+    return StudyHostApiPigeonUtils.deepEquals(this.owner, other.owner) && StudyHostApiPigeonUtils.deepEquals(this.taskId, other.taskId) && StudyHostApiPigeonUtils.deepEquals(this.from, other.from) && StudyHostApiPigeonUtils.deepEquals(this.until, other.until) && StudyHostApiPigeonUtils.deepEquals(this.requestCount, other.requestCount) && StudyHostApiPigeonUtils.deepEquals(this.reportedRequests, other.reportedRequests) && StudyHostApiPigeonUtils.deepEquals(this.estimatedRequests, other.estimatedRequests) && StudyHostApiPigeonUtils.deepEquals(this.unknownRequests, other.unknownRequests) && StudyHostApiPigeonUtils.deepEquals(this.undatedRequests, other.undatedRequests) && StudyHostApiPigeonUtils.deepEquals(this.input, other.input) && StudyHostApiPigeonUtils.deepEquals(this.output, other.output) && StudyHostApiPigeonUtils.deepEquals(this.cached, other.cached) && StudyHostApiPigeonUtils.deepEquals(this.total, other.total) && StudyHostApiPigeonUtils.deepEquals(this.entries, other.entries) && StudyHostApiPigeonUtils.deepEquals(this.nextCursor, other.nextCursor)
   }
 
   override fun hashCode(): Int {
@@ -1607,169 +1210,10 @@ data class AgentUsagePageDto (
     result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.total)
     result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.entries)
     result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.nextCursor)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.costJson)
     return result
   }
   override fun toString(): String {
-    return "AgentUsagePageDto(owner=$owner, taskId=$taskId, from=$from, until=$until, requestCount=$requestCount, reportedRequests=$reportedRequests, estimatedRequests=$estimatedRequests, unknownRequests=$unknownRequests, undatedRequests=$undatedRequests, input=$input, output=$output, cached=$cached, total=$total, entries=$entries, nextCursor=$nextCursor, costJson=$costJson)"
-  }
-}
-
-/** Generated class from Pigeon that represents data sent in messages. */
-data class AgentUsageGroupDto (
-  val providerId: String? = null,
-  val modelId: String? = null,
-  val role: String? = null,
-  val requestCount: Long,
-  val reportedRequests: Long,
-  val estimatedRequests: Long,
-  val unknownRequests: Long,
-  val input: AgentUsageMetricDto,
-  val output: AgentUsageMetricDto,
-  val cached: AgentUsageMetricDto,
-  val total: AgentUsageMetricDto,
-  val costJson: String? = null
-)
- {
-  companion object {
-    fun fromList(pigeonVar_list: List<Any?>): AgentUsageGroupDto {
-      val providerId = pigeonVar_list[0] as String?
-      val modelId = pigeonVar_list[1] as String?
-      val role = pigeonVar_list[2] as String?
-      val requestCount = pigeonVar_list[3] as Long
-      val reportedRequests = pigeonVar_list[4] as Long
-      val estimatedRequests = pigeonVar_list[5] as Long
-      val unknownRequests = pigeonVar_list[6] as Long
-      val input = pigeonVar_list[7] as AgentUsageMetricDto
-      val output = pigeonVar_list[8] as AgentUsageMetricDto
-      val cached = pigeonVar_list[9] as AgentUsageMetricDto
-      val total = pigeonVar_list[10] as AgentUsageMetricDto
-      val costJson = pigeonVar_list[11] as String?
-      return AgentUsageGroupDto(providerId, modelId, role, requestCount, reportedRequests, estimatedRequests, unknownRequests, input, output, cached, total, costJson)
-    }
-  }
-  fun toList(): List<Any?> {
-    return listOf(
-      providerId,
-      modelId,
-      role,
-      requestCount,
-      reportedRequests,
-      estimatedRequests,
-      unknownRequests,
-      input,
-      output,
-      cached,
-      total,
-      costJson,
-    )
-  }
-  override fun equals(other: Any?): Boolean {
-    if (other == null || other.javaClass != javaClass) {
-      return false
-    }
-    if (this === other) {
-      return true
-    }
-    val other = other as AgentUsageGroupDto
-    return StudyHostApiPigeonUtils.deepEquals(this.providerId, other.providerId) && StudyHostApiPigeonUtils.deepEquals(this.modelId, other.modelId) && StudyHostApiPigeonUtils.deepEquals(this.role, other.role) && StudyHostApiPigeonUtils.deepEquals(this.requestCount, other.requestCount) && StudyHostApiPigeonUtils.deepEquals(this.reportedRequests, other.reportedRequests) && StudyHostApiPigeonUtils.deepEquals(this.estimatedRequests, other.estimatedRequests) && StudyHostApiPigeonUtils.deepEquals(this.unknownRequests, other.unknownRequests) && StudyHostApiPigeonUtils.deepEquals(this.input, other.input) && StudyHostApiPigeonUtils.deepEquals(this.output, other.output) && StudyHostApiPigeonUtils.deepEquals(this.cached, other.cached) && StudyHostApiPigeonUtils.deepEquals(this.total, other.total) && StudyHostApiPigeonUtils.deepEquals(this.costJson, other.costJson)
-  }
-
-  override fun hashCode(): Int {
-    var result = javaClass.hashCode()
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.providerId)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.modelId)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.role)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.requestCount)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.reportedRequests)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.estimatedRequests)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.unknownRequests)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.input)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.output)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.cached)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.total)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.costJson)
-    return result
-  }
-  override fun toString(): String {
-    return "AgentUsageGroupDto(providerId=$providerId, modelId=$modelId, role=$role, requestCount=$requestCount, reportedRequests=$reportedRequests, estimatedRequests=$estimatedRequests, unknownRequests=$unknownRequests, input=$input, output=$output, cached=$cached, total=$total, costJson=$costJson)"
-  }
-}
-
-/** Generated class from Pigeon that represents data sent in messages. */
-data class AgentUsageGroupsPageDto (
-  val owner: String,
-  val taskId: String? = null,
-  val from: Long? = null,
-  val until: Long? = null,
-  val groupBy: String,
-  val requestCount: Long,
-  val groupCount: Long,
-  val undatedRequests: Long,
-  val groups: List<AgentUsageGroupDto>,
-  val nextCursor: String? = null,
-  val costJson: String? = null
-)
- {
-  companion object {
-    fun fromList(pigeonVar_list: List<Any?>): AgentUsageGroupsPageDto {
-      val owner = pigeonVar_list[0] as String
-      val taskId = pigeonVar_list[1] as String?
-      val from = pigeonVar_list[2] as Long?
-      val until = pigeonVar_list[3] as Long?
-      val groupBy = pigeonVar_list[4] as String
-      val requestCount = pigeonVar_list[5] as Long
-      val groupCount = pigeonVar_list[6] as Long
-      val undatedRequests = pigeonVar_list[7] as Long
-      val groups = pigeonVar_list[8] as List<AgentUsageGroupDto>
-      val nextCursor = pigeonVar_list[9] as String?
-      val costJson = pigeonVar_list[10] as String?
-      return AgentUsageGroupsPageDto(owner, taskId, from, until, groupBy, requestCount, groupCount, undatedRequests, groups, nextCursor, costJson)
-    }
-  }
-  fun toList(): List<Any?> {
-    return listOf(
-      owner,
-      taskId,
-      from,
-      until,
-      groupBy,
-      requestCount,
-      groupCount,
-      undatedRequests,
-      groups,
-      nextCursor,
-      costJson,
-    )
-  }
-  override fun equals(other: Any?): Boolean {
-    if (other == null || other.javaClass != javaClass) {
-      return false
-    }
-    if (this === other) {
-      return true
-    }
-    val other = other as AgentUsageGroupsPageDto
-    return StudyHostApiPigeonUtils.deepEquals(this.owner, other.owner) && StudyHostApiPigeonUtils.deepEquals(this.taskId, other.taskId) && StudyHostApiPigeonUtils.deepEquals(this.from, other.from) && StudyHostApiPigeonUtils.deepEquals(this.until, other.until) && StudyHostApiPigeonUtils.deepEquals(this.groupBy, other.groupBy) && StudyHostApiPigeonUtils.deepEquals(this.requestCount, other.requestCount) && StudyHostApiPigeonUtils.deepEquals(this.groupCount, other.groupCount) && StudyHostApiPigeonUtils.deepEquals(this.undatedRequests, other.undatedRequests) && StudyHostApiPigeonUtils.deepEquals(this.groups, other.groups) && StudyHostApiPigeonUtils.deepEquals(this.nextCursor, other.nextCursor) && StudyHostApiPigeonUtils.deepEquals(this.costJson, other.costJson)
-  }
-
-  override fun hashCode(): Int {
-    var result = javaClass.hashCode()
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.owner)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.taskId)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.from)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.until)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.groupBy)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.requestCount)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.groupCount)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.undatedRequests)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.groups)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.nextCursor)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.costJson)
-    return result
-  }
-  override fun toString(): String {
-    return "AgentUsageGroupsPageDto(owner=$owner, taskId=$taskId, from=$from, until=$until, groupBy=$groupBy, requestCount=$requestCount, groupCount=$groupCount, undatedRequests=$undatedRequests, groups=$groups, nextCursor=$nextCursor, costJson=$costJson)"
+    return "AgentUsagePageDto(owner=$owner, taskId=$taskId, from=$from, until=$until, requestCount=$requestCount, reportedRequests=$reportedRequests, estimatedRequests=$estimatedRequests, unknownRequests=$unknownRequests, undatedRequests=$undatedRequests, input=$input, output=$output, cached=$cached, total=$total, entries=$entries, nextCursor=$nextCursor)"
   }
 }
 
@@ -2275,396 +1719,6 @@ data class SkillDto (
     return "SkillDto(name=$name, description=$description, builtin=$builtin, enabled=$enabled, state=$state, detail=$detail, files=$files, compatibility=$compatibility, license=$license, allowedTools=$allowedTools)"
   }
 }
-
-/** Generated class from Pigeon that represents data sent in messages. */
-data class AgentUsageExportDto (
-  val owner: String,
-  val taskId: String? = null,
-  val from: Long? = null,
-  val until: Long? = null,
-  val groupBy: String,
-  val requestId: String,
-  val artifactId: String,
-  val sha256: String,
-  val size: Long,
-  val sourceSha256: String,
-  val capturedAt: Long,
-  val requestCount: Long,
-  val recordCount: Long,
-  val reused: Boolean
-)
- {
-  companion object {
-    fun fromList(pigeonVar_list: List<Any?>): AgentUsageExportDto {
-      val owner = pigeonVar_list[0] as String
-      val taskId = pigeonVar_list[1] as String?
-      val from = pigeonVar_list[2] as Long?
-      val until = pigeonVar_list[3] as Long?
-      val groupBy = pigeonVar_list[4] as String
-      val requestId = pigeonVar_list[5] as String
-      val artifactId = pigeonVar_list[6] as String
-      val sha256 = pigeonVar_list[7] as String
-      val size = pigeonVar_list[8] as Long
-      val sourceSha256 = pigeonVar_list[9] as String
-      val capturedAt = pigeonVar_list[10] as Long
-      val requestCount = pigeonVar_list[11] as Long
-      val recordCount = pigeonVar_list[12] as Long
-      val reused = pigeonVar_list[13] as Boolean
-      return AgentUsageExportDto(owner, taskId, from, until, groupBy, requestId, artifactId, sha256, size, sourceSha256, capturedAt, requestCount, recordCount, reused)
-    }
-  }
-  fun toList(): List<Any?> {
-    return listOf(
-      owner,
-      taskId,
-      from,
-      until,
-      groupBy,
-      requestId,
-      artifactId,
-      sha256,
-      size,
-      sourceSha256,
-      capturedAt,
-      requestCount,
-      recordCount,
-      reused,
-    )
-  }
-  override fun equals(other: Any?): Boolean {
-    if (other == null || other.javaClass != javaClass) {
-      return false
-    }
-    if (this === other) {
-      return true
-    }
-    val other = other as AgentUsageExportDto
-    return StudyHostApiPigeonUtils.deepEquals(this.owner, other.owner) && StudyHostApiPigeonUtils.deepEquals(this.taskId, other.taskId) && StudyHostApiPigeonUtils.deepEquals(this.from, other.from) && StudyHostApiPigeonUtils.deepEquals(this.until, other.until) && StudyHostApiPigeonUtils.deepEquals(this.groupBy, other.groupBy) && StudyHostApiPigeonUtils.deepEquals(this.requestId, other.requestId) && StudyHostApiPigeonUtils.deepEquals(this.artifactId, other.artifactId) && StudyHostApiPigeonUtils.deepEquals(this.sha256, other.sha256) && StudyHostApiPigeonUtils.deepEquals(this.size, other.size) && StudyHostApiPigeonUtils.deepEquals(this.sourceSha256, other.sourceSha256) && StudyHostApiPigeonUtils.deepEquals(this.capturedAt, other.capturedAt) && StudyHostApiPigeonUtils.deepEquals(this.requestCount, other.requestCount) && StudyHostApiPigeonUtils.deepEquals(this.recordCount, other.recordCount) && StudyHostApiPigeonUtils.deepEquals(this.reused, other.reused)
-  }
-
-  override fun hashCode(): Int {
-    var result = javaClass.hashCode()
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.owner)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.taskId)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.from)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.until)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.groupBy)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.requestId)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.artifactId)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.sha256)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.size)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.sourceSha256)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.capturedAt)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.requestCount)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.recordCount)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.reused)
-    return result
-  }
-  override fun toString(): String {
-    return "AgentUsageExportDto(owner=$owner, taskId=$taskId, from=$from, until=$until, groupBy=$groupBy, requestId=$requestId, artifactId=$artifactId, sha256=$sha256, size=$size, sourceSha256=$sourceSha256, capturedAt=$capturedAt, requestCount=$requestCount, recordCount=$recordCount, reused=$reused)"
-  }
-}
-
-/** Generated class from Pigeon that represents data sent in messages. */
-data class AgentUsageExportIntentDto (
-  val owner: String,
-  val taskId: String? = null,
-  val from: Long? = null,
-  val until: Long? = null,
-  val groupBy: String,
-  val requestId: String,
-  val artifactId: String,
-  val sha256: String,
-  val size: Long,
-  val createdAt: Long
-)
- {
-  companion object {
-    fun fromList(pigeonVar_list: List<Any?>): AgentUsageExportIntentDto {
-      val owner = pigeonVar_list[0] as String
-      val taskId = pigeonVar_list[1] as String?
-      val from = pigeonVar_list[2] as Long?
-      val until = pigeonVar_list[3] as Long?
-      val groupBy = pigeonVar_list[4] as String
-      val requestId = pigeonVar_list[5] as String
-      val artifactId = pigeonVar_list[6] as String
-      val sha256 = pigeonVar_list[7] as String
-      val size = pigeonVar_list[8] as Long
-      val createdAt = pigeonVar_list[9] as Long
-      return AgentUsageExportIntentDto(owner, taskId, from, until, groupBy, requestId, artifactId, sha256, size, createdAt)
-    }
-  }
-  fun toList(): List<Any?> {
-    return listOf(
-      owner,
-      taskId,
-      from,
-      until,
-      groupBy,
-      requestId,
-      artifactId,
-      sha256,
-      size,
-      createdAt,
-    )
-  }
-  override fun equals(other: Any?): Boolean {
-    if (other == null || other.javaClass != javaClass) {
-      return false
-    }
-    if (this === other) {
-      return true
-    }
-    val other = other as AgentUsageExportIntentDto
-    return StudyHostApiPigeonUtils.deepEquals(this.owner, other.owner) && StudyHostApiPigeonUtils.deepEquals(this.taskId, other.taskId) && StudyHostApiPigeonUtils.deepEquals(this.from, other.from) && StudyHostApiPigeonUtils.deepEquals(this.until, other.until) && StudyHostApiPigeonUtils.deepEquals(this.groupBy, other.groupBy) && StudyHostApiPigeonUtils.deepEquals(this.requestId, other.requestId) && StudyHostApiPigeonUtils.deepEquals(this.artifactId, other.artifactId) && StudyHostApiPigeonUtils.deepEquals(this.sha256, other.sha256) && StudyHostApiPigeonUtils.deepEquals(this.size, other.size) && StudyHostApiPigeonUtils.deepEquals(this.createdAt, other.createdAt)
-  }
-
-  override fun hashCode(): Int {
-    var result = javaClass.hashCode()
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.owner)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.taskId)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.from)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.until)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.groupBy)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.requestId)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.artifactId)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.sha256)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.size)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.createdAt)
-    return result
-  }
-  override fun toString(): String {
-    return "AgentUsageExportIntentDto(owner=$owner, taskId=$taskId, from=$from, until=$until, groupBy=$groupBy, requestId=$requestId, artifactId=$artifactId, sha256=$sha256, size=$size, createdAt=$createdAt)"
-  }
-}
-
-/** Generated class from Pigeon that represents data sent in messages. */
-data class AgentUsageExportHistoryPageDto (
-  val owner: String,
-  val entries: List<AgentUsageExportIntentDto>,
-  val nextCursor: String? = null
-)
- {
-  companion object {
-    fun fromList(pigeonVar_list: List<Any?>): AgentUsageExportHistoryPageDto {
-      val owner = pigeonVar_list[0] as String
-      val entries = pigeonVar_list[1] as List<AgentUsageExportIntentDto>
-      val nextCursor = pigeonVar_list[2] as String?
-      return AgentUsageExportHistoryPageDto(owner, entries, nextCursor)
-    }
-  }
-  fun toList(): List<Any?> {
-    return listOf(
-      owner,
-      entries,
-      nextCursor,
-    )
-  }
-  override fun equals(other: Any?): Boolean {
-    if (other == null || other.javaClass != javaClass) {
-      return false
-    }
-    if (this === other) {
-      return true
-    }
-    val other = other as AgentUsageExportHistoryPageDto
-    return StudyHostApiPigeonUtils.deepEquals(this.owner, other.owner) && StudyHostApiPigeonUtils.deepEquals(this.entries, other.entries) && StudyHostApiPigeonUtils.deepEquals(this.nextCursor, other.nextCursor)
-  }
-
-  override fun hashCode(): Int {
-    var result = javaClass.hashCode()
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.owner)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.entries)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.nextCursor)
-    return result
-  }
-  override fun toString(): String {
-    return "AgentUsageExportHistoryPageDto(owner=$owner, entries=$entries, nextCursor=$nextCursor)"
-  }
-}
-
-/** Generated class from Pigeon that represents data sent in messages. */
-data class AgentUsageAlertsDto (
-  val owner: String,
-  val taskId: String? = null,
-  val from: Long? = null,
-  val until: Long? = null,
-  val evaluatedAt: Long,
-  val uncertainRequests: Long,
-  val unreportedCompletedRequests: Long,
-  val denseTaskCount: Long,
-  val denseRequests: Long,
-  val undatedRequests: Long
-)
- {
-  companion object {
-    fun fromList(pigeonVar_list: List<Any?>): AgentUsageAlertsDto {
-      val owner = pigeonVar_list[0] as String
-      val taskId = pigeonVar_list[1] as String?
-      val from = pigeonVar_list[2] as Long?
-      val until = pigeonVar_list[3] as Long?
-      val evaluatedAt = pigeonVar_list[4] as Long
-      val uncertainRequests = pigeonVar_list[5] as Long
-      val unreportedCompletedRequests = pigeonVar_list[6] as Long
-      val denseTaskCount = pigeonVar_list[7] as Long
-      val denseRequests = pigeonVar_list[8] as Long
-      val undatedRequests = pigeonVar_list[9] as Long
-      return AgentUsageAlertsDto(owner, taskId, from, until, evaluatedAt, uncertainRequests, unreportedCompletedRequests, denseTaskCount, denseRequests, undatedRequests)
-    }
-  }
-  fun toList(): List<Any?> {
-    return listOf(
-      owner,
-      taskId,
-      from,
-      until,
-      evaluatedAt,
-      uncertainRequests,
-      unreportedCompletedRequests,
-      denseTaskCount,
-      denseRequests,
-      undatedRequests,
-    )
-  }
-  override fun equals(other: Any?): Boolean {
-    if (other == null || other.javaClass != javaClass) {
-      return false
-    }
-    if (this === other) {
-      return true
-    }
-    val other = other as AgentUsageAlertsDto
-    return StudyHostApiPigeonUtils.deepEquals(this.owner, other.owner) && StudyHostApiPigeonUtils.deepEquals(this.taskId, other.taskId) && StudyHostApiPigeonUtils.deepEquals(this.from, other.from) && StudyHostApiPigeonUtils.deepEquals(this.until, other.until) && StudyHostApiPigeonUtils.deepEquals(this.evaluatedAt, other.evaluatedAt) && StudyHostApiPigeonUtils.deepEquals(this.uncertainRequests, other.uncertainRequests) && StudyHostApiPigeonUtils.deepEquals(this.unreportedCompletedRequests, other.unreportedCompletedRequests) && StudyHostApiPigeonUtils.deepEquals(this.denseTaskCount, other.denseTaskCount) && StudyHostApiPigeonUtils.deepEquals(this.denseRequests, other.denseRequests) && StudyHostApiPigeonUtils.deepEquals(this.undatedRequests, other.undatedRequests)
-  }
-
-  override fun hashCode(): Int {
-    var result = javaClass.hashCode()
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.owner)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.taskId)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.from)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.until)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.evaluatedAt)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.uncertainRequests)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.unreportedCompletedRequests)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.denseTaskCount)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.denseRequests)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.undatedRequests)
-    return result
-  }
-  override fun toString(): String {
-    return "AgentUsageAlertsDto(owner=$owner, taskId=$taskId, from=$from, until=$until, evaluatedAt=$evaluatedAt, uncertainRequests=$uncertainRequests, unreportedCompletedRequests=$unreportedCompletedRequests, denseTaskCount=$denseTaskCount, denseRequests=$denseRequests, undatedRequests=$undatedRequests)"
-  }
-}
-
-/** Generated class from Pigeon that represents data sent in messages. */
-data class TaskResumeReceiptDto (
-  val owner: String,
-  val taskId: String,
-  val conversationId: String,
-  val requestId: String,
-  val expectedRevision: Long,
-  val expectedFence: Long,
-  val canCoordinate: Boolean
-)
- {
-  companion object {
-    fun fromList(pigeonVar_list: List<Any?>): TaskResumeReceiptDto {
-      val owner = pigeonVar_list[0] as String
-      val taskId = pigeonVar_list[1] as String
-      val conversationId = pigeonVar_list[2] as String
-      val requestId = pigeonVar_list[3] as String
-      val expectedRevision = pigeonVar_list[4] as Long
-      val expectedFence = pigeonVar_list[5] as Long
-      val canCoordinate = pigeonVar_list[6] as Boolean
-      return TaskResumeReceiptDto(owner, taskId, conversationId, requestId, expectedRevision, expectedFence, canCoordinate)
-    }
-  }
-  fun toList(): List<Any?> {
-    return listOf(
-      owner,
-      taskId,
-      conversationId,
-      requestId,
-      expectedRevision,
-      expectedFence,
-      canCoordinate,
-    )
-  }
-  override fun equals(other: Any?): Boolean {
-    if (other == null || other.javaClass != javaClass) {
-      return false
-    }
-    if (this === other) {
-      return true
-    }
-    val other = other as TaskResumeReceiptDto
-    return StudyHostApiPigeonUtils.deepEquals(this.owner, other.owner) && StudyHostApiPigeonUtils.deepEquals(this.taskId, other.taskId) && StudyHostApiPigeonUtils.deepEquals(this.conversationId, other.conversationId) && StudyHostApiPigeonUtils.deepEquals(this.requestId, other.requestId) && StudyHostApiPigeonUtils.deepEquals(this.expectedRevision, other.expectedRevision) && StudyHostApiPigeonUtils.deepEquals(this.expectedFence, other.expectedFence) && StudyHostApiPigeonUtils.deepEquals(this.canCoordinate, other.canCoordinate)
-  }
-
-  override fun hashCode(): Int {
-    var result = javaClass.hashCode()
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.owner)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.taskId)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.conversationId)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.requestId)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.expectedRevision)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.expectedFence)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.canCoordinate)
-    return result
-  }
-  override fun toString(): String {
-    return "TaskResumeReceiptDto(owner=$owner, taskId=$taskId, conversationId=$conversationId, requestId=$requestId, expectedRevision=$expectedRevision, expectedFence=$expectedFence, canCoordinate=$canCoordinate)"
-  }
-}
-
-/** Generated class from Pigeon that represents data sent in messages. */
-data class MemoryProtectionDto (
-  val profileId: String,
-  val contextEpoch: Long,
-  val configuredEnabled: Boolean,
-  val recoveryBlocked: Boolean
-)
- {
-  companion object {
-    fun fromList(pigeonVar_list: List<Any?>): MemoryProtectionDto {
-      val profileId = pigeonVar_list[0] as String
-      val contextEpoch = pigeonVar_list[1] as Long
-      val configuredEnabled = pigeonVar_list[2] as Boolean
-      val recoveryBlocked = pigeonVar_list[3] as Boolean
-      return MemoryProtectionDto(profileId, contextEpoch, configuredEnabled, recoveryBlocked)
-    }
-  }
-  fun toList(): List<Any?> {
-    return listOf(
-      profileId,
-      contextEpoch,
-      configuredEnabled,
-      recoveryBlocked,
-    )
-  }
-  override fun equals(other: Any?): Boolean {
-    if (other == null || other.javaClass != javaClass) {
-      return false
-    }
-    if (this === other) {
-      return true
-    }
-    val other = other as MemoryProtectionDto
-    return StudyHostApiPigeonUtils.deepEquals(this.profileId, other.profileId) && StudyHostApiPigeonUtils.deepEquals(this.contextEpoch, other.contextEpoch) && StudyHostApiPigeonUtils.deepEquals(this.configuredEnabled, other.configuredEnabled) && StudyHostApiPigeonUtils.deepEquals(this.recoveryBlocked, other.recoveryBlocked)
-  }
-
-  override fun hashCode(): Int {
-    var result = javaClass.hashCode()
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.profileId)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.contextEpoch)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.configuredEnabled)
-    result = 31 * result + StudyHostApiPigeonUtils.deepHash(this.recoveryBlocked)
-    return result
-  }
-  override fun toString(): String {
-    return "MemoryProtectionDto(profileId=$profileId, contextEpoch=$contextEpoch, configuredEnabled=$configuredEnabled, recoveryBlocked=$recoveryBlocked)"
-  }
-}
 private open class StudyHostApiPigeonCodec : StandardMessageCodec() {
   override fun readValueOfType(type: Byte, buffer: ByteBuffer): Any? {
     return when (type) {
@@ -2735,117 +1789,47 @@ private open class StudyHostApiPigeonCodec : StandardMessageCodec() {
       }
       142.toByte() -> {
         return (readValue(buffer) as? List<Any?>)?.let {
-          AgentCatalogTaskDto.fromList(it)
+          AgentUsageEntryDto.fromList(it)
         }
       }
       143.toByte() -> {
         return (readValue(buffer) as? List<Any?>)?.let {
-          AgentCatalogPageDto.fromList(it)
+          AgentUsagePageDto.fromList(it)
         }
       }
       144.toByte() -> {
         return (readValue(buffer) as? List<Any?>)?.let {
-          AgentCatalogStepDto.fromList(it)
+          ConversationDetailDto.fromList(it)
         }
       }
       145.toByte() -> {
         return (readValue(buffer) as? List<Any?>)?.let {
-          AgentCatalogCallDto.fromList(it)
+          SendMessageRequest.fromList(it)
         }
       }
       146.toByte() -> {
         return (readValue(buffer) as? List<Any?>)?.let {
-          AgentCatalogArtifactDto.fromList(it)
+          MaterialFileDto.fromList(it)
         }
       }
       147.toByte() -> {
         return (readValue(buffer) as? List<Any?>)?.let {
-          AgentCatalogDetailDto.fromList(it)
+          MemoryItemDto.fromList(it)
         }
       }
       148.toByte() -> {
         return (readValue(buffer) as? List<Any?>)?.let {
-          AgentUsageEntryDto.fromList(it)
+          ArtifactDto.fromList(it)
         }
       }
       149.toByte() -> {
         return (readValue(buffer) as? List<Any?>)?.let {
-          AgentUsagePageDto.fromList(it)
+          DiagnosticsDto.fromList(it)
         }
       }
       150.toByte() -> {
         return (readValue(buffer) as? List<Any?>)?.let {
-          AgentUsageGroupDto.fromList(it)
-        }
-      }
-      151.toByte() -> {
-        return (readValue(buffer) as? List<Any?>)?.let {
-          AgentUsageGroupsPageDto.fromList(it)
-        }
-      }
-      152.toByte() -> {
-        return (readValue(buffer) as? List<Any?>)?.let {
-          ConversationDetailDto.fromList(it)
-        }
-      }
-      153.toByte() -> {
-        return (readValue(buffer) as? List<Any?>)?.let {
-          SendMessageRequest.fromList(it)
-        }
-      }
-      154.toByte() -> {
-        return (readValue(buffer) as? List<Any?>)?.let {
-          MaterialFileDto.fromList(it)
-        }
-      }
-      155.toByte() -> {
-        return (readValue(buffer) as? List<Any?>)?.let {
-          MemoryItemDto.fromList(it)
-        }
-      }
-      156.toByte() -> {
-        return (readValue(buffer) as? List<Any?>)?.let {
-          ArtifactDto.fromList(it)
-        }
-      }
-      157.toByte() -> {
-        return (readValue(buffer) as? List<Any?>)?.let {
-          DiagnosticsDto.fromList(it)
-        }
-      }
-      158.toByte() -> {
-        return (readValue(buffer) as? List<Any?>)?.let {
           SkillDto.fromList(it)
-        }
-      }
-      159.toByte() -> {
-        return (readValue(buffer) as? List<Any?>)?.let {
-          AgentUsageExportDto.fromList(it)
-        }
-      }
-      160.toByte() -> {
-        return (readValue(buffer) as? List<Any?>)?.let {
-          AgentUsageExportIntentDto.fromList(it)
-        }
-      }
-      161.toByte() -> {
-        return (readValue(buffer) as? List<Any?>)?.let {
-          AgentUsageExportHistoryPageDto.fromList(it)
-        }
-      }
-      162.toByte() -> {
-        return (readValue(buffer) as? List<Any?>)?.let {
-          AgentUsageAlertsDto.fromList(it)
-        }
-      }
-      163.toByte() -> {
-        return (readValue(buffer) as? List<Any?>)?.let {
-          TaskResumeReceiptDto.fromList(it)
-        }
-      }
-      164.toByte() -> {
-        return (readValue(buffer) as? List<Any?>)?.let {
-          MemoryProtectionDto.fromList(it)
         }
       }
       else -> super.readValueOfType(type, buffer)
@@ -2905,96 +1889,40 @@ private open class StudyHostApiPigeonCodec : StandardMessageCodec() {
         stream.write(141)
         writeValue(stream, value.toList())
       }
-      is AgentCatalogTaskDto -> {
+      is AgentUsageEntryDto -> {
         stream.write(142)
         writeValue(stream, value.toList())
       }
-      is AgentCatalogPageDto -> {
+      is AgentUsagePageDto -> {
         stream.write(143)
         writeValue(stream, value.toList())
       }
-      is AgentCatalogStepDto -> {
+      is ConversationDetailDto -> {
         stream.write(144)
         writeValue(stream, value.toList())
       }
-      is AgentCatalogCallDto -> {
+      is SendMessageRequest -> {
         stream.write(145)
         writeValue(stream, value.toList())
       }
-      is AgentCatalogArtifactDto -> {
+      is MaterialFileDto -> {
         stream.write(146)
         writeValue(stream, value.toList())
       }
-      is AgentCatalogDetailDto -> {
+      is MemoryItemDto -> {
         stream.write(147)
         writeValue(stream, value.toList())
       }
-      is AgentUsageEntryDto -> {
+      is ArtifactDto -> {
         stream.write(148)
         writeValue(stream, value.toList())
       }
-      is AgentUsagePageDto -> {
+      is DiagnosticsDto -> {
         stream.write(149)
         writeValue(stream, value.toList())
       }
-      is AgentUsageGroupDto -> {
-        stream.write(150)
-        writeValue(stream, value.toList())
-      }
-      is AgentUsageGroupsPageDto -> {
-        stream.write(151)
-        writeValue(stream, value.toList())
-      }
-      is ConversationDetailDto -> {
-        stream.write(152)
-        writeValue(stream, value.toList())
-      }
-      is SendMessageRequest -> {
-        stream.write(153)
-        writeValue(stream, value.toList())
-      }
-      is MaterialFileDto -> {
-        stream.write(154)
-        writeValue(stream, value.toList())
-      }
-      is MemoryItemDto -> {
-        stream.write(155)
-        writeValue(stream, value.toList())
-      }
-      is ArtifactDto -> {
-        stream.write(156)
-        writeValue(stream, value.toList())
-      }
-      is DiagnosticsDto -> {
-        stream.write(157)
-        writeValue(stream, value.toList())
-      }
       is SkillDto -> {
-        stream.write(158)
-        writeValue(stream, value.toList())
-      }
-      is AgentUsageExportDto -> {
-        stream.write(159)
-        writeValue(stream, value.toList())
-      }
-      is AgentUsageExportIntentDto -> {
-        stream.write(160)
-        writeValue(stream, value.toList())
-      }
-      is AgentUsageExportHistoryPageDto -> {
-        stream.write(161)
-        writeValue(stream, value.toList())
-      }
-      is AgentUsageAlertsDto -> {
-        stream.write(162)
-        writeValue(stream, value.toList())
-      }
-      is TaskResumeReceiptDto -> {
-        stream.write(163)
-        writeValue(stream, value.toList())
-      }
-      is MemoryProtectionDto -> {
-        stream.write(164)
+        stream.write(150)
         writeValue(stream, value.toList())
       }
       else -> super.writeValue(stream, value)
@@ -3024,16 +1952,8 @@ interface StudyHostApi {
   suspend fun getConversations(profileId: String, limit: Long, offset: Long, archived: Boolean): List<ConversationSummaryDto>
   suspend fun getConversationDetails(profileId: String, conversationId: String): ConversationDetailDto
   suspend fun getConversationTask(profileId: String, conversationId: String, expectedEpoch: Long): AgentTaskDto?
-  suspend fun getAgentTaskCatalog(profileId: String, kind: String, cursor: String?, limit: Long, expectedEpoch: Long): AgentCatalogPageDto
-  suspend fun getAgentTaskDetail(profileId: String, taskId: String, cursor: String?, limit: Long, expectedEpoch: Long): AgentCatalogDetailDto
   suspend fun getAgentUsage(profileId: String, taskId: String?, from: Long?, until: Long?, cursor: String?, limit: Long, expectedEpoch: Long): AgentUsagePageDto
-  suspend fun getAgentUsageGroups(profileId: String, taskId: String?, from: Long?, until: Long?, groupBy: String, cursor: String?, limit: Long, expectedEpoch: Long): AgentUsageGroupsPageDto
-  suspend fun exportAgentUsage(profileId: String, taskId: String?, from: Long?, until: Long?, groupBy: String, requestId: String, expectedEpoch: Long): AgentUsageExportDto
-  suspend fun getAgentUsageLastExport(profileId: String, taskId: String?, from: Long?, until: Long?, groupBy: String, expectedEpoch: Long): AgentUsageExportIntentDto?
-  suspend fun getAgentUsageExportHistory(profileId: String, cursor: String?, limit: Long, expectedEpoch: Long): AgentUsageExportHistoryPageDto
-  suspend fun verifyAgentUsageExport(profileId: String, taskId: String?, from: Long?, until: Long?, groupBy: String, requestId: String, expectedSha256: String, expectedEpoch: Long): AgentUsageExportDto
   suspend fun taskCommand(profileId: String, conversationId: String, taskId: String, requestId: String, expectedEpoch: Long, expectedRevision: Long, expectedFence: Long, action: String, payload: String): SimpleCommandResult
-  suspend fun taskSafetyCommand(profileId: String, taskId: String, requestId: String, expectedEpoch: Long, expectedRevision: Long, expectedFence: Long, action: String): SimpleCommandResult
   suspend fun updateTaskCredential(profileId: String, conversationId: String, taskId: String, requestId: String, expectedEpoch: Long, expectedRevision: Long, expectedFence: Long, apiKey: String): SimpleCommandResult
   suspend fun continueTaskCredential(profileId: String, conversationId: String, taskId: String, requestId: String, expectedEpoch: Long): SimpleCommandResult
   suspend fun sendMessage(request: SendMessageRequest): SimpleCommandResult
@@ -3053,7 +1973,7 @@ interface StudyHostApi {
   suspend fun getMemories(profileId: String, filter: String): List<MemoryItemDto>
   suspend fun updateMemory(profileId: String, memoryId: String, newContent: String, expectedRevision: Long, requestId: String): SimpleCommandResult
   suspend fun deleteMemory(profileId: String, memoryId: String, requestId: String): SimpleCommandResult
-  suspend fun toggleAutoMemory(profileId: String, enabled: Boolean, expectedEpoch: Long): SimpleCommandResult
+  suspend fun toggleAutoMemory(profileId: String, enabled: Boolean): SimpleCommandResult
   suspend fun getArtifacts(profileId: String): List<ArtifactDto>
   suspend fun getArtifactPreview(profileId: String, artifactId: String, expectedEpoch: Long): ArtifactDto
   suspend fun openArtifact(profileId: String, artifactId: String): SimpleCommandResult
@@ -3064,10 +1984,7 @@ interface StudyHostApi {
   suspend fun testProvider(providerId: String): SimpleCommandResult
   suspend fun selectActiveModel(providerId: String, modelId: String): SimpleCommandResult
   suspend fun getDiagnostics(): DiagnosticsDto
-  suspend fun getAgentUsageAlerts(profileId: String, taskId: String?, from: Long?, until: Long?, expectedEpoch: Long): AgentUsageAlertsDto
   suspend fun exportDiagnostics(): SimpleCommandResult
-  suspend fun getTaskResumeReceipt(profileId: String, taskId: String, requestId: String?, expectedEpoch: Long): TaskResumeReceiptDto?
-  suspend fun getMemoryProtection(profileId: String, expectedEpoch: Long): MemoryProtectionDto
 
   companion object {
     /** The codec used by StudyHostApi. */
@@ -3489,52 +2406,6 @@ interface StudyHostApi {
         }
       }
       run {
-        val channel = BasicMessageChannel<Any?>(binaryMessenger, "dev.flutter.pigeon.flutter_ui.StudyHostApi.getAgentTaskCatalog$separatedMessageChannelSuffix", codec)
-        if (api != null) {
-          channel.setMessageHandler { message, reply ->
-            val args = message as List<Any?>
-            val profileIdArg = args[0] as String
-            val kindArg = args[1] as String
-            val cursorArg = args[2] as String?
-            val limitArg = args[3] as Long
-            val expectedEpochArg = args[4] as Long
-            CoroutineScope(Dispatchers.Main).launch {
-              val wrapped: List<Any?> = try {
-                listOf(api.getAgentTaskCatalog(profileIdArg, kindArg, cursorArg, limitArg, expectedEpochArg))
-              } catch (exception: Throwable) {
-                StudyHostApiPigeonUtils.wrapError(exception)
-              }
-              reply.reply(wrapped)
-            }
-          }
-        } else {
-          channel.setMessageHandler(null)
-        }
-      }
-      run {
-        val channel = BasicMessageChannel<Any?>(binaryMessenger, "dev.flutter.pigeon.flutter_ui.StudyHostApi.getAgentTaskDetail$separatedMessageChannelSuffix", codec)
-        if (api != null) {
-          channel.setMessageHandler { message, reply ->
-            val args = message as List<Any?>
-            val profileIdArg = args[0] as String
-            val taskIdArg = args[1] as String
-            val cursorArg = args[2] as String?
-            val limitArg = args[3] as Long
-            val expectedEpochArg = args[4] as Long
-            CoroutineScope(Dispatchers.Main).launch {
-              val wrapped: List<Any?> = try {
-                listOf(api.getAgentTaskDetail(profileIdArg, taskIdArg, cursorArg, limitArg, expectedEpochArg))
-              } catch (exception: Throwable) {
-                StudyHostApiPigeonUtils.wrapError(exception)
-              }
-              reply.reply(wrapped)
-            }
-          }
-        } else {
-          channel.setMessageHandler(null)
-        }
-      }
-      run {
         val channel = BasicMessageChannel<Any?>(binaryMessenger, "dev.flutter.pigeon.flutter_ui.StudyHostApi.getAgentUsage$separatedMessageChannelSuffix", codec)
         if (api != null) {
           channel.setMessageHandler { message, reply ->
@@ -3549,129 +2420,6 @@ interface StudyHostApi {
             CoroutineScope(Dispatchers.Main).launch {
               val wrapped: List<Any?> = try {
                 listOf(api.getAgentUsage(profileIdArg, taskIdArg, fromArg, untilArg, cursorArg, limitArg, expectedEpochArg))
-              } catch (exception: Throwable) {
-                StudyHostApiPigeonUtils.wrapError(exception)
-              }
-              reply.reply(wrapped)
-            }
-          }
-        } else {
-          channel.setMessageHandler(null)
-        }
-      }
-      run {
-        val channel = BasicMessageChannel<Any?>(binaryMessenger, "dev.flutter.pigeon.flutter_ui.StudyHostApi.getAgentUsageGroups$separatedMessageChannelSuffix", codec)
-        if (api != null) {
-          channel.setMessageHandler { message, reply ->
-            val args = message as List<Any?>
-            val profileIdArg = args[0] as String
-            val taskIdArg = args[1] as String?
-            val fromArg = args[2] as Long?
-            val untilArg = args[3] as Long?
-            val groupByArg = args[4] as String
-            val cursorArg = args[5] as String?
-            val limitArg = args[6] as Long
-            val expectedEpochArg = args[7] as Long
-            CoroutineScope(Dispatchers.Main).launch {
-              val wrapped: List<Any?> = try {
-                listOf(api.getAgentUsageGroups(profileIdArg, taskIdArg, fromArg, untilArg, groupByArg, cursorArg, limitArg, expectedEpochArg))
-              } catch (exception: Throwable) {
-                StudyHostApiPigeonUtils.wrapError(exception)
-              }
-              reply.reply(wrapped)
-            }
-          }
-        } else {
-          channel.setMessageHandler(null)
-        }
-      }
-      run {
-        val channel = BasicMessageChannel<Any?>(binaryMessenger, "dev.flutter.pigeon.flutter_ui.StudyHostApi.exportAgentUsage$separatedMessageChannelSuffix", codec)
-        if (api != null) {
-          channel.setMessageHandler { message, reply ->
-            val args = message as List<Any?>
-            val profileIdArg = args[0] as String
-            val taskIdArg = args[1] as String?
-            val fromArg = args[2] as Long?
-            val untilArg = args[3] as Long?
-            val groupByArg = args[4] as String
-            val requestIdArg = args[5] as String
-            val expectedEpochArg = args[6] as Long
-            CoroutineScope(Dispatchers.Main).launch {
-              val wrapped: List<Any?> = try {
-                listOf(api.exportAgentUsage(profileIdArg, taskIdArg, fromArg, untilArg, groupByArg, requestIdArg, expectedEpochArg))
-              } catch (exception: Throwable) {
-                StudyHostApiPigeonUtils.wrapError(exception)
-              }
-              reply.reply(wrapped)
-            }
-          }
-        } else {
-          channel.setMessageHandler(null)
-        }
-      }
-      run {
-        val channel = BasicMessageChannel<Any?>(binaryMessenger, "dev.flutter.pigeon.flutter_ui.StudyHostApi.getAgentUsageLastExport$separatedMessageChannelSuffix", codec)
-        if (api != null) {
-          channel.setMessageHandler { message, reply ->
-            val args = message as List<Any?>
-            val profileIdArg = args[0] as String
-            val taskIdArg = args[1] as String?
-            val fromArg = args[2] as Long?
-            val untilArg = args[3] as Long?
-            val groupByArg = args[4] as String
-            val expectedEpochArg = args[5] as Long
-            CoroutineScope(Dispatchers.Main).launch {
-              val wrapped: List<Any?> = try {
-                listOf(api.getAgentUsageLastExport(profileIdArg, taskIdArg, fromArg, untilArg, groupByArg, expectedEpochArg))
-              } catch (exception: Throwable) {
-                StudyHostApiPigeonUtils.wrapError(exception)
-              }
-              reply.reply(wrapped)
-            }
-          }
-        } else {
-          channel.setMessageHandler(null)
-        }
-      }
-      run {
-        val channel = BasicMessageChannel<Any?>(binaryMessenger, "dev.flutter.pigeon.flutter_ui.StudyHostApi.getAgentUsageExportHistory$separatedMessageChannelSuffix", codec)
-        if (api != null) {
-          channel.setMessageHandler { message, reply ->
-            val args = message as List<Any?>
-            val profileIdArg = args[0] as String
-            val cursorArg = args[1] as String?
-            val limitArg = args[2] as Long
-            val expectedEpochArg = args[3] as Long
-            CoroutineScope(Dispatchers.Main).launch {
-              val wrapped: List<Any?> = try {
-                listOf(api.getAgentUsageExportHistory(profileIdArg, cursorArg, limitArg, expectedEpochArg))
-              } catch (exception: Throwable) {
-                StudyHostApiPigeonUtils.wrapError(exception)
-              }
-              reply.reply(wrapped)
-            }
-          }
-        } else {
-          channel.setMessageHandler(null)
-        }
-      }
-      run {
-        val channel = BasicMessageChannel<Any?>(binaryMessenger, "dev.flutter.pigeon.flutter_ui.StudyHostApi.verifyAgentUsageExport$separatedMessageChannelSuffix", codec)
-        if (api != null) {
-          channel.setMessageHandler { message, reply ->
-            val args = message as List<Any?>
-            val profileIdArg = args[0] as String
-            val taskIdArg = args[1] as String?
-            val fromArg = args[2] as Long?
-            val untilArg = args[3] as Long?
-            val groupByArg = args[4] as String
-            val requestIdArg = args[5] as String
-            val expectedSha256Arg = args[6] as String
-            val expectedEpochArg = args[7] as Long
-            CoroutineScope(Dispatchers.Main).launch {
-              val wrapped: List<Any?> = try {
-                listOf(api.verifyAgentUsageExport(profileIdArg, taskIdArg, fromArg, untilArg, groupByArg, requestIdArg, expectedSha256Arg, expectedEpochArg))
               } catch (exception: Throwable) {
                 StudyHostApiPigeonUtils.wrapError(exception)
               }
@@ -3699,31 +2447,6 @@ interface StudyHostApi {
             CoroutineScope(Dispatchers.Main).launch {
               val wrapped: List<Any?> = try {
                 listOf(api.taskCommand(profileIdArg, conversationIdArg, taskIdArg, requestIdArg, expectedEpochArg, expectedRevisionArg, expectedFenceArg, actionArg, payloadArg))
-              } catch (exception: Throwable) {
-                StudyHostApiPigeonUtils.wrapError(exception)
-              }
-              reply.reply(wrapped)
-            }
-          }
-        } else {
-          channel.setMessageHandler(null)
-        }
-      }
-      run {
-        val channel = BasicMessageChannel<Any?>(binaryMessenger, "dev.flutter.pigeon.flutter_ui.StudyHostApi.taskSafetyCommand$separatedMessageChannelSuffix", codec)
-        if (api != null) {
-          channel.setMessageHandler { message, reply ->
-            val args = message as List<Any?>
-            val profileIdArg = args[0] as String
-            val taskIdArg = args[1] as String
-            val requestIdArg = args[2] as String
-            val expectedEpochArg = args[3] as Long
-            val expectedRevisionArg = args[4] as Long
-            val expectedFenceArg = args[5] as Long
-            val actionArg = args[6] as String
-            CoroutineScope(Dispatchers.Main).launch {
-              val wrapped: List<Any?> = try {
-                listOf(api.taskSafetyCommand(profileIdArg, taskIdArg, requestIdArg, expectedEpochArg, expectedRevisionArg, expectedFenceArg, actionArg))
               } catch (exception: Throwable) {
                 StudyHostApiPigeonUtils.wrapError(exception)
               }
@@ -4152,10 +2875,9 @@ interface StudyHostApi {
             val args = message as List<Any?>
             val profileIdArg = args[0] as String
             val enabledArg = args[1] as Boolean
-            val expectedEpochArg = args[2] as Long
             CoroutineScope(Dispatchers.Main).launch {
               val wrapped: List<Any?> = try {
-                listOf(api.toggleAutoMemory(profileIdArg, enabledArg, expectedEpochArg))
+                listOf(api.toggleAutoMemory(profileIdArg, enabledArg))
               } catch (exception: Throwable) {
                 StudyHostApiPigeonUtils.wrapError(exception)
               }
@@ -4359,77 +3081,12 @@ interface StudyHostApi {
         }
       }
       run {
-        val channel = BasicMessageChannel<Any?>(binaryMessenger, "dev.flutter.pigeon.flutter_ui.StudyHostApi.getAgentUsageAlerts$separatedMessageChannelSuffix", codec)
-        if (api != null) {
-          channel.setMessageHandler { message, reply ->
-            val args = message as List<Any?>
-            val profileIdArg = args[0] as String
-            val taskIdArg = args[1] as String?
-            val fromArg = args[2] as Long?
-            val untilArg = args[3] as Long?
-            val expectedEpochArg = args[4] as Long
-            CoroutineScope(Dispatchers.Main).launch {
-              val wrapped: List<Any?> = try {
-                listOf(api.getAgentUsageAlerts(profileIdArg, taskIdArg, fromArg, untilArg, expectedEpochArg))
-              } catch (exception: Throwable) {
-                StudyHostApiPigeonUtils.wrapError(exception)
-              }
-              reply.reply(wrapped)
-            }
-          }
-        } else {
-          channel.setMessageHandler(null)
-        }
-      }
-      run {
         val channel = BasicMessageChannel<Any?>(binaryMessenger, "dev.flutter.pigeon.flutter_ui.StudyHostApi.exportDiagnostics$separatedMessageChannelSuffix", codec)
         if (api != null) {
           channel.setMessageHandler { _, reply ->
             CoroutineScope(Dispatchers.Main).launch {
               val wrapped: List<Any?> = try {
                 listOf(api.exportDiagnostics())
-              } catch (exception: Throwable) {
-                StudyHostApiPigeonUtils.wrapError(exception)
-              }
-              reply.reply(wrapped)
-            }
-          }
-        } else {
-          channel.setMessageHandler(null)
-        }
-      }
-      run {
-        val channel = BasicMessageChannel<Any?>(binaryMessenger, "dev.flutter.pigeon.flutter_ui.StudyHostApi.getTaskResumeReceipt$separatedMessageChannelSuffix", codec)
-        if (api != null) {
-          channel.setMessageHandler { message, reply ->
-            val args = message as List<Any?>
-            val profileIdArg = args[0] as String
-            val taskIdArg = args[1] as String
-            val requestIdArg = args[2] as String?
-            val expectedEpochArg = args[3] as Long
-            CoroutineScope(Dispatchers.Main).launch {
-              val wrapped: List<Any?> = try {
-                listOf(api.getTaskResumeReceipt(profileIdArg, taskIdArg, requestIdArg, expectedEpochArg))
-              } catch (exception: Throwable) {
-                StudyHostApiPigeonUtils.wrapError(exception)
-              }
-              reply.reply(wrapped)
-            }
-          }
-        } else {
-          channel.setMessageHandler(null)
-        }
-      }
-      run {
-        val channel = BasicMessageChannel<Any?>(binaryMessenger, "dev.flutter.pigeon.flutter_ui.StudyHostApi.getMemoryProtection$separatedMessageChannelSuffix", codec)
-        if (api != null) {
-          channel.setMessageHandler { message, reply ->
-            val args = message as List<Any?>
-            val profileIdArg = args[0] as String
-            val expectedEpochArg = args[1] as Long
-            CoroutineScope(Dispatchers.Main).launch {
-              val wrapped: List<Any?> = try {
-                listOf(api.getMemoryProtection(profileIdArg, expectedEpochArg))
               } catch (exception: Throwable) {
                 StudyHostApiPigeonUtils.wrapError(exception)
               }

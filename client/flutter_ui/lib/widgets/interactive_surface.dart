@@ -8,7 +8,6 @@ import '../theme/study_theme.dart';
 import '../bridge/study_host_api.g.dart';
 import 'enhanced_image_view.dart';
 import 'math_plot.dart';
-import 'math_space_plot.dart';
 import 'math_markdown.dart';
 import 'surface_semantics.dart';
 import 'surface_layout.dart';
@@ -83,7 +82,6 @@ class SurfaceDefinition {
         if (json['version'] >= 4) ...SurfaceData.imageFields,
       ],
       'math_plot': MathPlot.fields.toList(),
-      'math_plot_3d': MathSpacePlot.fields.toList(),
       'table': [
         'columns',
         'rows',
@@ -253,13 +251,9 @@ class SurfaceDefinition {
       }
     }
     for (final c in components) {
-      if (c['type'] == 'math_plot' || c['type'] == 'math_plot_3d') {
+      if (c['type'] == 'math_plot') {
         if (json['version'] < 3) throw const FormatException('数学图像需要版本 3');
-        if (c['type'] == 'math_plot_3d') {
-          MathSpacePlot.validate(c, parameters);
-        } else {
-          MathPlot.validate(c, parameters);
-        }
+        MathPlot.validate(c, parameters);
       }
       if (c.containsKey('filter') || c.containsKey('filterColumn')) {
         if (!components.any(
@@ -1003,7 +997,7 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
         c['parameter'] == id) {
       return true;
     }
-    if (c['type'] == 'math_plot' || c['type'] == 'math_plot_3d') {
+    if (c['type'] == 'math_plot') {
       return widget.definition.components.any(
         (p) => p['id'] == id && p['type'] == 'slider',
       );
@@ -1039,12 +1033,6 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
                     .toDouble(),
           },
         );
-      case 'math_plot_3d':
-        return MathSpacePlotView(definition: c, parameters: {
-          for (final control in widget.definition.components)
-            if (control['type'] == 'slider')
-              control['id'] as String: (values[control['id']] as num).toDouble(),
-        });
       case 'text':
         if (widget.definition.version >= 4) {
           return MathMarkdownView(content: c['text'] as String);
@@ -1162,7 +1150,7 @@ class _InteractiveSurfaceViewState extends State<InteractiveSurfaceView>
         );
       case 'slider':
         final mathParameter = widget.definition.components.any(
-          (c) => c['type'] == 'math_plot' || c['type'] == 'math_plot_3d',
+          (c) => c['type'] == 'math_plot',
         );
         if (compact) {
           return Padding(

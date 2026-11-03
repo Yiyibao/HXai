@@ -30,7 +30,6 @@ import me.rerere.ai.core.TokenUsage
 import me.rerere.ai.provider.ProviderSetting
 import me.rerere.ai.provider.TextGenerationParams
 import kotlinx.serialization.json.JsonObject
-import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import kotlinx.serialization.json.contentOrNull
 
@@ -75,10 +74,7 @@ internal class AgentExecution(
                     require(it.jsonPrimitive.contentOrNull == selected.modelId) { "Custom request body cannot replace the locked model" }
                 }
                 val requestId = store.beginRequest(lease,role,encodedBody,AgentRequestSelection(
-                    provider.id.toString(),selected.id.toString(),reasoning.name,configurationReference,
-                    TrustedCost.basis((provider as? ProviderSetting.OpenAI)?.takeIf {
-                        if(it.useResponseApi) it.responsesPath=="/responses" else it.chatCompletionsPath=="/chat/completions"
-                    }?.baseUrl,selected.modelId,body)))
+                    provider.id.toString(),selected.id.toString(),reasoning.name,configurationReference))
                 return object : ProviderRequestReceipt() {
                     override fun complete(usage: TokenUsage?) {
                         store.finishRequest(lease,requestId,usage)
@@ -94,11 +90,9 @@ internal class AgentExecution(
 internal class AgentScheduler(context: Context, databaseName: String = "agent-tasks-v1.db") : AutoCloseable {
     private val store = AgentTaskStore(context,databaseName)
     private val vault = CredentialVault(context)
-    private val cloudWorkspace = CloudWorkspace.shared(context)
     private val json = Json { ignoreUnknownKeys = true; encodeDefaults = true }
     private val execution = Mutex()
     private val running = java.util.concurrent.ConcurrentHashMap<Job,AgentTask>()
-    private val supervised = java.util.concurrent.ConcurrentHashMap<String,SupervisedAgentExecutor>()
     private val modelIdentities=android.util.LruCache<String,AcceptedModelIdentity>(64)
     private val domain = context.noBackupFilesDir.resolve(databaseName).canonicalPath
     @Volatile private var closed = false
@@ -125,28 +119,11 @@ internal class AgentScheduler(context: Context, databaseName: String = "agent-ta
         return store.accept(conversation.profileId,conversation.id.toString(),requestId,intent,reference,provider.id.toString(),model.id.toString(),assistant.reasoningLevel.name,AgentTaskStore.hash(encoded))
     }
     fun get(owner: String, taskId: String) = store.get(owner,taskId)
-    fun readTaskCatalog(owner: String,kind: String,cursor: String?,limit: Int) = store.readTaskCatalog(owner,kind,cursor,limit)
-    fun readTaskDetail(owner: String,id: String,cursor: String?,limit: Int) = store.readTaskDetail(owner,id,cursor,limit)
-    fun readUsage(owner: String,taskId: String?,from: Long?,until: Long?,cursor: String?,limit: Int): AgentUsagePage {
-        syncHostedUsage(owner,taskId)
-        return store.readUsage(owner,taskId,from,until,cursor,limit)
-    }
-    fun readUsageAlerts(owner: String,taskId: String?,from: Long?,until: Long?): AgentUsageAlerts {
-        syncHostedUsage(owner,taskId)
-        return store.readUsageAlerts(owner,taskId,from,until)
-    }
-    fun readUsageGroups(owner: String,taskId: String?,from: Long?,until: Long?,groupBy: String,cursor: String?,limit: Int): AgentUsageGroupsPage {
-        syncHostedUsage(owner,taskId)
-        return store.readUsageGroups(owner,taskId,from,until,groupBy,cursor,limit)
-    }
-    fun captureUsage(owner: String,taskId: String?,from: Long?,until: Long?,groupBy: String,requestId: String): JsonObject {
-        syncHostedUsage(owner,taskId)
-        return store.captureUsage(owner,taskId,from,until,groupBy,requestId)
-    }
+    fun readUsage(owner: String,taskId: String?,from: Long?,until: Long?,cursor: String?,limit: Int) =
+        store.readUsage(owner,taskId,from,until,cursor,limit)
     fun control(owner: String,id: String) = store.control(owner,id)
     fun plan(owner: String,id: String) = store.plan(owner,id)
     fun snapshot(owner: String,id: String) = store.snapshot(owner,id)
-    fun captureEvaluation(owner: String,id: String,revision: Long,fence: Long) = store.captureEvaluation(owner,id,revision,fence)
     fun approvalCallIds(owner: String,id: String) = store.approvalCallIds(owner,id)
     fun toolDecisions(task: AgentTask) = store.toolDecisions(task.owner,task.id)
     fun reconcileApprovalWaits(task: AgentTask,tools: List<me.rerere.ai.ui.UIMessagePart.Tool>) {
@@ -159,77 +136,8 @@ internal class AgentScheduler(context: Context, databaseName: String = "agent-ta
     fun recordedRemoteTask(conversation: Conversation,tool: me.rerere.ai.ui.UIMessagePart.Tool): AgentTask? =
         store.recordedRemoteTask(conversation.profileId,conversation.id.toString(),tool)
     fun commandRecorded(owner: String,id: String,requestId: String) = store.commandRecorded(owner,id,requestId)
-    fun readResumeReceipt(owner: String,id: String,requestId: String?) = store.readResumeReceipt(owner,id,requestId)
-    suspend fun configureCloud(endpoint: String,token: String,owners: Set<String>) {
-        check(execution.tryLock()) { "Stop the current native executor before changing its authority" }
-        try { store.requireNetworkQuiescent();cloudWorkspace.connect(endpoint,token,owners) }
-        finally { execution.unlock() }
-    }
-    suspend fun disconnectCloud() {
-        check(execution.tryLock()) { "Stop the current native executor before changing its authority" }
-        try { store.requireNetworkQuiescent();cloudWorkspace.recoverAdmissions(store);cloudWorkspace.disconnect() }
-        finally { execution.unlock() }
-    }
-    @Synchronized internal fun ingestHostedUsage(owner: String,id: String,record: JsonObject,state: JsonObject) {
-        val task=store.get(owner,id)
-        require(state.getValue("owner").jsonPrimitive.content==owner && state.getValue("sourceId").jsonPrimitive.content==id)
-        val expected=kotlinx.serialization.json.buildJsonObject {
-            put("provider_id",kotlinx.serialization.json.JsonPrimitive(task.providerId));put("model_id",kotlinx.serialization.json.JsonPrimitive(task.modelId))
-            put("reasoning",kotlinx.serialization.json.JsonPrimitive(task.reasoning));put("configuration_revision",kotlinx.serialization.json.JsonPrimitive(task.configurationRevision))
-        }
-        require(state.getValue("model")==expected && state.getValue("authorityDomain")==record.getValue("authority").jsonObject.getValue("domain"))
-        val configuration=cloudWorkspace.resolve(record.getValue("intentReference").jsonPrimitive.content).getValue("configuration").jsonObject
-        HostedUsage.ingest(store,owner,id,CloudWorkspace.canonical(record.getValue("authority")),configuration,state.getValue("usage") as kotlinx.serialization.json.JsonArray)
-    }
-    @Synchronized internal fun syncHostedUsage(owner: String,onlyId: String?=null) {
-        for((id,value) in cloudWorkspace.read().getValue("delegations").jsonObject) {
-            val record=value.jsonObject
-            if(record.getValue("owner").jsonPrimitive.content!=owner || onlyId!=null && id!=onlyId)continue
-            if(record["billingFinal"]==kotlinx.serialization.json.JsonPrimitive(true))continue
-            check(record["remoteId"]!=null) { "托管回执尚未确认，云端用量未知；请先在任务详情恢复幂等回执" }
-            val state=cloudWorkspace.rpcFor(record,"task.read",kotlinx.serialization.json.buildJsonObject {
-                put("owner",kotlinx.serialization.json.JsonPrimitive(owner));put("taskId",record.getValue("remoteId"))
-            })
-            ingestHostedUsage(owner,id,record,state)
-            if(state["authorityRetired"]==kotlinx.serialization.json.JsonPrimitive(true))
-                cloudWorkspace.delegation(id,JsonObject(cloudWorkspace.delegated(owner,id)!!+("billingFinal" to kotlinx.serialization.json.JsonPrimitive(true))))
-        }
-    }
-    internal fun hostedConfiguration(owner: String,id: String): GenerationConfiguration {
-        val task=store.get(owner,id)
-        return configuration(task,store.credentialReference(owner,id) ?: task.configurationReference)
-    }
-    internal fun requireCloudHandoffSafe(owner: String,id: String) = store.networkRetirementEvidence(owner,id)
-    internal fun cloudCallState(owner: String,id: String,callId: String)=store.cloudCallState(owner,id,callId)
-    internal fun cloudCachedResult(owner: String,id: String,tool: String,input: String)=store.completedResult(owner,id,tool,input)
-    internal fun cloudSafety(owner: String,id: String,requestId: String,action: String)=cloudWorkspace.safety(store,owner,id,requestId,action)
-    internal suspend fun <T> cloudHandoff(owner: String,id: String,build: suspend (NativeStopEvidence) -> T): T {
-        check(execution.tryLock()) { "先停止并等待本机执行器实际退出，再移交云端" }
-        try {
-            store.requireNetworkQuiescent()
-            cloudWorkspace.recoverAdmissions(store)
-            return build(store.networkRetirementEvidence(owner,id))
-        } finally { execution.unlock() }
-    }
-    /** Internal host protocol preparation. Remote activation remains disabled at the UI/tool boundary. */
-    suspend fun prepareHandoff(owner: String,id: String,requestId: String,targetExecutor: String): ExecutorHandoff {
-        check(currentCoroutineContext()[AgentExecution]==null) { "An executing task cannot request its own host handoff" }
-        val executor=requireNotNull(supervised[id]) { "No bound local executor; no stop proof can be inferred" }
-        require(executor.lease.task.owner==owner)
-        store.requestHandoff(executor.lease,requestId,targetExecutor)
-        val proof=executor.stop(requestId)
-        return store.recordExecutorStopped(proof)
-    }
-    suspend fun command(owner: String,id: String,requestId: String,revision: Long,fence: Long,action: String,payload: String,
-        safetyOnly: Boolean=false): AgentTask {
-        if(cloudWorkspace.delegated(owner,id)!=null) {
-            val current=store.get(owner,id)
-            if(!safetyOnly && (current.revision!=revision || current.fence!=fence))throw AgentCommandRejected()
-            if(action !in setOf("pause","cancel","revoke"))throw AgentCommandRejected()
-            cloudWorkspace.safety(store,owner,id,requestId,action)
-            return current // Original local journal; the cloud panel reads its own authority DTO.
-        }
-        val result=try { store.command(owner,id,requestId,revision,fence,action,payload,safetyOnly) }
+    suspend fun command(owner: String,id: String,requestId: String,revision: Long,fence: Long,action: String,payload: String): AgentTask {
+        val result=try { store.command(owner,id,requestId,revision,fence,action,payload) }
         catch (_: IllegalArgumentException) { throw AgentCommandRejected() }
         catch (_: IllegalStateException) { throw AgentCommandRejected() }
         if(action in setOf("pause","cancel","revoke")) {
@@ -345,13 +253,7 @@ internal class AgentScheduler(context: Context, databaseName: String = "agent-ta
         return store.installCredential(owner,id,accepted.requestId,accepted.inputHash,accepted.grantEpoch,accepted.scopeHash,
             validation.configurationReference,validation.id)
     }
-    fun current(conversation: Conversation): AgentTask? {
-        val marker = conversation.currentMessages.lastOrNull()?.generationTaskId
-        if (marker != null) return runCatching {
-            store.get(conversation.profileId, marker).also { TaskCheckpointIdentity.requireCheckpoint(it, conversation) }
-        }.getOrNull() // A stale/foreign marker must never select a newer task.
-        return store.current(conversation.profileId,conversation.id.toString())
-    }
+    fun current(conversation: Conversation) = store.current(conversation.profileId,conversation.id.toString())
     fun queued(conversation: Conversation, inputId: String): AgentTask? =
         store.find(conversation.profileId,conversation.id.toString(),inputId)
     fun resumeQueued(conversation: Conversation) {
@@ -386,21 +288,7 @@ internal class AgentScheduler(context: Context, databaseName: String = "agent-ta
         val jobs = running.entries.filter { it.value.owner==conversation.profileId && it.value.conversationId==conversation.id.toString() }.map { it.key }
         check(currentCoroutineContext()[Job] !in jobs) { "Cannot join the calling executor" }
         jobs.forEach { it.cancel() }
-        try {
-        val delegated=cloudWorkspace.read().getValue("delegations").jsonObject.filter { (id,value) ->
-            value.jsonObject.getValue("owner").jsonPrimitive.content==conversation.profileId &&
-                store.get(conversation.profileId,id).conversationId==conversation.id.toString()
-        }
-        delegated.keys.forEach { CloudDeviceControl.stop(conversation.profileId,it) }
-        delegated.keys.forEach { id ->
-            val entry=cloudWorkspace.delegated(conversation.profileId,id)!!
-            val remote=cloudWorkspace.rpcFor(entry,"task.read",kotlinx.serialization.json.buildJsonObject {
-                put("owner",kotlinx.serialization.json.JsonPrimitive(conversation.profileId));put("taskId",entry.getValue("remoteId"))
-            })
-            if(remote.getValue("state").jsonPrimitive.content !in setOf("SUCCEEDED","CANCELED"))
-                cloudWorkspace.safety(store,conversation.profileId,id,"stop:${java.util.UUID.randomUUID()}","pause")
-        }
-        } finally { jobs.joinAll() }
+        jobs.joinAll()
     }
 
     suspend fun requestRole(
@@ -425,7 +313,7 @@ internal class AgentScheduler(context: Context, databaseName: String = "agent-ta
 
     suspend fun <T> run(task: AgentTask, liveSettings: () -> Settings, validate: () -> Unit, outcome: () -> String,
         verifyTool: suspend (me.rerere.ai.ui.UIMessagePart.Tool) -> Boolean,
-        resumeRequested: Boolean = false, resumeManualPause: Boolean = false, deviceGate: CloudGate? = null, block: suspend () -> T): T {
+        resumeRequested: Boolean = false, resumeManualPause: Boolean = false, block: suspend () -> T): T {
         val context = currentCoroutineContext()
         check(!closed) { "Task executor closed" }
         check(context[AgentExecution]==null) { "Nested independent tasks are not allowed" }
@@ -433,23 +321,14 @@ internal class AgentScheduler(context: Context, databaseName: String = "agent-ta
         running[job] = task
         try {
             return execution.withLock {
-                val initialValidate = { job.ensureActive(); validate() }
-                initialValidate()
+                val activeValidate = { job.ensureActive(); validate() }
+                activeValidate()
                 val configurationReference=store.credentialReference(task.owner,task.id) ?: task.configurationReference
                 val configuration = configuration(task,configurationReference)
                 if (resumeRequested) store.resume(task.owner,task.id,allowManualPause=resumeManualPause)
-                if(deviceGate!=null) check(deviceGate.device && cloudWorkspace.delegated(task.owner,task.id)!=null) { "No accepted device delegation" }
-                val gate=deviceGate ?: cloudWorkspace.reserve(task,store)
-                try {
-                    val activeValidate = { initialValidate();gate?.check();Unit }
-                    activeValidate()
-                    val lease = store.claim(task.owner,task.id)
-                var executor: SupervisedAgentExecutor? = null
+                val lease = store.claim(task.owner,task.id)
                 var state = "INTERRUPTED"
                 try {
-                    // Binding can fail if cancellation/authorization races claim. The claimed
-                    // slot must still pass through the same durable finish path.
-                    executor=store.supervise(lease,job).also { supervised[task.id]=it }
                     val validateProvider = { provider: ProviderSetting, model: me.rerere.ai.provider.Model ->
                         val live = liveSettings()
                         val unsavedConnectionTest=task.requestId.startsWith("role:connection_test:") &&
@@ -477,13 +356,7 @@ internal class AgentScheduler(context: Context, databaseName: String = "agent-ta
                     throw error
                 } finally {
                     // Checkpoint before unlocking; unresolved calls retain the persistent slot.
-                    try { withContext(NonCancellable) { store.finish(lease,state) } }
-                    finally { executor?.let { supervised.remove(task.id,it) } }
-                }
-                } finally {
-                    // The original execution scope and its child coroutines have ended.
-                    // A signed retirement is issued only after independent local journal readback.
-                    withContext(NonCancellable) { gate?.retire(store) }
+                    withContext(NonCancellable) { store.finish(lease,state) }
                 }
             }
         } finally {

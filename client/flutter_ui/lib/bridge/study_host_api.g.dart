@@ -1127,486 +1127,6 @@ class AgentUsageMetricDto {
   }
 }
 
-class AgentCatalogTaskDto {
-  AgentCatalogTaskDto({
-    required this.id,
-    required this.owner,
-    required this.conversationId,
-    required this.role,
-    required this.goal,
-    required this.state,
-    required this.providerId,
-    required this.modelId,
-    required this.reasoning,
-    required this.revision,
-    required this.fence,
-    required this.goalRevision,
-    required this.plannedRevision,
-    required this.manualPaused,
-    required this.inputBlocked,
-    required this.deviceBlocked,
-    required this.deviceConfirmation,
-    required this.approvalBlocked,
-    required this.acceptanceVerified,
-    required this.authorization,
-  });
-
-  String id;
-
-  String owner;
-
-  String conversationId;
-
-  String role;
-
-  String goal;
-
-  String state;
-
-  String providerId;
-
-  String modelId;
-
-  String reasoning;
-
-  int revision;
-
-  int fence;
-
-  int goalRevision;
-
-  int plannedRevision;
-
-  bool manualPaused;
-
-  bool inputBlocked;
-
-  bool deviceBlocked;
-
-  bool deviceConfirmation;
-
-  bool approvalBlocked;
-
-  bool acceptanceVerified;
-
-  String authorization;
-
-  List<Object?> _toList() {
-    return <Object?>[
-      id,
-      owner,
-      conversationId,
-      role,
-      goal,
-      state,
-      providerId,
-      modelId,
-      reasoning,
-      revision,
-      fence,
-      goalRevision,
-      plannedRevision,
-      manualPaused,
-      inputBlocked,
-      deviceBlocked,
-      deviceConfirmation,
-      approvalBlocked,
-      acceptanceVerified,
-      authorization,
-    ];
-  }
-
-  Object encode() {
-    return _toList();  }
-
-  static AgentCatalogTaskDto decode(Object result) {
-    result as List<Object?>;
-    return AgentCatalogTaskDto(
-      id: result[0]! as String,
-      owner: result[1]! as String,
-      conversationId: result[2]! as String,
-      role: result[3]! as String,
-      goal: result[4]! as String,
-      state: result[5]! as String,
-      providerId: result[6]! as String,
-      modelId: result[7]! as String,
-      reasoning: result[8]! as String,
-      revision: result[9]! as int,
-      fence: result[10]! as int,
-      goalRevision: result[11]! as int,
-      plannedRevision: result[12]! as int,
-      manualPaused: result[13]! as bool,
-      inputBlocked: result[14]! as bool,
-      deviceBlocked: result[15]! as bool,
-      deviceConfirmation: result[16]! as bool,
-      approvalBlocked: result[17]! as bool,
-      acceptanceVerified: result[18]! as bool,
-      authorization: result[19]! as String,
-    );
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  bool operator ==(Object other) {
-    if (other is! AgentCatalogTaskDto || other.runtimeType != runtimeType) {
-      return false;
-    }
-    if (identical(this, other)) {
-      return true;
-    }
-    return _deepEquals(id, other.id) && _deepEquals(owner, other.owner) && _deepEquals(conversationId, other.conversationId) && _deepEquals(role, other.role) && _deepEquals(goal, other.goal) && _deepEquals(state, other.state) && _deepEquals(providerId, other.providerId) && _deepEquals(modelId, other.modelId) && _deepEquals(reasoning, other.reasoning) && _deepEquals(revision, other.revision) && _deepEquals(fence, other.fence) && _deepEquals(goalRevision, other.goalRevision) && _deepEquals(plannedRevision, other.plannedRevision) && _deepEquals(manualPaused, other.manualPaused) && _deepEquals(inputBlocked, other.inputBlocked) && _deepEquals(deviceBlocked, other.deviceBlocked) && _deepEquals(deviceConfirmation, other.deviceConfirmation) && _deepEquals(approvalBlocked, other.approvalBlocked) && _deepEquals(acceptanceVerified, other.acceptanceVerified) && _deepEquals(authorization, other.authorization);
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  int get hashCode => _deepHash(<Object?>[runtimeType, ..._toList()]);
-
-  @override
-  String toString() {
-    return 'AgentCatalogTaskDto(id: $id, owner: $owner, conversationId: $conversationId, role: $role, goal: $goal, state: $state, providerId: $providerId, modelId: $modelId, reasoning: $reasoning, revision: $revision, fence: $fence, goalRevision: $goalRevision, plannedRevision: $plannedRevision, manualPaused: $manualPaused, inputBlocked: $inputBlocked, deviceBlocked: $deviceBlocked, deviceConfirmation: $deviceConfirmation, approvalBlocked: $approvalBlocked, acceptanceVerified: $acceptanceVerified, authorization: $authorization)';
-  }
-}
-
-class AgentCatalogPageDto {
-  AgentCatalogPageDto({
-    required this.owner,
-    required this.kind,
-    required this.tasks,
-    this.nextCursor,
-  });
-
-  String owner;
-
-  String kind;
-
-  List<AgentCatalogTaskDto> tasks;
-
-  String? nextCursor;
-
-  List<Object?> _toList() {
-    return <Object?>[
-      owner,
-      kind,
-      tasks,
-      nextCursor,
-    ];
-  }
-
-  Object encode() {
-    return _toList();  }
-
-  static AgentCatalogPageDto decode(Object result) {
-    result as List<Object?>;
-    return AgentCatalogPageDto(
-      owner: result[0]! as String,
-      kind: result[1]! as String,
-      tasks: (result[2]! as List<Object?>).cast<AgentCatalogTaskDto>(),
-      nextCursor: result[3] as String?,
-    );
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  bool operator ==(Object other) {
-    if (other is! AgentCatalogPageDto || other.runtimeType != runtimeType) {
-      return false;
-    }
-    if (identical(this, other)) {
-      return true;
-    }
-    return _deepEquals(owner, other.owner) && _deepEquals(kind, other.kind) && _deepEquals(tasks, other.tasks) && _deepEquals(nextCursor, other.nextCursor);
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  int get hashCode => _deepHash(<Object?>[runtimeType, ..._toList()]);
-
-  @override
-  String toString() {
-    return 'AgentCatalogPageDto(owner: $owner, kind: $kind, tasks: $tasks, nextCursor: $nextCursor)';
-  }
-}
-
-class AgentCatalogStepDto {
-  AgentCatalogStepDto({
-    required this.id,
-    required this.tool,
-    required this.purpose,
-    required this.state,
-    this.callId,
-  });
-
-  String id;
-
-  String tool;
-
-  String purpose;
-
-  String state;
-
-  String? callId;
-
-  List<Object?> _toList() {
-    return <Object?>[
-      id,
-      tool,
-      purpose,
-      state,
-      callId,
-    ];
-  }
-
-  Object encode() {
-    return _toList();  }
-
-  static AgentCatalogStepDto decode(Object result) {
-    result as List<Object?>;
-    return AgentCatalogStepDto(
-      id: result[0]! as String,
-      tool: result[1]! as String,
-      purpose: result[2]! as String,
-      state: result[3]! as String,
-      callId: result[4] as String?,
-    );
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  bool operator ==(Object other) {
-    if (other is! AgentCatalogStepDto || other.runtimeType != runtimeType) {
-      return false;
-    }
-    if (identical(this, other)) {
-      return true;
-    }
-    return _deepEquals(id, other.id) && _deepEquals(tool, other.tool) && _deepEquals(purpose, other.purpose) && _deepEquals(state, other.state) && _deepEquals(callId, other.callId);
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  int get hashCode => _deepHash(<Object?>[runtimeType, ..._toList()]);
-
-  @override
-  String toString() {
-    return 'AgentCatalogStepDto(id: $id, tool: $tool, purpose: $purpose, state: $state, callId: $callId)';
-  }
-}
-
-class AgentCatalogCallDto {
-  AgentCatalogCallDto({
-    required this.id,
-    required this.tool,
-    required this.state,
-    required this.inputHash,
-    this.resultHash,
-    this.capability,
-    this.grantEpoch,
-  });
-
-  String id;
-
-  String tool;
-
-  String state;
-
-  String inputHash;
-
-  String? resultHash;
-
-  String? capability;
-
-  int? grantEpoch;
-
-  List<Object?> _toList() {
-    return <Object?>[
-      id,
-      tool,
-      state,
-      inputHash,
-      resultHash,
-      capability,
-      grantEpoch,
-    ];
-  }
-
-  Object encode() {
-    return _toList();  }
-
-  static AgentCatalogCallDto decode(Object result) {
-    result as List<Object?>;
-    return AgentCatalogCallDto(
-      id: result[0]! as String,
-      tool: result[1]! as String,
-      state: result[2]! as String,
-      inputHash: result[3]! as String,
-      resultHash: result[4] as String?,
-      capability: result[5] as String?,
-      grantEpoch: result[6] as int?,
-    );
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  bool operator ==(Object other) {
-    if (other is! AgentCatalogCallDto || other.runtimeType != runtimeType) {
-      return false;
-    }
-    if (identical(this, other)) {
-      return true;
-    }
-    return _deepEquals(id, other.id) && _deepEquals(tool, other.tool) && _deepEquals(state, other.state) && _deepEquals(inputHash, other.inputHash) && _deepEquals(resultHash, other.resultHash) && _deepEquals(capability, other.capability) && _deepEquals(grantEpoch, other.grantEpoch);
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  int get hashCode => _deepHash(<Object?>[runtimeType, ..._toList()]);
-
-  @override
-  String toString() {
-    return 'AgentCatalogCallDto(id: $id, tool: $tool, state: $state, inputHash: $inputHash, resultHash: $resultHash, capability: $capability, grantEpoch: $grantEpoch)';
-  }
-}
-
-class AgentCatalogArtifactDto {
-  AgentCatalogArtifactDto({
-    required this.id,
-    required this.name,
-    required this.sha256,
-  });
-
-  String id;
-
-  String name;
-
-  String sha256;
-
-  List<Object?> _toList() {
-    return <Object?>[
-      id,
-      name,
-      sha256,
-    ];
-  }
-
-  Object encode() {
-    return _toList();  }
-
-  static AgentCatalogArtifactDto decode(Object result) {
-    result as List<Object?>;
-    return AgentCatalogArtifactDto(
-      id: result[0]! as String,
-      name: result[1]! as String,
-      sha256: result[2]! as String,
-    );
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  bool operator ==(Object other) {
-    if (other is! AgentCatalogArtifactDto || other.runtimeType != runtimeType) {
-      return false;
-    }
-    if (identical(this, other)) {
-      return true;
-    }
-    return _deepEquals(id, other.id) && _deepEquals(name, other.name) && _deepEquals(sha256, other.sha256);
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  int get hashCode => _deepHash(<Object?>[runtimeType, ..._toList()]);
-
-  @override
-  String toString() {
-    return 'AgentCatalogArtifactDto(id: $id, name: $name, sha256: $sha256)';
-  }
-}
-
-class AgentCatalogDetailDto {
-  AgentCatalogDetailDto({
-    required this.task,
-    required this.steps,
-    required this.calls,
-    required this.artifacts,
-    required this.resultsPartial,
-    required this.conversationAvailable,
-    this.nextCursor,
-    this.providerName,
-    this.modelName,
-  });
-
-  AgentCatalogTaskDto task;
-
-  List<AgentCatalogStepDto> steps;
-
-  List<AgentCatalogCallDto> calls;
-
-  List<AgentCatalogArtifactDto> artifacts;
-
-  bool resultsPartial;
-
-  bool conversationAvailable;
-
-  String? nextCursor;
-
-  String? providerName;
-
-  String? modelName;
-
-  List<Object?> _toList() {
-    return <Object?>[
-      task,
-      steps,
-      calls,
-      artifacts,
-      resultsPartial,
-      conversationAvailable,
-      nextCursor,
-      providerName,
-      modelName,
-    ];
-  }
-
-  Object encode() {
-    return _toList();  }
-
-  static AgentCatalogDetailDto decode(Object result) {
-    result as List<Object?>;
-    return AgentCatalogDetailDto(
-      task: result[0]! as AgentCatalogTaskDto,
-      steps: (result[1]! as List<Object?>).cast<AgentCatalogStepDto>(),
-      calls: (result[2]! as List<Object?>).cast<AgentCatalogCallDto>(),
-      artifacts: (result[3]! as List<Object?>).cast<AgentCatalogArtifactDto>(),
-      resultsPartial: result[4]! as bool,
-      conversationAvailable: result[5]! as bool,
-      nextCursor: result[6] as String?,
-      providerName: result[7] as String?,
-      modelName: result[8] as String?,
-    );
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  bool operator ==(Object other) {
-    if (other is! AgentCatalogDetailDto || other.runtimeType != runtimeType) {
-      return false;
-    }
-    if (identical(this, other)) {
-      return true;
-    }
-    return _deepEquals(task, other.task) && _deepEquals(steps, other.steps) && _deepEquals(calls, other.calls) && _deepEquals(artifacts, other.artifacts) && _deepEquals(resultsPartial, other.resultsPartial) && _deepEquals(conversationAvailable, other.conversationAvailable) && _deepEquals(nextCursor, other.nextCursor) && _deepEquals(providerName, other.providerName) && _deepEquals(modelName, other.modelName);
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  int get hashCode => _deepHash(<Object?>[runtimeType, ..._toList()]);
-
-  @override
-  String toString() {
-    return 'AgentCatalogDetailDto(task: $task, steps: $steps, calls: $calls, artifacts: $artifacts, resultsPartial: $resultsPartial, conversationAvailable: $conversationAvailable, nextCursor: $nextCursor, providerName: $providerName, modelName: $modelName)';
-  }
-}
-
 class AgentUsageEntryDto {
   AgentUsageEntryDto({
     required this.requestId,
@@ -1623,7 +1143,6 @@ class AgentUsageEntryDto {
     this.outputTokens,
     this.cachedTokens,
     this.totalTokens,
-    this.costJson,
   });
 
   String requestId;
@@ -1654,8 +1173,6 @@ class AgentUsageEntryDto {
 
   int? totalTokens;
 
-  String? costJson;
-
   List<Object?> _toList() {
     return <Object?>[
       requestId,
@@ -1672,7 +1189,6 @@ class AgentUsageEntryDto {
       outputTokens,
       cachedTokens,
       totalTokens,
-      costJson,
     ];
   }
 
@@ -1696,7 +1212,6 @@ class AgentUsageEntryDto {
       outputTokens: result[11] as int?,
       cachedTokens: result[12] as int?,
       totalTokens: result[13] as int?,
-      costJson: result[14] as String?,
     );
   }
 
@@ -1709,7 +1224,7 @@ class AgentUsageEntryDto {
     if (identical(this, other)) {
       return true;
     }
-    return _deepEquals(requestId, other.requestId) && _deepEquals(taskId, other.taskId) && _deepEquals(conversationId, other.conversationId) && _deepEquals(role, other.role) && _deepEquals(providerId, other.providerId) && _deepEquals(modelId, other.modelId) && _deepEquals(reasoning, other.reasoning) && _deepEquals(createdAt, other.createdAt) && _deepEquals(state, other.state) && _deepEquals(provenance, other.provenance) && _deepEquals(inputTokens, other.inputTokens) && _deepEquals(outputTokens, other.outputTokens) && _deepEquals(cachedTokens, other.cachedTokens) && _deepEquals(totalTokens, other.totalTokens) && _deepEquals(costJson, other.costJson);
+    return _deepEquals(requestId, other.requestId) && _deepEquals(taskId, other.taskId) && _deepEquals(conversationId, other.conversationId) && _deepEquals(role, other.role) && _deepEquals(providerId, other.providerId) && _deepEquals(modelId, other.modelId) && _deepEquals(reasoning, other.reasoning) && _deepEquals(createdAt, other.createdAt) && _deepEquals(state, other.state) && _deepEquals(provenance, other.provenance) && _deepEquals(inputTokens, other.inputTokens) && _deepEquals(outputTokens, other.outputTokens) && _deepEquals(cachedTokens, other.cachedTokens) && _deepEquals(totalTokens, other.totalTokens);
   }
 
   @override
@@ -1718,7 +1233,7 @@ class AgentUsageEntryDto {
 
   @override
   String toString() {
-    return 'AgentUsageEntryDto(requestId: $requestId, taskId: $taskId, conversationId: $conversationId, role: $role, providerId: $providerId, modelId: $modelId, reasoning: $reasoning, createdAt: $createdAt, state: $state, provenance: $provenance, inputTokens: $inputTokens, outputTokens: $outputTokens, cachedTokens: $cachedTokens, totalTokens: $totalTokens, costJson: $costJson)';
+    return 'AgentUsageEntryDto(requestId: $requestId, taskId: $taskId, conversationId: $conversationId, role: $role, providerId: $providerId, modelId: $modelId, reasoning: $reasoning, createdAt: $createdAt, state: $state, provenance: $provenance, inputTokens: $inputTokens, outputTokens: $outputTokens, cachedTokens: $cachedTokens, totalTokens: $totalTokens)';
   }
 }
 
@@ -1739,7 +1254,6 @@ class AgentUsagePageDto {
     required this.total,
     required this.entries,
     this.nextCursor,
-    this.costJson,
   });
 
   String owner;
@@ -1772,8 +1286,6 @@ class AgentUsagePageDto {
 
   String? nextCursor;
 
-  String? costJson;
-
   List<Object?> _toList() {
     return <Object?>[
       owner,
@@ -1791,7 +1303,6 @@ class AgentUsagePageDto {
       total,
       entries,
       nextCursor,
-      costJson,
     ];
   }
 
@@ -1816,7 +1327,6 @@ class AgentUsagePageDto {
       total: result[12]! as AgentUsageMetricDto,
       entries: (result[13]! as List<Object?>).cast<AgentUsageEntryDto>(),
       nextCursor: result[14] as String?,
-      costJson: result[15] as String?,
     );
   }
 
@@ -1829,7 +1339,7 @@ class AgentUsagePageDto {
     if (identical(this, other)) {
       return true;
     }
-    return _deepEquals(owner, other.owner) && _deepEquals(taskId, other.taskId) && _deepEquals(from, other.from) && _deepEquals(until, other.until) && _deepEquals(requestCount, other.requestCount) && _deepEquals(reportedRequests, other.reportedRequests) && _deepEquals(estimatedRequests, other.estimatedRequests) && _deepEquals(unknownRequests, other.unknownRequests) && _deepEquals(undatedRequests, other.undatedRequests) && _deepEquals(input, other.input) && _deepEquals(output, other.output) && _deepEquals(cached, other.cached) && _deepEquals(total, other.total) && _deepEquals(entries, other.entries) && _deepEquals(nextCursor, other.nextCursor) && _deepEquals(costJson, other.costJson);
+    return _deepEquals(owner, other.owner) && _deepEquals(taskId, other.taskId) && _deepEquals(from, other.from) && _deepEquals(until, other.until) && _deepEquals(requestCount, other.requestCount) && _deepEquals(reportedRequests, other.reportedRequests) && _deepEquals(estimatedRequests, other.estimatedRequests) && _deepEquals(unknownRequests, other.unknownRequests) && _deepEquals(undatedRequests, other.undatedRequests) && _deepEquals(input, other.input) && _deepEquals(output, other.output) && _deepEquals(cached, other.cached) && _deepEquals(total, other.total) && _deepEquals(entries, other.entries) && _deepEquals(nextCursor, other.nextCursor);
   }
 
   @override
@@ -1838,202 +1348,7 @@ class AgentUsagePageDto {
 
   @override
   String toString() {
-    return 'AgentUsagePageDto(owner: $owner, taskId: $taskId, from: $from, until: $until, requestCount: $requestCount, reportedRequests: $reportedRequests, estimatedRequests: $estimatedRequests, unknownRequests: $unknownRequests, undatedRequests: $undatedRequests, input: $input, output: $output, cached: $cached, total: $total, entries: $entries, nextCursor: $nextCursor, costJson: $costJson)';
-  }
-}
-
-class AgentUsageGroupDto {
-  AgentUsageGroupDto({
-    this.providerId,
-    this.modelId,
-    this.role,
-    required this.requestCount,
-    required this.reportedRequests,
-    required this.estimatedRequests,
-    required this.unknownRequests,
-    required this.input,
-    required this.output,
-    required this.cached,
-    required this.total,
-    this.costJson,
-  });
-
-  String? providerId;
-
-  String? modelId;
-
-  String? role;
-
-  int requestCount;
-
-  int reportedRequests;
-
-  int estimatedRequests;
-
-  int unknownRequests;
-
-  AgentUsageMetricDto input;
-
-  AgentUsageMetricDto output;
-
-  AgentUsageMetricDto cached;
-
-  AgentUsageMetricDto total;
-
-  String? costJson;
-
-  List<Object?> _toList() {
-    return <Object?>[
-      providerId,
-      modelId,
-      role,
-      requestCount,
-      reportedRequests,
-      estimatedRequests,
-      unknownRequests,
-      input,
-      output,
-      cached,
-      total,
-      costJson,
-    ];
-  }
-
-  Object encode() {
-    return _toList();  }
-
-  static AgentUsageGroupDto decode(Object result) {
-    result as List<Object?>;
-    return AgentUsageGroupDto(
-      providerId: result[0] as String?,
-      modelId: result[1] as String?,
-      role: result[2] as String?,
-      requestCount: result[3]! as int,
-      reportedRequests: result[4]! as int,
-      estimatedRequests: result[5]! as int,
-      unknownRequests: result[6]! as int,
-      input: result[7]! as AgentUsageMetricDto,
-      output: result[8]! as AgentUsageMetricDto,
-      cached: result[9]! as AgentUsageMetricDto,
-      total: result[10]! as AgentUsageMetricDto,
-      costJson: result[11] as String?,
-    );
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  bool operator ==(Object other) {
-    if (other is! AgentUsageGroupDto || other.runtimeType != runtimeType) {
-      return false;
-    }
-    if (identical(this, other)) {
-      return true;
-    }
-    return _deepEquals(providerId, other.providerId) && _deepEquals(modelId, other.modelId) && _deepEquals(role, other.role) && _deepEquals(requestCount, other.requestCount) && _deepEquals(reportedRequests, other.reportedRequests) && _deepEquals(estimatedRequests, other.estimatedRequests) && _deepEquals(unknownRequests, other.unknownRequests) && _deepEquals(input, other.input) && _deepEquals(output, other.output) && _deepEquals(cached, other.cached) && _deepEquals(total, other.total) && _deepEquals(costJson, other.costJson);
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  int get hashCode => _deepHash(<Object?>[runtimeType, ..._toList()]);
-
-  @override
-  String toString() {
-    return 'AgentUsageGroupDto(providerId: $providerId, modelId: $modelId, role: $role, requestCount: $requestCount, reportedRequests: $reportedRequests, estimatedRequests: $estimatedRequests, unknownRequests: $unknownRequests, input: $input, output: $output, cached: $cached, total: $total, costJson: $costJson)';
-  }
-}
-
-class AgentUsageGroupsPageDto {
-  AgentUsageGroupsPageDto({
-    required this.owner,
-    this.taskId,
-    this.from,
-    this.until,
-    required this.groupBy,
-    required this.requestCount,
-    required this.groupCount,
-    required this.undatedRequests,
-    required this.groups,
-    this.nextCursor,
-    this.costJson,
-  });
-
-  String owner;
-
-  String? taskId;
-
-  int? from;
-
-  int? until;
-
-  String groupBy;
-
-  int requestCount;
-
-  int groupCount;
-
-  int undatedRequests;
-
-  List<AgentUsageGroupDto> groups;
-
-  String? nextCursor;
-
-  String? costJson;
-
-  List<Object?> _toList() {
-    return <Object?>[
-      owner,
-      taskId,
-      from,
-      until,
-      groupBy,
-      requestCount,
-      groupCount,
-      undatedRequests,
-      groups,
-      nextCursor,
-      costJson,
-    ];
-  }
-
-  Object encode() {
-    return _toList();  }
-
-  static AgentUsageGroupsPageDto decode(Object result) {
-    result as List<Object?>;
-    return AgentUsageGroupsPageDto(
-      owner: result[0]! as String,
-      taskId: result[1] as String?,
-      from: result[2] as int?,
-      until: result[3] as int?,
-      groupBy: result[4]! as String,
-      requestCount: result[5]! as int,
-      groupCount: result[6]! as int,
-      undatedRequests: result[7]! as int,
-      groups: (result[8]! as List<Object?>).cast<AgentUsageGroupDto>(),
-      nextCursor: result[9] as String?,
-      costJson: result[10] as String?,
-    );
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  bool operator ==(Object other) {
-    if (other is! AgentUsageGroupsPageDto || other.runtimeType != runtimeType) {
-      return false;
-    }
-    if (identical(this, other)) {
-      return true;
-    }
-    return _deepEquals(owner, other.owner) && _deepEquals(taskId, other.taskId) && _deepEquals(from, other.from) && _deepEquals(until, other.until) && _deepEquals(groupBy, other.groupBy) && _deepEquals(requestCount, other.requestCount) && _deepEquals(groupCount, other.groupCount) && _deepEquals(undatedRequests, other.undatedRequests) && _deepEquals(groups, other.groups) && _deepEquals(nextCursor, other.nextCursor) && _deepEquals(costJson, other.costJson);
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  int get hashCode => _deepHash(<Object?>[runtimeType, ..._toList()]);
-
-  @override
-  String toString() {
-    return 'AgentUsageGroupsPageDto(owner: $owner, taskId: $taskId, from: $from, until: $until, groupBy: $groupBy, requestCount: $requestCount, groupCount: $groupCount, undatedRequests: $undatedRequests, groups: $groups, nextCursor: $nextCursor, costJson: $costJson)';
+    return 'AgentUsagePageDto(owner: $owner, taskId: $taskId, from: $from, until: $until, requestCount: $requestCount, reportedRequests: $reportedRequests, estimatedRequests: $estimatedRequests, unknownRequests: $unknownRequests, undatedRequests: $undatedRequests, input: $input, output: $output, cached: $cached, total: $total, entries: $entries, nextCursor: $nextCursor)';
   }
 }
 
@@ -2657,486 +1972,6 @@ class SkillDto {
   }
 }
 
-class AgentUsageExportDto {
-  AgentUsageExportDto({
-    required this.owner,
-    this.taskId,
-    this.from,
-    this.until,
-    required this.groupBy,
-    required this.requestId,
-    required this.artifactId,
-    required this.sha256,
-    required this.size,
-    required this.sourceSha256,
-    required this.capturedAt,
-    required this.requestCount,
-    required this.recordCount,
-    required this.reused,
-  });
-
-  String owner;
-
-  String? taskId;
-
-  int? from;
-
-  int? until;
-
-  String groupBy;
-
-  String requestId;
-
-  String artifactId;
-
-  String sha256;
-
-  int size;
-
-  String sourceSha256;
-
-  int capturedAt;
-
-  int requestCount;
-
-  int recordCount;
-
-  bool reused;
-
-  List<Object?> _toList() {
-    return <Object?>[
-      owner,
-      taskId,
-      from,
-      until,
-      groupBy,
-      requestId,
-      artifactId,
-      sha256,
-      size,
-      sourceSha256,
-      capturedAt,
-      requestCount,
-      recordCount,
-      reused,
-    ];
-  }
-
-  Object encode() {
-    return _toList();  }
-
-  static AgentUsageExportDto decode(Object result) {
-    result as List<Object?>;
-    return AgentUsageExportDto(
-      owner: result[0]! as String,
-      taskId: result[1] as String?,
-      from: result[2] as int?,
-      until: result[3] as int?,
-      groupBy: result[4]! as String,
-      requestId: result[5]! as String,
-      artifactId: result[6]! as String,
-      sha256: result[7]! as String,
-      size: result[8]! as int,
-      sourceSha256: result[9]! as String,
-      capturedAt: result[10]! as int,
-      requestCount: result[11]! as int,
-      recordCount: result[12]! as int,
-      reused: result[13]! as bool,
-    );
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  bool operator ==(Object other) {
-    if (other is! AgentUsageExportDto || other.runtimeType != runtimeType) {
-      return false;
-    }
-    if (identical(this, other)) {
-      return true;
-    }
-    return _deepEquals(owner, other.owner) && _deepEquals(taskId, other.taskId) && _deepEquals(from, other.from) && _deepEquals(until, other.until) && _deepEquals(groupBy, other.groupBy) && _deepEquals(requestId, other.requestId) && _deepEquals(artifactId, other.artifactId) && _deepEquals(sha256, other.sha256) && _deepEquals(size, other.size) && _deepEquals(sourceSha256, other.sourceSha256) && _deepEquals(capturedAt, other.capturedAt) && _deepEquals(requestCount, other.requestCount) && _deepEquals(recordCount, other.recordCount) && _deepEquals(reused, other.reused);
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  int get hashCode => _deepHash(<Object?>[runtimeType, ..._toList()]);
-
-  @override
-  String toString() {
-    return 'AgentUsageExportDto(owner: $owner, taskId: $taskId, from: $from, until: $until, groupBy: $groupBy, requestId: $requestId, artifactId: $artifactId, sha256: $sha256, size: $size, sourceSha256: $sourceSha256, capturedAt: $capturedAt, requestCount: $requestCount, recordCount: $recordCount, reused: $reused)';
-  }
-}
-
-class AgentUsageExportIntentDto {
-  AgentUsageExportIntentDto({
-    required this.owner,
-    this.taskId,
-    this.from,
-    this.until,
-    required this.groupBy,
-    required this.requestId,
-    required this.artifactId,
-    required this.sha256,
-    required this.size,
-    required this.createdAt,
-  });
-
-  String owner;
-
-  String? taskId;
-
-  int? from;
-
-  int? until;
-
-  String groupBy;
-
-  String requestId;
-
-  String artifactId;
-
-  String sha256;
-
-  int size;
-
-  int createdAt;
-
-  List<Object?> _toList() {
-    return <Object?>[
-      owner,
-      taskId,
-      from,
-      until,
-      groupBy,
-      requestId,
-      artifactId,
-      sha256,
-      size,
-      createdAt,
-    ];
-  }
-
-  Object encode() {
-    return _toList();  }
-
-  static AgentUsageExportIntentDto decode(Object result) {
-    result as List<Object?>;
-    return AgentUsageExportIntentDto(
-      owner: result[0]! as String,
-      taskId: result[1] as String?,
-      from: result[2] as int?,
-      until: result[3] as int?,
-      groupBy: result[4]! as String,
-      requestId: result[5]! as String,
-      artifactId: result[6]! as String,
-      sha256: result[7]! as String,
-      size: result[8]! as int,
-      createdAt: result[9]! as int,
-    );
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  bool operator ==(Object other) {
-    if (other is! AgentUsageExportIntentDto || other.runtimeType != runtimeType) {
-      return false;
-    }
-    if (identical(this, other)) {
-      return true;
-    }
-    return _deepEquals(owner, other.owner) && _deepEquals(taskId, other.taskId) && _deepEquals(from, other.from) && _deepEquals(until, other.until) && _deepEquals(groupBy, other.groupBy) && _deepEquals(requestId, other.requestId) && _deepEquals(artifactId, other.artifactId) && _deepEquals(sha256, other.sha256) && _deepEquals(size, other.size) && _deepEquals(createdAt, other.createdAt);
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  int get hashCode => _deepHash(<Object?>[runtimeType, ..._toList()]);
-
-  @override
-  String toString() {
-    return 'AgentUsageExportIntentDto(owner: $owner, taskId: $taskId, from: $from, until: $until, groupBy: $groupBy, requestId: $requestId, artifactId: $artifactId, sha256: $sha256, size: $size, createdAt: $createdAt)';
-  }
-}
-
-class AgentUsageExportHistoryPageDto {
-  AgentUsageExportHistoryPageDto({
-    required this.owner,
-    required this.entries,
-    this.nextCursor,
-  });
-
-  String owner;
-
-  List<AgentUsageExportIntentDto> entries;
-
-  String? nextCursor;
-
-  List<Object?> _toList() {
-    return <Object?>[
-      owner,
-      entries,
-      nextCursor,
-    ];
-  }
-
-  Object encode() {
-    return _toList();  }
-
-  static AgentUsageExportHistoryPageDto decode(Object result) {
-    result as List<Object?>;
-    return AgentUsageExportHistoryPageDto(
-      owner: result[0]! as String,
-      entries: (result[1]! as List<Object?>).cast<AgentUsageExportIntentDto>(),
-      nextCursor: result[2] as String?,
-    );
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  bool operator ==(Object other) {
-    if (other is! AgentUsageExportHistoryPageDto || other.runtimeType != runtimeType) {
-      return false;
-    }
-    if (identical(this, other)) {
-      return true;
-    }
-    return _deepEquals(owner, other.owner) && _deepEquals(entries, other.entries) && _deepEquals(nextCursor, other.nextCursor);
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  int get hashCode => _deepHash(<Object?>[runtimeType, ..._toList()]);
-
-  @override
-  String toString() {
-    return 'AgentUsageExportHistoryPageDto(owner: $owner, entries: $entries, nextCursor: $nextCursor)';
-  }
-}
-
-class AgentUsageAlertsDto {
-  AgentUsageAlertsDto({
-    required this.owner,
-    this.taskId,
-    this.from,
-    this.until,
-    required this.evaluatedAt,
-    required this.uncertainRequests,
-    required this.unreportedCompletedRequests,
-    required this.denseTaskCount,
-    required this.denseRequests,
-    required this.undatedRequests,
-  });
-
-  String owner;
-
-  String? taskId;
-
-  int? from;
-
-  int? until;
-
-  int evaluatedAt;
-
-  int uncertainRequests;
-
-  int unreportedCompletedRequests;
-
-  int denseTaskCount;
-
-  int denseRequests;
-
-  int undatedRequests;
-
-  List<Object?> _toList() {
-    return <Object?>[
-      owner,
-      taskId,
-      from,
-      until,
-      evaluatedAt,
-      uncertainRequests,
-      unreportedCompletedRequests,
-      denseTaskCount,
-      denseRequests,
-      undatedRequests,
-    ];
-  }
-
-  Object encode() {
-    return _toList();  }
-
-  static AgentUsageAlertsDto decode(Object result) {
-    result as List<Object?>;
-    return AgentUsageAlertsDto(
-      owner: result[0]! as String,
-      taskId: result[1] as String?,
-      from: result[2] as int?,
-      until: result[3] as int?,
-      evaluatedAt: result[4]! as int,
-      uncertainRequests: result[5]! as int,
-      unreportedCompletedRequests: result[6]! as int,
-      denseTaskCount: result[7]! as int,
-      denseRequests: result[8]! as int,
-      undatedRequests: result[9]! as int,
-    );
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  bool operator ==(Object other) {
-    if (other is! AgentUsageAlertsDto || other.runtimeType != runtimeType) {
-      return false;
-    }
-    if (identical(this, other)) {
-      return true;
-    }
-    return _deepEquals(owner, other.owner) && _deepEquals(taskId, other.taskId) && _deepEquals(from, other.from) && _deepEquals(until, other.until) && _deepEquals(evaluatedAt, other.evaluatedAt) && _deepEquals(uncertainRequests, other.uncertainRequests) && _deepEquals(unreportedCompletedRequests, other.unreportedCompletedRequests) && _deepEquals(denseTaskCount, other.denseTaskCount) && _deepEquals(denseRequests, other.denseRequests) && _deepEquals(undatedRequests, other.undatedRequests);
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  int get hashCode => _deepHash(<Object?>[runtimeType, ..._toList()]);
-
-  @override
-  String toString() {
-    return 'AgentUsageAlertsDto(owner: $owner, taskId: $taskId, from: $from, until: $until, evaluatedAt: $evaluatedAt, uncertainRequests: $uncertainRequests, unreportedCompletedRequests: $unreportedCompletedRequests, denseTaskCount: $denseTaskCount, denseRequests: $denseRequests, undatedRequests: $undatedRequests)';
-  }
-}
-
-class TaskResumeReceiptDto {
-  TaskResumeReceiptDto({
-    required this.owner,
-    required this.taskId,
-    required this.conversationId,
-    required this.requestId,
-    required this.expectedRevision,
-    required this.expectedFence,
-    required this.canCoordinate,
-  });
-
-  String owner;
-
-  String taskId;
-
-  String conversationId;
-
-  String requestId;
-
-  int expectedRevision;
-
-  int expectedFence;
-
-  bool canCoordinate;
-
-  List<Object?> _toList() {
-    return <Object?>[
-      owner,
-      taskId,
-      conversationId,
-      requestId,
-      expectedRevision,
-      expectedFence,
-      canCoordinate,
-    ];
-  }
-
-  Object encode() {
-    return _toList();  }
-
-  static TaskResumeReceiptDto decode(Object result) {
-    result as List<Object?>;
-    return TaskResumeReceiptDto(
-      owner: result[0]! as String,
-      taskId: result[1]! as String,
-      conversationId: result[2]! as String,
-      requestId: result[3]! as String,
-      expectedRevision: result[4]! as int,
-      expectedFence: result[5]! as int,
-      canCoordinate: result[6]! as bool,
-    );
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  bool operator ==(Object other) {
-    if (other is! TaskResumeReceiptDto || other.runtimeType != runtimeType) {
-      return false;
-    }
-    if (identical(this, other)) {
-      return true;
-    }
-    return _deepEquals(owner, other.owner) && _deepEquals(taskId, other.taskId) && _deepEquals(conversationId, other.conversationId) && _deepEquals(requestId, other.requestId) && _deepEquals(expectedRevision, other.expectedRevision) && _deepEquals(expectedFence, other.expectedFence) && _deepEquals(canCoordinate, other.canCoordinate);
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  int get hashCode => _deepHash(<Object?>[runtimeType, ..._toList()]);
-
-  @override
-  String toString() {
-    return 'TaskResumeReceiptDto(owner: $owner, taskId: $taskId, conversationId: $conversationId, requestId: $requestId, expectedRevision: $expectedRevision, expectedFence: $expectedFence, canCoordinate: $canCoordinate)';
-  }
-}
-
-class MemoryProtectionDto {
-  MemoryProtectionDto({
-    required this.profileId,
-    required this.contextEpoch,
-    required this.configuredEnabled,
-    required this.recoveryBlocked,
-  });
-
-  String profileId;
-
-  int contextEpoch;
-
-  bool configuredEnabled;
-
-  bool recoveryBlocked;
-
-  List<Object?> _toList() {
-    return <Object?>[
-      profileId,
-      contextEpoch,
-      configuredEnabled,
-      recoveryBlocked,
-    ];
-  }
-
-  Object encode() {
-    return _toList();  }
-
-  static MemoryProtectionDto decode(Object result) {
-    result as List<Object?>;
-    return MemoryProtectionDto(
-      profileId: result[0]! as String,
-      contextEpoch: result[1]! as int,
-      configuredEnabled: result[2]! as bool,
-      recoveryBlocked: result[3]! as bool,
-    );
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  bool operator ==(Object other) {
-    if (other is! MemoryProtectionDto || other.runtimeType != runtimeType) {
-      return false;
-    }
-    if (identical(this, other)) {
-      return true;
-    }
-    return _deepEquals(profileId, other.profileId) && _deepEquals(contextEpoch, other.contextEpoch) && _deepEquals(configuredEnabled, other.configuredEnabled) && _deepEquals(recoveryBlocked, other.recoveryBlocked);
-  }
-
-  @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  int get hashCode => _deepHash(<Object?>[runtimeType, ..._toList()]);
-
-  @override
-  String toString() {
-    return 'MemoryProtectionDto(profileId: $profileId, contextEpoch: $contextEpoch, configuredEnabled: $configuredEnabled, recoveryBlocked: $recoveryBlocked)';
-  }
-}
-
 
 class _PigeonCodec extends StandardMessageCodec {
   const _PigeonCodec();
@@ -3184,74 +2019,32 @@ class _PigeonCodec extends StandardMessageCodec {
     }    else if (value is AgentUsageMetricDto) {
       buffer.putUint8(141);
       writeValue(buffer, value.encode());
-    }    else if (value is AgentCatalogTaskDto) {
+    }    else if (value is AgentUsageEntryDto) {
       buffer.putUint8(142);
       writeValue(buffer, value.encode());
-    }    else if (value is AgentCatalogPageDto) {
+    }    else if (value is AgentUsagePageDto) {
       buffer.putUint8(143);
       writeValue(buffer, value.encode());
-    }    else if (value is AgentCatalogStepDto) {
+    }    else if (value is ConversationDetailDto) {
       buffer.putUint8(144);
       writeValue(buffer, value.encode());
-    }    else if (value is AgentCatalogCallDto) {
+    }    else if (value is SendMessageRequest) {
       buffer.putUint8(145);
       writeValue(buffer, value.encode());
-    }    else if (value is AgentCatalogArtifactDto) {
+    }    else if (value is MaterialFileDto) {
       buffer.putUint8(146);
       writeValue(buffer, value.encode());
-    }    else if (value is AgentCatalogDetailDto) {
+    }    else if (value is MemoryItemDto) {
       buffer.putUint8(147);
       writeValue(buffer, value.encode());
-    }    else if (value is AgentUsageEntryDto) {
+    }    else if (value is ArtifactDto) {
       buffer.putUint8(148);
       writeValue(buffer, value.encode());
-    }    else if (value is AgentUsagePageDto) {
+    }    else if (value is DiagnosticsDto) {
       buffer.putUint8(149);
       writeValue(buffer, value.encode());
-    }    else if (value is AgentUsageGroupDto) {
-      buffer.putUint8(150);
-      writeValue(buffer, value.encode());
-    }    else if (value is AgentUsageGroupsPageDto) {
-      buffer.putUint8(151);
-      writeValue(buffer, value.encode());
-    }    else if (value is ConversationDetailDto) {
-      buffer.putUint8(152);
-      writeValue(buffer, value.encode());
-    }    else if (value is SendMessageRequest) {
-      buffer.putUint8(153);
-      writeValue(buffer, value.encode());
-    }    else if (value is MaterialFileDto) {
-      buffer.putUint8(154);
-      writeValue(buffer, value.encode());
-    }    else if (value is MemoryItemDto) {
-      buffer.putUint8(155);
-      writeValue(buffer, value.encode());
-    }    else if (value is ArtifactDto) {
-      buffer.putUint8(156);
-      writeValue(buffer, value.encode());
-    }    else if (value is DiagnosticsDto) {
-      buffer.putUint8(157);
-      writeValue(buffer, value.encode());
     }    else if (value is SkillDto) {
-      buffer.putUint8(158);
-      writeValue(buffer, value.encode());
-    }    else if (value is AgentUsageExportDto) {
-      buffer.putUint8(159);
-      writeValue(buffer, value.encode());
-    }    else if (value is AgentUsageExportIntentDto) {
-      buffer.putUint8(160);
-      writeValue(buffer, value.encode());
-    }    else if (value is AgentUsageExportHistoryPageDto) {
-      buffer.putUint8(161);
-      writeValue(buffer, value.encode());
-    }    else if (value is AgentUsageAlertsDto) {
-      buffer.putUint8(162);
-      writeValue(buffer, value.encode());
-    }    else if (value is TaskResumeReceiptDto) {
-      buffer.putUint8(163);
-      writeValue(buffer, value.encode());
-    }    else if (value is MemoryProtectionDto) {
-      buffer.putUint8(164);
+      buffer.putUint8(150);
       writeValue(buffer, value.encode());
     } else {
       super.writeValue(buffer, value);
@@ -3288,51 +2081,23 @@ class _PigeonCodec extends StandardMessageCodec {
       case 141:
         return AgentUsageMetricDto.decode(readValue(buffer)!);
       case 142:
-        return AgentCatalogTaskDto.decode(readValue(buffer)!);
-      case 143:
-        return AgentCatalogPageDto.decode(readValue(buffer)!);
-      case 144:
-        return AgentCatalogStepDto.decode(readValue(buffer)!);
-      case 145:
-        return AgentCatalogCallDto.decode(readValue(buffer)!);
-      case 146:
-        return AgentCatalogArtifactDto.decode(readValue(buffer)!);
-      case 147:
-        return AgentCatalogDetailDto.decode(readValue(buffer)!);
-      case 148:
         return AgentUsageEntryDto.decode(readValue(buffer)!);
-      case 149:
+      case 143:
         return AgentUsagePageDto.decode(readValue(buffer)!);
-      case 150:
-        return AgentUsageGroupDto.decode(readValue(buffer)!);
-      case 151:
-        return AgentUsageGroupsPageDto.decode(readValue(buffer)!);
-      case 152:
+      case 144:
         return ConversationDetailDto.decode(readValue(buffer)!);
-      case 153:
+      case 145:
         return SendMessageRequest.decode(readValue(buffer)!);
-      case 154:
+      case 146:
         return MaterialFileDto.decode(readValue(buffer)!);
-      case 155:
+      case 147:
         return MemoryItemDto.decode(readValue(buffer)!);
-      case 156:
+      case 148:
         return ArtifactDto.decode(readValue(buffer)!);
-      case 157:
+      case 149:
         return DiagnosticsDto.decode(readValue(buffer)!);
-      case 158:
+      case 150:
         return SkillDto.decode(readValue(buffer)!);
-      case 159:
-        return AgentUsageExportDto.decode(readValue(buffer)!);
-      case 160:
-        return AgentUsageExportIntentDto.decode(readValue(buffer)!);
-      case 161:
-        return AgentUsageExportHistoryPageDto.decode(readValue(buffer)!);
-      case 162:
-        return AgentUsageAlertsDto.decode(readValue(buffer)!);
-      case 163:
-        return TaskResumeReceiptDto.decode(readValue(buffer)!);
-      case 164:
-        return MemoryProtectionDto.decode(readValue(buffer)!);
       default:
         return super.readValueOfType(type, buffer);
     }
@@ -3717,44 +2482,6 @@ class StudyHostApi {
     return pigeonVar_replyValue as AgentTaskDto?;
   }
 
-  Future<AgentCatalogPageDto> getAgentTaskCatalog(String profileId, String kind, String? cursor, int limit, int expectedEpoch) async {
-    final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.getAgentTaskCatalog$pigeonVar_messageChannelSuffix';
-    final pigeonVar_channel = BasicMessageChannel<Object?>(
-      pigeonVar_channelName,
-      pigeonChannelCodec,
-      binaryMessenger: pigeonVar_binaryMessenger,
-    );
-    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, kind, cursor, limit, expectedEpoch]);
-    final pigeonVar_replyList = await pigeonVar_sendFuture as List<Object?>?;
-
-    final Object? pigeonVar_replyValue = _extractReplyValueOrThrow(
-        pigeonVar_replyList,
-        pigeonVar_channelName,
-        isNullValid: false,
-    )
-    ;
-    return pigeonVar_replyValue! as AgentCatalogPageDto;
-  }
-
-  Future<AgentCatalogDetailDto> getAgentTaskDetail(String profileId, String taskId, String? cursor, int limit, int expectedEpoch) async {
-    final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.getAgentTaskDetail$pigeonVar_messageChannelSuffix';
-    final pigeonVar_channel = BasicMessageChannel<Object?>(
-      pigeonVar_channelName,
-      pigeonChannelCodec,
-      binaryMessenger: pigeonVar_binaryMessenger,
-    );
-    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, taskId, cursor, limit, expectedEpoch]);
-    final pigeonVar_replyList = await pigeonVar_sendFuture as List<Object?>?;
-
-    final Object? pigeonVar_replyValue = _extractReplyValueOrThrow(
-        pigeonVar_replyList,
-        pigeonVar_channelName,
-        isNullValid: false,
-    )
-    ;
-    return pigeonVar_replyValue! as AgentCatalogDetailDto;
-  }
-
   Future<AgentUsagePageDto> getAgentUsage(String profileId, String? taskId, int? from, int? until, String? cursor, int limit, int expectedEpoch) async {
     final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.getAgentUsage$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
@@ -3774,101 +2501,6 @@ class StudyHostApi {
     return pigeonVar_replyValue! as AgentUsagePageDto;
   }
 
-  Future<AgentUsageGroupsPageDto> getAgentUsageGroups(String profileId, String? taskId, int? from, int? until, String groupBy, String? cursor, int limit, int expectedEpoch) async {
-    final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.getAgentUsageGroups$pigeonVar_messageChannelSuffix';
-    final pigeonVar_channel = BasicMessageChannel<Object?>(
-      pigeonVar_channelName,
-      pigeonChannelCodec,
-      binaryMessenger: pigeonVar_binaryMessenger,
-    );
-    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, taskId, from, until, groupBy, cursor, limit, expectedEpoch]);
-    final pigeonVar_replyList = await pigeonVar_sendFuture as List<Object?>?;
-
-    final Object? pigeonVar_replyValue = _extractReplyValueOrThrow(
-        pigeonVar_replyList,
-        pigeonVar_channelName,
-        isNullValid: false,
-    )
-    ;
-    return pigeonVar_replyValue! as AgentUsageGroupsPageDto;
-  }
-
-  Future<AgentUsageExportDto> exportAgentUsage(String profileId, String? taskId, int? from, int? until, String groupBy, String requestId, int expectedEpoch) async {
-    final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.exportAgentUsage$pigeonVar_messageChannelSuffix';
-    final pigeonVar_channel = BasicMessageChannel<Object?>(
-      pigeonVar_channelName,
-      pigeonChannelCodec,
-      binaryMessenger: pigeonVar_binaryMessenger,
-    );
-    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, taskId, from, until, groupBy, requestId, expectedEpoch]);
-    final pigeonVar_replyList = await pigeonVar_sendFuture as List<Object?>?;
-
-    final Object? pigeonVar_replyValue = _extractReplyValueOrThrow(
-        pigeonVar_replyList,
-        pigeonVar_channelName,
-        isNullValid: false,
-    )
-    ;
-    return pigeonVar_replyValue! as AgentUsageExportDto;
-  }
-
-  Future<AgentUsageExportIntentDto?> getAgentUsageLastExport(String profileId, String? taskId, int? from, int? until, String groupBy, int expectedEpoch) async {
-    final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.getAgentUsageLastExport$pigeonVar_messageChannelSuffix';
-    final pigeonVar_channel = BasicMessageChannel<Object?>(
-      pigeonVar_channelName,
-      pigeonChannelCodec,
-      binaryMessenger: pigeonVar_binaryMessenger,
-    );
-    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, taskId, from, until, groupBy, expectedEpoch]);
-    final pigeonVar_replyList = await pigeonVar_sendFuture as List<Object?>?;
-
-    final Object? pigeonVar_replyValue = _extractReplyValueOrThrow(
-        pigeonVar_replyList,
-        pigeonVar_channelName,
-        isNullValid: true,
-    )
-    ;
-    return pigeonVar_replyValue as AgentUsageExportIntentDto?;
-  }
-
-  Future<AgentUsageExportHistoryPageDto> getAgentUsageExportHistory(String profileId, String? cursor, int limit, int expectedEpoch) async {
-    final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.getAgentUsageExportHistory$pigeonVar_messageChannelSuffix';
-    final pigeonVar_channel = BasicMessageChannel<Object?>(
-      pigeonVar_channelName,
-      pigeonChannelCodec,
-      binaryMessenger: pigeonVar_binaryMessenger,
-    );
-    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, cursor, limit, expectedEpoch]);
-    final pigeonVar_replyList = await pigeonVar_sendFuture as List<Object?>?;
-
-    final Object? pigeonVar_replyValue = _extractReplyValueOrThrow(
-        pigeonVar_replyList,
-        pigeonVar_channelName,
-        isNullValid: false,
-    )
-    ;
-    return pigeonVar_replyValue! as AgentUsageExportHistoryPageDto;
-  }
-
-  Future<AgentUsageExportDto> verifyAgentUsageExport(String profileId, String? taskId, int? from, int? until, String groupBy, String requestId, String expectedSha256, int expectedEpoch) async {
-    final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.verifyAgentUsageExport$pigeonVar_messageChannelSuffix';
-    final pigeonVar_channel = BasicMessageChannel<Object?>(
-      pigeonVar_channelName,
-      pigeonChannelCodec,
-      binaryMessenger: pigeonVar_binaryMessenger,
-    );
-    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, taskId, from, until, groupBy, requestId, expectedSha256, expectedEpoch]);
-    final pigeonVar_replyList = await pigeonVar_sendFuture as List<Object?>?;
-
-    final Object? pigeonVar_replyValue = _extractReplyValueOrThrow(
-        pigeonVar_replyList,
-        pigeonVar_channelName,
-        isNullValid: false,
-    )
-    ;
-    return pigeonVar_replyValue! as AgentUsageExportDto;
-  }
-
   Future<SimpleCommandResult> taskCommand(String profileId, String conversationId, String taskId, String requestId, int expectedEpoch, int expectedRevision, int expectedFence, String action, String payload) async {
     final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.taskCommand$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
@@ -3877,25 +2509,6 @@ class StudyHostApi {
       binaryMessenger: pigeonVar_binaryMessenger,
     );
     final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, conversationId, taskId, requestId, expectedEpoch, expectedRevision, expectedFence, action, payload]);
-    final pigeonVar_replyList = await pigeonVar_sendFuture as List<Object?>?;
-
-    final Object? pigeonVar_replyValue = _extractReplyValueOrThrow(
-        pigeonVar_replyList,
-        pigeonVar_channelName,
-        isNullValid: false,
-    )
-    ;
-    return pigeonVar_replyValue! as SimpleCommandResult;
-  }
-
-  Future<SimpleCommandResult> taskSafetyCommand(String profileId, String taskId, String requestId, int expectedEpoch, int expectedRevision, int expectedFence, String action) async {
-    final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.taskSafetyCommand$pigeonVar_messageChannelSuffix';
-    final pigeonVar_channel = BasicMessageChannel<Object?>(
-      pigeonVar_channelName,
-      pigeonChannelCodec,
-      binaryMessenger: pigeonVar_binaryMessenger,
-    );
-    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, taskId, requestId, expectedEpoch, expectedRevision, expectedFence, action]);
     final pigeonVar_replyList = await pigeonVar_sendFuture as List<Object?>?;
 
     final Object? pigeonVar_replyValue = _extractReplyValueOrThrow(
@@ -4268,14 +2881,14 @@ class StudyHostApi {
     return pigeonVar_replyValue! as SimpleCommandResult;
   }
 
-  Future<SimpleCommandResult> toggleAutoMemory(String profileId, bool enabled, int expectedEpoch) async {
+  Future<SimpleCommandResult> toggleAutoMemory(String profileId, bool enabled) async {
     final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.toggleAutoMemory$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
       binaryMessenger: pigeonVar_binaryMessenger,
     );
-    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, enabled, expectedEpoch]);
+    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, enabled]);
     final pigeonVar_replyList = await pigeonVar_sendFuture as List<Object?>?;
 
     final Object? pigeonVar_replyValue = _extractReplyValueOrThrow(
@@ -4477,25 +3090,6 @@ class StudyHostApi {
     return pigeonVar_replyValue! as DiagnosticsDto;
   }
 
-  Future<AgentUsageAlertsDto> getAgentUsageAlerts(String profileId, String? taskId, int? from, int? until, int expectedEpoch) async {
-    final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.getAgentUsageAlerts$pigeonVar_messageChannelSuffix';
-    final pigeonVar_channel = BasicMessageChannel<Object?>(
-      pigeonVar_channelName,
-      pigeonChannelCodec,
-      binaryMessenger: pigeonVar_binaryMessenger,
-    );
-    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, taskId, from, until, expectedEpoch]);
-    final pigeonVar_replyList = await pigeonVar_sendFuture as List<Object?>?;
-
-    final Object? pigeonVar_replyValue = _extractReplyValueOrThrow(
-        pigeonVar_replyList,
-        pigeonVar_channelName,
-        isNullValid: false,
-    )
-    ;
-    return pigeonVar_replyValue! as AgentUsageAlertsDto;
-  }
-
   Future<SimpleCommandResult> exportDiagnostics() async {
     final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.exportDiagnostics$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
@@ -4513,43 +3107,5 @@ class StudyHostApi {
     )
     ;
     return pigeonVar_replyValue! as SimpleCommandResult;
-  }
-
-  Future<TaskResumeReceiptDto?> getTaskResumeReceipt(String profileId, String taskId, String? requestId, int expectedEpoch) async {
-    final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.getTaskResumeReceipt$pigeonVar_messageChannelSuffix';
-    final pigeonVar_channel = BasicMessageChannel<Object?>(
-      pigeonVar_channelName,
-      pigeonChannelCodec,
-      binaryMessenger: pigeonVar_binaryMessenger,
-    );
-    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, taskId, requestId, expectedEpoch]);
-    final pigeonVar_replyList = await pigeonVar_sendFuture as List<Object?>?;
-
-    final Object? pigeonVar_replyValue = _extractReplyValueOrThrow(
-        pigeonVar_replyList,
-        pigeonVar_channelName,
-        isNullValid: true,
-    )
-    ;
-    return pigeonVar_replyValue as TaskResumeReceiptDto?;
-  }
-
-  Future<MemoryProtectionDto> getMemoryProtection(String profileId, int expectedEpoch) async {
-    final pigeonVar_channelName = 'dev.flutter.pigeon.flutter_ui.StudyHostApi.getMemoryProtection$pigeonVar_messageChannelSuffix';
-    final pigeonVar_channel = BasicMessageChannel<Object?>(
-      pigeonVar_channelName,
-      pigeonChannelCodec,
-      binaryMessenger: pigeonVar_binaryMessenger,
-    );
-    final Future<Object?> pigeonVar_sendFuture = pigeonVar_channel.send(<Object?>[profileId, expectedEpoch]);
-    final pigeonVar_replyList = await pigeonVar_sendFuture as List<Object?>?;
-
-    final Object? pigeonVar_replyValue = _extractReplyValueOrThrow(
-        pigeonVar_replyList,
-        pigeonVar_channelName,
-        isNullValid: false,
-    )
-    ;
-    return pigeonVar_replyValue! as MemoryProtectionDto;
   }
 }

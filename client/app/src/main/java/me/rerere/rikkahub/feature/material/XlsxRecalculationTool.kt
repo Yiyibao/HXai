@@ -16,7 +16,7 @@ fun remoteOfficeOperation(toolName: String): String? = when (toolName) {
     else -> null
 }
 
-/** Remote version-write tool; the shared factory also enforces the trusted EXTERNAL contract. */
+/** Added to the shared factory only together with Sol's trusted EXTERNAL contract patch. */
 fun xlsxRecalculationTool(materials: MaterialFiles, owner: String, documents: DocumentServiceRepository, allowRemote: Boolean): Tool = Tool(
     name = "recalculate_material_xlsx",
     description = "把当前档案已检查的真实XLSX交给已授权Office服务实际重算，保存可编辑新版本，原件保留。id/expected_sha256绑定源版本，title为新文件名不含扩展名。提交后返回task_id只是排队；不要重复提交或轮询，原任务自动续接下载。保存缓存/结果类型独立核对，不保证微软Office复杂排版一致；未就绪或失败不能声称重算成功。",
@@ -44,7 +44,6 @@ fun xlsxRecalculationTool(materials: MaterialFiles, owner: String, documents: Do
                 listOf(UIMessagePart.Text(buildJsonObject {
                     put("operation", XLSX_RECALCULATE); put("task_id", task.id); put("source_id", source.id)
                     put("state", "SUCCEEDED"); put("downloaded", true); put("detail", artifact.detail)
-                    put("calculation", office.calculationEvidence(owner, task.id))
                 }.toString()), UIMessagePart.Document(materials.verifiedFile(owner, artifact.id).toUri().toString(), artifact.name, XLSX_MEDIA_TYPE))
             } else listOf(UIMessagePart.Text(buildJsonObject {
                 put("operation", XLSX_RECALCULATE); put("task_id", task.id); put("source_id", source.id)

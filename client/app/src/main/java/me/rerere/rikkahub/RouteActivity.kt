@@ -231,7 +231,6 @@ class RouteActivity : ComponentActivity() {
                 "files" -> Screen.SettingFiles
                 "skills" -> Screen.Skills
                 "backup" -> Screen.Backup
-                "notifications" -> Screen.SettingPreferencesNotification
                 else -> intent.getStringExtra("conversationId")?.let { Screen.Chat(it) }
             }
         }
@@ -265,10 +264,7 @@ class RouteActivity : ComponentActivity() {
         }
         val migrationState by DatabaseMigrationTracker.state.collectAsStateWithLifecycle()
 
-        // Open notification preferences directly; entering settings must not create a chat.
-        val startScreen: NavKey = if(intent.getStringExtra("nativePage")=="notifications") {
-            Screen.SettingPreferencesNotification
-        } else Screen.Chat(
+        val startScreen = Screen.Chat(
             id = if (readBooleanPreference("create_new_conversation_on_start", true)) {
                 Uuid.random().toString()
             } else {
@@ -289,7 +285,7 @@ class RouteActivity : ComponentActivity() {
 
         SharedTransitionLayout {
             CompositionLocalProvider(
-                LocalNavController provides Navigator(backStack, onRootBack = { finish() }),
+                LocalNavController provides Navigator(backStack),
                 LocalSharedTransitionScope provides this,
                 LocalSettings provides settings,
                 LocalToaster provides toastState,
@@ -317,7 +313,7 @@ class RouteActivity : ComponentActivity() {
                             rememberViewModelStoreNavEntryDecorator(),
                         ),
                         modifier = Modifier.fillMaxSize(),
-                        onBack = { if(backStack.size>1) backStack.removeLastOrNull() else finish() },
+                        onBack = { backStack.removeLastOrNull() },
                         transitionSpec = {
                             if (settings.displaySetting.reduceMotion) androidx.compose.animation.EnterTransition.None togetherWith androidx.compose.animation.ExitTransition.None
                             else if (backStack.size == 1) fadeIn() togetherWith fadeOut()

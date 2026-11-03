@@ -48,9 +48,6 @@ class Store:
             db.execute("BEGIN IMMEDIATE")
             if "reserved_bytes" not in {row["name"] for row in db.execute("PRAGMA table_info(jobs)")}:
                 db.execute("ALTER TABLE jobs ADD COLUMN reserved_bytes INTEGER NOT NULL DEFAULT 0")
-            if "worker_stopped" not in {row["name"] for row in db.execute("PRAGMA table_info(jobs)")}:
-                # No retrospective stop proof for legacy terminal/cancelled rows.
-                db.execute("ALTER TABLE jobs ADD COLUMN worker_stopped INTEGER NOT NULL DEFAULT 0")
             for row in db.execute("SELECT id,options FROM jobs WHERE reserved_bytes=0 AND state!='EXPIRED'").fetchall():
                 directory = self.root / "jobs" / row["id"]
                 if directory.is_dir():
@@ -117,16 +114,6 @@ class Store:
             row = db.execute("SELECT * FROM jobs WHERE id=? AND owner=?", (job_id, owner)).fetchone()
         return dict(row) if row else None
 
-    def find_request(self, owner, key):
-        with self.db() as db:
-            row=db.execute("SELECT * FROM jobs WHERE owner=? AND request_key=?",(owner,key)).fetchone()
-            return dict(row) if row else None
-
-    def record_worker_stopped(self, job_id):
-        """Trusted dispatcher only, after actual worker AND validator exit/absence."""
-        with self.db() as db:
-            db.execute("UPDATE jobs SET worker_stopped=1 WHERE id=?",(job_id,))
-
     def enqueue(self, owner, key, fingerprint, options, staged):
         now, job_id = time.time(), str(uuid.uuid4())
         destination = self.root / "jobs" / job_id
@@ -154,7 +141,7 @@ class Store:
                     return dict(old)
                 cancelled = db.execute("SELECT 1 FROM request_cancellations WHERE owner=? AND request_key=?", (owner, key)).fetchone()
                 if cancelled:
-                    db.execute("INSERT INTO jobs(id,owner,request_key,fingerprint,options,state,created,updated,expires,cancel,worker_stopped) VALUES (?,?,?,?,?,'CANCELLED',?,?,?,1,1)",
+                    db.execute("INSERT INTO jobs(id,owner,request_key,fingerprint,options,state,created,updated,expires,cancel) VALUES (?,?,?,?,?,'CANCELLED',?,?,?,1)",
                                (job_id, owner, key, fingerprint, json.dumps(options), now, now, now + 86400))
                     return dict(db.execute("SELECT * FROM jobs WHERE id=?", (job_id,)).fetchone())
                 count = db.execute("SELECT COUNT(*) FROM jobs WHERE state IN ('QUEUED','RUNNING')").fetchone()[0]
@@ -172,7 +159,7 @@ class Store:
                 (destination / "output").mkdir()
                 staged.replace(destination / "input" / ("source." + options["extension"]))
                 (destination / "input" / "request.json").write_text(json.dumps(options), encoding="utf-8")
-                db.execute("INSERT INTO jobs(id,owner,request_key,fingerprint,options,state,created,updated,expires,reserved_bytes,worker_stopped) VALUES (?,?,?,?,?,'QUEUED',?,?,?,?,1)",
+                db.execute("INSERT INTO jobs(id,owner,request_key,fingerprint,options,state,created,updated,expires,reserved_bytes) VALUES (?,?,?,?,?,'QUEUED',?,?,?,?)",
                            (job_id, owner, key, fingerprint, json.dumps(options), now, now, now + 48 * 3600, reserved))
         except BaseException:
             # The db context has rolled back before compensation. Never remove a
@@ -237,18 +224,8 @@ class Store:
                                 WHERE jobs.state='QUEUED' AND jobs.cancel=0 AND identities.active=1
                                 ORDER BY jobs.created,jobs.id LIMIT 1""").fetchone()
             if row:
-                db.execute("UPDATE jobs SET state='RUNNING',worker_stopped=0,updated=? WHERE id=?", (time.time(), row["id"]))
+                db.execute("UPDATE jobs SET state='RUNNING',updated=? WHERE id=?", (time.time(), row["id"]))
         return dict(row) if row else None
-
-    def dispatchable(self, owner, job_id):
-        """A claim is not a perpetual permit; recheck before each worker dispatch."""
-        with self.db() as db:
-            db.execute("BEGIN IMMEDIATE")
-            self._fence_revoked_jobs(db, time.time())
-            row = db.execute("""SELECT 1 FROM jobs JOIN identities ON identities.id=jobs.owner
-                                WHERE jobs.id=? AND jobs.owner=? AND jobs.state='RUNNING'
-                                  AND jobs.cancel=0 AND identities.active=1""", (job_id, owner)).fetchone()
-        return row is not None
 
     def finish(self, job_id, state, manifest=None, error=None):
         now = time.time()

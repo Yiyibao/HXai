@@ -28,8 +28,6 @@ android {
         targetSdk = 37
         versionCode = 1
         versionName = "0.1.0-dev"
-        // QA extensions belong to the debug fixture variant only.
-        buildConfigField("boolean", "SYNTHETIC_MCP", "false")
 
         testInstrumentationRunner = if (providers.gradleProperty("agentNativeTest").orNull == "true")
             "me.rerere.rikkahub.feature.agent.AgentNativeTestRunner"
@@ -81,9 +79,7 @@ android {
 
     buildTypes {
         release {
-            // A local, unsigned release can be built without distribution keys.
-            // Never substitute the debug key for a missing release credential.
-            signingConfig = signingConfigs.getByName("release").takeIf { it.storeFile != null }
+            signingConfig = signingConfigs.getByName("release")
             optimization {
                 enable = true
             }
@@ -92,7 +88,6 @@ android {
         }
         debug {
             applicationIdSuffix = if (providers.gradleProperty("agentNativeTest").orNull == "true") ".nativeqa" else ".debug"
-            buildConfigField("boolean", "SYNTHETIC_MCP", (providers.gradleProperty("agentNativeTest").orNull == "true").toString())
             buildConfigField("String", "VERSION_NAME", "\"${android.defaultConfig.versionName}\"")
             buildConfigField("String", "VERSION_CODE", "\"${android.defaultConfig.versionCode}\"")
         }
@@ -106,11 +101,9 @@ android {
         buildConfig = true
     }
     sourceSets {
-        getByName("main").assets.srcDir("../../server/agent-runtime/protocol")
         getByName("androidTest").assets.directories.add("$projectDir/schemas")
         if (providers.gradleProperty("agentNativeTest").orNull == "true") {
             getByName("debug").manifest.srcFile("src/nativeqa/AndroidManifest.xml")
-            getByName("debug").kotlin.srcDir("src/nativeqa/java")
         }
     }
     androidResources {
@@ -345,5 +338,4 @@ dependencies {
 
     // Flutter Add-to-App
     debugImplementation("me.rerere.rikkahub.flutter_ui:flutter_debug:1.0")
-    releaseImplementation("me.rerere.rikkahub.flutter_ui:flutter_release:1.0")
 }

@@ -1,193 +1,462 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../providers/material_library_providers.dart';
+
+import '../theme/study_theme.dart';
+import '../bridge/study_host_api.g.dart';
 import '../providers/study_providers.dart';
-import 'library_detail_page.dart';
+import '../providers/profile_resource.dart';
+import '../widgets/attachment_options_sheet.dart';
 
 class FilesPage extends ConsumerStatefulWidget {
   const FilesPage({super.key});
+
   @override
   ConsumerState<FilesPage> createState() => _FilesPageState();
 }
 
 class _FilesPageState extends ConsumerState<FilesPage> {
-  String query = '', folder = '', tag = '', sort = 'newest';
-  bool trash = false, busy = false;
-  LibraryAccess get access => LibraryAccess(ref.read(activeProfileIdProvider), ref.read(contextEpochProvider));
+  final TextEditingController _searchController = TextEditingController();
+  String _selectedFilter = '全部'; // 全部, 文档, 图片
+  String _searchQuery = '';
+
   @override
-  void initState() {
-    super.initState();
-    Future.microtask(() { if (mounted) refresh(); });
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
   }
-  void refresh() {
-    ref.invalidate(materialLibraryProvider);
-    ref.read(materialsProvider.notifier).refresh();
-    ref.read(artifactsProvider.notifier).refresh();
-  }
-  Future<void> action(Future<void> Function(LibraryAccess) work) async {
-    final accepted = access;
-    setState(() => busy = true);
+
+  Future<void> _pickNewFile() async {
+    final option = await AttachmentOptionsSheet.show(context);
+    if (option == null || !mounted) return;
+    final profile = ref.read(activeProfileIdProvider);
+    final epoch = ref.read(contextEpochProvider);
     try {
-      await work(accepted);
-      if (mounted && accepted.current(ref)) refresh();
+      final paths = await bridgeApi.pickAttachments(profile, epoch);
+      if (paths.isNotEmpty && mounted) {
+        ref.read(materialsProvider.notifier).refresh();
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('已添加 ${paths.length} 个文件到文件库')));
+      }
     } catch (e) {
-      if (mounted && accepted.current(ref)) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$e')));
-      if (mounted && accepted.current(ref)) refresh();
-    } finally {
-      if (mounted) setState(() => busy = false);
+      if (mounted) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text('$e')));
+      }
     }
   }
-  Future<void> addFiles() => action((a) async {
-    final ids = await bridgeApi.pickAttachments(a.profile, a.epoch);
-    if (mounted && a.current(ref) && ids.isNotEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('已保存 ${ids.length} 个原文件；尚未读取全文')));
-    }
-  });
-  Future<void> addDirectory() => action((a) async {
-    final report = await a.call<Map<dynamic, dynamic>>('library.importDirectory');
-    if (!mounted || !a.current(ref) || report == null || report['cancelled'] == true) return;
-    final ids = report['importedIds'] as List;
-    final errors = report['failures'] as List;
-    await showDialog<void>(context: context, builder: (c) => AlertDialog(
-      title: Text(report['enumerationComplete'] == true && errors.isEmpty ? '目录复制完成' : '目录部分导入'),
-      content: SingleChildScrollView(child: Text('已保存 ${ids.length} 个文件，${errors.length} 项失败。\n${report['notice']}\n${errors.map((e) => '${e['name']}: ${e['error']}').join('\n')}')),
-      actions: [TextButton(onPressed: () => Navigator.pop(c), child: const Text('关闭'))],
-    ));
-  });
-  Future<void> searchText() async {
-    final accepted = access;
-    final search = query;
-    if (search.isEmpty) return;
-    await Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => LibraryTextSearch(access: accepted, query: search)));
-  }
-  Future<void> trashAction(LibraryEntry entry, String method) async {
-    final accepted = access;
-    final yes = await showDialog<bool>(context: context, builder: (c) => AlertDialog(
-      title: Text(method == 'library.restore' ? '恢复为新版本？' : '清除回收站原件？'),
-      content: Text(method == 'library.restore' ? '独立回读原件，创建新ID；旧删除保护保持，不复活旧引用。' : '仅永久删除本机回收站中的这份原件。旧备份仍受删除保护，删除记录不会清除。'),
-      actions: [TextButton(onPressed: () => Navigator.pop(c, false), child: const Text('取消')),
-        TextButton(onPressed: () => Navigator.pop(c, true), child: const Text('确认'))],
-    ));
-    if (yes != true || !mounted || !accepted.current(ref)) return;
-    await action((a) async { await a.call<Object?>(method, entry.identity); });
-  }
+
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(materialLibraryProvider);
+    final materialsAsync = ref.watch(materialsProvider);
+
     return Scaffold(
-      appBar: AppBar(title: Text(trash ? '资料库回收站' : '文件库'), actions: [
-        IconButton(tooltip: trash ? '返回资料库' : '本机回收站', onPressed: busy ? null : () => setState(() => trash = !trash), icon: Icon(trash ? Icons.folder_outlined : Icons.delete_outline)),
-        PopupMenuButton<String>(enabled: !busy && !trash, tooltip: '导入资料', onSelected: (value) => value == 'directory' ? addDirectory() : addFiles(), itemBuilder: (_) => [
-          const PopupMenuItem(value: 'files', child: Text('选择文件')),
-          const PopupMenuItem(value: 'directory', child: Text('选择系统授权目录')),
-        ], icon: const Icon(Icons.add)),
-      ]),
-      body: SafeArea(child: Column(children: [
-        if (busy) const LinearProgressIndicator(),
-        Padding(padding: const EdgeInsets.all(12), child: TextField(
-          decoration: const InputDecoration(labelText: '文件名、文件夹或标签', prefixIcon: Icon(Icons.search)),
-          onChanged: (value) => setState(() => query = value.trim()),
-        )),
-        if (!trash) Padding(padding: const EdgeInsets.symmetric(horizontal: 12), child: Wrap(spacing: 12, runSpacing: 8, children: [
-          TextButton.icon(onPressed: busy || query.isEmpty ? null : searchText, icon: const Icon(Icons.manage_search), label: const Text('检索真实正文')),
-          DropdownButton<String>(value: sort, onChanged: (v) => setState(() => sort = v!), items: const [
-            DropdownMenuItem(value: 'newest', child: Text('最新在前')),
-            DropdownMenuItem(value: 'name', child: Text('按名称')),
-            DropdownMenuItem(value: 'size', child: Text('按大小')),
-          ]),
-        ])),
-        Expanded(child: state.when(loading: () => const Center(child: CircularProgressIndicator()),
-          error: (e, _) => Center(child: Column(mainAxisSize: MainAxisSize.min, children: [Text('资料库加载失败：$e'), TextButton(onPressed: refresh, child: const Text('重试'))])),
-          data: (snapshot) {
-            if (!snapshot.access.current(ref)) return const SizedBox.shrink();
-            final all = trash ? snapshot.trash : snapshot.files;
-            final folders = all.expand((entry) {
-              final parts = entry.folder.split('/');
-              return [for (var i = 1; i <= parts.length; i++) parts.take(i).join('/')];
-            }).where((e) => e.isNotEmpty).toSet().toList()..sort();
-            final tags = all.expand((e) => e.tags).toSet().toList()..sort();
-            final selectedFolder = folders.contains(folder) ? folder : '';
-            final selectedTag = tags.contains(tag) ? tag : '';
-            final filtered = all.where((entry) => (selectedFolder.isEmpty || entry.folder == selectedFolder || entry.folder.startsWith('$selectedFolder/')) &&
-              (selectedTag.isEmpty || entry.tags.contains(selectedTag)) &&
-              '${entry.name} ${entry.folder} ${entry.tags.join(' ')}'.toLowerCase().contains(query.toLowerCase())).toList();
-            filtered.sort((a, b) => switch (sort) { 'name' => a.name.compareTo(b.name), 'size' => b.size.compareTo(a.size), _ => b.createdAt.compareTo(a.createdAt) });
-            return Column(children: [
-              Padding(padding: const EdgeInsets.symmetric(horizontal: 12), child: Wrap(spacing: 8, children: [
-                DropdownButton<String>(value: folders.contains(folder) ? folder : '', hint: const Text('文件夹'), items: [
-                  const DropdownMenuItem(value: '', child: Text('所有文件夹')),
-                  ...folders.map((f) => DropdownMenuItem(value: f, child: ConstrainedBox(constraints: const BoxConstraints(maxWidth: 180), child: Text(f, overflow: TextOverflow.ellipsis)))),
-                ], onChanged: (v) => setState(() => folder = v!)),
-                DropdownButton<String>(value: tags.contains(tag) ? tag : '', items: [
-                  const DropdownMenuItem(value: '', child: Text('所有标签')),
-                  ...tags.map((t) => DropdownMenuItem(value: t, child: ConstrainedBox(constraints: const BoxConstraints(maxWidth: 140), child: Text(t, overflow: TextOverflow.ellipsis)))),
-                ], onChanged: (v) => setState(() => tag = v!)),
-              ])),
-              Expanded(child: RefreshIndicator(onRefresh: () async { refresh(); await ref.read(materialLibraryProvider.future); }, child: ListView.builder(
-                physics: const AlwaysScrollableScrollPhysics(), itemCount: filtered.isEmpty ? 1 : filtered.length,
-                itemBuilder: (context, index) {
-                  if (filtered.isEmpty) return const Padding(padding: EdgeInsets.all(32), child: Text('没有匹配资料。文件长期独立保存，删除聊天不会删除这里的原件。'));
-                  final item = filtered[index];
-                  return ListTile(
-                    leading: Icon(item.data['output'] == true ? Icons.task_outlined : Icons.description_outlined),
-                    title: Text(item.name, maxLines: 2, overflow: TextOverflow.ellipsis),
-                    subtitle: Text('${item.folder.isEmpty ? '根文件夹' : item.folder} · ${item.tags.join(' / ')}\n${item.extension.toUpperCase()} · ${item.size} bytes · ${item.detail}', maxLines: 4, overflow: TextOverflow.ellipsis),
-                    trailing: trash ? PopupMenuButton<String>(enabled: !busy, onSelected: (v) => trashAction(item, v), itemBuilder: (_) => [
-                      PopupMenuItem(value: 'library.restore', enabled: item.recoverable, child: Text(item.recoverable ? '恢复为新版本' : '原件已清除，无法恢复')),
-                      if (item.recoverable) const PopupMenuItem(value: 'library.purge', child: Text('永久清除本机原件')),
-                    ]) : const Icon(Icons.chevron_right),
-                    onTap: trash ? null : () async {
-                      await Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => LibraryDetailPage(access: snapshot.access, entry: item)));
-                      if (mounted && snapshot.access.current(ref)) refresh();
+      backgroundColor: StudyPalette.of(context).bgWhite,
+      appBar: AppBar(
+        backgroundColor: StudyPalette.of(context).bgWhite,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: StudyPalette.of(context).textBlack,
+          ),
+          onPressed: () => context.pop(),
+        ),
+        title: Text(
+          '文件库',
+          style: TextStyle(
+            color: StudyPalette.of(context).textBlack,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.add,
+              color: StudyPalette.of(context).textBlack,
+              size: 22,
+            ),
+            tooltip: '添加文件',
+            onPressed: _pickNewFile,
+          ),
+        ],
+      ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            // Search Input
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: StudyPalette.of(context).surfaceBackground,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: StudyPalette.of(context).borderGray,
+                    width: 0.8,
+                  ),
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.search,
+                      size: 18,
+                      color: StudyPalette.of(context).textGray,
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: TextField(
+                        controller: _searchController,
+                        onChanged: (val) =>
+                            setState(() => _searchQuery = val.trim()),
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: StudyPalette.of(context).textBlack,
+                        ),
+                        decoration: InputDecoration(
+                          hintText: '搜索文件',
+                          hintStyle: TextStyle(
+                            fontSize: 14,
+                            color: StudyPalette.of(context).textGray,
+                          ),
+                          border: InputBorder.none,
+                          enabledBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          filled: false,
+                          isDense: true,
+                          contentPadding: EdgeInsets.symmetric(vertical: 10),
+                        ),
+                      ),
+                    ),
+                    if (_searchQuery.isNotEmpty)
+                      IconButton(
+                        icon: Icon(
+                          Icons.clear,
+                          size: 16,
+                          color: StudyPalette.of(context).textGray,
+                        ),
+                        padding: EdgeInsets.zero,
+                        constraints: const BoxConstraints(),
+                        onPressed: () {
+                          _searchController.clear();
+                          setState(() => _searchQuery = '');
+                        },
+                      ),
+                  ],
+                ),
+              ),
+            ),
+
+            // Filter Tabs: 全部 / 文档 / 图片
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+              child: Wrap(
+                runSpacing: 8,
+                children: ['全部', '文档', '图片'].map((filter) {
+                  final isSelected = filter == _selectedFilter;
+                  return Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: InkWell(
+                      onTap: () => setState(() => _selectedFilter = filter),
+                      borderRadius: BorderRadius.circular(16),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 14,
+                          vertical: 6,
+                        ),
+                        decoration: BoxDecoration(
+                          color: isSelected
+                              ? StudyPalette.of(context).bubbleGray
+                              : StudyPalette.of(context).surfaceBackground,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Text(
+                          filter,
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: isSelected
+                                ? FontWeight.w600
+                                : FontWeight.normal,
+                            color: isSelected
+                                ? StudyPalette.of(context).textBlack
+                                : StudyPalette.of(context).textBlack,
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+            const SizedBox(height: 8),
+
+            // Content
+            Expanded(
+              child: materialsAsync.when(
+                loading: () => Center(
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: StudyPalette.of(context).textBlack,
+                  ),
+                ),
+                error: (e, _) => Center(
+                  child: Text(
+                    '加载失败: $e',
+                    style: TextStyle(color: StudyPalette.of(context).textGray),
+                  ),
+                ),
+                data: (materials) {
+                  // Filter by category and search query
+                  final filtered = materials.where((m) {
+                    final matchesQuery =
+                        _searchQuery.isEmpty ||
+                        m.name.toLowerCase().contains(
+                          _searchQuery.toLowerCase(),
+                        );
+                    if (!matchesQuery) return false;
+
+                    if (_selectedFilter == '文档') {
+                      final ext = m.name.split('.').last.toLowerCase();
+                      return [
+                        'pdf',
+                        'doc',
+                        'docx',
+                        'xls',
+                        'xlsx',
+                        'ppt',
+                        'pptx',
+                        'txt',
+                      ].contains(ext);
+                    } else if (_selectedFilter == '图片') {
+                      final ext = m.name.split('.').last.toLowerCase();
+                      return [
+                        'jpg',
+                        'jpeg',
+                        'png',
+                        'webp',
+                        'gif',
+                      ].contains(ext);
+                    }
+                    return true;
+                  }).toList();
+
+                  // P41: Empty State
+                  if (filtered.isEmpty) {
+                    return _buildEmptyState(context);
+                  }
+
+                  // P18: Files List
+                  return ListView.separated(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 8,
+                    ),
+                    itemCount: filtered.length,
+                    separatorBuilder: (_, _) => Divider(
+                      height: 1,
+                      color: StudyPalette.of(context).borderGray,
+                    ),
+                    itemBuilder: (context, index) {
+                      final item = filtered[index];
+                      return _buildFileItem(context, item);
                     },
                   );
                 },
-              ))),
-            ]);
-          },
-        )),
-      ])),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // P41: File Library Empty State
+  Widget _buildEmptyState(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: StudyPalette.of(context).surfaceBackground,
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: StudyPalette.of(context).borderGray,
+                  width: 0.8,
+                ),
+              ),
+              child: Icon(
+                Icons.folder_open_outlined,
+                size: 28,
+                color: StudyPalette.of(context).textGray,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              '还没有文件',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: StudyPalette.of(context).textBlack,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              '在聊天中添加图片或文档后，可在这里查看。',
+              style: TextStyle(
+                fontSize: 13,
+                color: StudyPalette.of(context).textGray,
+                height: 1.4,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 24),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: StudyPalette.of(context).textBlack,
+                foregroundColor: StudyPalette.of(context).onAccent,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 12,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              onPressed: _pickNewFile,
+              child: const Text('添加文件', style: TextStyle(fontSize: 14)),
+            ),
+            const SizedBox(height: 12),
+            TextButton(
+              onPressed: () => context.pop(),
+              child: Text(
+                '返回聊天',
+                style: TextStyle(
+                  fontSize: 13,
+                  color: StudyPalette.of(context).textGray,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // P18: Single File Row
+  Widget _buildFileItem(BuildContext context, MaterialFileDto item) {
+    final ext = item.name.split('.').last.toLowerCase();
+    final isPdf = ext == 'pdf';
+    final isImage = ['jpg', 'jpeg', 'png', 'webp'].contains(ext);
+    final isWord = ['doc', 'docx'].contains(ext);
+    final isExcel = ['xls', 'xlsx'].contains(ext);
+
+    IconData iconData = Icons.description_outlined;
+    Color iconColor = StudyPalette.of(context).textBlack;
+    if (isPdf) {
+      iconData = Icons.picture_as_pdf_outlined;
+      iconColor = StudyPalette.of(context).textBlack;
+    } else if (isImage) {
+      iconData = Icons.image_outlined;
+      iconColor = StudyPalette.of(context).textBlack;
+    } else if (isWord) {
+      iconData = Icons.article_outlined;
+      iconColor = StudyPalette.of(context).textBlack;
+    } else if (isExcel) {
+      iconData = Icons.table_chart_outlined;
+      iconColor = StudyPalette.of(context).textBlack;
+    }
+
+    final typeTag = switch (ext) {
+      'pdf' => 'PDF',
+      'docx' || 'doc' => 'Word',
+      'xlsx' || 'xls' => 'Excel',
+      'jpg' || 'jpeg' || 'png' => '图片',
+      _ => ext.toUpperCase(),
+    };
+
+    return InkWell(
+      onTap: () => context.push('/files/detail',
+          extra: ProfileResourceRoute.capture(ref, item.id)),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 14),
+        child: Row(
+          children: [
+            Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: StudyPalette.of(context).surfaceBackground,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  color: StudyPalette.of(context).borderGray,
+                  width: 0.8,
+                ),
+              ),
+              child: Icon(iconData, size: 20, color: iconColor),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    item.name,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: StudyPalette.of(context).textBlack,
+                    ),
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 3),
+                  Wrap(
+                    spacing: 6,
+                    runSpacing: 4,
+                    children: [
+                      Text(
+                        '$typeTag · ${_fileSize(item.size)}',
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: StudyPalette.of(context).textGray,
+                        ),
+                      ),
+                      if (item.symbolCheckPending) ...[
+                        const SizedBox(width: 8),
+                        Text(
+                          '待核对符号',
+                          style: TextStyle(
+                            fontSize: 11,
+                            color: StudyPalette.of(context).warningOrange,
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Icon(
+              Icons.chevron_right,
+              size: 20,
+              color: StudyPalette.of(context).textGray,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
 
-class LibraryTextSearch extends ConsumerStatefulWidget {
-  final LibraryAccess access;
-  final String query;
-  const LibraryTextSearch({super.key, required this.access, required this.query});
-  @override
-  ConsumerState<LibraryTextSearch> createState() => _LibraryTextSearchState();
-}
-class _LibraryTextSearchState extends ConsumerState<LibraryTextSearch> {
-  Map<String, dynamic>? page;
-  String? error;
-  bool busy = true;
-  @override
-  void initState() { super.initState(); load(''); }
-  Future<void> load(String cursor) async {
-    setState(() { busy = true; error = null; });
-    try {
-      final raw = await widget.access.call<String>('library.search', {'query': widget.query, 'cursor': cursor});
-      if (mounted && widget.access.current(ref)) setState(() => page = jsonDecode(raw!) as Map<String, dynamic>);
-    } catch (e) { if (mounted && widget.access.current(ref)) setState(() => error = '$e'); }
-    finally { if (mounted) setState(() => busy = false); }
-  }
-  @override
-  Widget build(BuildContext context) {
-    ref.watch(activeProfileIdProvider); ref.watch(contextEpochProvider);
-    return Scaffold(appBar: AppBar(title: const Text('真实正文检索')), body: !widget.access.current(ref) ? const Center(child: Text('档案已改变，请重新打开。')) :
-      ListView(padding: const EdgeInsets.all(16), children: [
-        Text('字面查询：${widget.query}'),
-        if (busy) const LinearProgressIndicator(),
-        if (error != null) Text(error!),
-        if (page != null) ...[
-          Text(page!['error'] as String? ?? page!['notice'] as String),
-          ...((page!['hits'] as List).map((hit) => Card(child: Padding(padding: const EdgeInsets.all(12), child: SelectableText(const JsonEncoder.withIndent('  ').convert(hit)))))),
-          Text('跳过/失败：${page!['skipped_sources']} / ${page!['source_errors']}'),
-        ],
-        if (page?['next_cursor'] is String) TextButton(onPressed: busy ? null : () => load(page!['next_cursor'] as String), child: const Text('继续检索下一范围')),
-        TextButton(onPressed: busy ? null : () => load(''), child: const Text('从头检索')),
-      ]));
-  }
-}
+String _fileSize(int bytes) => bytes >= 1048576
+    ? '${(bytes / 1048576).toStringAsFixed(1)} MB'
+    : '${(bytes / 1024).toStringAsFixed(1)} KB';

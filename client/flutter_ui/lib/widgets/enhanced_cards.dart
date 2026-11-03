@@ -222,13 +222,8 @@ class _EnhancedToolCardState extends State<EnhancedToolCard> {
   String get statusLabel {
     final isPending = widget.part.approvalState?.toLowerCase() == 'pending';
     if (isPending) return '等待确认';
-    if (const [
-          'parse_material_enhanced',
-          'convert_material_to_pdf',
-          'recalculate_material_xlsx',
-        ].contains(widget.part.toolName) &&
-        widget.part.executionState == 'COMPLETED' &&
-        searchOutput['task_id'] is String) {
+    if (const ['parse_material_enhanced', 'convert_material_to_pdf', 'recalculate_material_xlsx'].contains(widget.part.toolName) &&
+        widget.part.executionState == 'COMPLETED' && searchOutput['task_id'] is String) {
       final data = searchOutput;
       if (data['cancel_requested'] == true) {
         return data['cancel_confirmed'] == true ? '已取消交付' : '已请求取消，等待确认';
@@ -302,12 +297,9 @@ class _EnhancedToolCardState extends State<EnhancedToolCard> {
     if (const ['FAILED', 'error'].contains(searchOutput['status'])) {
       return Icons.info_outline;
     }
-    if (widget.part.executionState == 'COMPLETED' &&
-        searchOutput['task_id'] is String &&
-        !(searchOutput['state'] == 'SUCCEEDED' &&
-            searchOutput['downloaded'] == true &&
-            searchOutput['readback_valid'] != false &&
-            searchOutput['cancel_requested'] != true)) {
+    if (widget.part.executionState == 'COMPLETED' && searchOutput['task_id'] is String &&
+        !(searchOutput['state'] == 'SUCCEEDED' && searchOutput['downloaded'] == true &&
+          searchOutput['readback_valid'] != false && searchOutput['cancel_requested'] != true)) {
       return Icons.hourglass_empty;
     }
 

@@ -63,7 +63,7 @@ class AgentNewFeatureAdversarialTest {
         val task = accepted(store)
         val lease = store.claim(task.owner, task.id)
         store.beginCall(lease, "unknown", "create_material_file", "synthetic-input")
-        store.writableDatabase.version = 14
+        store.writableDatabase.version = 8
         store.close()
         val file = context.noBackupFilesDir.resolve(name)
         val before = file.readBytes()

@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../bridge/study_host_api.g.dart';
 import '../providers/study_providers.dart';
 import 'agent_usage_view.dart';
-import 'agent_usage_alerts.dart';
 
 class AgentTaskPanel extends ConsumerStatefulWidget {
   const AgentTaskPanel({super.key, required this.conversationId});
@@ -241,8 +240,6 @@ class _AgentTaskPanelState extends ConsumerState<AgentTaskPanel> {
     }
     return ExpansionTile(
       title: Text(status, style: Theme.of(context).textTheme.bodySmall),
-      subtitle: AgentUsageAlertsView(key: ValueKey(task.id), owner: task.owner, taskId: task.id,
-          expectedEpoch: ref.watch(contextEpochProvider), autoRefresh: true, compact: true),
       children: [Align(alignment: Alignment.centerLeft,
         child: TextButton(onPressed: () => _usage(task), child: const Text('查看请求用量'))),
         ConstrainedBox(constraints: const BoxConstraints(maxHeight: 210), child: SingleChildScrollView(

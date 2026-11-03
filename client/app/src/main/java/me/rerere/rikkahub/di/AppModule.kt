@@ -81,10 +81,6 @@ val appModule = module {
         )
     }
 
-    single(createdAtStart = true) {
-        me.rerere.rikkahub.feature.agent.AgentUsageNotificationMonitor(get(),get(),get())
-    }
-
     single {
         ChatToolFactory(
             documentService = get(),

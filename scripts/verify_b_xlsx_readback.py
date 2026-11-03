@@ -302,7 +302,7 @@ fun main(args: Array<String>) {
     jars.append(pdf_jar)
     cp = os.pathsep.join(str(p) for p in jars)
     materials = ROOT / 'client/app/src/main/java/me/rerere/rikkahub/feature/material'
-    sources = [materials / (name + '.kt') for name in ['MaterialEditor', 'MaterialWordContent', 'MaterialEquationXml', 'SafeOfficeXml', 'OfficePackage', 'PresentationSlideOrder']]
+    sources = [materials / (name + '.kt') for name in ['MaterialEditor', 'SafeOfficeXml', 'OfficePackage', 'PresentationSlideOrder']]
     classes = folder / 'classes'
     command(folder / 'kotlin-compile.log', ['java', '-cp', str(library / '*'), 'org.jetbrains.kotlin.cli.jvm.K2JVMCompiler',
                                           '-no-stdlib', '-no-reflect', '-jvm-target', '17', '-classpath', cp, '-d', classes, *sources, main])

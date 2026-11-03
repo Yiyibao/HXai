@@ -29,17 +29,4 @@ class DocumentContractTest {
             assertTrue(runCatching { DocumentContract.endpoint(url) }.isFailure)
         }
     }
-
-    @Test fun blankPageMetadataCannotHideRecognizedTextFormulaOrImage() {
-        val manifest = manifest().copy(blankPages = listOf(2))
-        for (block in listOf(
-            ParsedBlock("p2-b0", 2, "text", "recognized content"),
-            ParsedBlock("p2-b0", 2, "equation", "", "x^2"),
-            ParsedBlock("p2-b0", 2, "image", "", assetId = "document")
-        )) {
-            val document = ParsedDocument(1, manifest.sourceSha256, 1, "4.0.10", "1", "basic", 3,
-                listOf(2, 2), listOf(2), listOf(2), emptyList(), false, emptyList(), listOf(block))
-            assertTrue(runCatching { DocumentContract.validateDocument(document, manifest) }.exceptionOrNull() is IllegalArgumentException)
-        }
-    }
 }

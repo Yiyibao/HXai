@@ -3,8 +3,6 @@ import 'package:go_router/go_router.dart';
 
 import 'bridge/study_host_api.g.dart';
 import 'pages/chat_page.dart';
-import 'pages/agent_tasks_page.dart';
-import 'pages/agent_task_detail_page.dart';
 import 'pages/image_creation_page.dart';
 import 'pages/search_chat_page.dart';
 import 'pages/chart_fullscreen_page.dart';
@@ -22,8 +20,6 @@ import 'pages/provider_edit_page.dart';
 import 'pages/provider_models_page.dart';
 import 'pages/model_config_detail_page.dart';
 import 'pages/skills_page.dart';
-import 'pages/extensions_page.dart';
-import 'pages/cloud_workspace_page.dart';
 import 'pages/skill_detail_page.dart';
 import 'pages/import_skill_page.dart';
 import 'pages/memories_page.dart';
@@ -47,12 +43,6 @@ final router = GoRouter(
     // Root and Main Chat Page (ChatGPT style primary interface)
     GoRoute(path: '/', builder: (context, state) => const ChatPage()),
     GoRoute(path: '/chat', builder: (context, state) => const ChatPage()),
-    GoRoute(path: '/tasks', builder: (context, state) => const AgentTasksPage(), routes: [
-      GoRoute(path: 'detail', builder: (context, state) => AgentTaskDetailPage(
-        resource: state.extra is ProfileResourceRoute ? state.extra as ProfileResourceRoute : null)),
-    ]),
-    GoRoute(path: '/usage', builder: (context, state) => AgentUsagePage(
-      resource: state.extra is ProfileResourceRoute ? state.extra as ProfileResourceRoute : null)),
     GoRoute(
       path: '/images',
       builder: (context, state) => const ImageCreationPage(),
@@ -181,14 +171,6 @@ final router = GoRouter(
           ],
         ),
 
-        GoRoute(
-          path: 'extensions',
-          builder: (context, state) => const ExtensionsPage(),
-        ),
-        GoRoute(
-          path: 'cloud',
-          builder: (context, state) => const CloudWorkspacePage(),
-        ),
         // Skills
         GoRoute(
           path: 'skills',

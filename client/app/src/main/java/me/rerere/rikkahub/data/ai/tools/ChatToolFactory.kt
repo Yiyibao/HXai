@@ -52,15 +52,6 @@ class ChatToolFactory(
         addAll(createWebImageTools(materialFiles, profileId))
         add(me.rerere.rikkahub.feature.interactive.interactiveUiTool())
         add(me.rerere.rikkahub.feature.interactive.mathPlotTool(materialFiles, profileId))
-        add(me.rerere.rikkahub.feature.math.mathVerifyTool())
-        add(me.rerere.rikkahub.feature.material.mathWorkReadTool(materialFiles, profileId))
-        add(me.rerere.rikkahub.feature.material.mathWorkReviewTool(materialFiles, profileId))
-        add(me.rerere.rikkahub.feature.material.materialChapterIndexTool(materialFiles, profileId))
-        add(me.rerere.rikkahub.feature.material.materialChapterReadTool(materialFiles, profileId))
-        add(me.rerere.rikkahub.feature.material.materialChapterSearchTool(materialFiles, profileId))
-        add(me.rerere.rikkahub.feature.material.materialSourceLocationTool(materialFiles, profileId))
-        add(me.rerere.rikkahub.feature.material.materialSourceSearchTool(materialFiles, profileId))
-        add(me.rerere.rikkahub.feature.material.materialLibrarySearchTool(materialFiles, profileId))
         addAll(me.rerere.rikkahub.feature.material.materialEditTools(materialFiles, profileId, documentService, allowRemoteDocuments))
         documentService?.let { add(me.rerere.rikkahub.feature.material.xlsxRecalculationTool(materialFiles, profileId, it, allowRemoteDocuments)) }
         addAll(me.rerere.rikkahub.feature.material.materialTools(materialFiles, profileId, settings, providerManager, model,
@@ -82,9 +73,7 @@ class ChatToolFactory(
                 LocalToolOption.ChartDisplay,
             )
         }))
-        if (assistant.enableRecentChatsReference && learningMemories.read(profileId).let {
-                !it.recoveryBlocked && it.suppressedSources.isEmpty() && it.legacySuppressedSources.isEmpty()
-            }) {
+        if (assistant.enableRecentChatsReference && learningMemories.read(profileId).suppressedSources.isEmpty()) {
             addAll(createConversationTools(conversationRepository, assistant.id, profileId))
         }
         // Shared workspaces have no profile ownership; do not expose them to study runs.
@@ -102,18 +91,11 @@ class ChatToolFactory(
                     allSkills = availableSkills,
                     materials = materialFiles,
                     profileId = profileId,
-                    checkEnabled = { name ->
-                        val current = org.koin.core.context.GlobalContext.get().get<me.rerere.rikkahub.data.datastore.SettingsStore>().settingsFlow.value
-                        require(skillManager.findSkill(name) != null && (name == mathBuiltin?.name ||
-                            current.assistants.singleOrNull { it.id == assistant.id }?.enabledSkills?.contains(name) == true)) { "技能已停用或卸载" }
-                    },
                 )
             )
         }
 
         // Shared MCP tools have no profile authorization contract yet.
-        me.rerere.rikkahub.feature.agent.SyntheticMcpRuntime.toolFor(profileId)?.let { add(it) }
-        me.rerere.rikkahub.feature.agent.ExtensionMcpRuntime.toolFor(profileId)?.let { add(it) }
 
     }.map { original ->
         val trusted=me.rerere.rikkahub.feature.agent.TrustedToolRegistry.require(original.name)
