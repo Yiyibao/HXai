@@ -1623,7 +1623,6 @@ class AgentUsageEntryDto {
     this.outputTokens,
     this.cachedTokens,
     this.totalTokens,
-    this.costJson,
   });
 
   String requestId;
@@ -1654,8 +1653,6 @@ class AgentUsageEntryDto {
 
   int? totalTokens;
 
-  String? costJson;
-
   List<Object?> _toList() {
     return <Object?>[
       requestId,
@@ -1672,7 +1669,6 @@ class AgentUsageEntryDto {
       outputTokens,
       cachedTokens,
       totalTokens,
-      costJson,
     ];
   }
 
@@ -1696,7 +1692,6 @@ class AgentUsageEntryDto {
       outputTokens: result[11] as int?,
       cachedTokens: result[12] as int?,
       totalTokens: result[13] as int?,
-      costJson: result[14] as String?,
     );
   }
 
@@ -1709,7 +1704,7 @@ class AgentUsageEntryDto {
     if (identical(this, other)) {
       return true;
     }
-    return _deepEquals(requestId, other.requestId) && _deepEquals(taskId, other.taskId) && _deepEquals(conversationId, other.conversationId) && _deepEquals(role, other.role) && _deepEquals(providerId, other.providerId) && _deepEquals(modelId, other.modelId) && _deepEquals(reasoning, other.reasoning) && _deepEquals(createdAt, other.createdAt) && _deepEquals(state, other.state) && _deepEquals(provenance, other.provenance) && _deepEquals(inputTokens, other.inputTokens) && _deepEquals(outputTokens, other.outputTokens) && _deepEquals(cachedTokens, other.cachedTokens) && _deepEquals(totalTokens, other.totalTokens) && _deepEquals(costJson, other.costJson);
+    return _deepEquals(requestId, other.requestId) && _deepEquals(taskId, other.taskId) && _deepEquals(conversationId, other.conversationId) && _deepEquals(role, other.role) && _deepEquals(providerId, other.providerId) && _deepEquals(modelId, other.modelId) && _deepEquals(reasoning, other.reasoning) && _deepEquals(createdAt, other.createdAt) && _deepEquals(state, other.state) && _deepEquals(provenance, other.provenance) && _deepEquals(inputTokens, other.inputTokens) && _deepEquals(outputTokens, other.outputTokens) && _deepEquals(cachedTokens, other.cachedTokens) && _deepEquals(totalTokens, other.totalTokens);
   }
 
   @override
@@ -1718,7 +1713,7 @@ class AgentUsageEntryDto {
 
   @override
   String toString() {
-    return 'AgentUsageEntryDto(requestId: $requestId, taskId: $taskId, conversationId: $conversationId, role: $role, providerId: $providerId, modelId: $modelId, reasoning: $reasoning, createdAt: $createdAt, state: $state, provenance: $provenance, inputTokens: $inputTokens, outputTokens: $outputTokens, cachedTokens: $cachedTokens, totalTokens: $totalTokens, costJson: $costJson)';
+    return 'AgentUsageEntryDto(requestId: $requestId, taskId: $taskId, conversationId: $conversationId, role: $role, providerId: $providerId, modelId: $modelId, reasoning: $reasoning, createdAt: $createdAt, state: $state, provenance: $provenance, inputTokens: $inputTokens, outputTokens: $outputTokens, cachedTokens: $cachedTokens, totalTokens: $totalTokens)';
   }
 }
 
@@ -1739,7 +1734,6 @@ class AgentUsagePageDto {
     required this.total,
     required this.entries,
     this.nextCursor,
-    this.costJson,
   });
 
   String owner;
@@ -1772,8 +1766,6 @@ class AgentUsagePageDto {
 
   String? nextCursor;
 
-  String? costJson;
-
   List<Object?> _toList() {
     return <Object?>[
       owner,
@@ -1791,7 +1783,6 @@ class AgentUsagePageDto {
       total,
       entries,
       nextCursor,
-      costJson,
     ];
   }
 
@@ -1816,7 +1807,6 @@ class AgentUsagePageDto {
       total: result[12]! as AgentUsageMetricDto,
       entries: (result[13]! as List<Object?>).cast<AgentUsageEntryDto>(),
       nextCursor: result[14] as String?,
-      costJson: result[15] as String?,
     );
   }
 
@@ -1829,7 +1819,7 @@ class AgentUsagePageDto {
     if (identical(this, other)) {
       return true;
     }
-    return _deepEquals(owner, other.owner) && _deepEquals(taskId, other.taskId) && _deepEquals(from, other.from) && _deepEquals(until, other.until) && _deepEquals(requestCount, other.requestCount) && _deepEquals(reportedRequests, other.reportedRequests) && _deepEquals(estimatedRequests, other.estimatedRequests) && _deepEquals(unknownRequests, other.unknownRequests) && _deepEquals(undatedRequests, other.undatedRequests) && _deepEquals(input, other.input) && _deepEquals(output, other.output) && _deepEquals(cached, other.cached) && _deepEquals(total, other.total) && _deepEquals(entries, other.entries) && _deepEquals(nextCursor, other.nextCursor) && _deepEquals(costJson, other.costJson);
+    return _deepEquals(owner, other.owner) && _deepEquals(taskId, other.taskId) && _deepEquals(from, other.from) && _deepEquals(until, other.until) && _deepEquals(requestCount, other.requestCount) && _deepEquals(reportedRequests, other.reportedRequests) && _deepEquals(estimatedRequests, other.estimatedRequests) && _deepEquals(unknownRequests, other.unknownRequests) && _deepEquals(undatedRequests, other.undatedRequests) && _deepEquals(input, other.input) && _deepEquals(output, other.output) && _deepEquals(cached, other.cached) && _deepEquals(total, other.total) && _deepEquals(entries, other.entries) && _deepEquals(nextCursor, other.nextCursor);
   }
 
   @override
@@ -1838,7 +1828,7 @@ class AgentUsagePageDto {
 
   @override
   String toString() {
-    return 'AgentUsagePageDto(owner: $owner, taskId: $taskId, from: $from, until: $until, requestCount: $requestCount, reportedRequests: $reportedRequests, estimatedRequests: $estimatedRequests, unknownRequests: $unknownRequests, undatedRequests: $undatedRequests, input: $input, output: $output, cached: $cached, total: $total, entries: $entries, nextCursor: $nextCursor, costJson: $costJson)';
+    return 'AgentUsagePageDto(owner: $owner, taskId: $taskId, from: $from, until: $until, requestCount: $requestCount, reportedRequests: $reportedRequests, estimatedRequests: $estimatedRequests, unknownRequests: $unknownRequests, undatedRequests: $undatedRequests, input: $input, output: $output, cached: $cached, total: $total, entries: $entries, nextCursor: $nextCursor)';
   }
 }
 
@@ -1855,7 +1845,6 @@ class AgentUsageGroupDto {
     required this.output,
     required this.cached,
     required this.total,
-    this.costJson,
   });
 
   String? providerId;
@@ -1880,8 +1869,6 @@ class AgentUsageGroupDto {
 
   AgentUsageMetricDto total;
 
-  String? costJson;
-
   List<Object?> _toList() {
     return <Object?>[
       providerId,
@@ -1895,7 +1882,6 @@ class AgentUsageGroupDto {
       output,
       cached,
       total,
-      costJson,
     ];
   }
 
@@ -1916,7 +1902,6 @@ class AgentUsageGroupDto {
       output: result[8]! as AgentUsageMetricDto,
       cached: result[9]! as AgentUsageMetricDto,
       total: result[10]! as AgentUsageMetricDto,
-      costJson: result[11] as String?,
     );
   }
 
@@ -1929,7 +1914,7 @@ class AgentUsageGroupDto {
     if (identical(this, other)) {
       return true;
     }
-    return _deepEquals(providerId, other.providerId) && _deepEquals(modelId, other.modelId) && _deepEquals(role, other.role) && _deepEquals(requestCount, other.requestCount) && _deepEquals(reportedRequests, other.reportedRequests) && _deepEquals(estimatedRequests, other.estimatedRequests) && _deepEquals(unknownRequests, other.unknownRequests) && _deepEquals(input, other.input) && _deepEquals(output, other.output) && _deepEquals(cached, other.cached) && _deepEquals(total, other.total) && _deepEquals(costJson, other.costJson);
+    return _deepEquals(providerId, other.providerId) && _deepEquals(modelId, other.modelId) && _deepEquals(role, other.role) && _deepEquals(requestCount, other.requestCount) && _deepEquals(reportedRequests, other.reportedRequests) && _deepEquals(estimatedRequests, other.estimatedRequests) && _deepEquals(unknownRequests, other.unknownRequests) && _deepEquals(input, other.input) && _deepEquals(output, other.output) && _deepEquals(cached, other.cached) && _deepEquals(total, other.total);
   }
 
   @override
@@ -1938,7 +1923,7 @@ class AgentUsageGroupDto {
 
   @override
   String toString() {
-    return 'AgentUsageGroupDto(providerId: $providerId, modelId: $modelId, role: $role, requestCount: $requestCount, reportedRequests: $reportedRequests, estimatedRequests: $estimatedRequests, unknownRequests: $unknownRequests, input: $input, output: $output, cached: $cached, total: $total, costJson: $costJson)';
+    return 'AgentUsageGroupDto(providerId: $providerId, modelId: $modelId, role: $role, requestCount: $requestCount, reportedRequests: $reportedRequests, estimatedRequests: $estimatedRequests, unknownRequests: $unknownRequests, input: $input, output: $output, cached: $cached, total: $total)';
   }
 }
 
@@ -1954,7 +1939,6 @@ class AgentUsageGroupsPageDto {
     required this.undatedRequests,
     required this.groups,
     this.nextCursor,
-    this.costJson,
   });
 
   String owner;
@@ -1977,8 +1961,6 @@ class AgentUsageGroupsPageDto {
 
   String? nextCursor;
 
-  String? costJson;
-
   List<Object?> _toList() {
     return <Object?>[
       owner,
@@ -1991,7 +1973,6 @@ class AgentUsageGroupsPageDto {
       undatedRequests,
       groups,
       nextCursor,
-      costJson,
     ];
   }
 
@@ -2011,7 +1992,6 @@ class AgentUsageGroupsPageDto {
       undatedRequests: result[7]! as int,
       groups: (result[8]! as List<Object?>).cast<AgentUsageGroupDto>(),
       nextCursor: result[9] as String?,
-      costJson: result[10] as String?,
     );
   }
 
@@ -2024,7 +2004,7 @@ class AgentUsageGroupsPageDto {
     if (identical(this, other)) {
       return true;
     }
-    return _deepEquals(owner, other.owner) && _deepEquals(taskId, other.taskId) && _deepEquals(from, other.from) && _deepEquals(until, other.until) && _deepEquals(groupBy, other.groupBy) && _deepEquals(requestCount, other.requestCount) && _deepEquals(groupCount, other.groupCount) && _deepEquals(undatedRequests, other.undatedRequests) && _deepEquals(groups, other.groups) && _deepEquals(nextCursor, other.nextCursor) && _deepEquals(costJson, other.costJson);
+    return _deepEquals(owner, other.owner) && _deepEquals(taskId, other.taskId) && _deepEquals(from, other.from) && _deepEquals(until, other.until) && _deepEquals(groupBy, other.groupBy) && _deepEquals(requestCount, other.requestCount) && _deepEquals(groupCount, other.groupCount) && _deepEquals(undatedRequests, other.undatedRequests) && _deepEquals(groups, other.groups) && _deepEquals(nextCursor, other.nextCursor);
   }
 
   @override
@@ -2033,7 +2013,7 @@ class AgentUsageGroupsPageDto {
 
   @override
   String toString() {
-    return 'AgentUsageGroupsPageDto(owner: $owner, taskId: $taskId, from: $from, until: $until, groupBy: $groupBy, requestCount: $requestCount, groupCount: $groupCount, undatedRequests: $undatedRequests, groups: $groups, nextCursor: $nextCursor, costJson: $costJson)';
+    return 'AgentUsageGroupsPageDto(owner: $owner, taskId: $taskId, from: $from, until: $until, groupBy: $groupBy, requestCount: $requestCount, groupCount: $groupCount, undatedRequests: $undatedRequests, groups: $groups, nextCursor: $nextCursor)';
   }
 }
 

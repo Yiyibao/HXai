@@ -8,9 +8,9 @@ import uuid
 from pathlib import Path
 
 from fastapi import FastAPI, Header, HTTPException, Request
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse
 
-from api.store import Store, AuthorizationRevoked
+from api.store import Store
 from api.office import readiness, register_office
 
 MAX_UPLOAD = 30 * 1024 * 1024
@@ -22,11 +22,6 @@ def create_app(root=None):
     store = Store(Path(root or os.environ.get("MATHDOC_DATA", "/var/lib/mathdoc")))
     app = FastAPI(title="MathStudy document service", docs_url=None, redoc_url=None)
     app.state.store = store
-
-    @app.exception_handler(AuthorizationRevoked)
-    async def revoked_after_authentication(_request, _error):
-        # Shared by parse/Office uploads; never return identity or token details.
-        return JSONResponse(status_code=401, content={"detail": "authentication_required"})
 
     def identity(authorization):
         if not authorization or not authorization.startswith("Bearer "):
@@ -47,7 +42,7 @@ def create_app(root=None):
         return {"taskId": row["id"], "state": row["state"], "errorCode": row["error"],
                 "resultRevision": 1 if row["manifest"] else None, "expiresAt": row["expires"],
                 "requestedRange": options.get("pages"), "rendererVersion": options.get("rendererVersion"),
-                "operation": options.get("operation", "parse"), "executorStopped": bool(row["worker_stopped"])}
+                "operation": options.get("operation", "parse")}
 
     @app.get("/health")
     def health():
@@ -56,15 +51,14 @@ def create_app(root=None):
     @app.get("/api/v1/capabilities")
     def capabilities(authorization: str | None = Header(None)):
         identity(authorization)
-        # A terminal/cancel ACK alone is not an execution-stop witness.
         ready = (store.root / "worker-ready.json").is_file()
-        return {"contractVersion": 1, "executionReceiptVersion": 1, "requestLookupVersion": 1, "parser": "MinerU", "parserVersion": PARSER_VERSION,
+        return {"contractVersion": 1, "parser": "MinerU", "parserVersion": PARSER_VERSION,
                 "adapterVersion": ADAPTER_VERSION, "tiers": ["basic"] if ready else [],
                 "formats": ["pdf", "png", "jpg", "jpeg", "webp"] if ready else [],
                 "offline": True, "ready": ready, "maxUploadBytes": MAX_UPLOAD,
                 "maxDocumentPages": 200, "maxRequestPages": 5, "maxConcurrentJobs": 1,
                 "taskTimeoutSeconds": 900, "retentionSeconds": 86400,
-                "officePdf": readiness(store), "officeRecalculation": readiness(store, "xlsx_recalculate")}
+                "officePdf": readiness(store)}
 
     @app.post("/api/v1/parse-requests/{request_key}/cancel")
     def cancel_parse_request(request_key: str, authorization: str | None = Header(None)):
@@ -122,14 +116,6 @@ def create_app(root=None):
                 raise HTTPException(409 if code == "idempotency_conflict" else 429, code) from None
         finally:
             staged.unlink(missing_ok=True)
-
-    @app.get("/api/v1/requests/{request_key}")
-    def request_status(request_key: str, authorization: str | None = Header(None)):
-        owner=identity(authorization)
-        if not re.fullmatch(r"[A-Za-z0-9_-]{16,128}",request_key):
-            raise HTTPException(422,"invalid_request_key")
-        row=store.find_request(owner,request_key)
-        return {"job":None if row is None else dict(public(row),intent=json.loads(row["options"]))}
 
     @app.get("/api/v1/jobs/{job_id}")
     def status(job_id: str, authorization: str | None = Header(None)):

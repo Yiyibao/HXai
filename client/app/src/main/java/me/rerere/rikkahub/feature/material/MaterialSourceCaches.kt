@@ -8,7 +8,6 @@ import java.util.UUID
 /** Keep remote task/UNKNOWN journals. Remove only derived assets whose trusted task names this source. */
 internal object MaterialSourceCaches {
     fun invalidate(context: Context, owner: String, sourceId: String) {
-        MathWorkInputs.invalidateSource(context, owner, sourceId)
         val directory = File(context.noBackupFilesDir, "document-service/$owner")
         directory.listFiles().orEmpty().filter { it.name.endsWith(".task.json") }.forEach { metadata ->
             val task = Json.decodeFromString<DocumentTask>(metadata.readText())

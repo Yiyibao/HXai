@@ -21,9 +21,6 @@ internal class TaskResultVerifier(private val materials: MaterialFiles,private v
         } ?: error("Missing durable tool receipt")
         require(receipt.executionState == me.rerere.ai.ui.ToolExecutionState.COMPLETED && receipt.output == completed.output) { "Durable result differs from executed result" }
         val contract=TrustedToolRegistry.require(receipt.toolName)
-        if(contract.verifier==TrustedToolRegistry.Verifier.EXTENSION_READBACK) {
-            return ExtensionMcpRuntime.verify(owner,receipt)
-        }
         if(contract.verifier==TrustedToolRegistry.Verifier.MCP_FIXTURE_READBACK) {
             return SyntheticMcpRuntime.verify(owner,receipt)
         }
@@ -35,8 +32,6 @@ internal class TaskResultVerifier(private val materials: MaterialFiles,private v
             val result=Json.parseToJsonElement(text.text).jsonObject
             if(result["status"]?.jsonPrimitive?.content!="SUCCEEDED") return false
             val fresh=when(receipt.toolName) {
-                "read_math_work" -> materials.mathWorkInputs.readForTool(owner, args)
-                "review_math_work" -> materials.mathWorkInputs.review(owner, args)
                 "read_material_source_location" -> {
                     require(args.keys==setOf("id","expected_sha256","kind","number","offset","count"))
                     materials.readSourceLocation(owner,value("id"),value("expected_sha256"),value("kind"),
@@ -133,10 +128,6 @@ internal class TaskResultVerifier(private val materials: MaterialFiles,private v
                 pages+=document.processedPages
             }
             return pages== (start..end).toList()
-        }
-        if (receipt.toolName == me.rerere.rikkahub.feature.interactive.InteractiveSurface.MATH_TOOL) {
-            return me.rerere.rikkahub.feature.interactive.verifyMathPlotDelivery(materials, owner,
-                Json.parseToJsonElement(receipt.input).jsonObject, receipt.output)
         }
         val documents = receipt.output.filterIsInstance<UIMessagePart.Document>()
         val images = receipt.output.filterIsInstance<UIMessagePart.Image>()

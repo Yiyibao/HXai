@@ -425,7 +425,7 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
         // trySend 在缓冲满时会静默丢弃 delta，导致回复中间缺字 (#1295)，因此缓冲必须无界
     }.buffer(Channel.UNLIMITED).flowOn(Dispatchers.IO)
 
-    internal fun buildMessageRequest(
+    private fun buildMessageRequest(
         providerSetting: ProviderSetting.Claude,
         messages: List<UIMessage>,
         params: TextGenerationParams,

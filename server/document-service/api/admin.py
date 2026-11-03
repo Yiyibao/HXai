@@ -25,7 +25,8 @@ def main():
     else:
         if not arguments.identity:
             parser.error('revoke requires --identity')
-        store.revoke(arguments.identity)
+        with store.db() as db:
+            db.execute('UPDATE identities SET active=0 WHERE id=?', (arguments.identity,))
         print('identity_revoked')
 
 

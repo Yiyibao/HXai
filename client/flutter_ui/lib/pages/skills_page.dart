@@ -77,11 +77,6 @@ class _SkillsPageState extends ConsumerState<SkillsPage>
         centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(Icons.hub_outlined),
-            tooltip: 'MCP 与独立 Skill 计算服务',
-            onPressed: () => context.push('/settings/extensions'),
-          ),
-          IconButton(
             icon: Icon(
               Icons.add,
               color: StudyPalette.of(context).textBlack,

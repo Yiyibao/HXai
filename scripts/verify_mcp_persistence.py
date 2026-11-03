@@ -15,23 +15,9 @@ def main():
     p.add_argument('--serial',required=True)
     p.add_argument('--run-dir',required=True)
     p.add_argument('--install',action='store_true')
-    p.add_argument('--ownership',type=Path,
-        help='Explicit dedicated emulator record; actual serial/AVD/API/ABI are checked before mutations')
     p.add_argument('--mode',default='installation',choices=['installation','revoked','old_approval','unknown'])
     a=p.parse_args()
-    if not re.fullmatch(r'emulator-\d+',a.serial):
-        p.error('Only an explicitly owned emulator is allowed')
-    ownership=None
-    if a.ownership:
-        ownership=json.loads(a.ownership.read_text(encoding='utf-8-sig'))
-        if (ownership.get('serial')!=a.serial or ownership.get('created_this_batch') is not True or
-            type(ownership.get('api')) is not int or ownership['api']<26 or
-            not re.fullmatch(r'[A-Za-z0-9_-]+',ownership.get('avd','')) or
-            not re.fullmatch(r'[A-Za-z0-9_-]+',ownership.get('abi',''))):
-            p.error('Ownership record does not authorize this emulator')
     out=Path(a.run_dir).resolve();out.mkdir(parents=True,exist_ok=False)
-    if ownership is not None:
-        (out/'OWNERSHIP_INPUT.json').write_bytes(a.ownership.read_bytes())
     (out/'RUNNER_INPUT.py').write_bytes(Path(__file__).read_bytes())
     sources=['scripts/verify_mcp_persistence.py',
         'client/app/src/main/java/me/rerere/rikkahub/feature/agent/McpInstallationStore.kt',
@@ -49,12 +35,7 @@ def main():
         if not ok: raise SystemExit('FAILED: '+name)
         return r
     run('emulator',adb+['shell','getprop','ro.kernel.qemu'],lambda r:r.returncode==0 and r.stdout.strip()==b'1')
-    expected_avd=ownership['avd'] if ownership else 'mathstudy-ab-merge-20261021'
-    run('avd',adb+['emu','avd','name'],lambda r:r.returncode==0 and
-        r.stdout.decode().splitlines()[:1]==[expected_avd])
-    if ownership is not None:
-        run('api',adb+['shell','getprop','ro.build.version.sdk'],lambda r:r.returncode==0 and r.stdout.strip()==str(ownership['api']).encode())
-        run('abi',adb+['shell','getprop','ro.product.cpu.abi'],lambda r:r.returncode==0 and r.stdout.strip()==ownership['abi'].encode())
+    run('avd',adb+['emu','avd','name'],lambda r:r.returncode==0 and b'mathstudy-ab-merge-20261021' in r.stdout)
     run('boot',adb+['shell','getprop','sys.boot_completed'],lambda r:r.returncode==0 and r.stdout.strip()==b'1')
     run('stop-previous',adb+['shell','am','force-stop',PKG])
     packages=run('packages',adb+['shell','pm','list','packages',PKG]).stdout

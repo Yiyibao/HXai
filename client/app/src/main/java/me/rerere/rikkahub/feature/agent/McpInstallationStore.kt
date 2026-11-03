@@ -45,7 +45,7 @@ internal data class McpInstallation(
  * Tombstones survive uninstall and process exit; task grants/UNKNOWN are never changed here. */
 internal class McpInstallationStore(context: Context, name: String = "mcp-installations-v1.db") :
     SQLiteOpenHelper(context, context.noBackupFilesDir.resolve(name).absolutePath, null, 1,
-        DatabaseErrorHandler { throw SQLiteDatabaseCorruptException("MCP registry is corrupt; preserved for recovery") }), java.io.Closeable {
+        DatabaseErrorHandler { throw SQLiteDatabaseCorruptException("MCP registry is corrupt; preserved for recovery") }) {
     init {
         check(BuildConfig.SYNTHETIC_MCP && BuildConfig.APPLICATION_ID == "org.hxsi.agent.nativeqa")
         require(name.matches(Regex("[a-zA-Z0-9_-]+\\.db")))
