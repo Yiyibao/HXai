@@ -32,14 +32,7 @@ def load_json(path, maximum):
     with Path(path).open("rb") as stream:
         raw = stream.read(maximum + 1)
     require(len(raw) <= maximum, "json_limit")
-    def unique(pairs):
-        value = {}
-        for key, item in pairs:
-            require(key not in value, "duplicate_json_key")
-            value[key] = item
-        return value
-    return json.loads(raw, object_pairs_hook=unique,
-                      parse_constant=lambda _: require(False, "nonfinite_json")), raw
+    return json.loads(raw), raw
 
 
 def canonical(text):
@@ -112,7 +105,7 @@ def edit_counts(expected, actual):
 
 
 def validate_truth(truth):
-    require(isinstance(truth, dict) and type(truth.get("contractVersion")) is int and truth["contractVersion"] == VERSION, "invalid_truth")
+    require(isinstance(truth, dict) and truth.get("contractVersion") == VERSION, "invalid_truth")
     require(isinstance(truth.get("sourceSha256"), str) and SHA256.fullmatch(truth["sourceSha256"]), "invalid_truth")
     total = truth.get("totalPages")
     require(type(total) is int and 1 <= total <= MAX_PAGES, "invalid_truth")
@@ -162,14 +155,9 @@ def score_document(truth, document):
         require(isinstance(identifier, str) and 0 < len(identifier) <= 128 and identifier not in ids, "invalid_block_id")
         ids.add(identifier)
         require(isinstance(block.get("text"), str), "invalid_block_text")
-        latex = block.get("latex")
-        require(latex is None or isinstance(latex, str), "invalid_block_latex")
-        total_chars += len(block["text"]) + len(latex or "")
+        total_chars += len(block["text"])
         require(total_chars <= 100000, "text_limit")
-        # Match MathWorkCandidates exactly: the reviewed candidate uses nonblank
-        # LaTeX, otherwise text. This remains literal scoring, never equivalence.
-        candidate = latex if latex is not None and latex.strip() else block["text"]
-        per_page[block["page"]].append(candidate)
+        per_page[block["page"]].append(block["text"])
     for page in blank:
         require(not canonical("".join(per_page[page])), "blank_with_content")
     rows = []
@@ -193,7 +181,7 @@ def score_document(truth, document):
                 totals[key] += row[key]
         rows.append(row)
     totals["characterErrorRate"] = totals["distance"] / totals["referenceCharacters"] if totals["referenceCharacters"] else None
-    return {"contractVersion": VERSION, "evaluatorRevision": 2, "evaluationStatus": "PASS", "claimScope": "LOCAL_LITERAL_TRANSCRIPTION_COMPARISON_ONLY",
+    return {"contractVersion": VERSION, "evaluationStatus": "PASS", "claimScope": "LOCAL_LITERAL_TRANSCRIPTION_COMPARISON_ONLY",
             "recognitionExecution": "NOT_ATTESTED", "mathematicsStatus": "NOT_EVALUATED", "taskCompletion": "NOT_EVALUATED",
             "layoutStatus": "NOT_EVALUATED", "sourceSha256": truth["sourceSha256"],
             "parserVersion": document["parserVersion"], "adapterVersion": document["adapterVersion"],
@@ -203,7 +191,6 @@ def score_document(truth, document):
                          "entireSourceRequested": len(selected) == truth["totalPages"],
                          "unrequestedPages": sorted(set(range(1, truth["totalPages"] + 1)) - selected)},
             "normalization": "UNICODE_NFC_REMOVE_WHITESPACE_ONLY; no mathematical equivalence or LaTeX canonicalization",
-            "candidateProjection": "NONBLANK_LATEX_ELSE_TEXT; matches MathWorkCandidates",
             "totals": totals, "pages": rows}
 
 

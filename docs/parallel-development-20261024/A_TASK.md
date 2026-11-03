@@ -77,11 +77,3 @@ B24-05交冻结领域后，A负责同一源码/同一最终包的跨线回归、
 ## 每批交付
 
 新建 `HXai_CHANGE_REVIEW/A24-<批次>-<日期>/`：CHANGE_CONTRACT、TRACE_AND_DIFF、TEST_RESULTS/原始logs、ADVERSARIAL_REVIEW、实际patch、VERDICT_AND_ROLLBACK、HANDOFF及六类SOL。明确本批源码/输入/产物hash、适用门禁/NOT_RUN、每个遗留的文件/方法/依赖/下一命令/验收/回滚。
-
-## A26-01：接收B26数学增量与真实质量评估门禁（2026-10-26）
-
-用户要求交A线集成，继续遵守禁止子代理/新会话/派发消息；当前助手串行承担A接收。批次 `HXai_CHANGE_REVIEW/A26-01-B-MATH-INTEGRATION-20261026/` 的 `B_ACCEPTANCE.json` 已核B26六文件candidate与当前字节一致，不重复apply或覆盖用户修改；B原失败/测试/补丁封印保持只读。
-
-隔离构建副本包含当前完整未提交client源码，并继承后续A线TaskStore13/账户增量，不回退到B旧交接中的TaskStore11。相对A24-02的差异单列A_SOURCE_DELTA；数学集成不代授账户/云端/迁移资格。App Gradle数学集成实际结果取本批TEST_RESULTS/GRADLE_RUN与原始XML，不用B纯Kotlin或旧APK替代当前结果；Flutter AAR/Web静态复用另绑定来源SHA，不称全量重建。
-
-真实解题质量评估保持WAITING_EXPLICIT_AUTHORIZATION / NOT_RUN；本次“获得授权后开展”不当作调用授权。题干只取本批BLIND_PROMPTS，参考/证书不得一起发给模型。先由用户明确provider/model/reasoning、公开24题传输/原统一Chat调用与角色/用量留存范围，再按MODEL_EVALUATION_PLAN锁接受配置、串行执行、封存回答后逐义务评估。题库公开且参考未独立裁决，不能把工具命中率或模型自评当权威准确率；未知已收费请求不盲重放。当前不读Provider配置/密钥，不调用模型/创建自动日程。

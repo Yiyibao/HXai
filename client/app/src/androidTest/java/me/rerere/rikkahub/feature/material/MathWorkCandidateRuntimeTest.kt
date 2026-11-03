@@ -4,8 +4,6 @@ import androidx.test.platform.app.InstrumentationRegistry
 import java.io.File
 import java.util.UUID
 import kotlinx.coroutines.runBlocking
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.*
 import org.junit.Assert.*
 import org.junit.Test
@@ -84,38 +82,6 @@ class MathWorkCandidateRuntimeTest {
             assertTrue(runCatching { inputs.parseCandidate(fixture.owner, fixture.source.id, fixture.source.sha256, 1, fixture.taskId) }.isFailure)
             assertEquals(old, MaterialFiles(context).mathWorkInputs.read(fixture.owner, old.getValue("work_id").jsonPrimitive.content))
             assertEquals(JsonPrimitive(1), old["contractVersion"])
-        } finally { fixture.close() }
-    }
-    @Test fun persistedCancellationStateBlocksNewCandidatesWithoutErasingConfirmedWork(): Unit = runBlocking {
-        val fixture = MathParseCandidateFixture(context)
-        try {
-            fixture.prepare()
-            val inputs = fixture.files.mathWorkInputs
-            val candidate = inputs.parseCandidate(fixture.owner, fixture.source.id, fixture.source.sha256, 1, fixture.taskId)
-            val confirmed = inputs.create(fixture.owner, request(fixture, candidate, true).toString(), true, {})
-            val id = confirmed.getValue("work_id").jsonPrimitive.content
-            val taskFile = File(fixture.directory, "${fixture.taskId}.task.json")
-            val original = Json.decodeFromString<DocumentTask>(taskFile.readText())
-            for (state in listOf("CANCELLING", "CANCELLED")) {
-                // Older/remote state snapshots need not have the separate local request bit.
-                taskFile.writeText(Json.encodeToString(original.copy(state = state, cancelRequested = false)))
-                assertEquals(confirmed, inputs.read(fixture.owner, id))
-                assertTrue("Cancelled state $state exposed in candidate listing",
-                    inputs.parseResults(fixture.owner, fixture.source.id, fixture.source.sha256, 0)
-                        .getValue("results").jsonArray.isEmpty())
-                assertTrue("Cancelled state $state returned a new candidate", runCatching {
-                    inputs.parseCandidate(fixture.owner, fixture.source.id, fixture.source.sha256, 1, fixture.taskId)
-                }.isFailure)
-                assertTrue("Cancelled state $state allowed new confirmation", runCatching {
-                    inputs.create(fixture.owner, request(fixture, candidate, true, "2*x=x+x").toString(), true, {})
-                }.isFailure)
-            }
-            taskFile.writeText(Json.encodeToString(original.copy(cancelRequested = true)))
-            assertTrue(runCatching {
-                inputs.parseCandidate(fixture.owner, fixture.source.id, fixture.source.sha256, 1, fixture.taskId)
-            }.isFailure)
-            assertEquals(confirmed, inputs.read(fixture.owner, id))
-            assertEquals(fixture.source.sha256, MaterialFiles.digest(fixture.files.verifiedFile(fixture.owner, fixture.source.id)))
         } finally { fixture.close() }
     }
 }

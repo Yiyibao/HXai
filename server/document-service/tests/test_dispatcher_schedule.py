@@ -1,6 +1,5 @@
 import importlib
 import os
-import subprocess
 import sys
 import time
 import types
@@ -19,7 +18,7 @@ def test_main_runs_startup_and_periodic_orphan_cleanup(tmp_path, monkeypatch):
             LOCK_EX=1, LOCK_NB=2, flock=lambda *_: None))
     dispatcher = importlib.import_module("dispatcher.main")
     monkeypatch.setattr(dispatcher, "ROOT", tmp_path)
-    monkeypatch.setattr(dispatcher, "docker", lambda *args, **__: subprocess.CompletedProcess(args, 0, "", ""))
+    monkeypatch.setattr(dispatcher, "docker", lambda *_, **__: None)
     monkeypatch.setattr(dispatcher.subprocess, "run", lambda *_, **__: None)
     monkeypatch.setattr(Store, "claim", lambda _: None)
     store = Store(tmp_path)
@@ -73,7 +72,7 @@ def test_main_periodic_cleanup_preserves_running_job_and_registered_bytes(tmp_pa
             LOCK_EX=1, LOCK_NB=2, flock=lambda *_: None))
     dispatcher = importlib.import_module("dispatcher.main")
     monkeypatch.setattr(dispatcher, "ROOT", tmp_path)
-    monkeypatch.setattr(dispatcher, "docker", lambda *args, **__: subprocess.CompletedProcess(args, 0, "", ""))
+    monkeypatch.setattr(dispatcher, "docker", lambda *_, **__: None)
     monkeypatch.setattr(dispatcher.subprocess, "run", lambda *_, **__: None)
     store = Store(tmp_path)
     owner, _ = store.issue()

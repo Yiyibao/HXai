@@ -61,9 +61,3 @@ python HXai_CHANGE_REVIEW/P2-PROFESSIONAL-MATH-20261022/smoke/run_integrated.py 
 真实设备验证前核本批EMULATOR_OWNERSHIP、独占专属5588/AVD，不清普通App。`scripts/verify_agent_android.py`需先读：它归档后只清nativeqa合成数据；用新run-id、指定ProfessionalMathRuntimeTest、MathWorkInputsRuntimeTest、ProfessionalPlotRuntimeTest、MathSharedChatRuntimeTest等受影响类。
 
 真实Provider的综合题/分析/实变推理质量、真实多页OCR与人工/权威样本评分、Mate50/HarmonyOS4.2、TalkBack语音、MSOffice/WPS与Release/生产单独验收。合成Provider、人工转录和工程题库不替代这些质量证据；完整P2仍须按Pro的MATH-01至06与真实样本验收。独立与完整全项目审查未评估，不启动子代理、不推送或部署。
-
-## 2026-10-26 B24-03领域行为增量
-
-[数学质量合同1](b26-math-quality-contract1.md)及 `HXai_CHANGE_REVIEW/B26-01-MATH-QUALITY-20261026/` 固定本轮源码与证据。ProofDerivation的premises按有序出现位置检查，允许同一已获证step被多个位置复用（合取引入/同测度定理），但规则前提数、公式顺序、step ID唯一性和假设依赖不变。原合同16字段/operation/回执格式不迁移，原已认证结果语义不扩张；旧重复前提从一律拒绝改为实际规则验证。
-
-新24题分层样本及原合同16的63例/合同17的16例当前CLI通过；50项选定纯KotlinJUnit与两例嵌套工作流分别取证，非Android或真实模型质量通过。原79例旧/新完整结果逐字节相同。本轮平台继承A24-02的Room33/TaskStore11/Pigeon，不用初批TaskStore9描述当前库或进行降级；独立人工题库裁决/真实Provider/完整项目审查仍未评估。

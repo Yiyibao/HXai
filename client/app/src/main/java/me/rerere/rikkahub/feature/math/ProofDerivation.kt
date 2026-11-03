@@ -90,7 +90,7 @@ internal object ProofDerivation {
             val rule = step.getValue("rule").jsonPrimitive.content
             val conclusion = formula(step.getValue("conclusion"))
             val refs = (step["premises"] as? JsonArray)?.map { it.jsonPrimitive.content }.orEmpty()
-            // Premises are ordered occurrences: contraction and aliased theorem parameters may reuse a line.
+            if (refs.distinct().size != refs.size) throw MathUnsupported("duplicate_proof_premise")
             val previous = refs.map { derived[it] }
             var actual: JsonElement? = null
             var dependencies: Set<String> = emptySet()
@@ -153,18 +153,12 @@ internal object ProofDerivation {
         return buildJsonObject {
             put("status", if (goalReached) "VERIFIED" else if (firstError != null) "DISPROVED" else "UNSUPPORTED")
             put("verified", goalReached); put("proof_kind", "checked_natural_deduction_under_explicit_assumptions")
-            if (firstError != null) {
-                put("certificate_status", "DISPROVED")
-                put("claim_status", "NOT_EVALUATED")
-            }
             put("goal_reached", goalReached); put("checks", JsonArray(checks))
             put("first_error_step", firstError?.let(::JsonPrimitive) ?: JsonNull)
             put("first_unverified_step", firstUnknown?.let(::JsonPrimitive) ?: JsonNull)
             put("undischarged_assumptions", JsonArray(last?.dependencies.orEmpty().sorted().map(::JsonPrimitive)))
             put("claim_is_conditional", !last?.dependencies.isNullOrEmpty())
-            put("notice", if (firstError != null)
-                "所给推导证书存在已定位的无效步骤；这不反驳目标命题。claim_status=NOT_EVALUATED时不能据此判学生原声明错误；未知前缀仍不能认定后续为首错。"
-                else "仅认证显式假设下已登记推理规则的推导。未解除假设须保留在结论中；定理条件文字不是条件已被证明。自然语言步骤/未知前缀不自动获证，不把后续错误宣称为首错；正确异法按自身推理而非标准答案字串比较。")
+            put("notice", "仅认证显式假设下已登记推理规则的推导。未解除假设须保留在结论中；定理条件文字不是条件已被证明。自然语言步骤/未知前缀不自动获证，不把后续错误宣称为首错；正确异法按自身推理而非标准答案字串比较。")
         }
     }
 }

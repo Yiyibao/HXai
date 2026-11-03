@@ -106,7 +106,6 @@ android {
         buildConfig = true
     }
     sourceSets {
-        getByName("main").assets.srcDir("../../server/agent-runtime/protocol")
         getByName("androidTest").assets.directories.add("$projectDir/schemas")
         if (providers.gradleProperty("agentNativeTest").orNull == "true") {
             getByName("debug").manifest.srcFile("src/nativeqa/AndroidManifest.xml")
