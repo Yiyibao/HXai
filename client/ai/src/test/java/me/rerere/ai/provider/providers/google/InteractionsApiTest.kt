@@ -412,8 +412,7 @@ class InteractionsApiTest {
             )
         }
 
-        assertEquals("Model service rejected the request", error.message)
-        assertFalse(error.stackTraceToString().contains("Deadline expired"))
+        assertEquals("Deadline expired before operation could complete.", error.message)
         assertTrue(decoder.onClosed().isEmpty())
     }
 

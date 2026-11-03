@@ -226,14 +226,7 @@ class RouteActivity : ComponentActivity() {
             Intent.ACTION_PROCESS_TEXT -> Screen.ShareHandler(
                 text = intent.getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT)?.toString().orEmpty(),
             )
-            else -> when (intent.getStringExtra("nativePage")) {
-                "providers" -> Screen.SettingProvider
-                "files" -> Screen.SettingFiles
-                "skills" -> Screen.Skills
-                "backup" -> Screen.Backup
-                "notifications" -> Screen.SettingPreferencesNotification
-                else -> intent.getStringExtra("conversationId")?.let { Screen.Chat(it) }
-            }
+            else -> intent.getStringExtra("conversationId")?.let { Screen.Chat(it) }
         }
         if (destination != null && backStack.lastOrNull() != destination) {
             backStack.add(destination)
@@ -245,11 +238,6 @@ class RouteActivity : ComponentActivity() {
     fun AppRoutes() {
         val toastState = rememberToasterState()
         val settings by settingsStore.settingsFlow.collectAsStateWithLifecycle()
-        val recoveryRequired by settingsStore.credentialRecoveryRequired.collectAsStateWithLifecycle()
-        if (recoveryRequired) {
-            me.rerere.rikkahub.ui.components.ui.CredentialRecoveryScreen(settingsStore)
-            return
-        }
         val tts = rememberCustomTtsState()
         val asr = rememberCustomAsrState()
         val eventBus = koinInject<AppEventBus>()
@@ -265,10 +253,7 @@ class RouteActivity : ComponentActivity() {
         }
         val migrationState by DatabaseMigrationTracker.state.collectAsStateWithLifecycle()
 
-        // Open notification preferences directly; entering settings must not create a chat.
-        val startScreen: NavKey = if(intent.getStringExtra("nativePage")=="notifications") {
-            Screen.SettingPreferencesNotification
-        } else Screen.Chat(
+        val startScreen = Screen.Chat(
             id = if (readBooleanPreference("create_new_conversation_on_start", true)) {
                 Uuid.random().toString()
             } else {
@@ -289,7 +274,7 @@ class RouteActivity : ComponentActivity() {
 
         SharedTransitionLayout {
             CompositionLocalProvider(
-                LocalNavController provides Navigator(backStack, onRootBack = { finish() }),
+                LocalNavController provides Navigator(backStack),
                 LocalSharedTransitionScope provides this,
                 LocalSettings provides settings,
                 LocalToaster provides toastState,
@@ -317,49 +302,26 @@ class RouteActivity : ComponentActivity() {
                             rememberViewModelStoreNavEntryDecorator(),
                         ),
                         modifier = Modifier.fillMaxSize(),
-                        onBack = { if(backStack.size>1) backStack.removeLastOrNull() else finish() },
+                        onBack = { backStack.removeLastOrNull() },
                         transitionSpec = {
-                            if (settings.displaySetting.reduceMotion) androidx.compose.animation.EnterTransition.None togetherWith androidx.compose.animation.ExitTransition.None
-                            else if (backStack.size == 1) fadeIn() togetherWith fadeOut()
+                            if (backStack.size == 1) fadeIn() togetherWith fadeOut()
                             else {
                                 slideInHorizontally { it } togetherWith
                                     slideOutHorizontally { -it / 2 } + scaleOut(targetScale = 0.7f) + fadeOut()
                             }
                         },
                         popTransitionSpec = {
-                            if (settings.displaySetting.reduceMotion) androidx.compose.animation.EnterTransition.None togetherWith androidx.compose.animation.ExitTransition.None
-                            else slideInHorizontally { -it / 2 } + scaleIn(initialScale = 0.7f) + fadeIn() togetherWith
+                            slideInHorizontally { -it / 2 } + scaleIn(initialScale = 0.7f) + fadeIn() togetherWith
                                 slideOutHorizontally { it }
                         },
                         predictivePopTransitionSpec = {
-                            if (settings.displaySetting.reduceMotion) androidx.compose.animation.EnterTransition.None togetherWith androidx.compose.animation.ExitTransition.None
-                            else slideInHorizontally { -it / 2 } + scaleIn(initialScale = 0.7f) + fadeIn() togetherWith
+                            slideInHorizontally { -it / 2 } + scaleIn(initialScale = 0.7f) + fadeIn() togetherWith
                                 slideOutHorizontally { it }
                         },
                         entryProvider = entryProvider {
-                            entry<Screen.StudySection> { key ->
-                                me.rerere.rikkahub.feature.studychat.StudySectionPage(key.section, key.conversationId)
-                            }
-                            entry<Screen.StudyMemoryDetail> { key ->
-                                me.rerere.rikkahub.feature.memory.ui.StudyMemoryDetailPage(key.memoryId, key.conversationId)
-                            }
-                            entry<Screen.StudyArtifactPreview> { key ->
-                                me.rerere.rikkahub.feature.material.ui.StudyArtifactPreviewPage(key.fileId, key.conversationId)
-                            }
-                            entry<Screen.StudyProviderModels> { key ->
-                                me.rerere.rikkahub.feature.studychat.ui.StudyProviderModelsPage(key.providerId)
-                            }
-                            entry<Screen.StudyHandoffGallery> {
-                                me.rerere.rikkahub.feature.studychat.ui.StudyHandoffGalleryPage()
-                            }
                             entry<Screen.Chat>(
-                                metadata = NavDisplay.transitionSpec {
-                                    if (settings.displaySetting.reduceMotion) androidx.compose.animation.EnterTransition.None togetherWith androidx.compose.animation.ExitTransition.None
-                                    else fadeIn() togetherWith fadeOut()
-                                } + NavDisplay.popTransitionSpec {
-                                    if (settings.displaySetting.reduceMotion) androidx.compose.animation.EnterTransition.None togetherWith androidx.compose.animation.ExitTransition.None
-                                    else fadeIn() togetherWith fadeOut()
-                                }
+                                metadata = NavDisplay.transitionSpec { fadeIn() togetherWith fadeOut() }
+                                    + NavDisplay.popTransitionSpec { fadeIn() togetherWith fadeOut() }
                             ) { key ->
                                 ChatPage(
                                     id = Uuid.parse(key.id),
@@ -469,14 +431,10 @@ class RouteActivity : ComponentActivity() {
                             }
 
                             entry<Screen.SettingProvider> {
-                                me.rerere.rikkahub.feature.studychat.ui.StudyProviderPage()
+                                SettingProviderPage()
                             }
 
                             entry<Screen.SettingProviderDetail> { key ->
-                                me.rerere.rikkahub.feature.studychat.ui.StudyProviderDetailPage(key.providerId)
-                            }
-
-                            entry<Screen.SettingProviderAdvanced> { key ->
                                 val id = Uuid.parse(key.providerId)
                                 SettingProviderDetailPage(id = id)
                             }
@@ -625,16 +583,6 @@ class RouteActivity : ComponentActivity() {
 
 sealed interface Screen : NavKey {
     @Serializable
-    data class StudySection(val section: String, val conversationId: String) : Screen
-    @Serializable
-    data class StudyMemoryDetail(val memoryId: String, val conversationId: String) : Screen
-    @Serializable
-    data class StudyArtifactPreview(val fileId: String, val conversationId: String) : Screen
-    @Serializable
-    data class StudyProviderModels(val providerId: String) : Screen
-    @Serializable
-    data object StudyHandoffGallery : Screen
-    @Serializable
     data class Chat(
         val id: String,
         val text: String? = null,
@@ -719,9 +667,6 @@ sealed interface Screen : NavKey {
 
     @Serializable
     data class SettingProviderDetail(val providerId: String) : Screen
-
-    @Serializable
-    data class SettingProviderAdvanced(val providerId: String) : Screen
 
     @Serializable
     data object SettingModels : Screen

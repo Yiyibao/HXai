@@ -103,7 +103,7 @@ class ServiceAccountTokenProvider(
         http.newCall(req).execute().use { resp ->
             if (!resp.isSuccessful) {
                 val body = resp.body.string()
-                throw IllegalStateException("Token endpoint HTTP ${resp.code}")
+                throw IllegalStateException("Token endpoint ${resp.code}: $body")
             }
             val body = resp.body.string()
             val tokenResp = json.decodeFromString(TokenResponse.serializer(), body)

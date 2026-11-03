@@ -68,9 +68,9 @@ fun Context.writeClipboardText(text: String) {
         getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
     runCatching {
         clipboardManager.setPrimaryClip(android.content.ClipData.newPlainText("text", text))
-        Log.i(TAG, "Clipboard write completed")
+        Log.i(TAG, "writeClipboardText: $text")
     }.onFailure {
-        Log.w(TAG, "Clipboard write failed (${it.javaClass.simpleName})")
+        Log.e(TAG, "writeClipboardText: $text", it)
         Toast.makeText(this, "Failed to write text into clipboard", Toast.LENGTH_SHORT).show()
     }
 }
@@ -116,14 +116,14 @@ fun Context.openUsageAccessSettings() {
  * Open a url
  */
 fun Context.openUrl(url: String) {
-    Log.i(TAG, "URL open requested")
+    Log.i(TAG, "openUrl: $url")
     runCatching {
         val intent = CustomTabsIntent.Builder()
             .setShowTitle(true)
             .build()
         intent.launchUrl(this, url.toUri())
     }.onFailure {
-        Log.w(TAG, "URL open failed (${it.javaClass.simpleName})")
+        it.printStackTrace()
         Toast.makeText(this, "Failed to open URL: $url", Toast.LENGTH_SHORT).show()
     }
 }
@@ -171,7 +171,6 @@ fun Context.exportImage(
 
     // 保存到相册
     var outputStream: OutputStream? = null
-    var pendingUri: Uri? = null
     try {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             // Android 10及以上使用MediaStore API
@@ -179,36 +178,26 @@ fun Context.exportImage(
                 put(MediaStore.MediaColumns.DISPLAY_NAME, fileName)
                 put(MediaStore.MediaColumns.MIME_TYPE, "image/png")
                 put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_PICTURES)
-                put(MediaStore.MediaColumns.IS_PENDING, 1)
             }
             val uri = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
-                ?: error("无法创建图库文件")
-            pendingUri = uri
-            uri.let {
+            uri?.let {
                 outputStream = contentResolver.openOutputStream(it)
-                check(bitmap.compress(Bitmap.CompressFormat.PNG, 100, requireNotNull(outputStream))) { "图片编码失败" }
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream!!)
             }
         } else {
             // Android 9及以下直接写入文件
             val imagesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
             val image = File(imagesDir, fileName)
             outputStream = FileOutputStream(image)
-            check(bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)) { "图片编码失败" }
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
 
             // 通知图库更新
-            outputStream.close()
-            outputStream = null
-            android.media.MediaScannerConnection.scanFile(this, arrayOf(image.absolutePath), arrayOf("image/png"), null)
+            val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
+            mediaScanIntent.data = Uri.fromFile(image)
+            sendBroadcast(mediaScanIntent)
         }
-        outputStream?.close()
-        outputStream = null
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) pendingUri?.let { uri ->
-            check(contentResolver.update(uri, ContentValues().apply { put(MediaStore.MediaColumns.IS_PENDING, 0) }, null, null) == 1)
-        }
-        pendingUri = null
-        Log.i(TAG, "Image saved successfully")
+        Log.i(TAG, "Image saved successfully: $fileName")
     } catch (e: Exception) {
-        pendingUri?.let { uri -> runCatching { contentResolver.delete(uri, null, null) } }
         Log.e(TAG, "Failed to save image", e)
     } finally {
         outputStream?.close()
@@ -236,7 +225,6 @@ fun Context.exportImageFile(
 
     // 保存到相册
     var outputStream: OutputStream? = null
-    var pendingUri: Uri? = null
     try {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             // Android 10及以上使用MediaStore API
@@ -244,14 +232,11 @@ fun Context.exportImageFile(
                 put(MediaStore.MediaColumns.DISPLAY_NAME, fileName)
                 put(MediaStore.MediaColumns.MIME_TYPE, "image/png")
                 put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_PICTURES)
-                put(MediaStore.MediaColumns.IS_PENDING, 1)
             }
             val uri = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
-                ?: error("无法创建图库文件")
-            pendingUri = uri
-            uri.let {
+            uri?.let {
                 outputStream = contentResolver.openOutputStream(it)
-                file.inputStream().use { input -> input.copyTo(requireNotNull(outputStream)) }
+                file.inputStream().copyTo(outputStream!!)
             }
         } else {
             // Android 9及以下直接写入文件
@@ -260,17 +245,12 @@ fun Context.exportImageFile(
             file.copyTo(image, overwrite = true)
 
             // 通知图库更新
-            android.media.MediaScannerConnection.scanFile(this, arrayOf(image.absolutePath), arrayOf("image/png"), null)
+            val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
+            mediaScanIntent.data = Uri.fromFile(image)
+            sendBroadcast(mediaScanIntent)
         }
-        outputStream?.close()
-        outputStream = null
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) pendingUri?.let { uri ->
-            check(contentResolver.update(uri, ContentValues().apply { put(MediaStore.MediaColumns.IS_PENDING, 0) }, null, null) == 1)
-        }
-        pendingUri = null
-        Log.i(TAG, "Image file saved successfully")
+        Log.i(TAG, "Image file saved successfully: $fileName")
     } catch (e: Exception) {
-        pendingUri?.let { uri -> runCatching { contentResolver.delete(uri, null, null) } }
         Log.e(TAG, "Failed to save image file", e)
     } finally {
         outputStream?.close()

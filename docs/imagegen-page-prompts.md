@@ -1,7 +1,5 @@
 # MathStudyAgent 网页 ImageGen 页面提示词
 
-2026-10-07 更新：已按用户采纳的粉色角色、纯白背景、淡粉交互及输入框模型框生成 16 张前端页面图，新增模型选择与多提供商管理设计。[最终图片与页面清单](ui-design/white-pink-v1/README.md) · [本批实际提示词](ui-design/white-pink-v1/prompts.md)。下文绿色母提示词为历史版本，当前选稿使用新目录。
-
 版本：v1.0，2026-10-06。用途：用户手动复制到网页端生成静态视觉参考。关联 [动效与页面专项](motion-design-reference.md) 及 [详细实现方案](implementation-plan.md)。本轮没有自动生成图片。
 
 ## 1. 使用顺序

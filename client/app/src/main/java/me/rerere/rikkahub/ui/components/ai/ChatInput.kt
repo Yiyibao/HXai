@@ -16,7 +16,6 @@ import androidx.compose.foundation.content.hasMediaType
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -111,7 +110,6 @@ import me.rerere.rikkahub.ui.components.ai.completion.ChatCompletionContext
 import me.rerere.rikkahub.ui.components.ai.completion.ChatCompletionItem
 import me.rerere.rikkahub.ui.components.ai.completion.ChatCompletionList
 import me.rerere.rikkahub.ui.components.ai.completion.ChatCompletionProvider
-import me.rerere.rikkahub.ui.components.ui.AutoAIIcon
 import me.rerere.rikkahub.ui.components.ui.KeepScreenOn
 import me.rerere.rikkahub.ui.components.ui.permission.PermissionManager
 import me.rerere.rikkahub.ui.components.ui.permission.PermissionRecordAudio
@@ -138,7 +136,6 @@ fun ChatInput(
     modifier: Modifier = Modifier,
     completionProviders: List<ChatCompletionProvider> = emptyList(),
     onUpdateChatModel: (Model) -> Unit,
-    onPersistChatModel: suspend (Model) -> Unit,
     onUpdateAssistant: (Assistant) -> Unit,
     onUpdateSearchService: (Int) -> Unit,
     onMoreClick: () -> Unit,
@@ -153,7 +150,6 @@ fun ChatInput(
     onStartVoiceMode: (() -> Unit)? = null,
     voiceState: VoiceSessionState = VoiceSessionState(),
     onStopVoiceMode: () -> Unit = {},
-    onManageProviders: (() -> Unit)? = null,
 ) {
     val toaster = LocalToaster.current
     val assistant = settings.getCurrentAssistant()
@@ -177,7 +173,6 @@ fun ChatInput(
         providers = settings.providers,
         type = ModelType.CHAT,
     )
-    var showStudyModelPicker by remember { mutableStateOf(false) }
 
     fun sendMessage() {
         focusManager.clearFocus(force = true)
@@ -228,8 +223,9 @@ fun ChatInput(
         Column(
             modifier = modifier
                 .imePadding()
+                .navigationBarsPadding()
                 .padding(horizontal = 8.dp)
-                .padding(bottom = 4.dp),
+                .padding(bottom = 8.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             MessageQueuePanel(
@@ -309,39 +305,12 @@ fun ChatInput(
                                 .horizontalScroll(rememberScrollState()),
                             horizontalArrangement = Arrangement.spacedBy(2.dp)
                         ) {
-                            // Model Picker (P11)
-                            val currentChatModelItem = settings.getCurrentChatModel()
-                            Surface(
-                                modifier = Modifier
-                                    .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp)
-                                    .clip(RoundedCornerShape(12.dp))
-                                    .clickable { showStudyModelPicker = true },
-                                color = Color(0xFFFFF1F5),
-                                border = BorderStroke(1.dp, Color(0xFFF8D5DE)),
-                                shape = RoundedCornerShape(12.dp)
-                            ) {
-                                Row(
-                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 6.dp),
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.spacedBy(4.dp)
-                                ) {
-                                    AutoAIIcon(
-                                        modifier = Modifier.size(16.dp),
-                                        name = currentChatModelItem?.modelId ?: "",
-                                        color = Color(0xFF925568)
-                                    )
-                                    Text(
-                                        text = currentChatModelItem?.displayName ?: "选择模型",
-                                        maxLines = 1,
-                                        overflow = TextOverflow.Ellipsis,
-                                        style = MaterialTheme.typography.labelSmall.copy(
-                                            color = Color(0xFF925568),
-                                            fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold
-                                        ),
-                                        modifier = Modifier.widthIn(max = 110.dp)
-                                    )
-                                }
-                            }
+                            // Model Picker
+                            ModelSelectorButton(
+                                state = modelListState,
+                                onlyIcon = true,
+                                modifier = Modifier,
+                            )
 
                             // Search
                             val enableSearchMsg = stringResource(R.string.web_search_enabled)
@@ -437,21 +406,6 @@ fun ChatInput(
 
         }
     }
-
-    me.rerere.rikkahub.feature.studychat.ui.StudyModelPickerSheet(
-        visible = showStudyModelPicker,
-        onDismissRequest = { showStudyModelPicker = false },
-        providers = settings.providers,
-        currentModelId = assistant.chatModelId ?: settings.chatModelId,
-        isGenerating = loading,
-        onSelectModel = {
-            onPersistChatModel(it)
-        },
-        onManageProviders = {
-            showStudyModelPicker = false
-            onManageProviders?.invoke()
-        }
-    )
 
     ModelListSheet(
         state = modelListState,

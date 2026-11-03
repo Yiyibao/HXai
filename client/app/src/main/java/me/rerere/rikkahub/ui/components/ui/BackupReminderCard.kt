@@ -18,7 +18,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import me.rerere.hugeicons.HugeIcons
@@ -64,7 +63,7 @@ fun BackupReminderCard(
                     stringResource(R.string.backup_page_reminder_never_backed_up)
                 } else {
                     val days = (System.currentTimeMillis() - config.lastBackupTime) / (24L * 60 * 60 * 1000)
-                    pluralStringResource(R.plurals.backup_page_reminder_last_days, days.coerceIn(0, Int.MAX_VALUE.toLong()).toInt(), days)
+                    stringResource(R.string.backup_page_reminder_last_days, days)
                 }
                 Text(
                     text = lastBackupText,

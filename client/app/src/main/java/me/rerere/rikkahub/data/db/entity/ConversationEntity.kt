@@ -10,6 +10,8 @@ data class ConversationEntity(
     val id: String,
     @ColumnInfo("assistant_id", defaultValue = "0950e2dc-9bd5-4801-afa3-aa887aa36b4e")
     val assistantId: String,
+    @ColumnInfo(name = "learner_profile_id", defaultValue = "'default-learner'")
+    val learnerProfileId: String = "default-learner",
     @ColumnInfo("title")
     val title: String,
     @ColumnInfo("nodes")
@@ -32,14 +34,4 @@ data class ConversationEntity(
     val workspaceCwd: String = "",
     @ColumnInfo("folder_id", defaultValue = "")
     val folderId: String = "",
-    @ColumnInfo("profile_id", defaultValue = "default-learner")
-    val profileId: String = me.rerere.rikkahub.data.datastore.DEFAULT_PROFILE_ID,
-    @ColumnInfo("queue_state", defaultValue = "'{}'")
-    val queueState: String = "{}",
-    @ColumnInfo("study_mode", defaultValue = "'GUIDED'")
-    val studyMode: String = "GUIDED",
-    @ColumnInfo("lifecycle_revision", defaultValue = "0")
-    val lifecycleRevision: Long = 0,
-    @ColumnInfo("is_archived", defaultValue = "0")
-    val isArchived: Boolean = false,
 )

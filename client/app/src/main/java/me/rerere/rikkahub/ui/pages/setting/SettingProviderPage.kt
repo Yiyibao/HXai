@@ -58,7 +58,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -637,7 +636,10 @@ private fun ProviderItem(
                     }
                     Tag(type = TagType.INFO) {
                         Text(
-                            pluralStringResource(R.plurals.setting_provider_page_model_count, provider.models.size, provider.models.size)
+                            stringResource(
+                                R.string.setting_provider_page_model_count,
+                                provider.models.size
+                            )
                         )
                     }
                     if (provider.name == "AiHubMix") {

@@ -10,8 +10,6 @@ import me.rerere.rikkahub.data.datastore.SettingsStore
 class SkillManager(
     private val context: Context,
     private val settingsStore: SettingsStore,
-    private val renameTree: (File, File) -> Boolean = { from, to -> from.renameTo(to) },
-    private val removeTree: (File) -> Boolean = ::deleteSkillTree,
 ) {
     companion object {
         private const val TAG = "SkillManager"
@@ -70,24 +68,23 @@ class SkillManager(
             // 跳过隐藏目录，如原子写入残留的 .<name>.staging.N.tmp
             ?.filter { it.isDirectory && !it.name.startsWith(".") }
             ?.mapNotNull { dir ->
-                val safeDir = SkillPaths.resolveSkillDir(root, dir.name) ?: return@mapNotNull null
-                val skillFile = SkillPaths.resolveSkillFile(safeDir, "SKILL.md") ?: return@mapNotNull null
+                val skillFile = dir.resolve("SKILL.md")
                 if (!skillFile.exists()) return@mapNotNull null
-                parseSkillFile(skillFile, safeDir, builtin)
+                parseSkillFile(skillFile, dir, builtin)
             }
             ?: emptyList()
     }
 
     fun readSkillBody(skillName: String): String? {
-        val skillFile = resolveSkillFile(skillName, "SKILL.md") ?: return null
+        val skillFile = resolveSkillDir(skillName)?.resolve("SKILL.md") ?: return null
         if (!skillFile.exists()) return null
-        return SkillFrontmatterParser.extractBody(skillFile.inputStream().use { SkillImportLimits.read(it, SkillImportLimits.MARKDOWN_BYTES) }.toString(Charsets.UTF_8))
+        return SkillFrontmatterParser.extractBody(skillFile.readText())
     }
 
     fun readSkillContent(skillName: String): String? {
-        val skillFile = resolveSkillFile(skillName, "SKILL.md") ?: return null
+        val skillFile = resolveSkillDir(skillName)?.resolve("SKILL.md") ?: return null
         if (!skillFile.exists()) return null
-        return skillFile.inputStream().use { SkillImportLimits.read(it, SkillImportLimits.MARKDOWN_BYTES) }.toString(Charsets.UTF_8)
+        return skillFile.readText()
     }
 
     fun saveSkill(name: String, content: String): SkillMetadata? {
@@ -104,46 +101,22 @@ class SkillManager(
         val skillDir = resolveSkillDir(name) ?: return@withContext false
         // 目录不存在时 deleteRecursively 也返回 true，需提前拦截，避免误清理内置技能的启用状态
         if (!skillDir.exists()) return@withContext false
-        // Keep a complete rollback tree before a deletion can partially consume files.
-        val root = getSkillsDir()
-        val backup = createTempSkillDir(root, name, "uninstall-backup") ?: return@withContext false
-        if (!copySkillTree(skillDir, backup)) {
-            removeTree(backup)
-            return@withContext false
-        }
-        val trash = createTempSkillDir(root, name, "uninstall") ?: run {
-            removeTree(backup)
-            return@withContext false
-        }
-        if (!renameTree(skillDir, trash)) {
-            removeTree(trash); removeTree(backup)
-            return@withContext false
-        }
-        var committed = false
-        try {
-            if (!removeTree(trash)) {
-                restoreBackup(backup, skillDir)
-                return@withContext false
+        val deleted = skillDir.deleteRecursively()
+        // 删除的是覆盖内置技能的同名用户技能时，内置技能会重新生效，保留启用状态
+        if (deleted && listBuiltinSkills().none { it.name == name }) {
+            settingsStore.update { settings ->
+                settings.copy(
+                    assistants = settings.assistants.map { assistant ->
+                        if (assistant.enabledSkills.contains(name)) {
+                            assistant.copy(enabledSkills = assistant.enabledSkills - name)
+                        } else {
+                            assistant
+                        }
+                    }
+                )
             }
-            // An overriding user skill can be removed without disabling its builtin.
-            if (listBuiltinSkills().none { it.name == name }) {
-                settingsStore.update { settings ->
-                    settings.copy(assistants = settings.assistants.map { assistant ->
-                        assistant.copy(enabledSkills = assistant.enabledSkills - name)
-                    })
-                }
-            }
-            committed = true
-            true
-        } catch (error: Exception) {
-            restoreBackup(backup, skillDir)
-            Log.w(TAG, "Skill uninstall rolled back")
-            if (error is kotlinx.coroutines.CancellationException) throw error
-            false
-        } finally {
-            if (committed) removeTree(backup)
-            if (skillDir.exists()) removeTree(trash)
         }
+        deleted
     }
 
     /**
@@ -193,10 +166,6 @@ class SkillManager(
     }
 
     fun saveSkillFileBytesAtomically(skillName: String, files: Map<String, ByteArray>): Boolean {
-        if (files.size > SkillImportLimits.ENTRIES || files.values.any { it.size > SkillImportLimits.FILE_BYTES } ||
-            files.values.sumOf { it.size.toLong() } > SkillImportLimits.TOTAL_BYTES ||
-            (files["SKILL.md"]?.size ?: 0) > SkillImportLimits.MARKDOWN_BYTES) return false
-        if (runCatching { files.keys.forEach { SkillImportLimits.path(it) } }.isFailure) return false
         val skillsDir = getSkillsDir()
         val targetDir = resolveSkillDir(skillName) ?: return false
         val stagingDir = createTempSkillDir(skillsDir, skillName, "staging") ?: return false
@@ -213,44 +182,31 @@ class SkillManager(
 
             if (targetDir.exists()) {
                 backupDir = createTempSkillDir(skillsDir, skillName, "backup") ?: return false
-                if (!renameTree(targetDir, backupDir)) return false
+                if (!targetDir.renameTo(backupDir)) return false
             }
 
-            if (!renameTree(stagingDir, targetDir)) {
+            if (!stagingDir.renameTo(targetDir)) {
                 if (backupDir != null && !targetDir.exists()) {
-                    restoreBackup(backupDir, targetDir)
+                    backupDir.renameTo(targetDir)
                 }
                 return false
             }
 
-            backupDir?.let(removeTree)
+            backupDir?.deleteRecursively()
             return true
         } catch (e: Exception) {
             Log.w(TAG, "saveSkillFilesAtomically: Failed to save $skillName", e)
             if (backupDir != null && !targetDir.exists()) {
-                restoreBackup(backupDir, targetDir)
+                backupDir.renameTo(targetDir)
             }
             return false
         } finally {
             if (stagingDir.exists()) {
-                removeTree(stagingDir)
+                stagingDir.deleteRecursively()
             }
             if (backupDir?.exists() == true && targetDir.exists()) {
-                removeTree(backupDir)
+                backupDir.deleteRecursively()
             }
-        }
-    }
-
-    private fun restoreBackup(backup: File, target: File): Boolean {
-        if (renameTree(backup, target)) return true
-        // File.renameTo can fail without throwing. Use the NIO move as a second
-        // rollback path; if storage refuses both, keep the only original copy.
-        return runCatching {
-            java.nio.file.Files.move(backup.toPath(), target.toPath(), java.nio.file.StandardCopyOption.ATOMIC_MOVE)
-            true
-        }.getOrElse {
-            Log.w(TAG, "Skill rollback deferred; original backup retained")
-            false
         }
     }
 
@@ -281,9 +237,7 @@ class SkillManager(
 
     private fun parseSkillFile(skillFile: File, skillDir: File, builtin: Boolean = false): SkillMetadata? {
         return runCatching {
-            val safeFile = SkillPaths.resolveSkillFile(skillDir, "SKILL.md") ?: return null
-            if (skillFile.canonicalFile != safeFile) return null
-            val content = safeFile.inputStream().use { SkillImportLimits.read(it, SkillImportLimits.MARKDOWN_BYTES) }.toString(Charsets.UTF_8)
+            val content = skillFile.readText()
             val frontmatter = SkillFrontmatterParser.parse(content)
             val name = frontmatter["name"]?.takeIf { it.isNotBlank() } ?: return null
             val description = frontmatter["description"]?.takeIf { it.isNotBlank() } ?: return null
@@ -291,8 +245,6 @@ class SkillManager(
                 name = name,
                 description = description,
                 compatibility = frontmatter["compatibility"],
-                license = frontmatter["license"],
-                allowedTools = frontmatter["allowed-tools"],
                 skillDir = skillDir,
                 builtin = builtin,
             )
@@ -307,8 +259,6 @@ data class SkillMetadata(
     val name: String,
     val description: String,
     val compatibility: String? = null,
-    val license: String? = null,
-    val allowedTools: String? = null,
     val skillDir: File,
     /** 内置技能，来自 assets 解压，只读 */
     val builtin: Boolean = false,

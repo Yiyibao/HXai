@@ -1,6 +1,6 @@
 package me.rerere.search
 
-import me.rerere.common.util.ServicePrivacyLog as Log
+import android.util.Log
 import androidx.compose.runtime.Composable
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -82,7 +82,7 @@ object RikkaHubSearchService : SearchService<SearchServiceOptions.RikkaHubOption
                     )
                 )
             } else {
-                error("response failed #${response.code}")
+                error("response failed #${response.code}: ${response.body?.string()}")
             }
         }
     }

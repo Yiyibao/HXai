@@ -25,7 +25,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import me.rerere.ai.provider.ProviderSetting
-import me.rerere.rikkahub.data.datastore.withoutCredentials
 import me.rerere.hugeicons.HugeIcons
 import me.rerere.hugeicons.stroke.Share03
 import me.rerere.rikkahub.utils.JsonInstant
@@ -54,7 +53,7 @@ fun ShareSheet(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
-                    Text("共享模型配置模板", style = MaterialTheme.typography.titleLarge)
+                    Text("共享你的LLM模型", style = MaterialTheme.typography.titleLarge)
 
                     IconButton(
                         onClick = {
@@ -67,7 +66,7 @@ fun ShareSheet(
                             try {
                                 context.startActivity(Intent.createChooser(intent, null))
                             } catch (e: Exception) {
-                                android.util.Log.w("ShareSheet", "Unable to open share target")
+                                e.printStackTrace()
                             }
                         }
                     ) {
@@ -82,7 +81,6 @@ fun ShareSheet(
                         .fillMaxWidth()
                         .aspectRatio(1f)
                 )
-                Text("不包含密钥、接口地址或自定义请求参数，接收方需要重新配置连接。")
             }
         }
     }
@@ -93,7 +91,7 @@ fun ProviderSetting.encodeForShare(): String {
         append("ai-provider:")
         append("v1:")
 
-        val value = JsonInstant.encodeToString(this@encodeForShare.copyProvider(models = emptyList()).withoutCredentials())
+        val value = JsonInstant.encodeToString(this@encodeForShare.copyProvider(models = emptyList()))
         append(Base64.encode(value.encodeToByteArray()))
     }
 }

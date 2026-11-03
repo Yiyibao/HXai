@@ -42,7 +42,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.role
@@ -234,7 +233,7 @@ internal fun FilesPicker(
             trailingContent = {
                 if (conversation.messageNodes.isNotEmpty()) {
                     Text(
-                        text = pluralStringResource(R.plurals.chat_page_message_count, conversation.messageNodes.size, conversation.messageNodes.size),
+                        text = stringResource(R.string.chat_page_message_count, conversation.messageNodes.size),
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )

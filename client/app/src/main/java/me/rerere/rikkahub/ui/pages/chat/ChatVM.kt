@@ -23,7 +23,6 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import me.rerere.ai.provider.Model
-import me.rerere.ai.provider.ModelType
 import me.rerere.ai.ui.UIMessage
 import me.rerere.ai.ui.UIMessagePart
 import me.rerere.ai.ui.isEmptyInputMessage
@@ -65,10 +64,6 @@ class ChatVM(
     private val _conversationId: Uuid = Uuid.parse(id)
     val conversation: StateFlow<Conversation> = chatService.getConversationFlow(_conversationId)
     var chatListInitialized by mutableStateOf(false) // 聊天列表是否已经滚动到底部
-    var conversationAccessDenied by mutableStateOf(false)
-        private set
-    var conversationReady by mutableStateOf(false)
-        private set
 
     // 聊天输入状态 - 保存在 ViewModel 中避免 TransactionTooLargeException
     val inputState = ChatInputState()
@@ -97,18 +92,16 @@ class ChatVM(
 
         // 初始化对话
         viewModelScope.launch {
-            try {
-                chatService.initializeConversation(_conversationId)
-                conversationReady = true
-                context.writeStringPreference("lastConversationId", _conversationId.toString())
-            } catch (error: IllegalArgumentException) {
-                conversationAccessDenied = true
-            }
+            chatService.initializeConversation(_conversationId)
         }
+
+        // 记住对话ID, 方便下次启动恢复
+        context.writeStringPreference("lastConversationId", _conversationId.toString())
     }
 
     override fun onCleared() {
         voiceSession.stop()
+        super.onCleared()
         // 移除对话引用
         chatService.removeConversationReference(_conversationId)
     }
@@ -129,22 +122,10 @@ class ChatVM(
 
     // 错误状态
     val errors: StateFlow<List<ChatError>> = chatService.errors
-        .map { errors -> errors.filter { it.conversationId == null || it.conversationId == _conversationId } }
-        .stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
 
     fun dismissError(id: Uuid) = chatService.dismissError(id)
 
     fun clearAllErrors() = chatService.clearAllErrors()
-
-    suspend fun createLearnerProfile(name: String) = settingsStore.createLearnerProfile(name)
-
-    suspend fun renameLearnerProfile(id: String, name: String) = settingsStore.renameLearnerProfile(id, name)
-
-    suspend fun switchLearnerProfile(id: String) {
-        voiceSession.stop()
-        chatService.switchLearnerProfile(id)
-        context.writeStringPreference("lastConversationId", null)
-    }
 
     val messageQueue = chatService.getMessageQueueFlow(_conversationId)
 
@@ -154,8 +135,6 @@ class ChatVM(
 
     fun finishEditQueuedMessage(id: Uuid, parts: List<UIMessagePart>?) =
         chatService.finishEditQueuedMessage(_conversationId, id, parts)
-
-    fun resumeInterruptedGeneration(skipUncertainTools: Boolean) = chatService.resumeInterruptedGeneration(_conversationId, skipUncertainTools,resumeManualPause=true)
 
     fun resumeMessageQueue() = chatService.resumeMessageQueue(_conversationId)
 
@@ -188,17 +167,7 @@ class ChatVM(
     // 设置聊天模型
     fun setChatModel(assistant: Assistant, model: Model) {
         viewModelScope.launch {
-            persistChatModel(assistant, model)
-        }
-    }
-
-    suspend fun persistChatModel(assistant: Assistant, model: Model) {
             settingsStore.update { settings ->
-                require(!settings.init) { "设置尚未加载" }
-                require(settings.providers.any { provider ->
-                    provider.enabled && provider.models.any { it.id == model.id && it.type == ModelType.CHAT }
-                }) { "模型或提供商已不可用，请重新选择" }
-                require(settings.assistants.any { it.id == assistant.id }) { "助手已不可用" }
                 settings.copy(
                     assistants = settings.assistants.map {
                         if (it.id == assistant.id) {
@@ -210,6 +179,7 @@ class ChatVM(
                         }
                     })
             }
+        }
     }
 
     // Update checker
@@ -323,19 +293,12 @@ class ChatVM(
         viewModelScope.launch {
             val updatedConversation = conversation.value.copy(title = title)
             chatService.saveConversation(_conversationId, updatedConversation)
-            conversationRepo.markManualTitle(updatedConversation)
-        }
-    }
-
-    fun updateStudyMode(mode: me.rerere.rikkahub.feature.studychat.StudyMode) {
-        viewModelScope.launch {
-            chatService.updateStudyMode(_conversationId, mode)
         }
     }
 
     fun deleteConversation(conversation: Conversation): Job =
         viewModelScope.launch {
-            chatService.deleteConversation(conversation)
+            conversationRepo.deleteConversation(conversation)
         }
 
     fun updatePinnedStatus(conversation: Conversation) {

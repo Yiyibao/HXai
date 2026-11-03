@@ -45,7 +45,6 @@ import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.buildAnnotatedString
@@ -635,7 +634,7 @@ private fun MessagePartsBlock(
                     expand = !expand
                 }
             ) {
-                Text(pluralStringResource(R.plurals.citations_count, annotations.size, annotations.size))
+                Text(stringResource(R.string.citations_count, annotations.size))
             }
         }
     }

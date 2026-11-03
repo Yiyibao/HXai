@@ -43,11 +43,6 @@ class WebServerService : Service() {
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        if (!me.rerere.rikkahub.feature.studychat.StudyCapabilities.WEB_ACCESS_ENABLED) {
-            webServerManager.stop()
-            stopSelf()
-            return START_NOT_STICKY
-        }
         when (intent?.action) {
             ACTION_START -> {
                 val port = intent.getIntExtra(EXTRA_PORT, 8080)

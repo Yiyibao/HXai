@@ -1,6 +1,6 @@
 package me.rerere.search
 
-import me.rerere.common.util.ServicePrivacyLog as Log
+import android.util.Log
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
@@ -93,8 +93,8 @@ object SearXNGService : SearchService<SearchServiceOptions.SearXNGOptions> {
                 val searchResponse = runCatching {
                     json.decodeFromString<SearXNGResponse>(bodyRaw)
                 }.onFailure {
-
-
+                    it.printStackTrace()
+                    println("SearXNG response body: $bodyRaw")
                     error("Failed to decode SearXNG response: ${it.message}")
                 }.getOrThrow()
 
@@ -111,8 +111,8 @@ object SearXNGService : SearchService<SearchServiceOptions.SearXNGOptions> {
 
                 return@withContext Result.success(SearchResult(items = items))
             } else {
-                val errorBody = response.body.string()
-
+                val errorBody = response.body?.string()
+                println("SearXNG API error: ${response.code} - $errorBody")
                 error("SearXNG request failed with status ${response.code}")
             }
         }

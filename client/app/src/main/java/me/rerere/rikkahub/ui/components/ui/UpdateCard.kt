@@ -26,7 +26,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -55,7 +54,6 @@ import kotlin.time.toJavaInstant
 @Composable
 fun UpdateCard(vm: ChatVM) {
     val state by vm.updateState.collectAsStateWithLifecycle()
-    val resources = LocalResources.current
     val context = LocalContext.current
     val toaster = LocalToaster.current
     state.onError {
@@ -127,7 +125,7 @@ fun UpdateCard(vm: ChatVM) {
             val downloadHandler = useThrottle<UpdateDownload>(500) { item ->
                 vm.updateChecker.downloadUpdate(context, item)
                 showDetail = false
-                toaster.show(resources.getString(R.string.update_card_downloading), type = ToastType.Info)
+                toaster.show(context.getString(R.string.update_card_downloading), type = ToastType.Info)
             }
             ModalBottomSheet(
                 onDismissRequest = { showDetail = false },

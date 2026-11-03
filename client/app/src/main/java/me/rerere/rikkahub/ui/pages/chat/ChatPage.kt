@@ -2,11 +2,9 @@ package me.rerere.rikkahub.ui.pages.chat
 
 import android.net.Uri
 import androidx.activity.compose.BackHandler
-import me.rerere.rikkahub.Screen
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.isImeVisible
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.AlertDialog
@@ -27,9 +25,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.ui.platform.LocalWindowInfo
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.unit.DpSize
+import androidx.compose.material3.adaptive.currentWindowDpSize
 import androidx.compose.material3.rememberBottomSheetState
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
@@ -114,15 +110,6 @@ fun ChatPage(id: Uuid, text: String?, files: List<Uri>, nodeId: Uuid? = null) {
     val enableWebSearch by vm.enableWebSearch.collectAsStateWithLifecycle()
     val errors by vm.errors.collectAsStateWithLifecycle()
 
-    val denied = !setting.init && (vm.conversationAccessDenied || conversation.profileId != setting.activeProfileId)
-    LaunchedEffect(denied) {
-        if (denied) navigateToChatPage(navController)
-    }
-    if (setting.init || denied || !vm.conversationReady) {
-        Text("正在载入学习者会话…")
-        return
-    }
-
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val softwareKeyboardController = LocalSoftwareKeyboardController.current
     val focusManager = LocalFocusManager.current
@@ -142,8 +129,7 @@ fun ChatPage(id: Uuid, text: String?, files: List<Uri>, nodeId: Uuid? = null) {
         }
     }
 
-    val windowSize = LocalWindowInfo.current.containerSize
-    val windowAdaptiveInfo = with(LocalDensity.current) { DpSize(windowSize.width.toDp(), windowSize.height.toDp()) }
+    val windowAdaptiveInfo = currentWindowDpSize()
     val isBigScreen =
         windowAdaptiveInfo.width > windowAdaptiveInfo.height && windowAdaptiveInfo.width >= 1100.dp
 
@@ -321,6 +307,11 @@ private fun ChatPageContent(
 
     TTSAutoPlay(vm = vm, setting = setting, conversation = conversation)
 
+    me.rerere.rikkahub.feature.studychat.StudyShell(
+        settings = setting,
+        conversationOwner = conversation.learnerProfileId,
+        onSettingsChange = vm::updateSettings,
+    ) {
     Surface(
         color = MaterialTheme.colorScheme.background,
         modifier = Modifier.fillMaxSize()
@@ -328,7 +319,6 @@ private fun ChatPageContent(
         AssistantBackground(setting = setting, modifier = Modifier.hazeSource(hazeState))
         Scaffold(
             topBar = {
-                Column {
                 TopBar(
                     settings = setting,
                     conversation = conversation,
@@ -345,18 +335,10 @@ private fun ChatPageContent(
                         vm.updateTitle(it)
                     }
                 )
-                me.rerere.rikkahub.feature.studychat.StudyStatusBar(
-                    conversation = conversation,
-                    running = loadingJob != null,
-                    onStop = vm::stopGeneration,
-                    onMode = vm::updateStudyMode,
-                )
-                }
             },
             bottomBar = {
                 val messageQueue by vm.messageQueue.collectAsStateWithLifecycle()
                 val voiceState by vm.voiceSession.state.collectAsStateWithLifecycle()
-                Column {
                 ChatInput(
                     onStartVoiceMode = onStartVoiceMode,
                     voiceState = voiceState,
@@ -439,17 +421,7 @@ private fun ChatPageContent(
                         inputState.clearInput()
                     },
                     onUpdateChatModel = {
-                        if (loadingJob != null && setting.getCurrentAssistant().chatModelId != it.id) {
-                            toaster.show("当前生成中，新模型将在下一轮生效", type = ToastType.Normal)
-                        }
                         vm.setChatModel(assistant = setting.getCurrentAssistant(), model = it)
-                    },
-                    onPersistChatModel = {
-                        val changed = setting.getCurrentAssistant().chatModelId != it.id
-                        vm.persistChatModel(assistant = setting.getCurrentAssistant(), model = it)
-                        if (loadingJob != null && changed) {
-                            toaster.show("当前生成中，新模型将在下一轮生效", type = ToastType.Normal)
-                        }
                     },
                     onUpdateAssistant = {
                         vm.updateSettings(
@@ -474,14 +446,7 @@ private fun ChatPageContent(
                     onMoreClick = {
                         showFilesSheet = true
                     },
-                    onManageProviders = {
-                        navController.navigate(Screen.SettingProvider)
-                    },
                 )
-                if (!androidx.compose.foundation.layout.WindowInsets.isImeVisible) {
-                    me.rerere.rikkahub.feature.studychat.StudyNavigation("聊天", conversation.id.toString())
-                }
-                }
             },
             containerColor = Color.Transparent,
         ) { innerPadding ->
@@ -497,7 +462,6 @@ private fun ChatPageContent(
                 errors = errors,
                 onDismissError = onDismissError,
                 onClearAllErrors = onClearAllErrors,
-                onResumeGeneration = vm::resumeInterruptedGeneration,
                 onRegenerate = {
                     vm.regenerateAtMessage(it)
                 },
@@ -576,6 +540,8 @@ private fun ChatPageContent(
             )
         }
     }
+}
+
 }
 
 @Composable

@@ -12,29 +12,21 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.core.floatPreferencesKey
-import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStoreFile
 import io.pebbletemplates.pebble.PebbleEngine
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.retryWhen
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.sync.Mutex
-import kotlinx.coroutines.sync.withLock
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 import me.rerere.ai.core.MessageRole
 import me.rerere.ai.core.ReasoningLevel
 import me.rerere.rikkahub.feature.studychat.StudyTutorDefaults
-import me.rerere.rikkahub.feature.studychat.LearnerProfile
 import me.rerere.ai.provider.Model
 import me.rerere.ai.provider.ProviderSetting
 import me.rerere.rikkahub.AppScope
@@ -91,33 +83,34 @@ private fun createSettingsDataStore(context: Context): DataStore<Preferences> {
     return PreferenceDataStoreFactory.create(
         corruptionHandler = ReplaceFileCorruptionHandler { exception ->
             // 文件已损坏无法解析, 先留一份原文件用于排查/抢救, 再重建为空
-            Log.e(TAG, "Settings datastore corrupted, resetting")
+            Log.e(TAG, "Settings datastore corrupted, resetting", exception)
             runCatching {
                 file.copyTo(File(file.parentFile, "${file.name}.corrupt-${System.currentTimeMillis()}"))
             }.onFailure {
-                Log.e(TAG, "Failed to backup corrupted settings file")
+                Log.e(TAG, "Failed to backup corrupted settings file", it)
             }
             emptyPreferences()
         },
         migrations = listOf(
             PreferenceStoreV1Migration(),
             PreferenceStoreV2Migration(),
-            PreferenceStoreV3Migration(), CredentialPreferencesMigration(CredentialVault(context))
+            PreferenceStoreV3Migration()
         ),
         produceFile = { file },
     )
 }
 
 class SettingsStore(
-    private val context: Context,
+    context: Context,
     scope: AppScope,
 ) : KoinComponent {
     companion object {
         // 版本号
         val VERSION = intPreferencesKey("data_version")
-        private val PUBLICATION_REVISION = longPreferencesKey("settings_publication_revision")
 
         // UI设置
+        val LEARNER_PROFILES = stringPreferencesKey("learner_profiles")
+        val ACTIVE_LEARNER = stringPreferencesKey("active_learner")
         val DYNAMIC_COLOR = booleanPreferencesKey("dynamic_color")
         val THEME_ID = stringPreferencesKey("theme_id")
         val CUSTOM_THEMES = stringPreferencesKey("custom_themes")
@@ -146,8 +139,6 @@ class SettingsStore(
         val PROVIDERS = stringPreferencesKey("providers")
 
         // 助手
-        val ACTIVE_PROFILE = stringPreferencesKey("active_learner_profile")
-        val LEARNER_PROFILES = stringPreferencesKey("learner_profiles")
         val SELECT_ASSISTANT = stringPreferencesKey("select_assistant")
         val ASSISTANTS = stringPreferencesKey("assistants")
         val ASSISTANT_TAGS = stringPreferencesKey("assistant_tags")
@@ -199,15 +190,15 @@ class SettingsStore(
         // Uses the same DataStore singleton without starting settings flows or requiring Koin.
         internal suspend fun restoreBeforeInitialization(context: Context, settings: Settings) {
             require(!settings.init) { "Cannot restore uninitialized settings" }
-            persistSettings(context.settingsStore, settings, CredentialVault(context), restoreProfiles = true)
+            persistSettings(context.settingsStore, settings)
         }
 
-        private suspend fun persistSettings(dataStore: DataStore<Preferences>, settings: Settings, vault: CredentialVault, restoreProfiles: Boolean = false): Long {
-            val committed = dataStore.edit { preferences ->
-                val revision = preferences[PUBLICATION_REVISION] ?: 0L
-                check(revision in 0 until Long.MAX_VALUE) { "Settings publication revision unavailable" }
-                preferences[PUBLICATION_REVISION] = revision + 1
-                val previous = preferences.toPreferences()
+        private suspend fun persistSettings(dataStore: DataStore<Preferences>, settings: Settings) {
+            dataStore.edit { preferences ->
+                require(settings.learnerProfiles.size in 1..2 && settings.learnerProfiles.map { it.id }.distinct().size == settings.learnerProfiles.size)
+                require(settings.learnerProfiles.any { it.id == settings.activeLearnerId })
+                preferences[LEARNER_PROFILES] = JsonInstant.encodeToString(settings.learnerProfiles)
+                preferences[ACTIVE_LEARNER] = settings.activeLearnerId
                 preferences[DYNAMIC_COLOR] = settings.dynamicColor
                 preferences[THEME_ID] = settings.themeId
                 preferences[CUSTOM_THEMES] = JsonInstant.encodeToString(settings.customThemes)
@@ -234,11 +225,6 @@ class SettingsStore(
                 preferences[PROVIDERS] = JsonInstant.encodeToString(settings.providers)
 
                 preferences[ASSISTANTS] = JsonInstant.encodeToString(settings.assistants)
-                // Ordinary updates preserve profile state; a complete restore replaces it atomically.
-                if (restoreProfiles) {
-                    preferences[LEARNER_PROFILES] = JsonInstant.encodeToString(settings.learnerProfiles)
-                    preferences[ACTIVE_PROFILE] = settings.activeProfileId
-                }
                 preferences[SELECT_ASSISTANT] = settings.assistantId.toString()
                 preferences[ASSISTANT_TAGS] = JsonInstant.encodeToString(settings.assistantTags)
 
@@ -250,9 +236,9 @@ class SettingsStore(
                 preferences[WEBDAV_CONFIG] = JsonInstant.encodeToString(settings.webDavConfig)
                 preferences[S3_CONFIG] = JsonInstant.encodeToString(settings.s3Config)
                 preferences[TTS_PROVIDERS] = JsonInstant.encodeToString(settings.ttsProviders)
-                settings.selectedTTSProviderId.let {
+                settings.selectedTTSProviderId?.let {
                     preferences[SELECTED_TTS_PROVIDER] = it.toString()
-                }
+                } ?: preferences.remove(SELECTED_TTS_PROVIDER)
                 preferences[DEFAULT_TTS_PLAYBACK_SPEED] = settings.defaultTTSPlaybackSpeed.coerceIn(0.5f, 2.0f)
                 preferences[ASR_PROVIDERS] = JsonInstant.encodeToString(settings.asrProviders)
                 settings.selectedASRProviderId?.let {
@@ -269,38 +255,11 @@ class SettingsStore(
                 preferences[BACKUP_REMINDER_CONFIG] = JsonInstant.encodeToString(settings.backupReminderConfig)
                 preferences[LAUNCH_COUNT] = settings.launchCount
                 preferences[SPONSOR_ALERT_DISMISSED_AT] = settings.sponsorAlertDismissedAt
-                protectCredentialPreferences(preferences, previous, vault)
             }
-            return requireNotNull(committed[PUBLICATION_REVISION])
         }
     }
 
     private val dataStore = context.settingsStore
-    private val credentialVault = CredentialVault(context)
-    val credentialRecoveryRequired = MutableStateFlow(false)
-    private val credentialRetry = MutableStateFlow(0L)
-
-    fun retryCredentialRead() {
-        credentialRetry.value += 1
-    }
-
-    /** Explicit recovery only. Preserve the encrypted references before removing failed partitions. */
-    suspend fun resetUnavailableCredentials() {
-        dataStore.edit { preferences ->
-            resetFailedCredentialPreferences(preferences, credentialVault) { references ->
-                val recovery = android.util.AtomicFile(File(context.noBackupFilesDir, "credential-recovery-${java.util.UUID.randomUUID()}.txt"))
-                val stream = recovery.startWrite()
-                try {
-                    stream.write(references.toByteArray(Charsets.UTF_8))
-                    recovery.finishWrite(stream)
-                } catch (error: Throwable) {
-                    recovery.failWrite(stream)
-                    throw error
-                }
-            }
-        }
-        retryCredentialRead()
-    }
 
     // 读取失败时绝不能回退为空配置, 否则默认值会被当成用户数据写回, 覆盖全部设置
     // 偶发 IO 错误重试, 仍失败则向上抛出 (文件损坏由 corruptionHandler 处理)
@@ -308,20 +267,12 @@ class SettingsStore(
         .retryWhen { cause, attempt ->
             val shouldRetry = cause is IOException && cause !is CorruptionException && attempt < READ_MAX_RETRIES
             if (shouldRetry) {
-                Log.w(TAG, "Failed to read settings, retrying (${attempt + 1}/$READ_MAX_RETRIES)")
+                Log.w(TAG, "Failed to read settings, retrying (${attempt + 1}/$READ_MAX_RETRIES)", cause)
                 delay((100L shl attempt.toInt()).milliseconds)
             }
             shouldRetry
-        }.map { stored ->
-            val preferences = stored.toMutablePreferences().apply {
-                credentialPreferenceKeys.forEach { key -> this[key]?.let { this[key] = credentialVault.resolve(it) } }
-            }
+        }.map { preferences ->
             Settings(
-                publicationRevision = stored[PUBLICATION_REVISION] ?: 0L,
-                activeProfileId = preferences[ACTIVE_PROFILE] ?: DEFAULT_PROFILE_ID,
-                learnerProfiles = preferences[LEARNER_PROFILES]?.let {
-                    JsonInstant.decodeFromString<List<LearnerProfile>>(it)
-                } ?: LearnerProfile.defaults(),
                 favoriteModels = preferences[FAVORITE_MODELS]?.let {
                     JsonInstant.decodeFromString(it)
                 } ?: emptyList(),
@@ -351,6 +302,8 @@ class SettingsStore(
                 } ?: emptyList(),
                 providers = JsonInstant.decodeFromString(preferences[PROVIDERS] ?: "[]"),
                 assistants = JsonInstant.decodeFromString(preferences[ASSISTANTS] ?: "[]"),
+                learnerProfiles = preferences[LEARNER_PROFILES]?.let { JsonInstant.decodeFromString<List<me.rerere.rikkahub.feature.learner.LearnerProfile>>(it) } ?: listOf(me.rerere.rikkahub.feature.learner.DEFAULT_LEARNER),
+                activeLearnerId = preferences[ACTIVE_LEARNER] ?: me.rerere.rikkahub.feature.learner.DEFAULT_LEARNER_ID,
                 dynamicColor = preferences[DYNAMIC_COLOR] != false,
                 themeId = preferences[THEME_ID] ?: PresetThemes[0].id,
                 customThemes = preferences[CUSTOM_THEMES]?.let {
@@ -497,100 +450,25 @@ class SettingsStore(
                 quickMessages = settings.quickMessages.distinctBy { it.id },
             )
         }
-        .catch { cause ->
-            if (cause is CancellationException) throw cause
-            if (cause is CredentialUnavailableException) throw cause
-            // Serialization errors can include the decrypted JSON in their message.
-            // Fail closed without leaking that payload or overwriting stored data.
-            throw IllegalStateException("Settings unavailable; stored data preserved")
-        }
         .onEach {
             get<PebbleEngine>().templateCache.invalidateAll()
         }
 
     val settingsFlow = settingsFlowRaw
-        .onEach { credentialRecoveryRequired.value = false }
-        .retryWhen { cause, _ ->
-            if (cause !is CredentialUnavailableException) return@retryWhen false
-            val version = credentialRetry.value
-            credentialRecoveryRequired.value = true
-            credentialRetry.first { it != version }
-            true
-        }
         .distinctUntilChanged()
         .toMutableStateFlow(scope, Settings.dummy())
 
-    private val updateMutex = Mutex()
-
-    suspend fun update(settings: Settings) = updateMutex.withLock {
-        updateAndAwaitPublication(settings)
-    }
-
-    private suspend fun updateAndAwaitPublication(settings: Settings) {
+    suspend fun update(settings: Settings) {
         if(settings.init) {
             Log.w(TAG, "Cannot update dummy settings")
             return
         }
-        val revision = persistSettings(dataStore, settings, credentialVault)
-        // The durable reader is the sole production publisher. A previous emission
-        // must never overwrite an optimistic acknowledgement of a newer model.
-        settingsFlow.first { !it.init && it.publicationRevision >= revision }
+        settingsFlow.value = settings
+        persistSettings(dataStore, settings)
     }
 
-    suspend fun update(fn: (Settings) -> Settings) = updateMutex.withLock {
-        // Read after the preceding commit has reached the same hot snapshot.
-        updateAndAwaitPublication(fn(settingsFlow.value))
-    }
-
-    suspend fun createLearnerProfile(name: String): String {
-        val profile = LearnerProfile(Uuid.random().toString(), LearnerProfile.checkedName(name))
-        dataStore.edit { preferences ->
-            val profiles = preferences[LEARNER_PROFILES]?.let {
-                JsonInstant.decodeFromString<List<LearnerProfile>>(it)
-            } ?: LearnerProfile.defaults()
-            preferences[LEARNER_PROFILES] = JsonInstant.encodeToString(profiles + profile)
-        }
-        return profile.id
-    }
-
-    suspend fun renameLearnerProfile(id: String, name: String) {
-        val checkedName = LearnerProfile.checkedName(name)
-        dataStore.edit { preferences ->
-            val profiles = preferences[LEARNER_PROFILES]?.let {
-                JsonInstant.decodeFromString<List<LearnerProfile>>(it)
-            } ?: LearnerProfile.defaults()
-            require(profiles.any { it.id == id }) { "Unknown learner profile" }
-            preferences[LEARNER_PROFILES] = JsonInstant.encodeToString(profiles.map {
-                if (it.id == id) it.copy(name = checkedName) else it
-            })
-        }
-    }
-
-    suspend fun selectLearnerProfile(id: String) {
-        dataStore.edit { preferences ->
-            val profiles = preferences[LEARNER_PROFILES]?.let {
-                JsonInstant.decodeFromString<List<LearnerProfile>>(it)
-            } ?: LearnerProfile.defaults()
-            require(profiles.any { it.id == id }) { "Unknown learner profile" }
-            preferences[ACTIVE_PROFILE] = id
-        }
-        // Wait until the durable selection has reached observers before navigating.
-        settingsFlow.first { !it.init && it.activeProfileId == id }
-    }
-
-    suspend fun setLearnerMemoryEnabled(id: String, enabled: Boolean, checkAllowed: (String) -> Unit = {}) {
-        dataStore.edit { preferences ->
-            // The bridge checks its epoch and the durable active owner at the write boundary.
-            checkAllowed(preferences[ACTIVE_PROFILE] ?: DEFAULT_PROFILE_ID)
-            val profiles = preferences[LEARNER_PROFILES]?.let {
-                JsonInstant.decodeFromString<List<LearnerProfile>>(it)
-            } ?: LearnerProfile.defaults()
-            require(profiles.any { it.id == id }) { "Unknown learner profile" }
-            preferences[LEARNER_PROFILES] = JsonInstant.encodeToString(profiles.map {
-                if (it.id == id) it.copy(memoryEnabled = enabled) else it
-            })
-        }
-        settingsFlow.first { !it.init && it.learnerProfiles.any { profile -> profile.id == id && profile.memoryEnabled == enabled } }
+    suspend fun update(fn: (Settings) -> Settings) {
+        update(fn(settingsFlow.value))
     }
 
     // 只原子地修改单个 key, 不能用 update() 写回整份快照
@@ -689,12 +567,10 @@ class SettingsStore(
     }
 }
 
-const val DEFAULT_PROFILE_ID = "default-learner"
-
 @Serializable
 data class Settings(
-    val activeProfileId: String = DEFAULT_PROFILE_ID,
-    val learnerProfiles: List<LearnerProfile> = LearnerProfile.defaults(),
+    val learnerProfiles: List<me.rerere.rikkahub.feature.learner.LearnerProfile> = listOf(me.rerere.rikkahub.feature.learner.DEFAULT_LEARNER),
+    val activeLearnerId: String = me.rerere.rikkahub.feature.learner.DEFAULT_LEARNER_ID,
     @Transient
     val init: Boolean = false,
     val dynamicColor: Boolean = true,
@@ -744,8 +620,6 @@ data class Settings(
     val backupReminderConfig: BackupReminderConfig = BackupReminderConfig(),
     val launchCount: Int = 0,
     val sponsorAlertDismissedAt: Int = 0,
-    // Publication metadata; never exported in task/config/backup JSON.
-    @Transient internal val publicationRevision: Long = 0L,
 ) {
     companion object {
         // 构造一个用于初始化的settings, 但它不能用于保存，防止使用初始值存储
@@ -805,7 +679,6 @@ data class DisplaySetting(
     val enableMessageGenerationHapticEffect: Boolean = false,
     val skipCropImage: Boolean = true,
     val enableNotificationOnMessageGeneration: Boolean = false,
-    val enableAgentUsageNotifications: Boolean = false,
     val enableLiveUpdateNotification: Boolean = false,
     val codeBlockAutoWrap: Boolean = false,
     val codeBlockAutoCollapse: Boolean = false,
@@ -819,7 +692,6 @@ data class DisplaySetting(
     val enableAutoScroll: Boolean = true,
     val enableLatexRendering: Boolean = true,
     val enableBlurEffect: Boolean = false,
-    val reduceMotion: Boolean = true,
     val backgroundEffectType: BackgroundEffectType = BackgroundEffectType.BLUR,
     val chatFontFamily: ChatFontFamily = ChatFontFamily.DEFAULT,
     val chatCustomFontPath: String = "",
@@ -888,7 +760,7 @@ fun Settings.getQuickMessagesOfAssistant(assistant: Assistant) =
     quickMessages.filter { it.id in assistant.quickMessageIds }
 
 fun Settings.getSelectedTTSProvider(): TTSProviderSetting? {
-    return selectedTTSProviderId.let { id ->
+    return selectedTTSProviderId?.let { id ->
         ttsProviders.find { it.id == id }
     } ?: ttsProviders.firstOrNull()
 }

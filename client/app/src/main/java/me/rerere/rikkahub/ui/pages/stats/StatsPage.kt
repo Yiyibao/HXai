@@ -219,7 +219,7 @@ private fun ChatHeatmap(conversationsPerDay: Map<LocalDate, Int>) {
                                 text = if (labelDate.monthValue == 1) {
                                     labelDate.year.toString()
                                 } else {
-                                    labelDate.month.getDisplayName(TextStyle.SHORT, androidx.compose.ui.platform.LocalConfiguration.current.locales[0])
+                                    labelDate.month.getDisplayName(TextStyle.SHORT, Locale.getDefault())
                                 },
                                 modifier = Modifier.wrapContentWidth(unbounded = true),
                                 style = MaterialTheme.typography.labelSmall,
@@ -296,8 +296,6 @@ private fun StatsGrid(stats: AppStats, modifier: Modifier = Modifier) {
                 value = formatCount(stats.totalMessages.toLong()),
             )
         }
-        Text("仅统计已保存、可解析的主回复用量；不包含辅助调用。未报告字段显示 —。",
-            style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             modifier = Modifier.fillMaxWidth(),
@@ -315,7 +313,7 @@ private fun StatsGrid(stats: AppStats, modifier: Modifier = Modifier) {
                 value = formatTokens(stats.totalCompletionTokens),
             )
         }
-        if (stats.totalCachedTokens == null || stats.totalCachedTokens > 0) {
+        if (stats.totalCachedTokens > 0) {
             StatCard(
                 modifier = Modifier.fillMaxWidth(),
                 icon = HugeIcons.Zap,
@@ -369,8 +367,7 @@ private fun formatCount(count: Long): String = when {
     else -> count.toString()
 }
 
-private fun formatTokens(count: Long?): String = when {
-    count == null -> "—"
+private fun formatTokens(count: Long): String = when {
     count >= 1_000_000_000 -> "%.2fB".format(count / 1_000_000_000.0)
     count >= 1_000_000 -> "%.2fM".format(count / 1_000_000.0)
     count >= 1_000 -> "%.1fK".format(count / 1_000.0)

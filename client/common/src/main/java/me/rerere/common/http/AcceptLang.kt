@@ -54,8 +54,12 @@ class AcceptLanguageBuilder private constructor(
         // Android 的系统 Locale 列表获取
         private fun systemLocalesAndroid(context: android.content.Context): List<Locale> {
             val cfg = context.resources.configuration
-            val list = cfg.locales
-            return (0 until list.size()).map { idx -> list[idx] }
+            return if (android.os.Build.VERSION.SDK_INT >= 24) {
+                val list = cfg.locales
+                (0 until list.size()).map { idx -> list[idx] }
+            } else {
+                listOf(cfg.locale)
+            }
         }
     }
 

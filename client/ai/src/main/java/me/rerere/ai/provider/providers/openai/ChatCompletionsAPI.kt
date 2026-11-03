@@ -1,7 +1,5 @@
 package me.rerere.ai.provider.providers.openai
 
-import me.rerere.ai.core.beginProviderRequest
-import me.rerere.ai.core.StreamingRequestReceipt
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
@@ -58,7 +56,7 @@ import me.rerere.ai.util.json
 import me.rerere.ai.util.mergeCustomBody
 import me.rerere.ai.util.mergeCustomHeaders
 import me.rerere.ai.util.parseErrorDetail
-import me.rerere.ai.util.readModelErrorBody
+import me.rerere.ai.util.stringSafe
 import me.rerere.common.http.await
 import me.rerere.common.http.jsonArrayOrNull
 import me.rerere.common.http.jsonObjectOrNull
@@ -91,25 +89,24 @@ class ChatCompletionsAPI(
                 params = params,
                 providerSetting = providerSetting
             )
-        val encodedBody = json.encodeToString(requestBody)
 
         val request = Request.Builder()
             .url("${providerSetting.baseUrl}${providerSetting.chatCompletionsPath}")
             .headers(providerSetting.mergeCustomHeaders(params.customHeaders))
-            .post(encodedBody.toRequestBody("application/json".toMediaType()))
+            .post(json.encodeToString(requestBody).toRequestBody("application/json".toMediaType()))
             .addHeader("Authorization", "Bearer ${keyRoulette.next(providerSetting.apiKey, providerSetting.id.toString())}")
             .configureReferHeaders(providerSetting.baseUrl)
             .configureSessionHeaders(providerSetting.baseUrl, params.sessionId)
             .build()
-        val receipt = beginProviderRequest(providerSetting,params,requestBody,encodedBody)
+
+        Log.i(TAG, "generateText: ${json.encodeToString(requestBody)}")
 
         val response = client.newCall(request).await()
         if (!response.isSuccessful) {
-            if(response.code==401 || response.code==403) receipt?.authorizationRejected(response.code)
-            throw me.rerere.ai.util.parseModelHttpError(response.code, response.body.readModelErrorBody())
+            throw Exception("Failed to get response: ${response.code} ${response.body?.string()}")
         }
 
-        val bodyStr = response.body.string()
+        val bodyStr = response.body?.string() ?: ""
         val bodyJson = json.parseToJsonElement(bodyStr).jsonObject
 
         // 从 JsonObject 中提取必要的信息
@@ -122,12 +119,7 @@ class ChatCompletionsAPI(
             ?.jsonPrimitive
             ?.content
             ?: "unknown"
-        val usage = parseTokenUsage(bodyJson["usage"] as? JsonObject)?.let {
-            if (response.request.url.toString() == "https://openrouter.ai/api/v1/chat/completions")
-                it.copy(costSource = "https://openrouter.ai/api/v1/chat/completions")
-            else it.copy(costUsd = null, costSource = null)
-        }
-        receipt?.complete(usage)
+        val usage = parseTokenUsage(bodyJson["usage"] as? JsonObject)
 
         TextGenerationResult(
             id = id,
@@ -149,53 +141,44 @@ class ChatCompletionsAPI(
             providerSetting = providerSetting,
             stream = true,
         )
-        val encodedBody = json.encodeToString(requestBody)
 
         val request = Request.Builder()
             .url("${providerSetting.baseUrl}${providerSetting.chatCompletionsPath}")
             .headers(providerSetting.mergeCustomHeaders(params.customHeaders))
-            .post(encodedBody.toRequestBody("application/json".toMediaType()))
+            .post(json.encodeToString(requestBody).toRequestBody("application/json".toMediaType()))
             .addHeader("Authorization", "Bearer ${keyRoulette.next(providerSetting.apiKey, providerSetting.id.toString())}")
             .addHeader("Content-Type", "application/json")
             .configureReferHeaders(providerSetting.baseUrl)
             .configureSessionHeaders(providerSetting.baseUrl, params.sessionId)
             .build()
-        val receipt = beginProviderRequest(providerSetting,params,requestBody,encodedBody)?.let(::StreamingRequestReceipt)
+
+        Log.i(TAG, "streamText: ${json.encodeToString(requestBody)}")
 
         // just for debugging response body
+        // println(client.newCall(request).await().body?.string())
 
         val decoder = ChatCompletionsStreamDecoder()
-        var reportedCostSource: String? = null
 
         fun sendChunks(chunks: Iterable<StreamChunk>) {
             chunks.forEach { chunk ->
-                val trustedChunk = if (chunk is StreamChunk.Usage) StreamChunk.Usage(
-                    if (reportedCostSource != null) chunk.usage.copy(costSource = reportedCostSource)
-                    else chunk.usage.copy(costUsd = null, costSource = null)) else chunk
-                receipt?.observe(trustedChunk)
-                trySend(trustedChunk).onFailure { Log.w(TAG, "Stream chunk dropped") }
+                trySend(chunk).onFailure { e ->
+                    Log.w(TAG, "onEvent: chunk dropped (${e?.message})")
+                }
             }
         }
 
-        var streamCompleted = false
         val listener = object : EventSourceListener() {
-            override fun onOpen(eventSource: EventSource, response: Response) {
-                reportedCostSource = response.request.url.toString().takeIf { it == "https://openrouter.ai/api/v1/chat/completions" }
-            }
             override fun onEvent(
                 eventSource: EventSource,
                 id: String?,
                 type: String?,
                 data: String
             ) {
+                Log.d(TAG, "onEvent: $data")
                 try {
                     val result = decoder.accept(SseEvent(id = id, event = type, data = data))
                     sendChunks(result.chunks)
-                    if (result.completed) {
-                        receipt?.complete()
-                        streamCompleted = true
-                        close()
-                    }
+                    if (result.completed) close()
                 } catch (e: Throwable) {
                     close(e)
                 }
@@ -203,43 +186,43 @@ class ChatCompletionsAPI(
 
             override fun onFailure(eventSource: EventSource, t: Throwable?, response: Response?) {
                 var exception = t
-                if(response!=null && (response.code==401 || response.code==403)) {
-                    try { receipt?.authorizationRejected(response.code) }
-                    catch(error: Throwable) { close(error); return }
-                }
 
-                val bodyRaw = response?.body?.readModelErrorBody()
+                t?.printStackTrace()
+                println("[onFailure] 发生错误: ${t?.javaClass?.name} ${t?.message} / $response")
+
+                val bodyRaw = response?.body?.stringSafe()
                 try {
                     if (!bodyRaw.isNullOrBlank()) {
                         val bodyElement = Json.parseToJsonElement(bodyRaw)
+                        println(bodyElement)
                         exception = bodyElement.parseErrorDetail()
+                        Log.i(TAG, "onFailure: $exception")
                     }
                 } catch (e: Throwable) {
+                    Log.w(TAG, "onFailure: failed to parse from $bodyRaw")
+                    e.printStackTrace()
                     exception = e
                 } finally {
-                    // HTTP status remains an interface failure even when its body is empty
-                    // or malformed; it must not enter the network retry path.
-                    close(if (response != null && !response.isSuccessful) {
-                        me.rerere.ai.util.parseModelHttpError(response.code, bodyRaw)
-                    } else exception ?: java.io.IOException("Stream connection failed"))
+                    close(exception)
                 }
             }
 
             override fun onClosed(eventSource: EventSource) {
                 sendChunks(decoder.onClosed())
-                close(if (streamCompleted) null else java.io.EOFException("Stream ended before completion"))
+                close()
             }
         }
 
         val eventSource = EventSources.createFactory(client).newEventSource(request, listener)
 
         awaitClose {
+            println("[awaitClose] 关闭eventSource ")
             eventSource.cancel()
         }
         // trySend 在缓冲满时会静默丢弃 delta，导致回复中间缺字 (#1295)，因此缓冲必须无界
     }.buffer(Channel.UNLIMITED).flowOn(Dispatchers.IO)
 
-    internal fun buildChatCompletionRequest(
+    private fun buildChatCompletionRequest(
         messages: List<UIMessage>,
         params: TextGenerationParams,
         providerSetting: ProviderSetting.OpenAI,
@@ -609,6 +592,7 @@ class ChatCompletionsAPI(
                                             put("url", encodedImage.base64)
                                         })
                                     }.onFailure {
+                                        it.printStackTrace()
                                         put("type", "text")
                                         put("text", "")
                                     }
@@ -665,6 +649,7 @@ class ChatCompletionsAPI(
                                             put("url", encodedImage.base64)
                                         })
                                     }.onFailure {
+                                        it.printStackTrace()
                                         put("type", "text")
                                         put("text", "")
                                     }
@@ -712,6 +697,7 @@ class ChatCompletionsAPI(
                                         put("url", encodedImage.base64)
                                     })
                                 }.onFailure {
+                                    Log.w(TAG, "encode tool result image failed: ${part.url}", it)
                                     put("type", "text")
                                     put("text", "Error: Failed to encode image to base64")
                                 }
@@ -817,15 +803,15 @@ class ChatCompletionsAPI(
     private fun parseTokenUsage(jsonObject: JsonObject?): TokenUsage? {
         if (jsonObject == null) return null
         return TokenUsage(
-            costUsd = (jsonObject["cost"] as? JsonPrimitive)?.takeUnless { it.isString }?.content,
-            promptTokens = jsonObject["prompt_tokens"]?.jsonPrimitive?.intOrNull,
-            completionTokens = jsonObject["completion_tokens"]?.jsonPrimitive?.intOrNull,
-            totalTokens = jsonObject["total_tokens"]?.jsonPrimitive?.intOrNull,
+            promptTokens = jsonObject["prompt_tokens"]?.jsonPrimitive?.intOrNull ?: 0,
+            completionTokens = jsonObject["completion_tokens"]?.jsonPrimitive?.intOrNull ?: 0,
+            totalTokens = jsonObject["total_tokens"]?.jsonPrimitive?.intOrNull ?: 0,
             // 各 provider 汇报缓存命中的字段形状不统一，按方言兜底解析（#1576）：
             // OpenAI 嵌套 -> Moonshot 顶层 cached_tokens -> DeepSeek prompt_cache_hit_tokens
             cachedTokens = jsonObject["prompt_tokens_details"]?.jsonObjectOrNull?.get("cached_tokens")?.jsonPrimitive?.intOrNull
                 ?: jsonObject["cached_tokens"]?.jsonPrimitive?.intOrNull
                 ?: jsonObject["prompt_cache_hit_tokens"]?.jsonPrimitive?.intOrNull
+                ?: 0
         )
     }
 

@@ -3,7 +3,6 @@
   xmlns:tools="http://schemas.android.com/tools">
 
   <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.CAMERA" />
   <uses-permission android:name="android.permission.RECORD_AUDIO" />
   <uses-permission
@@ -60,14 +59,6 @@
     android:theme="@style/Theme.Rikkahub"
     android:usesCleartextTraffic="true"
     tools:targetApi="33">
-    <activity android:name=".feature.agent.ExtensionOAuthCallbackActivity" android:exported="true" android:excludeFromRecents="true" android:noHistory="true" android:theme="@android:style/Theme.NoDisplay">
-      <intent-filter>
-        <action android:name="android.intent.action.VIEW" />
-        <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE" />
-        <data android:scheme="${applicationId}.oauth" />
-      </intent-filter>
-    </activity>
     <activity
       android:name=".ui.activity.SafeModeActivity"
       android:exported="false"
@@ -80,6 +71,11 @@
       android:importantForAutofill="noExcludeDescendants"
       android:theme="@style/Theme.Rikkahub"
       android:windowSoftInputMode="adjustResize">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
       <intent-filter>
         <action android:name="android.intent.action.SEND" />
 
@@ -108,18 +104,6 @@
       <meta-data
         android:name="android.app.shortcuts"
         android:resource="@xml/shortcuts" />
-    </activity>
-    <activity
-      android:name=".flutter.StudyFlutterActivity"
-      android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-      android:hardwareAccelerated="true"
-      android:windowSoftInputMode="adjustResize"
-      android:exported="true"
-      android:theme="@style/Theme.StudyFlutter">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
     </activity>
     <activity
       android:name=".ui.activity.ShortcutHandlerActivity"
@@ -163,7 +147,6 @@
     </provider>
     <provider
       android:name=".data.provider.WorkspaceDocumentsProvider"
-      android:enabled="false"
       android:authorities="${applicationId}.documents"
       android:exported="true"
       android:grantUriPermissions="true"

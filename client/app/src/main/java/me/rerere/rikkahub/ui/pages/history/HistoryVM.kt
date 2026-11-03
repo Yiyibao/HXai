@@ -3,9 +3,6 @@ package me.rerere.rikkahub.ui.pages.history
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.onStart
-import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.catch
@@ -31,25 +28,22 @@ class HistoryVM(
         .map { it.getCurrentAssistant() }
         .stateIn(viewModelScope, SharingStarted.Eagerly, null)
 
-    val conversations = combine(assistant, conversationRepo.profileFlow.distinctUntilChanged()) { assistant, profileId ->
-        assistant to profileId
-    }.flatMapLatest { (assistant, profileId) ->
-        conversationRepo.getConversationsOfAssistant(assistant?.id ?: Uuid.random(), profileId)
-            .onStart { emit(emptyList()) }
+    val conversations = assistant.flatMapLatest { assistant ->
+        conversationRepo.getConversationsOfAssistant(assistant?.id ?: Uuid.random())
     }.catch {
         Log.e(TAG, "Error: ${it.message}")
     }.stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
 
     fun deleteConversation(conversation: Conversation) {
         viewModelScope.launch {
-            chatService.deleteConversation(conversation)
+            conversationRepo.deleteConversation(conversation)
         }
     }
 
     fun deleteAllConversations() {
         val assistant = assistant.value ?: return
         viewModelScope.launch {
-            chatService.deleteConversationsOfAssistant(assistant.id)
+            conversationRepo.deleteConversationOfAssistant(assistant.id)
         }
     }
 
@@ -60,13 +54,11 @@ class HistoryVM(
     }
 
     fun getPinnedConversations(): Flow<List<Conversation>> =
-        conversationRepo.profileFlow.distinctUntilChanged().flatMapLatest { profileId ->
-            conversationRepo.getPinnedConversations(profileId).onStart { emit(emptyList()) }
-        }
+        conversationRepo.getPinnedConversations()
 
     fun restoreConversation(conversation: Conversation) {
         viewModelScope.launch {
-            chatService.restoreConversation(conversation)
+            conversationRepo.insertConversation(conversation)
         }
     }
 

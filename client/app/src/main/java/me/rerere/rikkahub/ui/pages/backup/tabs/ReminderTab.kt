@@ -16,7 +16,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -74,7 +73,7 @@ fun ReminderTab(vm: BackupVM) {
                                     onClick = { updateConfig(config.copy(intervalDays = days)) },
                                     selected = config.intervalDays == days,
                                 ) {
-                                    Text(pluralStringResource(R.plurals.backup_page_reminder_interval_days, days, days))
+                                    Text(stringResource(R.string.backup_page_reminder_interval_days, days))
                                 }
                             }
                         }

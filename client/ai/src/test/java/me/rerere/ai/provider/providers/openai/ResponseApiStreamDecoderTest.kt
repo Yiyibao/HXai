@@ -93,9 +93,7 @@ class ResponseApiStreamDecoderTest {
             ))
         }
 
-        assertEquals("Model service rejected the request", exception.message)
-        assertEquals(me.rerere.ai.util.ModelRejectionReason.SERVICE_ERROR, exception.rejectionReason)
-        assertFalse(exception.stackTraceToString().contains("Upstream generation failed"))
+        assertEquals("Upstream generation failed", exception.message)
         assertTrue(decoder.onClosed().isEmpty())
     }
 

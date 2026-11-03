@@ -28,8 +28,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.IntOffset
-import androidx.compose.ui.platform.LocalDensity
 
 enum class SwitchSize {
     Small,
@@ -82,7 +80,6 @@ fun Switch(
         label = "thumbOffset"
     )
 
-    val density = LocalDensity.current
     val currentTrackColor = when {
         !enabled -> MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
         checked -> trackColor
@@ -112,7 +109,7 @@ fun Switch(
         Box(
             modifier = Modifier
                 .padding(dimensions.thumbPadding)
-                .offset { IntOffset(with(density) { thumbOffset.roundToPx() }, 0) }
+                .offset(x = thumbOffset)
                 .size(dimensions.thumbSize)
                 .shadow(
                     elevation = if (enabled) 2.dp else 0.dp,

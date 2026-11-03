@@ -19,7 +19,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -48,7 +47,6 @@ fun Mermaid(
 ) {
     val colorScheme = MaterialTheme.colorScheme
     val darkMode = LocalDarkMode.current
-    val resources = LocalResources.current
     val context = LocalContext.current
     val activity = LocalActivity.current
     val toaster = LocalToaster.current
@@ -73,13 +71,13 @@ fun Mermaid(
                         }
                     }
                     toaster.show(
-                        resources.getString(R.string.mermaid_export_success),
+                        context.getString(R.string.mermaid_export_success),
                         type = ToastType.Success
                     )
                 }.onFailure {
                     it.printStackTrace()
                     toaster.show(
-                        resources.getString(R.string.mermaid_export_failed),
+                        context.getString(R.string.mermaid_export_failed),
                         type = ToastType.Error
                     )
                 }

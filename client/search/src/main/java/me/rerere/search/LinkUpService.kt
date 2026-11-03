@@ -1,6 +1,6 @@
 package me.rerere.search
 
-import me.rerere.common.util.ServicePrivacyLog as Log
+import android.util.Log
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -104,7 +104,7 @@ object LinkUpService : SearchService<SearchServiceOptions.LinkUpOptions> {
                     )
                 )
             } else {
-                error("response failed #${response.code}")
+                error("response failed #${response.code}: ${response.body?.string()}")
             }
         }
     }
@@ -148,7 +148,7 @@ object LinkUpService : SearchService<SearchServiceOptions.LinkUpOptions> {
                     )
                 )
             } else {
-                error("response failed #${response.code}")
+                error("response failed #${response.code}: ${response.body?.string()}")
             }
         }
     }

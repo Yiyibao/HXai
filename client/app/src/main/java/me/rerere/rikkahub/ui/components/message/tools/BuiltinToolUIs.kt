@@ -33,7 +33,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -205,7 +204,7 @@ object SearchWebToolUI : ToolUIRenderer {
                     size = 18.dp,
                 )
                 Text(
-                    text = pluralStringResource(R.plurals.chat_message_tool_search_results_count, items.size, items.size),
+                    text = stringResource(R.string.chat_message_tool_search_results_count, items.size),
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f),
                 )
@@ -415,7 +414,7 @@ object ConversationSearchToolUI : ToolUIRenderer {
         val results = results(context)
         if (results.isEmpty()) return
         Text(
-            text = pluralStringResource(R.plurals.chat_message_tool_search_results_count, results.size, results.size),
+            text = stringResource(R.string.chat_message_tool_search_results_count, results.size),
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f),
         )
@@ -538,7 +537,7 @@ object CalendarQueryToolUI : ToolUIRenderer {
             modifier = Modifier.shimmer(isLoading = context.loading),
         ) {
             Text(
-                text = pluralStringResource(R.plurals.chat_message_tool_search_results_count, events.size, events.size),
+                text = stringResource(R.string.chat_message_tool_search_results_count, events.size),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f),
             )

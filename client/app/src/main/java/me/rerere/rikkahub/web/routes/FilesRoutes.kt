@@ -66,7 +66,7 @@ fun Route.filesRoutes(
                         }
                     }
                 } finally {
-                    part.release()
+                    part.dispose()
                 }
             }
 

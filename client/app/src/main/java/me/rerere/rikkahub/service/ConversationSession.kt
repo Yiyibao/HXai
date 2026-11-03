@@ -12,13 +12,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
-import me.rerere.ai.ui.UIMessagePart
-import me.rerere.ai.ui.ToolExecutionState
-import me.rerere.rikkahub.data.ai.UncertainToolExecutionException
 import me.rerere.ai.ui.finishReasoning
-import me.rerere.ai.ui.UIMessage
 import me.rerere.rikkahub.data.model.Conversation
-import me.rerere.rikkahub.data.model.toMessageNode
 import java.time.Instant
 import java.util.concurrent.atomic.AtomicInteger
 import kotlin.uuid.Uuid
@@ -37,39 +32,18 @@ class ConversationSession(
     val state: StateFlow<Conversation> = _state.asStateFlow()
     private val initializationMutex = Mutex()
     private val metadataMutex = Mutex()
-    private val backgroundEpoch = AtomicInteger()
-    @Volatile internal var deleted = false
-        private set
-    private fun requireActive() {
-        if (deleted) throw CancellationException("Conversation deleted")
-    }
-    internal fun backgroundToken(): Int = backgroundEpoch.get()
-    internal fun invalidateBackgroundResults() { backgroundEpoch.incrementAndGet() }
     @Volatile
     private var initialized = false
     val messageQueue = MessageQueue()
 
     // 页面切换和 SSE 重连只加载一次；活跃 session 的内存状态始终优先。
-    suspend fun initialize(
-        persistRecovery: suspend (Conversation) -> Unit = {},
-        load: suspend () -> Conversation,
-    ) {
+    suspend fun initialize(load: suspend () -> Conversation) {
         initializationMutex.withLock {
-            requireActive()
             if (initialized) return
-            val stored = load()
-            val conversation = stored.withGenerationState("INTERRUPTED", onlyRunning = true)
-                .copy(queue = stored.queue.recovered())
-            metadataMutex.withLock {
-                requireActive()
+            val conversation = load()
+            synchronized(this) {
                 // 加载挂起期间可能已经通过保存或编辑写入了更新的状态。
-                if (!initialized) {
-                    if (conversation != stored) persistRecovery(conversation)
-                    synchronized(this) { if (!initialized) {
-                        messageQueue.restore(conversation.queue)
-                        updateConversation(conversation)
-                    } }
-                }
+                if (!initialized) updateConversation(conversation)
             }
         }
     }
@@ -77,50 +51,8 @@ class ConversationSession(
     @Synchronized
     fun updateConversation(conversation: Conversation) {
         require(conversation.id == id)
-        if (!initialized && conversation.queue != messageQueue.persisted()) {
-            messageQueue.restore(conversation.queue.recovered())
-        }
-        _state.value = conversation.copy(queue = messageQueue.persisted())
+        _state.value = conversation
         initialized = true
-    }
-
-    internal suspend fun <T> updateQueue(
-        persist: suspend (Conversation) -> Unit,
-        mutation: (MessageQueue) -> T,
-    ): T = metadataMutex.withLock {
-        requireActive()
-        val base = messageQueue.state.value
-        val draft = MessageQueue(base, notifyObservers = false)
-        val result = mutation(draft)
-        val updated = state.value.copy(queue = draft.persisted())
-        persist(updated)
-        val currentEditing = messageQueue.state.value.messages.associateBy { it.id }
-        val before = base.messages.associateBy { it.id }
-        messageQueue.publish(draft.state.value.copy(messages = draft.state.value.messages.map { item ->
-            if (item.isEditing == before[item.id]?.isEditing) item.copy(isEditing = currentEditing[item.id]?.isEditing ?: item.isEditing) else item
-        }))
-        updateConversation(updated)
-        if (draft.state.value.paused) messageQueue.failPausedWaiters()
-        result
-    }
-
-    internal suspend fun commitQueuedInput(
-        queued: QueuedMessage,
-        parts: List<me.rerere.ai.ui.UIMessagePart>,
-        persist: suspend (Conversation) -> Unit,
-        delegated: Boolean = false,
-    ) = metadataMutex.withLock {
-        requireActive()
-        val draft = MessageQueue(messageQueue.state.value, notifyObservers = false)
-        if(delegated) check(draft.remove(queued.id)?.id==queued.id) { "Delegated input changed before handoff" }
-        else check(draft.takeNext()?.id == queued.id) { "Queued input changed before submission" }
-        val current = state.value
-        val messages = if (current.currentMessages.any { it.id == queued.id }) current.messageNodes else
-            current.messageNodes + UIMessage(id = queued.id, role = me.rerere.ai.core.MessageRole.USER, parts = parts).toMessageNode()
-        val updated = current.copy(messageNodes = messages, queue = draft.persisted())
-        persist(updated)
-        messageQueue.publish(draft.state.value)
-        updateConversation(updated)
     }
 
     // 元数据先应用到最新内存状态；落库只更新对应列，不能用旧消息快照覆盖流式输出。
@@ -129,7 +61,6 @@ class ConversationSession(
         persist: suspend (Conversation) -> Unit,
     ) {
         metadataMutex.withLock {
-            requireActive()
             val updated = synchronized(this) {
                 update(state.value).also(::updateConversation)
             }
@@ -137,161 +68,9 @@ class ConversationSession(
         }
     }
 
-    internal suspend fun commitConversation(
-        conversation: Conversation,
-        persist: suspend (Conversation) -> Unit,
-    ) = withContext(NonCancellable) { metadataMutex.withLock {
-        requireActive()
-        require(conversation.id == id)
-        persist(conversation)
-        updateConversation(conversation)
-    } }
-
-    /** A model-generated history replacement must never overwrite a newer turn/branch/queue. */
-    internal suspend fun commitCompressedHistory(
-        expected: Conversation,
-        token: Int,
-        nodes: List<me.rerere.rikkahub.data.model.MessageNode>,
-        stillAllowed: () -> Boolean,
-        persist: suspend (Conversation) -> Unit,
-    ): Boolean = withContext(NonCancellable) { metadataMutex.withLock {
-        requireActive()
-        val current=state.value
-        if (!stillAllowed() || token!=backgroundToken() || current.profileId!=expected.profileId ||
-            current.messageNodes!=expected.messageNodes || current.queue!=expected.queue ||
-            messageQueue.state.value.messages.isNotEmpty() || submittingMessage!=null || getJob()!=null) return@withLock false
-        val updated=current.copy(messageNodes=nodes,chatSuggestions=emptyList(),updateAt=Instant.now())
-        persist(updated)
-        updateConversation(updated)
-        true
-    } }
-
-    /** Read the queue under its mutation mutex, and publish only after atomic persistence. */
-    internal suspend fun commitToolApproval(
-        update: (Conversation) -> Conversation?,
-        persist: suspend (Conversation) -> Unit,
-    ): Conversation? = withContext(NonCancellable) { metadataMutex.withLock {
-        requireActive()
-        val updated = (update(state.value) ?: return@withLock null).copy(queue = messageQueue.persisted())
-        require(updated.id == id)
-        persist(updated)
-        updateConversation(updated)
-        updated
-    } }
-
-    internal suspend fun applyBackgroundMetadata(
-        expected: Conversation,
-        token: Int,
-        title: String? = null,
-        suggestions: List<String>? = null,
-        persist: suspend () -> Boolean,
-    ): Boolean = metadataMutex.withLock {
-        if (deleted) return@withLock false
-        fun valid(current: Conversation) = token == backgroundToken() &&
-            current.profileId == expected.profileId && current.messageNodes == expected.messageNodes &&
-            (title == null || current.title == expected.title)
-        if (!valid(state.value)) return@withLock false
-        if (!persist()) return@withLock false
-        synchronized(this) {
-            val current = state.value
-            if (!valid(current)) return@synchronized false
-            updateConversation(current.copy(
-                title = title ?: current.title,
-                chatSuggestions = suggestions ?: current.chatSuggestions,
-            ))
-            true
-        }
-    }
-
-    internal suspend fun delete(persist: suspend () -> Unit) = withContext(NonCancellable) { metadataMutex.withLock {
-        requireActive()
-        persist()
-        deleted = true
-        invalidateBackgroundResults()
-    } }
-
-    /** Persist a verified translation before display, retaining unrelated current metadata. */
-    internal suspend fun applyTranslation(expected: Conversation, token: Int, messageId: Uuid, text: String,
-                                         stillAllowed: () -> Boolean,
-                                         persist: suspend (Conversation) -> Boolean): Boolean = metadataMutex.withLock {
-        fun valid(current: Conversation) = !deleted && stillAllowed() && token == backgroundToken() &&
-            current.profileId == expected.profileId && current.lifecycleRevision == expected.lifecycleRevision &&
-            current.messageNodes == expected.messageNodes
-        if (!valid(state.value)) return@withLock false
-        if (!persist(state.value)) return@withLock false
-        synchronized(this) {
-            val current = state.value
-            if (!valid(current)) return@synchronized false
-            updateConversation(current.copy(messageNodes = current.messageNodes.map { node ->
-                node.copy(messages = node.messages.map { if (it.id == messageId) it.copy(translation = text) else it })
-            }))
-            true
-        }
-    }
-
-    internal suspend fun restoreCommitted(persist: suspend () -> Conversation) = withContext(NonCancellable) { metadataMutex.withLock {
-        val conversation = persist()
-        invalidateBackgroundResults()
-        deleted = false
-        messageQueue.restore(conversation.queue.recovered())
-        updateConversation(conversation)
-    } }
-
-    internal suspend fun restore(conversation: Conversation, persist: suspend () -> Unit) = withContext(NonCancellable) { metadataMutex.withLock {
-        persist()
-        invalidateBackgroundResults()
-        deleted = false
-        messageQueue.restore(conversation.queue.recovered())
-        updateConversation(conversation)
-    } }
-
     // 失败和取消也必须保存已收到的内容，且保存完成前不能释放生成任务。
-    // Publish only after commit: a process death cannot discard already displayed text.
-    internal suspend fun checkpointGeneration(
-        messages: List<UIMessage>,
-        persist: suspend (Conversation) -> Unit,
-    ) {
-        metadataMutex.withLock {
-            requireActive()
-            val execution = kotlinx.coroutines.currentCoroutineContext()[me.rerere.rikkahub.feature.agent.AgentExecution]
-            val bound = if (execution == null || messages.isEmpty()) messages else {
-                require(execution.lease.task.owner == state.value.profileId && execution.lease.task.conversationId == id.toString())
-                messages.dropLast(1) + messages.last().copy(generationTaskId = execution.lease.task.id)
-            }
-            val updated = state.value.updateCurrentMessages(me.rerere.rikkahub.feature.interactive.InteractiveSurface.mergeClientState(bound, state.value.currentMessages)).withGenerationState("RUNNING", messageId = bound.lastOrNull()?.id)
-            persist(updated)
-            updateConversation(updated)
-        }
-    }
-
-    internal suspend fun recordGenerationState(status: String, persist: suspend (Conversation) -> Unit) {
-        commitGenerationState(status, null, persist)
-    }
-
-    internal suspend fun recordGenerationResult(cause: Throwable?, persist: suspend (Conversation) -> Unit) {
-        val hasUncertain = state.value.currentMessages.any { it.getTools().any { tool -> tool.isExecutionUncertain } }
-        val status = when {
-            hasUncertain -> "INTERRUPTED"
-            cause == null && state.value.currentMessages.any { it.getTools().any { tool -> !tool.isExecuted } } -> "WAITING_TOOL"
-            else -> generationFailureState(cause)
-        }
-        commitGenerationState(status, (cause as? me.rerere.ai.util.HttpException)?.statusCode, persist)
-    }
-
-    private suspend fun commitGenerationState(status: String, errorCode: Int?, persist: suspend (Conversation) -> Unit) {
-        withContext(NonCancellable) {
-            metadataMutex.withLock {
-                requireActive()
-                val updated = state.value.withGenerationState(status, errorCode = errorCode)
-                persist(updated)
-                updateConversation(updated)
-            }
-        }
-    }
-
     suspend fun finishGeneration(save: suspend (Conversation) -> Unit): Conversation =
-        withContext(NonCancellable) { metadataMutex.withLock {
-            requireActive()
+        withContext(NonCancellable) {
             val current = state.value
             val conversation = current.copy(
                 messageNodes = current.messageNodes.map { node ->
@@ -299,10 +78,10 @@ class ConversationSession(
                 },
                 updateAt = Instant.now(),
             )
-            save(conversation)
             updateConversation(conversation)
+            save(conversation)
             conversation
-        } }
+        }
 
     // 从队列取出到写入会话历史之间，附件仍需作为有效引用保留。
     @Volatile
@@ -387,38 +166,6 @@ class ConversationSession(
         idleCheckJob = null
     }
 }
-
-internal fun Conversation.withGenerationState(status: String, onlyRunning: Boolean = false, errorCode: Int? = null, messageId: Uuid? = null): Conversation {
-    val lastId = messageId ?: currentMessages.lastOrNull { it.generationState == "RUNNING" }?.id ?: currentMessages.lastOrNull()?.id
-    return copy(messageNodes = messageNodes.map { node ->
-        node.copy(messages = node.messages.map { message ->
-            when {
-                onlyRunning -> if (message.generationState == "RUNNING") message.recoverTools().copy(generationState = status) else message.recoverTools()
-                message.id == lastId -> message.let { if (status != "RUNNING") it.recoverTools() else it }.copy(generationState = status, generationErrorCode = errorCode)
-                message.generationState == "RUNNING" -> message.copy(generationState = null, generationErrorCode = null)
-                else -> message
-            }
-        })
-    })
-}
-
-private fun UIMessage.recoverTools() = copy(parts = parts.map {
-    if (it is UIMessagePart.Tool && !it.isExecuted && it.executionState == ToolExecutionState.RUNNING)
-        it.copy(executionState = ToolExecutionState.INTERRUPTED) else it
-})
-
-internal fun generationFailureState(cause: Throwable?): String = when (cause) {
-    null -> "COMPLETED"
-    is NetworkChangedException, is UncertainToolExecutionException -> "INTERRUPTED"
-    is CancellationException -> "CANCELLED"
-    is java.io.IOException -> "INTERRUPTED"
-    else -> "FAILED"
-}
-
-internal fun prepareGenerationMessages(messages: List<UIMessage>, modelId: Uuid): List<UIMessage> =
-    if (messages.lastOrNull()?.role == me.rerere.ai.core.MessageRole.USER) {
-        messages + UIMessage(role = me.rerere.ai.core.MessageRole.ASSISTANT, parts = emptyList(), modelId = modelId)
-    } else messages
 
 /** Serialize approval saves without cancelling earlier decisions; stopping cancels the whole chain. */
 internal suspend fun afterPreviousGeneration(previous: Job?, block: suspend () -> Unit) {

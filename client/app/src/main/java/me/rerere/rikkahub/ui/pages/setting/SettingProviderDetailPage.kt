@@ -78,7 +78,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
@@ -144,7 +143,6 @@ fun SettingProviderDetailPage(id: Uuid, vm: SettingVM = koinViewModel()) {
     val pager = rememberPagerState { 3 }
     val scope = rememberCoroutineScope()
     val toaster = LocalToaster.current
-    val resources = LocalResources.current
     val context = LocalContext.current
 
     val onEdit = { newProvider: ProviderSetting ->
@@ -247,7 +245,7 @@ fun SettingProviderDetailPage(id: Uuid, vm: SettingVM = koinViewModel()) {
                         onEdit = {
                             onEdit(it)
                             toaster.show(
-                                resources.getString(R.string.setting_provider_page_save_success),
+                                context.getString(R.string.setting_provider_page_save_success),
                                 type = ToastType.Success
                             )
                         },

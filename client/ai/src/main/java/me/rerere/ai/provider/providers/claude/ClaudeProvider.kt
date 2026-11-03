@@ -1,7 +1,5 @@
 package me.rerere.ai.provider.providers.claude
 
-import me.rerere.ai.core.beginProviderRequest
-import me.rerere.ai.core.StreamingRequestReceipt
 import android.content.Context
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
@@ -236,10 +234,10 @@ private fun TokenUsage?.sum(other: TokenUsage?): TokenUsage? {
     if (this == null) return other
     if (other == null) return this
     return TokenUsage(
-        promptTokens = me.rerere.ai.core.sumTokenCounts(promptTokens,other.promptTokens),
-        completionTokens = me.rerere.ai.core.sumTokenCounts(completionTokens,other.completionTokens),
-        cachedTokens = me.rerere.ai.core.sumTokenCounts(cachedTokens,other.cachedTokens),
-        totalTokens = me.rerere.ai.core.sumTokenCounts(totalTokens,other.totalTokens),
+        promptTokens = promptTokens + other.promptTokens,
+        completionTokens = completionTokens + other.completionTokens,
+        cachedTokens = cachedTokens + other.cachedTokens,
+        totalTokens = totalTokens + other.totalTokens,
     )
 }
 
@@ -258,10 +256,10 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
 
             val response = client.newCall(request).execute()
             if (!response.isSuccessful) {
-                error("Failed to get models: ${response.code}")
+                error("Failed to get models: ${response.code} ${response.body?.string()}")
             }
 
-            val bodyStr = response.body.string()
+            val bodyStr = response.body?.string() ?: ""
             val bodyJson = json.parseToJsonElement(bodyStr).jsonObject
             val data = bodyJson["data"]?.jsonArray ?: return@withContext emptyList()
 
@@ -300,25 +298,24 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
         params: TextGenerationParams,
     ): TextGenerationResult {
         val requestBody = buildMessageRequest(providerSetting, messages, params)
-        val encodedBody = json.encodeToString(requestBody)
         val request = Request.Builder()
             .url("${providerSetting.baseUrl}/messages")
             .headers(providerSetting.mergeCustomHeaders(params.customHeaders))
-            .post(encodedBody.toRequestBody("application/json".toMediaType()))
+            .post(json.encodeToString(requestBody).toRequestBody("application/json".toMediaType()))
             .addHeader("x-api-key", keyRoulette.next(providerSetting.apiKey, providerSetting.id.toString()))
             .addHeader("anthropic-version", ANTHROPIC_VERSION)
             .configureReferHeaders(providerSetting.baseUrl)
             .configureSessionHeaders(providerSetting.baseUrl, params.sessionId)
             .build()
-        val receipt = beginProviderRequest(providerSetting,params,requestBody,encodedBody)
+
+        Log.i(TAG, "generateText: ${json.encodeToString(requestBody)}")
 
         val response = client.newCall(request).await()
         if (!response.isSuccessful) {
-            if(response.code==401 || response.code==403) receipt?.authorizationRejected(response.code)
-            throw Exception("Failed to get response: ${response.code}")
+            throw Exception("Failed to get response: ${response.code} ${response.body?.string()}")
         }
 
-        val bodyStr = response.body.string()
+        val bodyStr = response.body?.string() ?: ""
         val bodyJson = json.parseToJsonElement(bodyStr).jsonObject
 
         // 从 JsonObject 中提取必要的信息
@@ -327,7 +324,6 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
         val content = bodyJson["content"]?.jsonArray ?: JsonArray(emptyList())
         val stopReason = bodyJson["stop_reason"]?.jsonPrimitive?.contentOrNull ?: "unknown"
         val usage = parseTokenUsage(bodyJson)
-        receipt?.complete(usage)
 
         return TextGenerationResult(
             id = id,
@@ -352,26 +348,30 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
         params: TextGenerationParams,
     ): Flow<StreamChunk> = callbackFlow {
         val requestBody = buildMessageRequest(providerSetting, messages, params, stream = true)
-        val encodedBody = json.encodeToString(requestBody)
         val request = Request.Builder()
             .url("${providerSetting.baseUrl}/messages")
             .headers(providerSetting.mergeCustomHeaders(params.customHeaders))
-            .post(encodedBody.toRequestBody("application/json".toMediaType()))
+            .post(json.encodeToString(requestBody).toRequestBody("application/json".toMediaType()))
             .addHeader("x-api-key", keyRoulette.next(providerSetting.apiKey, providerSetting.id.toString()))
             .addHeader("anthropic-version", ANTHROPIC_VERSION)
             .addHeader("Content-Type", "application/json")
             .configureReferHeaders(providerSetting.baseUrl)
             .configureSessionHeaders(providerSetting.baseUrl, params.sessionId)
             .build()
-        val receipt = beginProviderRequest(providerSetting,params,requestBody,encodedBody)?.let(::StreamingRequestReceipt)
 
+        Log.i(TAG, "streamText: ${json.encodeToString(requestBody)}")
+
+        requestBody["messages"]!!.jsonArray.forEach {
+            Log.i(TAG, "streamText: $it")
+        }
 
         val decoder = ClaudeStreamDecoder()
 
         fun sendChunks(chunks: Iterable<StreamChunk>) {
             chunks.forEach { chunk ->
-                receipt?.observe(chunk)
-                trySend(chunk).onFailure { Log.w(TAG, "Stream chunk dropped") }
+                trySend(chunk).onFailure { e ->
+                    Log.w(TAG, "onEvent: chunk dropped (${e?.message})")
+                }
             }
         }
 
@@ -382,10 +382,11 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
                 type: String?,
                 data: String
             ) {
+                Log.d(TAG, "onEvent: type=$type, data=$data")
                 try {
                     val result = decoder.accept(SseEvent(id = id, event = type, data = data))
                     sendChunks(result.chunks)
-                    if (result.completed) { receipt?.complete(); close() }
+                    if (result.completed) close()
                 } catch (e: Throwable) {
                     close(e)
                 }
@@ -393,18 +394,20 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
 
             override fun onFailure(eventSource: EventSource, t: Throwable?, response: Response?) {
                 var exception = t
-                if(response!=null && (response.code==401 || response.code==403)) {
-                    try { receipt?.authorizationRejected(response.code) }
-                    catch(error: Throwable) { close(error); return }
-                }
+
+                t?.printStackTrace()
+                Log.e(TAG, "onFailure: ${t?.javaClass?.name} ${t?.message} / $response")
 
                 val bodyRaw = response?.body?.stringSafe()
                 try {
                     if (!bodyRaw.isNullOrBlank()) {
                         val bodyElement = Json.parseToJsonElement(bodyRaw)
+                        Log.i(TAG, "Error response: $bodyElement")
                         exception = bodyElement.parseErrorDetail()
                     }
                 } catch (e: Throwable) {
+                    Log.w(TAG, "onFailure: failed to parse from $bodyRaw")
+                    e.printStackTrace()
                 } finally {
                     close(exception)
                 }
@@ -420,12 +423,13 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
             .newEventSource(request, listener)
 
         awaitClose {
+            Log.d(TAG, "Closing eventSource")
             eventSource.cancel()
         }
         // trySend 在缓冲满时会静默丢弃 delta，导致回复中间缺字 (#1295)，因此缓冲必须无界
     }.buffer(Channel.UNLIMITED).flowOn(Dispatchers.IO)
 
-    internal fun buildMessageRequest(
+    private fun buildMessageRequest(
         providerSetting: ProviderSetting.Claude,
         messages: List<UIMessage>,
         params: TextGenerationParams,
@@ -738,6 +742,7 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
                     put("data", encoded.base64)
                 })
             }.onFailure {
+                Log.w(TAG, "encode image failed: $url", it)
                 put("type", "text")
                 put("text", "")
             }
@@ -801,6 +806,7 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
 
                 "redacted_thinking" -> {
                     val data = block["data"]?.jsonPrimitiveOrNull?.contentOrNull
+                    println(data)
                 }
 
                 "tool_use" -> {
@@ -895,15 +901,15 @@ class ClaudeProvider(private val client: OkHttpClient, context: Context? = null)
         val usageJson = bodyJson["usage"]?.jsonObject
             ?: bodyJson["message"]?.jsonObject?.get("usage")?.jsonObject
             ?: return null
-        val inputTokens = usageJson["input_tokens"]?.jsonPrimitive?.intOrNull
-        val cachedInputTokens = usageJson["cache_read_input_tokens"]?.jsonPrimitiveOrNull?.intOrNull
-        val cachedCreationTokens = usageJson["cache_creation_input_tokens"]?.jsonPrimitiveOrNull?.intOrNull
-        val completionTokens = usageJson["output_tokens"]?.jsonPrimitive?.intOrNull
-        val promptTokens = me.rerere.ai.core.sumTokenCounts(me.rerere.ai.core.sumTokenCounts(inputTokens,cachedInputTokens),cachedCreationTokens)
+        val inputTokens = usageJson["input_tokens"]?.jsonPrimitive?.intOrNull ?: 0
+        val cachedInputTokens = usageJson["cache_read_input_tokens"]?.jsonPrimitiveOrNull?.intOrNull ?: 0
+        val cachedCreationTokens = usageJson["cache_creation_input_tokens"]?.jsonPrimitiveOrNull?.intOrNull ?: 0
+        val completionTokens = usageJson["output_tokens"]?.jsonPrimitive?.intOrNull ?: 0
+        val promptTokens = inputTokens + cachedInputTokens + cachedCreationTokens
         return TokenUsage(
             promptTokens = promptTokens,
             completionTokens = completionTokens,
-            totalTokens = me.rerere.ai.core.sumTokenCounts(promptTokens,completionTokens),
+            totalTokens = promptTokens + completionTokens,
             cachedTokens = cachedInputTokens,
         )
     }

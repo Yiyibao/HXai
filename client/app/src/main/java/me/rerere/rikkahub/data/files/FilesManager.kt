@@ -172,46 +172,24 @@ class FilesManager(
     }
 
     @OptIn(ExperimentalEncodingApi::class)
-    suspend fun convertBase64ImagePartToLocalFile(message: UIMessage,
-        materials: me.rerere.rikkahub.feature.material.MaterialFiles, profileId: String): UIMessage =
+    suspend fun convertBase64ImagePartToLocalFile(message: UIMessage): UIMessage =
         withContext(Dispatchers.IO) {
             message.copy(
                 parts = message.parts.map { part ->
                     when (part) {
                         is UIMessagePart.Image -> {
                             if (part.url.startsWith("data:image")) {
-                                require(part.url.length <= 12 * 1024 * 1024 && part.url.contains(";base64,"))
-                                val bytes = Base64.decode(part.url.substringAfter(";base64,"))
-                                require(bytes.size in 1..8 * 1024 * 1024)
-                                val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-                                BitmapFactory.decodeByteArray(bytes, 0, bytes.size, bounds)
-                                require(bounds.outWidth in 1..8192 && bounds.outHeight in 1..8192 &&
-                                    bounds.outWidth.toLong() * bounds.outHeight <= 32_000_000)
-                                val extension = when (bounds.outMimeType) {
-                                    "image/png" -> "png"
-                                    "image/jpeg" -> "jpg"
-                                    "image/webp" -> "webp"
-                                    "image/gif" -> "gif"
-                                    else -> error("图片格式不支持")
-                                }
-                                val options = BitmapFactory.Options().apply {
-                                    inSampleSize = 1
-                                    while (maxOf(bounds.outWidth,bounds.outHeight) / inSampleSize > 2048) inSampleSize *= 2
-                                }
-                                requireNotNull(BitmapFactory.decodeByteArray(bytes,0,bytes.size,options)) { "图片解码失败" }.recycle()
-                                val execution = kotlinx.coroutines.currentCoroutineContext()[me.rerere.rikkahub.feature.agent.AgentExecution]
-                                execution?.check()
-                                check(execution == null || execution.lease.task.owner == profileId)
-                                val item = me.rerere.rikkahub.feature.material.MaterialFile(
-                                    java.util.UUID.randomUUID().toString(),profileId,"模型图片",extension)
-                                val saved = materials.runTask(item) { target ->
-                                    execution?.check()
-                                    target.outputStream().use { it.write(bytes) }
-                                    execution?.check()
-                                    "原始图片字节已保存"
-                                }
-                                execution?.check()
-                                part.copy(url = materials.verifiedFile(profileId,saved.id).toUri().toString())
+                                val sourceByteArray = Base64.decode(part.url.substringAfter("base64,").toByteArray())
+                                val bitmap = BitmapFactory.decodeByteArray(sourceByteArray, 0, sourceByteArray.size)
+                                val byteArray = FileUtils.compressBitmapToPng(bitmap)
+                                val urls = createChatFilesByByteArrays(listOf(byteArray))
+                                Log.i(
+                                    TAG,
+                                    "convertBase64ImagePartToLocalFile: convert base64 img to ${urls.joinToString(", ")}"
+                                )
+                                part.copy(
+                                    url = urls.first().toString(),
+                                )
                             } else {
                                 part
                             }
@@ -227,16 +205,10 @@ class FilesManager(
         val relativePaths = mutableSetOf<String>()
         uris.filter { it.toString().startsWith("file:") }.forEach { uri ->
             val file = uri.toFile()
-            // Material library files outlive a chat, its queue and its edited branches.
-            // Never treat a user's original external file as disposable chat storage either.
-            val canonical = file.canonicalPath
-            if (!canonical.startsWith(context.filesDir.canonicalPath + File.separator) ||
-                canonical.startsWith(context.filesDir.resolve("materials").canonicalPath + File.separator)) return@forEach
-            if (file.exists() && !file.delete()) {
-                Log.w(TAG, "Attachment cleanup deferred; managed record retained")
-                return@forEach
-            }
             getRelativePathInFilesDir(file)?.let { relativePaths.add(it) }
+            if (file.exists()) {
+                file.delete()
+            }
         }
         if (relativePaths.isNotEmpty()) {
             appScope.launch(Dispatchers.IO) {

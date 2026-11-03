@@ -54,9 +54,8 @@ fun RikkahubTheme(
     }
     val amoledDarkMode by rememberAmoledDarkMode()
 
-    val isStudyTheme = settings.themeId == "study_white_pink" || (findThemeById(settings.themeId, settings.customThemes) == null && findPresetTheme(settings.themeId).id == "study_white_pink")
     val colorScheme = when {
-        !isStudyTheme && settings.dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+        settings.dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }

@@ -4,7 +4,7 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.navigation3.runtime.NavKey
 import me.rerere.rikkahub.Screen
 
-class Navigator(private val backStack: MutableList<NavKey>, private val onRootBack: (() -> Unit)? = null) {
+class Navigator(private val backStack: MutableList<NavKey>) {
     fun navigate(screen: Screen, builder: NavigateOptionsBuilder.() -> Unit = {}) {
         val options = NavigateOptionsBuilder().apply(builder)
 
@@ -31,7 +31,7 @@ class Navigator(private val backStack: MutableList<NavKey>, private val onRootBa
     }
 
     fun popBackStack() {
-        if (backStack.size > 1) backStack.removeLastOrNull() else onRootBack?.invoke()
+        if (backStack.size > 1) backStack.removeLastOrNull()
     }
 }
 

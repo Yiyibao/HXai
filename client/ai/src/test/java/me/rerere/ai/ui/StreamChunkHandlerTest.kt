@@ -61,6 +61,7 @@ class StreamChunkHandlerTest {
         assertNotNull(reasoning.finishedAt)
         assertEquals("search", tool.toolName)
         assertEquals("{\"q\":\"test\"}", tool.input)
+        assertEquals(15, assistant.usage?.totalTokens)
     }
 
     @Test

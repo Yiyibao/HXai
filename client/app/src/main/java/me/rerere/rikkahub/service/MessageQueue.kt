@@ -37,19 +37,18 @@ internal fun unreferencedQueuedAttachmentUrls(
 /** Pending input is kept outside conversation history until dispatched. */
 class MessageQueuePausedException : IllegalStateException()
 
-class MessageQueue(initial: MessageQueueState = MessageQueueState(), private val notifyObservers: Boolean = true) {
-    private val mutableState = MutableStateFlow(initial)
+class MessageQueue {
+    private val mutableState = MutableStateFlow(MessageQueueState())
     val state = mutableState.asStateFlow()
 
     @Synchronized
-    fun enqueue(parts: List<UIMessagePart>, answer: Boolean = true, reply: CompletableDeferred<String?>? = null, id: Uuid = Uuid.random()) {
+    fun enqueue(parts: List<UIMessagePart>, answer: Boolean = true, reply: CompletableDeferred<String?>? = null) {
         if (parts.isEmptyInputMessage()) {
             reply?.complete(null)
             return
         }
         mutableState.value = state.value.copy(
             messages = state.value.messages + QueuedMessage(
-                id = id,
                 parts = parts.toList(),
                 answer = answer,
                 reply = reply,
@@ -71,7 +70,7 @@ class MessageQueue(initial: MessageQueueState = MessageQueueState(), private val
         val removed = state.value.messages.find { it.id == id } ?: return null
         mutableState.value =
             state.value.copy(messages = state.value.messages.filterNot { it.id == id })
-        if (notifyObservers) removed.reply?.complete(null)
+        removed.reply?.complete(null)
         return removed
     }
 
@@ -103,7 +102,7 @@ class MessageQueue(initial: MessageQueueState = MessageQueueState(), private val
     @Synchronized
     fun pause() {
         mutableState.value = state.value.copy(paused = true)
-        if (notifyObservers) failPausedWaiters()
+        state.value.messages.forEach { it.reply?.completeExceptionally(MessageQueuePausedException()) }
     }
 
     fun failReplyWaiters(message: String) {
@@ -115,19 +114,5 @@ class MessageQueue(initial: MessageQueueState = MessageQueueState(), private val
     @Synchronized
     fun resume() {
         mutableState.value = state.value.copy(paused = false)
-    }
-
-    internal fun publish(snapshot: MessageQueueState) { mutableState.value = snapshot }
-
-    internal fun restore(queue: me.rerere.rikkahub.data.model.ConversationQueue) {
-        publish(MessageQueueState(queue.messages.map { QueuedMessage(id = it.id, parts = it.parts, answer = it.answer) }, queue.paused))
-    }
-
-    internal fun persisted() = me.rerere.rikkahub.data.model.ConversationQueue(
-        state.value.messages.map { me.rerere.rikkahub.data.model.PendingInput(it.id, it.parts, it.answer) }, state.value.paused,
-    )
-
-    internal fun failPausedWaiters() {
-        state.value.messages.forEach { it.reply?.completeExceptionally(MessageQueuePausedException()) }
     }
 }

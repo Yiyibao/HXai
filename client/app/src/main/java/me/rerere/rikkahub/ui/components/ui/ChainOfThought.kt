@@ -34,7 +34,6 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -130,7 +129,10 @@ fun <T> ChainOfThought(
                         text = if (expanded) {
                             stringResource(R.string.chain_of_thought_collapse)
                         } else {
-                            pluralStringResource(R.plurals.chain_of_thought_show_more_steps, steps.size - collapsedVisibleCount, steps.size - collapsedVisibleCount)
+                            stringResource(
+                                R.string.chain_of_thought_show_more_steps,
+                                steps.size - collapsedVisibleCount
+                            )
                         },
                         style = MaterialTheme.typography.labelMedium,
                         color = MaterialTheme.colorScheme.primary,

@@ -31,7 +31,7 @@ internal class PendingRestore(
         move(staging, pending)
     }
 
-    suspend fun apply(beforeInstall: suspend (File) -> Unit = {}, restoreSettings: suspend (String) -> Unit): Boolean {
+    suspend fun apply(restoreSettings: suspend (String) -> Unit): Boolean {
         // Completed restores must never be replayed, even if cleanup was interrupted.
         root.listFiles()?.filter {
             it.name.startsWith("completed-") || it.name.startsWith("preparing-")
@@ -44,7 +44,6 @@ internal class PendingRestore(
             Json.decodeFromString<List<RestoreEntry>>(journal.readText())
         } else {
             try {
-                beforeInstall(pending)
                 buildEntries().also { writeDurably(journal, Json.encodeToString(it)) }
             } catch (e: Exception) {
                 // No live files have been changed yet, so this restore can be safely rejected.
@@ -60,9 +59,7 @@ internal class PendingRestore(
                 if (entry.install && !source.exists()) {
                     // A previous process already moved this source into place.
                     check(target.isFile) { "Interrupted restore is missing ${entry.path}" }
-                    check(entry.expected == null || BackupIntegrity.describe(target) == entry.expected) { "Interrupted restore content is corrupt" }
                 } else {
-                    if (entry.install) check(entry.expected == null || BackupIntegrity.describe(source) == entry.expected) { "Staged restore content is corrupt" }
                     if (entry.hadOriginal && !original.exists()) move(target, original)
                     if (entry.install) move(source, target)
                 }
@@ -95,19 +92,8 @@ internal class PendingRestore(
             it.relativeTo(payload).invariantSeparatorsPath
         }.toList().sorted()
         val entries = paths.map { path ->
-            RestoreEntry(path, install = true, hadOriginal = targetFile(path).exists(), expected = BackupIntegrity.describe(File(payload, path)))
+            RestoreEntry(path, install = true, hadOriginal = targetFile(path).exists())
         }.toMutableList()
-        val replace = File(pending, "replace-folders.json")
-        if (replace.isFile) {
-            val folders = Json.decodeFromString<List<String>>(replace.readText())
-            require(folders.all { it in managedFolders }) { "Invalid replacement folder" }
-            folders.forEach { folder ->
-                resolveInside(filesDir, folder).walkTopDown().filter { it.isFile }.forEach { file ->
-                    val path = "files/" + file.relativeTo(filesDir.canonicalFile).invariantSeparatorsPath
-                    if (path !in paths) entries.add(RestoreEntry(path, install = false, hadOriginal = true))
-                }
-            }
-        }
         if (paths.contains("database/${databaseFile.name}")) {
             // The new database is standalone. Keep the old DB's sidecars with the old DB only.
             for (suffix in listOf("-wal", "-shm", "-journal")) {
@@ -146,11 +132,9 @@ internal class PendingRestore(
     }
 
     @Serializable
-    private data class RestoreEntry(val path: String, val install: Boolean, val hadOriginal: Boolean, val expected: BackupEntry? = null)
+    private data class RestoreEntry(val path: String, val install: Boolean, val hadOriginal: Boolean)
 
     companion object {
-        val managedFolders = setOf("upload", "skills", "fonts", "materials", "image_creation", "image_templates")
-
         fun resolveInside(root: File, relativePath: String): File {
             require(relativePath.isNotBlank() && !relativePath.startsWith('/') &&
                 '\\' !in relativePath && relativePath.split('/').none { it == ".." || it == "." }) {

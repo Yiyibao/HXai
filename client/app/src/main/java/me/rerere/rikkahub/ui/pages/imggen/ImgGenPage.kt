@@ -69,12 +69,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalClipboard
-import androidx.compose.ui.platform.ClipEntry
-import android.content.ClipData
-import androidx.compose.ui.platform.LocalResources
+import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -341,7 +339,6 @@ private fun InputBar(
     onShowSettings: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val resources = LocalResources.current
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val imagePickerLauncher =
@@ -524,10 +521,9 @@ private fun ImageGalleryScreen(
     isActive: Boolean,
 ) {
     val generatedImages = vm.generatedImages.collectAsLazyPagingItems()
-    val resources = LocalResources.current
     val context = LocalContext.current
     val filesManager: FilesManager = koinInject()
-    val clipboardManager = LocalClipboard.current
+    val clipboardManager = LocalClipboardManager.current
     val scope = rememberCoroutineScope()
     val toaster = LocalToaster.current
     val pullToRefreshState = rememberPullToRefreshState()
@@ -575,8 +571,8 @@ private fun ImageGalleryScreen(
                             selectedImages = failed.associateBy { it.id }
                             selectionMode = failed.isNotEmpty()
                             toaster.show(
-                                message = if (failed.isEmpty()) resources.getString(R.string.imggen_page_delete_images_success, images.size)
-                                else resources.getString(
+                                message = if (failed.isEmpty()) context.getString(R.string.imggen_page_delete_images_success, images.size)
+                                else context.getString(
                                     R.string.imggen_page_delete_images_failed,
                                     images.size - failed.size,
                                     failed.size
@@ -721,13 +717,11 @@ private fun ImageGalleryScreen(
                                         if (!selectionMode) Row {
                                             IconButton(
                                                 onClick = {
-                                                    scope.launch {
-                                                        clipboardManager.setClipEntry(ClipEntry(ClipData.newPlainText("Prompt", it.prompt)))
-                                                        toaster.show(
+                                                    clipboardManager.setText(AnnotatedString(it.prompt))
+                                                    toaster.show(
                                                         message = "Prompt copied to clipboard",
                                                         type = ToastType.Success
-                                                        )
-                                                    }
+                                                    )
                                                 },
                                                 modifier = Modifier.size(32.dp)
                                             ) {
@@ -744,12 +738,12 @@ private fun ImageGalleryScreen(
                                                         try {
                                                             filesManager.saveMessageImage(context, "file://${it.filePath}")
                                                             toaster.show(
-                                                                message = resources.getString(R.string.imggen_page_image_saved_success),
+                                                                message = context.getString(R.string.imggen_page_image_saved_success),
                                                                 type = ToastType.Success
                                                             )
                                                         } catch (e: Exception) {
                                                             toaster.show(
-                                                                message = resources.getString(
+                                                                message = context.getString(
                                                                     R.string.imggen_page_save_failed,
                                                                     e.message
                                                                 ),

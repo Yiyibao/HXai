@@ -25,16 +25,9 @@ data class UIMessage(
     val modelId: Uuid? = null,
     val usage: TokenUsage? = null,
     val translation: String? = null,
-    // Local lifecycle metadata; provider DTOs only consume message content.
-    val generationState: String? = null,
-    val generationErrorCode: Int? = null,
-    // Persistent provenance for manual summaries; old records default to ordinary messages.
-    val isHistorySummary: Boolean = false,
     // 请求期间生成的内部消息；该标记仅在内存中使用
     @Transient
     val isSynthetic: Boolean = false,
-    // Local checkpoint provenance; never a provider parameter or permission grant.
-    val generationTaskId: String? = null,
 ) {
     fun summaryAsText(maxLength: Int = Int.MAX_VALUE): String {
         val text = "[${role.name}]: " + parts.joinToString(separator = "\n") { part ->
@@ -246,8 +239,6 @@ fun List<UIMessagePart>.toSortedMessageParts(): List<UIMessagePart> {
             is UIMessagePart.ToolCall -> 0
             is UIMessagePart.ToolResult -> 0
             is UIMessagePart.Search -> 0
-            is InteractiveSurface -> 0
-            is UIMessagePart.InteractiveSurfaceRef -> 0
             is UIMessagePart.Image -> 1
             is UIMessagePart.Video -> 1
             is UIMessagePart.Audio -> 1

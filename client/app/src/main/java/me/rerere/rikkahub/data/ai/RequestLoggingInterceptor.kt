@@ -4,6 +4,7 @@ import me.rerere.common.android.LogEntry
 import me.rerere.common.android.Logging
 import okhttp3.Interceptor
 import okhttp3.Response
+import okio.Buffer
 
 class RequestLoggingInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
@@ -14,10 +15,12 @@ class RequestLoggingInterceptor : Interceptor {
         val request = chain.request()
         val startTime = System.currentTimeMillis()
 
-        // Custom headers, URL paths/queries and bodies can all contain credentials.
-        // Keep diagnostics metadata-only, even when request logging is enabled.
-        val requestHeaders = emptyMap<String, String>()
-        val requestBody: String? = null
+        val requestHeaders = request.headers.toMap()
+        val requestBody = request.body?.let { body ->
+            val buffer = Buffer()
+            body.writeTo(buffer)
+            buffer.readUtf8()
+        }
 
         val response: Response
         var error: String? = null
@@ -25,11 +28,11 @@ class RequestLoggingInterceptor : Interceptor {
         try {
             response = chain.proceed(request)
         } catch (e: Exception) {
-            error = "Network request failed"
+            error = e.message
             Logging.logRequest(
                 LogEntry.RequestLog(
                     tag = "HTTP",
-                    url = "[redacted]",
+                    url = request.url.toString(),
                     method = request.method,
                     requestHeaders = requestHeaders,
                     requestBody = requestBody,
@@ -40,12 +43,12 @@ class RequestLoggingInterceptor : Interceptor {
         }
 
         val durationMs = System.currentTimeMillis() - startTime
-        val responseHeaders = emptyMap<String, String>()
+        val responseHeaders = response.headers.toMap()
 
         Logging.logRequest(
             LogEntry.RequestLog(
                 tag = "HTTP",
-                url = "[redacted]",
+                url = request.url.toString(),
                 method = request.method,
                 requestHeaders = requestHeaders,
                 requestBody = requestBody,
@@ -59,4 +62,13 @@ class RequestLoggingInterceptor : Interceptor {
         return response
     }
 
+    private fun okhttp3.Headers.toMap(): Map<String, String> {
+        return names().associateWith { name ->
+            if (name.equals("Proxy-Authorization", ignoreCase = true)) {
+                "██"
+            } else {
+                get(name) ?: ""
+            }
+        }
+    }
 }

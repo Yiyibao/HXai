@@ -301,9 +301,7 @@ class ClaudeServerToolTest {
         assertEquals("done", result.message.parts.filterIsInstance<UIMessagePart.Text>().last().text)
         assertEquals(ServerToolStatus.COMPLETED, result.message.parts
             .filterIsInstance<UIMessagePart.ServerTool>().single().status)
-        assertEquals(15, result.usage?.promptTokens)
-        assertEquals(5, result.usage?.completionTokens)
-        assertEquals(20, result.usage?.totalTokens)
+        assertEquals(TokenUsage(15, 5, 0, 20), result.usage)
 
         val finalToolMetadata = result.message.parts
             .filterIsInstance<UIMessagePart.ServerTool>()
@@ -406,7 +404,16 @@ class ClaudeServerToolTest {
         messages: List<UIMessage>,
         params: TextGenerationParams,
     ): kotlinx.serialization.json.JsonObject {
-        return provider.buildMessageRequest(providerSetting, messages, params, false)
+        val method = ClaudeProvider::class.java.getDeclaredMethod(
+            "buildMessageRequest",
+            ProviderSetting.Claude::class.java,
+            List::class.java,
+            TextGenerationParams::class.java,
+            Boolean::class.javaPrimitiveType,
+        )
+        method.isAccessible = true
+        return method.invoke(provider, providerSetting, messages, params, false)
+            as kotlinx.serialization.json.JsonObject
     }
 
     private fun buildMessages(messages: List<UIMessage>): JsonArray {
