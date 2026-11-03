@@ -56,7 +56,7 @@ class AgentSchema6MigrationTest {
             }
             AgentTaskStore(context,name).use { migrated ->
                 val db=migrated.readableDatabase
-                assertEquals(13,db.version)
+                assertEquals(11,db.version)
                 tables.forEach { table -> assertEquals("Old $table rows changed during native migration",original.getValue(table),snapshot(db,table,original.getValue(table).columns)) }
                 migrated.recover()
                 assertEquals("UNCERTAIN_SIDE_EFFECT",migrated.get(owner,id).state)

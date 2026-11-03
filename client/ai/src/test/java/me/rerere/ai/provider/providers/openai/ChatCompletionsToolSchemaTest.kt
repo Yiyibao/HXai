@@ -51,7 +51,17 @@ class ChatCompletionsToolSchemaTest {
     }
 
     private fun buildRequest(tool: Tool): JsonObject {
-        return api.buildChatCompletionRequest(
+        val method = ChatCompletionsAPI::class.java.getDeclaredMethod(
+            "buildChatCompletionRequest",
+            List::class.java,
+            TextGenerationParams::class.java,
+            ProviderSetting.OpenAI::class.java,
+            Boolean::class.javaPrimitiveType,
+        )
+        method.isAccessible = true
+
+        return method.invoke(
+            api,
             listOf(UIMessage.user("Use the get_current_time tool.")),
             TextGenerationParams(
                 model = Model(
@@ -62,6 +72,6 @@ class ChatCompletionsToolSchemaTest {
             ),
             ProviderSetting.OpenAI(),
             false,
-        )
+        ) as JsonObject
     }
 }

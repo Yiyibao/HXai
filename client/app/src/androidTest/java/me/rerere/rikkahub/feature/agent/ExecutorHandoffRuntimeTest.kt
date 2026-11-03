@@ -198,7 +198,7 @@ class ExecutorHandoffRuntimeTest {
         db.execSQL("INSERT INTO slot_v10 SELECT singleton,task_id,fence FROM slot")
         db.execSQL("DROP TABLE slot");db.execSQL("ALTER TABLE slot_v10 RENAME TO slot");db.version=10;store.close()
         AgentTaskStore(context,name).use { upgraded ->
-            upgraded.recover();assertEquals(13,upgraded.readableDatabase.version)
+            upgraded.recover();assertEquals(11,upgraded.readableDatabase.version)
             val restored=upgraded.get(t.owner,t.id)
             assertEquals(t.configurationReference,restored.configurationReference);assertTrue(restored.manualPaused)
             assertEquals("UNCERTAIN_SIDE_EFFECT",restored.state)

@@ -6,7 +6,7 @@ import struct
 import re
 from pathlib import PurePosixPath
 
-def validate_output(directory, options, *, publish=True):
+def validate_output(directory, options):
     manifest_file = directory / "output" / "manifest.json"
     if not manifest_file.is_file() or manifest_file.is_symlink() or manifest_file.stat().st_size > 2 * 1024 * 1024:
         raise ValueError("invalid_manifest")
@@ -22,14 +22,11 @@ def validate_output(directory, options, *, publish=True):
         raise ValueError("invalid_coverage")
     if manifest["complete"] != (not manifest["failedPages"] and options["pages"] == [1, manifest["totalPages"]]):
         raise ValueError("invalid_coverage")
-    blank = manifest.get("blankPages", [])
-    if len(blank) != len(set(blank)) or not set(blank) <= set(processed):
-        raise ValueError("invalid_blank_coverage")
     assets = manifest["assets"]
     if len(assets) > 2000 or len({a["assetId"] for a in assets}) != len(assets):
         raise ValueError("invalid_assets")
-    staging = directory / ("publishing" if publish else "output")
-    if publish:staging.mkdir(exist_ok=True)
+    staging = directory / "publishing"
+    staging.mkdir(exist_ok=True)
     size = 0
     for asset in assets:
         if not re.fullmatch(r"[a-z0-9-]{1,64}", asset["assetId"]):
@@ -57,13 +54,9 @@ def validate_output(directory, options, *, publish=True):
         if asset["assetId"] == "document" and source.stat().st_size > 8 * 1024 * 1024:
             raise ValueError("document_limit")
         target = staging / source.name
-        if publish:shutil.copyfile(source, target)
-        actual_size=target.stat().st_size
-        with target.open("rb") as stream:actual_hash=hashlib.file_digest(stream,"sha256").hexdigest()
-        if not publish and (asset["size"]!=actual_size or asset["sha256"]!=actual_hash):
-            raise ValueError("asset_integrity_mismatch")
-        asset["size"] = actual_size
-        asset["sha256"] = actual_hash
+        shutil.copyfile(source, target)
+        asset["size"] = target.stat().st_size
+        asset["sha256"] = hashlib.sha256(target.read_bytes()).hexdigest()
     document = json.loads((staging / "document.json").read_text())
     for field in ("contractVersion", "tier", "parserVersion", "adapterVersion", "resultRevision", "totalPages", "requestedRange", "processedPages", "blankPages", "failedPages", "complete"):
         if document.get(field) != manifest.get(field):
@@ -75,9 +68,6 @@ def validate_output(directory, options, *, publish=True):
     ids = {a["assetId"] for a in assets}
     if any(b["page"] not in processed or ("assetId" in b and b["assetId"] not in ids) for b in document["blocks"]):
         raise ValueError("invalid_block")
-    if any(b["page"] in blank and (b["text"].strip() or (b.get("latex") or "").strip() or b.get("assetId") is not None)
-           for b in document["blocks"]):
-        raise ValueError("blank_page_content_conflict")
-    if publish:os.replace(staging, directory / "published")
+    os.replace(staging, directory / "published")
     return manifest
 

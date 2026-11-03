@@ -26,7 +26,6 @@ internal data class AgentRequestSelection(
     val costBasis: kotlinx.serialization.json.JsonObject? = null,
 )
 internal data class AgentLease(val task: AgentTask, val fence: Long, val executorId: String = "local")
-internal data class NativeStopEvidence(val fence: Long,val state: String,val journalHash: String)
 internal data class TaskResumeReceipt(val owner: String, val taskId: String,
     val conversationId: String, val requestId: String, val expectedRevision: Long,
     val expectedFence: Long, val canCoordinate: Boolean)
@@ -37,7 +36,7 @@ internal class AgentCommandRejected : IllegalArgumentException("任务或授权�
 
 /** One local user workspace, including all learner profiles. Never included in backup. */
 internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.db") : SQLiteOpenHelper(
-    context, context.noBackupFilesDir.resolve(name).absolutePath, null, 13,
+    context, context.noBackupFilesDir.resolve(name).absolutePath, null, 11,
 ), java.io.Closeable {
     private val supervisedExecutors=mutableMapOf<String,SupervisedAgentExecutor>()
     override fun onConfigure(db: SQLiteDatabase) {
@@ -55,10 +54,9 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
         createResumeReceiptSchema(db)
         AgentCostLedger.create(db)
         AgentExecutorHandoff.create(db)
-        AgentAccountSchema.create(db)
     }
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        check(newVersion==13 && oldVersion in 1..12) { "Unsupported task schema; database preserved" }
+        check(newVersion==11 && oldVersion in 1..10) { "Unsupported task schema; database preserved" }
         if (oldVersion<2) db.execSQL("ALTER TABLE usage ADD COLUMN created_at INTEGER")
         if (oldVersion<3) db.execSQL("ALTER TABLE usage ADD COLUMN total_tokens INTEGER")
         if (oldVersion<4) {
@@ -79,7 +77,6 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
         createResumeReceiptSchema(db)
         AgentCostLedger.create(db)
         AgentExecutorHandoff.create(db)
-        AgentAccountSchema.create(db)
     }
     override fun onDowngrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int): Unit = error("Unsupported task schema; database preserved")
 
@@ -104,37 +101,10 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
         try { return block(db).also { db.setTransactionSuccessful() } }
         finally { db.endTransaction() }
     }
-    // The authenticated local adapter uses this very transaction/slot. Nested store
-    // operations join it; account revocation cannot slip between auth and journal.
-    internal fun <T> accountTransaction(block: (SQLiteDatabase) -> T): T = transaction(block)
     private fun task(db: SQLiteDatabase, id: String): AgentTask? = db.rawQuery("SELECT id,owner,conversation_id,request_id,configuration_reference,provider_id,model_id,reasoning,configuration_revision,state,fence,revision,manual_pause FROM tasks WHERE id=?", arrayOf(id)).use {
         if (!it.moveToFirst()) null else AgentTask(it.getString(0),it.getString(1),it.getString(2),it.getString(3),it.getString(4),it.getString(5),it.getString(6),it.getString(7),it.getString(8),it.getString(9),it.getLong(10),it.getLong(11),it.getInt(12)!=0)
     }
     @Synchronized fun get(owner: String, id: String): AgentTask = requireNotNull(task(readableDatabase, id)).also { require(it.owner == owner) { "Task access denied" } }
-    @Synchronized fun requireNetworkQuiescent() {
-        check(readableDatabase.rawQuery("SELECT 1 FROM slot WHERE task_id IS NOT NULL",null).use { !it.moveToFirst() } &&
-            readableDatabase.rawQuery("SELECT 1 FROM calls WHERE state IN ('IN_FLIGHT','UNKNOWN') LIMIT 1",null).use { !it.moveToFirst() } &&
-            supervisedExecutors.isEmpty()) { "Stop and reconcile the original local executor before changing its authority" }
-    }
-    @Synchronized fun networkRetirementEvidence(owner: String,id: String): NativeStopEvidence {
-        val current=get(owner,id)
-        check(current.state !in setOf("RUNNING","STOP_REQUESTED","UNCERTAIN_SIDE_EFFECT")) { "The native executor has not safely stopped" }
-        val journal=readableDatabase.rawQuery("SELECT call_id,state,input_hash,result_hash FROM calls WHERE task_id=? ORDER BY call_id",arrayOf(id)).use { rows ->
-            buildString {
-                while(rows.moveToNext()) {
-                    check(rows.getString(1) !in setOf("IN_FLIGHT","UNKNOWN")) { "A native result is still unknown" }
-                    for(index in 0..3) { append(rows.getString(index));append('\u0000') }
-                }
-            }
-        }
-        return NativeStopEvidence(current.fence,current.state,hash(journal))
-    }
-    @Synchronized internal fun cloudCallState(owner: String,id: String,callId: String): String {
-        get(owner,id)
-        return readableDatabase.rawQuery("SELECT state FROM calls WHERE task_id=? AND call_id=?",arrayOf(id,callId)).use {
-            if(it.moveToFirst()) it.getString(0) else "NOT_DISPATCHED"
-        }
-    }
     fun readTaskCatalog(owner: String,kind: String,cursor: String?,limit: Int) = transaction { db ->
         AgentTaskCatalog.list(db,owner,kind,cursor,limit)
     }
@@ -150,9 +120,6 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
     fun snapshot(owner: String,id: String): AgentTaskSnapshot = transaction { db ->
         val task=requireNotNull(task(db,id));require(task.owner==owner)
         AgentTaskSnapshot(task,control(db,id),plan(owner,id),credentialStatus(db,id),approvalCallIds(owner,id))
-    }
-    fun captureEvaluation(owner: String,id: String,revision: Long,fence: Long) = transaction { db ->
-        AgentEvaluationSnapshot.capture(db,owner,id,revision,fence)
     }
     @Synchronized fun find(owner: String, conversationId: String, requestId: String): AgentTask? = readableDatabase.rawQuery("SELECT id FROM tasks WHERE owner=? AND conversation_id=? AND request_id=?", arrayOf(owner, conversationId, requestId)).use { if (it.moveToFirst()) task(readableDatabase,it.getString(0)) else null }
     @Synchronized fun current(owner: String, conversationId: String): AgentTask? = readableDatabase.rawQuery("SELECT id FROM tasks WHERE owner=? AND conversation_id=? AND fence>0 AND request_id NOT LIKE 'role:%' ORDER BY fence DESC LIMIT 1",arrayOf(owner,conversationId)).use { if(it.moveToFirst()) task(readableDatabase,it.getString(0)) else null }
