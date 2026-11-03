@@ -4,9 +4,6 @@
 
 本计划承接[最新剩余清单](../remaining-development-20261026.md)和[旧A/B计划](../parallel-development-20261024/PLAN.md)。最新清单中的需求/证据边界保持；路线安排以本计划为准。任务书：[A线](A_TASK.md)、[B线](B_TASK.md)。
 
-2026-10-27 B线执行增量见[B任务书当前状态](B_TASK.md#2026-10-27-当前接续状态)与[领域合同2](../b27-file-math-quality-contract2.md)。B已交本机文件/数学修复、真实MSOffice与WinRT评估、同源模拟器领域证据和精确冻结；真实Provider/手写质量、WPS/目标设备及完整B验收仍受阻，不授A线系统/发布通过。以下“本轮只规划”仅指本计划原始轮次。
-
-
 ## 1. 起点与目标
 
 - branch：`codex/a26-01-b-math-integration-20261026`；完整base/head：`5d826d5d7d8755ed42db834d6cd6dc52ae914c69`，加当前大量未提交/untracked产品代码。TaskStore13、Room33，不从旧HEAD重建当前产品。

@@ -10,20 +10,6 @@
 
 B直接改feature/material、feature/math、document-service、领域测试/脚本及文件/数学/OCR专用页面。Provider/任务/权限/费用/Host/Pigeon/共享Flutter/路由/构建变更交A最小候选，不共写真源。执行由本助手串行完成，无子代理/新会话/消息派发。
 
-## 2026-10-27 当前接续状态
-
-继承B26-ALL-DOMAINS并完成本机可执行修复/领域冻结，见[合同2](../b27-file-math-quality-contract2.md)和 `HXai_CHANGE_REVIEW/B27-B-LINE-CLOSURE-20261027/`。下文原任务与最终质量门槛保留，不因局部通过删除。
-
-- R01：重复前提/失败证书语义、合同1–17回归和真实Chat合成Provider接线已验证；32题题干/参考分离。真实Provider数学质量与独立人工裁决仍BLOCKED。
-- R02：真实WinRT五页识别已执行，但数学转录质量未通过；原页修订/可信确认、取消/空白覆盖拒绝、不可变Word及真实Word打开取证。不是实际学生手写、MinerU或真实主模型完整故事。
-- R03：MSOffice真实保存/重开/重算、含隐藏页全部逻辑页渲染通过；API26/API34同源QA领域另列。修复取消状态位不一致的新候选绕过和动态createdAt落盘遗漏；WPS、Mate50、TalkBack朗读及最终Release未验。
-- R04：精确领域/共享测试差异、源码/产物封印、支持矩阵和可执行阻碍已交。共享测试的用户新增覆盖保留，不冒认作者身份。API26同进程混合批次有一项无模型入队FAIL，按原隔离驱动另验，原FAIL不隐藏。
-
-完整B线质量验收仍BLOCK；支持范围以本批SOL_ACCEPTANCE_MATRIX/TEST_RESULTS为准。独立/完整项目审查NOT_EVALUATED；未调用真实模型/账号、安装依赖、推送或部署。
-
-R01后续离线增量：已接通32题回答封存→逐义务判定模板→全分母汇总CLI，见[评分合同1](../b27-math-obligation-scoring-contract1.md)和 `HXai_CHANGE_REVIEW/B27-MATH-OBLIGATION-SCORING-20261027/`。仅本机结构/字节绑定与人工判定一致性；无真实调用或参考独立审定。现有模型/手写/WPS等阻碍保持，不扩数学operation，不替代A的API26混合失败修复或当前组合包接收。
-
-
 ## B26-R01：数学质量与错例修复（首批）
 
 **立即动作：** 向A26-R01提供B26六文件候选/原失败、24题题干与参考分离包、永久ProofDerivationTest及领域回归清单，核当前字节，不再重复apply已接收修复。当前App数学JVM通过不代表同源最终Android包通过；A负责匹配两包/安装与系统资格。

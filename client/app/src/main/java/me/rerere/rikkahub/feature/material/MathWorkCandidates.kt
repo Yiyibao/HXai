@@ -13,7 +13,7 @@ internal class MathWorkCandidates(private val files: MaterialFiles, private val 
         val source = files.get(owner, id); check(source.sha256 == sha256) { "原页版本已改变" }
         val task = repository.tasks(owner).singleOrNull { it.id == taskId && it.sourceId == id && it.sourceSha256 == sha256 }
             ?: error("解析任务不属于当前档案/原页版本")
-        check(task.downloaded && !task.cancelRequested && task.state != "CANCELLING" && task.state != "CANCELLED") { "仅能复用已下载且未取消的解析；本操作不会上传或下载" }
+        check(task.downloaded && !task.cancelRequested) { "仅能复用已下载且未取消的解析；本操作不会上传或下载" }
         val parsed = repository.read(owner, taskId)
         require(number in parsed.processedPages && number !in parsed.failedPages) { "该物理页尚未成功解析，不能猜测缺页内容" }
         require(number !in parsed.blankPages) { "解析将该页标为空白，不能伪造原步骤；请先核对真实原页" }

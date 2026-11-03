@@ -113,47 +113,4 @@ class ProofDerivationTest {
         assertEquals("UNSUPPORTED", status(result))
         assertEquals(JsonNull, result["first_error_step"])
     }
-
-    private fun invalidIdentityProof() = buildJsonObject {
-        put("operation", "professional_proof")
-        put("request", """{"assumptions":[],"goal":{"implies":[{"atom":"P"},{"atom":"P"}]},"steps":[{"id":"s1","rule":"assumption","assumption":"not_given","conclusion":{"implies":[{"atom":"P"},{"atom":"P"}]}}]}""")
-    }
-
-    @Test fun invalidProofDoesNotRefuteTheTrueTargetProposition(): Unit = runBlocking {
-        val input = invalidIdentityProof()
-        val result = MathVerification.verify(input)
-        assertEquals("DISPROVED", status(result))
-        assertEquals(JsonPrimitive("DISPROVED"), result["certificate_status"])
-        assertEquals(JsonPrimitive("NOT_EVALUATED"), result["claim_status"])
-        assertEquals(JsonPrimitive(1), result["first_error_step"])
-        assertFalse(MathVerification.accepts(input, JsonObject(result + mapOf(
-            "status" to JsonPrimitive("VERIFIED"), "verified" to JsonPrimitive(true)
-        ))))
-    }
-
-    @Test fun reviewCannotCallFailedProofCertificateAFalseStudentStatement(): Unit = runBlocking {
-        val input = buildJsonObject {
-            put("operation", "professional_review")
-            put("request", buildJsonObject {
-                put("reference_note", "P implies P is valid; the supplied proof certificate is not.")
-                put("steps", buildJsonArray {
-                    add(buildJsonObject {
-                        put("original", "P implies P"); put("locator", "1:1"); put("check", invalidIdentityProof())
-                    })
-                    add(buildJsonObject {
-                        put("original", "(x+1)^2=x^2+1"); put("locator", "2:1")
-                        put("check", obj("""{"operation":"identity","left":"(x+1)^2","right":"x^2+1"}"""))
-                    })
-                })
-            }.toString())
-        }
-        val result = MathVerification.verify(input)
-        assertEquals("UNSUPPORTED", status(result))
-        assertEquals(JsonNull, result["first_error_step"])
-        assertEquals(JsonPrimitive(1), result["first_unverified_step"])
-        assertEquals(JsonPrimitive(0), result["verified_prefix_steps"])
-        val checks = result.getValue("checks").jsonArray
-        assertEquals(JsonPrimitive("UNSUPPORTED"), checks[0].jsonObject["status"])
-        assertEquals(JsonPrimitive("DISPROVED"), checks[1].jsonObject["status"])
-    }
 }

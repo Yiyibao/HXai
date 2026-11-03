@@ -4,13 +4,6 @@
 
 本清单接续 [10月24日待办](remaining-development-20261024.md) 和 [A/B计划](parallel-development-20261024/PLAN.md)，更新它们的当前状态判断。A/B仅表示职责，按用户规则由本助手串行开发，不创建子代理或新会话。产品目标仍以 Pro inputs/01—04、13 为准。
 
-### B线2026-10-27增量
-
-[合同2](b27-file-math-quality-contract2.md)及 `HXai_CHANGE_REVIEW/B27-B-LINE-CLOSURE-20261027/` 接续B26未交接增量：已做真实WinRT识别评分、MSOffice保存/重开/重算/含隐藏页全逻辑页PDF、原生候选→确认→数学核验→Word读回、当前API26/API34领域和共享Chat定向验证；修复取消状态遗漏及实际复现的材料createdAt落盘漂移。具体测试/失败与来源只取该批封印，不累加计数。
-
-R26-06仍缺真实Provider授权/回答与独立质量裁决；R26-07本机OCR已执行但符号质量FAIL，真实学生手写/MinerU/真实主Chat完整故事仍缺前置；R26-08的MSOffice本机子范围已验，WPS/目标设备仍NOT_RUN；B26-R04领域冻结已交A。API26混合批次的无模型入队FAIL与逐方法隔离结果单列，不授完整B线/App/Release/生产通过。以下旧表保留原时点，不应用其“MSOffice/真实OCR均未执行”覆盖该增量。
-
-
 ## 1. 当前起点与证据边界
 
 - 分支：`codex/a26-01-b-math-integration-20261026`。
