@@ -126,27 +126,3 @@ XLSX七公式/日期/隐藏表/更新图表缓存、取消撤权、worker及disp
 可重复命令、支持边界见 [Linux资格协议v1](../../docs/parallel-development-20261019/B06-LINUX-OFFICE-PROTOCOL.md)；
 全部原始证据见 `HXai_CHANGE_REVIEW/B06-LINUX-OFFICE-20261021/`。仅本机Linux Office为
 PASS_SCOPED；WPS/MSOffice、MinerU/OCR、完整App/目标设备、Release/生产和独立审查不由此通过。
-
-## R29：托管调用回执与独立停止证据（2026-10-29，本机增量）
-
-新增鉴权`GET /api/v1/requests/{request_key}`，按同一owner返回原始请求和任务，
-供云托管丢上传ACK时核对原意图；不是跨owner搜索，也不授权重新上传。
-capabilities的`executionReceiptVersion`和`requestLookupVersion`均为1。
-现有任务响应增加`executorStopped`，来源为持久`jobs.worker_stopped`。
-旧库迁移默认0，包括历史SUCCEEDED/CANCELLED；不能由历史终态伪造物理停止。
-
-新建且尚未dispatch的任务可以记录未启动事实，claim原子清零；只有可信dispatcher
-在原worker、validator及相关容器真实停止后才能记录1。finish/cancel本身不提供此证明。
-控制面失联、取消ACK、请求不存在或超时不能代替停止，仍须保留UNKNOWN及任务占位。
-新增字段为本地源码增量，未部署到上述历史生产入口；旧服务未宣告新能力时托管客户端拒绝。
-
-原PDF/XLSX/解析输出核验器新增`publish=False`只读复验模式，默认发布行为不变；
-云端下载真实输出后仍校验输入hash、manifest、资产hash、保存后的重算witness与输出结构，
-不复制调用返回的“成功”作为独立证明。解析空白页必须有真实blank coverage，
-不可用空字符串冒充解析成功；有界模型文本投影不删除完整原件与manifest。
-
-原API→真实LibreOffice→独立validator→云端成果的本机证据见
-`HXai_CHANGE_REVIEW/R29-TLS-HOSTING-DEVICE-20261029/`。
-本机Windows字体探针读取真实InstalledFontCollection，不伪造Linux fc-list；
-这些结果不证明Linux容器限额、MinerU引擎、MSOffice/WPS保真或生产部署。
-真实跨主机与新外传需另行授权，独立审查NOT_EVALUATED。

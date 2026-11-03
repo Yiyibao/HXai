@@ -21,8 +21,6 @@ B直接改feature/material、feature/math、document-service、领域测试/脚�
 
 完整B线质量验收仍BLOCK；支持范围以本批SOL_ACCEPTANCE_MATRIX/TEST_RESULTS为准。独立/完整项目审查NOT_EVALUATED；未调用真实模型/账号、安装依赖、推送或部署。
 
-R01后续离线增量：已接通32题回答封存→逐义务判定模板→全分母汇总CLI，见[评分合同1](../b27-math-obligation-scoring-contract1.md)和 `HXai_CHANGE_REVIEW/B27-MATH-OBLIGATION-SCORING-20261027/`。仅本机结构/字节绑定与人工判定一致性；无真实调用或参考独立审定。现有模型/手写/WPS等阻碍保持，不扩数学operation，不替代A的API26混合失败修复或当前组合包接收。
-
 
 ## B26-R01：数学质量与错例修复（首批）
 

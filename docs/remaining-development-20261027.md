@@ -35,11 +35,6 @@
 
 主要证据：[A26-R01交接](../HXai_CHANGE_REVIEW/A26-R01-COMBINED-BUILD-20261026/HANDOFF_STATUS.md)、[B27验收矩阵](../HXai_CHANGE_REVIEW/B27-B-LINE-CLOSURE-20261027/SOL_ACCEPTANCE_MATRIX.md)、[本机账户协议](agent-account-transport-protocol-v1.md)、[开发基线](pro-development-baseline-20261012.md)。历史通过只适用于各自源码/环境，不累加为完成率。
 
-### B线离线评分接续
-
-`HXai_CHANGE_REVIEW/B27-MATH-OBLIGATION-SCORING-20261027/` 已交付 `score_b_math_evaluation.py seal/template/score`，复用32题封印，校验回答/参考/判定绑定、每题全部义务、完整分母和精确回答定位，数学判断与工程状态分离。协议/命令见[评分合同1](b27-math-obligation-scoring-contract1.md)。本轮为离线CLI和回归的限定证据；未改App/题库/核验器或复验设备，真实Provider、参考独立裁决及B27原阻碍保持。本文第1节保留原文档整理时点，不将该时点“产品验证NOT_RUN”用于覆盖本增量的实际CLI证据。
-
-
 ## 3. 按依赖排序的后续批次
 
 下表的实现、证据和测试状态分别记录。证据引用的是已存在批次，本次未重跑。新增R27编号只拆分当前接续工作，不替换A26/B26原任务身份。
@@ -70,7 +65,6 @@ API26混合失败的设置流时序解释目前仅为推断，不能直接宣布
 | R27-02 | `K/data/datastore/PreferencesStore.kt`中的`SettingsStore.update/settingsFlow`；`ChatService.mutateMessageQueue`；`AgentScheduler.accept`；`MathSharedChatRuntimeTest` | 先对照B27 `native-current-api26/RESULT.json`、原log、`ISOLATED_SHARED_CHAT_RESULT.json`；保同进程反例和合法拒绝用例。`scripts/verify_agent_android.py`有安装、归档/清nativeqa、force-stop等副作用，先读驱动并核自有设备/匹配包/新run-id |
 | R27-03/04/05 | `K/feature/agent/AgentAccountTransport.kt`的Authority/Transport；`AgentAccountExecutor.run`；`AgentScheduler.prepareHandoff`；`AgentTaskStore.activateHandoff/beginRequest`；原Chat/Loop/device control | 依据[账户阻碍](../HXai_CHANGE_REVIEW/A26-ACCOUNT-TRANSPORT-20261026/SOL_BLOCKERS.md)、[账户协议](agent-account-transport-protocol-v1.md)、[移交协议](agent-executor-handoff-protocol-v1.md)，分批新立合同；现`server/agent-runtime`仅参考，不直接当公网可信API |
 | R27-06/07 | `TaskPlanner`、`TaskResultVerifier`、Provider物理请求、`ProfessionalSolution/ProfessionalReview/ProofDerivation` | 依据[A评估计划](../HXai_CHANGE_REVIEW/A26-01-B-MATH-INTEGRATION-20261026/MODEL_EVALUATION_PLAN.md)与[B27阻碍](../HXai_CHANGE_REVIEW/B27-B-LINE-CLOSURE-20261027/SOL_BLOCKERS.md)；本批32题为新增范围，旧24题计划不是自动调用授权 |
-| R27-07离线评分 | `scripts/score_b_math_evaluation.py` 的 seal_answers/template/score；原题干包装器不变 | 已有本机可运行入口；先封存原Chat去敏感回答，再按[评分合同1](b27-math-obligation-scoring-contract1.md)逐义务评估。只能接明确授权范围的实际回答，哈希不认证模型执行/独立性，不把离线PASS当整题质量通过 |
 | R27-08 | `MathWorkInputs/MathWorkCandidates`、`MaterialPdfOcrDraft`、`DocumentServiceRepository`、MinerU及原角色授权 | 读[OCR合同](b24-ocr-evaluation-contract1.md)、B27 `OCR_QUALITY_VERDICT.json`。旧LiveTest专用五页与新评分五页不同，不能偷换。明确引擎后实际运行；下载后离线评分命令见下方 |
 | R27-09 | `feature/material`、`server/document-service/office_worker`、独立Office/PDF读回器 | 读[B27领域合同2](b27-file-math-quality-contract2.md)和[Linux协议](parallel-development-20261019/B06-LINUX-OFFICE-PROTOCOL.md)；以`microsoft-office-final/INPUTS.json`同SHA副本接续WPS，缺专属环境不编造自动化命令 |
 | R27-10/11 | `ExtensionPolicy/McpTransport/McpRuntime/OAuth/Frontend`、`TrustedCost`及Provider/Usage；Memory/Backup、Host/Pigeon、Flutter与包入口 | 读[A04/A05阻碍](../HXai_CHANGE_REVIEW/A04-OAUTH-A05-COST-20261022/SOL_BLOCKERS.md)、[A任务书](parallel-development-20261026/A_TASK.md)、[正式全项目规范](../HXai_Pro_Delivery/10_REVIEW_SYSTEM/PROJECT_FULL_REVIEW_STANDARD.md)；旧源码地图只作定位，不能继承旧SHA行号或过期旁路结论 |

@@ -1,40 +1,5 @@
 # Pro 交付包研究与后续开发基线
 
-## v1.39 R27-05 离线安全控制接续（2026-10-30）
-
-来源 `HXai_CHANGE_REVIEW/R30-05-DURABLE-CONTROLS-20261030/`，协议与源码地图为[r27 v4](r27-cloud-device-protocol-v1.md)。普通任务详情的暂停/取消/撤销托管现在共用原安全 journal，在任何网络读回前封存意图；恢复/补充仍要求所见修订，不自动重放。保留唯一 Scheduler、原 Chat/工具/Verifier、模型锁、UNKNOWN、原件及成果；Room33/TaskStore13/网络schema4/Pigeon/RPC1/noBackup1不迁移。
-
-旧版API26/API34真实反例均证实离线普通暂停没有 controls；新同源冻结QA包在两设备各12场景通过，包括三类离线安全动作、暂停后真实进程退出读回、PIN锁屏、陈旧确认、停止/档案切换及claim/receipt丢ACK恢复。取消/撤权零DOCX且无后续模型请求，暂停仅明确恢复后生成一份独立XML/hash读回的DOCX；不是云Markdown或真实模型质量测试。App525/AI214 JVM、Flutter18/analyze、新Debug AAR/QA两包/lint及38资源/引擎绑定通过；准确字节和命令取本批最终JSON，不累计历史完成率。
-
-首次冷启20秒超时、旧API34安全键盘未打开、共享ADB传输变化/重复实例启动拒绝、API26多传输reverse及API34失效连接安装失败均保留原日志；恢复只重启自有AVD并保数据，未杀共享ADB或操作06–09设备。完整/独立审查NOT_EVALUATED，真实无线网/跨主机、Mate50/TalkBack语音、普通最终Release/生产未由本批放行；跨App/截图仍DISABLED。未启用子代理或提交/推送/合并/部署。
-
-## v1.38 R27-06–09 质量接续（2026-10-29）
-
-来源为`HXai_CHANGE_REVIEW/R29-QUALITY-06-09-20261029/`与[合同1](quality-06-09-contract1.md)。在原任务详情/唯一Scheduler/Store接本机公开回答、锁定配置、计划/回执引用及用量的不可变封存；原材料意图可发现并核验丢ACK的原修订，未知文件不重写。32题沿原离线逐义务评分，导出不认证Provider/数学正确性，endpoint未知不从Settings猜测。OCR评分跟随App非空latex优先语义；WinRT本机裁切试验没有改善44.09%的基线，保持默认none和强制原页确认。Office读回补OMML结构、非目标文字/表格、逻辑页/隐藏设置、公式/类型及真实缓存，提供同SHA的WPS独占环境准备与离线检查，未接管已有用户WPS。
-
-Room33/TaskStore13/Pigeon/授权/模型/UNKNOWN保持；新本机评测snapshot协议1、OCR evaluatorRevision2/WinRT adapter2的适用字节、原FAIL/修复及构建/定向测试均以本批SOURCE_FINAL/TEST_RESULTS为准，不由本节预授通过。已从项目记录核对固定公开37项的真实Provider授权，沿既有06–09专用工作树/加密App配置续测，源码与根目录增量分开取证。独立参考、真实手写、MinerU新增调用范围、实际WPS、目标设备/正式Release/生产另验，独立及完整项目审查NOT_EVALUATED。未启用子代理或推送/合并/部署。
-
-## v1.37 R27云执行与手机协作接续（2026-10-28/29）
-
-`codex/r27-cloud-device-20261028` / HEAD `070f3d83c294ba0d4a2197d591055e75cff59ac3` 加本批未提交候选；精确源码/包/日志见 `HXai_CHANGE_REVIEW/R27-CLOUD-DEVICE-20261028/continuation-04-05-final/`。普通App配置/逐任务托管、唯一网络admission、任务级file-key vault、共享V6语义独立worker与原生四工具接管已接线，协议和源码地图见 [R27 v1](r27-cloud-device-protocol-v1.md)。Room33/TaskStore13/Pigeon不变，网络库schema3与noBackup委派journal1分别维护，不装入原Pro包。
-
-本机真实手机进程退出→独立worker生成Markdown→重启原会话/成果读回，及WAITING_DEVICE→后台拒绝→前台原生DOCX→桌面独立XML读回通过；同源QA模型锁/重复ACK/委派不重跑保持。修复换钥后待设备动作epoch陈旧/旧READY确认、原生首次并发建凭据目录竞态与旧单测调用破坏；原FAIL保留。新普通Debug/unsigned Release/双AAR/双lint与APK资源/engine/AOT读回、普通Debug冷启/真实云配置页面均有本轮证据。
-
-准确计数和最终源码仅取本批TEST_RESULTS/SOURCE_FINAL，不累加历史。API34合成服务/设备证据不代授真实模型质量、远端TLS托管/KMS、Mate50/API26新云路径、锁屏/全部停止故障、TalkBack朗读、可选跨App屏幕接管、正式发行或生产；跨App/截图工具仍DISABLED。独立审查和完整全项目审查NOT_EVALUATED。保原未提交文件和四张QA图字节；无子代理、提交/推送/部署或真实私料/付费调用。
-
-
-## v1.36 当前 A/B 线集成（2026-10-28）
-
-集成分支 `codex/ab28-integration-20261028`，保留原未提交 A27/B27 成果后形成本地源码快照；来源为 A27-SETTINGS-COMBINED、B27-B-LINE-CLOSURE、B27-MATH-OBLIGATION-SCORING 的最终封印。产品源码无缺失/冲突，原共享文档保留 B27 全文与 A27 后追加交接；不重复 apply、不覆盖历史证据。Room33/TaskStore13/Pigeon及既有授权、锁模型、唯一执行器与 UNKNOWN 保持。
-
-本轮 JVM App525/AI214/搜索33、Flutter416及analyze、Python123及22子用例、文档服务154、API26混合31方法、普通Debug实际冷启与Host任务查询、评分真实CLI及拒绝反例通过。Android包只复用与当前client源码字节完全绑定的A27冻结产物，不声称本轮重建APK/AAR/Release。精确来源/命令/日志/差异和裁决取 `HXai_CHANGE_REVIEW/AB28-INTEGRATION-20261028/`；接续说明见[AB28集成基线](ab28-integration-20261028.md)。无真实模型/私人材料外发/部署；完整A/B质量、云端、目标设备、正式发行与独立/完整审查仍未放行，不改历史FAIL。
-
-## v1.35 B线数学离线逐义务评分（2026-10-27）
-
-来源 `HXai_CHANGE_REVIEW/B27-MATH-OBLIGATION-SCORING-20261027/` 与[评分合同1](b27-math-obligation-scoring-contract1.md)。复用corpusVersion2原32题分离包，新增本机seal/template/score入口及评估contractVersion1，封存回答、后载参考、精确Unicode证据定位、全题全义务和完整分母，数学结果与工程状态分别汇总。未改App/共享调度器/数学operation/题库，Room33/TaskStore13/Pigeon不迁移。
-
-实际CLI合成输入与反例、定向回归以本批TEST_RESULTS/COMMANDS/SMOKE_RESULTS为准。PASS只授离线字节绑定和评估一致性，不认证执行/授权/时间顺序/数学全文或参考独立性。真实Provider质量、手写/MinerU、WPS/目标设备、当前组合包与API26混合失败仍继承原边界；独立/完整全项目审查NOT_EVALUATED。未调用模型、读取密钥、操作设备、安装、提交/推送/部署，不改原Pro或历史失败。
-
 ## v1.34 B线文件与数学质量增量（2026-10-27）
 
 来源 `HXai_CHANGE_REVIEW/B27-B-LINE-CLOSURE-20261027/` 与[领域合同2](b27-file-math-quality-contract2.md)，接续B26-ALL-DOMAINS未交接实现。保留原唯一Chat/Scheduler/模型锁、Room33/TaskStore13/Pigeon。新增候选列表/读取一致拒绝取消持久状态，完整编码材料元数据防动态createdAt重读漂移；继承B26的空白覆盖/取消Word复用和失败证书不反驳目标语义。
@@ -532,14 +497,3 @@ TaskResultVerifier从持久输入独立重读全部源/父版本/产物，TaskPl
 接续已有通用MCP/逐工具范围/服务器沙箱，在原前台扩展通道实现公开客户端OAuth authorization_code+S256/state/resource/issuer校验、系统浏览器回调、独立noBackup密文journal和到期前台重连；回调不赋工具权限，EXCHANGING丢ACK不自动重放。TaskStore9→10仅加usage_costs，物理请求冻结价格依据/独立金额回执；OpenRouter最终官方响应usage.cost为reported，已核日期的官方GPT-4.1标准文本费率为estimated，其余未知不记零。原任务/模型/授权/UNKNOWN/材料保持。
 
 Pigeon原类型ID保持、4种Usage DTO追加nullable costJson并生成两端；请求/任务/模型/提供商/角色/周期统计和原不可变JSON导出接费源及未知覆盖，旧快照保持回读。不设置Token/费用硬预算。协议与源码映射见 `a04-oauth-a05-trusted-cost-v1.md`，完整源码、失败/修复、当轮命令与裁决只取 `HXai_CHANGE_REVIEW/A04-OAUTH-A05-COST-20261022/`。独立与完整项目审查NOT_EVALUATED；本机定向验证不预授真实OAuth账号、付费模型、Release/Mate50或生产通过。无子代理、推送/合并/部署。
-
-
-## A27 配置发布协议 v1（2026-10-27批次）
-
-本批关闭SettingsStore乐观发布/并发函数更新竞态，并修复旧QA接受夹具的schema13收尾。原API26混合212方法及平台混合回归、实际进程退出、同源普通Debug/Release包资格见`HXai_CHANGE_REVIEW/A27-SETTINGS-COMBINED-20261027/HANDOFF.md`；协议与复验约束见`docs/a27-settings-publication-v1.md`。Release原件unsigned，临时测试签名副本仅本机。TaskStore13/Room33/Pigeon保持；真实云/模型/OCR/目标设备与独立/完整审查分别未验，不覆盖原失败。
-
-## R27-05 前台身份与离线停止协议 v3（2026-10-29）
-
-来源 `HXai_CHANGE_REVIEW/R29-05-FOREGROUND-BINDING-20261029/CHANGE_CONTRACT.md`。复用原云端权威与原生工具链，新前台批准逐项绑定 callId/inputHash/grantEpoch/taskRevision，旧确认不能升级为新授权；先结算原 lease/receipt，再允许新确认。Stop 在网络读前持久化，安全 journal 不得被迟到 claim/receipt 覆写，未确认安全命令阻断后续派发。
-
-Room33/TaskStore13/网络schema4/Pigeon/RPC1保持，noBackup controls兼容增量与回滚门禁、源码地图见 `r27-cloud-device-protocol-v1.md` v3。真实旧版FAIL、同源冻结包、实际确认框/文件读回、各设备场景与限制以本批 TEST_RESULTS/六类SOL/HANDOFF为准，不用历史计数或并发变化的整树冒充最终资格。跨App/截图仍DISABLED；独立及完整全项目审查NOT_EVALUATED，真实模型/目标设备/生产另验。未启动子代理或提交/推送/部署。

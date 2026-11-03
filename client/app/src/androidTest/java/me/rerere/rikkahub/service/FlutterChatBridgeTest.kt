@@ -428,7 +428,7 @@ class FlutterChatBridgeTest {
         fun findAll(label: String, root: android.view.accessibility.AccessibilityNodeInfo? = automation.rootInActiveWindow): List<android.view.accessibility.AccessibilityNodeInfo> {
             if (root == null) return emptyList()
             val result = mutableListOf<android.view.accessibility.AccessibilityNodeInfo>()
-            if (root.isVisibleToUser && (root.text?.toString()?.trim() == label || root.contentDescription?.toString()?.trim() == label)) result += root
+            if (root.isVisibleToUser && (root.text?.toString() == label || root.contentDescription?.toString() == label)) result += root
             for (i in 0 until root.childCount) result += findAll(label, root.getChild(i))
             return result
         }
@@ -525,25 +525,13 @@ class FlutterChatBridgeTest {
         val automation = instrumentation.uiAutomation
         fun find(label: String, root: android.view.accessibility.AccessibilityNodeInfo? = automation.rootInActiveWindow): android.view.accessibility.AccessibilityNodeInfo? {
             if (root == null) return null
-            if (root.text?.toString()?.trim() == label || root.contentDescription?.toString()?.trim() == label) return root
+            if (root.text?.toString() == label || root.contentDescription?.toString() == label) return root
             for (i in 0 until root.childCount) find(label, root.getChild(i))?.let { return it }
             return null
         }
-        fun swipe(down: Boolean) {
-            val bounds=android.graphics.Rect()
-            checkNotNull(automation.rootInActiveWindow).getBoundsInScreen(bounds)
-            val top=bounds.top+bounds.height()/4;val bottom=bounds.top+bounds.height()*3/4
-            val from=if(down) top else bottom;val to=if(down) bottom else top
-            android.os.ParcelFileDescriptor.AutoCloseInputStream(automation.executeShellCommand(
-                "input swipe ${bounds.centerX()} $from ${bounds.centerX()} $to 350")).use { it.readBytes() }
-        }
         fun waitFor(label: String): android.view.accessibility.AccessibilityNodeInfo {
             val deadline = System.currentTimeMillis() + 20_000
-            var attempts=0
-            while (System.currentTimeMillis() < deadline) {
-                find(label)?.takeIf { it.isVisibleToUser }?.let { return it }
-                swipe(attempts++%12<6);Thread.sleep(100)
-            }
+            while (System.currentTimeMillis() < deadline) { find(label)?.let { return it }; Thread.sleep(100) }
             fun dump(root: android.view.accessibility.AccessibilityNodeInfo?, result: StringBuilder) {
                 if (root == null) return
                 result.append(root.className).append(" text=").append(root.text).append(" label=").append(root.contentDescription).append('\n')
@@ -558,14 +546,13 @@ class FlutterChatBridgeTest {
                 val node = find(label)
                 val bounds = android.graphics.Rect()
                 node?.getBoundsInScreen(bounds)
-                val viewport=android.graphics.Rect()
-                automation.rootInActiveWindow?.getBoundsInScreen(viewport)
-                if (node != null && node.isVisibleToUser && bounds.width() > 0 && bounds.height() > 0 && viewport.contains(bounds.centerX(),bounds.centerY())) {
+                if (node != null && node.isVisibleToUser && bounds.width() > 0 && bounds.height() in 1..300 && bounds.centerY() in 80..1800) {
                     if (node.isClickable) assertTrue(node.performAction(android.view.accessibility.AccessibilityNodeInfo.ACTION_CLICK))
                     else android.os.ParcelFileDescriptor.AutoCloseInputStream(automation.executeShellCommand("input tap ${bounds.centerX()} ${bounds.centerY()}")).use { it.readBytes() }
                     return
                 }
-                swipe(attempt < 6)
+                val swipe = if (attempt < 6) "input swipe 540 850 540 1450 250" else "input swipe 540 1450 540 850 250"
+                android.os.ParcelFileDescriptor.AutoCloseInputStream(automation.executeShellCommand(swipe)).use { it.readBytes() }
                 Thread.sleep(200)
             }
             error("Visible control missing: $label")
@@ -580,7 +567,7 @@ class FlutterChatBridgeTest {
             androidx.test.core.app.ActivityScenario.launch(me.rerere.rikkahub.flutter.StudyFlutterActivity::class.java).use {
                 waitFor("720")
                 // Chat follows the bottom of a tall response; scroll to its card header.
-                swipe(true)
+                android.os.ParcelFileDescriptor.AutoCloseInputStream(automation.executeShellCommand("input swipe 540 700 540 1700 400")).use { it.readBytes() }
                 Thread.sleep(500)
                 click("展开界面")
                 waitFor("720")
