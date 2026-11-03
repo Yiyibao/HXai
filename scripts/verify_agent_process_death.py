@@ -15,22 +15,29 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--run-id', required=True)
 parser.add_argument('--serial', default='emulator-5554')
 parser.add_argument('--native-run', default='native-final-03', help='Native verification run that installed these QA APKs')
+parser.add_argument('--out', type=Path, help='New evidence directory; must not exist')
+parser.add_argument('--apk-inputs', type=Path, help='Exact installed QA APK SHA256 manifest')
+parser.add_argument('--checkpoints', nargs='+', choices=['before_claim','after_claim','after_journal','after_effect','after_receipt','response_wait','response_delivery'],
+                    default=['before_claim','after_claim','after_journal','after_effect','after_receipt'])
 args = parser.parse_args()
 assert re.fullmatch(r'[a-zA-Z0-9_-]+', args.run_id)
 assert re.fullmatch(r'[a-zA-Z0-9_-]+', args.native_run)
-out = ROOT / 'HXai_CHANGE_REVIEW/AGENT-MODEL-NATIVE-RESUME-20261012/runs' / args.run_id
+out = (args.out or ROOT / 'HXai_CHANGE_REVIEW/AGENT-MODEL-NATIVE-RESUME-20261012/runs' / args.run_id).resolve()
 out.mkdir(parents=True, exist_ok=False)
 adb = [str(ROOT / '.local/android-sdk/platform-tools/adb.exe'), '-s', args.serial]
 records = []
+apk_inputs = (args.apk_inputs or out.parent / args.native_run / 'APK_INPUTS.json').resolve()
 inputs = {
     'sources': {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in [
         'client/app/src/main/java/me/rerere/rikkahub/feature/agent/AgentTaskStore.kt',
         'client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/AgentProcessDeathProbe.kt',
         'client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/AgentNativeTestRunner.kt',
         'scripts/verify_agent_process_death.py',
+        'client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/ResponseCompletionProcessProbe.kt',
     ]},
-    'installed_by_previous_native_verification': args.native_run + '/APK_INPUTS.json',
-    'apk_hashes': json.loads((out.parent / args.native_run / 'APK_INPUTS.json').read_text()),
+    'installed_by_previous_native_verification': str(apk_inputs),
+    'apk_inputs_sha256': hashlib.sha256(apk_inputs.read_bytes()).hexdigest(),
+    'apk_hashes': json.loads(apk_inputs.read_text()),
 }
 (out / 'SOURCE_INPUTS.json').write_text(json.dumps(inputs, indent=2))
 
@@ -59,10 +66,11 @@ for package, artifact, suffix in [(PACKAGE, 'qa-app.apk', 'app-x86_64-debug.apk'
     expected = next(h for p, h in inputs['apk_hashes'].items() if p.endswith(suffix))
     actual = hashlib.sha256((out / artifact).read_bytes()).hexdigest()
     assert actual == expected, 'Installed QA APK differs from the selected native run'
-for checkpoint in ['before_claim', 'after_claim', 'after_journal', 'after_effect', 'after_receipt']:
+for checkpoint in args.checkpoints:
+    probe = 'ResponseCompletionProcessProbe' if checkpoint.startswith('response_') else 'AgentProcessDeathProbe'
     fixture = str(uuid.uuid4())
     command = adb + ['shell', 'am', 'instrument', '-w', '-r', '-e', 'class',
-        'me.rerere.rikkahub.feature.agent.AgentProcessDeathProbe#prepare',
+        'me.rerere.rikkahub.feature.agent.' + probe + '#prepare',
         '-e', 'fixture', fixture, '-e', 'checkpoint', checkpoint, RUNNER]
     prepared_log = out / (checkpoint + '-prepare.log')
     with prepared_log.open('wb') as stream:
@@ -93,8 +101,8 @@ for checkpoint in ['before_claim', 'after_claim', 'after_journal', 'after_effect
         log=prepared_log.name, sha256=hashlib.sha256(prepared_log.read_bytes()).hexdigest(),
         note='adb/instrument exit is not the verdict; durable readiness plus host stop and independent reopened verification are required'))
     verify = adb + ['shell', 'am', 'instrument', '-w', '-r', '-e', 'class',
-        'me.rerere.rikkahub.feature.agent.AgentProcessDeathProbe#verify',
+        'me.rerere.rikkahub.feature.agent.' + probe + '#verify',
         '-e', 'fixture', fixture, '-e', 'checkpoint', checkpoint, RUNNER]
     run(checkpoint + '-reopen-verify', verify, lambda p: p.returncode == 0 and b'OK (1 test)' in p.stdout and b'FAILURES!!!' not in p.stdout)
     print(checkpoint, 'PASS', flush=True)
-print('Five actual process-death checkpoints PASS', flush=True)
+print(str(len(args.checkpoints)) + ' actual process-death checkpoints PASS', flush=True)

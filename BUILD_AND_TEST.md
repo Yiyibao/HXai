@@ -311,17 +311,3 @@ python scripts/verify_a045_persistence.py --serial emulator-5588 --run-dir HXai_
 当前本地集成分支 `codex/ab28-integration-20261028`；A27设置/组合修复、B27文件数学领域与离线逐义务评分均按最终字节封印继承。来源与可执行复验命令见 [AB28集成基线](docs/ab28-integration-20261028.md)，本轮新证据取 `HXai_CHANGE_REVIEW/AB28-INTEGRATION-20261028/TEST_RESULTS.json`。
 
 本轮实际运行 JVM App525/AI214/搜索33、Flutter416/analyze、Python123及22子用例、文档服务154、API26混合31方法及普通Debug任务中心Host查询。APK/AAR/Release没有本轮重建；Android复用所有client输入一致的A27冻结包并核实际安装SHA，不因离线评分CLI而代授真实模型数学质量。原有构建/签名/归属/QA隔离门禁不变，历史证据和失败保留。
-
-## R27-05 离线安全控制接续（2026-10-30）
-
-协议与源码映射为 `docs/r27-cloud-device-protocol-v1.md` v4；本批证据在 `HXai_CHANGE_REVIEW/R30-05-DURABLE-CONTROLS-20261030/`。使用其中冻结的 `qa-final/` 两包和原 R29 的专属 AVD 归属文件，新的 run-dir；源码变化必须重新构建，不能借旧包授予当前工作树资格。
-
-```powershell
-python scripts/verify_r27_android.py --ownership HXai_CHANGE_REVIEW/R29-TLS-HOSTING-DEVICE-20261029/OWNERSHIP_API34.json --apk-dir HXai_CHANGE_REVIEW/R30-05-DURABLE-CONTROLS-20261030/qa-final --run-dir .local/r30-05-api34-NEXT --scenarios offline_pause offline_cancel offline_revoke offline_pause_restart lock_pending lock_claim stale_confirmation offline_claim stop_claim profile_claim claim_restart receipt_restart
-```
-
-API26 使用同目录 `OWNERSHIP_API26.json` 及另一全新 run-dir，不能在同一 AVD 上同时运行。驱动核 AVD/API/ABI/包名和实际安装 SHA，先归档再仅清 nativeqa；真实断 claim ACK、离线控制、强停/重启、PIN 锁屏、单一 DOCX 的独立 XML/hash 读回，不调用真实模型/私料/生产。`offline_cancel/revoke` 验证零 DOCX 和仅前两次请求，不强制其继续至 SUCCEEDED。
-
-每个 AVD 只保持一个本地 ADB transport。若共享 ADB 重启后高端口实例丢失，按归属重启自有 AVD并保留用户数据，不启动同 AVD 第二实例、不 wipe、不杀共享 ADB、不接管其他会话的模拟器。API26 的多传输 reverse 错误及 API34 失效连接安装超时是本批保留的环境失败，不计产品通过。
-
-冻结副本 `.local/r30-05-frozen/client` 的实际构建为 `:app:assembleDebug :app:assembleDebugAndroidTest :app:testDebugUnitTest :ai:testDebugUnitTest :app:lintDebug -PagentNativeTest=true --offline --no-daemon --console=plain --max-workers=2 -x :web:buildWebUi`，AAR在其 `flutter_ui` 以 `flutter build aar --debug --no-release --no-profile --no-pub` 新建。最终两包/38项Flutter资源与引擎绑定及分项结果取本批 JSON；不是普通最终 Release、Mate50、真实无线网或完整项目/独立审查的放行。

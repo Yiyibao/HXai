@@ -5,6 +5,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeout
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancelAndJoin
 import kotlinx.serialization.json.*
 import me.rerere.ai.core.ReasoningLevel
 import me.rerere.ai.provider.Model
@@ -109,6 +112,8 @@ class MathSharedChatRuntimeTest {
 
     @Test fun repeatedPremiseProofPassesLockedChatAndCompleteTaskAcceptance() =
         scenario(reusedPremiseProof(), "VERIFIED", true)
+    @Test fun professionalProofSemanticEvidenceIncludesItsExactPremisesAndGoalInput() =
+        scenario(reusedPremiseProof(discharge=false), "VERIFIED", true, requireBoundInput=true)
 
     @Test fun missingRepeatedPremiseCannotSucceedDespiteModelClaim() =
         scenario(reusedPremiseProof(wrongArity = true), "DISPROVED", false)
@@ -182,7 +187,7 @@ class MathSharedChatRuntimeTest {
         }.toString())
     }, "UNSUPPORTED", false)
 
-    private fun scenario(input: JsonObject, status: String, expectedSuccess: Boolean, badSemanticHash: Boolean = false): Unit = runBlocking {
+    private fun scenario(input: JsonObject, status: String, expectedSuccess: Boolean, badSemanticHash: Boolean = false,requireBoundInput: Boolean=false): Unit = runBlocking {
         val k = GlobalContext.get(); val settings = k.get<SettingsStore>()
         val original = withTimeout(20_000) { settings.settingsFlow.first { !it.init } }
         val calls = AtomicInteger()
@@ -198,7 +203,10 @@ class MathSharedChatRuntimeTest {
                 "HXAI_GOAL_VERIFY_V6" in first -> {
                     val evidence = Json.parseToJsonElement(messages.last().jsonObject.getValue("content").jsonPrimitive.content).jsonObject
                     LocalModelServer.completion(buildJsonObject {
-                        put("accepted", true); put("goalRevision", evidence.getValue("goalRevision"))
+                        val bound=!requireBoundInput || evidence.getValue("evidence").jsonArray.any {
+                            it.jsonObject["tool"]==JsonPrimitive("math_verify") && it.jsonObject["input"]==input
+                        }
+                        put("accepted", bound); put("goalRevision", evidence.getValue("goalRevision"))
                         put("evidenceHash", if (badSemanticHash) JsonPrimitive("wrong-evidence") else evidence.getValue("evidenceHash"))
                         put("reason", "Synthetic semantic evaluator: exact requested scope only")
                     }.toString())
@@ -233,14 +241,26 @@ class MathSharedChatRuntimeTest {
             service.addConversationReference(id)
             service.saveConversation(id, Conversation.ofId(id, assistant.id).copy(profileId = original.activeProfileId, title = "QA math goal", newConversation = true))
             service.sendMessageCommitted(id, listOf(UIMessagePart.Text("Use exact math_verify on this precise claim and original domain: $input. Unsupported or disproved is not success.")), Uuid.random())
-            withTimeout(45_000) {
+            val trace=if(androidx.test.platform.app.InstrumentationRegistry.getArguments().getString("mathTrace")=="true")
+                launch(Dispatchers.IO) {
+                    val directory=java.io.File(androidx.test.platform.app.InstrumentationRegistry.getInstrumentation().targetContext.cacheDir,"math-thread-trace/$id")
+                    check(directory.mkdirs())
+                    repeat(5) {sample ->
+                        delay(8_000)
+                        val stacks=Thread.getAllStackTraces().entries.joinToString("\n\n") {(thread,stack) ->
+                            thread.name+" "+thread.state+"\n"+stack.joinToString("\n") {it.toString()}
+                        }
+                        java.io.File(directory,"sample-$sample.txt").writeText("loopbackRequests=${server.bodies.size}\n"+stacks)
+                    }
+                } else null
+            try {withTimeout(45_000) {
                 while (true) {
                     val current = service.getConversationFlow(id).first()
                     val task = scheduler.current(current)
                     if (task != null && task.state !in setOf("RUNNING", "QUEUED") && service.getGenerationJobStateFlow(id).first() == null) break
                     delay(20)
                 }
-            }
+            }} finally {trace?.cancelAndJoin()}
             val persisted = requireNotNull(repo.getConversationById(id))
             val task = requireNotNull(scheduler.current(persisted))
             assertEquals(expectedSuccess, task.state == "SUCCEEDED")

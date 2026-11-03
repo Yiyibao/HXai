@@ -165,6 +165,10 @@ def score_document(truth, document):
         latex = block.get("latex")
         require(latex is None or isinstance(latex, str), "invalid_block_latex")
         total_chars += len(block["text"]) + len(latex or "")
+        if block["page"] in blank:
+            require(not canonical(block["text"]) and not canonical(latex or "") and
+                    not block.get("assetId") and block.get("type", "text") not in
+                    ("equation", "interline_equation", "table", "table_body", "image", "image_body", "chart"), "blank_with_content")
         require(total_chars <= 100000, "text_limit")
         # Match MathWorkCandidates exactly: the reviewed candidate uses nonblank
         # LaTeX, otherwise text. This remains literal scoring, never equivalence.

@@ -304,6 +304,8 @@ class _AgentTaskDetailPageState extends ConsumerState<AgentTaskDetailPage> {
                   Text('实际计划', style: Theme.of(context).textTheme.titleMedium),
                   if (detail.steps.isEmpty)
                     const Text('没有已发布的工具计划；闲聊或辅助请求可以没有工具。'),
+                  if (detail.steps.isEmpty && detail.task.acceptanceVerified)
+                    const Text('已核对回复交付；数学结论、引用来源和外部动作须另有验证证据。'),
                   for (final step in detail.steps)
                     Card(
                       child: Padding(

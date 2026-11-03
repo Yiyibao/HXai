@@ -46,9 +46,10 @@ internal class MathWorkInputs(private val context: Context, private val files: M
         val item = files.get(owner, text("id")); check(item.sha256 == text("sha256")) { "手写来源版本已改变" }
         val original = files.verifiedFile(owner, item.id)
         val number = page.getValue("number").jsonPrimitive.also { require(!it.isString) }.int
-        require(text("transcription").length in 1..4000)
+        MathTranscription.requireContent(text("transcription"), 4000)
         val ambiguities = page.getValue("ambiguities").jsonArray
-        require(ambiguities.size <= 20 && ambiguities.all { it is JsonPrimitive && it.isString && it.content.length in 1..200 })
+        require(ambiguities.size <= 20 && ambiguities.all { it is JsonPrimitive && it.isString })
+        ambiguities.forEach { MathTranscription.requireContent(it.jsonPrimitive.content, 200) }
         when (item.extension) {
             "png", "jpg", "jpeg", "webp" -> require(number == 1)
             "pdf" -> ParcelFileDescriptor.open(original, ParcelFileDescriptor.MODE_READ_ONLY).use { fd ->
@@ -61,6 +62,7 @@ internal class MathWorkInputs(private val context: Context, private val files: M
         val input = parse(raw)
         require(input.keys == setOf("title", "pages"))
         val title = input.getValue("title").jsonPrimitive.also { require(it.isString && it.content.length in 1..100) }.content
+        MathTranscription.requireContent(title, 100)
         val pages = input.getValue("pages").jsonArray
         require(pages.size in 1..12)
         val identities = HashSet<String>()

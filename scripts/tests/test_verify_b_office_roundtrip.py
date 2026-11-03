@@ -1,8 +1,11 @@
 import importlib.util
 import json
+import copy
+import math
 from pathlib import Path
 import shutil
 import sys
+from types import SimpleNamespace
 import xml.etree.ElementTree as ET
 from zipfile import ZipFile, ZIP_DEFLATED
 
@@ -142,3 +145,63 @@ def test_original_blank_styled_cell_cannot_acquire_unrequested_content(kind):
     after = {**before, part: ET.tostring(xml)}
     with pytest.raises(ValueError, match='^workbook_unexpected_content$'):
         structural.xlsx_roundtrip(before, after)
+
+
+def test_wps_constant_series_label_is_the_same_literal_not_a_new_cell_reference():
+    before = structural.package(FIXTURE / 'office/excel-rich.xlsx', 'xlsx')
+    after = dict(before)
+    c = '{http://schemas.openxmlformats.org/drawingml/2006/chart}'
+    xml = structural.parse_office_xml(after['xl/charts/chart1.xml'])
+    title = next(xml.iter(c + 'ser')).find(c + 'tx')
+    assert title.findtext(c + 'v') == 'Count'
+    title.clear()
+    reference = ET.SubElement(title, c + 'strRef')
+    ET.SubElement(reference, c + 'f').text = '"Count"'
+    cache = ET.SubElement(reference, c + 'strCache')
+    ET.SubElement(cache, c + 'ptCount', {'val': '1'})
+    ET.SubElement(ET.SubElement(cache, c + 'pt', {'idx': '0'}), c + 'v').text = 'Count'
+    after['xl/charts/chart1.xml'] = ET.tostring(xml)
+    assert structural.xlsx_roundtrip(before, after)['chartReferencesPreserved']
+    reference.find(c + 'f').text = 'Data!$B$1'
+    after['xl/charts/chart1.xml'] = ET.tostring(xml)
+    with pytest.raises(ValueError, match='^workbook_chart_references_changed$'):
+        structural.xlsx_roundtrip(before, after)
+
+
+def test_changed_chart_literal_cannot_hide_behind_an_unchanged_reference_list():
+    before = structural.package(FIXTURE / 'office/excel-rich.xlsx', 'xlsx')
+    after = dict(before)
+    c = '{http://schemas.openxmlformats.org/drawingml/2006/chart}'
+    xml = structural.parse_office_xml(after['xl/charts/chart1.xml'])
+    next(xml.iter(c + 'ser')).find(c + 'tx/' + c + 'v').text = 'Changed legend'
+    after['xl/charts/chart1.xml'] = ET.tostring(xml)
+    with pytest.raises(ValueError, match='^workbook_chart_references_changed$'):
+        structural.xlsx_roundtrip(before, after)
+
+
+def test_pdf_invalid_unicode_is_explicitly_rejected_before_evidence_serialization(monkeypatch):
+    import pypdf
+    page = SimpleNamespace(mediabox=SimpleNamespace(width=595.3, height=841.9), extract_text=lambda: 'x\ud8352')
+    monkeypatch.setattr(pypdf, 'PdfReader', lambda *args, **kwargs: SimpleNamespace(is_encrypted=False, pages=[page]))
+    with pytest.raises(ValueError, match='^pdf_text_invalid_unicode$'):
+        compatibility.pdf_signature(FIXTURE / 'office/word-source.pdf')
+    page.extract_text = lambda: 'x𝑎²'
+    assert compatibility.pdf_signature(FIXTURE / 'office/word-source.pdf')[0]['text'] == 'x𝑎²'
+
+
+def test_real_recalculation_roundoff_does_not_hide_unknown_or_changed_data():
+    expected = [{'name': 'Summary', 'state': 'hidden', 'cells': {'E1': {
+        'type': 'n', 'formula': '0.1+0.2', 'value': '0.30000000000000004', 'date': False}}}]
+    actual = copy.deepcopy(expected)
+    actual[0]['cells']['E1']['value'] = '0.3'
+    assert compatibility.recalculation_matches(actual, expected)
+    for value in (None, '0', '0.30001', str(math.nextafter(math.nextafter(0.3, 0), 0))):
+        actual[0]['cells']['E1']['value'] = value
+        assert not compatibility.recalculation_matches(actual, expected)
+    actual = copy.deepcopy(expected)
+    actual[0]['cells']['E1']['value'] = '0.3'
+    for field, value in [('formula', '0.1+0.3'), ('type', 'text'), ('date', True)]:
+        wrong = copy.deepcopy(actual);wrong[0]['cells']['E1'][field] = value
+        assert not compatibility.recalculation_matches(wrong, expected)
+    actual[0]['cells']['E1']['formula'] = expected[0]['cells']['E1']['formula'] = None
+    assert not compatibility.recalculation_matches(actual, expected)

@@ -28,6 +28,7 @@ class OfficeConversionRepositoryTest {
         val remote = UUID.randomUUID().toString(); var uploads = 0; var cancelCalls = 0
         var loseAck = false; var loseCancelAck = false; var badDigest = false
         var advertisedVersion = "qa-1"; var boundVersion = "qa-1"
+        var omitRendererReceipt = false;var requestReads=0;var badRequestDigest=false;var requestReadMissing=false
         val pdf = File(root, "actual.pdf")
         suspend fun prepare() {
             source = files.runTask(MaterialFile(UUID.randomUUID().toString(), owner, "sample.docx", "docx")) { output -> MaterialWriter.write(output, "docx", "Synthetic source", emptyList(), emptyList()) }
@@ -38,13 +39,22 @@ class OfficeConversionRepositoryTest {
             val client = OkHttpClient.Builder().addInterceptor { chain ->
                 val request = chain.request(); val path = request.url.encodedPath
                 val body = when {
+                    request.method=="GET" && "/conversion-requests/" in path -> {
+                        requestReads++
+                        if(requestReadMissing)return@addInterceptor Response.Builder().request(request).protocol(Protocol.HTTP_1_1)
+                            .code(404).message("Not observed").body("{}".toResponseBody("application/json".toMediaType())).build()
+                        """{"taskId":"$remote","requestKey":"${path.substringAfterLast('/')}","sourceSha256":"${if(badRequestDigest) "0".repeat(64) else source.sha256}","sourceExtension":"docx","operation":"office_pdf","state":"SUCCEEDED","rendererVersion":"$boundVersion"}"""
+                    }
                     path.endsWith("/capabilities") -> """{"officePdf":{"ready":true,"rendererVersion":"$advertisedVersion"}}"""
-                    path.endsWith("/conversions") -> { uploads++; if (loseAck) throw java.io.IOException("synthetic lost acknowledgement"); """{"taskId":"$remote","operation":"office_pdf","state":"QUEUED","rendererVersion":"$boundVersion"}""" }
+                    path.endsWith("/conversions") -> { uploads++; if (loseAck) throw java.io.IOException("synthetic lost acknowledgement");
+                        if (omitRendererReceipt) """{"taskId":"$remote","operation":"office_pdf","state":"QUEUED"}"""
+                        else """{"taskId":"$remote","operation":"office_pdf","state":"QUEUED","rendererVersion":"$boundVersion"}""" }
                     path.endsWith("/cancel") -> { cancelCalls++; if (loseCancelAck) throw java.io.IOException("synthetic lost cancel acknowledgement"); """{"taskId":"$remote","operation":"office_pdf","state":"CANCELLED"}""" }
                     path.endsWith("/manifest") -> Json.encodeToString(OfficePdfManifest(1, "office_pdf", source.sha256, "docx", "LibreOffice", boundVersion, OfficeRenderOptions(), 1, listOf("Controlled HTTP fixture; not an actual Office engine"), listOf(DocumentAsset("pdf", "output.pdf", "application/pdf", pdf.length(), if (badDigest) "0".repeat(64) else MaterialFiles.digest(pdf)))))
                     path.endsWith("/assets/pdf") -> null
                     request.method == "DELETE" -> """{"taskId":"$remote","cleanupState":"PENDING"}"""
-                    else -> """{"taskId":"$remote","operation":"office_pdf","state":"SUCCEEDED"}"""
+                    else -> if(omitRendererReceipt) """{"taskId":"$remote","operation":"office_pdf","state":"SUCCEEDED"}"""
+                        else """{"taskId":"$remote","operation":"office_pdf","state":"SUCCEEDED","rendererVersion":"$boundVersion"}"""
                 }
                 Response.Builder().request(request).protocol(Protocol.HTTP_1_1).code(200).message("OK").body(if (body == null) pdf.readBytes().toResponseBody("application/pdf".toMediaType()) else body.toResponseBody("application/json".toMediaType())).build()
             }.build()
@@ -117,9 +127,27 @@ class OfficeConversionRepositoryTest {
                 assertEquals(artifact.id, docs.officeConversions.artifact(f.owner, recovered.id).id)
                 assertEquals(pending.id,
                     docs.officeConversions.submit(f.owner, f.source.id, f.source.sha256, "Upgrade").id)
-                assertEquals(2, f.uploads)
+                assertEquals(1, f.uploads);assertEquals(1,f.requestReads)
             } finally { f.root.deleteRecursively() }
         }
+    }
+
+    @Test fun unknownOriginalRequestCannotBeReuploadedByResumeRefreshOrSubmit() = runBlocking {
+        val f=Fixture()
+        try {
+            f.prepare();val docs=f.repository();docs.configure(f.owner,"https://qa.example.org","e".repeat(32),true)
+            f.loseAck=true
+            assertTrue(runCatching {docs.officeConversions.submit(f.owner,f.source.id,f.source.sha256,"Unknown")}.isFailure)
+            val original=docs.officeConversions.tasks(f.owner).single();f.loseAck=false;f.requestReadMissing=true
+            assertTrue(runCatching {docs.officeConversions.resume(f.owner,original.id)}.isFailure)
+            assertTrue(runCatching {docs.officeConversions.refresh(f.owner,original.id)}.isFailure)
+            assertTrue(runCatching {docs.officeConversions.submit(f.owner,f.source.id,f.source.sha256,"Unknown")}.isFailure)
+            assertEquals(1,f.uploads);assertEquals(3,f.requestReads)
+            assertEquals(original,docs.officeConversions.task(f.owner,original.id))
+            f.requestReadMissing=false;f.badRequestDigest=true
+            assertTrue(runCatching {docs.officeConversions.resume(f.owner,original.id)}.isFailure)
+            assertEquals(original,docs.officeConversions.task(f.owner,original.id));assertEquals(1,f.uploads)
+        } finally {f.root.deleteRecursively()}
     }
 
     @Test fun currentLocalOnlyPermissionPreventsOfficeUpload() = runBlocking {
@@ -128,6 +156,28 @@ class OfficeConversionRepositoryTest {
             f.prepare(); val docs = f.repository(); docs.configure(f.owner, "https://qa.example.org", "c".repeat(32), true)
             val result = materialEditTools(f.files, f.owner, docs, allowRemote = false).single { it.name == "convert_material_to_pdf" }.execute(buildJsonObject { put("id", f.source.id); put("expected_sha256", f.source.sha256); put("title", "No upload") })
             assertTrue(result.isNotEmpty()); assertEquals(0, f.uploads); assertTrue(docs.officeConversions.tasks(f.owner).isEmpty())
+        } finally { f.root.deleteRecursively() }
+    }
+    @Test fun incompleteRendererReceiptKeepsRemoteIdentityAndCannotPublishOrReupload() = runBlocking {
+        val f=Fixture()
+        try {
+            f.prepare();var docs=f.repository();docs.configure(f.owner,"https://qa.example.org","e".repeat(32),true)
+            f.omitRendererReceipt=true
+            assertTrue(runCatching { docs.officeConversions.submit(f.owner,f.source.id,f.source.sha256,"Incomplete") }.isFailure)
+            val pending=docs.officeConversions.tasks(f.owner).single()
+            assertEquals(f.remote,pending.remoteId)
+            assertEquals("renderer_receipt_incomplete",pending.errorCode)
+            docs=f.repository()
+            assertEquals(pending.id,docs.officeConversions.submit(f.owner,f.source.id,f.source.sha256,"Incomplete").id)
+            assertEquals(1,f.uploads)
+            assertTrue(runCatching { docs.officeConversions.refresh(f.owner,pending.id) }.isFailure)
+            assertTrue(runCatching { docs.officeConversions.download(f.owner,pending.id) }.isFailure)
+            assertFalse(docs.officeConversions.task(f.owner,pending.id).downloaded)
+            f.omitRendererReceipt=false;f.boundVersion="qa-2"
+            assertEquals("qa-2",docs.officeConversions.refresh(f.owner,pending.id).rendererVersion)
+            val artifact=docs.officeConversions.download(f.owner,pending.id)
+            assertEquals(MaterialFiles.digest(f.pdf),artifact.sha256)
+            assertEquals(1,f.uploads)
         } finally { f.root.deleteRecursively() }
     }
 }

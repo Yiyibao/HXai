@@ -57,9 +57,11 @@ class LegacySourceProviderBoundaryTest {
                 chatModelId = model.id, compressModelId = model.id,
                 networkSetting = settings.networkSetting.copy(proxyUrl = "", enableAutoRetry = false))
             val result = runCatching { LeasedGenerationFixture(config, assistant, chat.id, owner).use { lease ->
-                lease.run { k.get<GenerationLoop>().generateText(settings = config, model = model, messages = messages,
-                    assistant = assistant, profileId = owner, conversationId = chat.id, tools = emptyList()).collect() }
+                withTimeout(20_000) {lease.run { k.get<GenerationLoop>().generateText(settings = config, model = model, messages = messages,
+                    assistant = assistant, profileId = owner, conversationId = chat.id, tools = emptyList()).collect() }}
             } }
+            assertFalse("Direct collection must terminate without a response-reader ACK",
+                result.exceptionOrNull() is kotlinx.coroutines.TimeoutCancellationException)
             assertEquals(messages, chat.currentMessages)
             if (protected) {
                 assertEquals("No transport request may include an unknown deleted source", 0, server.bodies.size)

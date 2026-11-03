@@ -34,7 +34,7 @@ def normalize(raw, source_hash, total, start, end, images):
     pages = raw['pages']
     if [p['page'] for p in pages] != list(range(start, end + 1)):
         raise ValueError('engine_page_mapping_mismatch')
-    blocks, blank = [], []
+    blocks, blank, unrecognized = [], [], []
     for page, image in zip(pages, images, strict=True):
         if page['imageSha256'] != image['imageSha256'] or page['width'] != image['width'] or page['height'] != image['height']:
             raise ValueError('engine_image_binding_mismatch')
@@ -50,6 +50,8 @@ def normalize(raw, source_hash, total, start, end, images):
         # No recognized words is not evidence that a nonwhite scanned page is blank.
         if not any(line['text'].strip() for line in lines) and image['rasterIsWhite']:
             blank.append(page['page'])
+        elif not any(line['text'].strip() for line in lines):
+            unrecognized.append(page['page'])
     if len(blocks) > 10000 or sum(len(b['text']) for b in blocks) > 1_000_000:
         raise ValueError('document_limit')
     return {'contractVersion': 1, 'sourceSha256': source_hash, 'resultRevision': 1,
@@ -57,7 +59,8 @@ def normalize(raw, source_hash, total, start, end, images):
             'tier': 'basic', 'totalPages': total, 'requestedRange': [start, end],
             'processedPages': list(range(start, end + 1)), 'blankPages': blank, 'failedPages': [],
             'complete': start == 1 and end == total,
-            'warnings': ['Actual local Windows OCR; not MinerU. Text/formulas require source-page confirmation; no semantic math or layout certification.'],
+            'warnings': ['Actual local Windows OCR; not MinerU. Text/formulas require source-page confirmation; no semantic math or layout certification.'] +
+                        [f'Physical page {number}: nonwhite source raster but no text recognized; inspect original page, do not treat as blank or complete transcription.' for number in unrecognized],
             'blocks': blocks}
 
 

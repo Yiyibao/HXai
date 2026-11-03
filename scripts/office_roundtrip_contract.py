@@ -7,6 +7,7 @@ from decimal import Decimal, InvalidOperation
 import hashlib
 from pathlib import Path
 import posixpath
+import re
 import sys
 from zipfile import ZipFile
 
@@ -240,8 +241,48 @@ def xlsx_roundtrip(source, saved):
                 require(actual['value'] == cell['value'] and actual['type'] == cell['type'], 'workbook_non_formula_value_changed')
         for address, cell in after['cells'].items():
             require(address in before['cells'] or cell['value'] is None and cell['formula'] is None, 'workbook_unexpected_content')
-    charts = lambda parts: sorted(tuple(n.text or '' for n in parse_office_xml(raw).iter('{http://schemas.openxmlformats.org/drawingml/2006/chart}f'))
-        for name, raw in parts.items() if name.startswith('xl/charts/') and name.endswith('.xml'))
+    def charts(parts):
+        c = '{http://schemas.openxmlformats.org/drawingml/2006/chart}'
+        signatures = []
+        for name, raw in parts.items():
+            if not (name.startswith('xl/charts/') and name.endswith('.xml')):
+                continue
+            root = parse_office_xml(raw)
+            titles = []
+            for series in root.iter(c + 'ser'):
+                title = series.find(c + 'tx')
+                if title is None:
+                    titles.append(None)
+                    continue
+                literal = title.find(c + 'v')
+                reference = title.find(c + 'strRef')
+                if literal is not None:
+                    require(len(title) == 1, 'workbook_chart_references_changed')
+                    titles.append(('literal', literal.text or ''))
+                    continue
+                # WPS represents an existing literal legend as a quoted constant
+                # strRef. This is not a workbook dependency. Normalize only that
+                # exact representation, with its single matching cache value.
+                formula = reference.findtext(c + 'f') if reference is not None else None
+                if formula is not None and re.fullmatch(r'"(?:[^"]|"")*"', formula):
+                    value = formula[1:-1].replace('""', '"')
+                    cache = reference.find(c + 'strCache')
+                    points = [] if cache is None else cache.findall(c + 'pt')
+                    count = None if cache is None else cache.find(c + 'ptCount')
+                    require(len(title) == 1 and len(reference) == 2 and count is not None
+                            and count.get('val') == '1' and len(points) == 1 and len(cache) == 2
+                            and points[0].get('idx') == '0' and len(points[0]) == 1
+                            and points[0].findtext(c + 'v') == value,
+                            'workbook_chart_references_changed')
+                    titles.append(('literal', value))
+                    # Removing this constant from the parsed copy does not remove
+                    # a real range reference or modify either Office file.
+                    reference.remove(reference.find(c + 'f'))
+                else:
+                    titles.append(('reference', formula))
+            references = tuple(n.text or '' for n in root.iter(c + 'f'))
+            signatures.append((references, tuple(titles)))
+        return sorted(signatures, key=repr)
     require(charts(source) == charts(saved), 'workbook_chart_references_changed')
     return {'originalCellsAndFormulasPreserved': True, 'dateFormattingRetained': True, 'chartReferencesPreserved': True,
             'physicalRecalculation': 'NOT_ATTESTED_BY_STRUCTURE'}

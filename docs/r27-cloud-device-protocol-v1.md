@@ -1,18 +1,4 @@
-# R27-03/04/05：单权威云执行与手机协作协议 v4
-
-## v4：R27-05 普通安全按钮持久化（2026-10-30）
-
-来源：`codex/r30-05-durable-controls-20261030`，HEAD `070f3d83c294ba0d4a2197d591055e75cff59ac3` 加保留的未提交成果；精确范围和原始失败见 `HXai_CHANGE_REVIEW/R30-05-DURABLE-CONTROLS-20261030/`。原 v1–v3 保留为历史，不覆盖其 FAIL。
-
-- 任务详情的 `cloud.control pause/cancel/revoke` 现在与原 Stop 共用 `AgentScheduler.cloudSafety → CloudWorkspace.safety/persistControls/flushSafety`。在通用远端读取及旧 pending controls 的网络结算之前，先保存本次安全意图并取消本机作用域；网络失败不丢意图。返回 `STOP_REQUESTED` 不是远端已停止证明，真实状态仍由 `cloud.read` 投影。
-- 安全动作只收紧原任务，允许按原 safety-only 合同读取最新远端修订；`resume/supplement/provide_input` 仍校验用户所见修订，不进入自动重放 journal。已 ACK 的同一安全命令不重复修改任务，未 ACK 的命令阻断新派发。
-- 离线暂停后实际强停手机，重启先结算原安全命令及原 claim；manualPause 保持，只有明确恢复并重新前台确认才可新派发。取消/撤权在原 NOT_DISPATCHED 停止凭证结算后保持 CANCELED/REVOKED，不写 DOCX、不产生后续模型请求。未知工具效果仍不得据超时重做。
-- Room33、TaskStore13、网络 schema4、Pigeon、RPC1 与 noBackup journal version1 均不迁移；只补已有普通 UI 回调到原持久边界。回滚继续要求先结算所有 pending controls，保留原件、成果、撤权和 UNKNOWN；不能让旧的直接 RPC 路径接管未确认安全命令。
-- 源码地图：`CloudTaskPanel.control` → `StudyHostFacade.handleFrontendFeature`（owner/contextEpoch）→ `CloudFrontend.dispatch`（前台/解锁）→ 原 `cloudSafety/safety/flushSafety` → 原 `CloudHost.control/device_recover/device_abort`；原 Chat/Planner/工具/Verifier/唯一位不变。
-
-新驱动场景为 `offline_pause/offline_cancel/offline_revoke/offline_pause_restart`；与原 8 个确认/锁屏/停止/档案/claim/receipt 场景在同源两包运行，实际结果只取本批 TEST_RESULTS。PIN 测试正常打开安全键盘并点击真实 PIN，不绕过锁屏；首次冷启等待附真实表面诊断。每个 AVD 只保留一个 ADB 传输；旧 API26 多传输会使 reverse 报 more than one device，不得重启共享 ADB 或操作其他任务的设备来修复测试环境。
-
-本批只授权本机合成范围；真实无线网/跨主机、Mate50、TalkBack 朗读、真实模型质量、普通最终 Release/生产和独立审查另验。跨 App/截图仍 DISABLED。
+# R27-03/04/05：单权威云执行与手机协作协议 v3
 
 ## v3：R27-05 前台确认与离线停止（2026-10-29）
 

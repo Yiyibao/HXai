@@ -114,6 +114,25 @@ object MathVerification {
         currentCoroutineContext().ensureActive()
         val requested = (input["operation"] as? JsonPrimitive)?.takeIf { it.isString }?.content
         val operation = requested?.takeIf { it in operations || it in ProfessionalMath.operations } ?: "unsupported_request"
+        // One required JSON-string request avoids provider-enforced defaults for every
+        // unrelated legacy field. Old durable direct inputs remain byte/hash compatible.
+        if (operation in operations && input.keys == setOf("operation", "request")) {
+            val request = input["request"] as? JsonPrimitive
+            val bounded = request?.takeIf { it.isString && it.content.length <= ProfessionalMath.REQUEST_CHARS }
+            val wireHash = bounded?.let { digest(buildJsonObject {
+                for (key in input.keys.sorted()) put(key,input.getValue(key))
+            }.toString()) }
+            val result = try {
+                if (bounded == null) throw MathUnsupported("invalid_tool_envelope")
+                val fields = ProfessionalMath.request(bounded.content)
+                if ("operation" in fields || "request" in fields) throw MathUnsupported("nested_tool_envelope_forbidden")
+                verify(JsonObject(fields + ("operation" to JsonPrimitive(operation))))
+            } catch (error: MathUnsupported) { unsupported(error.reason) }
+              catch (_: IllegalArgumentException) { unsupported("invalid_tool_envelope") }
+            return@withContext JsonObject(result + mapOf("operation" to JsonPrimitive(operation),
+                "scope" to JsonPrimitive(scope(operation)),"tool_input_contract" to JsonPrimitive(1),
+                "input_sha256" to (wireHash?.let(::JsonPrimitive) ?: JsonNull)))
+        }
         val professional = operation in ProfessionalMath.operations
         val inequality = operation == "rational_inequality"
         val equation = operation == "rational_equation"

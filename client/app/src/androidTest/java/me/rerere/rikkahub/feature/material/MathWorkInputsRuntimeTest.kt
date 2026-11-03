@@ -30,6 +30,20 @@ class MathWorkInputsRuntimeTest {
         val hash=MessageDigest.getInstance("SHA-256").digest(owner.toByteArray()).joinToString("") {"%02x".format(it)}
         File(context.noBackupFilesDir,"math-work-inputs/$hash").deleteRecursively()
     }
+    @Test fun invisiblePageCannotBeConfirmedAndValidUnicodeStillSurvivesReadback(): Unit = runBlocking {
+        val owner=UUID.randomUUID().toString();val store=MaterialFiles(context);val original=pdf(1)
+        try {
+            val item=store.import(owner,original.toUri(),"meaningful.pdf")
+            for(text in listOf(" \t\n", "\u200b\u2060\u00a0", "\uD800")) {
+                assertTrue(runCatching { store.mathWorkInputs.create(owner,request(item,listOf(text)).toString(),true,{}) }.isFailure)
+            }
+            val text="x² − 1 = 0\n另一种解法🙂"
+            val work=store.mathWorkInputs.create(owner,request(item,listOf(text)).toString(),true,{})
+            assertEquals(JsonPrimitive("SOURCE_READY"),work["status"])
+            val fresh=MaterialFiles(context).mathWorkInputs.read(owner,work.getValue("work_id").jsonPrimitive.content)
+            assertEquals(text,fresh.getValue("pages").jsonArray.single().jsonObject.getValue("transcription").jsonPrimitive.content)
+        } finally {original.delete();cleanup(owner)}
+    }
     @Test fun unknownPrefixCannotBeOmittedOrTurnLaterErrorIntoFirstError(): Unit = runBlocking {
         val owner=UUID.randomUUID().toString();val store=MaterialFiles(context);val original=pdf(2)
         try {

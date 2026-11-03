@@ -1097,6 +1097,8 @@ class ChatService(
                 },
                 outputTransformers = outputTransformers,
                 tools = tools + memoryTools,
+                readTaskResponse = {reply -> conversationRepo.readTaskResponse(conversation,reply.id,execution.lease.task.id)},
+                commitTaskResponse = {reply,commit -> conversationRepo.commitTaskResponse(conversation,reply,execution.lease.task.id,commit)},
             ).conflate().onCompletion { cause ->
                 me.rerere.rikkahub.feature.diagnostics.Diagnostics.record(
                     me.rerere.rikkahub.feature.diagnostics.Diagnostics.Stage.CHAT,

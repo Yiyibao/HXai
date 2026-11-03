@@ -23,6 +23,19 @@ def sample():
     return truth, document
 
 
+@pytest.mark.parametrize('block', [
+    {'type': 'equation', 'text': '', 'latex': 'x=2'},
+    {'type': 'equation', 'text': ''},
+    {'type': 'image', 'text': '', 'assetId': 'original-image'},
+    {'type': 'table', 'text': ''},
+])
+def test_blank_page_cannot_hide_nontext_content_behind_empty_text(block):
+    truth, document = sample()
+    document['blocks'].append(dict(block, blockId='nontext', page=3))
+    with pytest.raises(ValueError, match='blank_with_content'):
+        ocr.score_document(truth, document)
+
+
 def test_missing_page_is_deletion_not_denominator_reduction():
     truth, document = sample()
     document.update(processedPages=[1, 3], failedPages=[2], complete=False)

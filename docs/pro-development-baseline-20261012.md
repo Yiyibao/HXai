@@ -1,13 +1,5 @@
 # Pro 交付包研究与后续开发基线
 
-## v1.39 R27-05 离线安全控制接续（2026-10-30）
-
-来源 `HXai_CHANGE_REVIEW/R30-05-DURABLE-CONTROLS-20261030/`，协议与源码地图为[r27 v4](r27-cloud-device-protocol-v1.md)。普通任务详情的暂停/取消/撤销托管现在共用原安全 journal，在任何网络读回前封存意图；恢复/补充仍要求所见修订，不自动重放。保留唯一 Scheduler、原 Chat/工具/Verifier、模型锁、UNKNOWN、原件及成果；Room33/TaskStore13/网络schema4/Pigeon/RPC1/noBackup1不迁移。
-
-旧版API26/API34真实反例均证实离线普通暂停没有 controls；新同源冻结QA包在两设备各12场景通过，包括三类离线安全动作、暂停后真实进程退出读回、PIN锁屏、陈旧确认、停止/档案切换及claim/receipt丢ACK恢复。取消/撤权零DOCX且无后续模型请求，暂停仅明确恢复后生成一份独立XML/hash读回的DOCX；不是云Markdown或真实模型质量测试。App525/AI214 JVM、Flutter18/analyze、新Debug AAR/QA两包/lint及38资源/引擎绑定通过；准确字节和命令取本批最终JSON，不累计历史完成率。
-
-首次冷启20秒超时、旧API34安全键盘未打开、共享ADB传输变化/重复实例启动拒绝、API26多传输reverse及API34失效连接安装失败均保留原日志；恢复只重启自有AVD并保数据，未杀共享ADB或操作06–09设备。完整/独立审查NOT_EVALUATED，真实无线网/跨主机、Mate50/TalkBack语音、普通最终Release/生产未由本批放行；跨App/截图仍DISABLED。未启用子代理或提交/推送/合并/部署。
-
 ## v1.38 R27-06–09 质量接续（2026-10-29）
 
 来源为`HXai_CHANGE_REVIEW/R29-QUALITY-06-09-20261029/`与[合同1](quality-06-09-contract1.md)。在原任务详情/唯一Scheduler/Store接本机公开回答、锁定配置、计划/回执引用及用量的不可变封存；原材料意图可发现并核验丢ACK的原修订，未知文件不重写。32题沿原离线逐义务评分，导出不认证Provider/数学正确性，endpoint未知不从Settings猜测。OCR评分跟随App非空latex优先语义；WinRT本机裁切试验没有改善44.09%的基线，保持默认none和强制原页确认。Office读回补OMML结构、非目标文字/表格、逻辑页/隐藏设置、公式/类型及真实缓存，提供同SHA的WPS独占环境准备与离线检查，未接管已有用户WPS。

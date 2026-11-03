@@ -127,6 +127,17 @@ class Store:
         with self.db() as db:
             db.execute("UPDATE jobs SET worker_stopped=1 WHERE id=?",(job_id,))
 
+    def read_request(self, owner, key, operation):
+        """Read a lost ACK without enqueue, cancellation, retention or renderer changes."""
+        with self.db() as db:
+            db.execute("BEGIN")
+            if not db.execute("SELECT 1 FROM identities WHERE id=? AND active=1", (owner,)).fetchone():
+                raise AuthorizationRevoked()
+            row = db.execute("SELECT * FROM jobs WHERE owner=? AND request_key=?", (owner, key)).fetchone()
+            if row is None or json.loads(row['options']).get('operation') != operation:
+                return None
+            return dict(row)
+
     def enqueue(self, owner, key, fingerprint, options, staged):
         now, job_id = time.time(), str(uuid.uuid4())
         destination = self.root / "jobs" / job_id
