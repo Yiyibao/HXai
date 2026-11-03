@@ -25,6 +25,13 @@ from zipfile import ZipFile
 import secrets
 import time
 
+try:
+    from project_storage import enforce
+except ModuleNotFoundError as error:
+    if error.name != "project_storage":
+        raise
+    from scripts.project_storage import enforce
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'server/agent-runtime'))
 from hxai_agent.authority import NetworkAuthority, NetworkStore
@@ -132,6 +139,7 @@ def main():
     parser.add_argument('--apk-dir', type=Path, required=True)
     parser.add_argument('--scenarios',nargs='+',choices=['server','device','stale_confirmation','offline_claim','offline_pause','offline_pause_restart','offline_cancel','offline_revoke','lock_pending','lock_claim','stop_claim','profile_claim','claim_restart','receipt_restart','document_pdf','document_xlsx'],default=['server','device'])
     args = parser.parse_args()
+    enforce(ROOT)
     folder = args.run_dir.resolve(); folder.mkdir(parents=True, exist_ok=False)
     ownership = json.loads(args.ownership.read_text())
     assert ownership['purpose']=='R29_TLS_HOSTING_DEVICE' and re.fullmatch(r'emulator-[0-9]+',ownership['serial'])

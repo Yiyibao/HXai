@@ -1,0 +1,2 @@
+# 接续边界
+无阻断本机工具交付的已知测试失败。scripts/storage.init.gradle依赖外部Android/Flutter环境，下一命令见BUILD_AND_TEST；验收模块产物进入HXAI_RUN_DIR并真实编译/回收，失败时先移除-I保留默认共享集成输出并记录失败。旧验证脚本固定.local SDK/AVD路径需要单独迁移才能恢复设备验证，不能绕过存储规则；本轮不假称已迁移全部历史驱动。

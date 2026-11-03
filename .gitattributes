@@ -1,1 +1,3 @@
 * text=auto eol=lf
+# Preserve original verification bytes for storage lifecycle evidence hashes.
+HXai_CHANGE_REVIEW/STORAGE-LIFECYCLE-20261103/logs/* -text whitespace=cr-at-eol

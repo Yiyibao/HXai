@@ -1,0 +1,46 @@
+{
+  "worktrees": [
+    {
+      "root": "D:\\Office\\Study\\code\\MathStudyAgent",
+      "bytes": 653221462,
+      "generated_bytes": 80542,
+      "files": 8861,
+      "links_skipped": [],
+      "project_avds": []
+    }
+  ],
+  "total_bytes": 653221462,
+  "generated_bytes": 80542,
+  "forbidden_tool_copies": [],
+  "free_bytes": 431902429184,
+  "registry": {
+    "records": {
+      "4ce49d1f4d9e446d8d0d433869818871": {
+        "argv_sha256": "4d2d88dfa1e61777070ba77b6b93a36e12e363106172a42c9174e858474acc86",
+        "child_pid": 2892,
+        "cleaned_at": 1793713190.018441,
+        "created_at": 1793713188.602183,
+        "disposable": true,
+        "executable": "python",
+        "exit_code": 0,
+        "expires_at": 1793713189.6906464,
+        "feature": "STORAGE-SMOKE",
+        "id": "4ce49d1f4d9e446d8d0d433869818871",
+        "kind": "test",
+        "log_complete": true,
+        "nonce": "d267138af4964833bd2108d4764c70ba",
+        "output_bytes": 26,
+        "output_sha256": "c3ccfcca1ddcf4fb0f2d8fe2d4e3a6d0f2d575f494f854b8fc83098e8f5d795e",
+        "payload_bytes_before_cleanup": 253,
+        "reserve_mib": 1,
+        "retain_hours": 0,
+        "source_head": "54696b85beab3b3c7077d4e9becdc80f2b9ac925",
+        "state": "CLEANED",
+        "storage_limit_exceeded": false,
+        "worktree": "D:\\Office\\Study\\code\\MathStudyAgent"
+      }
+    },
+    "repo_id": "388a3226fb97bf1dc99740fb38ada8988758626d89d7d59cf7412e6efcc0ad1b",
+    "schema": 1
+  }
+}

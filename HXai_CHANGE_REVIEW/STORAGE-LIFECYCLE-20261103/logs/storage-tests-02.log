@@ -1,0 +1,33 @@
+test_active_run_cannot_expire_into_cleanup (test_project_storage.StorageTests.test_active_run_cannot_expire_into_cleanup) ... ok
+test_actual_symlink_or_windows_junction_does_not_escape (test_project_storage.StorageTests.test_actual_symlink_or_windows_junction_does_not_escape) ... ok
+test_ambiguous_quarantine_is_not_deleted (test_project_storage.StorageTests.test_ambiguous_quarantine_is_not_deleted) ... ok
+test_budget_blocks_command_before_any_child_side_effect (test_project_storage.StorageTests.test_budget_blocks_command_before_any_child_side_effect) ... ok
+test_duplicate_or_nonfinite_metadata_is_rejected (test_project_storage.StorageTests.test_duplicate_or_nonfinite_metadata_is_rejected) ... ok
+test_existing_hook_is_not_overwritten (test_project_storage.StorageTests.test_existing_hook_is_not_overwritten) ... ok
+test_foreign_registry_is_rejected_without_reset (test_project_storage.StorageTests.test_foreign_registry_is_rejected_without_reset) ... ok
+test_gc_defaults_to_plan_then_removes_only_registered_payload (test_project_storage.StorageTests.test_gc_defaults_to_plan_then_removes_only_registered_payload) ... ok
+test_generated_budget_does_not_misclassify_source_package_named_build (test_project_storage.StorageTests.test_generated_budget_does_not_misclassify_source_package_named_build) ... ok
+test_git_tracked_files_inside_payload_are_protected (test_project_storage.StorageTests.test_git_tracked_files_inside_payload_are_protected) ... ok
+test_live_writer_prevents_cleanup (test_project_storage.StorageTests.test_live_writer_prevents_cleanup) ... ok
+test_log_capture_is_bounded_and_incompleteness_is_explicit (test_project_storage.StorageTests.test_log_capture_is_bounded_and_incompleteness_is_explicit) ... ok
+test_mismatched_marker_cannot_authorize_deletion (test_project_storage.StorageTests.test_mismatched_marker_cannot_authorize_deletion) ... ok
+test_missing_marker_is_not_treated_as_finished (test_project_storage.StorageTests.test_missing_marker_is_not_treated_as_finished) ... ok
+test_nested_git_metadata_is_protected (test_project_storage.StorageTests.test_nested_git_metadata_is_protected) ... ok
+test_non_disposable_data_is_never_cleaned (test_project_storage.StorageTests.test_non_disposable_data_is_never_cleaned) ... ok
+test_os_lock_prevents_overlapping_registration (test_project_storage.StorageTests.test_os_lock_prevents_overlapping_registration) ... ok
+test_oversized_run_is_reclaimed_but_cannot_report_storage_success (test_project_storage.StorageTests.test_oversized_run_is_reclaimed_but_cannot_report_storage_success) ... ok
+test_partial_delete_keeps_intent_and_recovers_without_false_success (test_project_storage.StorageTests.test_partial_delete_keeps_intent_and_recovers_without_false_success) ... ok
+test_path_escape_does_not_touch_outside_data (test_project_storage.StorageTests.test_path_escape_does_not_touch_outside_data) ... ok
+test_readonly_report_does_not_create_run_or_registry (test_project_storage.StorageTests.test_readonly_report_does_not_create_run_or_registry) ... ok
+test_receipt_count_is_bounded (test_project_storage.StorageTests.test_receipt_count_is_bounded) ... ok
+test_retention_is_bounded_and_future_deadline_is_respected (test_project_storage.StorageTests.test_retention_is_bounded_and_future_deadline_is_respected) ... ok
+test_sdk_and_avd_copies_are_rejected (test_project_storage.StorageTests.test_sdk_and_avd_copies_are_rejected) ... ok
+test_staged_small_apk_and_large_log_are_rejected_but_source_is_allowed (test_project_storage.StorageTests.test_staged_small_apk_and_large_log_are_rejected_but_source_is_allowed) ... ok
+test_success_and_failure_both_reclaim_disposable_output_and_keep_small_receipt (test_project_storage.StorageTests.test_success_and_failure_both_reclaim_disposable_output_and_keep_small_receipt) ... ok
+test_unregistered_directory_is_reported_not_adopted_or_deleted (test_project_storage.StorageTests.test_unregistered_directory_is_reported_not_adopted_or_deleted) ... ok
+test_worktree_gate_blocks_third_checkout (test_project_storage.StorageTests.test_worktree_gate_blocks_third_checkout) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 25.295s
+
+OK

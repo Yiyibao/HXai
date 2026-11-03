@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "workspace_limit_mib": 12288,
+  "all_worktrees_limit_mib": 16384,
+  "generated_limit_mib": 8192,
+  "run_limit_mib": 6144,
+  "minimum_free_mib": 10240,
+  "max_worktrees": 2,
+  "max_active_runs": 1,
+  "max_retained_runs": 1,
+  "max_retention_hours": 24,
+  "receipt_limit": 32,
+  "log_limit_mib": 8,
+  "staged_file_limit_mib": 16,
+  "staged_log_limit_kib": 256,
+  "staged_file_exceptions": []
+}

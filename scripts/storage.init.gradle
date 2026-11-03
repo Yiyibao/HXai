@@ -1,0 +1,10 @@
+// Explicit opt-in for native Gradle outputs; Flutter's reusable host AAR repository
+// remains at its integration contract path. No daemon/device ownership is implied.
+def runDir = System.getenv('HXAI_RUN_DIR')
+if (!runDir || !new File(runDir).isDirectory()) {
+    throw new GradleException('Run through scripts/project_storage.py run first')
+}
+allprojects {
+    def safeName = project.path.replaceAll('[^A-Za-z0-9_-]', '_')
+    layout.buildDirectory.set(new File(runDir, 'gradle/' + safeName))
+}

@@ -9,6 +9,13 @@ import subprocess
 import time
 import zipfile
 
+try:
+    from project_storage import enforce
+except ModuleNotFoundError as error:
+    if error.name != "project_storage":
+        raise
+    from scripts.project_storage import enforce
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -22,6 +29,7 @@ def main():
     p.add_argument('--run-dir', type=Path, required=True)
     p.add_argument('--baseline', action='store_true')
     a = p.parse_args()
+    enforce(ROOT)
     out = a.run_dir.resolve()
     out.mkdir(parents=True, exist_ok=False)
     lib = a.runtime_root.resolve() / '.local/gradle-9.6.0/lib'

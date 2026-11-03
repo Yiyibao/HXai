@@ -1,0 +1,94 @@
+{
+  "feature": "STORAGE-LIFECYCLE-20261103",
+  "base": "54696b85beab3b3c7077d4e9becdc80f2b9ac925",
+  "branch": "codex/storage-lifecycle-20261103",
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "python": "3.13.13 (tags/v3.13.13:01104ce, Apr  7 2026, 19:25:48) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "tests": [
+    {
+      "command": "python -W error::ResourceWarning -m unittest discover -s scripts/tests -p test_project_storage.py -v",
+      "status": "PASS",
+      "count": 31,
+      "exit_code": 0,
+      "log": "logs/storage-tests-03.log"
+    },
+    {
+      "status": "FAIL",
+      "count": 28,
+      "log": "logs/storage-tests-01.log",
+      "reason": "receipt rotation mutated collection during GC; fixed with snapshot iteration; unclosed stdout pipe fixed"
+    },
+    {
+      "status": "PASS",
+      "count": 28,
+      "log": "logs/storage-tests-02.log"
+    },
+    {
+      "status": "PASS",
+      "name": "real workspace disposable foreground smoke",
+      "receipt": "logs/workspace-report.json",
+      "exit_code": 0,
+      "readback": "CLEANED; payload absent"
+    },
+    {
+      "status": "PASS",
+      "name": "Python entrypoint syntax",
+      "count": 5
+    },
+    {
+      "status": "NOT_RUN",
+      "name": "native Gradle init script / Android / Flutter build",
+      "reason": "external toolchain intentionally absent; no SDK reinstall for dev tooling change"
+    },
+    {
+      "status": "NOT_EVALUATED",
+      "name": "independent review"
+    }
+  ],
+  "sha256": {
+    ".hxai-storage-policy.json": "f685f696dabb4c28aa97a6d4c84449a239ed80c90f7246ed7c9fbd9f58c2e3f5",
+    "AGENTS.md": "c44198b32d3da398ade4164745bbedb763e0c6469d950316b4517a5c3d63c34c",
+    "BUILD_AND_TEST.md": "80146b90fbed780a29eacfcdf95392fce589f6ea13cadf99153e06935ff8d1be",
+    "docs/storage-lifecycle-v1.md": "6759315c6eeada1c625a87b930febf8f8404acedfcac7fa3424ce77f67d81bf3",
+    "docs/pro-development-baseline-20261012.md": "04dc275b0a0d4135a19f37fca3ec0b52bb30fcf98746ecb4ad8af10d77d97295",
+    "scripts/project_storage.py": "0f727a61d94955aad2b2644a54733fbbd4898c4a0c6bf4c52e8be39a8803f884",
+    "scripts/storage.init.gradle": "4575864d1fb7dd9a8c59a0650ca3dc259267009d1f3c723238b219a12e867d09",
+    "scripts/tests/test_project_storage.py": "87afd2a944a1dbe229961853d92bd9571df7864895b8a32e8edb7ed7d4e324e7",
+    "client/gradlew": "0195518d5972538f6aa3118cb962abfbc4ba430634db57bf1808d6782402bd4f",
+    "client/gradlew.bat": "f9d065e5b8fcf884efaa546c436424b445e31284b5e93966f2c0fed53566cb72",
+    "scripts/verify_agent_android.py": "eaa5f48a668dce474e3fa5e9c72df23657b407b9871af1c6596b71d56aa3f093",
+    "scripts/verify_r27_android.py": "b4c3b508687edddc2aeec30a73338644f6bd3c4f3ca56e3d512e8a2922617f12",
+    "scripts/verify_r27_quality_jvm.py": "d10f9d83c1968665ae4465485b0b4839424baf280fbfc93f26545b74039cf522",
+    "scripts/verify_b_rational_math.py": "f0651830321e497729f0e1cd2bf12169caf6b22b30b15043ec5d570078d74d39"
+  },
+  "log_sha256": {
+    "storage-tests-01.log": "c25c57dfff82d0c854ab08e123e9a67e7fef591547d242070bec916c1175fc0a",
+    "storage-tests-02.log": "2d5bd09562cdb5ee98fb802f1d1b28d8d27d1c018f21a88196b79d3dc6732aec",
+    "storage-tests-03.log": "5c13fb643f09ccd18f33ce3847d948fd7c19a37e63f02a7e20e0908a055480c4",
+    "workspace-report.json": "9169de4af380a95d4a815b2a32aec67feaa9390f64da16822a6439ba312c1b48"
+  },
+  "verdict": "PASS_SCOPED",
+  "hash_note": "sha256/log_sha256 are physical worktree bytes; git_blob_sha256 independently hashes staged blobs; batch raw logs marked -text to retain original bytes.",
+  "git_blob_sha256": {
+    ".hxai-storage-policy.json": "f685f696dabb4c28aa97a6d4c84449a239ed80c90f7246ed7c9fbd9f58c2e3f5",
+    "AGENTS.md": "c44198b32d3da398ade4164745bbedb763e0c6469d950316b4517a5c3d63c34c",
+    "BUILD_AND_TEST.md": "80146b90fbed780a29eacfcdf95392fce589f6ea13cadf99153e06935ff8d1be",
+    "docs/storage-lifecycle-v1.md": "6759315c6eeada1c625a87b930febf8f8404acedfcac7fa3424ce77f67d81bf3",
+    "docs/pro-development-baseline-20261012.md": "04dc275b0a0d4135a19f37fca3ec0b52bb30fcf98746ecb4ad8af10d77d97295",
+    "scripts/project_storage.py": "0f727a61d94955aad2b2644a54733fbbd4898c4a0c6bf4c52e8be39a8803f884",
+    "scripts/storage.init.gradle": "4575864d1fb7dd9a8c59a0650ca3dc259267009d1f3c723238b219a12e867d09",
+    "scripts/tests/test_project_storage.py": "87afd2a944a1dbe229961853d92bd9571df7864895b8a32e8edb7ed7d4e324e7",
+    "client/gradlew": "0195518d5972538f6aa3118cb962abfbc4ba430634db57bf1808d6782402bd4f",
+    "client/gradlew.bat": "f9d065e5b8fcf884efaa546c436424b445e31284b5e93966f2c0fed53566cb72",
+    "scripts/verify_agent_android.py": "eaa5f48a668dce474e3fa5e9c72df23657b407b9871af1c6596b71d56aa3f093",
+    "scripts/verify_r27_android.py": "b4c3b508687edddc2aeec30a73338644f6bd3c4f3ca56e3d512e8a2922617f12",
+    "scripts/verify_r27_quality_jvm.py": "d10f9d83c1968665ae4465485b0b4839424baf280fbfc93f26545b74039cf522",
+    "scripts/verify_b_rational_math.py": "f0651830321e497729f0e1cd2bf12169caf6b22b30b15043ec5d570078d74d39",
+    ".gitattributes": "eb544e9a64d4fe15bdc83e8a9f3409ae26d619edb265ddbf217de7263bdeaeba",
+    "HXai_CHANGE_REVIEW/STORAGE-LIFECYCLE-20261103/logs/storage-tests-01.log": "8047f2f8e677af752d947342a4906423ed945d6c52b918d0104c7ece47527b7d",
+    "HXai_CHANGE_REVIEW/STORAGE-LIFECYCLE-20261103/logs/storage-tests-02.log": "766d5be44648469761246f22be45c9bc464c8dbb14932aefe0eb487f8a97ba3f",
+    "HXai_CHANGE_REVIEW/STORAGE-LIFECYCLE-20261103/logs/storage-tests-03.log": "e4c3b4c285a48ef68df588db21148fd1ded006f4d894593abead58c0eb87888d",
+    "HXai_CHANGE_REVIEW/STORAGE-LIFECYCLE-20261103/logs/workspace-report.json": "83e5a803dfaa9d65f7a456affa1c9954d05b920607d5b1b1dbfab77538525d38"
+  }
+}

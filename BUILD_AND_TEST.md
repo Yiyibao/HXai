@@ -1,5 +1,25 @@
 # 构建与测试指南
 
+## 2026-11-03 统一存储入口（优先于下方历史执行命令）
+
+先阅读 [存储生命周期](docs/storage-lifecycle-v1.md)。不得按历史命令重新复制 SDK、AVD、完整 QA 源码树。
+
+```powershell
+python scripts/project_storage.py report
+python scripts/project_storage.py check
+python scripts/project_storage.py install-hook
+python scripts/project_storage.py run --feature STORAGE --kind test --disposable --reserve-mib 256 -- python -m unittest discover -s scripts/tests -p test_project_storage.py
+```
+
+原生 Gradle 可显式将构建产物导向本批临时目录（需要项目外已配置工具链）：
+
+```powershell
+$storageInit = (Resolve-Path scripts/storage.init.gradle).Path
+python scripts/project_storage.py run --feature NATIVE --kind build --disposable --reserve-mib 6144 -- cmd /d /c client\gradlew.bat -p client -I $storageInit :app:assembleDebug --offline --no-daemon
+```
+
+该 Gradle 重定向需在恢复外部 Android/Flutter 环境后做真实构建验证，当前不宣称已通过原生构建。Flutter host AAR 仓库仍按集成约定复用一套。旧验证脚本的 `--run-dir` / `--out` 必须显式指定到 `HXAI_RUN_DIR` 的子目录；环境变量不会自动改写脚本中的固定路径。结束前运行 `report` / `gc` 检查，`gc` 默认仅预览；`gc --apply` 只回收符合登记条件的一次性输出。
+
 ## R27-05 前台确认与离线停止接续
 
 协议更新为 [v3](docs/r27-cloud-device-protocol-v1.md)。本批旧确认越代授权、离线 Stop 丢失及迟到 claim 覆写 controls 的反例保留在 `HXai_CHANGE_REVIEW/R29-05-FOREGROUND-BINDING-20261029/`。新派发须绑定确认框所见动作/输入/授权代次/任务修订；已有 lease/receipt 仅按原身份结算。跨 App 与截图继续关闭。

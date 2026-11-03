@@ -5,11 +5,18 @@ import argparse, hashlib, json, os
 from pathlib import Path
 from fractions import Fraction
 import shutil, subprocess, sys
+try:
+    from project_storage import enforce
+except ModuleNotFoundError as error:
+    if error.name != "project_storage":
+        raise
+    from scripts.project_storage import enforce
+
 ROOT=Path(__file__).resolve().parents[1]
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--worktree',type=Path,required=True);parser.add_argument('--run-dir',type=Path,required=True);parser.add_argument('--cases',type=Path,required=True)
-    a=parser.parse_args();folder=a.run_dir.resolve();folder.mkdir(parents=True,exist_ok=False)
+    a=parser.parse_args();enforce(a.worktree.resolve());folder=a.run_dir.resolve();folder.mkdir(parents=True,exist_ok=False)
     lib=ROOT/'.local/gradle-9.6.0/lib'
     deps=[lib/name for name in ['kotlin-stdlib-2.3.21.jar','kotlinx-coroutines-core-jvm-1.10.2.jar','kotlinx-serialization-core-jvm-1.11.0.jar','kotlinx-serialization-json-jvm-1.11.0.jar','annotations-24.0.1.jar']]
     assert all(p.is_file() for p in deps)

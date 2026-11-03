@@ -15,6 +15,13 @@ import tarfile
 import shutil
 import zipfile
 
+try:
+    from project_storage import enforce
+except ModuleNotFoundError as error:
+    if error.name != "project_storage":
+        raise
+    from scripts.project_storage import enforce
+
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'HXai_CHANGE_REVIEW/AGENT-MODEL-NATIVE-RESUME-20261012'
 PACKAGE = 'org.hxsi.agent.nativeqa'
@@ -98,6 +105,7 @@ def main():
     parser.add_argument('--isolate-tests', action='store_true',
         help='Run each discovered method in a fresh synthetic QA process; archive UNKNOWN state before clearing')
     args = parser.parse_args()
+    enforce(ROOT)
     if args.build and args.apk_dir:
         parser.error('Choose build outputs or a frozen APK directory')
     if not re.fullmatch(r'[a-zA-Z0-9_-]+', args.run_id):

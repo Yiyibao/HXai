@@ -32,6 +32,10 @@ set APP_HOME=%DIRNAME%
 @rem Resolve any "." and ".." in APP_HOME to make it shorter.
 for %%i in ("%APP_HOME%") do set APP_HOME=%%~fi
 
+@rem HXai shared storage preflight, before Java/Gradle starts.
+python "%APP_HOME%\..\scripts\project_storage.py" --root "%APP_HOME%\.." check
+if errorlevel 1 goto fail
+
 @rem Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
 set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m"
 

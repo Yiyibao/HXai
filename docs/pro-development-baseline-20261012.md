@@ -552,3 +552,8 @@ Room33/TaskStore13/网络schema4/Pigeon/RPC1保持，noBackup controls兼容增�
 入口地图：`ChatService → ConversationRepository.readTaskResponse/commitTaskResponse → GenerationLoop.DurableCheckpoint → TaskPlanner.acceptResponse → AgentTaskStore.recordResponse`；仅持久原分支回复可作为response_delivery，数学真实性仍NOT_EVALUATED，不能替代工具/成果验收。`PlanProposal.decode/FinalPlanRepair`不提升RETURNED数学拒绝为证明；Office原requestKey读回经owner/active identity事务校验，不enqueue或盲重发。`MaterialEditor → SpreadsheetEditRegions`保护多单元格公式，`MathWorkInputs → MathTranscription`保留确认边界；原始材料/版本/UNKNOWN保持。
 
 Room33、TaskStore13、网络schema4、Pigeon/RPC和模型/授权边界不迁移；共享规划语义version6增contractRevision2字段类型约束，原生reply evidence为response-delivery-v1。源码保存不等于旧工作树全部历史证据已远端备份；原件/原树保持。定向验证、旧版失败、夹具失败、精确源码/产物hash及适用裁决取本批日志与交接；独立及完整项目审查NOT_EVALUATED，不预授目标设备/真实模型/生产通过。
+
+
+## v1.41 — 开发存储生命周期（2026-11-03）
+
+来源：用户新增防止文件占用泛滥要求，见 `HXai_CHANGE_REVIEW/STORAGE-LIFECYCLE-20261103/CHANGE_CONTRACT.md`。开发存储policy/registry schema1，与App TaskStore/Room/网络schema无关。入口：AGENTS/BUILD_AND_TEST → scripts/project_storage.py → Git common registry/系统锁 → .local/hxai-runs → journal/quarantine/readback；Gradle wrapper及四个验证入口接容量预检，local pre-commit接暂存产物门禁。详见 docs/storage-lifecycle-v1.md。原始规范包不改，真实材料/凭据/运行数据库/活动任务不自动回收。定向合成测试与本机微型回收通过；原生Gradle重定向及完整App构建NOT_RUN，独立审查NOT_EVALUATED；不声称内核实时配额或全机磁盘治理完成。
