@@ -1,12 +1,21 @@
 package me.rerere.ai.provider.stream
 
+import java.io.File
+import java.security.MessageDigest
 import java.util.Base64
+import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.add
+import kotlinx.serialization.json.buildJsonArray
+import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.contentOrNull
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
+import kotlinx.serialization.json.put
+import kotlinx.serialization.json.putJsonArray
+import kotlinx.serialization.json.putJsonObject
 import me.rerere.ai.provider.Model
 import me.rerere.ai.provider.providers.claude.ClaudeStreamDecoder
 import me.rerere.ai.provider.providers.google.GoogleStreamDecoder
@@ -19,6 +28,7 @@ import me.rerere.ai.ui.ServerToolStatus
 import me.rerere.ai.ui.StreamChunk
 import me.rerere.ai.ui.StreamChunkHandler
 import me.rerere.ai.ui.UIMessage
+import me.rerere.ai.ui.UIMessageAnnotation
 import me.rerere.ai.ui.UIMessagePart
 import me.rerere.ai.ui.metadataAs
 import me.rerere.ai.util.json
@@ -130,6 +140,15 @@ class StreamTraceReplayTest {
 
         val actualMessage = messages.last()
         assertSemantics(path, actualMessage, chunks)
+
+        val actual = actualMessage.toTraceSnapshot()
+        val expected = if (System.getenv(UPDATE_SNAPSHOTS_ENV) == "true") {
+            updateSnapshot(path, actual)
+            actual
+        } else {
+            resource("stream-traces/$path/expected.json").let(json::parseToJsonElement)
+        }
+        assertEquals(expected, actual)
     }
 
     private fun assertToolTraceSemantics(path: String, message: UIMessage, chunks: List<StreamChunk>) {
@@ -318,4 +337,100 @@ class StreamTraceReplayTest {
     private fun resource(path: String): String = requireNotNull(
         javaClass.classLoader?.getResource(path),
     ) { "Missing test resource: $path" }.readText()
+
+    private fun updateSnapshot(path: String, snapshot: JsonObject) {
+        val target = File("src/test/resources/stream-traces/$path/expected.json")
+        target.parentFile?.mkdirs()
+        target.writeText(prettyJson.encodeToString(JsonObject.serializer(), snapshot) + "\n")
+    }
+
+    private fun UIMessage.toTraceSnapshot(): JsonObject = buildJsonObject {
+        put("role", role.name)
+        put("parts", buildJsonArray {
+            parts.forEach { part ->
+                add(buildJsonObject {
+                    when (part) {
+                        is UIMessagePart.Text -> {
+                            put("type", "text")
+                            put("text", part.text)
+                        }
+                        is UIMessagePart.Reasoning -> {
+                            put("type", "reasoning")
+                            put("text", part.reasoning)
+                        }
+                        is UIMessagePart.Tool -> {
+                            put("type", "tool")
+                            put("id", part.toolCallId)
+                            put("name", part.toolName)
+                            put("input", json.parseToJsonElement(part.input))
+                        }
+                        is UIMessagePart.ServerTool -> {
+                            put("type", "server_tool")
+                            put("id", part.toolCallId)
+                            put("name", part.toolName)
+                            put("status", part.status.name)
+                            part.input?.let { put("input", it) }
+                            (part.output as? JsonArray)?.let { output ->
+                                put("resultCount", output.size)
+                                putJsonArray("resultTypes") {
+                                    output.mapNotNull { result ->
+                                        (result as? JsonObject)?.get("type")?.jsonPrimitive?.contentOrNull
+                                    }.distinct().forEach { add(it) }
+                                }
+                            }
+                            part.metadataAs<ServerToolMetadata>()?.let { metadata ->
+                                metadata.call?.get("type")?.jsonPrimitive?.contentOrNull?.let {
+                                    put("callType", it)
+                                }
+                                metadata.result?.get("type")?.jsonPrimitive?.contentOrNull?.let {
+                                    put("resultType", it)
+                                }
+                            }
+                        }
+                        is UIMessagePart.Image -> {
+                            put("type", "image")
+                            val header = part.url.substringBefore(",")
+                            val bytes = Base64.getDecoder().decode(part.url.substringAfter(","))
+                            put("mimeType", header.removePrefix("data:").substringBefore(";"))
+                            put("byteCount", bytes.size)
+                            put("sha256", bytes.sha256())
+                        }
+                        else -> error("Unsupported trace part: ${part::class.simpleName}")
+                    }
+                    if (part !is UIMessagePart.ServerTool) {
+                        part.metadata?.let { put("metadata", it) }
+                    }
+                })
+            }
+        })
+        putJsonArray("annotations") {
+            annotations.forEach { annotation ->
+                when (annotation) {
+                    is UIMessageAnnotation.UrlCitation -> add(buildJsonObject {
+                        put("type", "url_citation")
+                        put("title", annotation.title)
+                        put("url", annotation.url)
+                    })
+                }
+            }
+        }
+        usage?.let { usage ->
+            putJsonObject("usage") {
+                put("promptTokens", usage.promptTokens)
+                put("completionTokens", usage.completionTokens)
+                put("cachedTokens", usage.cachedTokens)
+                put("totalTokens", usage.totalTokens)
+            }
+        }
+        put("finished", finishedAt != null)
+    }
+
+    private fun ByteArray.sha256(): String = MessageDigest.getInstance("SHA-256")
+        .digest(this)
+        .joinToString("") { byte -> "%02x".format(byte) }
+
+    private companion object {
+        const val UPDATE_SNAPSHOTS_ENV = "UPDATE_STREAM_TRACE_SNAPSHOTS"
+        val prettyJson = Json { prettyPrint = true }
+    }
 }

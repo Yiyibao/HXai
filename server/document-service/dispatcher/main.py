@@ -65,7 +65,6 @@ def cleanup(store):
         if not safe_id(row["id"]):
             raise RuntimeError("invalid_cleanup_identity")
         stop_task_containers("mathdoc-" + row["id"])
-        store.record_worker_stopped(row["id"])
         directory = store.root / "jobs" / row["id"]
         if directory.parent != store.root / "jobs" or directory.resolve() != directory or directory.is_symlink():
             raise RuntimeError("invalid_cleanup_path")
@@ -194,9 +193,6 @@ def execute(store, row):
             shutil.rmtree(directory / "publishing", ignore_errors=True)
         elif failure is not None:
             store.finish(job_id, "FAILED", error=failure)
-        # A terminal/cancel ACK above is deliberately not this stop proof.
-        # If stop_task_containers or unmount raised, execution never reaches here.
-        store.record_worker_stopped(job_id)
 
 
 def main():
@@ -212,7 +208,6 @@ def main():
                 continue
             stop_task_containers("mathdoc-" + row["id"])
             subprocess.run(["umount", str(ROOT / "jobs" / row["id"] / "output")], capture_output=True)
-            store.record_worker_stopped(row["id"])
         for row in known:
             if row["state"] == "RUNNING" and safe_id(row["id"]):
                 store.finish(row["id"], "FAILED", error="server_restarted")

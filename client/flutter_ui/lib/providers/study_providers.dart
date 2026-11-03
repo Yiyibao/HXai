@@ -227,9 +227,8 @@ class ConversationsNotifier
     if (_refreshRevision == _revision ||
         _pageRevision == _revision ||
         !state.hasValue ||
-        state.isLoading) {
+        state.isLoading)
       return false;
-    }
     final requestRef = ref;
     final profile = requestRef.read(activeProfileIdProvider);
     final epoch = requestRef.read(contextEpochProvider);
@@ -347,9 +346,8 @@ class ActiveConversationNotifier extends AsyncNotifier<ConversationDetailDto?> {
   Future<ConversationDetailDto?> build() async {
     _lifetime++;
     listenSelf((_, next) {
-      if (next.hasValue && _displayPatches.isNotEmpty && !_refreshing) {
+      if (next.hasValue && _displayPatches.isNotEmpty && !_refreshing)
         scheduleMicrotask(_flushDisplay);
-      }
     });
     _pendingRequest = null;
     _displayTimer?.cancel();
@@ -368,9 +366,8 @@ class ActiveConversationNotifier extends AsyncNotifier<ConversationDetailDto?> {
       final event = next.value;
       if (event == null ||
           event['profileId'] != profileId ||
-          event['contextEpoch'] != epoch) {
+          event['contextEpoch'] != epoch)
         return;
-      }
       final sequence = event['sequence'] as int?;
       if (sequence != null && sequence <= _lastSequence) return;
       final gap =
@@ -420,9 +417,8 @@ class ActiveConversationNotifier extends AsyncNotifier<ConversationDetailDto?> {
             lifetime != _lifetime ||
             requestRef.read(activeProfileIdProvider) != profileId ||
             requestRef.read(contextEpochProvider) != epoch ||
-            requestRef.read(activeConversationIdProvider) != convId) {
+            requestRef.read(activeConversationIdProvider) != convId)
           return;
-        }
         state = result;
       } while (_pendingRefresh);
     } finally {
@@ -574,91 +570,6 @@ class MaterialsNotifier extends ProfileListNotifier<MaterialFileDto> {
 }
 
 /// 7. Memories Provider
-final memoryProtectionProvider =
-    AsyncNotifierProvider.autoDispose<MemoryProtectionNotifier, MemoryProtectionDto>(
-      MemoryProtectionNotifier.new,
-      retry: (_, _) => null,
-    );
-
-class MemoryProtectionNotifier extends AsyncNotifier<MemoryProtectionDto> {
-  int _revision = 0;
-  Object? _mutation;
-
-  Future<MemoryProtectionDto> _fetch(String profile, int epoch) async {
-    final result = await bridgeApi.getMemoryProtection(profile, epoch);
-    if (result.profileId != profile || result.contextEpoch != epoch) {
-      throw StateError('记忆状态已过期，请刷新');
-    }
-    return result;
-  }
-
-  @override
-  Future<MemoryProtectionDto> build() {
-    final profile = ref.watch(activeProfileIdProvider);
-    final epoch = ref.watch(contextEpochProvider);
-    _revision++;
-    _mutation = null;
-    return _fetch(profile, epoch);
-  }
-
-  Future<void> refresh() async {
-    if (_mutation != null) return;
-    if (state.isLoading) {
-      // Cancel the framework-owned first build/old refresh before it can publish.
-      ref.invalidateSelf();
-      return;
-    }
-    await _reload();
-  }
-
-  Future<void> _reload() async {
-    final requestRef = ref;
-    final profile = requestRef.read(activeProfileIdProvider);
-    final epoch = requestRef.read(contextEpochProvider);
-    final revision = ++_revision;
-    state = const AsyncValue.loading();
-    final result = await AsyncValue.guard(() => _fetch(profile, epoch));
-    if (requestRef.mounted && revision == _revision &&
-        requestRef.read(activeProfileIdProvider) == profile &&
-        requestRef.read(contextEpochProvider) == epoch) {
-      state = result;
-    }
-  }
-
-  Future<bool> setEnabled(bool enabled) async {
-    if (_mutation != null) return false;
-    final requestRef = ref;
-    final keepAlive = requestRef.keepAlive();
-    final profile = requestRef.read(activeProfileIdProvider);
-    final epoch = requestRef.read(contextEpochProvider);
-    bool current() => requestRef.mounted &&
-        requestRef.read(activeProfileIdProvider) == profile &&
-        requestRef.read(contextEpochProvider) == epoch;
-    _revision++;
-    final mutation = Object();
-    _mutation = mutation;
-    state = const AsyncValue.loading();
-    try {
-      final result = await AsyncValue.guard(
-        () => bridgeApi.toggleAutoMemory(profile, enabled, epoch));
-      if (!current()) return false;
-      if (_mutation == mutation) _mutation = null;
-      // Read the durable setting again on both success and failure.
-      await _reload();
-      if (!current()) return false;
-      if (result.hasError) {
-        Error.throwWithStackTrace(result.error!, result.stackTrace!);
-      }
-      checkCommand(result.requireValue);
-      requestRef.invalidate(bootstrapProvider);
-      return true;
-    } finally {
-      if (_mutation == mutation) _mutation = null;
-      keepAlive.close();
-    }
-  }
-}
-
 final memoriesProvider =
     AsyncNotifierProvider<MemoriesNotifier, List<MemoryItemDto>>(
       MemoriesNotifier.new,
@@ -701,8 +612,14 @@ class MemoriesNotifier extends ProfileListNotifier<MemoryItemDto> {
     return res.success;
   }
 
-  Future<bool> toggleAutoMemory(bool enabled) =>
-      ref.read(memoryProtectionProvider.notifier).setEnabled(enabled);
+  Future<void> toggleAutoMemory(bool enabled) async {
+    final profileId = ref.read(activeProfileIdProvider);
+    final requestRef = ref;
+    checkCommand(await bridgeApi.toggleAutoMemory(profileId, enabled));
+    if (requestRef.mounted &&
+        requestRef.read(activeProfileIdProvider) == profileId)
+      requestRef.invalidate(bootstrapProvider);
+  }
 }
 
 /// 8. Artifacts Provider
@@ -723,9 +640,7 @@ final artifactPreviewProvider =
       final preview = await bridgeApi.getArtifactPreview(profile, id, epoch);
       if (!ref.mounted ||
           ref.read(activeProfileIdProvider) != profile ||
-          ref.read(contextEpochProvider) != epoch) {
-        return null;
-      }
+          ref.read(contextEpochProvider) != epoch) return null;
       final current = ref.read(artifactsProvider);
       if (current.isLoading || current.hasError ||
           current.value?.any((candidate) => candidate == item) != true) {
@@ -806,9 +721,8 @@ class SkillsNotifier extends AsyncNotifier<List<SkillDto>> {
     final result = await AsyncValue.guard(() => bridgeApi.getSkills(owner));
     if (ref.mounted &&
         owner == ref.read(activeProfileIdProvider) &&
-        epoch == ref.read(contextEpochProvider)) {
+        epoch == ref.read(contextEpochProvider))
       state = result;
-    }
   }
 
   Future<void> setEnabled(String name, bool enabled) async {

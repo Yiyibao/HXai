@@ -54,10 +54,9 @@ class ModelConfigDetailPage extends ConsumerWidget {
                               .read(providersConfigProvider.notifier)
                               .selectActiveModel(provider!.id, m.id);
                         } catch (e) {
-                          if (context.mounted) {
+                          if (context.mounted)
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(SnackBar(content: Text('$e')));
-                          }
                         }
                       },
                 child: Text(active == m.id ? '当前模型' : '设为当前模型'),
@@ -76,10 +75,9 @@ class ModelConfigDetailPage extends ConsumerWidget {
                 try {
                   checkCommand(await bridgeApi.openNativePage('providers'));
                 } catch (e) {
-                  if (context.mounted) {
+                  if (context.mounted)
                     ScaffoldMessenger.of(context)
                         .showSnackBar(SnackBar(content: Text('$e')));
-                  }
                 }
               },
             ),

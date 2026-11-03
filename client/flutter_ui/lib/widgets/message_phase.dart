@@ -42,10 +42,9 @@ class _MessagePhaseState extends ConsumerState<MessagePhase> {
     try {
       await action();
     } catch (error) {
-      if (mounted) {
+      if (mounted)
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('操作未完成：$error')));
-      }
     } finally {
       if (mounted) setState(() => busy = false);
     }

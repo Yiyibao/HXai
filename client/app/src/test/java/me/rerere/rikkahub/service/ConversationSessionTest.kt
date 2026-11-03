@@ -27,33 +27,6 @@ import org.junit.Test
 import kotlin.uuid.Uuid
 
 class ConversationSessionTest {
-    @Test fun `compression commits only unchanged history and keeps current metadata`() = runBlocking {
-        val before=Conversation.ofId(Uuid.random()).copy(messageNodes=listOf(UIMessage.user("old").let {
-            me.rerere.rikkahub.data.model.MessageNode(messages=listOf(it))
-        }))
-        val session=ConversationSession(before.id,before,this,{})
-        session.initialize { before }
-        val token=session.backgroundToken()
-        session.updateConversation(before.copy(title="new metadata"))
-        val summary=listOf(me.rerere.rikkahub.data.model.MessageNode(messages=listOf(UIMessage.user("summary"))))
-        var saved: Conversation?=null
-        assertTrue(session.commitCompressedHistory(before,token,summary,{ true }) { saved=it })
-        assertEquals("new metadata",saved!!.title)
-        val committed=session.state.value
-        assertFalse(session.commitCompressedHistory(before,token,summary,{ true }) { error("Stale history must not persist") })
-        assertEquals(committed,session.state.value)
-    }
-    @Test fun `queued input or changed epoch rejects compression without data loss`() = runBlocking {
-        val before=Conversation.ofId(Uuid.random())
-        val session=ConversationSession(before.id,before,this,{})
-        session.initialize { before }
-        val token=session.backgroundToken()
-        session.updateQueue({}) { it.enqueue(listOf(UIMessagePart.Text("new input"))) }
-        assertFalse(session.commitCompressedHistory(before,token,emptyList(),{ true }) { error("Pending input must not be overwritten") })
-        assertEquals("new input",session.messageQueue.state.value.messages.single().parts.single().let { (it as UIMessagePart.Text).text })
-        session.invalidateBackgroundResults()
-        assertFalse(session.commitCompressedHistory(session.state.value,token,emptyList(),{ true }) { error("Old epoch must not persist") })
-    }
     @Test fun `approval retry commits current safety pause and concurrent queued input atomically`() = runBlocking {
         val initial = Conversation.ofId(Uuid.random())
         val session = ConversationSession(initial.id, initial, this, {})
@@ -94,7 +67,7 @@ class ConversationSessionTest {
         assertEquals(queued.id, reopened.messageQueue.state.value.messages.single().id)
         assertEquals(stored.queue, reopened.state.value.queue)
         reopened.updateQueue({ stored = it }) { it.resume() }
-        reopened.commitQueuedInput(reopened.messageQueue.state.value.messages.single(), queued.parts, persist = { stored = it })
+        reopened.commitQueuedInput(reopened.messageQueue.state.value.messages.single(), queued.parts) { stored = it }
         assertTrue(stored.queue.messages.isEmpty())
         assertEquals(queued.id, stored.currentMessages.single().id)
     }
@@ -104,7 +77,7 @@ class ConversationSessionTest {
         val session = ConversationSession(initial.id, initial, this, {})
         session.updateQueue({}) { it.enqueue(listOf(UIMessagePart.Text("queued"))) }
         val queued = session.messageQueue.state.value.messages.single()
-        assertTrue(runCatching { session.commitQueuedInput(queued, queued.parts, persist = { error("disk full") }) }.isFailure)
+        assertTrue(runCatching { session.commitQueuedInput(queued, queued.parts) { error("disk full") } }.isFailure)
         assertEquals(queued.id, session.messageQueue.state.value.messages.single().id)
         assertTrue(session.state.value.currentMessages.isEmpty())
         assertTrue(runCatching { session.updateQueue({ error("disk full") }) { it.remove(queued.id) } }.isFailure)

@@ -60,8 +60,7 @@ Future<void> _openBackup(BuildContext context) async {
   try {
     checkCommand(await bridgeApi.openNativePage('backup'));
   } catch (e) {
-    if (context.mounted) {
+    if (context.mounted)
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$e')));
-    }
   }
 }

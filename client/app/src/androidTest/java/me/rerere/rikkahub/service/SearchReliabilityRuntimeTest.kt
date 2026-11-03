@@ -4,7 +4,7 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.*
 import me.rerere.ai.ui.UIMessagePart
-import me.rerere.rikkahub.data.ai.tools.createEnhancedSearchTools
+import me.rerere.rikkahub.data.ai.tools.createSearchTools
 import me.rerere.rikkahub.data.ai.tools.searchToolResult
 import me.rerere.rikkahub.data.datastore.Settings
 import me.rerere.search.NoSearchResultsException
@@ -24,10 +24,7 @@ class SearchReliabilityRuntimeTest {
     }
 
     @Test fun liveDefaultSearchAndSourceReading() = runBlocking {
-        val files = org.koin.core.context.GlobalContext.get().get<me.rerere.rikkahub.feature.material.MaterialFiles>()
-        val profileId = java.util.UUID.randomUUID().toString()
-        try {
-        val tools = createEnhancedSearchTools(Settings(searchServices = listOf(SearchServiceOptions.BingLocalOptions())), files, profileId)
+        val tools = createSearchTools(Settings(searchServices = listOf(SearchServiceOptions.BingLocalOptions())))
         val search = tools.single { it.name == "search_web" }.execute(buildJsonObject { put("query", "Wolfram MathWorld derivative") })
         val result = Json.parseToJsonElement((search.single() as UIMessagePart.Text).text).jsonObject
         assertEquals("Live search must return actual sources", "ok", result["status"]!!.jsonPrimitive.content)
@@ -36,8 +33,5 @@ class SearchReliabilityRuntimeTest {
         val page = Json.parseToJsonElement((fetch.single() as UIMessagePart.Text).text).jsonObject
         assertTrue("Original page must be readable", page["urls"]!!.jsonArray.first().jsonObject["content"]!!.jsonPrimitive.content.length > 100)
         println("SEARCH_RUNTIME provider=${result["provider"]} sources=${result["items"]!!.jsonArray.size} originalPageRead=true")
-        } finally {
-            androidx.test.platform.app.InstrumentationRegistry.getInstrumentation().targetContext.filesDir.resolve("materials/$profileId").deleteRecursively()
-        }
     }
 }

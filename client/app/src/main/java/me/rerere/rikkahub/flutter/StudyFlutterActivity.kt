@@ -19,9 +19,6 @@ import me.rerere.rikkahub.service.ChatService
 import org.koin.core.context.GlobalContext
 
 class StudyFlutterActivity : FlutterActivity() {
-    private val foreground=java.util.concurrent.atomic.AtomicBoolean(false)
-    override fun onResume() { super.onResume();foreground.set(true) }
-    override fun onPause() { foreground.set(false);super.onPause() }
 
     private var fileSelection: kotlinx.coroutines.CompletableDeferred<List<android.net.Uri>>? = null
     private suspend fun pickFiles(): List<android.net.Uri> {
@@ -49,22 +46,9 @@ class StudyFlutterActivity : FlutterActivity() {
             return result.await()
         } finally { saveSelection = null }
     }
-    private var directorySelection: kotlinx.coroutines.CompletableDeferred<android.net.Uri?>? = null
-    private suspend fun pickDirectory(): android.net.Uri? {
-        check(directorySelection == null && foreground.get()) { "请在前台选择授权目录" }
-        val result = kotlinx.coroutines.CompletableDeferred<android.net.Uri?>()
-        directorySelection = result
-        try {
-            startActivityForResult(Intent(Intent.ACTION_OPEN_DOCUMENT_TREE).apply {
-                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_PREFIX_URI_PERMISSION)
-            }, 7103)
-            return result.await()
-        } finally { directorySelection = null }
-    }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 7102) saveSelection?.complete(if (resultCode == RESULT_OK) data?.data else null)
-        if (requestCode == 7103) directorySelection?.complete(if (resultCode == RESULT_OK) data?.data else null)
         if (requestCode == 7101) {
             val uris = if (resultCode != RESULT_OK) emptyList() else data?.clipData?.let { clip ->
                 (0 until clip.itemCount).map { clip.getItemAt(it).uri }
@@ -144,8 +128,6 @@ class StudyFlutterActivity : FlutterActivity() {
             providerManager = providerManager,
             pickFiles = ::pickFiles,
             saveFile = ::saveFile,
-            foregroundConfirmationAllowed = { foreground.get() },
-            pickDirectory = ::pickDirectory,
         )
         this.facade = hostFacade
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "me.rerere.rikkahub/frontend_features")
@@ -169,10 +151,8 @@ class StudyFlutterActivity : FlutterActivity() {
     }
 
     override fun onDestroy() {
-        foreground.set(false)
         fileSelection?.cancel()
         saveSelection?.cancel()
-        directorySelection?.cancel()
         facade?.close()
         super.onDestroy()
     }

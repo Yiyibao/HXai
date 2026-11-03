@@ -16,7 +16,6 @@ import '../providers/frontend_feature_providers.dart';
 import '../widgets/chat_composer.dart';
 import '../widgets/chat_timeline.dart';
 import '../widgets/attachment_options_sheet.dart';
-import '../widgets/agent_task_panel.dart';
 import '../providers/image_creation_providers.dart';
 import 'image_creation_page.dart';
 import 'image_create_studio.dart';
@@ -90,20 +89,17 @@ class _ChatPageState extends ConsumerState<ChatPage>
       if (!mounted ||
           revision != _sendRevision ||
           ref.read(activeProfileIdProvider) != profile ||
-          ref.read(contextEpochProvider) != epoch) {
+          ref.read(contextEpochProvider) != epoch)
         return;
-      }
       if (_textController.text.trim() == text) _textController.clear();
       setState(() => _pendingAttachments.removeWhere(attachments.contains));
     } catch (error) {
-      if (mounted && revision == _sendRevision) {
+      if (mounted && revision == _sendRevision)
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('发送失败，草稿已保留：$error')));
-      }
     } finally {
-      if (mounted && revision == _sendRevision) {
+      if (mounted && revision == _sendRevision)
         setState(() => _sending = false);
-      }
     }
   }
 
@@ -121,15 +117,13 @@ class _ChatPageState extends ConsumerState<ChatPage>
         ref.read(activeConversationIdProvider) == id &&
         ref.read(conversationSelectionRevisionProvider) == selection;
     try {
-      if (id != null) {
+      if (id != null)
         checkCommand(await bridgeApi.setStudyMode(profile, id, mode));
-      }
       if (current()) ref.read(activeStudyModeProvider.notifier).state = mode;
     } catch (error) {
-      if (mounted && current()) {
+      if (mounted && current())
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('$error')));
-      }
     }
   }
 
@@ -247,11 +241,6 @@ class _ChatPageState extends ConsumerState<ChatPage>
           children: [
             Column(
               children: [
-                if (convDetailAsync.value != null)
-                  AgentTaskPanel(
-                    key: ValueKey('${ref.read(activeProfileIdProvider)}:${ref.read(contextEpochProvider)}:${convDetailAsync.value!.id}:${ref.read(conversationSelectionRevisionProvider)}'),
-                    conversationId: convDetailAsync.value!.id,
-                  ),
                 Expanded(
                   child: convDetailAsync.when(
                     skipLoadingOnRefresh: false,
@@ -446,9 +435,8 @@ class _ChatPageState extends ConsumerState<ChatPage>
                     .firstOrNull,
               ),
             );
-            if (liveNode == null || liveNode.branches.isEmpty) {
+            if (liveNode == null || liveNode.branches.isEmpty)
               return const SizedBox.shrink();
-            }
             final live =
                 liveNode.branches[liveNode.selectIndex.toInt().clamp(
                   0,
@@ -703,12 +691,11 @@ class _ChatPageState extends ConsumerState<ChatPage>
                 color: StudyPalette.of(context).textGray,
               ),
               onSelected: (action) {
-                if (action == 'sources') {
+                if (action == 'sources')
                   CitationsSheet.show(
                     context,
                     citations: messageCitations(message),
                   );
-                }
               },
               itemBuilder: (_) => [
                 const PopupMenuItem(value: 'sources', child: Text('来源引用')),
@@ -728,9 +715,8 @@ class _ChatPageState extends ConsumerState<ChatPage>
         final output = jsonDecode(part.toolOutput ?? '') as Map;
         if (output['kind'] != 'interactive_surface' ||
             output['revision'] is! String ||
-            output['definition'] is! Map) {
+            output['definition'] is! Map)
           continue;
-        }
         return '请调用 revise_interactive_surface 修改当前成果，生成可预览的新版并保留旧版，不要在正文输出 JSON（message_id=${message.id} tool_call_id=${part.toolCallId} expected_revision=${output['revision']}）。修改要求：';
       } catch (_) {}
     }
@@ -848,10 +834,9 @@ class _ChatPageState extends ConsumerState<ChatPage>
         await ref.read(conversationsProvider.notifier).refresh();
       }
     } catch (error) {
-      if (mounted && current()) {
+      if (mounted && current())
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('$error')));
-      }
     }
   }
 
@@ -868,15 +853,13 @@ class _ChatPageState extends ConsumerState<ChatPage>
         _ => await bridgeApi.openArtifact(owner, id),
       };
       checkCommand(result);
-      if (mounted && action == 'save') {
+      if (mounted && action == 'save')
         ScaffoldMessenger.of(context)
             .showSnackBar(const SnackBar(content: Text('已保存并校验文件')));
-      }
     } catch (e) {
-      if (mounted) {
+      if (mounted)
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('$e')));
-      }
     }
   }
 
@@ -896,14 +879,12 @@ class _ChatPageState extends ConsumerState<ChatPage>
           ref.read(contextEpochProvider),
         ),
       );
-      if (mounted) {
+      if (mounted)
         await ref.read(activeConversationDetailProvider.notifier).refresh();
-      }
     } catch (e) {
-      if (mounted) {
+      if (mounted)
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('$e')));
-      }
     }
   }
 
@@ -996,7 +977,6 @@ class _ChatPageState extends ConsumerState<ChatPage>
         if ([
               'parse_material_enhanced',
               'convert_material_to_pdf',
-              'recalculate_material_xlsx',
             ].contains(part.toolName) &&
             part.executionState == 'COMPLETED') {
           try {
@@ -1122,10 +1102,9 @@ class _ChatPageState extends ConsumerState<ChatPage>
       final paths = await bridgeApi.pickAttachments(profile, epoch);
       if (current()) setState(() => _pendingAttachments.addAll(paths));
     } catch (error) {
-      if (mounted && current()) {
+      if (current())
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('$error')));
-      }
     }
   }
 

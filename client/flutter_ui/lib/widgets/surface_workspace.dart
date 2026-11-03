@@ -56,9 +56,8 @@ class _SurfaceWorkspaceState extends State<SurfaceWorkspace> {
     busy = true;
     final requested = revision;
     try {
-      if (await save?.call() == false || !mounted || requested != revision) {
+      if (await save?.call() == false || !mounted || requested != revision)
         return;
-      }
       setState(() {
         selected = null;
         preview = null;

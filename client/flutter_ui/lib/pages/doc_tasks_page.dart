@@ -73,13 +73,12 @@ class _DocTasksPageState extends ConsumerState<DocTasksPage> {
                             (filter == '失败' && t.state == 'FAILED'),
                       )
                       .toList();
-                  if (list.isEmpty) {
+                  if (list.isEmpty)
                     return StudyEmptyState(
                       icon: Icons.description_outlined,
                       title: filter == '全部' ? '还没有文档任务' : '没有符合条件的任务',
                       description: '在聊天中提出文件处理要求后，可在这里查看实际处理范围与状态。',
                     );
-                  }
                   return RefreshIndicator(
                     onRefresh: () async {
                       ref.invalidate(documentTasksProvider);

@@ -29,7 +29,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
   @override
   Widget build(BuildContext context) {
     final s = widget.skill;
-    if (s == null) {
+    if (s == null)
       return const Scaffold(
         appBar: StudyHeader('Skill 详情'),
         body: StudyEmptyState(
@@ -38,7 +38,6 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
           description: '请从 Skills 列表打开。',
         ),
       );
-    }
     final name = s.name;
     final description = s.description;
     final source = s.builtin == true ? '内置技能包' : '本地导入技能包';
@@ -84,10 +83,9 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
                       checkCommand(result);
                     })
                     .catchError((Object e) {
-                      if (context.mounted) {
+                      if (context.mounted)
                         ScaffoldMessenger.of(context)
                             .showSnackBar(SnackBar(content: Text('$e')));
-                      }
                     });
               }
             },
@@ -250,11 +248,10 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
                                   .setEnabled(s.name, val);
                             } catch (e) {
                               if (mounted) setState(() => _enabled = !val);
-                              if (context.mounted) {
+                              if (context.mounted)
                                 ScaffoldMessenger.of(
                                   context,
                                 ).showSnackBar(SnackBar(content: Text('$e')));
-                              }
                             }
                           }
                         },

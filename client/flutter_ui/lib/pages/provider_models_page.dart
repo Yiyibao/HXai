@@ -23,10 +23,9 @@ class _ProviderModelsPageState extends ConsumerState<ProviderModelsPage> {
       checkCommand(await bridgeApi.openNativePage('providers'));
       ref.invalidate(providersConfigProvider);
     } catch (e) {
-      if (mounted) {
+      if (mounted)
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('$e')));
-      }
     } finally {
       if (mounted) setState(() => busy = false);
     }

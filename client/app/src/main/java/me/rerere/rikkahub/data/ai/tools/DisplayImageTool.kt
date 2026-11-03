@@ -1,20 +1,15 @@
 package me.rerere.rikkahub.data.ai.tools
 
-import android.graphics.BitmapFactory
-import androidx.core.net.toFile
-import androidx.core.net.toUri
 import kotlinx.serialization.json.*
 import me.rerere.ai.core.InputSchema
 import me.rerere.ai.core.Tool
 import me.rerere.ai.ui.UIMessagePart
 
 fun displayImageTool(
-    materials: me.rerere.rikkahub.feature.material.MaterialFiles,
-    profileId: String,
     service: me.rerere.search.WebImageService = webImageService,
 ) = Tool(
     name = "display_image",
-    description = "展示当前档案已校验的本地图片，或将真实公网 http/https 图片下载、解码并保存后展示。优先使用检索返回的本地 url，避免再次联网。sourceUrl/sourceTitle 用于来源，caption 用于简短说明；不会访问私网或任意本地路径。",
+    description = "下载并解码验证已有图片，通过后嵌入当前聊天。url须为用户或检索工具提供的真实http/https图片直链。请把检索返回的sourceUrl和sourceTitle一并传入以展示来源；caption可写简短说明。检索用search_images，网页提图用extract_web_images。",
     parameters = {
         InputSchema.Obj(buildJsonObject {
             put("url", buildJsonObject { put("type", "string"); put("maxLength", 16000) })
@@ -27,6 +22,8 @@ fun displayImageTool(
         try {
             val url = args.jsonObject.getValue("url").jsonPrimitive.also { require(it.isString) }.content
             require(url.length in 1..16000)
+            val uri = java.net.URI(url)
+            require(uri.scheme in setOf("http", "https") && !uri.host.isNullOrEmpty() && uri.userInfo == null)
             val caption = args.jsonObject["caption"]?.jsonPrimitive?.also {
                 require(it.isString && it.content.length <= 2000)
             }?.content
@@ -35,37 +32,18 @@ fun displayImageTool(
             val sourceTitle = args.jsonObject["sourceTitle"]?.jsonPrimitive?.also {
                 require(it.isString && it.content.length <= 300)
             }?.content
-            val uri = java.net.URI(url)
-            val asset = if (uri.scheme == "file") {
-                require(uri.rawAuthority.isNullOrEmpty() && uri.rawQuery == null && uri.rawFragment == null)
-                val file = url.toUri().toFile().canonicalFile
-                val item = materials.get(profileId, file.nameWithoutExtension)
-                require(item.extension in setOf("png", "jpg", "jpeg", "webp", "gif") &&
-                    materials.verifiedFile(profileId, item.id).canonicalFile == file) { "图片不属于当前档案" }
-                item
-            } else {
-                require(me.rerere.search.validWebImageUrl(url) != null)
-                val verified = service.verify(listOf(me.rerere.search.SearchImage(url))).singleOrNull()
-                    ?: error("图片下载或解码未通过")
-                persistWebImage(verified, materials, profileId)
-            }
-            val file = materials.verifiedFile(profileId, asset.id)
-            val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-            BitmapFactory.decodeFile(file.path, bounds)
-            check(bounds.outWidth > 0 && bounds.outHeight > 0) { "图片解码失败" }
-            buildList {
-                add(UIMessagePart.Image(file.toUri().toString()).apply {
+            val verified = service.verify(listOf(me.rerere.search.SearchImage(url))).singleOrNull()
+            if (verified == null) {
+                listOf(UIMessagePart.Text("图片加载验证失败：下载或解码未通过，请从 search_images 或 extract_web_images 选择其他图片。"))
+            } else buildList {
+                add(UIMessagePart.Image(url).apply {
                     metadata = buildJsonObject {
                         caption?.let { put("caption", it) }
                         sourceUrl?.let { put("sourceUrl", it) }
                         sourceTitle?.let { put("sourceTitle", it) }
-                        put("width", bounds.outWidth)
-                        put("height", bounds.outHeight)
-                        put("materialId", asset.id)
-                        put("profileId", asset.profileId)
-                        put("sha256", asset.sha256)
-                        put("remoteUrl", asset.requestKey)
-                        put("verifiedAt", java.time.Instant.now().toString())
+                        put("width", verified.width)
+                        put("height", verified.height)
+                        put("verifiedAt", verified.verifiedAt)
                     }
                 })
                 sourceUrl?.let {

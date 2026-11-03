@@ -42,19 +42,12 @@ import me.rerere.rikkahub.feature.memory.LearningMemoryStore
 import me.rerere.rikkahub.feature.studychat.LearnerProfile
 import me.rerere.rikkahub.feature.studychat.StudyMode
 import me.rerere.rikkahub.flutter.generated.ArtifactDto
-import me.rerere.rikkahub.flutter.generated.AgentCatalogTaskDto
-import me.rerere.rikkahub.flutter.generated.AgentCatalogPageDto
-import me.rerere.rikkahub.flutter.generated.AgentCatalogDetailDto
-import me.rerere.rikkahub.flutter.generated.AgentCatalogStepDto
-import me.rerere.rikkahub.flutter.generated.AgentCatalogCallDto
-import me.rerere.rikkahub.flutter.generated.AgentCatalogArtifactDto
 import me.rerere.rikkahub.flutter.generated.ConversationDetailDto
 import me.rerere.rikkahub.flutter.generated.ConversationSummaryDto
 import me.rerere.rikkahub.flutter.generated.DiagnosticsDto
 import me.rerere.rikkahub.flutter.generated.LearnerProfileDto
 import me.rerere.rikkahub.flutter.generated.MaterialFileDto
 import me.rerere.rikkahub.flutter.generated.MemoryItemDto
-import me.rerere.rikkahub.flutter.generated.MemoryProtectionDto
 import me.rerere.rikkahub.flutter.generated.MessageDto
 import me.rerere.rikkahub.flutter.generated.MessageNodeDto
 import me.rerere.rikkahub.flutter.generated.MessagePartDto
@@ -89,10 +82,7 @@ class StudyHostFacade(
     private val pickFiles: suspend () -> List<android.net.Uri>,
     private val saveFile: suspend (String, String) -> android.net.Uri? = { _, _ -> null },
     private val documents: me.rerere.rikkahub.feature.material.DocumentServiceRepository = org.koin.core.context.GlobalContext.get().get(),
-    private val foregroundConfirmationAllowed: () -> Boolean = { false },
-    private val pickDirectory: suspend () -> android.net.Uri? = { null },
 ) : StudyHostApi {
-    private val usageExportHistory = me.rerere.rikkahub.feature.agent.AgentUsageExportHistory(context)
 
     /** Appearance-side document screens reuse the existing protected repository. */
     fun handleFrontendFeature(method: String, args: Map<*, *>, result: io.flutter.plugin.common.MethodChannel.Result) {
@@ -102,47 +92,7 @@ class StudyHostFacade(
                 val epoch = (args["epoch"] as? Number)?.toLong() ?: error("缺少上下文版本")
                 requireProfile(owner, epoch)
                 val value: Any? = withContext(Dispatchers.IO) {
-                    if (method.startsWith("extensions.")) {
-                        commandMutex.withLock {
-                            me.rerere.rikkahub.feature.agent.ExtensionFrontend(context).handle(method,owner,args) {
-                                requireProfile(owner,epoch)
-                                check(foregroundConfirmationAllowed()) { "扩展管理需保持应用前台" }
-                            }
-                        }
-                    } else if (method.startsWith("cloud.")) {
-                        me.rerere.rikkahub.feature.agent.CloudFrontend(context,settingsStore,conversationRepo,
-                            chatService,materialFiles).handle(method,owner,args,{ requireProfile(owner,epoch) },
-                            foregroundConfirmationAllowed)
-                    } else if (method == "evaluation.last") {
-                        val taskId=args["taskId"] as? String ?: error("缺少任务")
-                        agentScheduler.get(owner,taskId)
-                        me.rerere.rikkahub.feature.agent.AgentEvaluationExport.last(materialFiles,owner,taskId)
-                    } else if (method == "evaluation.export") {
-                        check(args["consent"] == true) { "请先确认保存本任务公开文本与回执引用" }
-                        check(foregroundConfirmationAllowed()) { "请在应用前台导出" }
-                        val taskId=args["taskId"] as? String ?: error("缺少任务")
-                        val request=args["requestId"] as? String ?: error("缺少请求标识")
-                        val revision=(args["revision"] as? Number)?.toLong() ?: error("缺少任务修订")
-                        val fence=(args["fence"] as? Number)?.toLong() ?: error("缺少执行代次")
-                        fun allowed() { requireProfile(owner,epoch);check(foregroundConfirmationAllowed()) { "导出需保持应用前台" } }
-                        val item=me.rerere.rikkahub.feature.agent.AgentEvaluationExport.export(materialFiles,owner,taskId,request,revision,fence,
-                            capture={
-                                val before=agentScheduler.captureEvaluation(owner,taskId,revision,fence)
-                                val conversationId=before.getValue("task").jsonObject.getValue("conversationId").jsonPrimitive.content
-                                val conversation=conversationRepo.getConversationById(Uuid.parse(conversationId),owner)
-                                val answer=me.rerere.rikkahub.feature.agent.AgentEvaluationSnapshot.answer(conversation,owner,taskId,conversationId)
-                                allowed()
-                                check(before==agentScheduler.captureEvaluation(owner,taskId,revision,fence)) { "任务或用量变化，请刷新后创建新快照" }
-                                check(answer==me.rerere.rikkahub.feature.agent.AgentEvaluationSnapshot.answer(
-                                    conversationRepo.getConversationById(Uuid.parse(conversationId),owner),owner,taskId,conversationId)) { "回答分支变化，请刷新后创建新快照" }
-                                me.rerere.rikkahub.feature.agent.AgentEvaluationSnapshot.assemble(before,answer)
-                            },allowed=::allowed)
-                        allowed()
-                        mapOf("owner" to owner,"taskId" to taskId,"artifactId" to item.id,"sha256" to item.sha256,"size" to item.size)
-                    } else if (method.startsWith("library.")) {
-                        me.rerere.rikkahub.feature.material.MaterialLibraryFrontend(context, materialFiles)
-                            .handle(method, owner, args, { requireProfile(owner, epoch) }, pickDirectory)
-                    } else when (method) {
+                    when (method) {
                         "imageConfig" -> imageCreation.modelInfo()
                         "selectImageModel" -> {
                             val id = Uuid.parse(args["modelId"] as? String ?: error("缺少模型"))
@@ -238,13 +188,10 @@ class StudyHostFacade(
                             require(conv.currentMessages.lastOrNull()?.id.toString() == args["messageId"]) { "消息已改变，请刷新" }
                             require(conv.currentMessages.last().parts.filterIsInstance<UIMessagePart.Tool>().none { it.executionState in setOf(me.rerere.ai.ui.ToolExecutionState.INTERRUPTED, me.rerere.ai.ui.ToolExecutionState.SKIPPED_UNKNOWN, me.rerere.ai.ui.ToolExecutionState.RUNNING) }) { "请先核对工具执行结果" }
                             requireProfile(owner, epoch)
-                            chatService.resumeInterruptedGeneration(conv.id,resumeManualPause=true)
+                            chatService.resumeInterruptedGeneration(conv.id)
                             null
                         }
                         "materialPath" -> materialFiles.verifiedFile(owner, args["id"] as? String ?: error("缺少文件 ID")).absolutePath
-                        "resolveChatImage" -> org.koin.core.context.GlobalContext.get().get<me.rerere.rikkahub.data.ai.tools.ChatImages>()
-                            .resolve(owner, args["source"] as? String ?: error("缺少图片地址"),
-                                args["conversationId"] as? String, checkAllowed = { requireProfile(owner, epoch) }).absolutePath
                         else -> error("未接入的前端功能")
                     }
                 }
@@ -397,8 +344,9 @@ class StudyHostFacade(
             }
         }
         if (conversationId != null) documentObservation = scope.launch(Dispatchers.IO) {
+            val delivered = mutableSetOf<String>()
             while (kotlinx.coroutines.currentCoroutineContext().isActive) {
-                try { syncChatDocuments(profileId, conversationId, expectedEpoch) }
+                try { syncChatDocuments(profileId, conversationId, expectedEpoch, delivered) }
                 catch (e: kotlinx.coroutines.CancellationException) { throw e }
                 catch (_: Exception) { /* State remains durable; retry uses the original task. */ }
                 kotlinx.coroutines.delay(10_000)
@@ -418,60 +366,72 @@ class StudyHostFacade(
         return tool to task
     }
 
-    private suspend fun syncChatDocuments(owner: String,id: String,epoch: Long) {
-        requireProfile(owner,epoch)
-        syncOfficeConversions(owner,id,epoch)
-        val conv=ownedConversation(owner,id)
-        for(message in conv.currentMessages.filter { it.role==MessageRole.ASSISTANT }) {
-            for(tool in message.getTools().filter { it.toolName=="parse_material_enhanced" &&
-                it.executionState==me.rerere.ai.ui.ToolExecutionState.COMPLETED }) {
-                chatService.continueRemoteTool(conv.id,message.id.toString(),tool.toolCallId,retry=false,validate={
-                    requireProfile(owner,epoch)
-                    val current=chatService.getConversationFlow(conv.id).value
-                    require(current.profileId==owner && me.rerere.rikkahub.feature.material.DocumentDispatchPolicy.allowsRemote(current.currentMessages))
-                    documentTool(current,message.id.toString(),tool.toolCallId)
-                }) { original ->
-                    try {
-                        var task=documentTool(ownedConversation(owner,id),message.id.toString(),original.toolCallId).second
-                        val metadata=Json.parseToJsonElement(original.output.filterIsInstance<UIMessagePart.Text>().first().text).jsonObject
-                        val batchId=metadata["batch_id"]?.jsonPrimitive?.content
-                        if(task.cancelRequested || batchId?.let { documents.batch(owner,it).cancelled }==true) return@continueRemoteTool null
-                        // Missing upload ACK is not permission to POST again.
-                        if(task.remoteId==null) return@continueRemoteTool null
-                        if(!task.downloaded) {
-                            task=documents.refresh(owner,task.id)
-                            if(task.state !in setOf("SUCCEEDED","PARTIAL")) return@continueRemoteTool null
-                            documents.download(owner,task.id)
-                        }
-                        documents.read(owner,task.id)
-                        val completed=if(batchId==null) listOf(documents.tasks(owner).single { it.id==task.id }) else {
-                            val next=documents.advanceBatch(owner,batchId) {
-                                requireProfile(owner,epoch)
-                                val current=chatService.getConversationFlow(conv.id).value
-                                require(current.profileId==owner && me.rerere.rikkahub.feature.material.DocumentDispatchPolicy.allowsRemote(current.currentMessages))
-                            }
-                            if(next!=null) {
-                                if(next.remoteId==null) return@continueRemoteTool null
-                                if(!next.downloaded) {
-                                    val refreshed=documents.refresh(owner,next.id)
-                                    if(refreshed.state in setOf("SUCCEEDED","PARTIAL")) documents.download(owner,next.id)
-                                }
-                                return@continueRemoteTool null
-                            }
-                            documents.batchTasks(owner,documents.batch(owner,batchId))
-                        }
-                        completed.forEach { documents.read(owner,it.id) }
-                        documentErrors.remove(task.id)
-                        listOf(UIMessagePart.Text(JsonObject(metadata+mapOf(
-                            "state" to JsonPrimitive("SUCCEEDED"),"downloaded" to JsonPrimitive(true),
-                            "completed_task_ids" to JsonArray(completed.map { JsonPrimitive(it.id) }),
-                            "notice" to JsonPrimitive("全部请求页的真实解析缓存已独立回读。继续原目标；用read_material_parse_blocks分页读取每个任务，不把下载完成当作全文理解。")
-                        )).toString()))
-                    } catch(error: kotlinx.coroutines.CancellationException) { throw error }
-                    catch(error: Exception) {
-                        documentErrors[tool.toolCallId]="连接或结果校验失败；原件和原任务保留，不重放未知上传"
-                        throw error
+    private suspend fun syncChatDocuments(owner: String, id: String, epoch: Long, delivered: MutableSet<String>) {
+        requireProfile(owner, epoch)
+        val conv = ownedConversation(owner, id)
+        syncOfficeConversions(owner, id, epoch, delivered)
+        for (message in conv.currentMessages.filter { it.role == MessageRole.ASSISTANT }) {
+            for (tool in message.parts.filterIsInstance<UIMessagePart.Tool>().filter { it.toolName == "parse_material_enhanced" && it.executionState == me.rerere.ai.ui.ToolExecutionState.COMPLETED }) {
+                val bound = documentTool(conv, message.id.toString(), tool.toolCallId).second
+                try {
+                if (bound.id in delivered) continue
+                var task = bound
+                val batchId = Json.parseToJsonElement(tool.output.filterIsInstance<UIMessagePart.Text>().first().text).jsonObject["batch_id"]?.jsonPrimitive?.content
+                if (batchId != null && documents.batch(owner, batchId).cancelled) {
+                    documents.cancelBatch(owner, batchId)
+                    if (documentErrors.remove(bound.id) != null) emitEvent("conversation_changed", owner, mapOf("conversationId" to id))
+                    continue
+                }
+                if (task.cancelRequested) {
+                    if (!task.cancelConfirmed) documents.cancel(owner, task.id)
+                    continue
+                }
+                if (task.remoteId == null && task.state == "SUBMITTING") {
+                    require(me.rerere.rikkahub.feature.material.DocumentDispatchPolicy.allowsRemote(chatService.getConversationFlow(conv.id).value.currentMessages)) { "当前聊天禁止再次上传" }
+                    task = documents.resumeSubmission(owner, task.id)
+                }
+                if (!task.downloaded && task.state in setOf("QUEUED", "RUNNING", "SUCCEEDED", "PARTIAL")) {
+                    task = documents.refresh(owner, task.id)
+                    requireProfile(owner, epoch)
+                    if (task.state in setOf("SUCCEEDED", "PARTIAL")) {
+                        documents.download(owner, task.id)
+                        task = documents.tasks(owner).single { it.id == task.id }
                     }
+                }
+                if (task.downloaded && !task.cancelRequested && task.state !in setOf("FAILED", "CANCELLED")) {
+                    // read() verifies cached content; state flags alone never justify continuation.
+                    documents.read(owner, task.id)
+                    val completedTasks = if (batchId != null) {
+                        val next = documents.advanceBatch(owner, batchId) {
+                            requireProfile(owner, epoch)
+                            require(me.rerere.rikkahub.feature.material.DocumentDispatchPolicy.allowsRemote(chatService.getConversationFlow(conv.id).value.currentMessages)) { "当前聊天禁止新增上传" }
+                        }
+                        if (next != null) {
+                            if (next.remoteId == null) {
+                                require(me.rerere.rikkahub.feature.material.DocumentDispatchPolicy.allowsRemote(ownedConversation(owner, id).currentMessages))
+                                documents.resumeSubmission(owner, next.id)
+                            } else if (next.state in setOf("QUEUED", "RUNNING", "SUCCEEDED", "PARTIAL")) {
+                                val refreshed = documents.refresh(owner, next.id)
+                                if (refreshed.state in setOf("SUCCEEDED", "PARTIAL")) documents.download(owner, next.id)
+                            }
+                            continue
+                        }
+                        documents.batchTasks(owner, documents.batch(owner, batchId))
+                    } else listOf(task)
+                    val requestId = Uuid.parse(java.util.UUID.nameUUIDFromBytes("document:$owner:$id:${message.id}:${tool.toolCallId}:${batchId ?: task.id}".toByteArray()).toString())
+                    val coverage = completedTasks.joinToString("；") { "任务${it.id}:物理页${it.start}–${it.end}" }
+                    chatService.sendMessageCommitted(conv.id, listOf(UIMessagePart.Text("增强解析已下载并逐批校验：$coverage。请对每个任务用 read_material_parse_blocks 读取全部实际结果（首次cursor为空字符串、count为20，之后原样传next_cursor直到不再返回），检查覆盖范围和识别警告，继续用户原文件任务并交付成果；不要把解析完成当作全文理解完成。")), requestId) { current ->
+                        requireProfile(owner, epoch)
+                        check(batchId == null || !documents.batch(owner, batchId).cancelled) { "批任务已取消，不再续聊" }
+                        check(!documents.tasks(owner).single { it.id == task.id }.cancelRequested) { "任务已取消，不再续聊" }
+                        documentTool(current, message.id.toString(), tool.toolCallId)
+                    }
+                    delivered += task.id
+                }
+                if (documentErrors.remove(bound.id) != null) emitEvent("conversation_changed", owner, mapOf("conversationId" to id))
+                } catch (e: kotlinx.coroutines.CancellationException) { throw e }
+                catch (_: Exception) {
+                    if (documentErrors.put(bound.id, "连接或结果校验失败；原文件保留，可重试") == null) emitEvent("conversation_changed", owner, mapOf("conversationId" to id))
                 }
             }
         }
@@ -479,61 +439,45 @@ class StudyHostFacade(
 
     private fun officeTool(conv: Conversation, messageId: String, toolCallId: String): me.rerere.rikkahub.feature.material.OfficeConversionTask? {
         val message = conv.currentMessages.singleOrNull { it.id.toString() == messageId && it.role == MessageRole.ASSISTANT } ?: return null
-        val tool = message.parts.filterIsInstance<UIMessagePart.Tool>().singleOrNull { it.toolCallId == toolCallId && me.rerere.rikkahub.feature.material.remoteOfficeOperation(it.toolName) != null && it.executionState == me.rerere.ai.ui.ToolExecutionState.COMPLETED } ?: return null
+        val tool = message.parts.filterIsInstance<UIMessagePart.Tool>().singleOrNull { it.toolCallId == toolCallId && it.toolName == "convert_material_to_pdf" && it.executionState == me.rerere.ai.ui.ToolExecutionState.COMPLETED } ?: return null
         val result = runCatching { Json.parseToJsonElement(tool.output.filterIsInstance<UIMessagePart.Text>().first().text).jsonObject }.getOrNull() ?: return null
-        val operation = me.rerere.rikkahub.feature.material.remoteOfficeOperation(tool.toolName)
-        if (result["operation"]?.jsonPrimitive?.content != operation) return null
+        if (result["operation"]?.jsonPrimitive?.content != "office_pdf") return null
         val task = documents.officeConversions.task(conv.profileId, result.getValue("task_id").jsonPrimitive.content)
         val input = Json.parseToJsonElement(tool.input).jsonObject
-        require(task.operation == operation && input.getValue("id").jsonPrimitive.content == task.sourceId && input.getValue("expected_sha256").jsonPrimitive.content == task.sourceSha256)
+        require(input.getValue("id").jsonPrimitive.content == task.sourceId && input.getValue("expected_sha256").jsonPrimitive.content == task.sourceSha256)
         return task
     }
 
-    private suspend fun syncOfficeConversions(owner: String,id: String,epoch: Long) {
-        val conversions=documents.officeConversions
-        val conv=ownedConversation(owner,id)
-        for(message in conv.currentMessages.filter { it.role==MessageRole.ASSISTANT }) {
-            for(tool in message.getTools().filter { me.rerere.rikkahub.feature.material.remoteOfficeOperation(it.toolName)!=null &&
-                it.executionState==me.rerere.ai.ui.ToolExecutionState.COMPLETED }) {
-                if(officeTool(conv,message.id.toString(),tool.toolCallId)==null) continue
-                chatService.continueRemoteTool(conv.id,message.id.toString(),tool.toolCallId,retry=false,validate={
-                    requireProfile(owner,epoch)
-                    val current=chatService.getConversationFlow(conv.id).value
-                    require(current.profileId==owner && me.rerere.rikkahub.feature.material.DocumentDispatchPolicy.allowsRemote(current.currentMessages))
-                    requireNotNull(officeTool(current,message.id.toString(),tool.toolCallId))
-                }) { original ->
-                    var task=requireNotNull(officeTool(ownedConversation(owner,id),message.id.toString(),original.toolCallId))
-                    if(task.cancelRequested || task.remoteId==null) return@continueRemoteTool null
-                    if(!task.downloaded) {
-                        task=conversions.refresh(owner,task.id)
-                        if(task.state!="SUCCEEDED") return@continueRemoteTool null
-                        conversions.download(owner,task.id)
+    private suspend fun syncOfficeConversions(owner: String, id: String, epoch: Long, delivered: MutableSet<String>) {
+        val conversions = documents.officeConversions
+        val conv = ownedConversation(owner, id)
+        for (message in conv.currentMessages.filter { it.role == MessageRole.ASSISTANT }) {
+            for (tool in message.parts.filterIsInstance<UIMessagePart.Tool>().filter { it.toolName == "convert_material_to_pdf" && it.executionState == me.rerere.ai.ui.ToolExecutionState.COMPLETED }) {
+                var task = officeTool(conv, message.id.toString(), tool.toolCallId) ?: continue
+                try {
+                    if (task.id in delivered) continue
+                    if (task.cancelRequested) task = conversions.cancel(owner, task.id)
+                    if (task.state == "SUBMITTING" && task.remoteId == null) {
+                        require(me.rerere.rikkahub.feature.material.DocumentDispatchPolicy.allowsRemote(ownedConversation(owner, id).currentMessages)) { "当前聊天禁止再次上传" }
+                        requireProfile(owner, epoch); task = conversions.resume(owner, task.id)
                     }
-                    val artifact=conversions.artifact(owner,task.id)
-                    val metadata=Json.parseToJsonElement(original.output.filterIsInstance<UIMessagePart.Text>().first().text).jsonObject
-                    documentErrors.remove(task.id)
-                    listOf(UIMessagePart.Text(buildJsonObject {
-                        metadata.forEach { (key,value) -> put(key,value) }
-                        put("state","SUCCEEDED"); put("downloaded",true)
-                        if(task.operation==me.rerere.rikkahub.feature.material.XLSX_RECALCULATE)
-                            put("calculation",conversions.calculationEvidence(owner,task.id))
-                        put("notice","原Office版本的真实成果已独立回读。${artifact.detail}。继续原目标，不重传或用静态副本替代。")
-                    }.toString()),UIMessagePart.Document(materialFiles.verifiedFile(owner,artifact.id).toUri().toString(),artifact.name,artifactMime(artifact.extension)))
-                }
+                    if (!task.downloaded && task.state in setOf("QUEUED", "RUNNING", "SUCCEEDED")) {
+                        task = conversions.refresh(owner, task.id); requireProfile(owner, epoch)
+                        if (task.state == "SUCCEEDED") { conversions.download(owner, task.id); task = conversions.task(owner, task.id) }
+                    }
+                    if (task.downloaded) {
+                        val artifact = conversions.artifact(owner, task.id)
+                        val requestId = Uuid.parse(java.util.UUID.nameUUIDFromBytes("office:$owner:$id:${message.id}:${tool.toolCallId}:${task.id}".toByteArray()).toString())
+                        chatService.sendMessageCommitted(conv.id, listOf(UIMessagePart.Text("原Office文件的排版PDF已下载并校验，已作为真实成果交付。${artifact.detail}。继续原任务，准确说明兼容性或字体提示；无需重新上传或另行重生成PDF。"), UIMessagePart.Document(materialFiles.verifiedFile(owner, artifact.id).toUri().toString(), artifact.name, "application/pdf")), requestId) { current ->
+                            requireProfile(owner, epoch); require(officeTool(current, message.id.toString(), tool.toolCallId)?.id == task.id) { "转换任务已离开当前分支" }
+                        }
+                        delivered += task.id
+                    }
+                    if (documentErrors.remove(task.id) != null) emitEvent("conversation_changed", owner, mapOf("conversationId" to id))
+                } catch (e: kotlinx.coroutines.CancellationException) { throw e }
+                catch (_: Exception) { if (documentErrors.put(task.id, "转换连接或结果校验失败；原件保留，可重试") == null) emitEvent("conversation_changed", owner, mapOf("conversationId" to id)) }
             }
         }
-    }
-
-    private fun retryKnownRemoteTool(owner: String,conversationId: String,messageId: String,toolCallId: String,epoch: Long) {
-        val id=Uuid.parse(conversationId)
-        check(chatService.continueRemoteTool(id,messageId,toolCallId,retry=true,validate={
-            requireProfile(owner,epoch)
-            val current=chatService.getConversationFlow(id).value
-            require(current.profileId==owner &&
-                me.rerere.rikkahub.feature.material.DocumentDispatchPolicy.allowsRemote(current.currentMessages))
-            require(current.currentMessages.any { message -> message.id.toString()==messageId &&
-                message.getTools().any { it.toolCallId==toolCallId } })
-        }) { null }) { "原任务正在执行或存在暂停、撤权、输入/设备等待；请先处理原任务状态。" }
     }
 
     override suspend fun documentTaskAction(profileId: String, conversationId: String, messageId: String, toolCallId: String, action: String, expectedEpoch: Long): SimpleCommandResult = withContext(Dispatchers.IO) {
@@ -544,9 +488,10 @@ class StudyHostFacade(
             if (action == "cancel") documents.officeConversions.cancel(profileId, conversion.id)
             else if (conversion.state in setOf("FAILED", "CANCELLED", "EXPIRED") && !conversion.downloaded) {
                 require(me.rerere.rikkahub.feature.material.DocumentDispatchPolicy.allowsRemote(ownedConversation(profileId, conversationId).currentMessages)) { "当前聊天禁止重新上传" }
-                retryKnownRemoteTool(profileId,conversationId,messageId,toolCallId,expectedEpoch)
+                val requestId = Uuid.parse(java.util.UUID.nameUUIDFromBytes("office-retry:$profileId:$conversationId:$messageId:$toolCallId:${conversion.id}".toByteArray()).toString())
+                chatService.sendMessageCommitted(Uuid.parse(conversationId), listOf(UIMessagePart.Text("重试原Office文件的排版PDF转换，材料ID ${conversion.sourceId}，源摘要 ${conversion.sourceSha256}。保留原任务要求与上传限制，不以文字PDF替代。")), requestId) { current -> requireProfile(profileId, expectedEpoch); require(officeTool(current, messageId, toolCallId)?.id == conversion.id) }
             } else {
-                syncOfficeConversions(profileId, conversationId, expectedEpoch); documentErrors[conversion.id]?.let { error(it) }
+                syncOfficeConversions(profileId, conversationId, expectedEpoch, mutableSetOf()); documentErrors[conversion.id]?.let { error(it) }
             }
             return@withContext SimpleCommandResult(success = true)
         }
@@ -561,9 +506,13 @@ class StudyHostFacade(
         else {
             if (batch?.cancelled == true || (task.cancelRequested && task.cancelConfirmed) || (task.state in setOf("FAILED", "CANCELLED", "EXPIRED") && !task.downloaded)) {
                 require(me.rerere.rikkahub.feature.material.DocumentDispatchPolicy.allowsRemote(ownedConversation(profileId, conversationId).currentMessages)) { "当前聊天禁止重新上传；仍可查询或清理已批准任务" }
-                retryKnownRemoteTool(profileId,conversationId,messageId,toolCallId,expectedEpoch)
+                val request = Uuid.parse(java.util.UUID.nameUUIDFromBytes("document-retry:$profileId:$conversationId:$messageId:$toolCallId:${task.id}".toByteArray()).toString())
+                chatService.sendMessageCommitted(Uuid.parse(conversationId), listOf(UIMessagePart.Text("请重试之前的文件任务，材料ID ${task.sourceId}，完整物理页范围 ${batch?.start ?: task.start}–${batch?.end ?: task.end}。保留原任务目的和上传限制，复用已校验的结果，按实际工具结果继续。")), request) { current ->
+                    requireProfile(profileId, expectedEpoch)
+                    documentTool(current, messageId, toolCallId)
+                }
             } else {
-                syncChatDocuments(profileId, conversationId, expectedEpoch)
+                syncChatDocuments(profileId, conversationId, expectedEpoch, mutableSetOf())
                 documentErrors[task.id]?.let { error(it) }
             }
         }
@@ -578,7 +527,7 @@ class StudyHostFacade(
             val name = context.contentResolver.query(uri, arrayOf(android.provider.OpenableColumns.DISPLAY_NAME), null, null, null)?.use {
                 if (it.moveToFirst()) it.getString(0) else null
             } ?: error("无法获取文件名")
-            val item = materialFiles.import(profileId, uri, name, stillAllowed = { requireProfile(profileId, expectedEpoch) })
+            val item = materialFiles.import(profileId, uri, name)
             requireProfile(profileId, expectedEpoch)
             materialFiles.verifiedFile(profileId, item.id).absolutePath
         }
@@ -588,9 +537,7 @@ class StudyHostFacade(
         val conv = ownedConversation(profileId, conversationId)
         require(title.isNotBlank() && title.length <= 200)
         check(chatService.getGenerationJobStateFlow(conv.id).firstOrNull()?.isActive != true) { "请先停止生成" }
-        val renamed = conv.copy(title = title.trim())
-        chatService.saveConversation(conv.id, renamed)
-        conversationRepo.markManualTitle(renamed)
+        chatService.saveConversation(conv.id, conv.copy(title = title.trim()))
         return SimpleCommandResult(success = true)
     }
 
@@ -641,7 +588,7 @@ class StudyHostFacade(
     }
 
     override suspend fun openNativePage(page: String): SimpleCommandResult = withContext(Dispatchers.Main) {
-        require(page in setOf("providers", "files", "skills", "backup", "notifications"))
+        require(page in setOf("providers", "files", "skills", "backup"))
         context.startActivity(Intent(context, me.rerere.rikkahub.RouteActivity::class.java).apply {
             putExtra("nativePage", page)
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -734,7 +681,7 @@ class StudyHostFacade(
         val list = conversationRepo.getRecentConversations(assistant.id, limit = (limit + offset).toInt().coerceAtLeast(50), profileId = profileId, archived = archived)
 
         val paged = list.drop(offset.toInt()).take(limit.toInt())
-        paged.map { conversationRepo.projectDerivedMetadata(it) }.map { conv ->
+        paged.map { conv ->
             val preview = conv.currentMessages.lastOrNull()?.toText()?.take(80) ?: ""
             ConversationSummaryDto(
                 id = conv.id.toString(),
@@ -751,7 +698,7 @@ class StudyHostFacade(
     override suspend fun searchConversations(profileId: String, query: String, limit: Long, offset: Long, archived: Boolean): List<ConversationSummaryDto> = withContext(Dispatchers.IO) {
         requireProfile(profileId)
         require(limit in 1..100 && offset in 0..100000)
-        conversationRepo.searchHistory(query.trim(), profileId, limit.toInt(), offset.toInt(), archived).map { conversationRepo.projectDerivedMetadata(it) }.map { conv ->
+        conversationRepo.searchHistory(query.trim(), profileId, limit.toInt(), offset.toInt(), archived).map { conv ->
             ConversationSummaryDto(conv.id.toString(), conv.title.ifEmpty { "新对话" },
                 conv.currentMessages.lastOrNull()?.toText()?.take(80).orEmpty(), conv.updateAt.toString(),
                 conv.isPinned, conv.studyMode.name, conv.profileId, conv.isArchived)
@@ -778,14 +725,14 @@ class StudyHostFacade(
         val uuid = runCatching { Uuid.parse(conversationId) }.getOrNull()
             ?: throw IllegalArgumentException("Invalid conversation UUID: $conversationId")
 
-        val conv = conversationRepo.projectDerivedMetadata(ownedConversation(profileId, conversationId))
+        val conv = ownedConversation(profileId, conversationId)
 
         val isGenerating = chatService.getGenerationJobStateFlow(uuid).firstOrNull()?.isActive == true
 
         val nodeDtos = conv.messageNodes.map { node ->
             val branchDtos = node.messages.map { msg ->
                 val exposedParts = msg.parts.flatMap { part -> if (part is UIMessagePart.Tool && part.executionState == me.rerere.ai.ui.ToolExecutionState.COMPLETED) {
-                    val converted = runCatching { officeTool(conv.copy(messageNodes = listOf(me.rerere.rikkahub.data.model.MessageNode(messages = listOf(msg)))), msg.id.toString(), part.toolCallId)?.takeIf { it.downloaded && !it.cancelRequested && part.output.none { output -> output is UIMessagePart.Document } }?.let { task -> documents.officeConversions.artifact(profileId, task.id) }?.let { file -> UIMessagePart.Document(materialFiles.verifiedFile(profileId, file.id).toUri().toString(), file.name, artifactMime(file.extension)) } }.getOrNull()
+                    val converted = runCatching { officeTool(conv.copy(messageNodes = listOf(me.rerere.rikkahub.data.model.MessageNode(messages = listOf(msg)))), msg.id.toString(), part.toolCallId)?.takeIf { it.downloaded }?.let { task -> documents.officeConversions.artifact(profileId, task.id) }?.let { file -> UIMessagePart.Document(materialFiles.verifiedFile(profileId, file.id).toUri().toString(), file.name, "application/pdf") } }.getOrNull()
                     listOf(part) + part.output.filter { it is UIMessagePart.Document || it is UIMessagePart.Image || (part.toolName == "display_image" && it is UIMessagePart.Text && part.output.any { output -> output is UIMessagePart.Image }) || (it is UIMessagePart.InteractiveSurfaceRef && !InteractiveSurface.isSurfaceTool(part.toolName)) } + listOfNotNull(converted)
                 } else listOf(part) }
                 val partDtos = exposedParts.map { part ->
@@ -813,19 +760,9 @@ class StudyHostFacade(
                                 val complete = batch != null && covered == (batch.start..batch.end).toList()
                                 buildJsonObject { put("task_id", active.id); put("state", if (batch?.cancelled == true) "CANCELLED" else if (batch != null && !complete && active.downloaded) "QUEUED" else active.state); put("downloaded", if (batch != null) complete else task.downloaded); put("start_page", batch?.start ?: task.start); put("end_page", batch?.end ?: task.end); if (batch != null) put("covered_pages", JsonArray(covered.map(::JsonPrimitive))); documentErrors[task.id]?.let { put("client_error", it) }; active.errorCode?.let { put("error_code", it) } }.toString()
                             }.getOrElse { part.output.filterIsInstance<UIMessagePart.Text>().joinToString("\n") { it.text } }
-                            else if (me.rerere.rikkahub.feature.material.remoteOfficeOperation(part.toolName)!=null && part.executionState == me.rerere.ai.ui.ToolExecutionState.COMPLETED) runCatching {
+                            else if (part.toolName == "convert_material_to_pdf" && part.executionState == me.rerere.ai.ui.ToolExecutionState.COMPLETED) runCatching {
                                 val task = officeTool(conv.copy(messageNodes = listOf(me.rerere.rikkahub.data.model.MessageNode(messages = listOf(msg)))), msg.id.toString(), part.toolCallId) ?: error("local conversion")
-                                val readback = if(task.downloaded && !task.cancelRequested) runCatching { documents.officeConversions.artifact(profileId,task.id) } else null
-                                buildJsonObject {
-                                    put("operation",task.operation); put("task_id",task.id); put("state",task.state); put("downloaded",task.downloaded)
-                                    put("cancel_requested",task.cancelRequested); put("cancel_confirmed",task.cancelConfirmed); put("renderer_version",task.rendererVersion)
-                                    task.errorCode?.let { put("error_code",it) }; documentErrors[task.id]?.let { put("client_error",it) }
-                                    if(readback!=null) {
-                                        put("readback_valid",readback.isSuccess)
-                                        readback.getOrNull()?.let { put("detail",it.detail) }
-                                        readback.exceptionOrNull()?.let { put("client_error",it.message?.take(160) ?: "成果核验失效") }
-                                    }
-                                }.toString()
+                                buildJsonObject { put("operation", "office_pdf"); put("task_id", task.id); put("state", task.state); put("downloaded", task.downloaded); put("renderer_version", task.rendererVersion); task.errorCode?.let { put("error_code", it) }; documentErrors[task.id]?.let { put("client_error", it) }; if (task.downloaded) put("detail", documents.officeConversions.artifact(profileId, task.id).detail) }.toString()
                             }.getOrElse { part.output.filterIsInstance<UIMessagePart.Text>().joinToString("\n") { it.text } }
                             else part.output.filterIsInstance<UIMessagePart.Text>().joinToString("\n") { it.text },
                             approvalState = part.approvalState::class.simpleName ?: "Auto",
@@ -867,302 +804,9 @@ class StudyHostFacade(
         )
     }
 
-    private val agentScheduler get()=me.rerere.rikkahub.feature.agent.AgentScheduler.shared(context)
-    private fun catalogDto(task: me.rerere.rikkahub.feature.agent.CatalogTask) = AgentCatalogTaskDto(
-        id=task.id,owner=task.owner,conversationId=task.conversationId,role=task.role,goal=task.goal,state=task.state,
-        providerId=task.providerId,modelId=task.modelId,reasoning=task.reasoning,revision=task.revision,fence=task.fence,
-        manualPaused=task.manualPaused,authorization=task.authorization,inputBlocked=task.inputBlocked,
-        deviceBlocked=task.deviceBlocked,deviceConfirmation=task.deviceConfirmation,approvalBlocked=task.approvalBlocked,
-        goalRevision=task.goalRevision,plannedRevision=task.plannedRevision,acceptanceVerified=task.acceptanceVerified)
-    override suspend fun getAgentTaskCatalog(profileId: String,kind: String,cursor: String?,limit: Long,expectedEpoch: Long): AgentCatalogPageDto =
-        withContext(Dispatchers.IO) {
-            requireProfile(profileId,expectedEpoch);require(limit in 1..100)
-            val page=agentScheduler.readTaskCatalog(profileId,kind,cursor,limit.toInt())
-            requireProfile(profileId,expectedEpoch)
-            AgentCatalogPageDto(owner=profileId,kind=kind,tasks=page.tasks.map(::catalogDto),nextCursor=page.nextCursor)
-        }
-    override suspend fun getAgentTaskDetail(profileId: String,taskId: String,cursor: String?,limit: Long,expectedEpoch: Long): AgentCatalogDetailDto =
-        withContext(Dispatchers.IO) {
-            requireProfile(profileId,expectedEpoch);require(limit in 1..100)
-            val detail=agentScheduler.readTaskDetail(profileId,taskId,cursor,limit.toInt())
-            var partial=detail.resultsPartial
-            var byUrl: Map<String,me.rerere.rikkahub.feature.material.MaterialFile>?=null
-            val artifacts=LinkedHashMap<String,AgentCatalogArtifactDto>()
-            for(step in detail.steps) {
-                val result=step.artifactResult ?: continue
-                val parts=runCatching { Json.decodeFromString<List<UIMessagePart>>(result) }.getOrNull()
-                if(parts==null) { partial=true;continue }
-                for(part in parts) {
-                    val url=when(part) { is UIMessagePart.Document -> part.url;is UIMessagePart.Image -> part.url;else -> continue }
-                    val owned=byUrl ?: materialFiles.list(profileId).filter { it.output }.associateBy {
-                        materialFiles.file(it).toUri().toString()
-                    }.also { byUrl=it }
-                    val item=owned[url]
-                    if(item==null) { partial=true;continue }
-                    if(item.state!="SUCCEEDED" || !materialFiles.file(item).isFile) { partial=true;continue }
-                    if(artifacts.size==100 && item.id !in artifacts) { partial=true;continue }
-                    artifacts[item.id]=AgentCatalogArtifactDto(item.id,item.name,item.sha256)
-                }
-            }
-            val conversation=runCatching { Uuid.parse(detail.task.conversationId) }.getOrNull()?.let {
-                conversationRepo.getConversationById(it,profileId)
-            }
-            val identity=runCatching { agentScheduler.modelIdentity(profileId,taskId) }.getOrNull()
-            requireProfile(profileId,expectedEpoch)
-            AgentCatalogDetailDto(task=catalogDto(detail.task),
-                steps=detail.steps.map { AgentCatalogStepDto(it.id,it.tool,it.purpose,it.state,it.callId) },
-                calls=detail.calls.map { AgentCatalogCallDto(it.id,it.tool,it.state,it.inputHash,it.resultHash,it.capability,it.grantEpoch) },
-                artifacts=artifacts.values.toList(),resultsPartial=partial,conversationAvailable=conversation!=null,
-                nextCursor=detail.nextCursor,providerName=identity?.providerName,modelName=identity?.modelName)
-        }
-    private fun selectedTask(conv: Conversation)=conv.queue.messages.firstOrNull()?.let {
-        agentScheduler.queued(conv,it.id.toString())
-    } ?: agentScheduler.current(conv)
-    override suspend fun getConversationTask(profileId: String,conversationId: String,expectedEpoch: Long):
-        me.rerere.rikkahub.flutter.generated.AgentTaskDto? = withContext(Dispatchers.IO) {
-        requireProfile(profileId,expectedEpoch)
-        val conv=ownedConversation(profileId,conversationId)
-        val selected=selectedTask(conv) ?: return@withContext null
-        val snapshot=agentScheduler.snapshot(profileId,selected.id)
-        val task=snapshot.task
-        val control=snapshot.control
-        val plan=snapshot.plan
-        val identity=agentScheduler.modelIdentity(profileId,task.id)
-        requireProfile(profileId,expectedEpoch)
-        me.rerere.rikkahub.flutter.generated.AgentTaskDto(
-            id=task.id,owner=task.owner,state=task.state,providerId=task.providerId,modelId=task.modelId,reasoning=task.reasoning,
-            providerName=identity.providerName,modelName=identity.modelName,providerOrigin=identity.origin,
-            revision=task.revision,fence=task.fence,grantEpoch=control.grantEpoch,authorization=control.authorization,
-            manualPaused=task.manualPaused,inputBlocked=control.inputBlocked,deviceBlocked=control.deviceBlocked,
-            deviceConfirmation=control.deviceConfirmation,goalRevision=plan.revision,plannedRevision=plan.plannedRevision,
-            acceptanceVerified=plan.acceptanceVerified,verifiedSteps=plan.steps.filter { it.state=="VERIFIED" }.map { it.id },
-            approvalCallIds=snapshot.approvalCallIds,
-            credentialRequestId=snapshot.credential?.requestId,credentialState=snapshot.credential?.state)
-    }
-    override suspend fun getAgentUsageAlerts(profileId: String,taskId: String?,from: Long?,until: Long?,
-        expectedEpoch: Long): me.rerere.rikkahub.flutter.generated.AgentUsageAlertsDto = withContext(Dispatchers.IO) {
-        requireProfile(profileId,expectedEpoch)
-        val page=agentScheduler.readUsageAlerts(profileId,taskId,from,until)
-        requireProfile(profileId,expectedEpoch)
-        me.rerere.rikkahub.flutter.generated.AgentUsageAlertsDto(
-            owner=page.owner,taskId=page.taskId,from=page.from,until=page.until,evaluatedAt=page.evaluatedAt,
-            uncertainRequests=page.uncertainRequests,unreportedCompletedRequests=page.unreportedCompletedRequests,
-            denseTaskCount=page.denseTaskCount,denseRequests=page.denseRequests,undatedRequests=page.undatedRequests)
-    }
-
-    override suspend fun getAgentUsage(profileId: String,taskId: String?,from: Long?,until: Long?,
-        cursor: String?,limit: Long,expectedEpoch: Long): me.rerere.rikkahub.flutter.generated.AgentUsagePageDto =
-        withContext(Dispatchers.IO) {
-            requireProfile(profileId,expectedEpoch)
-            require(limit in 1..100)
-            val page=agentScheduler.readUsage(profileId,taskId,from,until,cursor,limit.toInt())
-            fun metric(value: me.rerere.rikkahub.feature.agent.AgentUsageMetric) =
-                me.rerere.rikkahub.flutter.generated.AgentUsageMetricDto(value.reported,value.estimated,value.unknownRequests)
-            requireProfile(profileId,expectedEpoch)
-            me.rerere.rikkahub.flutter.generated.AgentUsagePageDto(
-                owner=page.owner,taskId=page.taskId,from=page.from,until=page.until,
-                requestCount=page.requestCount,reportedRequests=page.reportedRequests,
-                estimatedRequests=page.estimatedRequests,unknownRequests=page.unknownRequests,undatedRequests=page.undatedRequests,
-                input=metric(page.input),output=metric(page.output),cached=metric(page.cached),total=metric(page.total),
-                entries=page.entries.map { item -> me.rerere.rikkahub.flutter.generated.AgentUsageEntryDto(
-                    requestId=item.requestId,taskId=item.taskId,conversationId=item.conversationId,role=item.role,
-                    providerId=item.providerId,modelId=item.modelId,reasoning=item.reasoning,createdAt=item.createdAt,
-                    state=item.state,provenance=item.provenance,inputTokens=item.inputTokens,outputTokens=item.outputTokens,
-                    cachedTokens=item.cachedTokens,totalTokens=item.totalTokens,costJson=item.costJson) },nextCursor=page.nextCursor,costJson=page.costJson)
-        }
-    override suspend fun getAgentUsageGroups(profileId: String,taskId: String?,from: Long?,until: Long?,
-        groupBy: String,cursor: String?,limit: Long,expectedEpoch: Long): me.rerere.rikkahub.flutter.generated.AgentUsageGroupsPageDto =
-        withContext(Dispatchers.IO) {
-            requireProfile(profileId,expectedEpoch);require(limit in 1..100)
-            val page=agentScheduler.readUsageGroups(profileId,taskId,from,until,groupBy,cursor,limit.toInt())
-            fun metric(value: me.rerere.rikkahub.feature.agent.AgentUsageMetric) =
-                me.rerere.rikkahub.flutter.generated.AgentUsageMetricDto(value.reported,value.estimated,value.unknownRequests)
-            requireProfile(profileId,expectedEpoch)
-            me.rerere.rikkahub.flutter.generated.AgentUsageGroupsPageDto(
-                owner=page.owner,taskId=page.taskId,from=page.from,until=page.until,groupBy=page.groupBy,
-                requestCount=page.requestCount,groupCount=page.groupCount,undatedRequests=page.undatedRequests,
-                groups=page.groups.map { item -> me.rerere.rikkahub.flutter.generated.AgentUsageGroupDto(
-                    providerId=item.providerId,modelId=item.modelId,role=item.role,requestCount=item.requestCount,
-                    reportedRequests=item.reportedRequests,estimatedRequests=item.estimatedRequests,unknownRequests=item.unknownRequests,
-                    input=metric(item.input),output=metric(item.output),cached=metric(item.cached),total=metric(item.total),costJson=item.costJson) },
-                nextCursor=page.nextCursor,costJson=page.costJson)
-        }
-    override suspend fun exportAgentUsage(profileId: String,taskId: String?,from: Long?,until: Long?,groupBy: String,requestId: String,
-        expectedEpoch: Long): me.rerere.rikkahub.flutter.generated.AgentUsageExportDto = withContext(Dispatchers.IO) {
-        fun checkAccess() {
-            requireProfile(profileId,expectedEpoch)
-            check(foregroundConfirmationAllowed()) { "导出需保持应用前台；请从请求用量页重新操作" }
-        }
-        checkAccess()
-        val receipt=me.rerere.rikkahub.feature.agent.AgentUsageExport.export(materialFiles,profileId,taskId,from,until,groupBy,requestId,
-            capture={ agentScheduler.captureUsage(profileId,taskId,from,until,groupBy,requestId) },checkAccess=::checkAccess,history=usageExportHistory)
-        checkAccess()
-        me.rerere.rikkahub.flutter.generated.AgentUsageExportDto(owner=receipt.owner,taskId=receipt.taskId,from=receipt.from,until=receipt.until,
-            groupBy=receipt.groupBy,requestId=receipt.requestId,artifactId=receipt.artifactId,sha256=receipt.sha256,size=receipt.size,
-            sourceSha256=receipt.sourceSha256,capturedAt=receipt.capturedAt,requestCount=receipt.requestCount,recordCount=receipt.recordCount,reused=receipt.reused)
-    }
-    override suspend fun getAgentUsageLastExport(profileId: String,taskId: String?,from: Long?,until: Long?,groupBy: String,
-        expectedEpoch: Long): me.rerere.rikkahub.flutter.generated.AgentUsageExportIntentDto? = withContext(Dispatchers.IO) {
-        requireProfile(profileId,expectedEpoch)
-        val item=usageExportHistory.last(profileId,taskId,from,until,groupBy)
-        requireProfile(profileId,expectedEpoch)
-        item?.let { me.rerere.rikkahub.flutter.generated.AgentUsageExportIntentDto(owner=it.owner,taskId=it.taskId,
-            from=it.from,until=it.until,groupBy=it.groupBy,requestId=it.requestId,artifactId=it.artifactId,
-            sha256=it.sha256,size=it.size,createdAt=it.createdAt) }
-    }
-    override suspend fun getAgentUsageExportHistory(profileId: String,cursor: String?,limit: Long,expectedEpoch: Long):
-        me.rerere.rikkahub.flutter.generated.AgentUsageExportHistoryPageDto = withContext(Dispatchers.IO) {
-        requireProfile(profileId,expectedEpoch);require(limit in 1..100)
-        val page=usageExportHistory.page(profileId,cursor,limit.toInt())
-        requireProfile(profileId,expectedEpoch)
-        me.rerere.rikkahub.flutter.generated.AgentUsageExportHistoryPageDto(owner=page.owner,
-            entries=page.entries.map { me.rerere.rikkahub.flutter.generated.AgentUsageExportIntentDto(
-                owner=it.owner,taskId=it.taskId,from=it.from,until=it.until,groupBy=it.groupBy,
-                requestId=it.requestId,artifactId=it.artifactId,sha256=it.sha256,size=it.size,createdAt=it.createdAt) },
-            nextCursor=page.nextCursor)
-    }
-    override suspend fun verifyAgentUsageExport(profileId: String,taskId: String?,from: Long?,until: Long?,groupBy: String,
-        requestId: String,expectedSha256: String,expectedEpoch: Long): me.rerere.rikkahub.flutter.generated.AgentUsageExportDto = withContext(Dispatchers.IO) {
-        fun checkAccess() {
-            requireProfile(profileId,expectedEpoch)
-            check(foregroundConfirmationAllowed()) { "核验导出需保持应用前台" }
-        }
-        checkAccess()
-        val item=usageExportHistory.get(profileId,taskId,from,until,groupBy,requestId)
-        require(item.sha256==expectedSha256) { "导出意图已改变，请重新查询" }
-        val receipt=me.rerere.rikkahub.feature.agent.AgentUsageExport.verifyExisting(materialFiles,item,::checkAccess)
-        checkAccess()
-        me.rerere.rikkahub.flutter.generated.AgentUsageExportDto(owner=receipt.owner,taskId=receipt.taskId,from=receipt.from,until=receipt.until,
-            groupBy=receipt.groupBy,requestId=receipt.requestId,artifactId=receipt.artifactId,sha256=receipt.sha256,size=receipt.size,
-            sourceSha256=receipt.sourceSha256,capturedAt=receipt.capturedAt,requestCount=receipt.requestCount,recordCount=receipt.recordCount,reused=receipt.reused)
-    }
-    override suspend fun getTaskResumeReceipt(profileId: String,taskId: String,requestId: String?,expectedEpoch: Long):
-        me.rerere.rikkahub.flutter.generated.TaskResumeReceiptDto? = withContext(Dispatchers.IO) {
-        requireProfile(profileId,expectedEpoch)
-        val receipt=agentScheduler.readResumeReceipt(profileId,taskId,requestId)
-        requireProfile(profileId,expectedEpoch)
-        receipt?.let { me.rerere.rikkahub.flutter.generated.TaskResumeReceiptDto(it.owner,it.taskId,it.conversationId,
-            it.requestId,it.expectedRevision,it.expectedFence,it.canCoordinate) }
-    }
-    override suspend fun taskCommand(profileId: String,conversationId: String,taskId: String,requestId: String,
-        expectedEpoch: Long,expectedRevision: Long,expectedFence: Long,action: String,payload: String): SimpleCommandResult =
-        withContext(Dispatchers.IO) { commandMutex.withLock {
-            val conv=try {
-                requireProfile(profileId,expectedEpoch)
-                val owned=ownedConversation(profileId,conversationId)
-                val task=agentScheduler.get(profileId,taskId)
-                require(task.conversationId==conversationId && selectedTask(owned)?.id==taskId)
-                require(action in setOf("pause","cancel","revoke","resume","supplement","confirm_device","provide_input"))
-                if(action=="resume") {
-                    require(payload.isEmpty())
-                    if(!agentScheduler.commandRecorded(profileId,taskId,requestId))
-                        chatService.requireTaskResumeCheckpoint(owned,taskId)
-                }
-                if(action=="confirm_device") require(withContext(Dispatchers.Main) { foregroundConfirmationAllowed() })
-                owned
-            } catch (error: kotlinx.coroutines.CancellationException) { throw error }
-            catch (_: Throwable) {
-                return@withLock SimpleCommandResult(false,StudyErrorDto("TASK_PRECONDITION_REJECTED",
-                    "本次调用未执行新命令；请读取最新任务和档案状态。",false,requestId))
-            }
-            val recorded = agentScheduler.commandRecorded(profileId,taskId,requestId)
-            val applied = try { agentScheduler.command(profileId,taskId,requestId,expectedRevision,expectedFence,action,payload) }
-            catch (_: me.rerere.rikkahub.feature.agent.AgentCommandRejected) {
-                return@withLock SimpleCommandResult(false,StudyErrorDto("TASK_PRECONDITION_REJECTED",
-                    "任务修订、执行栅栏或授权状态已变化；本次命令未写入。",false,requestId))
-            }
-            requireProfile(profileId,expectedEpoch)
-            suspend fun continueSelectedTask() {
-                val current=ownedConversation(profileId,conversationId)
-                require(selectedTask(current)?.id==taskId) { "Selected task changed before continuation" }
-                val queued=current.queue.messages.firstOrNull()?.let { agentScheduler.queued(current,it.id.toString()) }
-                if(queued?.id==taskId) chatService.resumeQueuedTask(conv.id,taskId,expectedInput=requireNotNull(conv.queue.messages.firstOrNull()))
-                else chatService.resumeInterruptedGeneration(conv.id,resumeManualPause=action=="resume",expectedTaskId=taskId)
-            }
-            // A repeated ACK may finish the native-to-Room queue gap, but must not regenerate
-            // a task that has already claimed a lease or finished its accepted execution.
-            if(action=="resume" && applied.state=="QUEUED" && expectedRevision < Long.MAX_VALUE &&
-                applied.revision==expectedRevision+1 && applied.fence==expectedFence) continueSelectedTask()
-            else if(action=="supplement" && !recorded) {
-                val snapshot=agentScheduler.snapshot(profileId,taskId)
-                val control=snapshot.control
-                if(!snapshot.task.manualPaused && control.authorization=="ACTIVE" && !control.inputBlocked &&
-                    !control.approvalBlocked && !control.deviceBlocked && !control.deviceConfirmation &&
-                    !control.cancelRequested && snapshot.task.state!="UNCERTAIN_SIDE_EFFECT")
-                    continueSelectedTask()
-            }
-            SimpleCommandResult(success=true,idResult=taskId)
-        } }
-
-    override suspend fun taskSafetyCommand(profileId: String,taskId: String,requestId: String,
-        expectedEpoch: Long,expectedRevision: Long,expectedFence: Long,action: String): SimpleCommandResult =
-        withContext(Dispatchers.IO) { commandMutex.withLock {
-            try {
-                requireProfile(profileId,expectedEpoch)
-                require(action in setOf("pause","cancel","revoke"))
-                agentScheduler.command(profileId,taskId,requestId,expectedRevision,expectedFence,action,"",safetyOnly=true)
-            } catch (error: kotlinx.coroutines.CancellationException) { throw error }
-            catch (_: me.rerere.rikkahub.feature.agent.AgentCommandRejected) {
-                return@withLock SimpleCommandResult(false,StudyErrorDto("TASK_PRECONDITION_REJECTED",
-                    "任务修订、执行栅栏或终态已变化；请刷新任务详情。",false,requestId))
-            }
-            catch (_: IllegalArgumentException) {
-                return@withLock SimpleCommandResult(false,StudyErrorDto("TASK_PRECONDITION_REJECTED",
-                    "任务归属、档案或安全操作不匹配；本次调用未写入命令。",false,requestId))
-            }
-            // A profile switch after commit makes the response uncertain to the old
-            // view. It never rolls back a stop or replays work in the new profile.
-            requireProfile(profileId,expectedEpoch)
-            SimpleCommandResult(success=true,idResult=taskId)
-        } }
-
-    private suspend fun credentialCommand(profileId: String,conversationId: String,taskId: String,
-        requestId: String,expectedEpoch: Long,operation: suspend (() -> Unit) -> Unit): SimpleCommandResult =
-        withContext(Dispatchers.IO) {
-            try {
-                requireProfile(profileId,expectedEpoch)
-                val conv=ownedConversation(profileId,conversationId)
-                require(selectedTask(conv)?.id==taskId)
-                require(agentScheduler.get(profileId,taskId).conversationId==conversationId)
-                require(withContext(Dispatchers.Main) { foregroundConfirmationAllowed() })
-            } catch (error: kotlinx.coroutines.CancellationException) { throw error }
-            catch (_: Throwable) {
-                return@withContext SimpleCommandResult(false,StudyErrorDto("TASK_PRECONDITION_REJECTED",
-                    "验证需要当前档案、原任务及前台明确确认；本次调用未发送模型请求。",false,requestId))
-            }
-            // Never hold commandMutex over HTTP: pause, cancel and revoke remain independently actionable.
-            val validate={
-                requireProfile(profileId,expectedEpoch)
-                check(foregroundConfirmationAllowed()) { "Credential verification requires the foreground screen" }
-            }
-            try {
-                operation(validate)
-                requireProfile(profileId,expectedEpoch)
-                SimpleCommandResult(success=true,idResult=taskId)
-            } catch (error: kotlinx.coroutines.CancellationException) { throw error }
-            catch (_: Throwable) {
-                val state=runCatching { agentScheduler.snapshot(profileId,taskId).credential?.state }.getOrNull()
-                val pending=state==null || state=="QUEUED" || state=="RUNNING" || state=="STOP_REQUESTED" || state=="UNCERTAIN_SIDE_EFFECT"
-                SimpleCommandResult(false,StudyErrorDto(if(pending) "CREDENTIAL_UNKNOWN" else "CREDENTIAL_REJECTED",
-                    if(pending) "验证请求状态未确定；仅可继续查询原请求，不得盲重试。"
-                    else "验证未恢复授权；原范围、暂停与等待条件保留。请核对原提供商配置及任务授权。",
-                    pending,requestId))
-            }
-        }
-    override suspend fun updateTaskCredential(profileId: String,conversationId: String,taskId: String,requestId: String,
-        expectedEpoch: Long,expectedRevision: Long,expectedFence: Long,apiKey: String): SimpleCommandResult =
-        credentialCommand(profileId,conversationId,taskId,requestId,expectedEpoch) { validate ->
-            agentScheduler.updateCredential(profileId,taskId,requestId,expectedRevision,expectedFence,apiKey,
-                providerManager,{ settingsStore.settingsFlow.value },validate)
-        }
-    override suspend fun continueTaskCredential(profileId: String,conversationId: String,taskId: String,requestId: String,
-        expectedEpoch: Long): SimpleCommandResult =
-        credentialCommand(profileId,conversationId,taskId,requestId,expectedEpoch) { validate ->
-            agentScheduler.continueCredential(profileId,taskId,requestId,providerManager,{ settingsStore.settingsFlow.value },validate)
-        }
-
     override suspend fun sendMessage(request: SendMessageRequest): SimpleCommandResult = withContext(Dispatchers.IO) { commandMutex.withLock {
         requireProfile(request.profileId, request.contextEpoch)
+        require(imageCreation.list(request.profileId).none { it.state == "RUNNING" && it.conversationId == request.conversationId }) { "请等待当前图片完成或停止生成" }
         require(request.text.isNotBlank() || !request.attachmentPaths.isNullOrEmpty()) { "消息不能为空" }
         require(request.requestId.isNotBlank() && request.requestId.length <= 200)
         val commandKey = Uuid.parse(java.util.UUID.nameUUIDFromBytes("${request.profileId}:${request.requestId}".toByteArray()).toString())
@@ -1296,11 +940,15 @@ class StudyHostFacade(
 
     override suspend fun checkSymbol(profileId: String, materialId: String, chosenSymbol: String, requestId: String): SimpleCommandResult = withContext(Dispatchers.IO) {
         requireProfile(profileId)
-        val epoch = contextEpoch.get()
         val item = materialFiles.list(profileId).firstOrNull { it.id == materialId }
             ?: return@withContext SimpleCommandResult(success = false, error = StudyErrorDto("NOT_FOUND", "材料不存在", false, requestId))
 
-        materialFiles.confirmSymbol(profileId, materialId, item.sha256, chosenSymbol) { requireProfile(profileId, epoch) }
+        val updated = item.copy(
+            symbolCorrection = chosenSymbol,
+            symbolCheckPending = false,
+            detail = "符号已校对: $chosenSymbol"
+        )
+        materialFiles.record(updated)
         SimpleCommandResult(success = true, idResult = materialId)
     }
 
@@ -1312,7 +960,7 @@ class StudyHostFacade(
         val db = projectDatabase
         db.folderDao().getFoldersOfAssistant(assistant, profileId).first().map { folder ->
             ProjectDto(folder.id, folder.name, db.conversationDao().projectSummaries(profileId, folder.id).map { conv ->
-                ConversationSummaryDto(conv.id, conversationRepo.getConversationById(Uuid.parse(conv.id), profileId)?.let { conversationRepo.projectDerivedMetadata(it).title }.orEmpty().ifEmpty { "新对话" }, "", conv.updateAt.toString(), conv.isPinned, conv.studyMode, profileId, false)
+                ConversationSummaryDto(conv.id, conv.title.ifEmpty { "新对话" }, "", conv.updateAt.toString(), conv.isPinned, conv.studyMode, profileId, false)
             })
         }
     }
@@ -1430,34 +1078,10 @@ class StudyHostFacade(
         }
     }
 
-    override suspend fun getMemoryProtection(profileId: String, expectedEpoch: Long): MemoryProtectionDto = withContext(Dispatchers.IO) {
-        // Dummy startup settings are not a durable memory configuration.
-        withTimeout(15_000) { settingsStore.settingsFlow.first { !it.init } }
-        requireProfile(profileId, expectedEpoch)
-        val state = learningMemories.read(profileId)
-        requireProfile(profileId, expectedEpoch)
-        val profile = settingsStore.settingsFlow.value.learnerProfiles.single { it.id == profileId }
-        MemoryProtectionDto(profileId, expectedEpoch, profile.memoryEnabled, state.recoveryBlocked)
-    }
-
-    override suspend fun toggleAutoMemory(profileId: String, enabled: Boolean, expectedEpoch: Long): SimpleCommandResult = withContext(Dispatchers.IO) {
-        requireProfile(profileId, expectedEpoch)
-        try {
-            if (enabled && learningMemories.read(profileId).recoveryBlocked) {
-                return@withContext SimpleCommandResult(success = false, error = StudyErrorDto(
-                    "MEMORY_PROTECTED", "记忆保护中，自动抽取与聊天记忆引用已暂停；设置不能解除保护", false, ""))
-            }
-            // Disabling remains possible even when memory keys/data cannot be read.
-            settingsStore.setLearnerMemoryEnabled(profileId, enabled) { durableOwner ->
-                requireProfile(profileId, expectedEpoch)
-                require(durableOwner == profileId) { "档案已改变，请重新加载" }
-            }
-            requireProfile(profileId, expectedEpoch)
-            SimpleCommandResult(success = true)
-        } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException) throw e
-            SimpleCommandResult(success = false, error = StudyErrorDto("MEMORY_ERROR", e.message ?: "记忆设置保存失败", false, ""))
-        }
+    override suspend fun toggleAutoMemory(profileId: String, enabled: Boolean): SimpleCommandResult = withContext(Dispatchers.IO) {
+        requireProfile(profileId)
+        settingsStore.setLearnerMemoryEnabled(profileId, enabled)
+        SimpleCommandResult(success = true)
     }
 
     override suspend fun getArtifacts(profileId: String): List<ArtifactDto> = withContext(Dispatchers.IO) {
@@ -1482,8 +1106,6 @@ class StudyHostFacade(
         requireProfile(profileId, expectedEpoch)
         val item = materialFiles.get(profileId, artifactId)
         require(item.output) { "不是成果文件" }
-        // A historical success label cannot bypass a changed/missing Office calculation witness.
-        if(item.state=="SUCCEEDED" && item.requestKey.startsWith("office:")) verifiedArtifactFile(profileId,item)
         var content: me.rerere.rikkahub.feature.material.MaterialContent? = null
         var coverage: String? = null
         if (item.state == "SUCCEEDED") {
@@ -1507,22 +1129,13 @@ class StudyHostFacade(
     }
 
     private fun artifactMime(extension: String): String = android.webkit.MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension) ?: "application/octet-stream"
-    private fun verifiedArtifactFile(owner: String, item: me.rerere.rikkahub.feature.material.MaterialFile): File {
-        if(item.requestKey.startsWith("office:")) {
-            val taskId=item.requestKey.removePrefix("office:")
-            require(documents.officeConversions.artifact(owner,taskId).id==item.id)
-        }
-        return materialFiles.verifiedFile(owner,item.id)
-    }
 
     override suspend fun openArtifact(profileId: String, artifactId: String): SimpleCommandResult = withContext(Dispatchers.Main) {
         requireProfile(profileId)
-        val epoch = contextEpoch.get()
         val item = materialFiles.list(profileId).firstOrNull { it.id == artifactId }
             ?: return@withContext SimpleCommandResult(success = false, error = StudyErrorDto("NOT_FOUND", "成果不存在", false, ""))
 
-        val file = withContext(Dispatchers.IO) { verifiedArtifactFile(profileId, item) }
-        requireProfile(profileId, epoch)
+        val file = withContext(Dispatchers.IO) { materialFiles.verifiedFile(profileId, item.id) }
         if (!file.exists()) {
             return@withContext SimpleCommandResult(success = false, error = StudyErrorDto("NOT_FOUND", "文件不存在", false, ""))
         }
@@ -1545,11 +1158,10 @@ class StudyHostFacade(
         requireProfile(profileId)
         val epoch = contextEpoch.get()
         val item = materialFiles.get(profileId, artifactId)
-        verifiedArtifactFile(profileId, item)
+        materialFiles.verifiedFile(profileId, artifactId)
         val destination = withContext(Dispatchers.Main) { saveFile(item.name, artifactMime(item.extension)) }
             ?: return@withContext SimpleCommandResult(success = false, error = StudyErrorDto("CANCELLED", "已取消另存", false, ""))
         requireProfile(profileId, epoch)
-        verifiedArtifactFile(profileId, item)
         materialFiles.saveVerified(profileId, artifactId, destination, { settingsStore.settingsFlow.value.activeProfileId == profileId && contextEpoch.get() == epoch })
         emitEvent("artifact_saved", profileId, mapOf("artifactId" to artifactId, "uri" to destination.toString()))
         SimpleCommandResult(success = true, idResult = destination.toString())
@@ -1557,12 +1169,10 @@ class StudyHostFacade(
 
     override suspend fun shareArtifact(profileId: String, artifactId: String): SimpleCommandResult = withContext(Dispatchers.Main) {
         requireProfile(profileId)
-        val epoch = contextEpoch.get()
         val item = materialFiles.list(profileId).firstOrNull { it.id == artifactId }
             ?: return@withContext SimpleCommandResult(success = false, error = StudyErrorDto("NOT_FOUND", "成果不存在", false, ""))
 
-        val file = withContext(Dispatchers.IO) { verifiedArtifactFile(profileId, item) }
-        requireProfile(profileId, epoch)
+        val file = withContext(Dispatchers.IO) { materialFiles.verifiedFile(profileId, item.id) }
         if (!file.exists()) {
             return@withContext SimpleCommandResult(success = false, error = StudyErrorDto("NOT_FOUND", "文件不存在", false, ""))
         }

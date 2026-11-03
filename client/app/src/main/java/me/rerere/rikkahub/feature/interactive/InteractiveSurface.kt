@@ -77,7 +77,6 @@ object InteractiveSurface {
                 "text", "card" -> setOf("text")
                 "image" -> setOf("url", "caption") + if (version >= 4) SurfaceData.imageFields else emptySet()
                 "math_plot" -> MathPlot.fields
-                "math_plot_3d" -> MathSpacePlot.fields
                 "table" -> setOf("columns", "rows") + (if (version >= 2) setOf("filter", "filterColumn") else emptySet()) + (if (version >= 4) SurfaceData.tableFields else emptySet())
                 "line_chart", "bar_chart", "scatter_chart" -> setOf("points", "scale", "xLabel", "yLabel") + (if (version >= 3) setOf("selectable") else emptySet()) + (if (version >= 4) SurfaceData.chartFields else emptySet())
                 "slider" -> setOf("min", "max", "value", "label")
@@ -98,9 +97,7 @@ object InteractiveSurface {
                 "text", "card" -> text("text")
                 "image" -> {
                     val uri = java.net.URI(text("url", 16000))
-                    require((uri.scheme in setOf("http", "https") && !uri.host.isNullOrEmpty() && uri.userInfo == null) ||
-                        (uri.scheme == "file" && uri.rawAuthority.isNullOrEmpty() && uri.path.startsWith('/') &&
-                            uri.rawQuery == null && uri.rawFragment == null))
+                    require(uri.scheme in setOf("http", "https") && !uri.host.isNullOrEmpty())
                     c["caption"]?.let { text("caption", 2000) }
                     if (version >= 4) SurfaceData.validateImage(c)
                 }
@@ -137,10 +134,9 @@ object InteractiveSurface {
         }
         components.forEach {
             val c = it.jsonObject
-            if (c.getValue("type").jsonPrimitive.content in setOf("math_plot", "math_plot_3d")) {
+            if (c.getValue("type").jsonPrimitive.content == "math_plot") {
                 require(version >= 3) { "数学图像需要版本 3" }
-                if (c.getValue("type") == JsonPrimitive("math_plot_3d")) MathSpacePlot.validate(c, parameters)
-                else MathPlot.validate(c, parameters)
+                MathPlot.validate(c, parameters)
             }
             if (c.containsKey("filter") || c.containsKey("filterColumn")) {
                 require(c.getValue("filter").jsonPrimitive.isString && c.getValue("filter").jsonPrimitive.content in selectors)

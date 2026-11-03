@@ -22,8 +22,6 @@ import org.koin.dsl.module
 
 val appModule = module {
     single { me.rerere.rikkahub.feature.material.MaterialFiles(get()) }
-    single { me.rerere.rikkahub.data.ai.tools.ChatImages(get(), get(), get()) }
-    single { me.rerere.rikkahub.feature.agent.ModelRequestRunner(get(), get()) }
     single { me.rerere.rikkahub.feature.material.DocumentServiceRepository(get(), get()) }
     single<Json> { JsonInstant }
 
@@ -81,10 +79,6 @@ val appModule = module {
         )
     }
 
-    single(createdAtStart = true) {
-        me.rerere.rikkahub.feature.agent.AgentUsageNotificationMonitor(get(),get(),get())
-    }
-
     single {
         ChatToolFactory(
             documentService = get(),
@@ -120,7 +114,6 @@ val appModule = module {
             workspaceRepository = get(),
             learningMemories = get(),
             memoryRunner = get(),
-            documentService = get(),
             folderRepository = get()
         )
     }

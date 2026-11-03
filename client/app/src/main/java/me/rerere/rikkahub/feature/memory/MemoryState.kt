@@ -48,9 +48,6 @@ fun LearningMemory.snapshot() = MemoryRevision(revision, content, updatedAt, sta
     // HMAC fingerprints only; no deleted content is retained.
     val suppressedSources: Set<String> = emptySet(), val suppressedFacts: Set<String> = emptySet(),
     val suppressedTopics: Set<String> = emptySet(),
-    // Payload schema2 only: opaque v0 HMACs without source preimages. Never reinterpret using the portable key.
-    // Their presence prevents history transmission, including after backup/restore.
-    val legacySuppressedSources: Set<String> = emptySet(),
     val usedMemories: Map<String, List<String>> = emptyMap(),
 )
 

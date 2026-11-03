@@ -59,11 +59,11 @@ fun ChatMessageNerdLine(
                             )
                         },
                         content = {
-                            Text(text = "${usage.promptTokens?.formatNumber() ?: "—"} tokens")
+                            Text(text = "${usage.promptTokens.formatNumber()} tokens")
                             // Cached tokens
-                            if (usage.cachedTokens != null) {
+                            if (usage.cachedTokens > 0) {
                                 Text(
-                                    text = "(${usage.cachedTokens?.formatNumber()} cached)"
+                                    text = "(${message.usage?.cachedTokens?.formatNumber() ?: "0"} cached)"
                                 )
                             }
                         }
@@ -78,7 +78,7 @@ fun ChatMessageNerdLine(
                             )
                         },
                         content = {
-                            Text(text = "${usage.completionTokens?.formatNumber() ?: "—"} tokens")
+                            Text(text = "${usage.completionTokens.formatNumber()} tokens")
                         }
                     )
                     // TPS
@@ -87,7 +87,7 @@ fun ChatMessageNerdLine(
                             message.createdAt.toJavaLocalDateTime(),
                             message.finishedAt!!.toJavaLocalDateTime()
                         )
-                        val tps = usage.completionTokens?.takeIf { duration.toMillis()>0 }?.let { it.toFloat() / duration.toMillis() * 1000 }
+                        val tps = usage.completionTokens.toFloat() / duration.toMillis() * 1000
                         val seconds = (duration.toMillis() / 1000f).toFixed(1)
                         StatsItem(
                             icon = {
@@ -98,7 +98,7 @@ fun ChatMessageNerdLine(
                                 )
                             },
                             content = {
-                                Text(text = "${tps?.toFixed(1) ?: "—"} tok/s")
+                                Text(text = "${tps.toFixed(1)} tok/s")
                             }
                         )
 

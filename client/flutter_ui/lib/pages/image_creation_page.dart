@@ -84,7 +84,7 @@ class _ImageCreationPageState extends ConsumerState<ImageCreationPage> {
                     final items = tasks
                         .where((t) => t.prompt.contains(query))
                         .toList();
-                    if (items.isEmpty) {
+                    if (items.isEmpty)
                       return Center(
                         child: Padding(
                           padding: const EdgeInsets.all(24),
@@ -97,7 +97,6 @@ class _ImageCreationPageState extends ConsumerState<ImageCreationPage> {
                           ),
                         ),
                       );
-                    }
                     final rows = <List<ImageCreationTask>>[];
                     for (final item in items) {
                       final day = DateUtils.dateOnly(
@@ -430,12 +429,11 @@ class _ImageCreationViewerState extends ConsumerState<ImageCreationViewer> {
       ),
       data: (items) {
         final task = items.where((t) => t.id == selected).firstOrNull;
-        if (task == null) {
+        if (task == null)
           return Scaffold(
             appBar: AppBar(),
             body: const Center(child: Text('图片已不可用')),
           );
-        }
         final versions = items.where((t) => t.rootId == task.rootId).toList()
           ..sort((a, b) => a.revision.compareTo(b.revision));
         final c = StudyPalette.of(context);
@@ -639,14 +637,12 @@ class _ImageCreationInputState extends ConsumerState<ImageCreationInput> {
       controller.text = widget.initialPrompt;
     }
     if (widget.initialSize != oldWidget.initialSize) size = widget.initialSize;
-    if (widget.initialQuality != oldWidget.initialQuality) {
+    if (widget.initialQuality != oldWidget.initialQuality)
       quality = widget.initialQuality;
-    }
     if (widget.initialPrompt != oldWidget.initialPrompt ||
         widget.initialSize != oldWidget.initialSize ||
-        widget.initialQuality != oldWidget.initialQuality) {
+        widget.initialQuality != oldWidget.initialQuality)
       requestId = null;
-    }
   }
 
   void _draftChanged() {
@@ -685,9 +681,8 @@ class _ImageCreationInputState extends ConsumerState<ImageCreationInput> {
       );
       if (!mounted ||
           ref.read(activeProfileIdProvider) != owner ||
-          ref.read(contextEpochProvider) != epoch) {
+          ref.read(contextEpochProvider) != epoch)
         return;
-      }
       final next = ImageCreationTask(m!);
       ref.invalidate(imageTasksProvider);
       ref.invalidate(conversationsProvider);
@@ -698,9 +693,8 @@ class _ImageCreationInputState extends ConsumerState<ImageCreationInput> {
     } catch (e) {
       if (mounted &&
           ref.read(activeProfileIdProvider) == owner &&
-          ref.read(contextEpochProvider) == epoch) {
+          ref.read(contextEpochProvider) == epoch)
         imageNotice(context, e);
-      }
     } finally {
       if (mounted) setState(() => submitting = false);
     }
@@ -715,9 +709,8 @@ class _ImageCreationInputState extends ConsumerState<ImageCreationInput> {
           [];
       if (!mounted ||
           ref.read(activeProfileIdProvider) != owner ||
-          ref.read(contextEpochProvider) != epoch) {
+          ref.read(contextEpochProvider) != epoch)
         return;
-      }
       final ids = items.map((e) => e['id'] as String).toList();
       if ({...references, ...ids}.length + (widget.parent == null ? 0 : 1) >
           4) {
@@ -972,9 +965,8 @@ class _ImageCreationInputState extends ConsumerState<ImageCreationInput> {
       final providers = await bridgeApi.getProviders();
       if (!mounted ||
           ref.read(activeProfileIdProvider) != owner ||
-          ref.read(contextEpochProvider) != epoch) {
+          ref.read(contextEpochProvider) != epoch)
         return;
-      }
       final id = await showModalBottomSheet<String>(
         context: context,
         isScrollControlled: true,
@@ -1019,9 +1011,8 @@ class _ImageCreationInputState extends ConsumerState<ImageCreationInput> {
       if (id == null ||
           !mounted ||
           ref.read(activeProfileIdProvider) != owner ||
-          ref.read(contextEpochProvider) != epoch) {
+          ref.read(contextEpochProvider) != epoch)
         return;
-      }
       await FrontendFeatures.fromWidget(ref, 'selectImageModel', {
         'modelId': id,
       });

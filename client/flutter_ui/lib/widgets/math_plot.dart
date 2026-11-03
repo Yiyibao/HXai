@@ -221,8 +221,8 @@ class MathPlot {
       final c = Map<String, dynamic>.from(item as Map);
       final kind = c['kind'];
       final names = switch (kind) {
-        'function' => {'expression', 'min', 'max', 'exclude'},
-        'parametric' => {'x', 'y', 'min', 'max', 'exclude'},
+        'function' => {'expression', 'min', 'max'},
+        'parametric' => {'x', 'y', 'min', 'max'},
         'implicit' => {'expression'},
         _ => throw const FormatException('不支持的数学曲线'),
       };
@@ -247,18 +247,13 @@ class MathPlot {
           number(c, 'max') <= number(c, 'min')) {
         throw const FormatException('定义域无效');
       }
-      if (c.containsKey('exclude')) {
-        final excluded = c['exclude'] as List;
-        if (excluded.length > 32 || excluded.any((v) => v is! num || !v.isFinite || v.abs() > 1e6)) throw const FormatException('排除点无效');
-      }
     }
     if (plot.containsKey('points')) {
       final points = plot['points'] as List;
       if (points.length > 20) throw const FormatException('标注过多');
       for (final item in points) {
         final p = Map<String, dynamic>.from(item as Map);
-        if ((p.length != 3 && p.length != 4) || p.keys.any((key) => !{'x','y','label','open'}.contains(key)) ||
-            (p.containsKey('open') && p['open'] is! bool) ||
+        if (p.length != 3 ||
             !p.keys.toSet().containsAll({'x', 'y', 'label'}) ||
             p['label'] is! String ||
             (p['label'] as String).isEmpty ||
@@ -352,7 +347,6 @@ class MathPlot {
             fy = expr(kind == 'parametric' ? 'y' : 'expression');
         final start = (c['min'] as num?)?.toDouble() ?? x0,
             end = (c['max'] as num?)?.toDouble() ?? x1;
-        final excluded = (c['exclude'] as List? ?? []).cast<num>();
         var current = <Offset>[];
         void flush() {
           if (current.length >= 2) segments.add(current);
@@ -361,9 +355,6 @@ class MathPlot {
 
         for (var i = 0; i <= 1200; i++) {
           final t = start + (end - start) * i / 1200;
-          final priorT = start + (end - start) * (i - 1) / 1200;
-          if (excluded.any((v) => v == t)) { flush(); continue; }
-          if (i > 0 && excluded.any((v) => v >= priorT && v <= t)) flush();
           final env = {...values, kind == 'parametric' ? 't' : 'x': t};
           final p = Offset(fx?.call(env) ?? t, fy(env));
           final previous = current.isEmpty ? null : current.last;
@@ -499,9 +490,8 @@ class _MathPlotViewState extends State<MathPlotView> {
   Widget build(BuildContext context) {
     String formula(Map curve) {
       var expression = curve['expression'] as String?;
-      if (curve['kind'] != 'function' || expression == null) {
+      if (curve['kind'] != 'function' || expression == null)
         return curve['label'] as String;
-      }
       for (final parameter in widget.parameters.entries) {
         final value = parameter.value;
         final text = value == value.roundToDouble()
@@ -738,8 +728,7 @@ class MathPlotPainter extends CustomPainter {
         Offset(MathPlot.number(point, 'x'), MathPlot.number(point, 'y')),
         size,
       );
-      paint.style = point['open'] == true ? PaintingStyle.stroke : PaintingStyle.fill;
-      canvas.drawCircle(p, point['open'] == true ? 5 : 3, paint);
+      canvas.drawCircle(p, 3, paint);
       text(point['label'] as String, p + const Offset(5, -15));
     }
     canvas.restore();

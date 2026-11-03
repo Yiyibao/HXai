@@ -192,7 +192,7 @@ class MathVisualRuntimeTest {
                         if(networkResume) {
                             println("Math picture case $index: ${failures.map {it.error.javaClass.simpleName}}; verifying one explicit safe resume, not counting interruption as success")
                             failures.forEach {service.dismissError(it.id)}
-                            service.resumeInterruptedGeneration(id,resumeManualPause=true)
+                            service.resumeInterruptedGeneration(id)
                             awaitGeneration()
                         }
                         val conversation=repository.getConversationById(id)!!

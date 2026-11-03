@@ -69,9 +69,8 @@ void main() {
       String? copied;
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(SystemChannels.platform, (call) async {
-            if (call.method == 'Clipboard.setData') {
+            if (call.method == 'Clipboard.setData')
               copied = (call.arguments as Map)['text'] as String;
-            }
             return null;
           });
       await tester.pumpWidget(

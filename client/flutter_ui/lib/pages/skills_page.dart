@@ -41,10 +41,9 @@ class _SkillsPageState extends ConsumerState<SkillsPage>
     try {
       await ref.read(skillsProvider.notifier).setEnabled(skill.name, enabled);
     } catch (e) {
-      if (mounted) {
+      if (mounted)
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('$e')));
-      }
     } finally {
       if (mounted) setState(() => _busy.remove(skill.name));
     }
@@ -76,11 +75,6 @@ class _SkillsPageState extends ConsumerState<SkillsPage>
         ),
         centerTitle: true,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.hub_outlined),
-            tooltip: 'MCP 与独立 Skill 计算服务',
-            onPressed: () => context.push('/settings/extensions'),
-          ),
           IconButton(
             icon: Icon(
               Icons.add,
