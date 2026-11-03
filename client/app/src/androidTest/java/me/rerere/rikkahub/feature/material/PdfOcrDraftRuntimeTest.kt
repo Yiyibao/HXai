@@ -81,7 +81,6 @@ class PdfOcrDraftRuntimeTest {
             val good = document(s.source)
             val falseFull = good.copy(totalPages = 1, requestedRange = listOf(1, 1), processedPages = listOf(1), blankPages = emptyList(), blocks = good.blocks.filter { it.page == 1 })
             val duplicateMissing = good.copy(processedPages = listOf(1, 3), failedPages = listOf(2, 2), complete = false, blocks = good.blocks.filter { it.page != 2 })
-            val falseBlank = good.copy(blankPages = listOf(1, 3))
             val cases = listOf(
                 Triple("total-pages-disagrees", good.copy(totalPages = 2), good),
                 Triple("suppressed-symbol-warning", good.copy(warnings = emptyList()), good),
@@ -89,7 +88,6 @@ class PdfOcrDraftRuntimeTest {
                 Triple("false-blank-page", good.copy(blankPages = listOf(1, 3)), good),
                 Triple("false-failed-page", good.copy(failedPages = listOf(2)), good),
                 Triple("false-whole-source-coverage", falseFull, falseFull),
-                Triple("consistent-blank-metadata-with-recognized-content", falseBlank, falseBlank),
                 Triple("duplicate-missing-page", duplicateMissing, duplicateMissing))
             val evidence = File(app.cacheDir, "b03-parser-contract-evidence").apply { mkdirs() }
             s.files.verifiedFile(s.owner, s.source.id).copyTo(File(evidence, "source.pdf"), overwrite = true)
@@ -217,43 +215,6 @@ class PdfOcrDraftRuntimeTest {
                 put("receipt", receipt); put("realOcr", "NOT_RUN"); put("cacheOrigin", "SYNTHETIC_PROTOCOL_FIXTURE")
                 put("ordinaryCreateSixImagesRejectedWithoutOutput", true)
             }.toString())
-        }
-    }
-
-    private suspend fun cancelOffline(s: Scenario, task: String) {
-        assertFalse(s.repository.enabled(s.owner))
-        try { s.repository.cancel(s.owner, task) }
-        catch (e: kotlinx.coroutines.CancellationException) { throw e }
-        catch (_: Exception) { /* No remote configuration: the local cancellation intent must still persist. */ }
-        assertTrue(s.repository.tasks(s.owner).single { it.id == task }.cancelRequested)
-    }
-
-    @Test fun cancelledDownloadedParseCannotCreateNewWord(): Unit = runBlocking {
-        scenario { s ->
-            val (task, _) = cache(s, document(s.source))
-            val original = s.files.verifiedFile(s.owner, s.source.id).readBytes()
-            cancelOffline(s, task)
-            val edit = materialEditTools(s.files, s.owner, s.repository, allowRemote = false).single { it.name == "edit_material_file" }
-            val reply = edit.execute(args(s.source, listOf(task)))
-            assertFalse("A persisted cancellation must block a new OCR Word draft", reply.any { it is UIMessagePart.Document })
-            assertFalse(s.files.list(s.owner).any { it.output && it.state == "SUCCEEDED" })
-            assertArrayEquals(original, s.files.verifiedFile(s.owner, s.source.id).readBytes())
-        }
-    }
-
-    @Test fun cancellationBlocksDraftReuseWithoutDeletingPreviouslyVerifiedWord(): Unit = runBlocking {
-        scenario { s ->
-            val (task, _) = cache(s, document(s.source))
-            val edit = materialEditTools(s.files, s.owner, s.repository, allowRemote = false).single { it.name == "edit_material_file" }
-            val input = args(s.source, listOf(task))
-            assertTrue(edit.execute(input).any { it is UIMessagePart.Document })
-            val previous = s.files.list(s.owner).single { it.output && it.state == "SUCCEEDED" }
-            val previousBytes = s.files.verifiedFile(s.owner, previous.id).readBytes()
-            cancelOffline(s, task)
-            assertFalse(edit.execute(input).any { it is UIMessagePart.Document })
-            assertFalse(edit.execute(args(s.source, listOf(task), title = "After cancellation")).any { it is UIMessagePart.Document })
-            assertArrayEquals(previousBytes, s.files.verifiedFile(s.owner, previous.id).readBytes())
-            assertEquals(listOf(previous.id), s.files.list(s.owner).filter { it.output && it.state == "SUCCEEDED" }.map { it.id })
         }
     }
 }

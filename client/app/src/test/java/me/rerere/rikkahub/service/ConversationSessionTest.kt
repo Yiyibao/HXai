@@ -94,7 +94,7 @@ class ConversationSessionTest {
         assertEquals(queued.id, reopened.messageQueue.state.value.messages.single().id)
         assertEquals(stored.queue, reopened.state.value.queue)
         reopened.updateQueue({ stored = it }) { it.resume() }
-        reopened.commitQueuedInput(reopened.messageQueue.state.value.messages.single(), queued.parts, persist = { stored = it })
+        reopened.commitQueuedInput(reopened.messageQueue.state.value.messages.single(), queued.parts) { stored = it }
         assertTrue(stored.queue.messages.isEmpty())
         assertEquals(queued.id, stored.currentMessages.single().id)
     }
@@ -104,7 +104,7 @@ class ConversationSessionTest {
         val session = ConversationSession(initial.id, initial, this, {})
         session.updateQueue({}) { it.enqueue(listOf(UIMessagePart.Text("queued"))) }
         val queued = session.messageQueue.state.value.messages.single()
-        assertTrue(runCatching { session.commitQueuedInput(queued, queued.parts, persist = { error("disk full") }) }.isFailure)
+        assertTrue(runCatching { session.commitQueuedInput(queued, queued.parts) { error("disk full") } }.isFailure)
         assertEquals(queued.id, session.messageQueue.state.value.messages.single().id)
         assertTrue(session.state.value.currentMessages.isEmpty())
         assertTrue(runCatching { session.updateQueue({ error("disk full") }) { it.remove(queued.id) } }.isFailure)

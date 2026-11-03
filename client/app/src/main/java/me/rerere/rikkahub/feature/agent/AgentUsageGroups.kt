@@ -9,13 +9,11 @@ internal data class AgentUsageGroup(
     val providerId: String?, val modelId: String?, val role: String?,
     val requestCount: Long, val reportedRequests: Long, val estimatedRequests: Long, val unknownRequests: Long,
     val input: AgentUsageMetric, val output: AgentUsageMetric, val cached: AgentUsageMetric, val total: AgentUsageMetric,
-    val costJson: String? = null,
 )
 internal data class AgentUsageGroupsPage(
     val owner: String, val taskId: String?, val from: Long?, val until: Long?, val groupBy: String,
     val requestCount: Long, val groupCount: Long, val undatedRequests: Long,
     val groups: List<AgentUsageGroup>, val nextCursor: String?,
-    val costJson: String? = null,
 )
 
 /** Read-only aggregation of physical requests. Identity is never borrowed from task or current settings. */
@@ -95,13 +93,11 @@ internal object AgentUsageGroups {
                     if (groupBy != "role") identity[0].ifEmpty { null } else null,
                     if (groupBy == "model") identity[1].ifEmpty { null } else null,
                     if (groupBy == "role") identity[0].ifEmpty { null } else null,
-                    count, reported, estimated, count - reported - estimated, values[0], values[1], values[2], values[3],
-                    AgentCostLedger.summary(db,"$scope AND u.rowid<=?$range AND "+dimensions.indices.joinToString(" AND ") { "${dimensions[it]} COLLATE BINARY=?" },args+identity).toString())
+                    count, reported, estimated, count - reported - estimated, values[0], values[1], values[2], values[3])
             }
         }
         val next = if (groups.size > limit) "g1:$scopeHash:$upper:" +
             Base64.encodeToString(Json.encodeToString(keys[limit - 1]).toByteArray(Charsets.UTF_8), FLAGS) else null
-        return AgentUsageGroupsPage(owner, taskId, from, until, groupBy, totals.second, totals.first, undated, groups.take(limit), next,
-            AgentCostLedger.summary(db,"$scope AND u.rowid<=?$range",args).toString())
+        return AgentUsageGroupsPage(owner, taskId, from, until, groupBy, totals.second, totals.first, undated, groups.take(limit), next)
     }
 }

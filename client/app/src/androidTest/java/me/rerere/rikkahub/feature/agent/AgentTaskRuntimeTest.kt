@@ -136,8 +136,6 @@ class AgentTaskRuntimeTest {
         val request = store.beginRequest(lease,"main","synthetic prompt",selection(first))
         store.writableDatabase.execSQL("CREATE TABLE usage_v1 (request_id TEXT PRIMARY KEY, task_id TEXT NOT NULL REFERENCES tasks(id), role TEXT NOT NULL, provenance TEXT NOT NULL, prompt_tokens INTEGER, completion_tokens INTEGER, cached_tokens INTEGER)")
         store.writableDatabase.execSQL("INSERT INTO usage_v1 SELECT request_id,task_id,role,provenance,prompt_tokens,completion_tokens,cached_tokens FROM usage")
-        // Reconstruct an actual v1 schema: it predates the new child cost ledger.
-        store.writableDatabase.execSQL("DROP TABLE usage_costs")
         store.writableDatabase.execSQL("DROP TABLE usage")
         store.writableDatabase.execSQL("ALTER TABLE usage_v1 RENAME TO usage")
         removeManualPauseFromLegacyFixture(store.writableDatabase)
@@ -145,7 +143,7 @@ class AgentTaskRuntimeTest {
         store.close()
         AgentTaskStore(context,name).use { migrated ->
             migrated.recover()
-            assertEquals(13,migrated.readableDatabase.version)
+            assertEquals(9,migrated.readableDatabase.version)
             assertEquals("UNCERTAIN_SIDE_EFFECT",migrated.get(first.owner,first.id).state)
             migrated.readableDatabase.rawQuery("SELECT provenance,created_at FROM usage WHERE request_id=?",arrayOf(request)).use {
                 assertTrue(it.moveToFirst()); assertEquals("unknown",it.getString(0)); assertTrue(it.isNull(1))
@@ -181,7 +179,7 @@ class AgentTaskRuntimeTest {
         store.writableDatabase.version=4
         store.close()
         AgentTaskStore(context,name).use { migrated ->
-            assertEquals(13,migrated.readableDatabase.version)
+            assertEquals(9,migrated.readableDatabase.version)
             assertTrue(migrated.get(first.owner,first.id).manualPaused)
             assertEquals(lease.fence,migrated.get(first.owner,first.id).fence)
             assertTrue(runCatching { migrated.claim(first.owner,first.id) }.isFailure)

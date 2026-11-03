@@ -53,8 +53,6 @@ class ChatToolFactory(
         add(me.rerere.rikkahub.feature.interactive.interactiveUiTool())
         add(me.rerere.rikkahub.feature.interactive.mathPlotTool(materialFiles, profileId))
         add(me.rerere.rikkahub.feature.math.mathVerifyTool())
-        add(me.rerere.rikkahub.feature.material.mathWorkReadTool(materialFiles, profileId))
-        add(me.rerere.rikkahub.feature.material.mathWorkReviewTool(materialFiles, profileId))
         add(me.rerere.rikkahub.feature.material.materialChapterIndexTool(materialFiles, profileId))
         add(me.rerere.rikkahub.feature.material.materialChapterReadTool(materialFiles, profileId))
         add(me.rerere.rikkahub.feature.material.materialChapterSearchTool(materialFiles, profileId))
@@ -102,18 +100,11 @@ class ChatToolFactory(
                     allSkills = availableSkills,
                     materials = materialFiles,
                     profileId = profileId,
-                    checkEnabled = { name ->
-                        val current = org.koin.core.context.GlobalContext.get().get<me.rerere.rikkahub.data.datastore.SettingsStore>().settingsFlow.value
-                        require(skillManager.findSkill(name) != null && (name == mathBuiltin?.name ||
-                            current.assistants.singleOrNull { it.id == assistant.id }?.enabledSkills?.contains(name) == true)) { "技能已停用或卸载" }
-                    },
                 )
             )
         }
 
         // Shared MCP tools have no profile authorization contract yet.
-        me.rerere.rikkahub.feature.agent.SyntheticMcpRuntime.toolFor(profileId)?.let { add(it) }
-        me.rerere.rikkahub.feature.agent.ExtensionMcpRuntime.toolFor(profileId)?.let { add(it) }
 
     }.map { original ->
         val trusted=me.rerere.rikkahub.feature.agent.TrustedToolRegistry.require(original.name)

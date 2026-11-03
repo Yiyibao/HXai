@@ -7,7 +7,6 @@ import '../providers/profile_resource.dart';
 import '../providers/material_library_providers.dart';
 import '../providers/study_providers.dart';
 import '../widgets/context_follow_up.dart';
-import 'math_work_page.dart';
 
 class LibraryDetailPage extends ConsumerStatefulWidget {
   final LibraryAccess access;
@@ -201,9 +200,6 @@ class _LibraryDetailPageState extends ConsumerState<LibraryDetailPage> {
         const Divider(),
         SwitchListTile(contentPadding: EdgeInsets.zero, title: const Text('数学题目 / 解答批改'), subtitle: const Text('仍使用同一Chat Agent、已选模型和任务；本页不自报数学已证明。'), value: mathMode, onChanged: busy ? null : (v) => setState(() { mathMode = v; mathEvidence = null; })),
         if (mathMode) ...[
-          if (['png', 'jpg', 'jpeg', 'webp', 'pdf'].contains(entry.extension))
-            OutlinedButton(onPressed: busy || !current ? null : () => Navigator.of(context).push(MaterialPageRoute<void>(
-              builder: (_) => MathWorkPage(access: widget.access, initial: entry))), child: const Text('多页手写：页序、转录确认与逐步批改')),
           const Text('先打开原件核对关键符号。扫描/图片必须显式确认转录；未核前缀不得把后续错误宣称为首错。'),
           TextField(controller: transcript, maxLines: 5, maxLength: 4000, decoration: const InputDecoration(labelText: '已对照原件的用户转录（不是OCR或教材原文）')),
           Wrap(spacing: 8, children: [

@@ -60,14 +60,6 @@
     android:theme="@style/Theme.Rikkahub"
     android:usesCleartextTraffic="true"
     tools:targetApi="33">
-    <activity android:name=".feature.agent.ExtensionOAuthCallbackActivity" android:exported="true" android:excludeFromRecents="true" android:noHistory="true" android:theme="@android:style/Theme.NoDisplay">
-      <intent-filter>
-        <action android:name="android.intent.action.VIEW" />
-        <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE" />
-        <data android:scheme="${applicationId}.oauth" />
-      </intent-filter>
-    </activity>
     <activity
       android:name=".ui.activity.SafeModeActivity"
       android:exported="false"

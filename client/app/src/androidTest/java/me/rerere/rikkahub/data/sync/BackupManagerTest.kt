@@ -30,52 +30,6 @@ class BackupManagerTest {
     @Test fun deletionAfterConfirmationIsMergedAgainAtStartup() = conversationDeletion(true)
     @Test fun missingPreparedDatabaseIsRejectedBeforePublish() = damagedStaging("database")
     @Test fun missingPreparedSettingsIsRejectedBeforePublish() = damagedStaging("settings")
-    @Test fun deletedConversationCannotReviveItsDerivedMemory() = derivedMemoryRestore(deleteChat = true, late = false)
-    @Test fun lateConversationDeletionAlsoInvalidatesRestoredDerivedMemory() = derivedMemoryRestore(deleteChat = true, late = true)
-    @Test fun survivingConversationAndManualMemoryRemainUsableAfterRestore() = derivedMemoryRestore(deleteChat = false, late = false)
-
-    private fun derivedMemoryRestore(deleteChat: Boolean, late: Boolean): Unit = runBlocking {
-        val owner = GlobalContext.get().get<SettingsStore>().settingsFlowRaw.first { !it.init }.activeProfileId
-        val id = java.util.UUID.randomUUID().toString()
-        liveDatabase.conversationDao().insert(me.rerere.rikkahub.data.db.entity.ConversationEntity(id,
-            java.util.UUID.randomUUID().toString(), "source conversation", "[]", 1, 1, "[]", false, profileId = owner))
-        val message = me.rerere.ai.ui.UIMessage.user("I prefer synthetic worked examples")
-        val node = java.util.UUID.randomUUID().toString()
-        liveDatabase.messageNodeDao().insert(me.rerere.rikkahub.data.db.entity.MessageNodeEntity(node, id, 0,
-            JsonInstant.encodeToString(listOf(message)), 0))
-        val fingerprints = me.rerere.rikkahub.feature.memory.MemoryFingerprints(context)
-        val store = me.rerere.rikkahub.feature.memory.LearningMemoryStore(liveDatabase, fingerprints)
-        store.addManual(owner, "independent-manual", me.rerere.rikkahub.feature.memory.MemoryType.PREFERENCE, "Independent manual preference")
-        val source = me.rerere.rikkahub.feature.memory.MemorySource(java.util.UUID.randomUUID().toString(), id, node,
-            message.id.toString(), store.fingerprint(owner, "content:${message.toText()}"), 1)
-        val memory = me.rerere.rikkahub.feature.memory.LearningMemory(type = me.rerere.rikkahub.feature.memory.MemoryType.PREFERENCE,
-            topicKey = "synthetic", factKey = "examples", content = "Derived worked-example preference",
-            evidenceType = me.rerere.rikkahub.feature.memory.EvidenceType.SELF_REPORTED, sourceIds = listOf(source.id),
-            status = "ACTIVE", createdAt = 1, updatedAt = 1)
-        store.change(owner) { it.copy(sources = listOf(source), items = it.items + memory) to Unit }
-        val archive = manager.createEncryptedBackup("derived memory restore fixture!".toCharArray())
-        val preview = manager.prepareEncryptedRestore(archive, "derived memory restore fixture!".toCharArray())
-        if (late) manager.confirmRestore(preview)
-        if (deleteChat) {
-            liveDatabase.conversationDao().recordDeletion(me.rerere.rikkahub.data.db.entity.ConversationDeletionEntity(id, owner, 0, true))
-            store.invalidateConversation(owner, id)
-            liveDatabase.conversationDao().deleteById(id)
-        }
-        if (!late) manager.confirmRestore(preview)
-        liveDatabase.close()
-        withIsolatedRestoreSettings(File(directory, "derived-restored.preferences_pb")) {
-            assertTrue(BackupManager.applyPendingRestore(context, JsonInstant))
-        }
-        liveDatabase = AppDatabaseFactory.create(context)
-        val restored = me.rerere.rikkahub.feature.memory.LearningMemoryStore(liveDatabase, fingerprints)
-        val state = restored.read(owner)
-        assertEquals(!deleteChat, state.sources.single().valid)
-        assertEquals(if (deleteChat) "SUPERSEDED" else "ACTIVE", state.items.single { it.id == memory.id }.status)
-        assertEquals("Derived record must remain manageable", memory.content, state.items.single { it.id == memory.id }.content)
-        assertEquals(!deleteChat, restored.relevant(owner, "examples").any { it.id == memory.id })
-        assertTrue("Independent manual memory must remain usable", restored.relevant(owner, "preference").any { it.origin == "USER_MANUAL" })
-        assertEquals(!deleteChat, liveDatabase.conversationDao().getConversationById(id) != null)
-    }
 
     private fun damagedStaging(kind: String): Unit = runBlocking {
         val archive = manager.createEncryptedBackup("staging integrity fixture!".toCharArray())

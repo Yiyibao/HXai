@@ -34,12 +34,10 @@ import java.util.UUID
 
 /** No model supplied path or identity is accepted. Each task closes over its original owner. */
 class MaterialFiles(private val context: Context) {
-    private val json = Json { ignoreUnknownKeys = false; encodeDefaults = true }
+    private val json = Json { ignoreUnknownKeys = false }
     // Derived text never survives this instance; legacy disk caches are not source evidence.
     private var lastRead: Pair<MaterialFile, MaterialContent>? = null
     val changes = MutableStateFlow(0L)
-    internal val mathWorkInputs by lazy { MathWorkInputs(context, this) }
-    internal fun <T> withSourceMutationLock(block: () -> T): T = synchronized(mutationLock, block)
     init {
         context.filesDir.resolve("materials").listFiles().orEmpty().filter { it.isDirectory && validProfile(it.name) }.forEach { recover(it.name) }
     }

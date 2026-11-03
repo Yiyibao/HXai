@@ -80,8 +80,7 @@ object MaterialPdfOcrDraft {
             for (id in orderedIds) {
                 checkActive()
                 val task = repository.tasks(owner).singleOrNull { it.id == id } ?: error("解析任务不属于当前档案")
-                require(task.sourceId == source.id && task.sourceSha256 == source.sha256 && task.downloaded &&
-                    !task.cancelRequested && task.state != "CANCELLING" && task.state != "CANCELLED") { "需要此源版本已下载、校验且未取消的解析结果；此操作不会上传或重试识别" }
+                require(task.sourceId == source.id && task.sourceSha256 == source.sha256 && task.downloaded) { "需要此源版本已下载并校验的解析结果；此操作不会上传或重试识别" }
                 val document = repository.read(owner, id)
                 require(document.totalPages == totalPages)
                 val pages = document.processedPages.filter { it in start..end }
@@ -177,8 +176,7 @@ object MaterialPdfOcrDraft {
                 for (input in inputs) {
                     checkActive()
                     val task = repository.tasks(owner).singleOrNull { it.id == input.id } ?: error("解析任务已移除")
-                    check(task.sourceId == source.id && task.sourceSha256 == source.sha256 && task.downloaded &&
-                        !task.cancelRequested && task.state != "CANCELLING" && task.state != "CANCELLED") { "解析结果已取消，未发布或复用新候选稿" }
+                    check(task.sourceId == source.id && task.sourceSha256 == source.sha256 && task.downloaded)
                     check(documentHash(repository.read(owner, input.id)) == input.digest) { "解析结果版本已改变" }
                 }
             }

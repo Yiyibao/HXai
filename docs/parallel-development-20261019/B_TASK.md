@@ -70,26 +70,3 @@ python scripts/verify_b_xlsx_service.py --run-dir .local/b-office-gateway-202610
 用户要求“完整实现B04与B05”。`B04-B05-COMPLETE-20261020` 已将系统目录授权复制、目录/标签/筛选、固定源覆盖率/章节/字面检索入口、版本/跨会话引用、删除缓存hook/回收/新版本恢复、另存读回与历史备份删除约束接入Root；B05在现合同1–15补真实出处、完整转录与单字符校对区分、代表语料/正确异法/原域孔洞/首错前缀质量证据。代码入口/持久层/消费者见 [领域协议v1](B04-B05-LIBRARY-MATH-PROTOCOL.md)，实际运行与范围裁决见 [本轮交付](../../HXai_CHANGE_REVIEW/B04-B05-COMPLETE-20261020/HANDOFF.md)。
 
 本段取代B04a所列“完整B04仍PARTIAL”的实施进度，不抹去旧批次范围与失败。实际PASS/FAIL、进程退出/丢ACK及合流构建只取本轮最终TEST_RESULTS/验收矩阵，不从接线或旧计数推导。Room33及来源/恢复保护继承A，shared最小差异已按当前Root锚点核对，不回退A；metadata2/library1，sidecar9/Pigeon164/模型/授权不迁移。真实Provider/OCR、TalkBack语音、B06/Release/生产与独立/全项目审查未由本机工程夹具自动通过；可选下一Taylor合同未启动。
-
-## B06 本轮跨环境增量定位（2026-10-21）
-
-`B06-API26-COMPAT-20261021` 在独占 Android8/API26 x86_64 实际模拟器完成第二版89方法全PASS、最终包两次真实进程终止/写后丢ACK恢复及独立原件/恢复字节读回；小屏320×640、明暗与200%大字真实Flutter表面另有原始截图。原7项失败、第一版87 PASS/2 FAIL及全部原始输入/产物/源码清单保留，不累加旧计数。
-
-Root接入8个B领域代码/夹具文件：严格APK/API/源封印和乱序instrumentation解析驱动、零发现拒绝、复杂PPT原样本自包含、Office丢清理ACK的正常退出核验与行为回归。Root相关服务75项、解析边界9项通过，真实Word/PPT/XLSX/14个本地取消撤权/停止恢复场景通过。源码与重放边界见 [B06协议v1](B06-API26-COMPAT-PROTOCOL.md)、[本轮交付](../../HXai_CHANGE_REVIEW/B06-API26-COMPAT-20261021/HANDOFF_STATUS.md)。
-
-A独占Store与任务测试未覆盖：显式Closeable及两项API26可用的旧字段表重建夹具，仅交 `A_SHARED_API26_V2.patch`、当前Root before/candidate SHA和冻结B04/B05候选实际证据。Root A04保持其全部独立改动；须A合流并用其最终APK重新资格验证，不能把本批候选当A04通过。
-
-总体CONDITIONAL，限定候选API26/本机Office为PASS_SCOPED；完整B06仍PARTIAL。WPS有既存用户实例及统一COM服务，未贸然激活；Linux Docker不可用且未启动全局Docker。MS Office/目标设备/真实OCR/Release/生产与独立/全项目审查未通过本批。全部自有设备已停止、最终UNKNOWN/receipt/源已归档；不部署、不推送、不重放用户副作用。
-
-## B06 Linux Office 收尾（2026-10-22）
-
-`B06-LINUX-OFFICE-20261021` 已完成专属WSL2 Linux/私有Docker实际资格，不再是“仅构建镜像”。
-沿原API/Store/dispatcher/UNO/独立validator/下载链，最终单次24场景PASS、完整服务149项PASS；
-复杂DOCX/OMML、PPT全可见页与母版、XLSX七公式/日期/图表缓存，真实worker/dispatcher写后杀进程、
-上传ACK丢失、取消撤权、控制面停止未知保全/恢复和fcntl锁均有原始证据。
-根cgroup无Swap限制的真实FAIL保留，专属daemon子cgroup修正后读回内核限额；不放宽门槛、不改产品代码。
-Root已接入四个资格工具文件及文档，原A04/共享Store与API26候选不动。协议/精确重放与源码映射见
-[Linux资格v1](B06-LINUX-OFFICE-PROTOCOL.md) 和交付 `HANDOFF_STATUS.md`。
-限定Linux/WSL Docker Office PASS_SCOPED；完整B06仍取决于MSOffice/WPS、最终整合API26与目标设备。
-本批自有容器/API/dispatcher/daemon和发行版已停止，原件/回执/失败/镜像保留，用户Docker Desktop未启动。
-独立与完整全项目审查NOT_EVALUATED，不授Release/生产通过。

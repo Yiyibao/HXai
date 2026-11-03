@@ -67,19 +67,6 @@ internal object BackupDeletionMerge {
                     room.conversationDao().recordDeletion(me.rerere.rikkahub.data.db.entity.ConversationDeletionEntity(id, archived.profileId, next, false))
                     // Provenance from a different incarnation cannot authenticate new metadata.
                 }
-                // Conversation tombstones also invalidate archived derived memory. Restoring
-                // its old valid=true bit would bypass the same source loss handled by normal
-                // deleteConversation/invalidateConversation, even though the chat stayed deleted.
-                val restoredOwners = mutableMapOf<String, String?>()
-                room.learningMemoryDao().all().forEach { entity ->
-                    val original = json.decodeFromString<MemoryState>(entity.payload)
-                    var state = original
-                    for (id in original.sources.map { it.conversationId }.distinct()) {
-                        if (id !in restoredOwners) restoredOwners[id] = room.conversationDao().getConversationById(id)?.profileId
-                        if (restoredOwners[id] != entity.profileId) state = MemoryReducer.reconcile(state, id, emptyList())
-                    }
-                    if (state != original) room.learningMemoryDao().put(entity.copy(payload = json.encodeToString(state)))
-                }
             }
             DatabaseBackup.checkpoint(room.openHelper.writableDatabase)
         } finally { room.close(); DatabaseBackup.removeSidecars(file) }
