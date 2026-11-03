@@ -90,34 +90,33 @@ internal object AgentUsageExport {
     private suspend fun verify(files: MaterialFiles,owner: String,taskId: String?,from: Long?,until: Long?,groupBy: String,
         requestId: String,item: MaterialFile,reused: Boolean,checkAccess: () -> Unit): AgentUsageExportReceipt {
         val id=artifactId(owner,requestId);val key=requestKey(owner,taskId,from,until,groupBy,requestId)
-        currentCoroutineContext().ensureActive();checkAccess()
-        require(item.id==id && item.profileId==owner && item.output && item.extension=="json" && item.requestKey==key) { "导出请求范围已改变" }
-        require(item.size in 1..AgentUsageSnapshot.MAX_BYTES.toLong() && item.sha256.matches(Regex("[a-f0-9]{64}"))) { "导出意图缺少可信摘要" }
-        val target=files.file(item)
-        require(java.nio.file.Files.isRegularFile(target.toPath(),java.nio.file.LinkOption.NOFOLLOW_LINKS) && target.length()==item.size) { "导出已中断或文件缺失；请明确生成新快照" }
-        val bytes=target.inputStream().use(AgentUsageSnapshot::readBounded)
-        require(bytes.size.toLong()==item.size && AgentUsageSnapshot.digest(bytes)==item.sha256) { "导出文件摘要不匹配；原文件保留" }
-        val root=AgentUsageSnapshot.decode(bytes);val data=root.getValue("data").jsonObject
-        fun matches(name: String,value: String?)=data.getValue(name)==(value?.let(::JsonPrimitive) ?: JsonNull)
-        require(matches("owner",owner) && matches("taskId",taskId) && matches("fromMs",from?.toString()) && matches("untilMs",until?.toString()) &&
-            matches("groupBy",groupBy) && matches("requestId",requestId)) { "导出内容不属于原请求范围" }
-        val records=data.getValue("recordCount").jsonPrimitive.content.toLong()
-        val summary=data.getValue("summary").jsonObject;val count=summary.getValue("requestCount").jsonPrimitive.content.toLong()
-        require(records in 0..AgentUsageSnapshot.MAX_RECORDS.toLong() && count>=0)
-        require(records==(if(groupBy=="requests") count else summary.getValue("groupCount").jsonPrimitive.content.toLong())) { "导出范围不完整" }
-        if(data["costSchemaVersion"]==null) require(data.getValue("cost").jsonObject==buildJsonObject { put("status","unknown");put("amount",JsonNull);put("currency",JsonNull) })
-        else require(data["costSchemaVersion"]==JsonPrimitive(1) && data.getValue("cost").jsonObject["requestCount"]==JsonPrimitive(count.toString()))
-        currentCoroutineContext().ensureActive();checkAccess()
-        val current=files.get(owner,id)
-        require(current.profileId==item.profileId && current.requestKey==key && current.sha256==item.sha256 && current.size==item.size && current.sourceId==null)
-        if(current.state!="SUCCEEDED") {
-            // Known local effect read back against the original durable expected bytes. Never rewrite it.
-            require(current.state in setOf("PENDING","RUNNING","FAILED","CANCELLED"))
-            files.record(current.copy(state="SUCCEEDED",detail="请求用量与费用来源JSON快照；已独立回读核验"))
+            currentCoroutineContext().ensureActive();checkAccess()
+            require(item.profileId==owner && item.output && item.extension=="json" && item.requestKey==key) { "导出请求范围已改变" }
+            require(item.size in 1..AgentUsageSnapshot.MAX_BYTES.toLong() && item.sha256.matches(Regex("[a-f0-9]{64}"))) { "导出意图缺少可信摘要" }
+            val target=files.file(item)
+            require(target.isFile && target.length()==item.size) { "导出已中断或文件缺失；请明确生成新快照" }
+            val bytes=target.inputStream().use(AgentUsageSnapshot::readBounded)
+            require(bytes.size.toLong()==item.size && AgentUsageSnapshot.digest(bytes)==item.sha256) { "导出文件摘要不匹配；原文件保留" }
+            val root=AgentUsageSnapshot.decode(bytes);val data=root.getValue("data").jsonObject
+            fun matches(name: String,value: String?)=data.getValue(name)==(value?.let(::JsonPrimitive) ?: JsonNull)
+            require(matches("owner",owner) && matches("taskId",taskId) && matches("fromMs",from?.toString()) && matches("untilMs",until?.toString()) &&
+                matches("groupBy",groupBy) && matches("requestId",requestId)) { "导出内容不属于原请求范围" }
+            val records=data.getValue("recordCount").jsonPrimitive.content.toLong()
+            val summary=data.getValue("summary").jsonObject;val count=summary.getValue("requestCount").jsonPrimitive.content.toLong()
+            require(records in 0..AgentUsageSnapshot.MAX_RECORDS.toLong() && count>=0)
+            require(records==(if(groupBy=="requests") count else summary.getValue("groupCount").jsonPrimitive.content.toLong())) { "导出范围不完整" }
+            require(data.getValue("cost").jsonObject==buildJsonObject { put("status","unknown");put("amount",JsonNull);put("currency",JsonNull) })
+            currentCoroutineContext().ensureActive();checkAccess()
+            val current=files.get(owner,id)
+            require(current.profileId==item.profileId && current.requestKey==key && current.sha256==item.sha256 && current.size==item.size && current.sourceId==null)
+            if(current.state!="SUCCEEDED") {
+                // Known local effect read back against the original durable expected bytes. Never rewrite it.
+                require(current.state in setOf("PENDING","RUNNING","FAILED","CANCELLED"))
+                files.record(current.copy(state="SUCCEEDED",detail="请求用量JSON快照；已独立回读核验，费用未知"))
+            }
+            checkAccess()
+            return AgentUsageExportReceipt(owner,taskId,from,until,groupBy,requestId,id,item.sha256,item.size,
+                root.getValue("sourceSha256").jsonPrimitive.content,data.getValue("capturedAtMs").jsonPrimitive.content.toLong(),count,records,reused)
         }
-        checkAccess()
-        return AgentUsageExportReceipt(owner,taskId,from,until,groupBy,requestId,id,item.sha256,item.size,
-            root.getValue("sourceSha256").jsonPrimitive.content,data.getValue("capturedAtMs").jsonPrimitive.content.toLong(),count,records,reused)
-    }
 
 }

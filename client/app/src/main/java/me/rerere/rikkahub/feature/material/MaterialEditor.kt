@@ -23,57 +23,12 @@ object MaterialEditor {
     private const val A = "http://schemas.openxmlformats.org/drawingml/2006/main"
     private const val M = "http://schemas.openxmlformats.org/officeDocument/2006/math"
     private const val P = "http://schemas.openxmlformats.org/presentationml/2006/main"
-    private class WordProtection(root: Element) {
-        private val fieldMembers = java.util.Collections.newSetFromMap(java.util.IdentityHashMap<Element, Boolean>())
-        private var valid = true
-        init {
-            val fields = java.util.ArrayDeque<Boolean>()
-            val stack = java.util.ArrayDeque<Element>()
-            stack.add(root)
-            while (stack.isNotEmpty()) {
-                val node = stack.removeLast()
-                if (fields.isNotEmpty()) fieldMembers.add(node)
-                if (node.namespaceURI == W && (node.localName == "fldChar" || node.localName == "instrText")) {
-                    var ancestor = node.parentNode
-                    while (ancestor is Element) {
-                        if (ancestor.namespaceURI == W && ancestor.localName == "p") fieldMembers.add(ancestor)
-                        ancestor = ancestor.parentNode
-                    }
-                }
-                if (node.namespaceURI == W && node.localName == "fldChar") {
-                    when (node.getAttributeNS(W, "fldCharType")) {
-                        "begin" -> fields.addLast(false)
-                        "separate" -> if (fields.isEmpty() || fields.peekLast() == true) valid = false else {
-                            fields.removeLast(); fields.addLast(true)
-                        }
-                        "end" -> if (fields.isEmpty()) valid = false else fields.removeLast()
-                        else -> valid = false
-                    }
-                }
-                for (index in node.childNodes.length - 1 downTo 0) {
-                    (node.childNodes.item(index) as? Element)?.let(stack::addLast)
-                }
-            }
-            if (fields.isNotEmpty()) valid = false
-        }
-        fun allows(element: Element) = valid && element !in fieldMembers
-    }
-
-    private fun editableTextRun(run: Element, protection: WordProtection? = null): Boolean {
-        var ancestor: org.w3c.dom.Node? = run
+    private fun editableTextRun(run: Element): Boolean {
+        var ancestor = run.parentNode
         while (ancestor is Element) {
-            if (protection?.allows(ancestor) == false) return false
-            if (ancestor.namespaceURI == W) {
-                if (ancestor.localName == "fldSimple" || ancestor.localName == "del" || ancestor.localName == "moveFrom") return false
-                if (ancestor.localName == "sdt" && children(ancestor).any { properties ->
-                        properties.namespaceURI == W && properties.localName == "sdtPr" && children(properties).any {
-                            it.namespaceURI == W && it.localName == "lock" && it.getAttributeNS(W, "val") != "unlocked"
-                        }
-                    }) return false
-            }
+            if (ancestor.namespaceURI == W && ancestor.localName == "fldSimple") return false
             if (ancestor.namespaceURI == A && ancestor.localName == "fld") return false
-            if (run.namespaceURI == A && ancestor.namespaceURI == "http://schemas.openxmlformats.org/markup-compatibility/2006" &&
-                ancestor.localName == "AlternateContent") return false
+            if (ancestor.namespaceURI == W && ancestor.localName == "p" && (elements(ancestor, W, "fldChar").isNotEmpty() || elements(ancestor, W, "instrText").isNotEmpty())) return false
             ancestor = ancestor.parentNode
         }
         return true
@@ -106,30 +61,11 @@ object MaterialEditor {
 
     private fun pptShape(root: Element, shapeId: String): Element {
         require(shapeId.isNotBlank() && shapeId.length <= 64) { "invalid_shape_id" }
-        val selectedId = PresentationSlideOrder.unsignedId(shapeId) ?: error("invalid_shape_id")
         val identities = root.getElementsByTagNameNS(P, "cNvPr")
         var matches = 0
-        for (index in 0 until identities.length) {
-            val id = PresentationSlideOrder.unsignedId((identities.item(index) as Element).getAttribute("id"))
-                ?: error("invalid_shape_identity")
-            if (id == selectedId) matches++
-        }
+        for (index in 0 until identities.length) if ((identities.item(index) as Element).getAttribute("id") == shapeId) matches++
         require(matches == 1) { "missing_or_ambiguous_shape_id" }
-        return pptTextShapes(root).singleOrNull { PresentationSlideOrder.unsignedId(shapeProperties(it).getAttribute("id")) == selectedId }
-            ?: error("text_shape_not_found")
-    }
-
-    private fun JsonObjectBuilder.putPresentationContext(slides: List<PresentationSlideOrder.Slide>, slide: Int) {
-        put("part", slides[slide - 1].part); put("slide_basis", "presentation_order_including_hidden")
-        put("hidden", slides[slide - 1].hidden); put("total_slides", slides.size)
-        var count = 0
-        var visible: Int? = null
-        slides.forEachIndexed { index, item ->
-            if (!item.hidden) { count++; if (index == slide - 1) visible = count }
-        }
-        put("visible_slide", visible?.let(::JsonPrimitive) ?: JsonNull)
-        put("total_visible_slides", count)
-        put("visible_slide_basis", "presentation_order_excluding_hidden_not_pdf_page")
+        return pptTextShapes(root).singleOrNull { shapeProperties(it).getAttribute("id") == shapeId } ?: error("text_shape_not_found")
     }
 
     fun pptShapes(file: File, slide: Int, offset: Int, count: Int): JsonObject {
@@ -142,15 +78,14 @@ object MaterialEditor {
         val shapes = pptTextShapes(root)
         require(offset <= shapes.size)
         val ids = root.getElementsByTagNameNS(P, "cNvPr")
-        val counts = HashMap<Long, Int>()
-        var validIdentities = true
+        val counts = HashMap<String, Int>()
         for (index in 0 until ids.length) {
-            val id = PresentationSlideOrder.unsignedId((ids.item(index) as Element).getAttribute("id"))
-            if (id == null) validIdentities = false else counts[id] = (counts[id] ?: 0) + 1
+            val id = (ids.item(index) as Element).getAttribute("id")
+            counts[id] = (counts[id] ?: 0) + 1
         }
         return buildJsonObject {
-            put("slide", slide); putPresentationContext(slides, slide); put("total", shapes.size)
-            put("identity_layout_valid", validIdentities); put("shape_identity_basis", "unsigned_int32_value")
+            put("slide", slide); put("part", path); put("slide_basis", "presentation_order_including_hidden")
+            put("hidden", slides[slide - 1].hidden); put("total_slides", slides.size); put("total", shapes.size)
             put("shapes", buildJsonArray {
                 for (index in offset until minOf(shapes.size, offset + count)) {
                     val shape = shapes[index]; val properties = shapeProperties(shape)
@@ -163,7 +98,7 @@ object MaterialEditor {
                     }
                     add(buildJsonObject {
                         put("shapeId", id); put("name", properties.getAttribute("name")); put("run_count", runs.length)
-                        put("text_preview", preview.toString()); put("locatable", validIdentities && id.isNotBlank() && id.length <= 64 && counts[PresentationSlideOrder.unsignedId(id)] == 1)
+                        put("text_preview", preview.toString()); put("locatable", id.isNotBlank() && id.length <= 64 && counts[id] == 1)
                     })
                 }
             })
@@ -181,16 +116,16 @@ object MaterialEditor {
         val root = xml(packageParts.getValue(path))
         val selected = if (shapeId == null) root else pptShape(root, shapeId)
         val runs = elements(selected, ns, "t")
-        val protection = if (extension == "docx") WordProtection(root) else null
         require(offset <= runs.size)
         return buildJsonObject { put("total", runs.size); put("slide", slide)
             if (extension == "pptx") {
-                putPresentationContext(slides, slide)
+                put("slide_basis", "presentation_order_including_hidden"); put("part", path)
+                put("hidden", slides[slide - 1].hidden); put("total_slides", slides.size)
                 put("index_basis", if (shapeId == null) "slide_runs" else "shape_runs")
                 shapeId?.let { put("shapeId", it); put("shape_name", shapeProperties(selected).getAttribute("name")) }
             }
             put("runs", buildJsonArray {
-            runs.drop(offset).take(count).forEachIndexed { i, run -> add(buildJsonObject { put("index", offset + i + 1); put("text", run.textContent.take(4000)); put("truncated", run.textContent.length > 4000); put("editable", editableTextRun(run, protection)) }) }
+            runs.drop(offset).take(count).forEachIndexed { i, run -> add(buildJsonObject { put("index", offset + i + 1); put("text", run.textContent.take(4000)); put("truncated", run.textContent.length > 4000); put("editable", editableTextRun(run)) }) }
         }) }
     }
 
@@ -209,7 +144,7 @@ object MaterialEditor {
         val root = xml(packageParts.getValue(path))
         val selected = if (shapeId == null) root else pptShape(root, shapeId)
         val run = elements(selected, ns, "t").getOrNull(spec.getValue("index").jsonPrimitive.int - 1) ?: error("文本运行不存在")
-        require(editableTextRun(run, if (extension == "docx") WordProtection(root) else null)) { "域结果、锁定控件或删除修订不能作为普通文字修改" }
+        require(editableTextRun(run)) { "域结果应通过Office更新，不能作为普通文字修改" }
         require(spec.getValue("expectedText").jsonPrimitive.isString && run.textContent == spec.getValue("expectedText").jsonPrimitive.content) { "原文已改变，请重新检查" }
         run.textContent = replacement
         run.setAttributeNS("http://www.w3.org/XML/1998/namespace", "xml:space", "preserve")
@@ -221,12 +156,19 @@ object MaterialEditor {
         check(reopenedPath == path && elements(savedShape, ns, "t")[spec.getValue("index").jsonPrimitive.int - 1].textContent == replacement) { "office_text_readback_failed" }
     }
 
+    private fun editableEquation(equation: Element): Boolean {
+        if (!editableTextRun(equation)) return false
+        var parent = equation.parentNode
+        while (parent is Element) {
+            if (parent.namespaceURI == W && (parent.localName == "del" || parent.localName == "moveFrom")) return false
+            parent = parent.parentNode
+        }
+        return true
+    }
 
     fun wordEquations(file: File, offset: Int, count: Int): JsonObject {
         require(offset >= 0 && count in 1..50)
-        val root = xml(parts(file).getValue("word/document.xml"))
-        val protection = WordProtection(root)
-        val equations = root.getElementsByTagNameNS(M, "oMath")
+        val equations = xml(parts(file).getValue("word/document.xml")).getElementsByTagNameNS(M, "oMath")
         require(offset <= equations.length)
         return buildJsonObject {
             put("part", "word/document.xml"); put("basis", "main_document_order_including_tables")
@@ -237,7 +179,7 @@ object MaterialEditor {
                     val text = MaterialWordContent.text(equation)
                     add(buildJsonObject {
                         put("index", index + 1); put("text", text.take(4000)); put("truncated", text.length > 4000)
-                        put("editable", text.length <= 4000 && editableTextRun(equation, protection))
+                        put("editable", text.length <= 4000 && editableEquation(equation))
                     })
                 }
             })
@@ -251,11 +193,19 @@ object MaterialEditor {
         val expected = spec.getValue("expectedText").jsonPrimitive.also { require(it.isString) }.content
         require(index > 0 && expected.length <= 4000)
         val equation = spec.getValue("equation").jsonObject
+        val kind = equation.getValue("type").jsonPrimitive.content
+        val keys = when (kind) {
+            "fraction" -> setOf("type", "numerator", "denominator")
+            "superscript" -> setOf("type", "base", "exponent")
+            "text" -> setOf("type", "text")
+            else -> error("支持 fraction/superscript/text 公式")
+        }
+        require(equation.keys == keys && equation.values.all { it is JsonPrimitive && it.isString })
         val replacement = xml("<m:oMath xmlns:m=\"$M\">${MaterialEquationXml.body(equation)}</m:oMath>".toByteArray(Charsets.UTF_8))
         val packageParts = parts(source)
         val root = xml(packageParts.getValue("word/document.xml"))
         val target = root.getElementsByTagNameNS(M, "oMath").item(index - 1) as? Element ?: error("公式序号不存在")
-        require(editableTextRun(target, WordProtection(root)) && MaterialWordContent.text(target) == expected) { "原公式不匹配或属于域/锁定控件/删除修订，请重新检查" }
+        require(editableEquation(target) && MaterialWordContent.text(target) == expected) { "原公式不匹配或属于域/删除修订，请重新检查" }
         // Keep the selected container attributes and its parent paragraph/OMML properties.
         while (target.hasChildNodes()) target.removeChild(target.firstChild)
         while (replacement.hasChildNodes()) target.appendChild(checkNotNull(root.ownerDocument.adoptNode(replacement.firstChild)))
@@ -283,21 +233,11 @@ object MaterialEditor {
 
     fun wordParagraphs(file: File, offset: Int, count: Int): JsonObject {
         require(offset >= 0 && count in 1..50)
-        val root = xml(parts(file).getValue("word/document.xml"))
-        val protection = WordProtection(root)
-        val paragraphs = elements(root, W, "p")
+        val paragraphs = elements(xml(parts(file).getValue("word/document.xml")), W, "p")
         require(offset <= paragraphs.size)
         return buildJsonObject {
             put("total", paragraphs.size); put("offset", offset)
-            put("range_index_basis", "utf16_in_paragraph_text")
-            put("paragraphs", buildJsonArray { paragraphs.drop(offset).take(count).forEachIndexed { i, p ->
-                val text = paragraphText(p)
-                add(buildJsonObject {
-                    put("index", offset + i + 1); put("text", text.take(2000)); put("text_truncated", text.length > 2000)
-                    put("editable", text.length <= 2000 && editableTextRun(p, protection) && editable(p))
-                    put("has_editable_text_ranges", text.length <= 2000 && paragraphSpans(p).first.any { span -> span.end > span.start && plainParagraphText(span.node, p, protection) })
-                })
-            } })
+            put("paragraphs", buildJsonArray { paragraphs.drop(offset).take(count).forEachIndexed { i, p -> add(buildJsonObject { put("index", offset + i + 1); put("text", paragraphText(p).take(2000)); put("text_truncated", paragraphText(p).length > 2000); put("editable", editable(p)) }) } })
         }
     }
     fun replaceParagraph(source: File, output: File, spec: JsonObject) {
@@ -309,80 +249,13 @@ object MaterialEditor {
         require(text.length <= 4000 && text.none { it == '\n' || it == '\r' || it.code < 32 }) { "首批仅替换一个简单文本段落" }
         val parts = parts(source); val root = xml(parts.getValue("word/document.xml"))
         val p = elements(root, W, "p").getOrNull(index - 1) ?: error("段落序号不存在")
-        require(editableTextRun(p, WordProtection(root)) && editable(p) && paragraphText(p) == expected) { "原文不匹配或包含公式/图片/域/链接等复杂内容" }
+        require(editable(p) && paragraphText(p) == expected) { "原文不匹配或包含公式/图片/域/链接等复杂内容" }
         val runs = children(p).filter { it.localName == "r" }
         val run = runs.firstOrNull() ?: root.ownerDocument.createElementNS(W, "w:r").also { p.appendChild(it) }
         runs.drop(1).forEach { p.removeChild(it) }; children(run).filter { it.localName != "rPr" }.forEach { run.removeChild(it) }
         run.appendChild(root.ownerDocument.createElementNS(W, "w:t").apply { setAttributeNS("http://www.w3.org/XML/1998/namespace", "xml:space", "preserve"); textContent = text })
         parts["word/document.xml"] = serialize(root); write(parts, output)
         require(wordParagraphs(output, index - 1, 1).getValue("paragraphs").jsonArray.single().jsonObject.getValue("text").jsonPrimitive.content == text.take(2000))
-    }
-
-    private data class ParagraphSpan(val node: Element, val start: Int, val end: Int)
-    private fun paragraphSpans(paragraph: Element): Pair<List<ParagraphSpan>, List<Int>> {
-        val spans = ArrayList<ParagraphSpan>()
-        val barriers = ArrayList<Int>()
-        var position = 0
-        fun visit(node: Element) {
-            if (node.namespaceURI == W && node.localName == "t") {
-                val end = position + node.textContent.length
-                spans.add(ParagraphSpan(node, position, end)); position = end
-                return
-            }
-            if (node.namespaceURI == W && (node.localName == "pPr" || node.localName == "rPr") && elements(node, W, "t").isEmpty()) return
-            val barrier = node !== paragraph && !(node.namespaceURI == W && node.localName == "r" && node.parentNode === paragraph)
-            if (barrier) barriers.add(position)
-            children(node).forEach(::visit)
-            if (barrier) barriers.add(position)
-        }
-        visit(paragraph)
-        return spans to barriers
-    }
-
-    private fun plainParagraphText(text: Element, paragraph: Element, protection: WordProtection): Boolean {
-        val run = text.parentNode as? Element ?: return false
-        return run.namespaceURI == W && run.localName == "r" && run.parentNode === paragraph &&
-            children(run).all { it.namespaceURI == W && (it.localName == "t" || it.localName == "rPr") } &&
-            editableTextRun(text, protection)
-    }
-
-    /** UTF-16 offsets into the inspected w:t concatenation, not rendered pages or OMML text. */
-    fun replaceParagraphText(source: File, output: File, spec: JsonObject) {
-        requireCopyTarget(source, output)
-        require(spec.keys == setOf("index", "expectedText", "start", "end", "text"))
-        fun integer(key: String) = spec.getValue(key).jsonPrimitive.also { require(!it.isString) }.int
-        fun string(key: String) = spec.getValue(key).jsonPrimitive.also { require(it.isString) }.content
-        val index = integer("index"); val start = integer("start"); val end = integer("end")
-        val expected = string("expectedText"); val replacement = string("text")
-        require(expected.length <= 2000 && replacement.length <= 4000)
-        var offset = 0
-        while (offset < replacement.length) {
-            val code = Character.codePointAt(replacement, offset)
-            require(code in 0x20..0xD7FF || code in 0xE000..0xFFFD || code in 0x10000..0x10FFFF) { "office_paragraph_invalid_character" }
-            offset += Character.charCount(code)
-        }
-        val packageParts = parts(source); val root = xml(packageParts.getValue("word/document.xml"))
-        val paragraph = elements(root, W, "p").getOrNull(index - 1) ?: error("段落序号不存在")
-        val original = paragraphText(paragraph)
-        require(original == expected && start >= 0 && start < end && end <= original.length) { "原文或UTF-16范围不匹配" }
-        fun boundary(position: Int) = position == 0 || position == original.length ||
-            !(Character.isHighSurrogate(original[position - 1]) && Character.isLowSurrogate(original[position]))
-        require(boundary(start) && boundary(end)) { "不能切断Unicode代理对" }
-        val protection = WordProtection(root)
-        val (spans, barriers) = paragraphSpans(paragraph)
-        val affected = spans.filter { it.start < end && it.end > start }
-        require(affected.isNotEmpty() && affected.all { plainParagraphText(it.node, paragraph, protection) } &&
-            barriers.none { it > start && it < end }) { "范围不能跨越公式/图片/域/书签/链接等结构边界" }
-        affected.forEachIndexed { selectedIndex, span ->
-            val text = span.node.textContent
-            val from = maxOf(0, start - span.start); val to = minOf(text.length, end - span.start)
-            span.node.textContent = text.substring(0, from) + (if (selectedIndex == 0) replacement else "") + text.substring(to)
-            span.node.setAttributeNS("http://www.w3.org/XML/1998/namespace", "xml:space", "preserve")
-        }
-        val result = original.substring(0, start) + replacement + original.substring(end)
-        packageParts["word/document.xml"] = serialize(root); write(packageParts, output)
-        val reopened = xml(parts(output).getValue("word/document.xml"))
-        check(paragraphText(elements(reopened, W, "p")[index - 1]) == result) { "office_paragraph_readback_failed" }
     }
     private fun sheet(parts: Map<String, ByteArray>, name: String): String {
         val workbook = xml(parts.getValue("xl/workbook.xml"))
@@ -473,14 +346,13 @@ object MaterialEditor {
         write(parts, output)
     }
     suspend fun pdfPages(sources: List<Pair<File, List<Int>>>, output: File) {
-        require(sources.size in 1..20 && sources.all { it.second.isNotEmpty() } && sources.sumOf { it.second.size } in 1..200)
-        sources.forEach { (file, _) -> requireCopyTarget(file, output) }
+        require(sources.size in 1..20 && sources.sumOf { it.second.size } in 1..200)
         val result = com.artifex.mupdf.fitz.PDFDocument()
         try {
             sources.forEach { (file, pages) ->
                 val source = com.artifex.mupdf.fitz.Document.openDocument(file.absolutePath) as? com.artifex.mupdf.fitz.PDFDocument ?: error("文件不是PDF")
                 try {
-                    require(!source.needsPassword() && source.countPages() > 0)
+                    require(!source.needsPassword() && source.countPages() in 1..200)
                     pages.forEach { page -> currentCoroutineContext().ensureActive(); require(page in 1..source.countPages()); result.graftPage(-1, source, page - 1) }
                 } finally { source.destroy() }
             }

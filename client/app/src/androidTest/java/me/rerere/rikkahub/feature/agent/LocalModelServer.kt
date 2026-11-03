@@ -13,7 +13,6 @@ internal class LocalModelServer(
     private val status: (Map<String,String>,String) -> Int = { _,_ -> 200 },
     private val disconnect: (Map<String,String>,String) -> Boolean = { _,_ -> false },
     private val allowClientDisconnect: Boolean = false,
-    private val responseContentType: String = "application/json",
     private val response: (String) -> String,
 ) : AutoCloseable {
     private val server = ServerSocket(0)
@@ -60,7 +59,7 @@ internal class LocalModelServer(
                         val code=status(requestHeaders,body)
                         val output=response(body).toByteArray()
                         socket.getOutputStream().apply {
-                            write("HTTP/1.1 $code QA\r\nContent-Type: $responseContentType\r\nContent-Length: ${output.size}\r\nConnection: close\r\n\r\n".toByteArray())
+                            write("HTTP/1.1 $code QA\r\nContent-Type: application/json\r\nContent-Length: ${output.size}\r\nConnection: close\r\n\r\n".toByteArray())
                             write(output); flush()
                         }
                     } finally { active.decrementAndGet() }

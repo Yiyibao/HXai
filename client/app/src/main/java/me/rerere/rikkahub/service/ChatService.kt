@@ -1,8 +1,6 @@
 package me.rerere.rikkahub.service
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
-import me.rerere.ai.ui.limitContext
-import me.rerere.rikkahub.feature.agent.AgentTaskStore
 
 import android.app.Application
 import android.util.Log
@@ -38,7 +36,6 @@ import me.rerere.rikkahub.feature.agent.AgentScheduler
 import me.rerere.rikkahub.feature.agent.AgentTask
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import me.rerere.ai.core.ProviderRequestGuard
 import me.rerere.ai.core.MessageRole
 import me.rerere.ai.core.ReasoningLevel
 import me.rerere.ai.provider.Model
@@ -295,12 +292,8 @@ class ChatService(
     private suspend fun reconcileTaskApprovals(session: ConversationSession,task: AgentTask) {
         check(canUseSession(session) && session.state.value.profileId==task.owner &&
             session.state.value.id.toString()==task.conversationId)
-        if (task.requestId.startsWith("regen1:"))
-            me.rerere.rikkahub.feature.agent.TaskCheckpointIdentity.requireCheckpoint(task, session.state.value)
         val decisions=agentScheduler.toolDecisions(task).associateBy { it.callId }
         if(decisions.isNotEmpty()) session.commitToolApproval(update={ latest ->
-            if (task.requestId.startsWith("regen1:"))
-                me.rerere.rikkahub.feature.agent.TaskCheckpointIdentity.requireCheckpoint(task, latest)
             var changed=false
             val nodes=latest.messageNodes.map { node ->
                 node.copy(messages=node.messages.map { message ->
@@ -324,9 +317,7 @@ class ChatService(
         val pending=current.currentMessages.flatMap { it.getTools() }.filter { it.isPending }
         if(pending.isNotEmpty()) {
             val source=requireNotNull(current.currentMessages.lastOrNull { it.role==MessageRole.USER })
-            if (task.requestId.startsWith("regen1:"))
-                me.rerere.rikkahub.feature.agent.TaskCheckpointIdentity.requireCheckpoint(task, current)
-            else require(source.id.toString()==task.requestId || agentScheduler.plan(task.owner,task.id).goal==Json.encodeToString(source.parts)) {
+            require(source.id.toString()==task.requestId || agentScheduler.plan(task.owner,task.id).goal==Json.encodeToString(source.parts)) {
                 "Pending approval belongs to a different accepted input"
             }
             agentScheduler.reconcileApprovalWaits(task,pending)
@@ -480,13 +471,11 @@ class ChatService(
     }
 
     /** Resume only the selected accepted queue head; do not resume the previous conversation turn. */
-    internal suspend fun resumeQueuedTask(conversationId: Uuid, taskId: String, expectedInput: me.rerere.rikkahub.data.model.PendingInput) {
+    internal suspend fun resumeQueuedTask(conversationId: Uuid, taskId: String) {
         val committed = CompletableDeferred<Unit>()
         mutateMessageQueue(conversationId, { queue ->
             val conversation = getConversationFlow(conversationId).value
             val next = requireNotNull(queue.state.value.messages.firstOrNull()) { "Selected task is no longer queued" }
-            require(!next.isEditing && next.id == expectedInput.id && next.parts == expectedInput.parts &&
-                next.answer == expectedInput.answer) { "Selected queue input changed before resume" }
             val selected = requireNotNull(agentScheduler.queued(conversation, next.id.toString()))
             require(selected.id == taskId && selected.state == "QUEUED" && !selected.manualPaused)
             val control = agentScheduler.control(selected.owner, selected.id)
@@ -713,35 +702,12 @@ class ChatService(
         check(canUseSession(session)) { "Conversation access denied" }
         val previousJob = session.getJob()
 
-        val selected = session.state.value
-        val targetIndex = selected.messageNodes.indexOfFirst { it.currentMessage.id == message.id }
-        require(targetIndex >= 0) { "Regeneration target is not on the selected branch" }
-        require(selected.queue.messages.isEmpty()) { "Pending inputs must be handled before regeneration" }
-        val generating = message.role == MessageRole.USER || regenerateAssistantMsg
-        val inputNodes = selected.messageNodes.take(if (message.role == MessageRole.USER) targetIndex + 1 else targetIndex)
-        val inputSource = inputNodes.lastOrNull { it.currentMessage.role == MessageRole.USER }?.currentMessage
-        val request = if (generating) me.rerere.rikkahub.feature.agent.TaskCheckpointIdentity.newRequest(inputNodes) else null
-        val accepted = request?.let { agentScheduler.accept(selected, it,
-            Json.encodeToString(requireNotNull(inputSource).parts), settingsStore.settingsFlow.value) }
-        fun checkTarget() {
-            val current = session.state.value
-            check(canUseSession(session) && current.queue.messages.isEmpty())
-            require(current.messageNodes.getOrNull(targetIndex)?.id == selected.messageNodes[targetIndex].id &&
-                current.messageNodes.getOrNull(targetIndex)?.currentMessage?.id == message.id) { "Regeneration target changed" }
-            request?.let { me.rerere.rikkahub.feature.agent.TaskCheckpointIdentity.requireInput(current, it) }
-        }
-
         val job = launchGenerationJob(
             conversationId = conversationId,
             keepAliveInBackground = message.role == MessageRole.USER || regenerateAssistantMsg,
-            acceptedTask = accepted,
-            runAsTask = generating,
-            requiresAcceptedTask = generating,
-            prepareTask = { checkTarget(); true },
         ) {
             try {
                 previousJob?.join()
-                checkTarget()
                 val conversation = session.state.value
 
                 if (message.role == MessageRole.USER) {
@@ -782,54 +748,15 @@ class ChatService(
         session.setJob(job)
     }
 
-    /** Read-only preflight for the task command, before its durable resume intent. */
-    internal fun requireTaskResumeCheckpoint(conversation: Conversation, taskId: String) {
-        val task = agentScheduler.get(conversation.profileId, taskId)
-        require(task.conversationId == conversation.id.toString()) { "Task belongs to another conversation" }
-        val queued = conversation.queue.messages.firstOrNull()
-        if (queued != null) {
-            require(queued.answer && queued.id.toString() == task.requestId &&
-                agentScheduler.queued(conversation, queued.id.toString())?.id == taskId) { "Selected queue head changed" }
-            return
-        }
-        me.rerere.rikkahub.feature.agent.TaskCheckpointIdentity.requireCheckpoint(task, conversation)
-        val last = conversation.currentMessages.last()
-        require(last.role == MessageRole.USER || last.role == MessageRole.ASSISTANT &&
-            last.generationState in setOf("INTERRUPTED", "CANCELLED", "FAILED", "WAITING_TOOL", "COMPLETED")) {
-            "No resumable checkpoint for this task"
-        }
-        require(last.getTools().none { it.isPending || it.isExecutionUncertain }) { "Checkpoint still needs tool reconciliation" }
-    }
-
-    fun resumeInterruptedGeneration(conversationId: Uuid, skipUncertainTools: Boolean = false, resumeManualPause: Boolean,
-        expectedTaskId: String? = null) {
+    fun resumeInterruptedGeneration(conversationId: Uuid, skipUncertainTools: Boolean = false, resumeManualPause: Boolean) {
         val session = sessionManager.getOrCreate(conversationId)
         if (!canUseSession(session)) return
         synchronized(session) {
             if (session.getJob() != null) return
-            val checkpoint = session.state.value.currentMessages
-            val accepted = expectedTaskId?.let {
-                requireTaskResumeCheckpoint(session.state.value, it)
-                require(session.state.value.queue.messages.isEmpty()) { "Task must resume through its original queue head" }
-                agentScheduler.get(session.state.value.profileId, it)
-            } ?: agentScheduler.current(session.state.value)
-            fun checkCheckpoint() {
-                if (expectedTaskId != null || accepted?.requestId?.startsWith("regen1:") == true) {
-                    if (expectedTaskId != null) requireTaskResumeCheckpoint(session.state.value, expectedTaskId)
-                    else me.rerere.rikkahub.feature.agent.TaskCheckpointIdentity.requireCheckpoint(requireNotNull(accepted), session.state.value)
-                    check(session.state.value.currentMessages == checkpoint && session.state.value.queue.messages.isEmpty()) {
-                        "Selected checkpoint changed before execution"
-                    }
-                }
-            }
-            val job = launchGenerationJob(conversationId, acceptedTask = accepted,
-                resumeTask = true, resumeManualPause = resumeManualPause,
-                prepareTask = { checkCheckpoint(); true }) {
-                // The single global slot may have been occupied while this job waited.
-                checkCheckpoint()
+            val job = launchGenerationJob(conversationId, resumeTask = true, resumeManualPause = resumeManualPause) {
                 val current = session.state.value
                 val last = current.currentMessages.lastOrNull() ?: return@launchGenerationJob
-                if ((expectedTaskId == null || last.role != MessageRole.USER) && last.generationState !in setOf("INTERRUPTED", "CANCELLED", "FAILED", "WAITING_TOOL", "COMPLETED")) return@launchGenerationJob
+                if (last.generationState !in setOf("INTERRUPTED", "CANCELLED", "FAILED", "WAITING_TOOL", "COMPLETED")) return@launchGenerationJob
                 if (last.getTools().any { it.isPending }) return@launchGenerationJob
                 if (last.getTools().any { it.isExecutionUncertain }) {
                     if (!skipUncertainTools) return@launchGenerationJob
@@ -1280,38 +1207,24 @@ class ChatService(
             val settings = settingsStore.settingsFlow.first()
             val model = settings.findModelById(settings.fastModelId)
                 ?: throw IllegalStateException(context.getString(R.string.error_fast_model_not_found))
-            val visible = learningMemories.projectHistory(conversation.profileId, conversation.currentMessages)
-            if (visible.isEmpty()) return@runCatching
-            suspend fun validateHistory() {
-                check(learningMemories.projectHistory(conversation.profileId, conversation.currentMessages) == visible) {
-                    "标题生成期间来源删除约束已变化；旧结果未保存。"
-                }
-            }
             val messages = listOf(UIMessage.user(
                 settings.titlePrompt.applyPlaceholders(
                     "locale" to Locale.getDefault().displayName,
-                    "content" to visible.takeLast(4).joinToString("\n\n") { it.summaryAsText(maxLength = 500) })))
+                    "content" to conversation.currentMessages.takeLast(4).joinToString("\n\n") { it.summaryAsText(maxLength = 500) })))
             val result = agentScheduler.requestRole(conversation,"title",settings,model,settings.fastModelReasoningLevel,messages,
                 liveSettings = { settingsStore.settingsFlow.value },
                 validate = {
                     check(canUseSession(session) && session.backgroundToken()==token && (force || !session.messageQueue.state.value.paused)) { "Conversation changed or paused" }
                 }) { lockedModel, lockedProvider ->
-                validateHistory()
-                val upstream = currentCoroutineContext()[ProviderRequestGuard]
-                withContext(ProviderRequestGuard { upstream?.validate?.invoke(); validateHistory() }) {
                 providerManager.getProviderByType(lockedProvider).generateText(
                     providerSetting=lockedProvider,messages=messages,
                     params=backgroundTextGenerationParams(lockedModel,conversationId,settings.fastModelReasoningLevel))
-                }
             }
 
-            validateHistory()
             if (!canUseSession(session)) return@runCatching
             val title = result.message.toText().trim()
             session.applyBackgroundMetadata(conversation, token, title = title) {
-                learningMemories.commitWithHistory(conversation.profileId, conversation.currentMessages, visible) {
-                    conversationRepo.updateGeneratedMetadata(conversation, title = title)
-                }
+                conversationRepo.updateGeneratedMetadata(conversation, title = title)
             }
         }.onFailure {
             addError(
@@ -1339,14 +1252,6 @@ class ChatService(
                 ?: return@runCatching
             if (model.findProvider(settings.providers) == null) return@runCatching
 
-            val visible = learningMemories.projectHistory(conversation.profileId, conversation.currentMessages)
-            if (visible.isEmpty()) return@runCatching
-            suspend fun validateHistory() {
-                check(learningMemories.projectHistory(conversation.profileId, conversation.currentMessages) == visible) {
-                    "后续问题生成期间来源删除约束已变化；旧结果未保存。"
-                }
-            }
-
             session.applyBackgroundMetadata(conversation, token, suggestions = emptyList()) {
                 conversationRepo.updateGeneratedMetadata(conversation, suggestions = emptyList())
             }
@@ -1354,21 +1259,16 @@ class ChatService(
             val messages = listOf(UIMessage.user(
                 settings.suggestionPrompt.applyPlaceholders(
                     "locale" to Locale.getDefault().displayName,
-                    "content" to visible.takeLast(8).joinToString("\n\n") { it.summaryAsText(maxLength = 500) })))
+                    "content" to conversation.currentMessages.takeLast(8).joinToString("\n\n") { it.summaryAsText(maxLength = 500) })))
             val result = agentScheduler.requestRole(conversation,"suggestion",settings,model,settings.fastModelReasoningLevel,messages,
                 liveSettings = { settingsStore.settingsFlow.value },
                 validate = {
                     check(canUseSession(session) && session.backgroundToken()==token && !session.messageQueue.state.value.paused) { "Conversation changed or paused" }
                 }) { lockedModel, lockedProvider ->
-                validateHistory()
-                val upstream = currentCoroutineContext()[ProviderRequestGuard]
-                withContext(ProviderRequestGuard { upstream?.validate?.invoke(); validateHistory() }) {
                 providerManager.getProviderByType(lockedProvider).generateText(
                     providerSetting=lockedProvider,messages=messages,
                     params=backgroundTextGenerationParams(lockedModel,conversationId,settings.fastModelReasoningLevel))
-                }
             }
-            validateHistory()
             val suggestions =
                 result.message.toText().split("\n").map { it.trim() }
                     .filter { it.isNotBlank() }
@@ -1376,9 +1276,7 @@ class ChatService(
             if (switchingProfile || conversation.profileId != settingsStore.settingsFlow.value.activeProfileId) return@runCatching
 
             session.applyBackgroundMetadata(conversation, token, suggestions = suggestions.take(10)) {
-                learningMemories.commitWithHistory(conversation.profileId, conversation.currentMessages, visible) {
-                    conversationRepo.updateGeneratedMetadata(conversation, suggestions = suggestions.take(10))
-                }
+                conversationRepo.updateGeneratedMetadata(conversation, suggestions = suggestions.take(10))
             }
         }.onFailure {
         }
@@ -1407,15 +1305,7 @@ class ChatService(
             ?: throw IllegalStateException("请先配置独立的对话压缩模型；不会使用主模型代替。")
 
         val maxMessagesPerChunk = 256
-        val originalMessages = conversation.currentMessages
-        val allMessages = learningMemories.projectHistory(conversation.profileId, originalMessages)
-        check(allMessages.isNotEmpty()) { "没有可安全压缩的历史来源；原聊天保留，请发送新消息。" }
-        suspend fun validateHistory() {
-            validate()
-            check(learningMemories.projectHistory(conversation.profileId, originalMessages) == allMessages) {
-                "压缩期间来源删除约束已变化；旧摘要未保存，原聊天保留。"
-            }
-        }
+        val allMessages = conversation.currentMessages
 
         // Split messages into those to compress and those to keep
         val messagesToCompress: List<UIMessage>
@@ -1441,7 +1331,6 @@ class ChatService(
         }
 
         suspend fun compressMessages(messages: List<UIMessage>): String {
-            validateHistory()
             val contentToCompress = messages.joinToString("\n\n") { it.summaryAsText(maxLength = 2000) }
             val prompt = settings.compressPrompt.applyPlaceholders(
                 "content" to contentToCompress,
@@ -1455,13 +1344,9 @@ class ChatService(
             val requests = listOf(UIMessage.user(prompt))
             val result = agentScheduler.requestRole(conversation,"compression",settings,model,ReasoningLevel.AUTO,requests,
                 liveSettings={ settingsStore.settingsFlow.value },validate=validate) { lockedModel,lockedProvider ->
-                validateHistory()
-                val upstream = currentCoroutineContext()[ProviderRequestGuard]
-                withContext(ProviderRequestGuard { upstream?.validate?.invoke(); validateHistory() }) {
                 providerManager.getProviderByType(lockedProvider).generateText(
                     providerSetting=lockedProvider,messages=requests,
                     params=backgroundTextGenerationParams(lockedModel,conversationId))
-                }
             }
 
             return result.message.toText().trim().takeIf { it.isNotBlank() }
@@ -1473,7 +1358,6 @@ class ChatService(
                 .map { chunk -> async { compressMessages(chunk) } }
                 .awaitAll()
         }
-        validateHistory()
 
         // Create new conversation with compressed history as multiple user messages + kept messages
         val newMessageNodes = buildList {
@@ -1484,11 +1368,7 @@ class ChatService(
         }
         validate()
         check(session.commitCompressedHistory(conversation,token,newMessageNodes,
-            stillAllowed={ canUseSession(session) && session.backgroundToken()==token },persist={ updated ->
-                persistConversationWithUpdate(updated) { candidate ->
-                    conversationRepo.updateConversationWithHistory(candidate, originalMessages, allMessages)
-                }
-            })) {
+            stillAllowed={ canUseSession(session) && session.backgroundToken()==token },persist=::persistConversation)) {
             "压缩期间聊天已有新输入或分支变化；原聊天保留，请重新发起压缩。"
         }
     }
@@ -1528,117 +1408,6 @@ class ChatService(
             }
             session.updateMetadata(update, persist)
         }
-    }
-
-    /** Move an already accepted queued input through the original atomic Room commit. */
-    internal suspend fun cloudPrepareSource(owner: String,taskId: String,validate: () -> Unit) {
-        val task=agentScheduler.get(owner,taskId)
-        queueMutationMutex.lock()
-        try {
-            sessionManager.withSession(Uuid.parse(task.conversationId)) { session ->
-                session.initialize(persistRecovery=conversationRepo::recoverConversation) {
-                    conversationRepo.getConversationById(Uuid.parse(task.conversationId),owner) ?: error("原会话不存在")
-                }
-                validate();require(session.state.value.profileId==owner)
-                session.messageQueue.state.value.messages.singleOrNull { it.id.toString()==task.requestId }?.let { queued ->
-                    session.commitQueuedInput(queued,queued.parts,{ pending -> validate();conversationRepo.commitRuntimeState(pending) },delegated=true)
-                }
-            }
-        } finally { queueMutationMutex.unlock() }
-    }
-
-    internal fun cloudBranch(owner: String,taskId: String): String {
-        val task=agentScheduler.get(owner,taskId)
-        val current=getConversationFlow(Uuid.parse(task.conversationId)).value
-        require(current.profileId==owner)
-        val answer=java.util.UUID.nameUUIDFromBytes("cloud-answer:$taskId".toByteArray()).toString()
-        val base=current.currentMessages.filterNot { it.id.toString()==answer ||
-            it.generationTaskId==taskId && it.getTools().any { tool -> tool.toolCallId.startsWith("cloud_") } }
-        return AgentTaskStore.hash(Json.encodeToString(base))
-    }
-
-    internal suspend fun cloudPublishResult(owner: String,taskId: String,branch: String?,answer: String,validate: () -> Unit): Boolean {
-        if(branch==null || cloudBranch(owner,taskId)!=branch)return false
-        val task=agentScheduler.get(owner,taskId)
-        var applied=false
-        val messageId=Uuid.parse(java.util.UUID.nameUUIDFromBytes("cloud-answer:$taskId".toByteArray()).toString())
-        updateConversationMetadata(Uuid.parse(task.conversationId),update={ current ->
-            validate();require(current.profileId==owner)
-            if(cloudBranch(owner,taskId)!=branch)current else {
-                val message=me.rerere.ai.ui.UIMessage(id=messageId,role=MessageRole.ASSISTANT,
-                    modelId=Uuid.parse(task.modelId),parts=listOf(UIMessagePart.Text(answer)),generationTaskId=taskId,generationState="COMPLETED")
-                val nodes=current.messageNodes.toMutableList()
-                val index=nodes.indexOfFirst { node -> node.messages.any { it.id==messageId } }
-                if(index<0)nodes.add(me.rerere.rikkahub.data.model.MessageNode.of(message))
-                else nodes[index]=nodes[index].copy(messages=listOf(message),selectIndex=0)
-                applied=true;current.copy(messageNodes=nodes)
-            }
-        },persist=conversationRepo::checkpointMessages,profileId=owner)
-        return applied
-    }
-
-    internal suspend fun cloudContext(owner: String,taskId: String,includeHistory: Boolean,
-        tools: List<me.rerere.ai.core.Tool>): kotlinx.serialization.json.JsonObject {
-        val task=agentScheduler.get(owner,taskId)
-        val conversation=conversationRepo.getConversationById(Uuid.parse(task.conversationId),owner) ?: error("原会话不存在")
-        val config=agentScheduler.hostedConfiguration(owner,taskId)
-        val model=requireNotNull(config.settings.findModelById(config.assistant.chatModelId ?: config.settings.chatModelId))
-        val visible=learningMemories.projectHistory(owner,conversation.currentMessages,learningMemories.hiddenMessageIds(owner))
-        return kotlinx.serialization.json.buildJsonObject {
-            put("sourceHash",kotlinx.serialization.json.JsonPrimitive(AgentTaskStore.hash(Json.encodeToString(visible))))
-            put("instructions",kotlinx.serialization.json.JsonPrimitive(me.rerere.rikkahub.data.ai.buildGenerationPrefix(
-                config.assistant,conversation.studyMode,conversation.customSystemPrompt,emptyList(),"",model,tools)))
-            put("messages",kotlinx.serialization.json.JsonArray(if(!includeHistory) emptyList() else
-                visible.limitContext(config.assistant.contextMessageLimit).filter { it.role in setOf(MessageRole.USER,MessageRole.ASSISTANT) && it.toText().isNotBlank() }.map { message ->
-                    kotlinx.serialization.json.buildJsonObject {
-                        put("role",kotlinx.serialization.json.JsonPrimitive(message.role.name.lowercase()))
-                        put("content",kotlinx.serialization.json.JsonPrimitive(message.toText()))
-                    }
-                }))
-            put("coverage",kotlinx.serialization.json.JsonPrimitive("SOURCE_PROJECTED_TEXT_ONLY_NO_IMAGE_BYTES_OR_AUTOMATIC_MEMORY_EXPORT"))
-        }
-    }
-
-    /** Cloud continuation uses this same factory and independent verifier, never remote code. */
-    internal suspend fun cloudTools(owner: String, taskId: String): List<me.rerere.ai.core.Tool> {
-        val task=agentScheduler.get(owner,taskId)
-        val conversation=conversationRepo.getConversationById(Uuid.parse(task.conversationId),owner)
-            ?: error("原会话不存在，不能执行设备动作")
-        val configuration=agentScheduler.hostedConfiguration(owner,taskId)
-        val model=requireNotNull(configuration.settings.findModelById(
-            configuration.assistant.chatModelId ?: configuration.settings.chatModelId))
-        return chatToolFactory.createTools(settings=configuration.settings,assistant=configuration.assistant,
-            model=model,workspaceCwd=conversation.workspaceCwd,sourceConversation=conversation,
-            profileId=owner,allowRemoteDocuments=false)
-    }
-
-    internal suspend fun cloudVerify(owner: String,taskId: String,tool: me.rerere.ai.ui.UIMessagePart.Tool): Boolean {
-        val task=agentScheduler.get(owner,taskId)
-        val persisted=conversationRepo.getConversationById(Uuid.parse(task.conversationId),owner)
-            ?: error("原会话不存在")
-        check(learningMemories.projectHistory(owner,persisted.currentMessages,learningMemories.hiddenMessageIds(owner))
-            .flatMap { it.getTools() }.any { it.toolCallId==tool.toolCallId && it.input==tool.input && it.output==tool.output }) {
-            "该步骤的上下文来源已撤销，不能将旧结果外传为新回执"
-        }
-        return taskResultVerifier.verify(owner,persisted,tool)
-    }
-
-    internal suspend fun cloudCheckpoint(owner: String,taskId: String,tool: me.rerere.ai.ui.UIMessagePart.Tool,
-        validate: () -> Unit) {
-        val task=agentScheduler.get(owner,taskId)
-        val messageId=Uuid.parse(java.util.UUID.nameUUIDFromBytes(
-            "cloud-device:$taskId:${tool.toolCallId}".toByteArray()).toString())
-        updateConversationMetadata(Uuid.parse(task.conversationId),update={ current ->
-            validate()
-            require(current.profileId==owner)
-            val message=me.rerere.ai.ui.UIMessage(id=messageId,
-                role=me.rerere.ai.core.MessageRole.ASSISTANT,parts=listOf(tool),generationTaskId=taskId)
-            val nodes=current.messageNodes.toMutableList()
-            val index=nodes.indexOfFirst { node -> node.messages.any { it.id==messageId } }
-            if(index<0) nodes.add(me.rerere.rikkahub.data.model.MessageNode.of(message))
-            else nodes[index]=nodes[index].copy(messages=listOf(message),selectIndex=0)
-            current.copy(messageNodes=nodes)
-        },persist=conversationRepo::checkpointMessages,profileId=owner)
     }
 
     /** Image jobs update only their own deterministic nodes under the session lock. */
@@ -1764,10 +1533,7 @@ class ChatService(
         dispatchNextQueuedMessage(conversationId)
     }
 
-    private suspend fun persistConversation(conversation: Conversation) =
-        persistConversationWithUpdate(conversation, conversationRepo::updateConversation)
-
-    private suspend fun persistConversationWithUpdate(conversation: Conversation, update: suspend (Conversation) -> Unit) {
+    private suspend fun persistConversation(conversation: Conversation) {
         conversationRepo.requireConversationAccess(conversation.id, conversation.profileId)
         val exists = conversationRepo.existsConversationById(conversation.id, conversation.profileId)
         if (!exists && conversation.title.isBlank() && conversation.messageNodes.isEmpty()) {
@@ -1779,7 +1545,7 @@ class ChatService(
             require(conversation.newConversation) { "Missing existing conversation; explicit create or restore required" }
             conversationRepo.insertConversation(conversation)
         } else {
-            update(conversation)
+            conversationRepo.updateConversation(conversation)
         }
         // Cleanup failure must not turn a committed approval into an apparent failed save.
         if (old != null) runCatching { checkFilesDelete(conversation, old) }.onFailure {
@@ -1815,62 +1581,62 @@ class ChatService(
         conversationId: Uuid,
         message: UIMessage,
         targetLanguage: Locale
-    ): Job {
-        val session = sessionManager.getOrCreate(conversationId)
-        val expected = session.state.value
-        val token = session.backgroundToken()
-        return appScope.launch(Dispatchers.IO) {
+    ) {
+        appScope.launch(Dispatchers.IO) {
             try {
-                fun validateSession() {
-                    check(canUseSession(session) && session.backgroundToken() == token &&
-                        session.state.value.lifecycleRevision == expected.lifecycleRevision &&
-                        session.state.value.messageNodes == expected.messageNodes) {
-                        "翻译期间会话、档案或分支已变化；原聊天保留。"
-                    }
-                }
-                validateSession()
-                val source = requireNotNull(expected.currentMessages.singleOrNull { it.id == message.id }) {
-                    "只能翻译当前分支中的真实消息。"
-                }
-                require(source.role == message.role && source.parts == message.parts) { "翻译来源与原消息不一致。" }
-                val visible = learningMemories.projectHistory(expected.profileId, expected.currentMessages)
-                check(visible.any { it.id == source.id }) { "此消息受来源删除保护，已停止翻译发送。" }
-                suspend fun validateSource() {
-                    validateSession()
-                    val stored = conversationRepo.getConversationById(conversationId, profileId = expected.profileId)
-                    check(stored != null && stored.lifecycleRevision == expected.lifecycleRevision &&
-                        stored.messageNodes == expected.messageNodes) { "翻译来源已变化；原聊天保留。" }
-                    check(learningMemories.projectHistory(expected.profileId, expected.currentMessages) == visible) {
-                        "来源删除约束已变化；旧译文未保存，原聊天保留。"
-                    }
-                }
-                validateSource()
-                val messageText = source.parts.filterIsInstance<UIMessagePart.Text>()
+                val settings = settingsStore.settingsFlow.first()
+
+                val messageText = message.parts.filterIsInstance<UIMessagePart.Text>()
                     .joinToString("\n\n") { it.text }
                     .trim()
+
                 if (messageText.isBlank()) return@launch
-                val settings = settingsStore.settingsFlow.first()
-                // Chat results stay private until source checks and the update-only commit succeed.
-                var translated = ""
+
+                // Set loading state for translation
+                val loadingText = context.getString(R.string.translating)
+                updateTranslationField(conversationId, message.id, loadingText)
+
                 translationHandler.translateText(
                     settings = settings,
                     sourceText = messageText,
-                    targetLanguage = targetLanguage,
-                    conversationId = conversationId.toString(),
-                    validateRequest = ::validateSession,
-                    validateSource = ::validateSource,
-                ).collect { translated = it }
-                validateSource()
-                if (translated.isNotBlank()) check(session.applyTranslation(expected, token, source.id, translated,
-                    stillAllowed = { canUseSession(session) }, persist = { current ->
-                        conversationRepo.updateMessageTranslation(current, visible, source.id, translated, ::validateSession)
-                    })) { "翻译来源已变化；旧译文未保存，原聊天保留。" }
-            } catch (e: CancellationException) {
-                throw e
+                    targetLanguage = targetLanguage
+                ) { translatedText ->
+                    // Update translation field in real-time
+                    updateTranslationField(conversationId, message.id, translatedText)
+                }.collect { /* Final translation already handled in onStreamUpdate */ }
+
+                // Save the conversation after translation is complete
+                saveConversation(conversationId, getConversationFlow(conversationId).value)
             } catch (e: Exception) {
+                // Clear translation field on error
+                clearTranslationField(conversationId, message.id)
                 addError(e, conversationId, title = context.getString(R.string.error_title_translate_message))
             }
         }
+    }
+
+    private fun updateTranslationField(
+        conversationId: Uuid,
+        messageId: Uuid,
+        translationText: String
+    ) {
+        val currentConversation = getConversationFlow(conversationId).value
+        val updatedNodes = currentConversation.messageNodes.map { node ->
+            if (node.messages.any { it.id == messageId }) {
+                val updatedMessages = node.messages.map { msg ->
+                    if (msg.id == messageId) {
+                        msg.copy(translation = translationText)
+                    } else {
+                        msg
+                    }
+                }
+                node.copy(messages = updatedMessages)
+            } else {
+                node
+            }
+        }
+
+        updateConversation(conversationId, currentConversation.copy(messageNodes = updatedNodes))
     }
 
     // ---- 消息操作 ----

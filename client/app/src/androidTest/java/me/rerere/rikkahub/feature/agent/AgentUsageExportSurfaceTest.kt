@@ -36,35 +36,16 @@ class AgentUsageExportSurfaceTest {
         }
         fun click(label: String,n: AccessibilityNodeInfo?=automation.rootInActiveWindow): Boolean {
             if(n==null)return false
-            if(n.text?.toString()==label || n.contentDescription?.toString()==label) {
+            if(n.text?.toString()?.contains(label)==true || n.contentDescription?.toString()?.contains(label)==true) {
                 var c=n;while(c!=null && !c.isClickable)c=c.parent
-                if(c==null || !c.isEnabled || !c.isVisibleToUser)return false
-                val bounds=android.graphics.Rect();c.getBoundsInScreen(bounds)
-                if(bounds.width()<=0 || bounds.height()<=0)return false
-                android.os.ParcelFileDescriptor.AutoCloseInputStream(automation.executeShellCommand(
-                    "input tap ${bounds.centerX()} ${bounds.centerY()}")).use { it.readBytes() }
-                return true
+                return c?.let { it.isEnabled && it.performAction(AccessibilityNodeInfo.ACTION_CLICK) }?:false
             };return (0 until n.childCount).any { click(label,n.getChild(it)) }
         }
-        fun swipe(forward: Boolean,n: AccessibilityNodeInfo?=automation.rootInActiveWindow): Boolean {
+        fun scroll(n: AccessibilityNodeInfo?=automation.rootInActiveWindow): Boolean {
             if(n==null)return false
-            if(n.isScrollable && n.isVisibleToUser) {
-                val bounds=android.graphics.Rect();n.getBoundsInScreen(bounds)
-                if(bounds.height()<100 || bounds.width()<100)return false
-                val x=bounds.centerX().toFloat();val start=bounds.top+bounds.height()*(if(forward) 0.72f else 0.38f)
-                val end=bounds.top+bounds.height()*(if(forward) 0.38f else 0.72f);val down=android.os.SystemClock.uptimeMillis()
-                fun event(action: Int,y: Float) {
-                    val e=android.view.MotionEvent.obtain(down,android.os.SystemClock.uptimeMillis(),action,x,y,0)
-                    e.source=android.view.InputDevice.SOURCE_TOUCHSCREEN;assertTrue(automation.injectInputEvent(e,true));e.recycle()
-                }
-                event(android.view.MotionEvent.ACTION_DOWN,start)
-                for(i in 1..6){Thread.sleep(35);event(android.view.MotionEvent.ACTION_MOVE,start+(end-start)*i/6)}
-                event(android.view.MotionEvent.ACTION_UP,end);Thread.sleep(100);return true
-            }
-            return (0 until n.childCount).any { swipe(forward,n.getChild(it)) }
+            if(n.isScrollable && n.performAction(AccessibilityNodeInfo.ACTION_SCROLL_FORWARD)) return true
+            return (0 until n.childCount).any { scroll(n.getChild(it)) }
         }
-        fun scroll()=swipe(true)
-        fun scrollBack()=swipe(false)
         fun visible(label: String,n: AccessibilityNodeInfo?=automation.rootInActiveWindow): Boolean {
             if(n==null)return false
             if(n.text?.toString()?.contains(label)==true || n.contentDescription?.toString()?.contains(label)==true) {
@@ -77,18 +58,6 @@ class AgentUsageExportSurfaceTest {
             val deadline=System.currentTimeMillis()+40_000
             while(System.currentTimeMillis()<deadline){if(condition())return;Thread.sleep(100)}
             File(folder,"failure.txt").writeText(text(automation.rootInActiveWindow));fail(message)
-        }
-        fun seek(message: String,condition: () -> Boolean) {
-            var previous="";var unchanged=0;var backward=false
-            waitFor(message) {
-                if(condition())true else {
-                    val current=text(automation.rootInActiveWindow)
-                    unchanged=if(current==previous) unchanged+1 else 0
-                    if(unchanged>=2){backward=!backward;unchanged=0}
-                    if(backward) scrollBack() else scroll()
-                    previous=current;false
-                }
-            }
         }
         fun capture(name: String){
             inst.waitForIdleSync();automation.waitForIdle(1000,5000)
@@ -108,21 +77,24 @@ class AgentUsageExportSurfaceTest {
                     prefs.edit().putString("theme",mode).putFloat("fontScale",font).commit()
                     scenario=ActivityScenario.launch(Intent(context,StudyFlutterActivity::class.java).putExtra("route","/chat"))
                     waitFor("drawer missing"){click("历史对话")};waitFor("usage entry missing"){click("请求用量")}
-                    seek("real ledger not returned"){text(automation.rootInActiveWindow).contains("范围内 75 次请求")}
+                    waitFor("real ledger not returned"){text(automation.rootInActiveWindow).contains("范围内 75 次请求")}
                     val existing=files.list(owner).map {it.id}.toSet()
-                    seek("export not clickable"){click("导出 JSON 快照")}
-                    waitFor("actual export not committed") { files.list(owner).singleOrNull { it.id !in existing }?.let {it.state=="SUCCEEDED" && it.sha256.length==64}==true }
-                    seek("top controls unreachable") {text(automation.rootInActiveWindow).contains("刷新用量")}
-                    val expected=files.list(owner).single {it.id !in existing}.sha256
-                    seek("real export receipt hash not published") {text(automation.rootInActiveWindow).contains("文件 SHA256：$expected")}
+                    waitFor("export not clickable"){click("导出 JSON 快照")}
+                    waitFor("real export receipt hash not published"){
+                        val stored=files.list(owner).singleOrNull { it.id !in existing }
+                        stored!=null && stored.state=="SUCCEEDED" && stored.sha256.length==64 &&
+                            text(automation.rootInActiveWindow).contains("文件 SHA256：${stored.sha256}")
+                    }
                     capture("$mode-$font-receipt")
                     val artifact=files.list(owner).single { it.id !in existing };assertEquals("SUCCEEDED",artifact.state)
                     val actual=files.verifiedFile(owner,artifact.id).readBytes();val data=AgentUsageSnapshot.decode(actual).getValue("data").jsonObject
                     assertEquals(75,data.getValue("records").jsonArray.size);assertFalse(actual.toString(Charsets.UTF_8).contains("missing-private-ref"))
                     File(folder,"$mode-$font-output.json").writeBytes(actual)
-                    seek("preview control not visible after actual scrolling"){visible("查看导出快照")}
+                    waitFor("preview control not visible after actual scrolling"){
+                        if(visible("查看导出快照"))true else {scroll();false}
+                    }
                     capture("$mode-$font-receipt-details")
-                    seek("preview control not reachable"){click("查看导出快照")}
+                    waitFor("preview control not reachable"){if(click("查看导出快照"))true else {scroll();false}}
                     waitFor("existing actual artifact preview not opened"){text(automation.rootInActiveWindow).contains("成果预览") && text(automation.rootInActiveWindow).contains("sourceSha256")}
                     capture("$mode-$font-preview")
                     assertEquals(before,store.snapshot(owner,task.id));assertEquals("QUEUED",store.get(owner,task.id).state)

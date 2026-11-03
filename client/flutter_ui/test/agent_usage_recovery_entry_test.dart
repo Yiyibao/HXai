@@ -23,13 +23,8 @@ void main() {
       'dev.flutter.pigeon.flutter_ui.StudyHostApi.getAgentUsageLastExport',
       StudyHostApi.pigeonChannelCodec,
     );
-    messenger.setMockDecodedMessageHandler<Object?>(
-      history,
-      (_) async => [null],
-    );
-    addTearDown(
-      () => messenger.setMockDecodedMessageHandler<Object?>(history, null),
-    );
+    messenger.setMockDecodedMessageHandler<Object?>(history, (_) async => [null]);
+    addTearDown(() => messenger.setMockDecodedMessageHandler<Object?>(history, null));
     messenger.setMockDecodedMessageHandler<Object?>(
       channel,
       (a) async => [page((a! as List).cast<Object?>())],

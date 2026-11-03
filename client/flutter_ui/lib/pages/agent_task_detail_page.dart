@@ -8,11 +8,7 @@ import '../bridge/study_host_api.g.dart';
 import '../providers/profile_resource.dart';
 import '../providers/study_providers.dart';
 import '../widgets/agent_usage_view.dart';
-import '../widgets/agent_task_safety_controls.dart';
-import '../widgets/agent_task_resume_control.dart';
 import 'agent_tasks_page.dart';
-import '../widgets/cloud_task_panel.dart';
-import '../widgets/agent_evaluation_export.dart';
 
 class AgentTaskDetailPage extends ConsumerStatefulWidget {
   const AgentTaskDetailPage({super.key, required this.resource});
@@ -28,8 +24,6 @@ class _AgentTaskDetailPageState extends ConsumerState<AgentTaskDetailPage> {
   String? _error;
   int _generation = 0;
   bool _busy = false, _opening = false;
-  bool _cloudDelegated = false;
-  bool _retryMore = false;
   bool get _current {
     final bootstrap = ref.read(bootstrapProvider).value;
     return mounted &&
@@ -61,13 +55,11 @@ class _AgentTaskDetailPageState extends ConsumerState<AgentTaskDetailPage> {
       _error = null;
       _busy = false;
       _opening = false;
-      _retryMore = false;
-      _cloudDelegated = false;
       unawaited(_read());
     }
   }
 
-  Future<void> _read({bool more = false, bool keepDetail = true}) async {
+  Future<void> _read({bool more = false}) async {
     if (!_current || (more && (_busy || _detail?.nextCursor == null))) {
       return;
     }
@@ -76,7 +68,7 @@ class _AgentTaskDetailPageState extends ConsumerState<AgentTaskDetailPage> {
     setState(() {
       _busy = true;
       _error = null;
-      if (!more && !keepDetail) {
+      if (!more) {
         _detail = null;
         _calls.clear();
       }
@@ -103,16 +95,12 @@ class _AgentTaskDetailPageState extends ConsumerState<AgentTaskDetailPage> {
       }
       setState(() {
         _detail = detail;
-        if (!more) _calls.clear();
         final ids = _calls.map((call) => call.id).toSet();
         _calls.addAll(detail.calls.where((call) => ids.add(call.id)));
       });
     } catch (_) {
       if (_current && generation == _generation) {
-        setState(() {
-          _error = '任务详情读取失败，请重试。';
-          _retryMore = more;
-        });
+        setState(() => _error = '任务详情读取失败，请重试。');
       }
     } finally {
       if (mounted && generation == _generation) {
@@ -219,9 +207,7 @@ class _AgentTaskDetailPageState extends ConsumerState<AgentTaskDetailPage> {
       Future.microtask(_read);
     }
     return Scaffold(
-      appBar: AppBar(title: const Text('任务详情'), actions: [
-        if (detail != null) AgentEvaluationExport(resource: widget.resource!, revision: detail.task.revision, fence: detail.task.fence, compact: true),
-      ]),
+      appBar: AppBar(title: const Text('任务详情')),
       body: !current
           ? const Center(child: Text('档案或上下文已变化，请重新打开任务详情。'))
           : ListView(
@@ -247,39 +233,12 @@ class _AgentTaskDetailPageState extends ConsumerState<AgentTaskDetailPage> {
                     ),
                   ],
                 ),
-                const Text('历史任务、成果与用量独立保留；查看不会继续执行。'),
-                if (detail != null)
-                  CloudTaskPanel(
-                    key: ValueKey('cloud:${widget.resource!.profileId}:${widget.resource!.epoch}:${detail.task.id}'),
-                    resource: widget.resource!,
-                    onDelegation: (value) {
-                      if (_current && value != _cloudDelegated) setState(() => _cloudDelegated = value);
-                    },
-                  ),
-                if (detail != null && !_cloudDelegated)
-                  AgentTaskSafetyControls(
-                    key: ValueKey(
-                      '${widget.resource!.profileId}:${widget.resource!.epoch}:${detail.task.id}',
-                    ),
-                    task: detail.task,
-                    resource: widget.resource!,
-                    refresh: () => _read(keepDetail: true),
-                  ),
-                if (detail != null && !_cloudDelegated)
-                  AgentTaskResumeControl(
-                    key: ValueKey(
-                      'resume:${widget.resource!.profileId}:${widget.resource!.epoch}:${detail.task.id}',
-                    ),
-                    task: detail.task,
-                    conversationAvailable: detail.conversationAvailable,
-                    resource: widget.resource!,
-                    refresh: () => _read(keepDetail: true),
-                  ),
+                const Text('执行操作请在关联会话的当前任务面板处理。历史任务、成果与用量独立保留；查看不会继续执行。'),
                 if (_busy || _opening) const LinearProgressIndicator(),
                 if (_error != null) ...[
                   Text(_error!),
                   TextButton(
-                    onPressed: _busy ? null : () => _read(more: _retryMore),
+                    onPressed: _busy ? null : () => _read(more: detail != null),
                     child: const Text('重试详情读取'),
                   ),
                 ],

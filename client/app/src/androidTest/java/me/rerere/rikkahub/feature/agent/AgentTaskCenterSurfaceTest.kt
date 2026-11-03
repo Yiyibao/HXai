@@ -55,11 +55,6 @@ class AgentTaskCenterSurfaceTest {
             while(System.currentTimeMillis()<deadline) { if(condition()) return;Thread.sleep(100) }
             File(outputDir,"failure.txt").writeText(text(automation.rootInActiveWindow));fail(label)
         }
-        fun scrollForward(node: AccessibilityNodeInfo?=automation.rootInActiveWindow): Boolean {
-            if(node==null) return false
-            if(node.isScrollable && node.performAction(AccessibilityNodeInfo.ACTION_SCROLL_FORWARD)) return true
-            return (0 until node.childCount).any { scrollForward(node.getChild(it)) }
-        }
         fun capture(name: String) {
             File(outputDir,"$name.txt").writeText(text(automation.rootInActiveWindow))
             File(outputDir,"$name.png").outputStream().use { assertTrue(automation.takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,it)) }
@@ -81,18 +76,9 @@ class AgentTaskCenterSurfaceTest {
                     assertTrue(text(automation.rootInActiveWindow).contains("center-model"))
                     capture("$theme-$scale-catalog")
                     waitFor("catalog cannot navigate to task detail") { click(goal) }
-                    waitFor("detail controls not loaded") { text(automation.rootInActiveWindow).contains("打开关联会话") }
+                    waitFor("missing conversation detail not wired") { text(automation.rootInActiveWindow).contains("关联会话已不可用") }
+                    assertTrue(text(automation.rootInActiveWindow).contains("center-model"))
                     assertFalse(click("打开关联会话"))
-                    // At 200% the safety controls push lower metadata out of view.
-                    // Read it through actual accessibility scrolling, not a hidden-node assumption.
-                    waitFor("missing conversation detail not wired") {
-                        if(text(automation.rootInActiveWindow).contains("关联会话已不可用")) true
-                        else { scrollForward(); false }
-                    }
-                    waitFor("locked model metadata not visible") {
-                        if(text(automation.rootInActiveWindow).contains("center-model")) true
-                        else { scrollForward(); false }
-                    }
                     capture("$theme-$scale-detail")
                     assertEquals(before,store.snapshot(task.owner,task.id))
                     scenario.close();scenario=null
@@ -105,8 +91,7 @@ class AgentTaskCenterSurfaceTest {
                     // Only the returned ledger DTO can produce this request count.
                     waitFor("global usage did not return a native ledger page") {
                         val actual=text(automation.rootInActiveWindow)
-                        if(actual.contains("范围内 0 次请求")) true
-                        else { scrollForward(); false }
+                        actual.contains("范围内 0 次请求")
                     }
                     capture("$theme-$scale-global-usage")
                     assertEquals(before,store.snapshot(task.owner,task.id));assertEquals("QUEUED",store.get(task.owner,task.id).state)

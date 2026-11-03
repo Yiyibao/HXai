@@ -195,19 +195,6 @@ class OfficeConversionRepository(private val context: Context, private val mater
         resultCheck(owner, task, value, materials.verifiedFile(owner, item.id))
         return item
     }
-    /** Called only after actual workbook/witness readback; hashes bind semantic evidence to disk. */
-    fun calculationEvidence(owner: String, id: String): JsonObject {
-        val task = task(owner, id)
-        require(task.operation == XLSX_RECALCULATE)
-        val item = artifact(owner, id)
-        val value = manifest(owner, task) as XlsxRecalculationManifest
-        return buildJsonObject {
-            put("operation", task.operation); put("artifact_id", item.id); put("source_sha256", task.sourceSha256)
-            put("output_sha256", item.sha256); put("witness_sha256", value.assets[1].sha256)
-            put("manifest_sha256", MaterialFiles.digest(File(directory(owner), "$id.office-manifest.json")))
-            put("renderer_version", value.rendererVersion); put("proof", json.encodeToJsonElement(value.recalculation))
-        }
-    }
     private suspend fun downloadAsset(config: DocumentServiceConfig, remote: String, asset: DocumentAsset, target: File) {
         execute(request(config, "/api/v1/jobs/$remote/assets/${asset.assetId}").get().build()).use { response ->
             check(response.isSuccessful)

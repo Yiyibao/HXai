@@ -39,30 +39,10 @@ class AgentUsageRecoverySurfaceProbe {
             return c?.let {it.isEnabled && it.isVisibleToUser && it.performAction(AccessibilityNodeInfo.ACTION_CLICK)}?:false
         };return (0 until n.childCount).any {click(label,n.getChild(it))}
     }
-    private fun swipe(forward: Boolean,n: AccessibilityNodeInfo?=inst.uiAutomation.rootInActiveWindow): Boolean {
+    private fun scroll(n: AccessibilityNodeInfo?=inst.uiAutomation.rootInActiveWindow): Boolean {
         if(n==null)return false
-        if(n.isScrollable && n.isVisibleToUser) {
-            val bounds=android.graphics.Rect();n.getBoundsInScreen(bounds)
-            if(bounds.height()<100 || bounds.width()<100)return false
-            val x=bounds.centerX().toFloat();val start=bounds.top+bounds.height()*(if(forward) 0.72f else 0.38f)
-            val end=bounds.top+bounds.height()*(if(forward) 0.38f else 0.72f);val down=android.os.SystemClock.uptimeMillis()
-            fun event(action: Int,y: Float) {
-                val e=android.view.MotionEvent.obtain(down,android.os.SystemClock.uptimeMillis(),action,x,y,0)
-                e.source=android.view.InputDevice.SOURCE_TOUCHSCREEN;assertTrue(inst.uiAutomation.injectInputEvent(e,true));e.recycle()
-            }
-            event(android.view.MotionEvent.ACTION_DOWN,start)
-            for(i in 1..6){Thread.sleep(35);event(android.view.MotionEvent.ACTION_MOVE,start+(end-start)*i/6)}
-            event(android.view.MotionEvent.ACTION_UP,end);Thread.sleep(100);return true
-        }
-        return (0 until n.childCount).any {swipe(forward,n.getChild(it))}
-    }
-    private fun scroll()=swipe(true)
-    private fun scrollBack()=swipe(false)
-    private fun reveal(label: String) {
-        waitFor("top controls unreachable") {if(text().contains("刷新用量"))true else {scrollBack();false}}
-        waitFor("receipt text not reachable: $label") {
-            if(text().contains(label))true else {scroll();false}
-        }
+        if(n.isScrollable && n.performAction(AccessibilityNodeInfo.ACTION_SCROLL_FORWARD))return true
+        return (0 until n.childCount).any {scroll(n.getChild(it))}
     }
     private fun waitFor(label: String,check: ()->Boolean) {
         val end=System.currentTimeMillis()+40_000
@@ -77,21 +57,20 @@ class AgentUsageRecoverySurfaceProbe {
     private fun openUsage(): ActivityScenario<StudyFlutterActivity> {
         val scenario=ActivityScenario.launch<StudyFlutterActivity>(Intent(context,StudyFlutterActivity::class.java).putExtra("route","/chat"))
         waitFor("drawer missing"){click("历史对话")};waitFor("usage missing"){click("请求用量")}
-        waitFor("actual ledger missing"){if(text().contains("范围内 0 次请求"))true else {scroll();false}}
+        waitFor("actual ledger missing"){text().contains("范围内 0 次请求")}
         return scenario
     }
     @Test fun prepare(): Unit=runBlocking {
         check(context.packageName=="org.hxsi.agent.nativeqa")
         val k=GlobalContext.get();val settings=k.get<SettingsStore>();settings.settingsFlow.first {!it.init}
-        val owner=settings.createLearnerProfile("QA recovery ${fixture.take(8)}");settings.selectLearnerProfile(owner)
+        val owner=settings.createLearnerProfile("QA recovery $fixture");settings.selectLearnerProfile(owner)
         settings.settingsFlow.first {it.activeProfileId==owner};durable("owner",owner)
         val prefs=context.getSharedPreferences("study_appearance",Context.MODE_PRIVATE)
         prefs.edit().putString("theme",args.getString("theme")?:"light").putFloat("fontScale",args.getString("font")?.toFloat()?:1f).commit()
         val scenario=openUsage();val files=k.get<MaterialFiles>()
-        waitFor("UI export action missing"){if(click("导出 JSON 快照"))true else {scrollBack();false}}
-        waitFor("no actual committed export"){files.list(owner).singleOrNull()?.state=="SUCCEEDED"}
+        waitFor("UI export action missing"){click("导出 JSON 快照")}
+        waitFor("no actual verified receipt"){files.list(owner).singleOrNull()?.let {it.state=="SUCCEEDED" && text().contains("文件 SHA256：${it.sha256}") }==true}
         val item=files.list(owner).single();val bytes=files.verifiedFile(owner,item.id).readBytes()
-        reveal("文件 SHA256：${item.sha256}")
         folder.resolve("original.json").writeBytes(bytes);durable("artifact",item.id);durable("hash",item.sha256)
         capture("before-stop");durable("ready","ui-exported")
         while(true)delay(1000)
@@ -103,12 +82,10 @@ class AgentUsageRecoverySurfaceProbe {
         val files=k.get<MaterialFiles>();val original=folder.resolve("original.json").readBytes()
         val hash=folder.resolve("hash").readText();val id=folder.resolve("artifact").readText()
         openUsage().use {
-            reveal("文件尚待核验")
+            waitFor("persistent intent not shown"){text().contains("文件尚待核验")}
             assertFalse(text().contains("已生成并核验"));capture("reopened-pending")
             waitFor("manual verification unreachable"){if(click("核验上次导出"))true else {scroll();false}}
-            reveal("文件 SHA256：$hash")
-            reveal("复用原快照");capture("reopened-reused")
-            reveal("文件 SHA256：$hash")
+            waitFor("manual original readback receipt missing"){text().contains("文件 SHA256：$hash") && text().contains("复用原快照")}
             capture("reopened-verified")
             assertEquals(1,files.list(owner).size);assertArrayEquals(original,files.verifiedFile(owner,id).readBytes())
             assertEquals(id,AgentUsageExportHistory(context).last(owner,null,null,null,"requests")!!.artifactId)

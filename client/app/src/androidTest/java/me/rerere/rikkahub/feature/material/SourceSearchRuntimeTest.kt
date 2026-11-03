@@ -95,12 +95,8 @@ class SourceSearchRuntimeTest {
             assertEquals(listOf(1, 3), locations(search(store, owner, pdf, "[physical page 999]")).map { it.getValue("number").jsonPrimitive.int })
             assertTrue(hits(search(store, owner, pdf, "物理页")).isEmpty()); assertTrue(hits(search(store, owner, pdf, "无可提取文本")).isEmpty())
             assertEquals(listOf(2), pdfHits.getValue("pages_without_extractable_text").jsonArray.map { it.jsonPrimitive.int })
-            val ppt = store.runTask(MaterialFile(UUID.randomUUID().toString(), owner, "Search.pptx", "pptx")) { output ->
-                InstrumentationRegistry.getInstrumentation().context.assets.open("source-search-logical-hidden.pptx").use { input ->
-                    output.outputStream().use { input.copyTo(it) }
-                }
-                "Synthetic logical PPT"
-            }
+            val fixture = File(context.cacheDir, "b2b-input/source.pptx"); check(fixture.isFile)
+            val ppt = store.runTask(MaterialFile(UUID.randomUUID().toString(), owner, "Search.pptx", "pptx")) { fixture.copyTo(it, overwrite = true); "Synthetic logical PPT" }
             val hidden = locations(search(store, owner, ppt, "HIDDEN LOGICAL FIRST")).single()
             assertEquals(1, hidden.getValue("number").jsonPrimitive.int); assertTrue(hidden.getValue("hidden").jsonPrimitive.boolean)
             assertEquals("ppt/slides/slide2.xml", hidden.getValue("part").jsonPrimitive.content)

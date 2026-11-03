@@ -60,13 +60,6 @@ class TaskPlanningRuntimeTest {
             me.rerere.rikkahub.feature.material.MaterialWriter.write(file,"docx",requirement,emptyList(),emptyList())
             "Synthetic owned source fixture; not an Office editing-engine test"
         } else null
-        val sourceInput = source?.let { version ->
-            val page = materials.readSourceTextPage(original.activeProfileId, version.id, version.sha256, 0, 24000)
-            buildJsonObject {
-                put("id", version.id); put("sha256", version.sha256); put("offset", 0); put("count", 24000)
-                put("quote", page.getValue("untrusted_file_data"))
-            }
-        }
         val server=LocalModelServer { body ->
             val parsed=Json.parseToJsonElement(body).jsonObject
             val messages=parsed.getValue("messages").jsonArray
@@ -108,16 +101,18 @@ class TaskPlanningRuntimeTest {
                             put("tool_calls",buildJsonArray {
                                 repeat(if(executeSecond) 2 else 1) { index ->
                                     add(buildJsonObject { put("id","word-once-$index");put("type","function");put("function",buildJsonObject {
-                                        put("name","create_material_file");put("arguments",buildJsonObject { put("format","docx");put("title",titles[index]);put("content",buildJsonObject {
-                                            put("body",if(index==1 && wrongSecond) "unrelated second document" else content)
-                                            if (index == 1 && sourceInput != null) put("sources", buildJsonArray { add(sourceInput) })
-                                        }.toString()) }.toString())
+                                        put("name","create_material_file");put("arguments",buildJsonObject { put("format","docx");put("title",titles[index]);put("content",buildJsonObject { put("body",if(index==1 && wrongSecond) "unrelated second document" else content) }.toString()) }.toString())
                                     }) })
                                 }
                             }) })
                     }) })
                 }.toString()
                 else -> {
+                    if(source!=null) {
+                        // Trusted host fixture binds a real owned source, never model-supplied authority.
+                        val second=materials.list(original.activeProfileId).single { it.name=="${titles[1]}.docx" }
+                        materials.record(second.copy(sourceId=source.id))
+                    }
                     LocalModelServer.completion("The model claims success, but persistent acceptance is authoritative.")
                 }
             }
@@ -177,7 +172,7 @@ class TaskPlanningRuntimeTest {
                 }
             }
             if(source!=null) {
-                assertEquals(source.id,materials.get(original.activeProfileId,files[1].id).sourceReferences.single().id)
+                assertEquals(source.id,materials.get(original.activeProfileId,files[1].id).sourceId)
                 val actualSource=materials.get(original.activeProfileId,source.id)
                 val sourceContent=MaterialReader.read(materials.verifiedFile(original.activeProfileId,source.id),"docx").text
                 if(changeSource) {

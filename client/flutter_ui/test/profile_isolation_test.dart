@@ -327,12 +327,6 @@ void main() {
     },
   );
   test('Memory toggle propagates a failed native command', () async {
-    mock('getBootstrap', (_) async => [StudyBootstrapDto(
-      currentProfileId: 'default-learner', contextEpoch: 1, profiles: [],
-      studyMode: 'CHAT', reduceMotion: false, darkMode: false)]);
-    mock('getMemoryProtection', (_) async => [MemoryProtectionDto(
-      profileId: 'default-learner', contextEpoch: 1,
-      configuredEnabled: false, recoveryBlocked: false)]);
     mock(
       'toggleAutoMemory',
       (_) async => [
@@ -348,7 +342,6 @@ void main() {
       ],
     );
     final container = ProviderContainer();
-    await container.read(bootstrapProvider.future);
     await expectLater(
       container.read(memoriesProvider.notifier).toggleAutoMemory(false),
       throwsStateError,

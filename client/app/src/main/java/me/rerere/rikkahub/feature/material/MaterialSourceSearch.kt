@@ -26,16 +26,10 @@ internal object MaterialSourceSearch {
         }
     }
 
-    data class Matches(val hits: List<JsonElement>, val next: Int?)
-
-    /** Both bounds are extraction coordinates; matching never bridges physical body ranges. */
-    suspend fun find(item: MaterialFile, content: MaterialContent, query: String, offset: Int, end: Int, limit: Int): Matches {
-        validate(query, offset, limit)
+    suspend fun search(item: MaterialFile, content: MaterialContent, query: String, offset: Int, limit: Int): JsonObject {
         val text = content.text
-        require(offset <= end && end <= text.length) { "检索区间超出实际提取文本" }
-        fun boundary(index: Int) = index == 0 || index == text.length ||
-            !(text[index - 1].isHighSurrogate() && text[index].isLowSurrogate())
-        require(boundary(offset) && boundary(end)) { "检索区间不能拆分Unicode字符" }
+        require(offset <= text.length) { "检索offset超出实际提取文本" }
+        require(offset == 0 || offset == text.length || !(text[offset - 1].isHighSurrogate() && text[offset].isLowSurrogate())) { "检索offset不能拆分Unicode字符" }
         val prefix = IntArray(query.length)
         var matched = 0
         for (i in 1 until query.length) {
@@ -63,22 +57,16 @@ internal object MaterialSourceSearch {
         }
         if (item.extension == "pdf" || item.extension == "pptx") {
             for (location in content.textLocations) {
-                if (location.end > offset && location.start < end &&
-                    !scan(maxOf(offset, location.start), minOf(end, location.end))) break
+                if (location.end > offset && !scan(maxOf(offset, location.start), location.end)) break
             }
-        } else scan(offset, end)
-        return Matches(hits, next)
-    }
-
-    suspend fun search(item: MaterialFile, content: MaterialContent, query: String, offset: Int, limit: Int): JsonObject {
-        val (hits, next) = find(item, content, query, offset, content.text.length, limit)
+        } else scan(offset, text.length)
         return buildJsonObject {
             put("contractVersion", 1); put("status", "SUCCEEDED")
             put("scope", "extracted_body_suffix"); put("match_mode", "literal_case_sensitive")
             put("owner", item.profileId); put("material_id", item.id); put("version_id", item.id)
             put("parent_id", item.sourceId?.let(::JsonPrimitive) ?: JsonNull)
             put("source_sha256", item.sha256); put("extraction_contract", "material_reader_text_v2")
-            put("coverage", content.coverage); put("extracted_characters", content.text.length); put("offset", offset)
+            put("coverage", content.coverage); put("extracted_characters", text.length); put("offset", offset)
             content.totalPages?.let { put("total_pages", it) }; content.extractedPages?.let { put("extracted_pages", it) }
             put("pages_without_extractable_text", JsonArray(content.pagesWithoutExtractableText.map(::JsonPrimitive)))
             put("document_completeness", "NOT_ASSERTED"); put("has_more", next != null)

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -9,8 +8,6 @@ import 'package:go_router/go_router.dart';
 import '../bridge/study_host_api.g.dart';
 import '../providers/study_providers.dart';
 import '../providers/profile_resource.dart';
-import 'agent_usage_export_history.dart';
-import 'agent_usage_alerts.dart';
 
 /// Opens only on request. A read never resumes tasks or dispatches a model.
 class AgentUsageView extends ConsumerStatefulWidget {
@@ -45,9 +42,6 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
   AgentUsageExportIntentDto? _lastExport;
   String? _lastExportError;
   bool _lastExportBusy = false;
-  bool _notificationSettingsBusy = false;
-  String? _notificationSettingsError;
-  int _notificationSettingsGeneration = 0;
   int _historyGeneration = 0;
   bool get _current =>
       mounted &&
@@ -81,9 +75,6 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
       _lastExport = null;
       _lastExportError = null;
       _lastExportBusy = false;
-      _notificationSettingsGeneration++;
-      _notificationSettingsBusy = false;
-      _notificationSettingsError = null;
       _historyGeneration++;
       _wholeProfile = widget.taskId == null;
       unawaited(_read());
@@ -94,11 +85,10 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
     final next = _groupBy == 'requests'
         ? _page?.nextCursor
         : _groupsPage?.nextCursor;
-    if (!_current || _exportBusy || (more && (_busy || next == null))) {
+    if (!_current || (more && (_busy || next == null))) {
       return;
     }
-    // Paging retains the exact scope; it must not orphan its pending history lookup.
-    final generation = more ? _generation : ++_generation;
+    final generation = ++_generation;
     final taskId = _wholeProfile ? null : widget.taskId;
     final range = _range;
     final groupBy = _groupBy;
@@ -194,29 +184,6 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
     }
   }
 
-  String _cost(String? encoded) {
-    if (encoded == null) return '费用未知';
-    try {
-      final data = jsonDecode(encoded) as Map;
-      if (data['amount'] is String && data['currency'] is String) {
-        return "费用：${data['currency']} ${data['amount']} · ${data['status'] == 'reported' ? '供应商报告' : '价格估算'}";
-      }
-      final totals = (data['totals'] as List? ?? []).cast<Map>();
-      final parts = totals
-          .map(
-            (v) =>
-                "${v['currency']} ${v['amount']}（${v['provenance'] == 'reported' ? '报告' : '估算'}）",
-          )
-          .toList();
-      if (data['unknownRequests'] != '0') {
-        parts.add("${data['unknownRequests'] ?? '?'} 次费用未知");
-      }
-      return parts.isEmpty ? '暂无可计金额' : '费用：${parts.join(' · ')}';
-    } catch (_) {
-      return '费用读取失败';
-    }
-  }
-
   String _newExportId() {
     final random = Random.secure();
     final bytes = List.generate(16, (_) => random.nextInt(256));
@@ -247,9 +214,8 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
       );
       if (!_current ||
           generation != _generation ||
-          history != _historyGeneration) {
+          history != _historyGeneration)
         return;
-      }
       if (item != null &&
           (item.owner != widget.owner ||
               item.taskId != taskId ||
@@ -288,9 +254,8 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
 
   Future<void> _verifyLastExport() async {
     final item = _lastExport;
-    if (!_current || item == null || _exportBusy || _busy || _lastExportBusy) {
+    if (!_current || item == null || _exportBusy || _busy || _lastExportBusy)
       return;
-    }
     final generation = _generation;
     _historyGeneration++;
     setState(() {
@@ -330,9 +295,8 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
         setState(() => _exportError = '原导出未通过核验；文件可能缺失、中断或摘要不符。没有重新写出，原记录保留。');
       }
     } finally {
-      if (_current && generation == _generation) {
+      if (_current && generation == _generation)
         setState(() => _exportBusy = false);
-      }
     }
   }
 
@@ -497,26 +461,6 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
     _ => role,
   };
 
-  Future<void> _openNotificationSettings() async {
-    if (!_current || _notificationSettingsBusy) return;
-    final generation = ++_notificationSettingsGeneration;
-    setState(() {
-      _notificationSettingsBusy = true;
-      _notificationSettingsError = null;
-    });
-    try {
-      checkCommand(await bridgeApi.openNativePage('notifications'));
-    } catch (_) {
-      if (_current && generation == _notificationSettingsGeneration) {
-        setState(() => _notificationSettingsError = '提醒设置打开失败，请重试。');
-      }
-    } finally {
-      if (_current && generation == _notificationSettingsGeneration) {
-        setState(() => _notificationSettingsBusy = false);
-      }
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     ref.watch(activeProfileIdProvider);
@@ -607,29 +551,6 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
                 child: const Text('刷新用量'),
               ),
               TextButton(
-                onPressed: _notificationSettingsBusy
-                    ? null
-                    : _openNotificationSettings,
-                child: const Text('后台用量提醒设置'),
-              ),
-              TextButton(
-                onPressed: _exportBusy
-                    ? null
-                    : () => showModalBottomSheet<void>(
-                        context: context,
-                        isScrollControlled: true,
-                        useSafeArea: true,
-                        builder: (_) => SizedBox(
-                          height: MediaQuery.sizeOf(context).height * .9,
-                          child: AgentUsageExportHistoryView(
-                            owner: widget.owner,
-                            expectedEpoch: widget.expectedEpoch,
-                          ),
-                        ),
-                      ),
-                child: const Text('浏览历史导出'),
-              ),
-              TextButton(
                 onPressed: _exportBusy || _lastExportBusy
                     ? null
                     : () => _lookupLastExport(),
@@ -644,19 +565,7 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
               ),
             ],
           ),
-          const Text(
-            '周期按设备时区；展示实际请求账本。费用区分供应商报告、价格估算与未知；无适用来源时费用未知。已知小计不能当完整账单。',
-          ),
-          if (_notificationSettingsError != null)
-            Text(_notificationSettingsError!),
-          AgentUsageAlertsView(
-            key: ValueKey(_generation),
-            owner: widget.owner,
-            taskId: _wholeProfile ? null : widget.taskId,
-            expectedEpoch: widget.expectedEpoch,
-            from: _range.$1,
-            until: _range.$2,
-          ),
+          const Text('周期按设备时区；展示实际请求账本。已知小计不能当完整账单。费用未知：当前账本没有供应商费用来源。'),
           if (_lastExportBusy) const Text('正在读取当前筛选范围的上次导出记录…'),
           if (_lastExportError != null) Text(_lastExportError!),
           if (_lastExport != null && _exported == null) ...[
@@ -695,7 +604,6 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
           ],
           if (_exported case final result?)
             Card(
-              semanticContainer: false,
               child: Padding(
                 padding: const EdgeInsets.all(12),
                 child: Column(
@@ -708,7 +616,7 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
                       '时间：${DateTime.fromMillisecondsSinceEpoch(result.capturedAt).toLocal()} · ${result.reused ? '复用原快照' : '新快照'}',
                     ),
                     const Text(
-                      '已保存到当前档案成果库。未知字段为 null，整数使用十进制字符串。可在预览页另存，包含当时的费用来源与未知覆盖。',
+                      '已保存到当前档案成果库。未知字段为 null，整数使用十进制字符串。可在预览页另存，费用保持未知。',
                     ),
                     SelectableText('文件 SHA256：${result.sha256}'),
                     TextButton(
@@ -755,7 +663,6 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
                     ? '${page.undatedRequests} 次请求的时间未知。'
                     : '${page.undatedRequests} 次时间未知的请求未计入本周期，可在“全部”查看。',
               ),
-            if (page.costJson != null) Text(_cost(page.costJson)),
             if (page.requestCount == 0) const Text('此范围没有请求记录。'),
             for (final entry in _entries)
               Card(
@@ -777,17 +684,6 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
                         '时间：${entry.createdAt == null ? '未知' : DateTime.fromMillisecondsSinceEpoch(entry.createdAt!).toLocal()}\n'
                         '请求：${entry.requestId}\n任务：${entry.taskId}',
                       ),
-                      if (entry.costJson != null) Text(_cost(entry.costJson)),
-                      if (entry.costJson != null)
-                        ExpansionTile(
-                          title: const Text('费用来源'),
-                          children: [
-                            SelectableText(
-                              const JsonEncoder.withIndent('  ')
-                                  .convert(jsonDecode(entry.costJson!)),
-                            ),
-                          ],
-                        ),
                     ],
                   ),
                 ),
@@ -811,7 +707,6 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
                     ? '${grouped.undatedRequests} 次请求的时间未知。'
                     : '${grouped.undatedRequests} 次时间未知的请求未计入本周期，可在“全部”查看。',
               ),
-            if (grouped.costJson != null) Text(_cost(grouped.costJson)),
             if (grouped.groupCount == 0) const Text('此范围没有分组记录。'),
             for (final item in _groups)
               Card(
@@ -834,7 +729,6 @@ class _AgentUsageViewState extends ConsumerState<AgentUsageView> {
                       Text(_metric('输出 Token', item.output)),
                       Text(_metric('缓存 Token', item.cached)),
                       Text(_metric('总 Token', item.total)),
-                      if (item.costJson != null) Text(_cost(item.costJson)),
                     ],
                   ),
                 ),

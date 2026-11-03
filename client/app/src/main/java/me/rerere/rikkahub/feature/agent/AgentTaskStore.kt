@@ -23,13 +23,8 @@ internal data class AgentTask(
 )
 internal data class AgentRequestSelection(
     val providerId: String, val modelId: String, val reasoning: String, val configurationReference: String,
-    val costBasis: kotlinx.serialization.json.JsonObject? = null,
 )
-internal data class AgentLease(val task: AgentTask, val fence: Long, val executorId: String = "local")
-internal data class NativeStopEvidence(val fence: Long,val state: String,val journalHash: String)
-internal data class TaskResumeReceipt(val owner: String, val taskId: String,
-    val conversationId: String, val requestId: String, val expectedRevision: Long,
-    val expectedFence: Long, val canCoordinate: Boolean)
+internal data class AgentLease(val task: AgentTask, val fence: Long)
 internal data class CredentialValidationIntent(val owner: String,val taskId: String,val requestId: String,
     val inputHash: String,val validationTaskId: String,val grantEpoch: Long,val scopeHash: String)
 internal class AgentTaskBlocked : IllegalStateException("存在结果未知的任务，必须先核验既有结果；不会自动重复执行。")
@@ -37,9 +32,8 @@ internal class AgentCommandRejected : IllegalArgumentException("任务或授权�
 
 /** One local user workspace, including all learner profiles. Never included in backup. */
 internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.db") : SQLiteOpenHelper(
-    context, context.noBackupFilesDir.resolve(name).absolutePath, null, 13,
-), java.io.Closeable {
-    private val supervisedExecutors=mutableMapOf<String,SupervisedAgentExecutor>()
+    context, context.noBackupFilesDir.resolve(name).absolutePath, null, 7,
+) {
     override fun onConfigure(db: SQLiteDatabase) {
         db.setForeignKeyConstraintsEnabled(true)
         db.execSQL("PRAGMA synchronous=FULL")
@@ -51,14 +45,9 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
         db.execSQL("CREATE TABLE calls (task_id TEXT NOT NULL REFERENCES tasks(id), call_id TEXT NOT NULL, tool TEXT NOT NULL, input_hash TEXT NOT NULL, state TEXT NOT NULL, result_hash TEXT, PRIMARY KEY(task_id,call_id))")
         db.execSQL("CREATE TABLE usage (request_id TEXT PRIMARY KEY, task_id TEXT NOT NULL REFERENCES tasks(id), role TEXT NOT NULL, provenance TEXT NOT NULL, prompt_tokens INTEGER, completion_tokens INTEGER, cached_tokens INTEGER, created_at INTEGER, total_tokens INTEGER, provider_id TEXT, model_id TEXT, reasoning TEXT, configuration_reference TEXT)")
         createControlSchema(db)
-        createUsageReadIndexes(db)
-        createResumeReceiptSchema(db)
-        AgentCostLedger.create(db)
-        AgentExecutorHandoff.create(db)
-        AgentAccountSchema.create(db)
     }
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        check(newVersion==13 && oldVersion in 1..12) { "Unsupported task schema; database preserved" }
+        check(newVersion==7 && oldVersion in 1..6) { "Unsupported task schema; database preserved" }
         if (oldVersion<2) db.execSQL("ALTER TABLE usage ADD COLUMN created_at INTEGER")
         if (oldVersion<3) db.execSQL("ALTER TABLE usage ADD COLUMN total_tokens INTEGER")
         if (oldVersion<4) {
@@ -74,29 +63,9 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
             db.execSQL("ALTER TABLE tasks ADD COLUMN manual_pause INTEGER NOT NULL DEFAULT 0 CHECK(manual_pause IN (0,1))")
             db.execSQL("UPDATE tasks SET manual_pause=1 WHERE state IN ('PAUSED_BY_USER','STOP_REQUESTED')")
         }
-        if (oldVersion<7) createControlSchema(db)
-        createUsageReadIndexes(db)
-        createResumeReceiptSchema(db)
-        AgentCostLedger.create(db)
-        AgentExecutorHandoff.create(db)
-        AgentAccountSchema.create(db)
+        createControlSchema(db)
     }
     override fun onDowngrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int): Unit = error("Unsupported task schema; database preserved")
-
-    private fun createResumeReceiptSchema(db: SQLiteDatabase) {
-        // Old rows keep their original hash. A one-way digest cannot reconstruct
-        // the accepted boundaries, so legacy rows must not invent a new intent.
-        val columns = db.rawQuery("PRAGMA table_info(task_commands)", null).use {
-            buildSet { while (it.moveToNext()) add(it.getString(1)) }
-        }
-        if ("resume_revision" !in columns) db.execSQL("ALTER TABLE task_commands ADD COLUMN resume_revision INTEGER")
-        if ("resume_fence" !in columns) db.execSQL("ALTER TABLE task_commands ADD COLUMN resume_fence INTEGER")
-    }
-
-    private fun createUsageReadIndexes(db: SQLiteDatabase) {
-        db.execSQL("CREATE INDEX IF NOT EXISTS tasks_owner_id ON tasks(owner,id)")
-        db.execSQL("CREATE INDEX IF NOT EXISTS usage_task_time ON usage(task_id,created_at)")
-    }
 
     @Synchronized private fun <T> transaction(block: (SQLiteDatabase) -> T): T {
         val db = writableDatabase
@@ -104,37 +73,10 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
         try { return block(db).also { db.setTransactionSuccessful() } }
         finally { db.endTransaction() }
     }
-    // The authenticated local adapter uses this very transaction/slot. Nested store
-    // operations join it; account revocation cannot slip between auth and journal.
-    internal fun <T> accountTransaction(block: (SQLiteDatabase) -> T): T = transaction(block)
     private fun task(db: SQLiteDatabase, id: String): AgentTask? = db.rawQuery("SELECT id,owner,conversation_id,request_id,configuration_reference,provider_id,model_id,reasoning,configuration_revision,state,fence,revision,manual_pause FROM tasks WHERE id=?", arrayOf(id)).use {
         if (!it.moveToFirst()) null else AgentTask(it.getString(0),it.getString(1),it.getString(2),it.getString(3),it.getString(4),it.getString(5),it.getString(6),it.getString(7),it.getString(8),it.getString(9),it.getLong(10),it.getLong(11),it.getInt(12)!=0)
     }
     @Synchronized fun get(owner: String, id: String): AgentTask = requireNotNull(task(readableDatabase, id)).also { require(it.owner == owner) { "Task access denied" } }
-    @Synchronized fun requireNetworkQuiescent() {
-        check(readableDatabase.rawQuery("SELECT 1 FROM slot WHERE task_id IS NOT NULL",null).use { !it.moveToFirst() } &&
-            readableDatabase.rawQuery("SELECT 1 FROM calls WHERE state IN ('IN_FLIGHT','UNKNOWN') LIMIT 1",null).use { !it.moveToFirst() } &&
-            supervisedExecutors.isEmpty()) { "Stop and reconcile the original local executor before changing its authority" }
-    }
-    @Synchronized fun networkRetirementEvidence(owner: String,id: String): NativeStopEvidence {
-        val current=get(owner,id)
-        check(current.state !in setOf("RUNNING","STOP_REQUESTED","UNCERTAIN_SIDE_EFFECT")) { "The native executor has not safely stopped" }
-        val journal=readableDatabase.rawQuery("SELECT call_id,state,input_hash,result_hash FROM calls WHERE task_id=? ORDER BY call_id",arrayOf(id)).use { rows ->
-            buildString {
-                while(rows.moveToNext()) {
-                    check(rows.getString(1) !in setOf("IN_FLIGHT","UNKNOWN")) { "A native result is still unknown" }
-                    for(index in 0..3) { append(rows.getString(index));append('\u0000') }
-                }
-            }
-        }
-        return NativeStopEvidence(current.fence,current.state,hash(journal))
-    }
-    @Synchronized internal fun cloudCallState(owner: String,id: String,callId: String): String {
-        get(owner,id)
-        return readableDatabase.rawQuery("SELECT state FROM calls WHERE task_id=? AND call_id=?",arrayOf(id,callId)).use {
-            if(it.moveToFirst()) it.getString(0) else "NOT_DISPATCHED"
-        }
-    }
     fun readTaskCatalog(owner: String,kind: String,cursor: String?,limit: Int) = transaction { db ->
         AgentTaskCatalog.list(db,owner,kind,cursor,limit)
     }
@@ -150,9 +92,6 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
     fun snapshot(owner: String,id: String): AgentTaskSnapshot = transaction { db ->
         val task=requireNotNull(task(db,id));require(task.owner==owner)
         AgentTaskSnapshot(task,control(db,id),plan(owner,id),credentialStatus(db,id),approvalCallIds(owner,id))
-    }
-    fun captureEvaluation(owner: String,id: String,revision: Long,fence: Long) = transaction { db ->
-        AgentEvaluationSnapshot.capture(db,owner,id,revision,fence)
     }
     @Synchronized fun find(owner: String, conversationId: String, requestId: String): AgentTask? = readableDatabase.rawQuery("SELECT id FROM tasks WHERE owner=? AND conversation_id=? AND request_id=?", arrayOf(owner, conversationId, requestId)).use { if (it.moveToFirst()) task(readableDatabase,it.getString(0)) else null }
     @Synchronized fun current(owner: String, conversationId: String): AgentTask? = readableDatabase.rawQuery("SELECT id FROM tasks WHERE owner=? AND conversation_id=? AND fence>0 AND request_id NOT LIKE 'role:%' ORDER BY fence DESC LIMIT 1",arrayOf(owner,conversationId)).use { if(it.moveToFirst()) task(readableDatabase,it.getString(0)) else null }
@@ -186,13 +125,10 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
         db.execSQL("UPDATE calls SET state='UNKNOWN' WHERE state='IN_FLIGHT'")
         db.execSQL("UPDATE plan_steps SET state='UNKNOWN' WHERE state='IN_FLIGHT'")
         db.execSQL("UPDATE tasks SET state=CASE WHEN EXISTS(SELECT 1 FROM calls WHERE calls.task_id=tasks.id AND calls.state='UNKNOWN') THEN 'UNCERTAIN_SIDE_EFFECT' ELSE 'INTERRUPTED' END, revision=revision+1 WHERE state IN ('RUNNING','STOP_REQUESTED')")
-        db.execSQL("UPDATE tasks SET state='STOP_REQUESTED' WHERE state='INTERRUPTED' AND id IN (SELECT task_id FROM slot WHERE executor_id!='local')")
-        db.execSQL("UPDATE tasks SET state=CASE WHEN EXISTS(SELECT 1 FROM calls WHERE calls.task_id=tasks.id AND calls.state='UNKNOWN') THEN 'UNCERTAIN_SIDE_EFFECT' ELSE 'STOP_REQUESTED' END WHERE EXISTS(SELECT 1 FROM executor_handoffs h WHERE h.task_id=tasks.id AND h.state IN ('REQUESTED','STOPPED'))")
-        // Startup cannot prove a second host stopped. Preserve even an activated synthetic lease.
-        db.execSQL("UPDATE slot SET task_id=NULL WHERE executor_id='local' AND task_id IN (SELECT id FROM tasks WHERE state='INTERRUPTED') AND NOT EXISTS(SELECT 1 FROM executor_handoffs h WHERE h.task_id=slot.task_id AND h.state IN ('REQUESTED','STOPPED'))")
+        db.execSQL("UPDATE slot SET task_id=NULL WHERE task_id IN (SELECT id FROM tasks WHERE state='INTERRUPTED')")
         // Credential receipts survive exit. The foreground owner-scoped continuation validates
         // live grants and the key-only encrypted configuration before installing a known receipt.
-    }.also { usageChanges.tryEmit(Unit) }
+    }
     fun pausePending(owner: String, conversationId: String) = transaction { db ->
         db.execSQL("UPDATE tasks SET manual_pause=1,state=CASE WHEN state IN ('RUNNING','UNCERTAIN_SIDE_EFFECT') THEN state ELSE 'PAUSED_BY_USER' END,revision=revision+1 WHERE owner=? AND conversation_id=? AND state IN ('QUEUED','RUNNING','INTERRUPTED','WAITING_INPUT','FAILED_BLOCKED','PAUSED_BY_USER','UNCERTAIN_SIDE_EFFECT')",arrayOf(owner,conversationId))
     }
@@ -216,22 +152,20 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
             val control=control(db,id)
             check(control.authorization=="ACTIVE" && !control.inputBlocked && !control.deviceBlocked &&
                 !control.deviceConfirmation && !control.cancelRequested && !control.approvalBlocked) { "Independent waiting conditions are still present" }
-            check(it.getLong(1)<Long.MAX_VALUE) { "Execution fence exhausted" }
             val fence = it.getLong(1) + 1
-            db.execSQL("UPDATE slot SET task_id=?,fence=?,executor_id='local' WHERE singleton=1",arrayOf<Any>(id,fence))
+            db.execSQL("UPDATE slot SET task_id=?,fence=? WHERE singleton=1",arrayOf<Any>(id,fence))
             db.execSQL("UPDATE tasks SET state='RUNNING',fence=?,revision=revision+1 WHERE id=?",arrayOf<Any>(fence,id))
             AgentLease(requireNotNull(task(db,id)),fence)
         }
     }
     private fun requireLease(db: SQLiteDatabase, lease: AgentLease) {
-        db.rawQuery("SELECT task_id,fence,executor_id FROM slot WHERE singleton=1",null).use { check(it.moveToFirst() && it.getString(0) == lease.task.id && it.getLong(1) == lease.fence && it.getString(2)==lease.executorId) { "Stale task execution fence or executor" } }
+        db.rawQuery("SELECT task_id,fence FROM slot WHERE singleton=1",null).use { check(it.moveToFirst() && it.getString(0) == lease.task.id && it.getLong(1) == lease.fence) { "Stale task execution fence" } }
         val current = requireNotNull(task(db,lease.task.id))
         check(current.owner == lease.task.owner && current.fence == lease.fence &&
-            (current.state=="RUNNING" || current.state=="STOP_REQUESTED" || current.state=="UNCERTAIN_SIDE_EFFECT" || AgentExecutorHandoff.pending(db,current.id))) { "Stale task receipt lease" }
+            (current.state=="RUNNING" || current.state=="STOP_REQUESTED" || current.state=="UNCERTAIN_SIDE_EFFECT")) { "Stale task receipt lease" }
     }
     private fun requireDispatchLease(db: SQLiteDatabase, lease: AgentLease) {
         requireLease(db,lease)
-        check(!AgentExecutorHandoff.pending(db,lease.task.id)) { "Executor handoff prevents new dispatch" }
         val current=requireNotNull(task(db,lease.task.id))
         check(current.state=="RUNNING" && !current.manualPaused) { "Task is not running or is paused" }
         val control = control(db,lease.task.id)
@@ -239,89 +173,6 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
             !control.deviceConfirmation && !control.cancelRequested && !control.approvalBlocked) { "Task authorization or independent blocker prevents dispatch" }
     }
     fun check(lease: AgentLease) = transaction { requireDispatchLease(it,lease) }
-
-    /** Trusted native supervisor only; intentionally absent from ToolPolicy/Pigeon/remote APIs. */
-    fun supervise(lease: AgentLease,job: kotlinx.coroutines.Job): SupervisedAgentExecutor = transaction { db ->
-        requireDispatchLease(db,lease)
-        val previous=supervisedExecutors[lease.task.id]
-        check(previous==null || previous.lease.fence!=lease.fence) { "Executor already bound" }
-        SupervisedAgentExecutor.bind(lease,job).also { supervisedExecutors[lease.task.id]=it }
-    }
-    fun requestHandoff(lease: AgentLease,requestId: String,targetExecutor: String): ExecutorHandoff = transaction { db ->
-        requireLease(db,lease)
-        require(requestId.length in 1..200 && targetExecutor.matches(Regex("[A-Za-z0-9._-]{1,120}")) && targetExecutor!=lease.executorId)
-        AgentExecutorHandoff.read(db,lease.task.id,requestId)?.let {
-            require(it.sourceExecutor==lease.executorId && it.sourceFence==lease.fence && it.targetExecutor==targetExecutor) { "Handoff intent changed" }
-            return@transaction it
-        }
-        requireDispatchLease(db,lease)
-        val current=requireNotNull(task(db,lease.task.id))
-        db.execSQL("INSERT INTO executor_handoffs(task_id,request_id,source_executor,source_fence,target_executor,grant_epoch,input_hash,snapshot_hash,state) VALUES(?,?,?,?,?,?,?,?,'REQUESTED')",
-            arrayOf<Any>(current.id,requestId,lease.executorId,lease.fence,targetExecutor,control(db,current.id).grantEpoch,AgentExecutorHandoff.inputHash(db,current.id),AgentExecutorHandoff.snapshotHash(current)))
-        db.execSQL("UPDATE tasks SET state='STOP_REQUESTED',revision=revision+1 WHERE id=?",arrayOf(current.id))
-        requireNotNull(AgentExecutorHandoff.read(db,current.id,requestId))
-    }
-    fun readHandoff(owner: String,id: String,requestId: String): ExecutorHandoff? = transaction { db ->
-        require(requireNotNull(task(db,id)).owner==owner)
-        AgentExecutorHandoff.read(db,id,requestId)
-    }
-    fun recordExecutorStopped(proof: SupervisedAgentExecutor.Stopped): ExecutorHandoff = transaction { db ->
-        val lease=proof.lease
-        requireLease(db,lease)
-        check(supervisedExecutors[lease.task.id]===proof.executor) { "Stop proof is not from the bound executor" }
-        val handoff=requireNotNull(AgentExecutorHandoff.read(db,lease.task.id,proof.requestId))
-        require(handoff.sourceExecutor==lease.executorId && handoff.sourceFence==lease.fence && handoff.state in setOf("REQUESTED","STOPPED"))
-        if(handoff.state=="STOPPED") return@transaction handoff
-        // Exiting a coroutine never verifies a tool side effect or a billed provider request.
-        db.execSQL("UPDATE calls SET state='UNKNOWN' WHERE task_id=? AND state='IN_FLIGHT'",arrayOf(lease.task.id))
-        db.execSQL("UPDATE plan_steps SET state='UNKNOWN' WHERE task_id=? AND state='IN_FLIGHT'",arrayOf(lease.task.id))
-        db.execSQL("UPDATE executor_handoffs SET state='STOPPED' WHERE task_id=? AND request_id=?",arrayOf(lease.task.id,proof.requestId))
-        db.execSQL("UPDATE tasks SET state=CASE WHEN EXISTS(SELECT 1 FROM calls WHERE task_id=? AND state='UNKNOWN') THEN 'UNCERTAIN_SIDE_EFFECT' ELSE 'STOP_REQUESTED' END,revision=revision+1 WHERE id=?",arrayOf(lease.task.id,lease.task.id))
-        requireNotNull(AgentExecutorHandoff.read(db,lease.task.id,proof.requestId))
-    }
-    fun activateHandoff(owner: String,id: String,requestId: String,targetExecutor: String): AgentLease = transaction { db ->
-        val current=requireNotNull(task(db,id));require(current.owner==owner)
-        val handoff=requireNotNull(AgentExecutorHandoff.read(db,id,requestId))
-        require(handoff.targetExecutor==targetExecutor)
-        if(handoff.state=="ACTIVATED") {
-            val lease=AgentLease(current,requireNotNull(handoff.targetFence),targetExecutor)
-            requireLease(db,lease) // ACK retry reads the existing lease; cannot resurrect an old target.
-            return@transaction lease
-        }
-        check(handoff.state=="STOPPED") { "Old executor has no trusted stop receipt" }
-        val previous=AgentLease(current,handoff.sourceFence,handoff.sourceExecutor)
-        requireLease(db,previous)
-        check(!current.manualPaused)
-        val control=control(db,id)
-        check(control.authorization=="ACTIVE" && control.grantEpoch==handoff.grantEpoch &&
-            !control.cancelRequested && !control.inputBlocked && !control.deviceBlocked &&
-            !control.deviceConfirmation && !control.approvalBlocked) { "Independent handoff blocker" }
-        check(AgentExecutorHandoff.inputHash(db,id)==handoff.inputHash && AgentExecutorHandoff.snapshotHash(current)==handoff.snapshotHash) { "Accepted goal or model snapshot changed" }
-        if(db.rawQuery("SELECT 1 FROM calls WHERE task_id=? AND state IN ('IN_FLIGHT','UNKNOWN')",arrayOf(id)).use { it.moveToFirst() }) throw AgentTaskBlocked()
-        check(current.fence<Long.MAX_VALUE)
-        val fence=current.fence+1
-        db.execSQL("UPDATE slot SET fence=?,executor_id=? WHERE singleton=1",arrayOf<Any>(fence,targetExecutor))
-        db.execSQL("UPDATE tasks SET state='RUNNING',fence=?,revision=revision+1 WHERE id=?",arrayOf<Any>(fence,id))
-        db.execSQL("UPDATE executor_handoffs SET state='ACTIVATED',target_fence=? WHERE task_id=? AND request_id=?",arrayOf<Any>(fence,id,requestId))
-        supervisedExecutors.remove(id)
-        AgentLease(requireNotNull(task(db,id)),fence,targetExecutor)
-    }
-    fun abandonHandoff(owner: String,id: String,requestId: String): AgentTask = transaction { db ->
-        val current=requireNotNull(task(db,id));require(current.owner==owner)
-        val handoff=requireNotNull(AgentExecutorHandoff.read(db,id,requestId))
-        if(handoff.state=="ABORTED") return@transaction current
-        check(handoff.state=="STOPPED") { "Cannot abandon an executor without its stop receipt" }
-        val lease=AgentLease(current,handoff.sourceFence,handoff.sourceExecutor)
-        requireLease(db,lease)
-        if(db.rawQuery("SELECT 1 FROM calls WHERE task_id=? AND state IN ('IN_FLIGHT','UNKNOWN')",arrayOf(id)).use { it.moveToFirst() }) throw AgentTaskBlocked()
-        check(current.fence<Long.MAX_VALUE)
-        db.execSQL("UPDATE executor_handoffs SET state='ABORTED' WHERE task_id=? AND request_id=?",arrayOf(id,requestId))
-        finish(lease,"INTERRUPTED") // Keeps all independent controls; never declares success.
-        db.execSQL("UPDATE slot SET fence=?,executor_id='local' WHERE singleton=1",arrayOf<Any>(current.fence+1))
-        db.execSQL("UPDATE tasks SET fence=? WHERE id=?",arrayOf<Any>(current.fence+1,id))
-        supervisedExecutors.remove(id)
-        requireNotNull(task(db,id))
-    }
     fun beginCall(lease: AgentLease, callId: String, tool: String, input: String,
         permit: ToolPermit = permit(lease,tool,input)) = transaction { db ->
         requireDispatchLease(db,lease)
@@ -367,7 +218,7 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
         }
         val tool=receipt[0]
         val unconfirmedRemote= !verified && resultJson!=null &&
-            (tool=="parse_material_enhanced" || tool!=null && me.rerere.rikkahub.feature.material.remoteOfficeOperation(tool)!=null) &&
+            (tool=="convert_material_to_pdf" || tool=="parse_material_enhanced") &&
             Json.decodeFromString<List<me.rerere.ai.ui.UIMessagePart>>(resultJson).filterIsInstance<me.rerere.ai.ui.UIMessagePart.Text>()
                 .firstOrNull()?.let { Json.parseToJsonElement(it.text).jsonObject["state"]?.jsonPrimitive?.content }=="SUBMITTING"
         val state=if(verified) "VERIFIED" else if(unconfirmedRemote) "UNKNOWN" else "RETURNED"
@@ -394,23 +245,20 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
             put("accepted_configuration_reference",lease.task.configurationReference)
         })
         db.insertOrThrow("calls",null,ContentValues().apply { put("task_id",lease.task.id); put("call_id",requestId); put("tool","provider:$role"); put("input_hash",hash(input)); put("state","IN_FLIGHT") })
-        AgentCostLedger.begin(db,requestId,selection.costBasis)
         requestId
-    }.also { usageChanges.tryEmit(Unit) }
+    }
     fun finishRequest(lease: AgentLease, requestId: String, usage: me.rerere.ai.core.TokenUsage?) = transaction { db ->
         requireLease(db,lease)
         db.rawQuery("SELECT c.state,u.prompt_tokens,u.completion_tokens,u.cached_tokens,u.total_tokens FROM calls c JOIN usage u ON u.request_id=c.call_id WHERE c.task_id=? AND c.call_id=? AND c.tool LIKE 'provider:%'",
             arrayOf(lease.task.id,requestId)).use { receipt ->
             check(receipt.moveToFirst())
             if(receipt.getString(0)=="VERIFIED") {
-                AgentCostLedger.finish(db,requestId,usage)
                 fun count(index: Int): Int? = if(receipt.isNull(index)) null else receipt.getInt(index)
                 require(count(1)==usage?.promptTokens && count(2)==usage?.completionTokens &&
                     count(3)==usage?.cachedTokens && count(4)==usage?.totalTokens) { "Conflicting duplicate provider receipt" }
                 return@transaction
             }
         }
-        AgentCostLedger.finish(db,requestId,usage)
         if (usage != null) db.update("usage",ContentValues().apply {
             put("provenance",if(usage.promptTokens!=null || usage.completionTokens!=null || usage.cachedTokens!=null || usage.totalTokens!=null) "reported" else "unknown")
             put("prompt_tokens",usage.promptTokens); put("completion_tokens",usage.completionTokens); put("cached_tokens",usage.cachedTokens)
@@ -419,7 +267,7 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
         val changed=db.update("calls",ContentValues().apply { put("state","VERIFIED") },"task_id=? AND call_id=? AND state IN ('IN_FLIGHT','UNKNOWN')",arrayOf(lease.task.id,requestId))
         check(changed==1 || db.rawQuery("SELECT 1 FROM calls WHERE task_id=? AND call_id=? AND state='VERIFIED' AND tool LIKE 'provider:%'",
             arrayOf(lease.task.id,requestId)).use { it.moveToFirst() }) { "Missing physical request receipt" }
-    }.also { usageChanges.tryEmit(Unit) }
+    }
     fun rejectAuthorization(lease: AgentLease,requestId: String,status: Int) = transaction { db ->
         require(status==401 || status==403)
         requireLease(db,lease)
@@ -455,7 +303,6 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
             arrayOf(lease.task.id)).use { it.moveToFirst() }
         val resolved = when {
             unsafe -> "UNCERTAIN_SIDE_EFFECT"
-            AgentExecutorHandoff.pending(db,lease.task.id) -> "STOP_REQUESTED"
             control.cancelRequested -> "CANCELED"
             requireNotNull(task(db,lease.task.id)).manualPaused -> "PAUSED_BY_USER"
             control.authorization!="ACTIVE" -> "WAITING_AUTHORIZATION"
@@ -468,17 +315,8 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
         if (unsafe) db.execSQL("UPDATE calls SET state='UNKNOWN' WHERE task_id=? AND state='IN_FLIGHT'",arrayOf(lease.task.id))
         db.execSQL("UPDATE tasks SET state=?,manual_pause=CASE WHEN ?='PAUSED_BY_USER' THEN 1 ELSE manual_pause END,revision=revision+1 WHERE id=?",arrayOf(resolved,state,lease.task.id))
         if(unsafe) db.execSQL("UPDATE plan_steps SET state='UNKNOWN' WHERE task_id=? AND state='IN_FLIGHT'",arrayOf(lease.task.id))
-        if (!unsafe && resolved!="STOP_REQUESTED") {
-            db.execSQL("UPDATE slot SET task_id=NULL WHERE task_id=? AND fence=?",arrayOf<Any>(lease.task.id,lease.fence))
-            supervisedExecutors.remove(lease.task.id)
-        }
-    }.also { usageChanges.tryEmit(Unit) }
-
-    // A single SELECT has its own consistent snapshot; don't reserve a writer transaction for an advisory read.
-    @Synchronized fun readUsageNotificationCandidates(owner: String, after: String?, now: Long, limit: Int = 100) =
-        AgentUsageNotificationReader.read(readableDatabase,owner,after,now,limit)
-    @Synchronized fun readUsageNotificationRules(owner: String, taskId: String, now: Long): Set<String> =
-        AgentUsageNotificationReader.read(readableDatabase,owner,null,now,1,taskId).firstOrNull()?.rules.orEmpty()
+        if (!unsafe) db.execSQL("UPDATE slot SET task_id=NULL WHERE task_id=? AND fence=?",arrayOf<Any>(lease.task.id,lease.fence))
+    }
 
     private fun createControlSchema(db: SQLiteDatabase) {
         db.execSQL("CREATE TABLE IF NOT EXISTS task_control(task_id TEXT PRIMARY KEY REFERENCES tasks(id),authorization TEXT NOT NULL DEFAULT 'ACTIVE',grant_epoch INTEGER NOT NULL DEFAULT 1,input_blocked INTEGER NOT NULL DEFAULT 0,device_blocked INTEGER NOT NULL DEFAULT 0,device_confirmation INTEGER NOT NULL DEFAULT 0,cancel_requested INTEGER NOT NULL DEFAULT 0)")
@@ -636,8 +474,6 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
     }
     fun readUsage(owner: String,taskId: String?,from: Long?,until: Long?,cursor: String?,limit: Int): AgentUsagePage =
         transaction { db -> AgentUsageLedger.read(db,owner,taskId,from,until,cursor,limit) }
-    fun readUsageAlerts(owner: String,taskId: String?,from: Long?,until: Long?,now: Long = System.currentTimeMillis()): AgentUsageAlerts =
-        transaction { db -> AgentUsageAlertReader.read(db,owner,taskId,from,until,now) }
     private fun credentialReference(db: SQLiteDatabase,id: String): String? = db.rawQuery(
         "SELECT c.configuration_reference FROM credential_overrides c JOIN task_control t ON t.task_id=c.task_id WHERE c.task_id=? AND c.grant_epoch=t.grant_epoch",arrayOf(id)).use {
         if(it.moveToFirst()) it.getString(0) else null
@@ -700,33 +536,8 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
         return readableDatabase.rawQuery("SELECT 1 FROM task_commands WHERE task_id=? AND request_id=?",
             arrayOf(id,requestId)).use { it.moveToFirst() }
     }
-    /** Read only: a persisted command is not proof of dispatch or task success. */
-    fun readResumeReceipt(owner: String, id: String, requestId: String?): TaskResumeReceipt? = transaction { db ->
-        val current = requireNotNull(task(db, id)); require(current.owner == owner)
-        require(requestId == null || requestId.length in 1..200)
-        val sql = if (requestId == null)
-            "SELECT request_id,input_hash,resume_revision,resume_fence FROM task_commands WHERE task_id=? AND (resume_revision IS NOT NULL OR resume_fence IS NOT NULL) ORDER BY rowid DESC LIMIT 1"
-        else "SELECT request_id,input_hash,resume_revision,resume_fence FROM task_commands WHERE task_id=? AND request_id=?"
-        db.rawQuery(sql, if (requestId == null) arrayOf(id) else arrayOf(id, requestId)).use { row ->
-            if (!row.moveToFirst() || row.isNull(2) && row.isNull(3)) return@transaction null
-            check(!row.isNull(2) && !row.isNull(3) && row.getType(2) == android.database.Cursor.FIELD_TYPE_INTEGER &&
-                row.getType(3) == android.database.Cursor.FIELD_TYPE_INTEGER) { "Invalid resume receipt metadata" }
-            val revision = row.getLong(2); val fence = row.getLong(3); val request = row.getString(0)
-            check(revision in 0 until Long.MAX_VALUE && fence >= 0 && request.length in 1..200 &&
-                row.getString(1) == hash("resume::$revision:$fence")) { "Resume receipt digest mismatch" }
-            val control = control(db, id)
-            val unsettled = db.rawQuery("SELECT 1 FROM calls WHERE task_id=? AND state IN ('IN_FLIGHT','UNKNOWN') LIMIT 1", arrayOf(id)).use { it.moveToFirst() }
-            TaskResumeReceipt(owner, id, current.conversationId, request, revision, fence,
-                current.state == "QUEUED" && !current.manualPaused && current.revision == revision + 1 && current.fence == fence &&
-                    control.authorization == "ACTIVE" && !control.cancelRequested && !control.inputBlocked &&
-                    !control.deviceBlocked && !control.deviceConfirmation && !control.approvalBlocked && !unsettled)
-        }
-    }
     fun command(owner: String,id: String,requestId: String,expectedRevision: Long,expectedFence: Long,
-        action: String,payload: String="",safetyOnly: Boolean=false): AgentTask = transaction { db ->
-        // The task catalog may stop any owned task, including one whose conversation
-        // was deleted. It cannot grant, resume, dispatch, or change the accepted goal.
-        if(safetyOnly) require(action in setOf("pause","cancel","revoke") && payload.isEmpty())
+        action: String,payload: String=""): AgentTask = transaction { db ->
         val current=requireNotNull(task(db,id)); require(current.owner==owner)
         val digest=hash("$action:$payload:$expectedRevision:$expectedFence")
         db.rawQuery("SELECT input_hash FROM task_commands WHERE task_id=? AND request_id=?",arrayOf(id,requestId)).use {
@@ -734,9 +545,6 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
         }
         require(current.revision==expectedRevision && current.fence==expectedFence) { "Task revision or fence has changed" }
         require(requestId.length in 1..200)
-        if(safetyOnly && action!="revoke") check(current.state !in setOf("SUCCEEDED","CANCELED")) {
-            "A safety command cannot rewrite a terminal task"
-        }
         when(action) {
             "resume" -> {
                 val control=control(db,id)
@@ -777,15 +585,10 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
             }
             else -> error("Unsupported task command")
         }
-        db.insertOrThrow("task_commands", null, ContentValues().apply {
-            put("task_id", id); put("request_id", requestId); put("input_hash", digest)
-            if (action == "resume" && payload.isEmpty()) {
-                put("resume_revision", expectedRevision); put("resume_fence", expectedFence)
-            }
-        })
+        db.execSQL("INSERT INTO task_commands(task_id,request_id,input_hash) VALUES(?,?,?)",arrayOf(id,requestId,digest))
         db.execSQL("UPDATE tasks SET revision=revision+1 WHERE id=?",arrayOf(id))
         requireNotNull(task(db,id))
-    }.also { usageChanges.tryEmit(Unit) }
+    }
     fun plan(owner: String,id: String): PersistedPlan {
         get(owner,id)
         val steps=readableDatabase.rawQuery("SELECT step_id,tool,call_id,state,result_json FROM plan_steps WHERE task_id=? ORDER BY ordinal",arrayOf(id)).use {
@@ -831,7 +634,7 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
             arrayOf(id,tool,hash(input))).use { if(!it.moveToFirst()) null else it.getString(0).also { result -> check(hash(result)==it.getString(1)) } }
     }
     @Synchronized fun recordedRemoteTask(owner: String,conversationId: String,tool: me.rerere.ai.ui.UIMessagePart.Tool): AgentTask? {
-        if(me.rerere.rikkahub.feature.material.remoteOfficeOperation(tool.toolName)==null && tool.toolName!="parse_material_enhanced") return null
+        if(tool.toolName!="convert_material_to_pdf" && tool.toolName!="parse_material_enhanced") return null
         val contract=TrustedToolRegistry.require(tool.toolName)
         return readableDatabase.rawQuery(
             "SELECT c.task_id,c.result_json,c.result_hash,c.grant_epoch FROM calls c JOIN tasks t ON t.id=c.task_id WHERE t.owner=? AND t.conversation_id=? AND c.call_id=? AND c.tool=? AND c.input_hash=? AND c.capability=? AND c.scope=? AND c.state='RETURNED' AND c.result_json IS NOT NULL",
@@ -851,23 +654,18 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
             get(owner,id)
         }
     }
-    private fun requireToolDispatch(db: SQLiteDatabase,lease: AgentLease,tool: me.rerere.ai.ui.UIMessagePart.Tool, readback: Boolean = false) {
+    private fun requireToolDispatch(db: SQLiteDatabase,lease: AgentLease,tool: me.rerere.ai.ui.UIMessagePart.Tool) {
         requireDispatchLease(db,lease)
         val contract=TrustedToolRegistry.require(tool.toolName)
         val epoch=control(db,lease.task.id).grantEpoch
         val digest=hash(tool.input)
-        val states=if(readback) "('IN_FLIGHT','RETURNED','VERIFIED')" else "('IN_FLIGHT','RETURNED')"
-        check(db.rawQuery("SELECT 1 FROM calls WHERE task_id=? AND call_id=? AND tool=? AND input_hash=? AND capability=? AND scope=? AND grant_epoch=? AND state IN $states",
+        check(db.rawQuery("SELECT 1 FROM calls WHERE task_id=? AND call_id=? AND tool=? AND input_hash=? AND capability=? AND scope=? AND grant_epoch=? AND state IN ('IN_FLIGHT','RETURNED')",
             arrayOf(lease.task.id,tool.toolCallId,tool.toolName,digest,contract.capability,lease.task.owner,epoch.toString())).use { it.moveToFirst() }) {
             "Remote operation has no current bound task call"
         }
         requireGrant(db,lease.task.id,contract.capability,lease.task.owner,epoch,digest)
     }
     fun checkToolDispatch(lease: AgentLease,tool: me.rerere.ai.ui.UIMessagePart.Tool) = transaction { requireToolDispatch(it,lease,tool) }
-    fun checkToolReadback(lease: AgentLease,tool: me.rerere.ai.ui.UIMessagePart.Tool) = transaction {
-        require(TrustedToolRegistry.require(tool.toolName).verifier in setOf(TrustedToolRegistry.Verifier.MCP_FIXTURE_READBACK,TrustedToolRegistry.Verifier.EXTENSION_READBACK))
-        requireToolDispatch(it,lease,tool,readback=true)
-    }
     fun verifyReturnedCall(lease: AgentLease,tool: me.rerere.ai.ui.UIMessagePart.Tool,resultJson: String) = transaction { db ->
         requireToolDispatch(db,lease,tool)
         check(db.update("calls",ContentValues().apply {
@@ -879,9 +677,6 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
         db.execSQL("UPDATE plans SET acceptance_verified=0 WHERE task_id=?",arrayOf(lease.task.id))
     }
     companion object {
-        // Invalidation only: never transport task content, grants or request bodies.
-        val usageChanges = kotlinx.coroutines.flow.MutableSharedFlow<Unit>(replay=1,
-            onBufferOverflow=kotlinx.coroutines.channels.BufferOverflow.DROP_OLDEST)
         fun hash(value: String): String = MessageDigest.getInstance("SHA-256").digest(value.toByteArray(Charsets.UTF_8)).toHexString()
     }
 }

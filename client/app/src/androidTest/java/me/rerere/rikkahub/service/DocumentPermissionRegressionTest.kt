@@ -38,7 +38,7 @@ class DocumentPermissionRegressionTest {
             val bytes = Json.encodeToString(doc).toByteArray()
             val hash = MessageDigest.getInstance("SHA-256").digest(bytes).joinToString("") { "%02x".format(it) }
             val manifest = DocumentManifest(1, source.sha256, 1, "synthetic", "1", "basic", 1,
-                listOf(1, 1), listOf(1), emptyList(), emptyList(), true, doc.warnings, listOf(DocumentAsset("document", "document.json", "application/json", bytes.size.toLong(), hash)))
+                listOf(1, 1), listOf(1), emptyList(), emptyList(), true, emptyList(), listOf(DocumentAsset("document", "document.json", "application/json", bytes.size.toLong(), hash)))
             val remote = UUID.randomUUID().toString()
             val requests = mutableListOf<String>(); val keys = mutableListOf<String>(); var lose = true; var expired = false
             val client = OkHttpClient.Builder().addInterceptor { chain ->

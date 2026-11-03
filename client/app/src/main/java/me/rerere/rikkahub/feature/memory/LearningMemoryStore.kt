@@ -56,18 +56,16 @@ class LearningMemoryStore(private val database: AppDatabase, private val fingerp
     fun observe(profileId: String) = dao.observe(profileId).map { it?.let { json.decodeFromString<MemoryState>(it.payload) } ?: MemoryState() }
     suspend fun read(profileId: String): MemoryState = database.withTransaction {
         val state = dao.get(profileId)?.let { json.decodeFromString<MemoryState>(it.payload) } ?: MemoryState(fingerprintVersion = 1)
-        require(state.schemaVersion in 1..2 && state.fingerprintVersion in 0..1) { "不支持的记忆数据版本" }
+        require(state.schemaVersion == 1 && state.fingerprintVersion in 0..1) { "不支持的记忆数据版本" }
         if (state.fingerprintVersion == 1) {
-            check(state.legacySuppressedSources.isEmpty() || state.schemaVersion == 2 && state.recoveryBlocked) { "旧来源删除保护状态不一致；原记录已保留，已停止发送历史" }
-            if (state.sources.isNotEmpty() || state.suppressedSources.isNotEmpty() || state.suppressedFacts.isNotEmpty() || state.suppressedTopics.isNotEmpty() || state.legacySuppressedSources.isNotEmpty()) fingerprints.verifyPortableKey()
+            if (state.sources.isNotEmpty() || state.suppressedSources.isNotEmpty() || state.suppressedFacts.isNotEmpty() || state.suppressedTopics.isNotEmpty()) fingerprints.verifyPortableKey()
             return@withTransaction state
         }
         if (state.sources.isNotEmpty() || state.suppressedSources.isNotEmpty() || state.suppressedFacts.isNotEmpty() || state.suppressedTopics.isNotEmpty()) fingerprints.requireExistingKey()
+        val hashes = mutableMapOf<String, String>()
         val suppressed = mutableSetOf<String>()
-        val mappedLegacy = mutableSetOf<String>()
         val messages = state.sources.map { it.conversationId }.distinct().associateWith { id ->
-            if (database.conversationDao().getConversationById(id)?.profileId != profileId) emptyMap() else
-                database.messageNodeDao().getNodesOfConversation(id).flatMap { node ->
+            database.messageNodeDao().getNodesOfConversation(id).flatMap { node ->
                 me.rerere.rikkahub.utils.JsonInstant.decodeFromString<List<me.rerere.ai.ui.UIMessage>>(node.messages)
             }.associateBy { it.id.toString() }
         }
@@ -75,10 +73,9 @@ class LearningMemoryStore(private val database: AppDatabase, private val fingerp
             val text = messages[source.conversationId]?.get(source.messageId)?.toText()
             val matching = text != null && fingerprints.legacyOf(profileId, "content:$text") == source.hash
             val hash = if (matching) fingerprints.of(profileId, "content:$text") else fingerprints.of(profileId, "unavailable:${source.id}")
-            val matchedMarkers = setOf(fingerprints.legacyOf(profileId, "message:${source.messageId}"),
-                fingerprints.legacyOf(profileId, "${source.messageId}:${source.hash}")).intersect(state.suppressedSources)
-            if (matchedMarkers.isNotEmpty()) {
-                mappedLegacy += matchedMarkers
+            hashes[source.id] = hash
+            if (fingerprints.legacyOf(profileId, "message:${source.messageId}") in state.suppressedSources ||
+                fingerprints.legacyOf(profileId, "${source.messageId}:${source.hash}") in state.suppressedSources) {
                 suppressed += fingerprints.of(profileId, "message:${source.messageId}")
                 suppressed += fingerprints.of(profileId, "${source.messageId}:$hash")
             }
@@ -87,11 +84,8 @@ class LearningMemoryStore(private val database: AppDatabase, private val fingerp
         // Deleted fact/topic preimages were intentionally discarded by v0. They cannot be exported from Keystore.
         // Fail closed rather than silently forgetting their constraints. Existing records remain manageable.
         fingerprints.exportKey()
-        val unmappedSources = state.legacySuppressedSources + (state.suppressedSources - mappedLegacy)
-        val migrated = state.copy(schemaVersion = if (unmappedSources.isNotEmpty()) 2 else state.schemaVersion,
-            fingerprintVersion = 1, epoch = state.epoch + 1, sources = sources,
-            suppressedSources = suppressed, legacySuppressedSources = unmappedSources,
-            recoveryBlocked = state.recoveryBlocked || unmappedSources.isNotEmpty() || state.suppressedFacts.isNotEmpty() || state.suppressedTopics.isNotEmpty(),
+        val migrated = state.copy(fingerprintVersion = 1, epoch = state.epoch + 1, sources = sources,
+            suppressedSources = suppressed, recoveryBlocked = state.suppressedFacts.isNotEmpty() || state.suppressedTopics.isNotEmpty(),
             jobs = state.jobs.map { it.copy(state = "CANCELLED", leaseUntil = 0, error = "记忆保护升级；旧任务已撤销") })
         dao.put(LearningMemoryStateEntity(profileId, json.encodeToString(migrated)))
         migrated
@@ -134,7 +128,7 @@ class LearningMemoryStore(private val database: AppDatabase, private val fingerp
     }
 
     suspend fun enqueue(conversation: Conversation, enabled: Boolean): Int = change(conversation.profileId) { initial ->
-        if (initial.recoveryBlocked) return@change initial to 0
+        check(!initial.recoveryBlocked) { "旧删除约束已保留；自动抽取暂停。请使用新学习档案继续自动记忆。" }
         if (!enabled || conversation.currentMessages.lastOrNull()?.generationState != "COMPLETED") return@change initial to 0
         val pending = initial.sources.filter { source -> source.valid && source.conversationId == conversation.id.toString() &&
             source.id !in initial.processedSources &&
@@ -164,47 +158,6 @@ class LearningMemoryStore(private val database: AppDatabase, private val fingerp
         val next = MemoryReducer.commit(state, job, candidates, System.currentTimeMillis()) { fingerprint(profileId, it) }
         next to next.jobs.single { it.id == job.id }.savedCount
     }
-
-    /** Check actual selected Room sources and publish locally under the same transaction.
-     * A valid source-table row alone cannot authenticate restored/changed message bytes.
-     * Never perform a provider request inside [publish].
-     */
-    internal suspend fun <T> withExtractionSources(
-        profileId: String, job: ExtractionJob, expected: Conversation, sources: List<MemorySource>,
-        publish: suspend () -> T,
-    ): T = database.withTransaction {
-        require(expected.profileId == profileId && expected.id.toString() == job.conversationId)
-        val state = read(profileId)
-        check(!state.recoveryBlocked && state.legacySuppressedSources.isEmpty()) { "旧删除约束保护中" }
-        check(state.epoch == job.epoch && state.jobs.singleOrNull { it.id == job.id } == job && job.state == "RUNNING") {
-            "抽取任务已改变；旧请求或结果已拒绝"
-        }
-        check(job.expectedRevisions.all { (id, revision) -> state.items.any { it.id == id && it.revision == revision } }) {
-            "人工修订已改变；旧结果未保存"
-        }
-        require(sources.isNotEmpty() && sources.map { it.id } == job.sourceIds && job.sourceIds.distinct().size == sources.size)
-        val conversation = requireNotNull(database.conversationDao().getConversationById(job.conversationId)) { "抽取来源会话不存在" }
-        val deletion = database.conversationDao().deletion(job.conversationId)
-        check(conversation.profileId == profileId && conversation.lifecycleRevision == expected.lifecycleRevision &&
-            (deletion == null || !deletion.deleted && deletion.profileId == profileId && deletion.revision == expected.lifecycleRevision)) {
-            "抽取来源会话已改变"
-        }
-        val nodes = database.messageNodeDao().getNodesOfConversation(job.conversationId).associateBy { it.id }
-        sources.forEach { source ->
-            check(source.valid && source.conversationId == job.conversationId && state.sources.singleOrNull { it.id == source.id } == source &&
-                !sourceSuppressed(profileId, state, source)) { "抽取来源已失效或删除" }
-            val node = requireNotNull(nodes[source.nodeId]) { "抽取来源节点不存在" }
-            val messages = me.rerere.rikkahub.utils.JsonInstant.decodeFromString<List<me.rerere.ai.ui.UIMessage>>(node.messages)
-            val message = requireNotNull(messages.getOrNull(node.selectIndex)) { "抽取来源分支无效" }
-            val originalNode = expected.messageNodes.single { it.id.toString() == source.nodeId }
-            val original = originalNode.messages[originalNode.selectIndex]
-            check(message.id.toString() == source.messageId && message.role == MessageRole.USER && !message.isSynthetic && !message.isHistorySummary &&
-                message.role == original.role && message.parts == original.parts && message.createdAt == original.createdAt &&
-                fingerprint(profileId, "content:${message.toText()}") == source.hash) { "抽取来源正文、附件或分支已改变" }
-        }
-        publish()
-    }
-
     suspend fun fail(profileId: String, job: ExtractionJob, stale: Boolean = false) = change(profileId) { state ->
         state.copy(jobs = state.jobs.map { if (it.id == job.id && it.state == "RUNNING" && it.attempts == job.attempts)
             it.copy(state = if (stale) "CANCELLED" else if (it.attempts >= 3) "FAILED" else "RETRY_WAIT",
@@ -219,7 +172,7 @@ class LearningMemoryStore(private val database: AppDatabase, private val fingerp
         require(requestId.isNotBlank() && requestId.length <= 200)
         val id = UUID.nameUUIDFromBytes("manual:$profileId:$requestId".toByteArray(Charsets.UTF_8)).toString()
         return change(profileId) { state ->
-            require(!ManualMemoryIdentity.isDeleted(id, state.suppressedFacts) { fingerprint(profileId, it) }) { "这次添加的记忆已删除，请重新发起添加" }
+            require(fingerprint(profileId, "$type:手动添加:$id") !in state.suppressedFacts) { "这次添加的记忆已删除，请重新发起添加" }
             MemoryReducer.addManual(state, id, type, content, System.currentTimeMillis()) to id
         }
     }
@@ -235,24 +188,15 @@ class LearningMemoryStore(private val database: AppDatabase, private val fingerp
             suppressedSources = state.suppressedSources + state.sources.filter { it.id in refs }.flatMap {
                 listOf(fingerprint(profileId, "${it.messageId}:${it.hash}"), fingerprint(profileId, "message:${it.messageId}"))
             },
-            suppressedFacts = state.suppressedFacts + removed.flatMap { item ->
-                val fact = fingerprint(profileId, "${item.type}:${item.topicKey}:${item.factKey}")
-                if (item.origin == "USER_MANUAL") listOf(fact, ManualMemoryIdentity.tombstone(item.id) { fingerprint(profileId, it) }) else listOf(fact)
-            },
+            suppressedFacts = state.suppressedFacts + removed.map { fingerprint(profileId, "${it.type}:${it.topicKey}:${it.factKey}") },
             suppressedTopics = state.suppressedTopics + if (topic) setOf(fingerprint(profileId, old.topicKey)) else emptySet(),
             jobs = state.jobs.map { if (it.state in setOf("PENDING", "RUNNING", "RETRY_WAIT")) it.copy(state = "CANCELLED", error = "删除已撤销旧任务") else it }) to Unit
     }
     suspend fun relevant(profileId: String, query: String): List<LearningMemory> {
         val state = read(profileId)
-        // Legacy deletion preimages are unavailable. Keep management records, but pause
-        // this profile's entire projection rather than guessing which facts are safe.
-        if (state.recoveryBlocked) return emptyList()
         val queryText = MemoryValidation.searchText(query)
         val tokens = queryText.windowed(2).filter { it.all { c -> c.isLetterOrDigit() } }.toSet()
-        // Old releases could revive a deleted manual request under another type. Keep the
-        // raw record manageable, but never project its deleted identity into model context.
-        return state.items.filter { !ManualMemoryIdentity.isDeleted(it.id, state.suppressedFacts) { value -> fingerprint(profileId, value) } &&
-            it.status == "ACTIVE" && (it.origin == "USER_MANUAL" || it.sourceIds.any { id -> state.sources.any { it.id == id && it.valid } }) }
+        return state.items.filter { it.status == "ACTIVE" && (it.origin == "USER_MANUAL" || it.sourceIds.any { id -> state.sources.any { it.id == id && it.valid } }) }
             .map { item -> item to (if (item.type in setOf(MemoryType.BACKGROUND, MemoryType.PREFERENCE)) 1 else 0) + tokens.count { it in MemoryValidation.searchText(item.topicKey + item.content) } }
             .filter { it.second > 0 }.sortedWith(compareByDescending<Pair<LearningMemory, Int>> { it.second }.thenByDescending { it.first.updatedAt })
             .take(8).map { it.first }.let { items ->
@@ -262,72 +206,18 @@ class LearningMemoryStore(private val database: AppDatabase, private val fingerp
     }
     suspend fun isSuppressed(profileId: String, messageId: String, text: String): Boolean {
         val state = read(profileId)
-        requireMappedHistory(state)
-        return candidateSuppressed(profileId, state, messageId, text) ||
+        return fingerprint(profileId, "message:$messageId") in state.suppressedSources ||
             state.sources.filter { it.messageId == messageId }.any { sourceSuppressed(profileId, state, it) }
     }
 
-    private fun candidateSuppressed(profileId: String, state: MemoryState, messageId: String, text: String): Boolean {
-        if (state.suppressedSources.isEmpty()) return false
-        if (fingerprint(profileId, "message:$messageId") in state.suppressedSources) return true
-        val hash = fingerprint(profileId, "content:$text")
-        return fingerprint(profileId, "$messageId:$hash") in state.suppressedSources
-    }
-
-    private fun hiddenMessageIds(profileId: String, state: MemoryState, candidates: List<me.rerere.ai.ui.UIMessage>): Set<String> =
-        state.sources.filter { sourceSuppressed(profileId, state, it) }.map { it.messageId }.toSet() +
-            candidates.filter { it.role == MessageRole.USER && candidateSuppressed(profileId, state, it.id.toString(), it.toText()) }
-                .map { it.id.toString() }
-
-    suspend fun hiddenMessageIds(profileId: String, candidates: List<me.rerere.ai.ui.UIMessage> = emptyList()): Set<String> {
+    suspend fun hiddenMessageIds(profileId: String): Set<String> {
         val state = read(profileId)
-        requireMappedHistory(state)
-        return hiddenMessageIds(profileId, state, candidates)
-    }
-
-    private fun requireMappedHistory(state: MemoryState) {
-        check(state.legacySuppressedSources.isEmpty()) {
-            "旧来源删除约束无法完整映射，已暂停此档案的聊天历史发送；原记录已保留，可管理记忆或使用新档案。"
-        }
-    }
-
-    internal suspend fun historyProtectionKey(profileId: String): String {
-        val state = read(profileId)
-        return MemoryValidation.hash(listOf(state.recoveryBlocked.toString(), state.suppressedSources.sorted().joinToString(","),
-            state.suppressedFacts.sorted().joinToString(","), state.suppressedTopics.sorted().joinToString(","),
-            state.legacySuppressedSources.sorted().joinToString(",")).joinToString("\u0000"))
-    }
-    suspend fun projectHistory(profileId: String, messages: List<me.rerere.ai.ui.UIMessage>,
-                               additionalHiddenIds: Set<String> = emptySet()): List<me.rerere.ai.ui.UIMessage> {
-        val state = read(profileId)
-        requireMappedHistory(state)
-        val hidden = hiddenMessageIds(profileId, state, messages) + additionalHiddenIds
-        // Persisted summaries have no authenticated source inventory. They cannot prove
-        // that a deleted turn was excluded, even when the source row has gone missing.
-        val constrained = state.recoveryBlocked || state.suppressedSources.isNotEmpty() || additionalHiddenIds.isNotEmpty()
-        val protectionKey = historyProtectionKey(profileId)
-        return HistorySourceProjection.filter(messages, hidden, constrained).map { message ->
-            message.copy(parts = message.parts.map { part ->
-                if (part is me.rerere.ai.ui.UIMessagePart.Tool && part.toolName in setOf("recent_chats", "conversation_search") &&
-                    constrained && part.metadata?.get("history_protection_key")?.let { (it as? kotlinx.serialization.json.JsonPrimitive)?.content } != protectionKey)
-                    part.copy(output = listOf(me.rerere.ai.ui.UIMessagePart.Text("历史查询结果的来源保护版本已失效；请重新查询。")))
-                else part
-            })
-        }
-    }
-
-    /** The publisher must only commit local data; never hold this transaction over a model request. */
-    internal suspend fun <T> commitWithHistory(profileId: String, messages: List<me.rerere.ai.ui.UIMessage>,
-                                             expected: List<me.rerere.ai.ui.UIMessage>, publish: suspend () -> T): T = database.withTransaction {
-        check(projectHistory(profileId, messages) == expected) { "来源删除约束已变化；旧结果未保存，原聊天保留。" }
-        publish()
+        return state.sources.filter { sourceSuppressed(profileId, state, it) }.map { it.messageId }.toSet()
     }
     // Disabling use must not retrieve records or mark them as used. Deletion filtering is independent.
     suspend fun context(profileId: String, conversationId: String, query: String, enabled: Boolean): String = if (!enabled) "" else database.withTransaction {
-        val state = read(profileId)
-        if (state.recoveryBlocked) return@withTransaction ""
         val memories = relevant(profileId, query)
-        val sources = state.sources.associateBy { it.id }
+        val sources = read(profileId).sources.associateBy { it.id }
         val selected = mutableListOf<String>()
         val objects = mutableListOf<kotlinx.serialization.json.JsonObject>()
         memories.forEach { memory ->
@@ -363,13 +253,10 @@ class LearningMemoryStore(private val database: AppDatabase, private val fingerp
             evidenceType = EvidenceType.SELF_REPORTED, sourceIds = listOf(source.id), origin = "USER_EXPLICIT",
             status = if (type == MemoryType.PERFORMANCE) "CANDIDATE" else "ACTIVE",
             createdAt = System.currentTimeMillis(), updatedAt = System.currentTimeMillis())
-        // Reinstate the fact using a new source, never a previously deleted manual request.
-        // Older versions retained only the type/fact marker; preserve its identity before clearing it.
-        val manualTombstones = if (topic == "手动添加" && ManualMemoryIdentity.isDeleted(fact, state.suppressedFacts) { fingerprint(profileId, it) })
-            setOf(ManualMemoryIdentity.tombstone(fact) { fingerprint(profileId, it) }) else emptySet()
+        // A new explicit request can reinstate this fact; old sources remain suppressed.
         state.copy(epoch = state.epoch + 1, items = state.items.map {
             if (it.type == type && it.topicKey == topic && it.factKey == fact) it.copy(status = "SUPERSEDED", revision = it.revision + 1, history = it.history + it.snapshot()) else it
-        } + memory, suppressedFacts = state.suppressedFacts + manualTombstones - fingerprint(profileId, "$type:$topic:$fact"),
+        } + memory, suppressedFacts = state.suppressedFacts - fingerprint(profileId, "$type:$topic:$fact"),
             suppressedTopics = state.suppressedTopics - fingerprint(profileId, topic)) to memory.id
     }
 }

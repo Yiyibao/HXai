@@ -31,7 +31,6 @@ import me.rerere.rikkahub.utils.JsonInstant
     entities = [
         me.rerere.rikkahub.feature.memory.LearningMemoryStateEntity::class,
         ConversationEntity::class,
-        me.rerere.rikkahub.feature.memory.DerivedMetadataEntity::class,
         me.rerere.rikkahub.data.db.entity.ConversationDeletionEntity::class,
         MemoryEntity::class,
         GenMediaEntity::class,
@@ -41,9 +40,8 @@ import me.rerere.rikkahub.utils.JsonInstant
         WorkspaceEntity::class,
         FolderEntity::class,
     ],
-    version = 33,
+    version = 32,
     autoMigrations = [
-        AutoMigration(from = 32, to = 33),
         AutoMigration(from = 31, to = 32),
         AutoMigration(from = 30, to = 31),
         AutoMigration(from = 29, to = 30),
@@ -73,8 +71,6 @@ import me.rerere.rikkahub.utils.JsonInstant
 )
 @TypeConverters(TokenUsageConverter::class)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun derivedMetadataDao(): me.rerere.rikkahub.feature.memory.DerivedMetadataDAO
-
     abstract fun learningMemoryDao(): me.rerere.rikkahub.feature.memory.LearningMemoryDAO
 
     abstract fun conversationDao(): ConversationDAO

@@ -24,7 +24,3 @@ python scripts/verify_b_pptx_shapes.py --source-dir HXai_CHANGE_REVIEW/B-PPTX-SH
 ```
 
 原生实际入口 `PptShapeRuntimeTest`，输入放本批独占QA设备cache/b1d-shapes-source.pptx。脚本只用已装UNO/PDFium/Pillow/pypdf，不安装、不上传、不调用真实模型。Web沿用哈希绑定未改资源，普通Web重建、Linux/Docker、Release/Mate50、跨MS Office、真实模型/生产NOT_RUN；独立审查NOT_EVALUATED。总体CONDITIONAL，成功仅限已声明模板与编辑范围。
-
-## 2026-10-21 低API复验增量
-
-B06 将上述历史原样本封入测试 APK 的 `ppt_shapes/complex-original.pptx`，SHA 与 B1d native-final 原件完全相同，来源见同目录 SOURCE.json。`PptShapeRuntimeTest` 现自行复制输入，不再依赖上轮手工填充 QA cache；原有 shapeId、重复文本、原件/部件/DOM 保全和拒绝断言不变。真实 API26 原始失败、复验及范围取 [B06协议](../parallel-development-20261019/B06-API26-COMPAT-PROTOCOL.md) 和对应交付；本段不改写旧版失败证据或授予跨软件保真。

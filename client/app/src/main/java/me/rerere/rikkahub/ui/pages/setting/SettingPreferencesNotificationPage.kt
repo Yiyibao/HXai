@@ -26,7 +26,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
@@ -52,7 +51,6 @@ private const val MILLIS_PER_DAY = 24 * 60 * 60 * 1_000L
 
 @Composable
 fun SettingPreferencesNotificationPage(vm: SettingVM = koinViewModel()) {
-    val context=LocalContext.current
     val settings by vm.settings.collectAsStateWithLifecycle()
     var displaySetting by remember(settings) { mutableStateOf(settings.displaySetting) }
     var showUpdatePauseDialog by remember { mutableStateOf(false) }
@@ -136,30 +134,6 @@ fun SettingPreferencesNotificationPage(vm: SettingVM = koinViewModel()) {
                                 }
                             )
                         },
-                    )
-                    item(
-                        headlineContent = { Text("后台用量核对提醒") },
-                        supportingContent = { Text("请求结果未知、用量未报告或请求密集时提醒核对。只显示通用提示；不会自动停止任务。应用进程被停止后不能继续提醒。") },
-                        trailingContent = {
-                            Switch(
-                                checked=displaySetting.enableAgentUsageNotifications,
-                                onCheckedChange={ enabled ->
-                                    if(enabled && !permissionState.allPermissionsGranted) permissionState.requestPermissions()
-                                    updateDisplaySetting(displaySetting.copy(enableAgentUsageNotifications=enabled))
-                                },
-                            )
-                        },
-                    )
-                    item(
-                        onClick={
-                            context.startActivity(android.content.Intent(android.provider.Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS).apply {
-                                putExtra(android.provider.Settings.EXTRA_APP_PACKAGE,context.packageName)
-                                putExtra(android.provider.Settings.EXTRA_CHANNEL_ID,me.rerere.rikkahub.feature.agent.AgentUsageNotificationSink.CHANNEL)
-                            })
-                        },
-                        headlineContent={ Text("用量提醒的系统通知渠道") },
-                        supportingContent={ Text("查看通知权限、声音和锁屏显示设置。") },
-                        trailingContent={ Icon(HugeIcons.ArrowRight01,contentDescription=null) },
                     )
                     if (displaySetting.enableNotificationOnMessageGeneration) {
                         item(

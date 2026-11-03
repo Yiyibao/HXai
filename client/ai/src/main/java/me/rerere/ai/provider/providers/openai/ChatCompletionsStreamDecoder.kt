@@ -172,7 +172,6 @@ internal class ChatCompletionsStreamDecoder : StreamChunkDecoder {
     private fun parseUsage(usage: JsonObject?): TokenUsage? {
         if (usage == null) return null
         return TokenUsage(
-            costUsd = (usage["cost"] as? JsonPrimitive)?.takeUnless { it.isString }?.content,
             promptTokens = usage["prompt_tokens"]?.jsonPrimitive?.intOrNull,
             completionTokens = usage["completion_tokens"]?.jsonPrimitive?.intOrNull,
             totalTokens = usage["total_tokens"]?.jsonPrimitive?.intOrNull,

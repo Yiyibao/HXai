@@ -335,7 +335,7 @@ class AgentUsageEntryDto {
   AgentUsageEntryDto({required this.requestId, required this.taskId, required this.conversationId,
     required this.role, this.providerId, this.modelId, this.reasoning, this.createdAt,
     required this.state, required this.provenance, this.inputTokens, this.outputTokens,
-    this.cachedTokens, this.totalTokens, this.costJson});
+    this.cachedTokens, this.totalTokens});
   final String requestId;
   final String taskId;
   final String conversationId;
@@ -350,14 +350,13 @@ class AgentUsageEntryDto {
   final int? outputTokens;
   final int? cachedTokens;
   final int? totalTokens;
-  final String? costJson;
 }
 
 class AgentUsagePageDto {
   AgentUsagePageDto({required this.owner, this.taskId, this.from, this.until,
     required this.requestCount, required this.reportedRequests, required this.estimatedRequests,
     required this.unknownRequests, required this.undatedRequests, required this.input,
-    required this.output, required this.cached, required this.total, required this.entries, this.nextCursor, this.costJson});
+    required this.output, required this.cached, required this.total, required this.entries, this.nextCursor});
   final String owner;
   final String? taskId;
   final int? from;
@@ -373,13 +372,12 @@ class AgentUsagePageDto {
   final AgentUsageMetricDto total;
   final List<AgentUsageEntryDto> entries;
   final String? nextCursor;
-  final String? costJson;
 }
 
 class AgentUsageGroupDto {
   AgentUsageGroupDto({this.providerId, this.modelId, this.role, required this.requestCount,
     required this.reportedRequests, required this.estimatedRequests, required this.unknownRequests,
-    required this.input, required this.output, required this.cached, required this.total, this.costJson});
+    required this.input, required this.output, required this.cached, required this.total});
   final String? providerId;
   final String? modelId;
   final String? role;
@@ -391,13 +389,12 @@ class AgentUsageGroupDto {
   final AgentUsageMetricDto output;
   final AgentUsageMetricDto cached;
   final AgentUsageMetricDto total;
-  final String? costJson;
 }
 
 class AgentUsageGroupsPageDto {
   AgentUsageGroupsPageDto({required this.owner, this.taskId, this.from, this.until, required this.groupBy,
     required this.requestCount, required this.groupCount, required this.undatedRequests,
-    required this.groups, this.nextCursor, this.costJson});
+    required this.groups, this.nextCursor});
   final String owner;
   final String? taskId;
   final int? from;
@@ -408,7 +405,6 @@ class AgentUsageGroupsPageDto {
   final int undatedRequests;
   final List<AgentUsageGroupDto> groups;
   final String? nextCursor;
-  final String? costJson;
 }
 
 class ConversationDetailDto {
@@ -606,53 +602,6 @@ class AgentUsageExportIntentDto {
   final int createdAt;
 }
 
-class AgentUsageExportHistoryPageDto {
-  AgentUsageExportHistoryPageDto({required this.owner,required this.entries,this.nextCursor});
-  final String owner;
-  final List<AgentUsageExportIntentDto> entries;
-  final String? nextCursor;
-}
-
-class AgentUsageAlertsDto {
-  AgentUsageAlertsDto({required this.owner, this.taskId, this.from, this.until,
-    required this.evaluatedAt, required this.uncertainRequests, required this.unreportedCompletedRequests,
-    required this.denseTaskCount, required this.denseRequests, required this.undatedRequests});
-  final String owner;
-  final String? taskId;
-  final int? from;
-  final int? until;
-  final int evaluatedAt;
-  final int uncertainRequests;
-  final int unreportedCompletedRequests;
-  final int denseTaskCount;
-  final int denseRequests;
-  final int undatedRequests;
-}
-
-class TaskResumeReceiptDto {
-  TaskResumeReceiptDto({required this.owner, required this.taskId,
-    required this.conversationId, required this.requestId,
-    required this.expectedRevision, required this.expectedFence,
-    required this.canCoordinate});
-  final String owner;
-  final String taskId;
-  final String conversationId;
-  final String requestId;
-  final int expectedRevision;
-  final int expectedFence;
-  final bool canCoordinate;
-}
-
-// Appended to preserve all existing type codec ids (128..163).
-class MemoryProtectionDto {
-  MemoryProtectionDto({required this.profileId, required this.contextEpoch,
-    required this.configuredEnabled, required this.recoveryBlocked});
-  final String profileId;
-  final int contextEpoch;
-  final bool configuredEnabled;
-  final bool recoveryBlocked;
-}
-
 @HostApi()
 abstract class StudyHostApi {
   @async
@@ -728,8 +677,6 @@ abstract class StudyHostApi {
   AgentUsageExportIntentDto? getAgentUsageLastExport(String profileId, String? taskId, int? from, int? until,
       String groupBy, int expectedEpoch);
   @async
-  AgentUsageExportHistoryPageDto getAgentUsageExportHistory(String profileId, String? cursor, int limit, int expectedEpoch);
-  @async
   AgentUsageExportDto verifyAgentUsageExport(String profileId, String? taskId, int? from, int? until,
       String groupBy, String requestId, String expectedSha256, int expectedEpoch);
 
@@ -737,10 +684,6 @@ abstract class StudyHostApi {
   SimpleCommandResult taskCommand(String profileId, String conversationId, String taskId,
       String requestId, int expectedEpoch, int expectedRevision, int expectedFence,
       String action, String payload);
-
-  @async
-  SimpleCommandResult taskSafetyCommand(String profileId, String taskId, String requestId,
-      int expectedEpoch, int expectedRevision, int expectedFence, String action);
 
   @async
   SimpleCommandResult updateTaskCredential(String profileId, String conversationId, String taskId,
@@ -797,7 +740,7 @@ abstract class StudyHostApi {
   SimpleCommandResult deleteMemory(String profileId, String memoryId, String requestId);
 
   @async
-  SimpleCommandResult toggleAutoMemory(String profileId, bool enabled, int expectedEpoch);
+  SimpleCommandResult toggleAutoMemory(String profileId, bool enabled);
 
   @async
   List<ArtifactDto> getArtifacts(String profileId);
@@ -830,14 +773,5 @@ abstract class StudyHostApi {
   DiagnosticsDto getDiagnostics();
 
   @async
-  AgentUsageAlertsDto getAgentUsageAlerts(String profileId, String? taskId, int? from, int? until, int expectedEpoch);
-
-  @async
   SimpleCommandResult exportDiagnostics();
-
-  @async
-  TaskResumeReceiptDto? getTaskResumeReceipt(String profileId, String taskId, String? requestId, int expectedEpoch);
-
-  @async
-  MemoryProtectionDto getMemoryProtection(String profileId, int expectedEpoch);
 }

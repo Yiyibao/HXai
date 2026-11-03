@@ -108,14 +108,4 @@ class AgentUsageRecoveryRuntimeTest {
             assertTrue(verify().reused)
         }finally{host.close()}
     }
-    @Test fun linkedOrChangedMetadataCannotSubstituteAnOriginalExport()=fixture {s,f,h,o ->
-        val result=export(s,f,h,o);val intent=h.last(o,null,null,null,"requests")!!;val item=f.get(o,result.artifactId)
-        val target=f.file(item);val backup=target.parentFile!!.resolve("synthetic-link-source.json")
-        target.copyTo(backup);target.delete();java.nio.file.Files.createSymbolicLink(target.toPath(),backup.toPath())
-        assertTrue(runCatching {AgentUsageExport.verifyExisting(f,intent,{})}.isFailure)
-        assertEquals(result.sha256,MaterialFiles.digest(backup));target.delete();backup.copyTo(target)
-        f.record(item.copy(sha256="0".repeat(64)))
-        assertTrue(runCatching {AgentUsageExport.verifyExisting(f,intent,{})}.isFailure)
-        assertEquals(result.sha256,MaterialFiles.digest(target));assertEquals("0".repeat(64),f.get(o,item.id).sha256)
-    }
 }
