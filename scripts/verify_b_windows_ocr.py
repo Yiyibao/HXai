@@ -53,7 +53,7 @@ def normalize(raw, source_hash, total, start, end, images):
     if len(blocks) > 10000 or sum(len(b['text']) for b in blocks) > 1_000_000:
         raise ValueError('document_limit')
     return {'contractVersion': 1, 'sourceSha256': source_hash, 'resultRevision': 1,
-            'parserVersion': 'Windows.Media.Ocr/' + raw['osVersion'], 'adapterVersion': 'windows-local-2',
+            'parserVersion': 'Windows.Media.Ocr/' + raw['osVersion'], 'adapterVersion': 'windows-local-1',
             'tier': 'basic', 'totalPages': total, 'requestedRange': [start, end],
             'processedPages': list(range(start, end + 1)), 'blankPages': blank, 'failedPages': [],
             'complete': start == 1 and end == total,
@@ -61,42 +61,7 @@ def normalize(raw, source_hash, total, start, end, images):
             'blocks': blocks}
 
 
-def recognition_image(image, mode):
-    """Truth-free raster transform. Preserve every nonwhite pixel and record mapping.
-
-    This never repairs characters or estimates confidence. Coordinates refer to
-    the recognition raster, with an explicit transform back to the original page.
-    """
-    if mode not in ('none', 'ink-crop'):
-        raise ValueError('unsupported_raster_preprocessing')
-    box = (0, 0, image.width, image.height)
-    if mode == 'ink-crop':
-        from PIL import Image, ImageChops
-        white = Image.new('RGB', image.size, 'white')
-        try:
-            difference = ImageChops.difference(image, white)
-            try:
-                ink = difference.getbbox()
-            finally:
-                difference.close()
-        finally:
-            white.close()
-        if ink is not None:
-            box = (max(0, ink[0]-32), max(0, ink[1]-32), min(image.width, ink[2]+32), min(image.height, ink[3]+32))
-    candidate = image.crop(box)
-    if mode == 'ink-crop' and image.getextrema() != ((255, 255),) * 3:
-        from PIL import Image
-        scale = min(3.0, 2000 / max(candidate.size))
-        resized = candidate.resize((max(1, round(candidate.width*scale)), max(1, round(candidate.height*scale))), Image.Resampling.LANCZOS)
-        candidate.close();candidate = resized
-    return candidate, {'mode': mode, 'originalWidth': image.width, 'originalHeight': image.height,
-                       'cropBox': list(box), 'recognitionWidth': candidate.width, 'recognitionHeight': candidate.height,
-                       'scaleX': candidate.width/(box[2]-box[0]), 'scaleY': candidate.height/(box[3]-box[1]),
-                       'coordinates': 'recognition raster; original=(recognized/scale)+crop offset',
-                       'characterSubstitution': False}
-
-
-def run(source, output, language, start, end, preprocess='none'):
+def run(source, output, language, start, end):
     from pypdf import PdfReader
     import pypdfium2 as pdfium
     if os.name != 'nt':
@@ -135,18 +100,9 @@ def run(source, output, language, start, end, preprocess='none'):
                             raise ValueError('render_limit')
                         path = output / f'page-{number:03d}.png'
                         image.save(path, 'PNG')
-                        recognized, transform = recognition_image(image, preprocess)
-                        try:
-                            engine_path = path if preprocess == 'none' else output / f'page-{number:03d}-recognition.png'
-                            if engine_path != path:
-                                recognized.save(engine_path, 'PNG')
-                            images.append({'page': number, 'image': str(engine_path.resolve()), 'imageSha256': digest(engine_path),
-                                           'width': recognized.width, 'height': recognized.height,
-                                           'originalImage': str(path.resolve()), 'originalImageSha256': digest(path),
-                                           'transform': transform,
-                                           'rasterIsWhite': image.getextrema() == ((255, 255),) * 3})
-                        finally:
-                            recognized.close()
+                        images.append({'page': number, 'image': str(path.resolve()), 'imageSha256': digest(path),
+                                       'width': image.width, 'height': image.height,
+                                       'rasterIsWhite': image.getextrema() == ((255, 255),) * 3})
                     finally:
                         image.close()
                 finally:
@@ -174,7 +130,7 @@ def run(source, output, language, start, end, preprocess='none'):
     if raw.get('language') != language:
         raise ValueError('engine_language_changed')
     document = normalize(raw, source_hash, total, start, end, images)
-    if digest(source) != source_hash or any(digest(p['image']) != p['imageSha256'] or digest(p['originalImage']) != p['originalImageSha256'] for p in images):
+    if digest(source) != source_hash or any(digest(p['image']) != p['imageSha256'] for p in images):
         raise ValueError('input_changed_during_recognition')
     write_new(output / 'document.json', document)
     asset = {'assetId': 'document', 'path': 'document.json', 'mediaType': 'application/json',
@@ -186,7 +142,6 @@ def run(source, output, language, start, end, preprocess='none'):
               'engineScriptSha256': digest(script), 'rawOutputSha256': digest(raw_path),
               'documentSha256': digest(output / 'document.json'), 'manifestSha256': digest(output / 'manifest.json'),
               'processedPages': document['processedPages'], 'confirmedByUser': False,
-              'preprocessing': preprocess, 'engineInputSha256': digest(manifest),
               'recognitionQuality': 'NOT_SCORED', 'mathematics': 'NOT_EVALUATED', 'layout': 'NOT_EVALUATED'})
     return {'status': 'PASS', 'engine': raw['engine'], 'processedPages': document['processedPages'],
             'documentSha256': digest(output / 'document.json'), 'quality': 'NOT_SCORED'}
@@ -199,10 +154,9 @@ def main():
     parser.add_argument('--language', required=True, help='Installed exact WinRT language tag; never auto-switch')
     parser.add_argument('--start', type=int, default=1)
     parser.add_argument('--end', type=int)
-    parser.add_argument('--preprocess', choices=['none', 'ink-crop'], default='none', help='Explicit local raster transform; never automatic fallback or truth-based correction')
     args = parser.parse_args()
     try:
-        print(json.dumps(run(args.source, args.out, args.language, args.start, args.end, args.preprocess)))
+        print(json.dumps(run(args.source, args.out, args.language, args.start, args.end)))
     except (ValueError, OSError, KeyError, TypeError, subprocess.TimeoutExpired):
         print(json.dumps({'status': 'FAIL', 'errorCode': 'local_ocr_input_or_execution_failed'}), file=sys.stderr)
         return 1
