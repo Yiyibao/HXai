@@ -23,7 +23,6 @@ import 'pages/provider_models_page.dart';
 import 'pages/model_config_detail_page.dart';
 import 'pages/skills_page.dart';
 import 'pages/extensions_page.dart';
-import 'pages/cloud_workspace_page.dart';
 import 'pages/skill_detail_page.dart';
 import 'pages/import_skill_page.dart';
 import 'pages/memories_page.dart';
@@ -184,10 +183,6 @@ final router = GoRouter(
         GoRoute(
           path: 'extensions',
           builder: (context, state) => const ExtensionsPage(),
-        ),
-        GoRoute(
-          path: 'cloud',
-          builder: (context, state) => const CloudWorkspacePage(),
         ),
         // Skills
         GoRoute(

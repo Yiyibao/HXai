@@ -52,32 +52,13 @@ class AgentUsageNotificationScaleTest {
         try {
             originalDatabase(name)
             val file = context.noBackupFilesDir.resolve(name)
-            // Android owns android_metadata.locale and normalizes it on writable open.
-            // Establish the host locale before freezing the pre-migration rows, then
-            // continue comparing every metadata and product row without exclusions.
-            val before = SQLiteDatabase.openDatabase(file.absolutePath, null, SQLiteDatabase.OPEN_READWRITE).use {
-                it.setLocale(java.util.Locale.getDefault())
+            val before = SQLiteDatabase.openDatabase(file.absolutePath, null, SQLiteDatabase.OPEN_READONLY).use {
                 assertEquals(7, it.version); rows(it)
             }
-            val expected=before.toMutableMap()
-            expected["slot"]=requireNotNull(before["slot"]).mapIndexed { index,row ->
-                row+if(index==0) "executor_id" else "local"
-            }
-            expected["usage_costs"]=listOf(listOf("request_id","basis","receipt"))
-            expected["executor_handoffs"]=listOf(listOf("task_id","request_id","source_executor","source_fence","target_executor","grant_epoch","input_hash","snapshot_hash","state","target_fence"))
-            expected["agent_executor_bindings"]=listOf(listOf("task_id","fence","executor_id","instance_id"))
-                expected["agent_accounts"]=listOf(listOf("id","epoch","revoked"))
-            expected["agent_account_profiles"]=listOf(listOf("owner","account_id"))
-            expected["agent_sessions"]=listOf(listOf("digest","account_id","account_epoch","owner","task_id","executor_id","grant_epoch","expires_at","revoked"))
-            expected["agent_host_credentials"]=listOf(listOf("id","account_id","owner","task_id","provider_id","grant_epoch","reference","revision","revoked"))
-            expected["agent_transport_audit"]=listOf(listOf("id","account_id","task_id","operation","created_at"))
-            expected["agent_provider_commands"]=listOf(listOf("account_id","task_id","command_id","intent_hash","request_id"))
-            expected["agent_hosted_results"]=listOf(listOf("request_id","response_text","response_hash"))
-            expected["sqlite_sequence"]=listOf(listOf("name","seq"))
             AgentTaskStore(context, name).use { migrated ->
                 val db = migrated.writableDatabase
-                assertEquals(13, db.version)
-                assertEquals(expected, rows(db))
+                assertEquals(10, db.version)
+                assertEquals(before, rows(db))
                 assertTrue(indexes(db).containsAll(setOf("tasks_owner_id", "usage_task_time")))
                 db.rawQuery("SELECT task_id FROM slot WHERE singleton=1", null).use {
                     assertTrue(it.moveToFirst()); assertFalse(it.isNull(0))
@@ -86,7 +67,7 @@ class AgentUsageNotificationScaleTest {
                         assertTrue(owner.moveToFirst()); assertTrue(runCatching { migrated.resume(owner.getString(0), id) }.isFailure)
                     }
                 }
-                assertEquals(expected, rows(db))
+                assertEquals(before, rows(db))
             }
         } finally { SQLiteCleanup.delete(context.noBackupFilesDir.resolve(name)) }
     }

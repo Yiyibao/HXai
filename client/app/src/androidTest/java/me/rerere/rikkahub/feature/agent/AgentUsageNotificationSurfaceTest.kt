@@ -72,8 +72,7 @@ class AgentUsageNotificationSurfaceTest {
         try {
             settings.selectLearnerProfile(owner);settings.settingsFlow.first { it.activeProfileId==owner }
             settings.update { it.copy(displaySetting=it.displaySetting.copy(enableAgentUsageNotifications=false)) }
-            if(android.os.Build.VERSION.SDK_INT>=33)
-                automation.grantRuntimePermission(context.packageName,permission)
+            automation.grantRuntimePermission(context.packageName,permission)
             scenario=ActivityScenario.launch(Intent(context,StudyFlutterActivity::class.java))
             waitFor("drawer missing") { click("历史对话") };waitFor("usage missing") { click("请求用量") }
             waitFor("native settings button missing") { click("后台用量提醒设置") }

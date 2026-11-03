@@ -77,7 +77,7 @@ class TrustedCostRuntimeTest {
             db.writableDatabase.execSQL("DROP TABLE usage_costs");db.writableDatabase.version=9
         }
         AgentTaskStore(context,name).use { db ->
-            assertEquals(13,db.readableDatabase.version)
+            assertEquals(10,db.readableDatabase.version)
             assertEquals(1L,db.readUsage("owner",task.id,null,null,null,100).requestCount)
             assertEquals(JsonPrimitive("1"),Json.parseToJsonElement(db.readUsage("owner",task.id,null,null,null,100).costJson!!).jsonObject["unknownRequests"])
             val other=task(db,"other");assertTrue(runCatching { db.claim("other",other.id) }.isFailure)

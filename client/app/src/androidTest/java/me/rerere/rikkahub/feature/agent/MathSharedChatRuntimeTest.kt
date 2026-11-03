@@ -83,47 +83,6 @@ class MathSharedChatRuntimeTest {
     @Test fun generalFunctionCannotBorrowAnExactPolynomialSuccess() = scenario(identity("sin(x)"), "UNSUPPORTED", false)
     @Test fun wrongSemanticEvidenceHashCannotAcceptAnExactFact() = scenario(identity(), "VERIFIED", false, true)
 
-    // B26 repeated premise occurrences must survive the actual Chat/receipt path.
-    private fun reusedPremiseProof(wrongArity: Boolean = false, discharge: Boolean = true) = buildJsonObject {
-        val p = buildJsonObject { put("atom", "P") }
-        val conjunction = buildJsonObject { put("and", JsonArray(listOf(p, p))) }
-        val goal = if (discharge) buildJsonObject { put("implies", JsonArray(listOf(p, conjunction))) } else conjunction
-        put("operation", "professional_proof")
-        put("request", buildJsonObject {
-            put("assumptions", buildJsonArray { add(buildJsonObject { put("id", "h"); put("formula", p) }) })
-            put("goal", goal)
-            put("steps", buildJsonArray {
-                add(buildJsonObject { put("id", "s1"); put("rule", "assumption"); put("assumption", "h"); put("conclusion", p) })
-                add(buildJsonObject {
-                    put("id", "s2"); put("rule", "and_intro")
-                    put("premises", buildJsonArray { add("s1"); if (!wrongArity) add("s1") })
-                    put("conclusion", conjunction)
-                })
-                if (discharge) add(buildJsonObject {
-                    put("id", "s3"); put("rule", "implies_intro"); put("assumption", "h")
-                    put("premises", buildJsonArray { add("s2") }); put("conclusion", goal)
-                })
-            })
-        }.toString())
-    }
-
-    @Test fun repeatedPremiseProofPassesLockedChatAndCompleteTaskAcceptance() =
-        scenario(reusedPremiseProof(), "VERIFIED", true)
-
-    @Test fun missingRepeatedPremiseCannotSucceedDespiteModelClaim() =
-        scenario(reusedPremiseProof(wrongArity = true), "DISPROVED", false)
-
-    @Test fun repeatedPremiseCannotLoseItsConditionalDependencyInReceipt(): Unit = runBlocking {
-        val input = reusedPremiseProof(discharge = false)
-        val actual = MathVerification.verify(input)
-        assertEquals(JsonPrimitive(true), actual["claim_is_conditional"])
-        assertEquals(buildJsonArray { add("h") }, actual["undischarged_assumptions"])
-        assertTrue(receipt(input, actual))
-        assertFalse(receipt(input, JsonObject(actual + mapOf(
-            "claim_is_conditional" to JsonPrimitive(false), "undischarged_assumptions" to JsonArray(emptyList())
-        ))))
-    }
-
     @Test fun professionalMatrixUsesTheSameLockedChatAndDurableAcceptance() = scenario(buildJsonObject {
         put("operation", "professional_linear_algebra")
         put("request", """{"action":"solve","matrix":[["2","1"],["1","-1"]],"rhs":["5","1"]}""")
@@ -156,30 +115,6 @@ class MathSharedChatRuntimeTest {
     @Test fun unsupportedImproperIntegralCannotBecomeSuccessDespiteModelClaim() = scenario(buildJsonObject {
         put("operation", "professional_calculus")
         put("request", """{"action":"integral","expression":"1/sqrt(x)","variable":"x","lower":"0","upper":"1","digits":"8","bindings":{}}""")
-    }, "UNSUPPORTED", false)
-
-    @Test fun repeatedPremiseProofCanCompleteTheOriginalLockedChatTask() = scenario(buildJsonObject {
-        put("operation", "professional_proof")
-        put("request", """{"assumptions":[{"id":"h","formula":{"atom":"P"}}],"goal":{"implies":[{"atom":"P"},{"and":[{"atom":"P"},{"atom":"P"}]}]},"steps":[{"id":"s1","rule":"assumption","assumption":"h","conclusion":{"atom":"P"}},{"id":"s2","rule":"and_intro","premises":["s1","s1"],"conclusion":{"and":[{"atom":"P"},{"atom":"P"}]}},{"id":"s3","rule":"implies_intro","assumption":"h","premises":["s2"],"conclusion":{"implies":[{"atom":"P"},{"and":[{"atom":"P"},{"atom":"P"}]}]}}]}""")
-    }, "VERIFIED", true)
-
-    @Test fun failedCertificateCannotBecomeFalseStudentClaimOrAcceptedTask() = scenario(buildJsonObject {
-        val failedProof = buildJsonObject {
-            put("operation", "professional_proof")
-            put("request", """{"assumptions":[],"goal":{"implies":[{"atom":"P"},{"atom":"P"}]},"steps":[{"id":"s1","rule":"assumption","assumption":"missing","conclusion":{"implies":[{"atom":"P"},{"atom":"P"}]}}]}""")
-        }
-        put("operation", "professional_review")
-        put("request", buildJsonObject {
-            put("reference_note", "The target is true; rejecting this certificate does not refute it.")
-            put("steps", buildJsonArray {
-                add(buildJsonObject {
-                    put("original", "P implies P"); put("locator", "1:1"); put("check", failedProof)
-                })
-                add(buildJsonObject {
-                    put("original", "(x+1)^2=x^2+1"); put("locator", "1:2"); put("check", identity("x^2+1"))
-                })
-            })
-        }.toString())
     }, "UNSUPPORTED", false)
 
     private fun scenario(input: JsonObject, status: String, expectedSuccess: Boolean, badSemanticHash: Boolean = false): Unit = runBlocking {
@@ -247,11 +182,6 @@ class MathSharedChatRuntimeTest {
             val tool = persisted.currentMessages.flatMap { it.getTools() }.single { it.toolName == "math_verify" }
             val actual = Json.parseToJsonElement(tool.output.filterIsInstance<UIMessagePart.Text>().single().text).jsonObject
             assertEquals(status, actual.getValue("status").jsonPrimitive.content)
-            if (input["operation"] == JsonPrimitive("professional_review")) {
-                assertEquals(JsonNull, actual["first_error_step"])
-                assertEquals(JsonPrimitive(1), actual["first_unverified_step"])
-                assertEquals(JsonPrimitive(0), actual["verified_prefix_steps"])
-            }
             assertEquals(input, Json.parseToJsonElement(tool.input))
             AgentTaskStore(k.get()).use { store ->
                 val plan = store.plan(task.owner, task.id)

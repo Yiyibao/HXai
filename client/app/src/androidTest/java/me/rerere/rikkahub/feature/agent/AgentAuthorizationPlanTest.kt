@@ -166,7 +166,7 @@ class AgentAuthorizationPlanTest {
                 db.execSQL("INSERT INTO usage VALUES('unknown','task','main','unknown',NULL,NULL,NULL,NULL,NULL,'provider','model','OFF','configuration')");db.version=5
             }
             AgentTaskStore(context,name).use { store ->
-                assertEquals(13,store.readableDatabase.version)
+                assertEquals(10,store.readableDatabase.version)
                 assertEquals(41L,store.get("owner","task").fence);assertTrue(store.get("owner","task").manualPaused)
                 assertEquals("UNCERTAIN_SIDE_EFFECT",store.get("owner","task").state)
                 store.readableDatabase.rawQuery("SELECT state,result_hash FROM calls WHERE call_id='receipt'",null).use { assertTrue(it.moveToFirst());assertEquals("original-receipt",it.getString(1)) }

@@ -121,24 +121,10 @@ class TaskResumeReceiptRuntimeTest {
             }
             AgentTaskStore(context, name).use { store ->
                 val db = store.readableDatabase
-                assertEquals(13, db.version)
+                assertEquals(10, db.version)
                 val after=rows(db)
-                val expected=before.toMutableMap()
-                expected["slot"]=requireNotNull(before["slot"]).mapIndexed { index,row ->
-                    row+if(index==0) "executor_id" else "local"
-                }
-                expected["agent_executor_bindings"]=listOf(listOf("task_id","fence","executor_id","instance_id"))
-                expected["agent_accounts"]=listOf(listOf("id","epoch","revoked"))
-                expected["agent_account_profiles"]=listOf(listOf("owner","account_id"))
-                expected["agent_sessions"]=listOf(listOf("digest","account_id","account_epoch","owner","task_id","executor_id","grant_epoch","expires_at","revoked"))
-                expected["agent_host_credentials"]=listOf(listOf("id","account_id","owner","task_id","provider_id","grant_epoch","reference","revision","revoked"))
-                expected["agent_transport_audit"]=listOf(listOf("id","account_id","task_id","operation","created_at"))
-                expected["agent_provider_commands"]=listOf(listOf("account_id","task_id","command_id","intent_hash","request_id"))
-                expected["agent_hosted_results"]=listOf(listOf("request_id","response_text","response_hash"))
-                expected["sqlite_sequence"]=listOf(listOf("name","seq"))
-                assertEquals(expected,after-"usage_costs"-"executor_handoffs")
+                assertEquals(before,after-"usage_costs")
                 assertEquals(listOf(listOf("request_id","basis","receipt")),after["usage_costs"])
-                assertEquals(listOf(listOf("task_id","request_id","source_executor","source_fence","target_executor","grant_epoch","input_hash","snapshot_hash","state","target_fence")),after["executor_handoffs"])
                 assertNull(store.readResumeReceipt("owner", id, "lost-resume"))
                 assertNull(store.readResumeReceipt("owner", id, null))
                 db.rawQuery("SELECT resume_revision,resume_fence FROM task_commands", null).use {
