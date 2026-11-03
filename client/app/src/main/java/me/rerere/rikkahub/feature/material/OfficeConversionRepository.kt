@@ -103,6 +103,7 @@ class OfficeConversionRepository(private val context: Context, private val mater
         }
         require(expectedTaskId == null || previous != null) { "原转换配置已改变，未重复上传；请重新发起" }
         if (previous?.remoteId != null) return@withLock previous
+        if (previous != null) return@withLock readOriginalRequest(owner,previous)
         val version = previous?.rendererVersion ?: run {
             val capability = documents.capabilities(owner)[if (operation == XLSX_RECALCULATE) "officeRecalculation" else "officePdf"]?.jsonObject ?: error("当前服务没有所需Office能力")
             check(capability["ready"]?.jsonPrimitive?.boolean == true) { "Office渲染器未就绪，原件保留" }
@@ -115,20 +116,63 @@ class OfficeConversionRepository(private val context: Context, private val mater
         val result = execute(request(config, endpoint).url(url).header("Idempotency-Key", task.id).header("X-Source-Sha256", expectedSha256).post(file.asRequestBody("application/octet-stream".toMediaType())).build()).use(::readJson)
         val remote = result.getValue("taskId").jsonPrimitive.content; require(UUID.fromString(remote).toString() == remote)
         check(result.getValue("operation").jsonPrimitive.content == operation)
-        val rendererVersion = result.getValue("rendererVersion").jsonPrimitive.content
-        require(rendererVersion.isNotBlank())
+        val rendererVersion = (result["rendererVersion"] as? JsonPrimitive)
+            ?.takeIf { it.isString && it.content.isNotBlank() && it.content.length <= 200 }?.content
+        if (rendererVersion == null) {
+            // The upload was acknowledged. Keep its owned remote identity before
+            // rejecting incomplete metadata; another submit must not upload again.
+            val state=result.getValue("state").jsonPrimitive.content
+            require(state in setOf("QUEUED","RUNNING","SUCCEEDED","FAILED","CANCELLED","EXPIRED"))
+            save(owner,task.copy(remoteId=remote,state=state,errorCode="renderer_receipt_incomplete"))
+            error("服务已接收文件但渲染版本回执缺失；远端任务已保留，不会重复上传。请同步原任务回执")
+        }
         task.copy(remoteId = remote, rendererVersion = rendererVersion,
             state = result.getValue("state").jsonPrimitive.content).also { save(owner, it) }
     } }
-    suspend fun resume(owner: String, id: String): OfficeConversionTask {
-        val task = task(owner, id); require(!task.cancelRequested && task.remoteId == null && task.state == "SUBMITTING"); taskConfig(owner, task)
-        return submit(owner, task.sourceId, task.sourceSha256, task.title, id, task.operation)
+    /** Never re-upload an intent whose original network outcome is unknown. */
+    suspend fun resume(owner: String, id: String): OfficeConversionTask = withContext(Dispatchers.IO) {mutex.withLock {
+        val task=task(owner,id)
+        require(!task.cancelRequested && task.remoteId==null && task.state=="SUBMITTING")
+        readOriginalRequest(owner,task)
+    }}
+    private suspend fun readOriginalRequest(owner: String, task: OfficeConversionTask): OfficeConversionTask {
+        require(!task.cancelRequested && task.remoteId==null && task.state=="SUBMITTING")
+        val endpoint=if(task.operation==XLSX_RECALCULATE) "recalculation-requests" else "conversion-requests"
+        val result=execute(request(taskConfig(owner,task),"/api/v1/$endpoint/${task.id}").get().build()).use(::readJson)
+        require(result["requestKey"]==JsonPrimitive(task.id) && result["sourceSha256"]==JsonPrimitive(task.sourceSha256) &&
+            result["sourceExtension"]==JsonPrimitive(task.extension) && result["operation"]==JsonPrimitive(task.operation)) {
+            "原请求的来源或操作回执不匹配；保留提交意图，不会重传"
+        }
+        val remote=(result["taskId"] as? JsonPrimitive)?.takeIf {it.isString}?.content ?: error("缺少原任务身份")
+        require(UUID.fromString(remote).toString()==remote)
+        val state=(result["state"] as? JsonPrimitive)?.content
+        require(state in setOf("QUEUED","RUNNING","SUCCEEDED","FAILED","CANCELLED","EXPIRED"))
+        taskConfig(owner,task)
+        val source=materials.get(owner,task.sourceId);materials.verifiedFile(owner,task.sourceId)
+        require(source.sha256==task.sourceSha256 && source.extension==task.extension &&
+            materials.get(owner,task.sourceId).sha256==task.sourceSha256)
+        require(this.task(owner,task.id)==task) {"原提交意图已变化；不发布旧读回"}
+        val version=(result["rendererVersion"] as? JsonPrimitive)
+            ?.takeIf {it.isString && it.content.isNotBlank() && it.content.length<=200}?.content
+        val recovered=task.copy(remoteId=remote,state=requireNotNull(state),rendererVersion=version ?: task.rendererVersion,
+            errorCode=if(version==null) "renderer_receipt_incomplete" else result["errorCode"]?.jsonPrimitive?.contentOrNull)
+        save(owner,recovered)
+        check(version!=null) {"已找回原任务，但渲染版本仍缺失；不会重传或发布成果"}
+        return recovered
     }
     suspend fun refresh(owner: String, id: String): OfficeConversionTask = withContext(Dispatchers.IO) { mutex.withLock {
-        val task = task(owner, id); val result = execute(request(taskConfig(owner, task), "/api/v1/jobs/${task.remoteId ?: error("提交尚未确认")}").get().build()).use(::readJson)
+        val task = task(owner, id)
+        if(task.remoteId==null)return@withLock readOriginalRequest(owner,task)
+        val result = execute(request(taskConfig(owner, task), "/api/v1/jobs/${task.remoteId}").get().build()).use(::readJson)
         require(result.getValue("operation").jsonPrimitive.content == task.operation)
         val state = result.getValue("state").jsonPrimitive.content; require(state in setOf("QUEUED", "RUNNING", "SUCCEEDED", "FAILED", "CANCELLED", "EXPIRED"))
-        task.copy(state = state, errorCode = result["errorCode"]?.jsonPrimitive?.contentOrNull).also { save(owner, it) }
+        val rendererVersion=if(task.errorCode=="renderer_receipt_incomplete") {
+            checkNotNull((result["rendererVersion"] as? JsonPrimitive)
+                ?.takeIf { it.isString && it.content.isNotBlank() && it.content.length <= 200 }?.content) {
+                "原任务的渲染版本回执仍缺失；保留远端任务，不会重传或发布"
+            }
+        } else task.rendererVersion
+        task.copy(state = state, rendererVersion=rendererVersion, errorCode = result["errorCode"]?.jsonPrimitive?.contentOrNull).also { save(owner, it) }
     } }
     suspend fun cancel(owner: String, id: String): OfficeConversionTask = withContext(Dispatchers.IO) { mutex.withLock {
         val task = task(owner, id)
@@ -188,7 +232,7 @@ class OfficeConversionRepository(private val context: Context, private val mater
         }
     }
     fun artifact(owner: String, id: String): MaterialFile {
-        val task = task(owner, id); check(task.downloaded && !task.cancelRequested); sourceCheck(owner, task)
+        val task = task(owner, id); check(task.downloaded && !task.cancelRequested && task.errorCode!="renderer_receipt_incomplete"); sourceCheck(owner, task)
         val value = manifest(owner, task); val item = materials.get(owner, task.outputId)
         val extension = if (task.operation == XLSX_RECALCULATE) "xlsx" else "pdf"
         require(item.sourceId == task.sourceId && item.output && item.extension == extension && item.requestKey == "office:$id")
@@ -222,7 +266,7 @@ class OfficeConversionRepository(private val context: Context, private val mater
         check(target.length() == asset.size && MaterialFiles.digest(target) == asset.sha256) { "Office下载摘要不匹配" }
     }
     suspend fun download(owner: String, id: String): MaterialFile = withContext(Dispatchers.IO) { mutex.withLock {
-        val task = task(owner, id); check(!task.cancelRequested); sourceCheck(owner, task)
+        val task = task(owner, id); check(!task.cancelRequested && task.errorCode!="renderer_receipt_incomplete"); sourceCheck(owner, task)
         if (task.downloaded) return@withLock artifact(owner, id)
         val config = taskConfig(owner, task); val remote = task.remoteId ?: error("提交尚未完成")
         val raw = execute(request(config, "/api/v1/jobs/$remote/manifest").get().build()).use(::readJson).toString()

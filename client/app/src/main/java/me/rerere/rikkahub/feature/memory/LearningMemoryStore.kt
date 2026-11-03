@@ -111,9 +111,9 @@ class LearningMemoryStore(private val database: AppDatabase, private val fingerp
     }
     fun fingerprint(profileId: String, value: String) = fingerprints.of(profileId, value)
     private fun sourceSuppressed(profileId: String, state: MemoryState, source: MemorySource): Boolean =
-        fingerprint(profileId, "message:${source.messageId}") in state.suppressedSources || state.sources.any {
+        state.suppressedSources.isNotEmpty() && (fingerprint(profileId, "message:${source.messageId}") in state.suppressedSources || state.sources.any {
             it.messageId == source.messageId && fingerprint(profileId, "${it.messageId}:${it.hash}") in state.suppressedSources
-        }
+        })
 
     suspend fun reconcile(conversation: Conversation) = change(conversation.profileId) { state ->
         val selected = conversation.messageNodes.mapNotNull { node ->

@@ -129,7 +129,7 @@ class HistorySourceSuppressionTest {
                 chatModelId = model.id, compressModelId = model.id,
                 networkSetting = settings.networkSetting.copy(proxyUrl = "", enableAutoRetry = false))
             val generated = runCatching { LeasedGenerationFixture(config, assistant, chat.id, owner).use { lease ->
-                lease.run {
+                withTimeout(20_000) {lease.run {
                     k.get<GenerationLoop>().generateText(settings = config, model = model, messages = messages,
                         assistant = assistant, profileId = owner, conversationId = chat.id,
                         tools = if (largeHistory) emptyList() else listOf(me.rerere.ai.core.Tool(
@@ -137,8 +137,10 @@ class HistorySourceSuppressionTest {
                             systemPrompt = { _, visible -> visible.filter { it.id == oldAnswer.id || it.id == summary.id || it.id == summaryAnswer.id }.joinToString { it.toText() } },
                             execute = { error("The fixture must not dispatch tools") })),
                         hiddenSourceMessageIds = store.hiddenMessageIds(owner)).collect()
-                }
+                }}
             } }
+            assertFalse("Direct collection must terminate without a response-reader ACK",
+                generated.exceptionOrNull() is kotlinx.coroutines.TimeoutCancellationException)
             if (deletedCurrent || deleteDuringSummary) {
                 assertTrue("Changed/deleted input must stop before further requests", generated.isFailure)
                 assertEquals(if (deletedCurrent) 0 else 1, server.bodies.size)

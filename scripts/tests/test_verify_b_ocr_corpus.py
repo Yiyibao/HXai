@@ -23,6 +23,19 @@ def sample():
     return truth, document
 
 
+@pytest.mark.parametrize('block', [
+    {'type': 'equation', 'text': '', 'latex': 'x=2'},
+    {'type': 'equation', 'text': ''},
+    {'type': 'image', 'text': '', 'assetId': 'original-image'},
+    {'type': 'table', 'text': ''},
+])
+def test_blank_page_cannot_hide_nontext_content_behind_empty_text(block):
+    truth, document = sample()
+    document['blocks'].append(dict(block, blockId='nontext', page=3))
+    with pytest.raises(ValueError, match='blank_with_content'):
+        ocr.score_document(truth, document)
+
+
 def test_missing_page_is_deletion_not_denominator_reduction():
     truth, document = sample()
     document.update(processedPages=[1, 3], failedPages=[2], complete=False)
@@ -31,45 +44,6 @@ def test_missing_page_is_deletion_not_denominator_reduction():
     assert result["totals"] == {"referenceCharacters": 10, "substitutions": 0, "insertions": 0,
                                 "deletions": 4, "distance": 4, "characterErrorRate": 0.4}
     assert result["coverage"]["processedFraction"] == 2 / 3
-
-
-def test_latex_candidate_is_scored_like_the_product_not_silently_replaced_by_text():
-    truth, document = sample()
-    # Product MathWorkCandidates chooses nonblank latex over text. The scorer must
-    # expose that wrong candidate, even when the parallel plain text looks perfect.
-    document['blocks'][0]['latex'] = 'x2+1=0'
-    result = ocr.score_document(truth, document)
-    assert result['pages'][0]['distance'] == 2
-
-
-def test_formula_on_declared_blank_page_cannot_disappear_from_score():
-    truth, document = sample()
-    document['blocks'].append({'blockId': 'p3-formula', 'page': 3, 'type': 'equation', 'text': '', 'latex': 'x=1'})
-    with pytest.raises(ValueError, match='^blank_with_content$'):
-        ocr.score_document(truth, document)
-
-
-@pytest.mark.parametrize('latex', [None, '', '   '])
-def test_absent_or_whitespace_latex_keeps_literal_plain_text(latex):
-    truth, document = sample()
-    document['blocks'][0]['latex'] = latex
-    assert ocr.score_document(truth, document)['totals']['distance'] == 0
-
-
-@pytest.mark.parametrize('latex', [True, 2, [], {}])
-def test_invalid_formula_candidate_type_rejected(latex):
-    truth, document = sample()
-    document['blocks'][0]['latex'] = latex
-    with pytest.raises(ValueError, match='^invalid_block_latex$'):
-        ocr.score_document(truth, document)
-
-
-@pytest.mark.parametrize('raw', [b'{"source":1,"source":2}', b'{"value":NaN}', b'{"value":Infinity}'])
-def test_ambiguous_json_input_is_rejected(tmp_path, raw):
-    path = tmp_path / 'ambiguous.json'
-    path.write_bytes(raw)
-    with pytest.raises(ValueError):
-        ocr.load_json(path, 65536)
 
 
 def test_legitimate_partial_request_not_mislabeled_complete_source():

@@ -26,7 +26,6 @@ internal data class AgentRequestSelection(
     val costBasis: kotlinx.serialization.json.JsonObject? = null,
 )
 internal data class AgentLease(val task: AgentTask, val fence: Long, val executorId: String = "local")
-internal data class NativeStopEvidence(val fence: Long,val state: String,val journalHash: String)
 internal data class TaskResumeReceipt(val owner: String, val taskId: String,
     val conversationId: String, val requestId: String, val expectedRevision: Long,
     val expectedFence: Long, val canCoordinate: Boolean)
@@ -111,30 +110,6 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
         if (!it.moveToFirst()) null else AgentTask(it.getString(0),it.getString(1),it.getString(2),it.getString(3),it.getString(4),it.getString(5),it.getString(6),it.getString(7),it.getString(8),it.getString(9),it.getLong(10),it.getLong(11),it.getInt(12)!=0)
     }
     @Synchronized fun get(owner: String, id: String): AgentTask = requireNotNull(task(readableDatabase, id)).also { require(it.owner == owner) { "Task access denied" } }
-    @Synchronized fun requireNetworkQuiescent() {
-        check(readableDatabase.rawQuery("SELECT 1 FROM slot WHERE task_id IS NOT NULL",null).use { !it.moveToFirst() } &&
-            readableDatabase.rawQuery("SELECT 1 FROM calls WHERE state IN ('IN_FLIGHT','UNKNOWN') LIMIT 1",null).use { !it.moveToFirst() } &&
-            supervisedExecutors.isEmpty()) { "Stop and reconcile the original local executor before changing its authority" }
-    }
-    @Synchronized fun networkRetirementEvidence(owner: String,id: String): NativeStopEvidence {
-        val current=get(owner,id)
-        check(current.state !in setOf("RUNNING","STOP_REQUESTED","UNCERTAIN_SIDE_EFFECT")) { "The native executor has not safely stopped" }
-        val journal=readableDatabase.rawQuery("SELECT call_id,state,input_hash,result_hash FROM calls WHERE task_id=? ORDER BY call_id",arrayOf(id)).use { rows ->
-            buildString {
-                while(rows.moveToNext()) {
-                    check(rows.getString(1) !in setOf("IN_FLIGHT","UNKNOWN")) { "A native result is still unknown" }
-                    for(index in 0..3) { append(rows.getString(index));append('\u0000') }
-                }
-            }
-        }
-        return NativeStopEvidence(current.fence,current.state,hash(journal))
-    }
-    @Synchronized internal fun cloudCallState(owner: String,id: String,callId: String): String {
-        get(owner,id)
-        return readableDatabase.rawQuery("SELECT state FROM calls WHERE task_id=? AND call_id=?",arrayOf(id,callId)).use {
-            if(it.moveToFirst()) it.getString(0) else "NOT_DISPATCHED"
-        }
-    }
     fun readTaskCatalog(owner: String,kind: String,cursor: String?,limit: Int) = transaction { db ->
         AgentTaskCatalog.list(db,owner,kind,cursor,limit)
     }
@@ -150,9 +125,6 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
     fun snapshot(owner: String,id: String): AgentTaskSnapshot = transaction { db ->
         val task=requireNotNull(task(db,id));require(task.owner==owner)
         AgentTaskSnapshot(task,control(db,id),plan(owner,id),credentialStatus(db,id),approvalCallIds(owner,id))
-    }
-    fun captureEvaluation(owner: String,id: String,revision: Long,fence: Long) = transaction { db ->
-        AgentEvaluationSnapshot.capture(db,owner,id,revision,fence)
     }
     @Synchronized fun find(owner: String, conversationId: String, requestId: String): AgentTask? = readableDatabase.rawQuery("SELECT id FROM tasks WHERE owner=? AND conversation_id=? AND request_id=?", arrayOf(owner, conversationId, requestId)).use { if (it.moveToFirst()) task(readableDatabase,it.getString(0)) else null }
     @Synchronized fun current(owner: String, conversationId: String): AgentTask? = readableDatabase.rawQuery("SELECT id FROM tasks WHERE owner=? AND conversation_id=? AND fence>0 AND request_id NOT LIKE 'role:%' ORDER BY fence DESC LIMIT 1",arrayOf(owner,conversationId)).use { if(it.moveToFirst()) task(readableDatabase,it.getString(0)) else null }
@@ -819,16 +791,82 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
     fun acceptGoal(lease: AgentLease,goalRevision: Long,evidenceJson: String) = transaction { db ->
         requireDispatchLease(db,lease)
         val plan=plan(lease.task.owner,lease.task.id)
+        require(plan.plan?.acceptance?.none {it.kind==ResponseCompletion.KIND}==true) {
+            "Response delivery requires its dedicated durable response checks"
+        }
         require(plan.revision==goalRevision && plan.plannedRevision==goalRevision && plan.plan?.acceptance?.isNotEmpty()==true)
         require(requireNotNull(plan.plan).acceptance.all { predicate -> plan.steps.any { it.id==predicate.stepId && it.state=="VERIFIED" } })
         require(plan.steps.all { it.state=="VERIFIED" }) { "Every planned step must be independently verified before accepting the goal" }
         check(db.rawQuery("SELECT 1 FROM calls WHERE task_id=? AND state IN ('IN_FLIGHT','UNKNOWN')",arrayOf(lease.task.id)).use { !it.moveToFirst() })
         db.execSQL("UPDATE plans SET acceptance_verified=1,evidence_json=? WHERE task_id=?",arrayOf(evidenceJson,lease.task.id))
     }
+    /** A text-only fallback must never erase an unmet tool plan or any dispatched call. */
+    fun responseEligible(lease: AgentLease): Boolean = transaction {db ->
+        requireDispatchLease(db,lease)
+        val current=plan(lease.task.owner,lease.task.id)
+        current.steps.isEmpty() && current.plan?.steps.orEmpty().isEmpty() &&
+            current.plan?.acceptance.orEmpty().all {it.kind==ResponseCompletion.KIND} &&
+            db.rawQuery("SELECT 1 FROM calls WHERE task_id=? AND (tool NOT LIKE 'provider:%' OR state!='VERIFIED') LIMIT 1",
+                arrayOf(lease.task.id)).use {!it.moveToFirst()}
+    }
+    fun recordResponse(lease: AgentLease,goalRevision: Long,evidence: kotlinx.serialization.json.JsonObject,
+        decision: kotlinx.serialization.json.JsonObject) = transaction {db ->
+        requireDispatchLease(db,lease)
+        check(responseEligible(lease)) {"Text cannot replace tool execution evidence"}
+        val current=plan(lease.task.owner,lease.task.id)
+        require(current.revision==goalRevision)
+        require(evidence.getValue("owner").jsonPrimitive.content==lease.task.owner &&
+            evidence.getValue("taskId").jsonPrimitive.content==lease.task.id &&
+            evidence.getValue("fence").jsonPrimitive.content.toLong()==lease.fence &&
+            evidence.getValue("grantEpoch").jsonPrimitive.content.toLong()==control(db,lease.task.id).grantEpoch &&
+            evidence.getValue("goalRevision").jsonPrimitive.content.toLong()==goalRevision &&
+            evidence.getValue("goalHash").jsonPrimitive.content==hash(current.goal) &&
+            evidence.getValue("conversationId").jsonPrimitive.content==lease.task.conversationId &&
+            evidence.getValue("providerId").jsonPrimitive.content==lease.task.providerId &&
+            evidence.getValue("modelId").jsonPrimitive.content==lease.task.modelId &&
+            evidence.getValue("reasoning").jsonPrimitive.content==lease.task.reasoning &&
+            evidence.getValue("configurationRevision").jsonPrimitive.content==lease.task.configurationRevision &&
+            evidence.getValue("text").jsonPrimitive.content.length in 1..ResponseCompletion.MAX_CHARS)
+        val digest=hash(evidence.toString())
+        val outcome=requireNotNull(ResponseCompletion.disposition(decision,goalRevision,digest,
+            evidence.getValue("text").jsonPrimitive.content))
+        val delivered=outcome=="delivered"
+        val next=AgentPlan(acceptance=if(delivered) listOf(AcceptancePredicate(ResponseCompletion.STEP,
+            ResponseCompletion.KIND,contains=listOf(digest))) else emptyList(),
+            explanation=if(delivered) "回复已交付；数学真实性未认证。" else decision.getValue("reason").jsonPrimitive.content)
+        next.validate(emptySet())
+        val record=kotlinx.serialization.json.buildJsonObject {
+            put("contract",kotlinx.serialization.json.JsonPrimitive("response-delivery-v1"))
+            put("mathematics_status",kotlinx.serialization.json.JsonPrimitive("NOT_EVALUATED"))
+            put("evidence",evidence);put("disposition",decision)
+        }
+        db.execSQL("UPDATE plans SET plan_json=?,planned_revision=?,acceptance_verified=?,evidence_json=? WHERE task_id=?",
+            arrayOf<Any>(Json.encodeToString(next),goalRevision,if(delivered) 1 else 0,record.toString(),lease.task.id))
+        if(outcome=="needs_input")db.execSQL("UPDATE task_control SET input_blocked=1 WHERE task_id=?",arrayOf(lease.task.id))
+        db.execSQL("UPDATE tasks SET revision=revision+1 WHERE id=?",arrayOf(lease.task.id))
+    }
     @Synchronized fun completedResult(owner: String,id: String,tool: String,input: String): String? {
         get(owner,id)
         return readableDatabase.rawQuery("SELECT result_json,result_hash FROM calls WHERE task_id=? AND tool=? AND input_hash=? AND state='VERIFIED' AND result_json IS NOT NULL ORDER BY rowid DESC LIMIT 1",
             arrayOf(id,tool,hash(input))).use { if(!it.moveToFirst()) null else it.getString(0).also { result -> check(hash(result)==it.getString(1)) } }
+    }
+    /** Read a settled rejection without changing it into verified evidence. */
+    fun returnedResult(lease: AgentLease,tool: me.rerere.ai.ui.UIMessagePart.Tool): String? = transaction { db ->
+        require(tool.toolName=="math_verify")
+        requireToolDispatch(db,lease,tool)
+        db.rawQuery("SELECT result_json,result_hash FROM calls WHERE task_id=? AND call_id=? AND state='RETURNED' AND result_json IS NOT NULL",
+            arrayOf(lease.task.id,tool.toolCallId)).use {
+            if(!it.moveToFirst())null else it.getString(0).also {result -> check(hash(result)==it.getString(1))}
+        }
+    }
+    fun returnedMathInputs(lease: AgentLease): Map<String,String> = transaction { db ->
+        requireDispatchLease(db,lease)
+        db.rawQuery("SELECT call_id,input_hash FROM calls WHERE task_id=? AND tool='math_verify' AND state='RETURNED' AND result_json IS NOT NULL ORDER BY rowid LIMIT 65",
+            arrayOf(lease.task.id)).use {rows ->
+            buildMap {while(rows.moveToNext())put(rows.getString(0),rows.getString(1))}.also {
+                check(it.size<=64) {"Rejected mathematics history exceeds the safe final-evidence projection; retain unverified state"}
+            }
+        }
     }
     @Synchronized fun recordedRemoteTask(owner: String,conversationId: String,tool: me.rerere.ai.ui.UIMessagePart.Tool): AgentTask? {
         if(me.rerere.rikkahub.feature.material.remoteOfficeOperation(tool.toolName)==null && tool.toolName!="parse_material_enhanced") return null

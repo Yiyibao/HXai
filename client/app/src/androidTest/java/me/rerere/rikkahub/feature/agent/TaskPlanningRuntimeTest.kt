@@ -27,6 +27,7 @@ import kotlin.uuid.Uuid
 
 @RunWith(AndroidJUnit4::class)
 class TaskPlanningRuntimeTest {
+    @Test fun explicitNullToolNarrativeIsExplanationAndDoesNotBlockRealWordReadback()=scenario(false,false,narrative=true)
     @Test fun realWordReadbackAndEvidenceBoundSemanticAcceptanceCanSucceed()=scenario(false,false)
     @Test fun modelAndHttpSuccessCannotAcceptWrongWordContent()=scenario(true,false)
     @Test fun semanticReceiptForWrongEvidenceHashCannotAcceptCorrectFile()=scenario(false,true)
@@ -46,7 +47,7 @@ class TaskPlanningRuntimeTest {
         scenario(false,false,true,true,underplanned=true)
     private fun scenario(wrongContent:Boolean,wrongHash:Boolean,secondStep:Boolean=false,executeSecond:Boolean=false,
         verifyAllArtifacts:Boolean=false,wrongSecond:Boolean=false,corruptSecond:Boolean=false,
-        withSource:Boolean=false,changeSource:Boolean=false,underplanned:Boolean=false):Unit=runBlocking {
+        withSource:Boolean=false,changeSource:Boolean=false,underplanned:Boolean=false,narrative:Boolean=false):Unit=runBlocking {
         val koin=GlobalContext.get();val settings=koin.get<SettingsStore>()
         val original=withTimeout(20_000) { settings.settingsFlow.first { !it.init } }
         val requirement="required-proof-${Uuid.random()}"
@@ -76,6 +77,7 @@ class TaskPlanningRuntimeTest {
                 "HXAI_TASK_PLAN_V6" in first -> LocalModelServer.completion(buildJsonObject {
                     put("steps",buildJsonArray {
                         add(buildJsonObject { put("id","word");put("tool","create_material_file");put("purpose","Write the exact required Word document") })
+                        if(narrative) add(buildJsonObject { put("id","explain");put("tool",JsonNull);put("purpose","Explain the verified file scope") })
                         if(secondStep && !underplanned) add(buildJsonObject { put("id","word-second");put("tool","create_material_file");put("purpose","Write the second required Word document") })
                     })
                     put("acceptance",buildJsonArray { add(buildJsonObject { put("stepId","word");put("kind","artifact_content");put("format","docx");put("contains",buildJsonArray { add(requirement) }) }) })

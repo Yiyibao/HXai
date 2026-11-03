@@ -130,6 +130,11 @@ class AgentTaskSurfaceTest {
                 capture("$theme-$scale-lock")
                 val beforeUsage=store.snapshot(task.owner,task.id)
                 waitFor("actual request ledger cannot open") { click("查看请求用量") }
+                waitFor("native ledger did not reach installed Dart") {
+                    text(automation.rootInActiveWindow).contains("输入 Token：报告 0") &&
+                        text(automation.rootInActiveWindow).contains("总 Token：1 次未知")
+                }
+                assertTrue(text(automation.rootInActiveWindow).contains("费用未知"))
                 assertEquals(beforeUsage,store.snapshot(task.owner,task.id))
                 capture("$theme-$scale-request-ledger")
                 waitFor("actual request ledger cannot close") { click("关闭用量") }

@@ -112,6 +112,26 @@ internal object ProofDerivation {
                     "and_intro" -> if (lines.size == 2) actual = buildJsonObject { put("and", JsonArray(lines.map { it.formula })) }
                     "and_left", "and_right" -> if (lines.size == 1) actual = binary(lines[0].formula, "and")?.get(if (rule == "and_left") 0 else 1)
                     "or_intro" -> if (lines.size == 1) binary(conclusion, "or")?.let { if (lines[0].formula == it[0] || lines[0].formula == it[1]) actual = conclusion }
+                    "or_elim" -> if (lines.size == 3) {
+                        val alternatives = binary(lines[0].formula, "or")
+                        val left = binary(lines[1].formula, "implies")
+                        val right = binary(lines[2].formula, "implies")
+                        if (alternatives != null && left != null && right != null &&
+                            left[0] == alternatives[0] && right[0] == alternatives[1] && left[1] == right[1]) actual = left[1]
+                    }
+                    "modus_tollens" -> if (lines.size == 2) {
+                        val implication = binary(lines[0].formula, "implies")
+                        val negative = (lines[1].formula as? JsonObject)?.takeIf { it.keys == setOf("not") }?.get("not")
+                        if (implication != null && implication[1] == negative)
+                            actual = buildJsonObject { put("not", implication[0]) }
+                    }
+                    "not_intro" -> if (lines.size == 1 && lines[0].formula == buildJsonObject { put("false", true) }) {
+                        val hypothesis = step["assumption"]?.jsonPrimitive?.content
+                        if (hypothesis in hypotheses) {
+                            actual = buildJsonObject { put("not", hypotheses.getValue(checkNotNull(hypothesis))) }
+                            dependencies = dependencies - checkNotNull(hypothesis)
+                        }
+                    }
                     "implies_intro" -> if (lines.size == 1) {
                         val hypothesis = step["assumption"]?.jsonPrimitive?.content
                         if (hypothesis in hypotheses) {

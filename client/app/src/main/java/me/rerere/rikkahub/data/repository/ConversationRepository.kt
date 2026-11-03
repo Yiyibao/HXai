@@ -370,6 +370,28 @@ class ConversationRepository(
         } else null
     }
 
+    /** Read only the current durable selected reply from the original conversation incarnation. */
+    internal suspend fun readTaskResponse(expected: Conversation, messageId: Uuid, taskId: String): UIMessage? = database.withTransaction {
+        if(activeProfileId!=expected.profileId)return@withTransaction null
+        requireIncarnation(expected)
+        val current=getConversationById(expected.id,expected.profileId) ?: return@withTransaction null
+        current.currentMessages.lastOrNull()?.takeIf {
+            it.id==messageId && it.generationTaskId==taskId &&
+                it.role==me.rerere.ai.core.MessageRole.ASSISTANT && it.finishedAt!=null &&
+                it.generationState in setOf("RUNNING","COMPLETED")
+        }
+    }
+
+    /** Hold the source transaction across the sidecar commit so a branch/delete cannot race publication. */
+    internal suspend fun commitTaskResponse(expected: Conversation, reply: UIMessage, taskId: String,
+        commit: () -> Unit): Boolean = database.withTransaction {
+        val actual=readTaskResponse(expected,reply.id,taskId) ?: return@withTransaction false
+        if(actual.parts!=reply.parts || actual.finishedAt!=reply.finishedAt || actual.modelId!=reply.modelId)
+            return@withTransaction false
+        commit()
+        true
+    }
+
     suspend fun existsConversationById(uuid: Uuid, profileId: String = activeProfileId): Boolean {
         return conversationDAO.getConversationById(uuid.toString())?.profileId == profileId
     }
