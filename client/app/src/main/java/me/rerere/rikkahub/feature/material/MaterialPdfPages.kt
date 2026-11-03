@@ -13,17 +13,6 @@ import kotlinx.coroutines.withContext
 import me.rerere.ai.ui.UIMessagePart
 import java.util.UUID
 
-internal fun renderPdfPageBitmap(page: PdfRenderer.Page, edge: Int = 1536): Bitmap {
-    require(page.width > 0 && page.height > 0 && edge in 1..2048)
-    val scale = edge.toDouble() / maxOf(page.width, page.height)
-    val bitmap = createBitmap(maxOf(1, (page.width * scale).toInt()), maxOf(1, (page.height * scale).toInt()), Bitmap.Config.ARGB_8888)
-    try {
-        bitmap.eraseColor(Color.WHITE)
-        page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
-        return bitmap
-    } catch (error: Throwable) { bitmap.recycle(); throw error }
-}
-
 suspend fun renderMaterialPdfPages(store: MaterialFiles, owner: String, id: String, start: Int, count: Int): List<UIMessagePart> = withContext(Dispatchers.IO) {
     val source = store.get(owner, id)
     require(source.extension == "pdf") { "需要 PDF 文件" }
@@ -34,8 +23,11 @@ suspend fun renderMaterialPdfPages(store: MaterialFiles, owner: String, id: Stri
         for (number in start until start + count) {
             currentCoroutineContext().ensureActive()
             renderer.openPage(number - 1).use { page ->
-                val bitmap = renderPdfPageBitmap(page)
+                require(page.width > 0 && page.height > 0)
+                val scale = 1536.0 / maxOf(page.width, page.height)
+                val bitmap = createBitmap(maxOf(1, (page.width * scale).toInt()), maxOf(1, (page.height * scale).toInt()), Bitmap.Config.ARGB_8888)
                 try {
+                    bitmap.eraseColor(Color.WHITE); page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
                     val item = store.runTask(MaterialFile(UUID.randomUUID().toString(), owner, "${source.name} 物理页 $number.png", "png", sourceId = id, pageNumber = number)) { target ->
                         target.outputStream().use { check(bitmap.compress(Bitmap.CompressFormat.PNG, 100, it)) }
                         "由 PDF 物理页 $number 渲染，原文件 ID=$id；视觉内容尚待核对"

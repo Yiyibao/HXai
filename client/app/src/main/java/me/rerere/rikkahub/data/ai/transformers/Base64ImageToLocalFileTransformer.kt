@@ -10,9 +10,8 @@ object Base64ImageToLocalFileTransformer : OutputMessageTransformer {
         messages: List<UIMessage>,
     ): List<UIMessage> {
         val filesManager = getKoin().get<FilesManager>()
-        val materials = getKoin().get<me.rerere.rikkahub.feature.material.MaterialFiles>()
         return messages.map { message ->
-            filesManager.convertBase64ImagePartToLocalFile(message, materials, ctx.settings.activeProfileId)
+            filesManager.convertBase64ImagePartToLocalFile(message)
         }
     }
 }

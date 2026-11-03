@@ -108,15 +108,13 @@ class ConversationSession(
         queued: QueuedMessage,
         parts: List<me.rerere.ai.ui.UIMessagePart>,
         persist: suspend (Conversation) -> Unit,
-        delegated: Boolean = false,
     ) = metadataMutex.withLock {
         requireActive()
         val draft = MessageQueue(messageQueue.state.value, notifyObservers = false)
-        if(delegated) check(draft.remove(queued.id)?.id==queued.id) { "Delegated input changed before handoff" }
-        else check(draft.takeNext()?.id == queued.id) { "Queued input changed before submission" }
+        check(draft.takeNext()?.id == queued.id) { "Queued input changed before submission" }
         val current = state.value
         val messages = if (current.currentMessages.any { it.id == queued.id }) current.messageNodes else
-            current.messageNodes + UIMessage(id = queued.id, role = me.rerere.ai.core.MessageRole.USER, parts = parts).toMessageNode()
+            current.messageNodes + UIMessage(id = queued.id, role = me.rerere.ai.core.MessageRole.USER, parts = parts, agentTaskId = queued.id.toString()).toMessageNode()
         val updated = current.copy(messageNodes = messages, queue = draft.persisted())
         persist(updated)
         messageQueue.publish(draft.state.value)
@@ -145,25 +143,6 @@ class ConversationSession(
         require(conversation.id == id)
         persist(conversation)
         updateConversation(conversation)
-    } }
-
-    /** A model-generated history replacement must never overwrite a newer turn/branch/queue. */
-    internal suspend fun commitCompressedHistory(
-        expected: Conversation,
-        token: Int,
-        nodes: List<me.rerere.rikkahub.data.model.MessageNode>,
-        stillAllowed: () -> Boolean,
-        persist: suspend (Conversation) -> Unit,
-    ): Boolean = withContext(NonCancellable) { metadataMutex.withLock {
-        requireActive()
-        val current=state.value
-        if (!stillAllowed() || token!=backgroundToken() || current.profileId!=expected.profileId ||
-            current.messageNodes!=expected.messageNodes || current.queue!=expected.queue ||
-            messageQueue.state.value.messages.isNotEmpty() || submittingMessage!=null || getJob()!=null) return@withLock false
-        val updated=current.copy(messageNodes=nodes,chatSuggestions=emptyList(),updateAt=Instant.now())
-        persist(updated)
-        updateConversation(updated)
-        true
     } }
 
     /** Read the queue under its mutation mutex, and publish only after atomic persistence. */
@@ -210,25 +189,6 @@ class ConversationSession(
         invalidateBackgroundResults()
     } }
 
-    /** Persist a verified translation before display, retaining unrelated current metadata. */
-    internal suspend fun applyTranslation(expected: Conversation, token: Int, messageId: Uuid, text: String,
-                                         stillAllowed: () -> Boolean,
-                                         persist: suspend (Conversation) -> Boolean): Boolean = metadataMutex.withLock {
-        fun valid(current: Conversation) = !deleted && stillAllowed() && token == backgroundToken() &&
-            current.profileId == expected.profileId && current.lifecycleRevision == expected.lifecycleRevision &&
-            current.messageNodes == expected.messageNodes
-        if (!valid(state.value)) return@withLock false
-        if (!persist(state.value)) return@withLock false
-        synchronized(this) {
-            val current = state.value
-            if (!valid(current)) return@synchronized false
-            updateConversation(current.copy(messageNodes = current.messageNodes.map { node ->
-                node.copy(messages = node.messages.map { if (it.id == messageId) it.copy(translation = text) else it })
-            }))
-            true
-        }
-    }
-
     internal suspend fun restoreCommitted(persist: suspend () -> Conversation) = withContext(NonCancellable) { metadataMutex.withLock {
         val conversation = persist()
         invalidateBackgroundResults()
@@ -253,12 +213,7 @@ class ConversationSession(
     ) {
         metadataMutex.withLock {
             requireActive()
-            val execution = kotlinx.coroutines.currentCoroutineContext()[me.rerere.rikkahub.feature.agent.AgentExecution]
-            val bound = if (execution == null || messages.isEmpty()) messages else {
-                require(execution.lease.task.owner == state.value.profileId && execution.lease.task.conversationId == id.toString())
-                messages.dropLast(1) + messages.last().copy(generationTaskId = execution.lease.task.id)
-            }
-            val updated = state.value.updateCurrentMessages(me.rerere.rikkahub.feature.interactive.InteractiveSurface.mergeClientState(bound, state.value.currentMessages)).withGenerationState("RUNNING", messageId = bound.lastOrNull()?.id)
+            val updated = state.value.updateCurrentMessages(me.rerere.rikkahub.feature.interactive.InteractiveSurface.mergeClientState(messages, state.value.currentMessages)).withGenerationState("RUNNING", messageId = messages.lastOrNull()?.id)
             persist(updated)
             updateConversation(updated)
         }

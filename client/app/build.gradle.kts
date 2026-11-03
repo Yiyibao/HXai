@@ -28,14 +28,8 @@ android {
         targetSdk = 37
         versionCode = 1
         versionName = "0.1.0-dev"
-        // QA extensions belong to the debug fixture variant only.
-        buildConfigField("boolean", "SYNTHETIC_MCP", "false")
 
-        testInstrumentationRunner = if (providers.gradleProperty("agentNativeTest").orNull == "true")
-            "me.rerere.rikkahub.feature.agent.AgentNativeTestRunner"
-        else if (providers.gradleProperty("officeSafetyTest").orNull == "true")
-            "me.rerere.rikkahub.feature.material.OfficeSafetyTestRunner"
-        else "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         ndk {
             abiFilters += listOf("arm64-v8a", "x86_64")
@@ -81,9 +75,7 @@ android {
 
     buildTypes {
         release {
-            // A local, unsigned release can be built without distribution keys.
-            // Never substitute the debug key for a missing release credential.
-            signingConfig = signingConfigs.getByName("release").takeIf { it.storeFile != null }
+            signingConfig = signingConfigs.getByName("release")
             optimization {
                 enable = true
             }
@@ -91,8 +83,7 @@ android {
             buildConfigField("String", "VERSION_CODE", "\"${android.defaultConfig.versionCode}\"")
         }
         debug {
-            applicationIdSuffix = if (providers.gradleProperty("agentNativeTest").orNull == "true") ".nativeqa" else ".debug"
-            buildConfigField("boolean", "SYNTHETIC_MCP", (providers.gradleProperty("agentNativeTest").orNull == "true").toString())
+            applicationIdSuffix = ".debug"
             buildConfigField("String", "VERSION_NAME", "\"${android.defaultConfig.versionName}\"")
             buildConfigField("String", "VERSION_CODE", "\"${android.defaultConfig.versionCode}\"")
         }
@@ -106,12 +97,7 @@ android {
         buildConfig = true
     }
     sourceSets {
-        getByName("main").assets.srcDir("../../server/agent-runtime/protocol")
         getByName("androidTest").assets.directories.add("$projectDir/schemas")
-        if (providers.gradleProperty("agentNativeTest").orNull == "true") {
-            getByName("debug").manifest.srcFile("src/nativeqa/AndroidManifest.xml")
-            getByName("debug").kotlin.srcDir("src/nativeqa/java")
-        }
     }
     androidResources {
         generateLocaleConfig = true
@@ -133,13 +119,6 @@ android {
         compilerOptions.optIn.add("kotlin.uuid.ExperimentalUuidApi")
         compilerOptions.optIn.add("kotlin.time.ExperimentalTime")
         compilerOptions.optIn.add("kotlinx.coroutines.ExperimentalCoroutinesApi")
-    }
-}
-
-// The isolated local fixture package has no Firebase registration or telemetry.
-if (providers.gradleProperty("agentNativeTest").orNull == "true") {
-    tasks.configureEach {
-        if (name == "processDebugGoogleServices") enabled = false
     }
 }
 
@@ -345,5 +324,4 @@ dependencies {
 
     // Flutter Add-to-App
     debugImplementation("me.rerere.rikkahub.flutter_ui:flutter_debug:1.0")
-    releaseImplementation("me.rerere.rikkahub.flutter_ui:flutter_release:1.0")
 }

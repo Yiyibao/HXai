@@ -63,7 +63,6 @@ class ImgGenVM(
     val providerManager: ProviderManager,
     val genMediaRepository: GenMediaRepository,
     private val filesManager: FilesManager,
-    private val requests: me.rerere.rikkahub.feature.agent.ModelRequestRunner,
 ) : AndroidViewModel(context) {
     private val _prompt = MutableStateFlow("")
     val prompt: StateFlow<String> = _prompt
@@ -139,28 +138,25 @@ class ImgGenVM(
     fun generateImage() {
         if(prompt.value.isBlank()) return
         cancelJob?.cancel()
-        val acceptedSettings = settingsStore.settingsFlow.value
-        val requestPrompt = _prompt.value
-        val count = _numberOfImages.value
-        val size = _size.value
-        val accepted = try {
-            requests.accept(acceptedSettings,"image","generate:$requestPrompt:$count:$size")
-        } catch (error: Exception) {
-            _error.value = error.message ?: "图片模型配置不可用"
-            return
-        }
         cancelJob = viewModelScope.launch {
             try {
                 _isGenerating.value = true
                 _error.value = null
                 _currentGeneratedImages.value = emptyList()
 
-                requests.run(accepted) { model,provider,_ ->
+                val settings = settingsStore.settingsFlow.first()
+                val model = settings.findModelById(settings.imageGenerationModelId)
+                    ?: throw IllegalStateException("No model selected")
+
+                val provider = model.findProvider(settings.providers)
+                    ?: throw IllegalStateException("Provider not found")
+
+                val requestPrompt = _prompt.value
                 val params = ImageGenerationParams(
                     model = model,
                     prompt = requestPrompt,
-                    numOfImages = count,
-                    size = size,
+                    numOfImages = _numberOfImages.value,
+                    size = _size.value,
                     customHeaders = model.customHeaders,
                     customBody = model.customBodies
                 )
@@ -173,7 +169,6 @@ class ImgGenVM(
                     prompt = requestPrompt,
                     modelName = model.displayName,
                 )
-                }
             } catch (e: Exception) {
                 if(e is CancellationException) return@launch
                 Log.e(TAG, "Failed to generate image", e)
@@ -187,30 +182,27 @@ class ImgGenVM(
     fun editImage() {
         if (prompt.value.isBlank() || referenceImages.value.isEmpty()) return
         cancelJob?.cancel()
-        val acceptedSettings = settingsStore.settingsFlow.value
-        val requestPrompt = _prompt.value
-        val sourceImages = _referenceImages.value.toList()
-        val count = _numberOfImages.value
-        val size = _size.value
-        val accepted = try {
-            requests.accept(acceptedSettings,"image","edit:$requestPrompt:$count:$size:$sourceImages")
-        } catch (error: Exception) {
-            _error.value = error.message ?: "图片模型配置不可用"
-            return
-        }
         cancelJob = viewModelScope.launch {
             try {
                 _isGenerating.value = true
                 _error.value = null
                 _currentGeneratedImages.value = emptyList()
 
-                requests.run(accepted) { model,provider,_ ->
+                val settings = settingsStore.settingsFlow.first()
+                val model = settings.findModelById(settings.imageGenerationModelId)
+                    ?: throw IllegalStateException("No model selected")
+
+                val provider = model.findProvider(settings.providers)
+                    ?: throw IllegalStateException("Provider not found")
+
+                val requestPrompt = _prompt.value
+                val sourceImages = _referenceImages.value
                 val params = ImageEditParams(
                     model = model,
                     prompt = requestPrompt,
                     images = sourceImages,
-                    numOfImages = count,
-                    size = size,
+                    numOfImages = _numberOfImages.value,
+                    size = _size.value,
                     customHeaders = model.customHeaders,
                     customBody = model.customBodies
                 )
@@ -225,7 +217,6 @@ class ImgGenVM(
                     type = GenMediaEntity.TYPE_IMAGE_EDIT,
                     sourcePaths = sourceImages.joinToString("\n"),
                 )
-                }
             } catch (e: Exception) {
                 if (e is CancellationException) return@launch
                 Log.e(TAG, "Failed to edit image", e)

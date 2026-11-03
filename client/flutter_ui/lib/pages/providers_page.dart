@@ -70,10 +70,9 @@ class ProvidersPage extends ConsumerWidget {
                             checkCommand(await bridgeApi.saveProvider(next));
                             ref.invalidate(providersConfigProvider);
                           } catch (e) {
-                            if (context.mounted) {
+                            if (context.mounted)
                               ScaffoldMessenger.of(context)
                                   .showSnackBar(SnackBar(content: Text('$e')));
-                            }
                           }
                         },
                       ),

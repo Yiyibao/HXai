@@ -103,13 +103,11 @@ val dataSourceModule = module {
             context = get(),
             providerManager = get(),
             json = get(),
-            learningMemories = get(),
-            materialFiles = get(),
         )
     }
 
     single {
-        TranslationHandler(providerManager = get(), requests = get())
+        TranslationHandler(providerManager = get())
     }
 
     single<OkHttpClient> {
@@ -178,6 +176,7 @@ val dataSourceModule = module {
             }
             .addNetworkInterceptor(RequestLoggingInterceptor())
             .addInterceptor(me.rerere.rikkahub.feature.diagnostics.DiagnosticsNetworkInterceptor())
+            .addInterceptor(AIRequestInterceptor())
             .build()
         client.also { SearchService.init(it, get()) }
     }
@@ -187,12 +186,7 @@ val dataSourceModule = module {
     }
 
     single {
-        ProviderManager(client = get<OkHttpClient>().newBuilder()
-            .retryOnConnectionFailure(false)
-            .followRedirects(false)
-            .followSslRedirects(false)
-            .addInterceptor(AIRequestInterceptor())
-            .build(), context = get())
+        ProviderManager(client = get(), context = get())
     }
 
     single { BackupManager(context = get(), database = get(), settingsStore = get(), json = get()) }

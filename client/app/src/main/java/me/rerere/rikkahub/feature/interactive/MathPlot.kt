@@ -25,8 +25,8 @@ object MathPlot {
             val kind = c.getValue("kind").jsonPrimitive.content
             require(c.getValue("label").jsonPrimitive.let { it.isString && it.content.length in 1..100 })
             val names = when (kind) {
-                "function" -> setOf("expression", "min", "max", "exclude")
-                "parametric" -> setOf("x", "y", "min", "max", "exclude")
+                "function" -> setOf("expression", "min", "max")
+                "parametric" -> setOf("x", "y", "min", "max")
                 "implicit" -> setOf("expression")
                 else -> error("不支持的数学曲线")
             }
@@ -36,14 +36,10 @@ object MathPlot {
                 MathExpression.parse(c.getValue(key).jsonPrimitive.also { require(it.isString) }.content, vars)
             }
             if (kind == "parametric" || c.containsKey("min") || c.containsKey("max")) require(number(c, "max") > number(c, "min"))
-            c["exclude"]?.jsonArray?.also { require(it.size <= 32) }?.forEach { value ->
-                require(value is JsonPrimitive && !value.isString && value.double.isFinite() && abs(value.double) <= 1e6)
-            }
         }
         plot["points"]?.jsonArray?.also { require(it.size <= 20) }?.forEach {
             val p = it.jsonObject
-            require(p.keys == setOf("x", "y", "label") || p.keys == setOf("x", "y", "label", "open"))
-            p["open"]?.let { value -> require(value is JsonPrimitive && !value.isString && value.booleanOrNull != null) }
+            require(p.keys == setOf("x", "y", "label"))
             number(p, "x"); number(p, "y")
             require(p.getValue("label").jsonPrimitive.let { s -> s.isString && s.content.length in 1..80 })
         }
@@ -93,14 +89,10 @@ object MathPlot {
                 val fy = expr(if (kind == "parametric") "y" else "expression")
                 val start = c["min"]?.jsonPrimitive?.double ?: x0
                 val end = c["max"]?.jsonPrimitive?.double ?: x1
-                val excluded = c["exclude"]?.jsonArray?.map { it.jsonPrimitive.double }.orEmpty()
                 var current = mutableListOf<MathPoint>()
                 fun flush() { if (current.size >= 2) segments.add(current); current = mutableListOf() }
                 for (i in 0..1200) {
                     val t = start + (end-start) * i / 1200
-                    val priorT = start + (end - start) * (i - 1) / 1200
-                    if (excluded.any { it == t }) { flush(); continue }
-                    if (i > 0 && excluded.any { it in priorT..t }) flush()
                     val env = values + mapOf((if (kind == "parametric") "t" else "x") to t)
                     val p = MathPoint(fx?.value(env) ?: t, fy.value(env))
                     val previous = current.lastOrNull()

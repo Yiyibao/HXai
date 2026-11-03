@@ -88,25 +88,7 @@ fun JsonObject.mergeCustomBody(bodies: List<CustomBody>): JsonObject {
             }
         }
     }
-    val merged = JsonObject(content)
-    // The provider has already encoded the user's selected model/reasoning.
-    // Custom request fields may add protocol options, but cannot silently
-    // replace those selectors (including nested native-provider fields).
-    val selectionPaths = listOf(
-        "model", "reasoning_effort", "reasoning.effort", "reasoning.enabled",
-        "thinking.type", "thinking.budget_tokens", "thinking_mode", "enable_thinking",
-        "output_config.effort", "generation_config.thinking_level",
-        "generationConfig.thinkingConfig.thinkingBudget",
-        "generationConfig.thinkingConfig.thinkingLevel",
-        "generationConfig.thinkingConfig.includeThoughts",
-    )
-    fun JsonObject.at(path: String): JsonElement? = path.split('.').fold(this as JsonElement?) { value, key ->
-        (value as? JsonObject)?.get(key)
-    }
-    selectionPaths.forEach { path ->
-        require(at(path) == merged.at(path)) { "Custom request body conflicts with the selected model or reasoning: $path" }
-    }
-    return merged
+    return JsonObject(content)
 }
 
 /**

@@ -20,9 +20,8 @@ final chatRuntimeStatusProvider = FutureProvider.autoDispose
         if (const ['chat_status', 'conversation_changed'].contains(e?['type']) &&
             e?['profileId'] == profile &&
             e?['contextEpoch'] == epoch &&
-            (e?['payload'] as Map?)?['conversationId'] == id) {
+            (e?['payload'] as Map?)?['conversationId'] == id)
           ref.invalidateSelf();
-        }
       });
       return await FrontendFeatures.call<Map>(ref, 'chatStatus', {
             'conversationId': id,
@@ -82,15 +81,13 @@ class ChatContextSettings extends ConsumerWidget {
                               'saveChatContextSettings',
                               {'budget': budget},
                             );
-                            if (context.mounted) {
+                            if (context.mounted)
                               ref.invalidate(chatContextSettingsProvider);
-                            }
                           } catch (error) {
-                            if (context.mounted) {
+                            if (context.mounted)
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text('设置未保存：$error')),
                               );
-                            }
                           }
                         },
                       ),

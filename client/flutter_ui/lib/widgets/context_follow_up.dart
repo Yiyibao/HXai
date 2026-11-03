@@ -82,10 +82,9 @@ class _ContextFollowUpState extends ConsumerState<ContextFollowUp> {
       if (mounted &&
           (widget.isAvailable?.call() ?? true) &&
           owner == ref.read(activeProfileIdProvider) &&
-          epoch == ref.read(contextEpochProvider)) {
+          epoch == ref.read(contextEpochProvider))
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('发送失败，草稿已保留：$e')));
-      }
     } finally {
       if (mounted) setState(() => sending = false);
     }

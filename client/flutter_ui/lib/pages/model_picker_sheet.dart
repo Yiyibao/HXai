@@ -108,14 +108,13 @@ class _ModelPickerSheetContentState
                                 ),
                           )
                           .toList();
-                      if (matches.isEmpty) {
+                      if (matches.isEmpty)
                         return Center(
                           child: Text(
                             query.isEmpty ? '暂无启用的模型，请先在管理中配置。' : '没有找到匹配的模型',
                             style: TextStyle(color: c.textGray),
                           ),
                         );
-                      }
                       return ListView(
                         controller: scroll,
                         children: [
@@ -210,20 +209,17 @@ class _ModelPickerSheetContentState
                                                     .notifier,
                                               )
                                               .selectActiveModel(p.id, m.id);
-                                          if (context.mounted) {
+                                          if (context.mounted)
                                             Navigator.pop(context);
-                                          }
                                         } catch (e) {
-                                          if (context.mounted) {
+                                          if (context.mounted)
                                             ScaffoldMessenger.of(context)
                                                 .showSnackBar(
                                                   SnackBar(content: Text('$e')),
                                                 );
-                                          }
                                         } finally {
-                                          if (mounted) {
+                                          if (mounted)
                                             setState(() => selecting = false);
-                                          }
                                         }
                                       },
                               ),

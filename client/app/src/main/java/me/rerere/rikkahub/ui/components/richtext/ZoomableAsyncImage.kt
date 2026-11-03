@@ -6,14 +6,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.produceState
-import androidx.compose.runtime.staticCompositionLocalOf
-import androidx.core.net.toUri
-import kotlinx.coroutines.CancellationException
-import me.rerere.rikkahub.data.ai.tools.ChatImages
-import me.rerere.rikkahub.data.datastore.SettingsStore
-import org.koin.java.KoinJavaComponent.getKoin
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.DefaultAlpha
@@ -30,8 +22,6 @@ import me.rerere.rikkahub.ui.components.ui.LocalExportContext
 import me.rerere.rikkahub.ui.modifier.shimmer
 import me.rerere.rikkahub.ui.theme.LocalDarkMode
 
-val LocalChatImageConversation = staticCompositionLocalOf<String?> { null }
-
 @Composable
 fun ZoomableAsyncImage(
     model: String?,
@@ -45,29 +35,8 @@ fun ZoomableAsyncImage(
     val context = LocalContext.current
     val placeholder = if(LocalDarkMode.current) R.drawable.placeholder_dark else R.drawable.placeholder
     val export = LocalExportContext.current
-    val settingsStore = remember { getKoin().get<SettingsStore>() }
-    val images = remember { getKoin().get<ChatImages>() }
-    val settings by settingsStore.settingsFlow.collectAsState()
-    val owner = settings.activeProfileId
-    val conversationId = LocalChatImageConversation.current
-    val resolved by produceState<Triple<String, String, String>?>(null, model, owner, conversationId) {
-        value = null
-        if (!model.isNullOrBlank()) {
-            try {
-                val file = images.resolve(owner, model, conversationId) {
-                    check(settingsStore.settingsFlow.value.activeProfileId == owner) { "图片上下文已改变" }
-                }
-                value = Triple(owner, model, file.toUri().toString())
-            } catch (cancelled: CancellationException) {
-                throw cancelled
-            } catch (_: Exception) {
-                value = null
-            }
-        }
-    }
-    val safeModel = resolved?.takeIf { it.first == owner && it.second == model }?.third
     val coilModel = ImageRequest.Builder(context)
-        .data(safeModel)
+        .data(model)
         .placeholder(placeholder)
         .crossfade(false)
         .allowHardware(!export)
@@ -79,7 +48,7 @@ fun ZoomableAsyncImage(
         modifier = modifier
             .shimmer(isLoading = loading)
             .clickable {
-                showImageViewer = safeModel != null
+                showImageViewer = true
             },
         contentScale = contentScale,
         alpha = alpha,
@@ -94,8 +63,8 @@ fun ZoomableAsyncImage(
             loading = false
         },
     )
-    if (showImageViewer && safeModel != null) {
-        ImagePreviewDialog(images = listOf(safeModel)) {
+    if (showImageViewer) {
+        ImagePreviewDialog(images = listOf(model ?: "")) {
             showImageViewer = false
         }
     }

@@ -101,9 +101,7 @@ class MemoryDetailPage extends ConsumerWidget {
                         ElevatedButton(
                           onPressed: () {
                             if (readResource(ref, resource, memoriesProvider,
-                                (m) => m.id) == null) {
-                              return;
-                            }
+                                (m) => m.id) == null) return;
                             context.push('/settings/memories/edit', extra: resource);
                           },
                           child: const Text('编辑'),

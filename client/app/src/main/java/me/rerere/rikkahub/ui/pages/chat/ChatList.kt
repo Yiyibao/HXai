@@ -406,9 +406,6 @@ private fun ChatListNormal(
                         selectedKeys = selectedItems,
                         enabled = selecting,
                     ) {
-                        androidx.compose.runtime.CompositionLocalProvider(
-                            me.rerere.rikkahub.ui.components.richtext.LocalChatImageConversation provides conversation.id.toString()
-                        ) {
                         ChatMessage(
                             node = node,
                             model = node.currentMessage.modelId?.let(modelById::get),
@@ -445,7 +442,6 @@ private fun ChatListNormal(
                             onToolAnswer = onToolAnswer,
                             lastMessage = index == lastMessageIndex,
                         )
-                        }
                     }
                 }
             }

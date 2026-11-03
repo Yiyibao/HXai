@@ -9,6 +9,7 @@ data class PendingInput(
     val id: Uuid,
     val parts: List<UIMessagePart>,
     val answer: Boolean = true,
+    val modelLock: me.rerere.rikkahub.feature.agent.AgentModelLock? = null,
 )
 
 @Serializable

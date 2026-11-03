@@ -316,7 +316,7 @@ List<CitationItem> messageCitations(MessageDto message) {
   void visit(dynamic value) {
     if (value is Map) {
       final url = value['sourceUrl'] ?? value['url'] ?? value['link'];
-      if (url is String) {
+      if (url is String)
         add(
           url,
           (value['title'] ?? value['sourceTitle'] ?? value['caption'] ?? '')
@@ -334,7 +334,6 @@ List<CitationItem> messageCitations(MessageDto message) {
                       : null))
               ?.toString(),
         );
-      }
       for (final child in value.values) {
         if (child is Map || child is List) visit(child);
       }

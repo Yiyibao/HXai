@@ -16,6 +16,7 @@ data class QueuedMessage(
     val isEditing: Boolean = false,
     // Optional in-memory observer; null result means the queued message was withdrawn.
     val reply: CompletableDeferred<String?>? = null,
+    val modelLock: me.rerere.rikkahub.feature.agent.AgentModelLock? = null,
 )
 
 data class MessageQueueState(
@@ -42,7 +43,7 @@ class MessageQueue(initial: MessageQueueState = MessageQueueState(), private val
     val state = mutableState.asStateFlow()
 
     @Synchronized
-    fun enqueue(parts: List<UIMessagePart>, answer: Boolean = true, reply: CompletableDeferred<String?>? = null, id: Uuid = Uuid.random()) {
+    fun enqueue(parts: List<UIMessagePart>, answer: Boolean = true, reply: CompletableDeferred<String?>? = null, id: Uuid = Uuid.random(), modelLock: me.rerere.rikkahub.feature.agent.AgentModelLock? = null) {
         if (parts.isEmptyInputMessage()) {
             reply?.complete(null)
             return
@@ -53,6 +54,7 @@ class MessageQueue(initial: MessageQueueState = MessageQueueState(), private val
                 parts = parts.toList(),
                 answer = answer,
                 reply = reply,
+                modelLock = modelLock,
             ),
         )
     }
@@ -119,12 +121,19 @@ class MessageQueue(initial: MessageQueueState = MessageQueueState(), private val
 
     internal fun publish(snapshot: MessageQueueState) { mutableState.value = snapshot }
 
+    /** Explicit user resume gives legacy queued inputs a current selection, never a fabricated historical lock. */
+    internal fun bindLegacyModel(lock: me.rerere.rikkahub.feature.agent.AgentModelLock) {
+        mutableState.value = state.value.copy(messages = state.value.messages.map {
+            if (it.modelLock == null) it.copy(modelLock = lock) else it
+        })
+    }
+
     internal fun restore(queue: me.rerere.rikkahub.data.model.ConversationQueue) {
-        publish(MessageQueueState(queue.messages.map { QueuedMessage(id = it.id, parts = it.parts, answer = it.answer) }, queue.paused))
+        publish(MessageQueueState(queue.messages.map { QueuedMessage(id = it.id, parts = it.parts, answer = it.answer, modelLock = it.modelLock) }, queue.paused))
     }
 
     internal fun persisted() = me.rerere.rikkahub.data.model.ConversationQueue(
-        state.value.messages.map { me.rerere.rikkahub.data.model.PendingInput(it.id, it.parts, it.answer) }, state.value.paused,
+        state.value.messages.map { me.rerere.rikkahub.data.model.PendingInput(it.id, it.parts, it.answer, it.modelLock) }, state.value.paused,
     )
 
     internal fun failPausedWaiters() {

@@ -95,10 +95,9 @@ class _MemoryEditorState extends ConsumerState<_MemoryEditor> {
         context.pop();
       }
     } catch (e) {
-      if (mounted && current()) {
+      if (current())
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('保存失败: $e')));
-      }
     } finally {
       if (mounted) setState(() => _saving = false);
     }

@@ -155,7 +155,7 @@ class ChatVM(
     fun finishEditQueuedMessage(id: Uuid, parts: List<UIMessagePart>?) =
         chatService.finishEditQueuedMessage(_conversationId, id, parts)
 
-    fun resumeInterruptedGeneration(skipUncertainTools: Boolean) = chatService.resumeInterruptedGeneration(_conversationId, skipUncertainTools,resumeManualPause=true)
+    fun resumeInterruptedGeneration(skipUncertainTools: Boolean) = chatService.resumeInterruptedGeneration(_conversationId, skipUncertainTools)
 
     fun resumeMessageQueue() = chatService.resumeMessageQueue(_conversationId)
 
@@ -323,7 +323,6 @@ class ChatVM(
         viewModelScope.launch {
             val updatedConversation = conversation.value.copy(title = title)
             chatService.saveConversation(_conversationId, updatedConversation)
-            conversationRepo.markManualTitle(updatedConversation)
         }
     }
 

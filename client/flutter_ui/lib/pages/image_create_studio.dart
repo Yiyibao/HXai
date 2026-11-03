@@ -265,9 +265,8 @@ class _StudioState extends ConsumerState<ImageCreateStudio> {
                                                 ],
                                               ),
                                             );
-                                        if (confirmed != true || !mounted) {
+                                        if (confirmed != true || !mounted)
                                           return;
-                                        }
                                         try {
                                           await FrontendFeatures.fromWidget(
                                             ref,
@@ -278,7 +277,7 @@ class _StudioState extends ConsumerState<ImageCreateStudio> {
                                             imageTemplatesProvider,
                                           );
                                         } catch (e) {
-                                          if (context.mounted) imageNotice(context, e);
+                                          if (mounted) imageNotice(context, e);
                                         }
                                       }
                                     },
@@ -345,9 +344,8 @@ class _StudioState extends ConsumerState<ImageCreateStudio> {
           ),
           TextButton(
             onPressed: () {
-              if (content.text.trim().isNotEmpty) {
+              if (content.text.trim().isNotEmpty)
                 Navigator.pop(ctx, content.text.trim());
-              }
             },
             child: const Text('填入草稿'),
           ),
@@ -355,13 +353,12 @@ class _StudioState extends ConsumerState<ImageCreateStudio> {
       ),
     );
     content.dispose();
-    if (result != null && mounted) {
+    if (result != null && mounted)
       apply(
         (item['prompt'] as String).replaceAll('{主题}', result),
         ratio: item['size'],
         fidelity: item['quality'],
       );
-    }
   }
 
   Future<void> _purpose(String name) async {
@@ -414,9 +411,8 @@ class _StudioState extends ConsumerState<ImageCreateStudio> {
             ),
             TextButton(
               onPressed: () {
-                if (topic.text.trim().isNotEmpty) {
+                if (topic.text.trim().isNotEmpty)
                   Navigator.pop(ctx, topic.text.trim());
-                }
               },
               child: const Text('预览提示词'),
             ),
