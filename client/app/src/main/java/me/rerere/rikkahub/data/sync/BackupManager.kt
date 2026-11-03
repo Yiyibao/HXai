@@ -81,9 +81,6 @@ class BackupManager(
     private fun validateMaterials(archive: File) {
         ZipFile(archive).use { zip ->
             val manifest = zip.getInputStream(zip.getEntry(BackupIntegrity.manifestName)).use { json.decodeFromString<BackupManifest>(it.reader().readText()) }
-            val profiles = zip.getInputStream(zip.getEntry("settings.json")).use {
-                json.decodeFromString<Settings>(SettingsJsonMigrator.migrate(it.reader().readText())).learnerProfiles.map { profile -> profile.id }.toSet()
-            }
             manifest.entries.keys.filter { it.startsWith("materials/") && it.endsWith(".json") }.forEach { name ->
                 if (!name.endsWith(".meta.json") && name.removeSuffix(".json") + ".meta.json" in manifest.entries) return@forEach
                 require(manifest.entries.getValue(name).size <= 1024 * 1024) { "材料元数据过大" }
@@ -92,18 +89,13 @@ class BackupManager(
                 }
                 if (item == null) { require(!name.endsWith(".meta.json")) { "材料元数据损坏" }; return@forEach }
                 require(name in setOf("materials/${item.profileId}/${item.id}.json", "materials/${item.profileId}/${item.id}.meta.json")) { "材料档案归属不匹配" }
-                require(item.libraryVersion in 1..2 && me.rerere.rikkahub.feature.material.MaterialFiles.validProfile(item.profileId) &&
-                    (item.profileId in profiles || item.deletedAt != null && me.rerere.rikkahub.feature.material.MaterialLibraryMetadata.tombstone(item) == item)) { "不支持的材料元数据版本/档案" }
-                me.rerere.rikkahub.feature.material.MaterialLibraryMetadata.validate(item.folder, item.tags)
-                if (item.deletedAt != null) {
-                    require(item.state == "DELETED" && manifest.entries.keys.none {
-                        it.startsWith("materials/${item.profileId}/${item.id}.") && it != name
-                    }) { "备份包含已删除材料正文" }
-                }
                 if (item.state == "SUCCEEDED") {
                     val data = manifest.entries["materials/${item.profileId}/${item.id}.${item.extension}"]
                     require(data != null && data.size == item.size && data.sha256 == item.sha256) { "材料在备份期间改变或缺失，请等待处理完成后重试" }
                 }
+            }
+            val profiles = zip.getInputStream(zip.getEntry("settings.json")).use {
+                json.decodeFromString<Settings>(SettingsJsonMigrator.migrate(it.reader().readText())).learnerProfiles.map { profile -> profile.id }.toSet()
             }
             manifest.entries.keys.filter { it.startsWith("image_creation/") || it.startsWith("image_templates/") }.forEach { name ->
                 require(isAttachment(name) && manifest.entries.getValue(name).size <= 1024 * 1024) { "图片元数据路径无效或过大" }
@@ -120,9 +112,7 @@ class BackupManager(
                         val metadata = task.artifactId?.let { zip.getEntry("materials/$owner/$it.meta.json") }
                         require(metadata != null) { "图片任务的成果元数据缺失" }
                         val artifact = zip.getInputStream(metadata).use { json.decodeFromString<me.rerere.rikkahub.feature.material.MaterialFile>(it.reader().readText()) }
-                        require(artifact.profileId == owner && artifact.id == task.artifactId && artifact.output &&
-                            (artifact.state == "SUCCEEDED" || artifact.deletedAt != null && artifact.state == "DELETED") &&
-                            artifact.extension == "png") { "图片成果绑定无效" }
+                        require(artifact.profileId == owner && artifact.id == task.artifactId && artifact.output && artifact.state == "SUCCEEDED" && artifact.extension == "png") { "图片成果绑定无效" }
                     }
                 }
             }
@@ -152,19 +142,9 @@ class BackupManager(
                         currentCoroutineContext().ensureActive()
                         val relative = file.relativeTo(directory).invariantSeparatorsPath
                         if (folder in profileFolders && !isProfileAttachment(folder, relative)) continue
-                        if (folder in profileFolders && settings.learnerProfiles.none { it.id == relative.substringBefore('/') }) {
-                            if (folder != "materials" || !file.name.endsWith(".meta.json") ||
-                                json.decodeFromString<me.rerere.rikkahub.feature.material.MaterialFile>(file.readText()).deletedAt == null) continue
-                        }
-                        if (folder == "materials" && !me.rerere.rikkahub.feature.material.MaterialLibraryMetadata.includeInBackup(directory, relative)) continue
+                        if (folder in profileFolders && settings.learnerProfiles.none { it.id == relative.substringBefore('/') }) continue
                         PendingRestore.resolveInside(directory, relative)
-                        val source = if (folder == "materials" && file.name.endsWith(".meta.json")) {
-                            val item = json.decodeFromString<me.rerere.rikkahub.feature.material.MaterialFile>(file.readText())
-                            if (item.deletedAt == null) file else File(staging, file.name).apply {
-                                writeText(json.encodeToString(me.rerere.rikkahub.feature.material.MaterialLibraryMetadata.tombstone(item)))
-                            }
-                        } else file
-                        inventory["$folder/$relative"] = addFile(zip, source, "$folder/$relative")
+                        inventory["$folder/$relative"] = addFile(zip, file, "$folder/$relative")
                     }
                 }
                 require(inventory.size < BackupIntegrity.maxEntries)
@@ -327,8 +307,6 @@ class BackupManager(
         }
         internal suspend fun mergeStagedRestore(context: Context, json: Json, staging: File, live: AppDatabase) {
             RestoreStagingIntegrity.verify(staging, json)
-            me.rerere.rikkahub.feature.material.MaterialLibraryMetadata.mergeDeleted(
-                File(context.filesDir, "materials"), File(staging, "payload/files/materials"))
             BackupDeletionMerge.merge(context, json, staging, live)
             RestoreStagingIntegrity.seal(staging, json)
         }

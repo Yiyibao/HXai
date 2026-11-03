@@ -14,16 +14,8 @@ fun mathVerifyTool(): Tool = Tool(
         " polynomial_uniform_bound_subdivision(expression,approximation,lower,upper,claimed_bound,max_depth)：同一误差界的有界精确中点细分证书；七字段均字符串，max_depth为0–8。完整覆盖所有闭子区间，只有每叶充分界都满足才VERIFIED；到限仍不足保持NOT_CERTIFIED，不能把漏叶、采样或达到深度上限当证明。" +
         " polynomial_uniform_bound_sturm(expression,approximation,lower,upper,claimed_bound)：六字符串字段；精确Sturm判定整个有理闭区间上claim±误差均非负，含端点与重根。给定正确界VERIFIED，错误界DISPROVED含精确有理反例，资源不足UNSUPPORTED；不求最优界，不以采样证明。" +
         " rational_uniform_bound_sturm(expression,approximation,lower,upper,claimed_bound)：六字符串字段，Q(x)两原式必须在整个有理闭区间有定义，约分或误差抵消不填孔洞。以差N/D的(claim*D±N)*D完整Sturm非负证书核验双侧，负分母也保持方向；乘后次数≤32。错误界有理反例，域不全定义或资源不足UNSUPPORTED，不求最优界或去孔极限。",
-    systemPrompt = { _, _ -> ProfessionalMathGuidance.PROMPT },
     parameters = { InputSchema.Obj(properties = buildJsonObject {
-        put("operation", buildJsonObject { put("type", "string"); put("enum", buildJsonArray {
-            for (name in listOf("identity", "derivative", "equal_expression_chain", "rational_identity", "rational_derivative",
-                "rational_inequality", "rational_equation", "rational_expression_chain", "rational_equation_equivalence",
-                "rational_limit", "rational_monotonicity", "polynomial_definite_integral", "rational_primitive_integral",
-                "polynomial_taylor", "polynomial_uniform_bound", "polynomial_uniform_bound_subdivision",
-                "polynomial_uniform_bound_sturm", "rational_uniform_bound_sturm") + ProfessionalMath.operations) add(name)
-        }) })
-        put("request", buildJsonObject { put("type", "string"); put("maxLength", ProfessionalMath.REQUEST_CHARS); put("description", "professional_*操作专用的JSON对象字符串；不得混用旧合同字段。格式见工具系统说明。") })
+        put("operation", buildJsonObject { put("type", "string"); put("enum", buildJsonArray { add("identity"); add("derivative"); add("equal_expression_chain"); add("rational_identity"); add("rational_derivative"); add("rational_inequality"); add("rational_equation"); add("rational_expression_chain"); add("rational_equation_equivalence"); add("rational_limit"); add("rational_monotonicity"); add("polynomial_definite_integral"); add("rational_primitive_integral"); add("polynomial_taylor"); add("polynomial_uniform_bound"); add("polynomial_uniform_bound_subdivision"); add("polynomial_uniform_bound_sturm"); add("rational_uniform_bound_sturm") }) })
         for (key in listOf("left", "right", "expression", "claimed_derivative", "primitive", "approximation", "claimed_bound")) put(key, buildJsonObject { put("type", "string"); put("maxLength", QxLimits.CHARS) })
         for (key in listOf("before_left", "before_right", "after_left", "after_right")) put(key, buildJsonObject { put("type", "string"); put("maxLength", QxLimits.CHARS) })
         put("at", buildJsonObject { put("type", "string"); put("maxLength", QxLimits.CHARS) })

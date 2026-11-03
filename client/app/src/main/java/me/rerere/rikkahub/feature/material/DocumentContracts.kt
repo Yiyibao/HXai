@@ -60,7 +60,6 @@ object DocumentContract {
         document.blocks.forEach {
             require(it.page in document.processedPages && it.blockId.matches(Regex("p[0-9]+-b[0-9.]+")) &&
                 (it.assetId == null || manifest.assets.any { asset -> asset.assetId == it.assetId }))
-            require(it.page !in document.blankPages || (it.text.isBlank() && it.latex.isNullOrBlank() && it.assetId == null)) { "空白页标记与识别内容冲突" }
         }
     }
 }

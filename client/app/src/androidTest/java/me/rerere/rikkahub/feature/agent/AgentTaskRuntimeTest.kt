@@ -31,25 +31,6 @@ class AgentTaskRuntimeTest {
         try { block(store,name) }
         finally { store.close(); SQLiteCleanup.delete(context.noBackupFilesDir.resolve(name)) }
     }
-    private fun removeManualPauseFromLegacyFixture(db: android.database.sqlite.SQLiteDatabase) {
-        val columns = "id,owner,conversation_id,request_id,intent_hash,configuration_reference,provider_id,model_id,reasoning,configuration_revision,state,fence,revision"
-        // API26 SQLite predates DROP COLUMN. Preserve original rows and old key constraints.
-        db.setForeignKeyConstraintsEnabled(false)
-        try {
-            db.beginTransaction()
-            try {
-                db.execSQL("CREATE TABLE tasks_legacy (id TEXT PRIMARY KEY, owner TEXT NOT NULL, conversation_id TEXT NOT NULL, request_id TEXT NOT NULL, intent_hash TEXT NOT NULL, configuration_reference TEXT NOT NULL, provider_id TEXT NOT NULL, model_id TEXT NOT NULL, reasoning TEXT NOT NULL, configuration_revision TEXT NOT NULL, state TEXT NOT NULL, fence INTEGER NOT NULL DEFAULT 0, revision INTEGER NOT NULL DEFAULT 0, UNIQUE(owner,conversation_id,request_id))")
-                db.execSQL("INSERT INTO tasks_legacy ($columns) SELECT $columns FROM tasks")
-                db.execSQL("DROP TABLE tasks")
-                db.execSQL("ALTER TABLE tasks_legacy RENAME TO tasks")
-                db.setTransactionSuccessful()
-            } finally {
-                db.endTransaction()
-            }
-        } finally {
-            db.setForeignKeyConstraintsEnabled(true)
-        }
-    }
     @Test fun crossProfileClaimsAndOldFencePublicationAreRejected() = withStore { store,_ ->
         val first = task(store); val second = task(store,"owner-b")
         val lease = store.claim(first.owner,first.id)
@@ -136,16 +117,14 @@ class AgentTaskRuntimeTest {
         val request = store.beginRequest(lease,"main","synthetic prompt",selection(first))
         store.writableDatabase.execSQL("CREATE TABLE usage_v1 (request_id TEXT PRIMARY KEY, task_id TEXT NOT NULL REFERENCES tasks(id), role TEXT NOT NULL, provenance TEXT NOT NULL, prompt_tokens INTEGER, completion_tokens INTEGER, cached_tokens INTEGER)")
         store.writableDatabase.execSQL("INSERT INTO usage_v1 SELECT request_id,task_id,role,provenance,prompt_tokens,completion_tokens,cached_tokens FROM usage")
-        // Reconstruct an actual v1 schema: it predates the new child cost ledger.
-        store.writableDatabase.execSQL("DROP TABLE usage_costs")
         store.writableDatabase.execSQL("DROP TABLE usage")
         store.writableDatabase.execSQL("ALTER TABLE usage_v1 RENAME TO usage")
-        removeManualPauseFromLegacyFixture(store.writableDatabase)
+        store.writableDatabase.execSQL("ALTER TABLE tasks DROP COLUMN manual_pause")
         store.writableDatabase.version = 1
         store.close()
         AgentTaskStore(context,name).use { migrated ->
             migrated.recover()
-            assertEquals(13,migrated.readableDatabase.version)
+            assertEquals(9,migrated.readableDatabase.version)
             assertEquals("UNCERTAIN_SIDE_EFFECT",migrated.get(first.owner,first.id).state)
             migrated.readableDatabase.rawQuery("SELECT provenance,created_at FROM usage WHERE request_id=?",arrayOf(request)).use {
                 assertTrue(it.moveToFirst()); assertEquals("unknown",it.getString(0)); assertTrue(it.isNull(1))
@@ -177,11 +156,11 @@ class AgentTaskRuntimeTest {
         val request=store.beginRequest(lease,"main","synthetic",selection(first))
         store.finishRequest(lease,request,me.rerere.ai.core.TokenUsage(17,8,null,25))
         store.finish(lease,"PAUSED_BY_USER")
-        removeManualPauseFromLegacyFixture(store.writableDatabase)
+        store.writableDatabase.execSQL("ALTER TABLE tasks DROP COLUMN manual_pause")
         store.writableDatabase.version=4
         store.close()
         AgentTaskStore(context,name).use { migrated ->
-            assertEquals(13,migrated.readableDatabase.version)
+            assertEquals(9,migrated.readableDatabase.version)
             assertTrue(migrated.get(first.owner,first.id).manualPaused)
             assertEquals(lease.fence,migrated.get(first.owner,first.id).fence)
             assertTrue(runCatching { migrated.claim(first.owner,first.id) }.isFailure)

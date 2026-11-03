@@ -105,15 +105,14 @@ internal object AgentUsageExport {
         val summary=data.getValue("summary").jsonObject;val count=summary.getValue("requestCount").jsonPrimitive.content.toLong()
         require(records in 0..AgentUsageSnapshot.MAX_RECORDS.toLong() && count>=0)
         require(records==(if(groupBy=="requests") count else summary.getValue("groupCount").jsonPrimitive.content.toLong())) { "导出范围不完整" }
-        if(data["costSchemaVersion"]==null) require(data.getValue("cost").jsonObject==buildJsonObject { put("status","unknown");put("amount",JsonNull);put("currency",JsonNull) })
-        else require(data["costSchemaVersion"]==JsonPrimitive(1) && data.getValue("cost").jsonObject["requestCount"]==JsonPrimitive(count.toString()))
+        require(data.getValue("cost").jsonObject==buildJsonObject { put("status","unknown");put("amount",JsonNull);put("currency",JsonNull) })
         currentCoroutineContext().ensureActive();checkAccess()
         val current=files.get(owner,id)
         require(current.profileId==item.profileId && current.requestKey==key && current.sha256==item.sha256 && current.size==item.size && current.sourceId==null)
         if(current.state!="SUCCEEDED") {
             // Known local effect read back against the original durable expected bytes. Never rewrite it.
             require(current.state in setOf("PENDING","RUNNING","FAILED","CANCELLED"))
-            files.record(current.copy(state="SUCCEEDED",detail="请求用量与费用来源JSON快照；已独立回读核验"))
+            files.record(current.copy(state="SUCCEEDED",detail="请求用量JSON快照；已独立回读核验，费用未知"))
         }
         checkAccess()
         return AgentUsageExportReceipt(owner,taskId,from,until,groupBy,requestId,id,item.sha256,item.size,

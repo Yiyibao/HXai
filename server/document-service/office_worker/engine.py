@@ -25,44 +25,11 @@ def property_value(name, value):
     return item
 
 
-def _shutdown_office(process, document, desktop, disposed_type):
-    cleanup_error = None
-    try:
-        if document is not None:
-            document.close(True)
-    except Exception as error:
-        cleanup_error = error
-    try:
-        if desktop is not None:
-            desktop.terminate()
-    except Exception as error:
-        if cleanup_error is None or isinstance(cleanup_error, disposed_type):
-            cleanup_error = error
-    forced = False
-    try:
-        exit_code = process.wait(timeout=5)
-    except subprocess.TimeoutExpired:
-        forced = True
-        if os.name == 'nt':
-            # soffice.com is a launcher; stop only its owned process tree.
-            subprocess.run(['taskkill', '/PID', str(process.pid), '/T', '/F'],
-                           check=True, capture_output=True, timeout=10)
-        else:
-            process.kill()
-        exit_code = process.wait(timeout=10)
-    if forced or exit_code != 0:
-        raise ValueError('office_shutdown_failed')
-    # A disposed bridge is a lost cleanup ACK only after this owned server exits cleanly.
-    if cleanup_error is not None and not isinstance(cleanup_error, disposed_type):
-        raise cleanup_error
-
-
 @contextmanager
 def office_document(source, extension):
     import uno
     from com.sun.star.document.MacroExecMode import NEVER_EXECUTE
     from com.sun.star.document.UpdateDocMode import NO_UPDATE
-    from com.sun.star.lang import DisposedException
     with tempfile.TemporaryDirectory(prefix='mathdoc-office-') as profile:
         pipe = 'mathdoc_' + uuid.uuid4().hex
         process = subprocess.Popen([SOFFICE, '--headless', '--nologo', '--nodefault', '--norestore',
@@ -71,7 +38,6 @@ def office_document(source, extension):
                                    stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         document = None
         desktop = None
-        body_error = None
         try:
             local = uno.getComponentContext()
             resolver = local.ServiceManager.createInstanceWithContext('com.sun.star.bridge.UnoUrlResolver', local)
@@ -97,16 +63,26 @@ def office_document(source, extension):
             if document is None or not document.supportsService(service):
                 raise ValueError('office_load_failed')
             yield document
-        except BaseException as error:
-            body_error = error
-            raise
         finally:
+            # Nested cleanup ensures a close error cannot leave our engine running.
             try:
-                _shutdown_office(process, document, desktop, DisposedException)
-            except Exception as cleanup_error:
-                if body_error is None:
-                    raise
-                body_error.add_note('Office cleanup also failed: ' + type(cleanup_error).__name__)
+                if document is not None:
+                    document.close(True)
+            finally:
+                try:
+                    if desktop is not None:
+                        desktop.terminate()
+                finally:
+                    try:
+                        process.wait(timeout=5)
+                    except subprocess.TimeoutExpired:
+                        if os.name == 'nt':
+                            # soffice.com is a launcher; stop only its owned process tree.
+                            subprocess.run(['taskkill', '/PID', str(process.pid), '/T', '/F'],
+                                           check=True, capture_output=True, timeout=10)
+                        else:
+                            process.kill()
+                        process.wait(timeout=10)
 
 
 def save_calculated(document, target, witness=None, source_sha256=None):

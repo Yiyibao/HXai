@@ -122,11 +122,7 @@ class ChatCompletionsAPI(
             ?.jsonPrimitive
             ?.content
             ?: "unknown"
-        val usage = parseTokenUsage(bodyJson["usage"] as? JsonObject)?.let {
-            if (response.request.url.toString() == "https://openrouter.ai/api/v1/chat/completions")
-                it.copy(costSource = "https://openrouter.ai/api/v1/chat/completions")
-            else it.copy(costUsd = null, costSource = null)
-        }
+        val usage = parseTokenUsage(bodyJson["usage"] as? JsonObject)
         receipt?.complete(usage)
 
         TextGenerationResult(
@@ -165,23 +161,16 @@ class ChatCompletionsAPI(
         // just for debugging response body
 
         val decoder = ChatCompletionsStreamDecoder()
-        var reportedCostSource: String? = null
 
         fun sendChunks(chunks: Iterable<StreamChunk>) {
             chunks.forEach { chunk ->
-                val trustedChunk = if (chunk is StreamChunk.Usage) StreamChunk.Usage(
-                    if (reportedCostSource != null) chunk.usage.copy(costSource = reportedCostSource)
-                    else chunk.usage.copy(costUsd = null, costSource = null)) else chunk
-                receipt?.observe(trustedChunk)
-                trySend(trustedChunk).onFailure { Log.w(TAG, "Stream chunk dropped") }
+                receipt?.observe(chunk)
+                trySend(chunk).onFailure { Log.w(TAG, "Stream chunk dropped") }
             }
         }
 
         var streamCompleted = false
         val listener = object : EventSourceListener() {
-            override fun onOpen(eventSource: EventSource, response: Response) {
-                reportedCostSource = response.request.url.toString().takeIf { it == "https://openrouter.ai/api/v1/chat/completions" }
-            }
             override fun onEvent(
                 eventSource: EventSource,
                 id: String?,
@@ -239,7 +228,7 @@ class ChatCompletionsAPI(
         // trySend 在缓冲满时会静默丢弃 delta，导致回复中间缺字 (#1295)，因此缓冲必须无界
     }.buffer(Channel.UNLIMITED).flowOn(Dispatchers.IO)
 
-    internal fun buildChatCompletionRequest(
+    private fun buildChatCompletionRequest(
         messages: List<UIMessage>,
         params: TextGenerationParams,
         providerSetting: ProviderSetting.OpenAI,
@@ -817,7 +806,6 @@ class ChatCompletionsAPI(
     private fun parseTokenUsage(jsonObject: JsonObject?): TokenUsage? {
         if (jsonObject == null) return null
         return TokenUsage(
-            costUsd = (jsonObject["cost"] as? JsonPrimitive)?.takeUnless { it.isString }?.content,
             promptTokens = jsonObject["prompt_tokens"]?.jsonPrimitive?.intOrNull,
             completionTokens = jsonObject["completion_tokens"]?.jsonPrimitive?.intOrNull,
             totalTokens = jsonObject["total_tokens"]?.jsonPrimitive?.intOrNull,
