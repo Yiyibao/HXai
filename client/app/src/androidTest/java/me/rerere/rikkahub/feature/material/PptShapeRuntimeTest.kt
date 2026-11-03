@@ -33,9 +33,6 @@ class PptShapeRuntimeTest {
         try {
             settings.selectLearnerProfile(owner); settings.settingsFlow.first { it.activeProfileId == owner }
             val input = File(context.cacheDir, "b1d-shapes-source.pptx")
-            InstrumentationRegistry.getInstrumentation().context.assets.open("ppt_shapes/complex-original.pptx").use { fixture ->
-                input.outputStream().use { fixture.copyTo(it) }
-            }
             val source = store.import(owner, input.toUri(), "Complex original.pptx")
             val sourceBytes = store.verifiedFile(owner, source.id).readBytes()
             val tools = materialEditTools(store, owner)

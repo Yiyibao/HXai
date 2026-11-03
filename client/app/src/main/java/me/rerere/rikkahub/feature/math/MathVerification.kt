@@ -16,11 +16,6 @@ object MathVerification {
         return buildString(bytes.size * 2) { for (b in bytes) { val n = b.toInt() and 255; append(digits[n ushr 4]); append(digits[n and 15]) } }
     }
     private fun boundedInputHash(input: JsonObject): String? {
-        if ((input["operation"] as? JsonPrimitive)?.content in ProfessionalMath.operations) {
-            if (input.keys != setOf("operation", "request") || input.values.any { it !is JsonPrimitive || !it.isString } ||
-                input.getValue("request").jsonPrimitive.content.length > ProfessionalMath.REQUEST_CHARS) return null
-            return digest(buildJsonObject { for (key in input.keys.sorted()) put(key, input.getValue(key)) }.toString())
-        }
         val maxFields = when ((input["operation"] as? JsonPrimitive)?.content) {
             "polynomial_uniform_bound_subdivision" -> 7
             "rational_primitive_integral", "polynomial_uniform_bound", "polynomial_uniform_bound_sturm", "rational_uniform_bound_sturm" -> 6
@@ -36,8 +31,6 @@ object MathVerification {
         return digest(buildJsonObject { for (key in input.keys.sorted()) put(key, input.getValue(key)) }.toString())
     }
     private fun scope(operation: String) = when (operation) {
-        "professional_calculus" -> "professional_calculus_explicit_scope_contract17"
-        in ProfessionalMath.operations -> "${operation}_explicit_scope_contract16"
         "identity" -> "formal_univariate_rational_polynomial_identity"
         "derivative" -> "formal_polynomial_derivative"
         "equal_expression_chain" -> "equal_expression_chain_only"
@@ -113,8 +106,7 @@ object MathVerification {
     suspend fun verify(input: JsonObject): JsonObject = withContext(Dispatchers.Default) {
         currentCoroutineContext().ensureActive()
         val requested = (input["operation"] as? JsonPrimitive)?.takeIf { it.isString }?.content
-        val operation = requested?.takeIf { it in operations || it in ProfessionalMath.operations } ?: "unsupported_request"
-        val professional = operation in ProfessionalMath.operations
+        val operation = requested?.takeIf { it in operations } ?: "unsupported_request"
         val inequality = operation == "rational_inequality"
         val equation = operation == "rational_equation"
         val rationalChain = operation == "rational_expression_chain"
@@ -132,7 +124,6 @@ object MathVerification {
         val nodes = mutableListOf<Int>()
         val result = try {
             val fields = when (operation) {
-                in ProfessionalMath.operations -> setOf("operation", "request")
                 "identity", "rational_identity", "rational_equation" -> setOf("operation", "left", "right")
                 "derivative", "rational_derivative" -> setOf("operation", "expression", "claimed_derivative")
                 "equal_expression_chain", "rational_expression_chain" -> setOf("operation", "expressions")
@@ -149,11 +140,6 @@ object MathVerification {
             }
             if (input.keys != fields) throw MathUnsupported("invalid_request_fields")
             when (operation) {
-                in ProfessionalMath.operations -> try {
-                    ProfessionalMath.verify(operation, ProfessionalMath.request(string(input, "request")))
-                } catch (e: MathUnsupported) { throw e }
-                  catch (_: IllegalArgumentException) { throw MathUnsupported("invalid_professional_request") }
-                  catch (_: NoSuchElementException) { throw MathUnsupported("missing_professional_request_field") }
                 "identity", "derivative" -> {
                     val left = ExactExpressionParser(string(input, if (operation == "identity") "left" else "expression"), PolynomialArithmetic).parse().also { nodes += it.astNodes }
                     currentCoroutineContext().ensureActive()
@@ -216,10 +202,7 @@ object MathVerification {
         currentCoroutineContext().ensureActive()
         buildJsonObject {
             for ((key, value) in result) put(key, value)
-            put("contractVersion", if (operation == "professional_calculus") 17 else if (professional) 16 else if (rationalBound) 15 else if (sturmBound) 14 else if (subdividedBound) 13 else if (uniformBound) 12 else if (taylor) 11 else if (rationalIntegral) 10 else if (integral) 9 else if (monotonicity) 8 else if (rationalLimit) 7 else if (equationEquivalence) 6 else if (rationalChain) 5 else if (equation) 4 else if (inequality) 3 else if (rational) 2 else 1)
-            put("operation", operation)
-            put("domain", if (professional) "explicit_Q_R_or_conditional_logic_scope" else if (rational) "Q(x)" else "Q[x]")
-            put("scope", scope(operation))
+            put("contractVersion", if (rationalBound) 15 else if (sturmBound) 14 else if (subdividedBound) 13 else if (uniformBound) 12 else if (taylor) 11 else if (rationalIntegral) 10 else if (integral) 9 else if (monotonicity) 8 else if (rationalLimit) 7 else if (equationEquivalence) 6 else if (rationalChain) 5 else if (equation) 4 else if (inequality) 3 else if (rational) 2 else 1); put("operation", operation); put("domain", if (rational) "Q(x)" else "Q[x]"); put("scope", scope(operation))
             put("input_sha256", boundedInputHash(input)?.let(::JsonPrimitive) ?: JsonNull)
             put("ast_nodes", JsonArray(nodes.map(::JsonPrimitive)))
             put("limits", buildJsonObject {
@@ -240,11 +223,8 @@ object MathVerification {
                 if (subdividedBound) { put("subdivision_depth", PolynomialUniformSubdivision.MAX_DEPTH); put("subdivision_leaves", 1 shl PolynomialUniformSubdivision.MAX_DEPTH); put("certificate_chars", PolynomialUniformSubdivision.MAX_CERTIFICATE_CHARS) }
                 if (sturmBound) { put("endpoint_and_claim_bits", QxLimits.BITS); put("certificate_chars", PolynomialSturmBound.MAX_CERTIFICATE_CHARS) }
                 if (rationalBound) { put("endpoint_and_claim_bits", QxLimits.BITS); put("obligation_degree", RealRootLimits.DEGREE); put("certificate_chars", PolynomialSturmBound.MAX_CERTIFICATE_CHARS) }
-                if (operation == "professional_calculus") { put("absolute_digits", 24); put("taylor_order", CertifiedCalculus.ORDER); put("subintervals", CertifiedCalculus.MAX_CELLS); put("bisection_iterations", 2048) }
             })
-            put("notice", if (professional)
-                (result["notice"] as? JsonPrimitive)?.content ?: "仅认证当前operation所陈述的明确范围，不是OCR、授权或完整用户目标成功。"
-                else if (rationalBound)
+            put("notice", if (rationalBound)
                 "仅核验两Q(x)原表达式在整个有理闭区间上的给定绝对误差界。先以完整Sturm证明原语法条件与分母全区间无孔洞/极点；约分、相减抵消或同端点不填原域。差N/D的双侧界归约为(claim*D±N)*D非负，依据D²严格正，不误用负分母方向。两侧完整精确符号证书才获证，错误界含原域精确有理反例，资源不足UNSUPPORTED无部分证书。不求最优界/极限补值/一般函数定理，不是授权或完整任务成功。"
                 else if (sturmBound)
                 "仅精确判定两Q[x]在有理闭区间的给定统一绝对误差界，不求最优界。分别对claim-error与claim+error构造完整Sturm根与符号单元证书，包含端点和重根；点值只在根完备后分类，不以采样证明。错误声明DISPROVED含精确有理反例，资源不足UNSUPPORTED且不发布部分证书。不是一般函数误差定理、授权或完整任务成功。"
@@ -280,7 +260,6 @@ object MathVerification {
     suspend fun accepts(input: JsonObject, candidate: JsonObject): Boolean {
         val actual = verify(input)
         if (actual.getValue("status").jsonPrimitive.content != "VERIFIED" || candidate.keys != actual.keys) return false
-        if (input["operation"]?.jsonPrimitive?.content in ProfessionalMath.operations) return actual == candidate
         if ((candidate["notice"] as? JsonPrimitive)?.isString != true) return false
         return actual.all { (key, value) -> key == "notice" || candidate[key] == value }
     }

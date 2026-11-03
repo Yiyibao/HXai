@@ -113,7 +113,7 @@ class _AgentTaskSafetyControlsState
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('安全控制作用于此任务；停止中的调用或未知结果仍需核对。补充要求及审批请在关联会话处理。'),
+        const Text('安全控制作用于此任务；停止中的调用或未知结果仍需核对。恢复、补充要求及审批请在关联会话处理。'),
         Wrap(
           spacing: 8,
           children: [

@@ -89,10 +89,7 @@ class AgentTaskCenterSurfaceTest {
                         if(text(automation.rootInActiveWindow).contains("关联会话已不可用")) true
                         else { scrollForward(); false }
                     }
-                    waitFor("locked model metadata not visible") {
-                        if(text(automation.rootInActiveWindow).contains("center-model")) true
-                        else { scrollForward(); false }
-                    }
+                    assertTrue(text(automation.rootInActiveWindow).contains("center-model"))
                     capture("$theme-$scale-detail")
                     assertEquals(before,store.snapshot(task.owner,task.id))
                     scenario.close();scenario=null

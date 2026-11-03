@@ -32,7 +32,6 @@ object DocumentContract {
         require(manifest.totalPages in 1..200 && end <= manifest.totalPages && manifest.requestedRange == listOf(start, end))
         val selected = (start..end).toSet()
         require(manifest.processedPages.distinct().size == manifest.processedPages.size && selected.containsAll(manifest.processedPages))
-        require(manifest.failedPages.distinct().size == manifest.failedPages.size && manifest.blankPages.distinct().size == manifest.blankPages.size)
         require(manifest.failedPages.toSet() == selected - manifest.processedPages.toSet())
         require(manifest.processedPages.containsAll(manifest.blankPages))
         require(manifest.complete == (start == 1 && end == manifest.totalPages && manifest.failedPages.isEmpty()))
@@ -44,23 +43,5 @@ object DocumentContract {
             require(it.mediaType in setOf("application/json", "text/plain", "image/png"))
         }
         require(manifest.assets.any { it.assetId == "document" && it.mediaType == "application/json" && it.size <= 8L * 1024 * 1024 })
-    }
-
-    fun validateDocument(document: ParsedDocument, manifest: DocumentManifest) {
-        require(document.contractVersion == manifest.contractVersion && document.sourceSha256 == manifest.sourceSha256 &&
-            document.resultRevision == manifest.resultRevision && document.parserVersion == manifest.parserVersion &&
-            document.adapterVersion == manifest.adapterVersion && document.tier == manifest.tier &&
-            document.totalPages == manifest.totalPages && document.requestedRange == manifest.requestedRange &&
-            document.processedPages == manifest.processedPages && document.complete == manifest.complete &&
-            document.warnings == manifest.warnings) { "解析正文与已校验manifest的版本、覆盖或警告不一致" }
-        require(document.blankPages.size == manifest.blankPages.size && document.blankPages.toSet() == manifest.blankPages.toSet() &&
-            document.failedPages.size == manifest.failedPages.size && document.failedPages.toSet() == manifest.failedPages.toSet()) { "解析缺页或空白页元数据不一致" }
-        require(document.blocks.size <= 10000 && document.blocks.sumOf { maxOf(it.text.length, it.latex?.length ?: 0).toLong() } <= 1_000_000)
-        require(document.blocks.map { it.blockId }.distinct().size == document.blocks.size)
-        document.blocks.forEach {
-            require(it.page in document.processedPages && it.blockId.matches(Regex("p[0-9]+-b[0-9.]+")) &&
-                (it.assetId == null || manifest.assets.any { asset -> asset.assetId == it.assetId }))
-            require(it.page !in document.blankPages || (it.text.isBlank() && it.latex.isNullOrBlank() && it.assetId == null)) { "空白页标记与识别内容冲突" }
-        }
     }
 }

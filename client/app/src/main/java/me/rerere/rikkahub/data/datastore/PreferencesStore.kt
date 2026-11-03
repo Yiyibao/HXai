@@ -12,7 +12,6 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.core.floatPreferencesKey
-import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStoreFile
@@ -26,8 +25,6 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.retryWhen
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.sync.Mutex
-import kotlinx.coroutines.sync.withLock
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
@@ -115,7 +112,6 @@ class SettingsStore(
     companion object {
         // 版本号
         val VERSION = intPreferencesKey("data_version")
-        private val PUBLICATION_REVISION = longPreferencesKey("settings_publication_revision")
 
         // UI设置
         val DYNAMIC_COLOR = booleanPreferencesKey("dynamic_color")
@@ -202,11 +198,8 @@ class SettingsStore(
             persistSettings(context.settingsStore, settings, CredentialVault(context), restoreProfiles = true)
         }
 
-        private suspend fun persistSettings(dataStore: DataStore<Preferences>, settings: Settings, vault: CredentialVault, restoreProfiles: Boolean = false): Long {
-            val committed = dataStore.edit { preferences ->
-                val revision = preferences[PUBLICATION_REVISION] ?: 0L
-                check(revision in 0 until Long.MAX_VALUE) { "Settings publication revision unavailable" }
-                preferences[PUBLICATION_REVISION] = revision + 1
+        private suspend fun persistSettings(dataStore: DataStore<Preferences>, settings: Settings, vault: CredentialVault, restoreProfiles: Boolean = false) {
+            dataStore.edit { preferences ->
                 val previous = preferences.toPreferences()
                 preferences[DYNAMIC_COLOR] = settings.dynamicColor
                 preferences[THEME_ID] = settings.themeId
@@ -271,7 +264,6 @@ class SettingsStore(
                 preferences[SPONSOR_ALERT_DISMISSED_AT] = settings.sponsorAlertDismissedAt
                 protectCredentialPreferences(preferences, previous, vault)
             }
-            return requireNotNull(committed[PUBLICATION_REVISION])
         }
     }
 
@@ -317,7 +309,6 @@ class SettingsStore(
                 credentialPreferenceKeys.forEach { key -> this[key]?.let { this[key] = credentialVault.resolve(it) } }
             }
             Settings(
-                publicationRevision = stored[PUBLICATION_REVISION] ?: 0L,
                 activeProfileId = preferences[ACTIVE_PROFILE] ?: DEFAULT_PROFILE_ID,
                 learnerProfiles = preferences[LEARNER_PROFILES]?.let {
                     JsonInstant.decodeFromString<List<LearnerProfile>>(it)
@@ -520,26 +511,20 @@ class SettingsStore(
         .distinctUntilChanged()
         .toMutableStateFlow(scope, Settings.dummy())
 
-    private val updateMutex = Mutex()
-
-    suspend fun update(settings: Settings) = updateMutex.withLock {
-        updateAndAwaitPublication(settings)
-    }
-
-    private suspend fun updateAndAwaitPublication(settings: Settings) {
+    suspend fun update(settings: Settings) {
         if(settings.init) {
             Log.w(TAG, "Cannot update dummy settings")
             return
         }
-        val revision = persistSettings(dataStore, settings, credentialVault)
-        // The durable reader is the sole production publisher. A previous emission
-        // must never overwrite an optimistic acknowledgement of a newer model.
-        settingsFlow.first { !it.init && it.publicationRevision >= revision }
+        persistSettings(dataStore, settings, credentialVault)
+        settingsFlow.value = settings.copy(
+            activeProfileId = settingsFlow.value.activeProfileId,
+            learnerProfiles = settingsFlow.value.learnerProfiles,
+        )
     }
 
-    suspend fun update(fn: (Settings) -> Settings) = updateMutex.withLock {
-        // Read after the preceding commit has reached the same hot snapshot.
-        updateAndAwaitPublication(fn(settingsFlow.value))
+    suspend fun update(fn: (Settings) -> Settings) {
+        update(fn(settingsFlow.value))
     }
 
     suspend fun createLearnerProfile(name: String): String {
@@ -578,10 +563,8 @@ class SettingsStore(
         settingsFlow.first { !it.init && it.activeProfileId == id }
     }
 
-    suspend fun setLearnerMemoryEnabled(id: String, enabled: Boolean, checkAllowed: (String) -> Unit = {}) {
+    suspend fun setLearnerMemoryEnabled(id: String, enabled: Boolean) {
         dataStore.edit { preferences ->
-            // The bridge checks its epoch and the durable active owner at the write boundary.
-            checkAllowed(preferences[ACTIVE_PROFILE] ?: DEFAULT_PROFILE_ID)
             val profiles = preferences[LEARNER_PROFILES]?.let {
                 JsonInstant.decodeFromString<List<LearnerProfile>>(it)
             } ?: LearnerProfile.defaults()
@@ -744,8 +727,6 @@ data class Settings(
     val backupReminderConfig: BackupReminderConfig = BackupReminderConfig(),
     val launchCount: Int = 0,
     val sponsorAlertDismissedAt: Int = 0,
-    // Publication metadata; never exported in task/config/backup JSON.
-    @Transient internal val publicationRevision: Long = 0L,
 ) {
     companion object {
         // 构造一个用于初始化的settings, 但它不能用于保存，防止使用初始值存储

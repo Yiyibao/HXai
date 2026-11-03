@@ -10,7 +10,6 @@ import 'package:flutter_ui/pages/agent_tasks_page.dart';
 import 'package:flutter_ui/pages/agent_task_detail_page.dart';
 import 'package:flutter_ui/providers/profile_resource.dart';
 import 'package:flutter_ui/providers/study_providers.dart';
-import 'package:flutter_ui/providers/frontend_feature_providers.dart';
 
 import 'agent_usage_view_test.dart' show page;
 
@@ -103,16 +102,7 @@ void main() {
     );
   }
 
-  setUp(() {
-    mock('getTaskResumeReceipt', (_) async => [null]);
-    messenger.setMockMethodCallHandler(FrontendFeatures.channel, (call) async {
-      if (call.method == 'cloud.state') return {'enabled': false, 'delegations': <String>[]};
-      throw MissingPluginException(call.method);
-    });
-  });
-
   tearDown(() {
-    messenger.setMockMethodCallHandler(FrontendFeatures.channel, null);
     for (final c in channels) {
       messenger.setMockDecodedMessageHandler<Object?>(c, null);
     }
@@ -325,16 +315,6 @@ void main() {
             .onPressed,
         isNull,
       );
-      await tester.scrollUntilVisible(
-        find.textContaining('保存的 SHA256'),
-        200,
-        scrollable: find
-            .descendant(
-              of: find.byType(ListView),
-              matching: find.byType(Scrollable),
-            )
-            .first,
-      );
       expect(find.textContaining('保存的 SHA256'), findsOneWidget);
       expect(find.textContaining('部分回执过大'), findsOneWidget);
       expect(find.text('暂停'), findsNothing);
@@ -486,19 +466,7 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.text('goal-task'));
       await tester.pumpAndSettle();
-      await tester.scrollUntilVisible(
-        find.text('打开成果预览'),
-        180,
-        scrollable: find
-            .descendant(
-              of: find.byType(ListView),
-              matching: find.byType(Scrollable),
-            )
-            .first,
-      );
-      await tester.pumpAndSettle();
       await tester.ensureVisible(find.text('打开成果预览'));
-      await tester.pumpAndSettle();
       await tester.tap(find.text('打开成果预览'));
       await tester.pumpAndSettle();
       expect(find.text('preview-route'), findsOneWidget);

@@ -43,10 +43,6 @@ class _MathStudyAppState extends ConsumerState<MathStudyApp>
     ref.invalidate(bootstrapProvider);
     ref.invalidate(materialsProvider);
     ref.invalidate(memoriesProvider);
-    // Keep an in-flight setting command pending; its own readback refreshes last.
-    if (ref.exists(memoryProtectionProvider)) {
-      ref.read(memoryProtectionProvider.notifier).refresh();
-    }
     ref.invalidate(documentTasksProvider);
     ref.invalidate(artifactsProvider);
     ref.invalidate(imageTasksProvider);

@@ -95,7 +95,7 @@ class CompressionConcurrencyTest {
             if(failure.isCompleted) throw failure.await()
         } finally {
             release.complete(Unit); server.close(); worker.join(5000)
-            repo.getConversationById(id)?.let { service?.deleteConversation(it) }
+            repo.getConversationById(id)?.let { service?.stopGeneration(id); repo.deleteConversation(it) }
             service?.removeConversationReference(id)
             settings.update(original)
         }

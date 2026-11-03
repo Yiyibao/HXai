@@ -118,17 +118,16 @@ def test_queue_limit_is_not_removed_by_cost_budget_decision(tmp_path):
         enqueue(store, owner, 'queue-request-4')
 
 
-@pytest.mark.parametrize('operation', ['parse', 'office', 'recalculation'])
+@pytest.mark.parametrize('operation', ['parse', 'office'])
 @pytest.mark.parametrize('revoke_during_upload', [False, True])
 def test_asgi_upload_rechecks_authorization(tmp_path, operation, revoke_during_upload):
     app = create_app(tmp_path)
     store = app.state.store
     owner, token = store.issue()
     (tmp_path / 'worker-ready.json').write_text('{}')
-    (tmp_path / 'office-ready.json').write_text(json.dumps({'rendererVersion': 'synthetic-renderer', 'recalculationContractVersion': 1}))
+    (tmp_path / 'office-ready.json').write_text(json.dumps({'rendererVersion': 'synthetic-renderer'}))
     payload = b'%PDF-1.4\nSYNTHETIC\n' if operation == 'parse' else b'PK\x03\x04SYNTHETIC-PACKAGE-HEADER'
-    endpoint = {'parse': '/api/v1/jobs?extension=pdf', 'office': '/api/v1/conversions?extension=docx',
-                'recalculation': '/api/v1/recalculations?extension=xlsx'}[operation]
+    endpoint = '/api/v1/jobs?extension=pdf' if operation == 'parse' else '/api/v1/conversions?extension=docx'
 
     async def chunks():
         yield payload[:8]

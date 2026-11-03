@@ -996,7 +996,6 @@ class _ChatPageState extends ConsumerState<ChatPage>
         if ([
               'parse_material_enhanced',
               'convert_material_to_pdf',
-              'recalculate_material_xlsx',
             ].contains(part.toolName) &&
             part.executionState == 'COMPLETED') {
           try {

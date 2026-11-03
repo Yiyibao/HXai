@@ -26,21 +26,13 @@ abstract class ProviderRequestReceipt {
     open fun authorizationRejected(status: Int) { require(status==401 || status==403); complete(null) }
 }
 
-/** Optional local source check immediately before every physical request admission. */
-class ProviderRequestGuard(val validate: suspend () -> Unit) : AbstractCoroutineContextElement(Key) {
-    companion object Key : CoroutineContext.Key<ProviderRequestGuard>
-}
-
 suspend fun beginProviderRequest(
     provider: ProviderSetting,
     params: TextGenerationParams,
     body: JsonObject,
     encodedBody: String,
-): ProviderRequestReceipt? {
-    val context = currentCoroutineContext()
-    context[ProviderRequestGuard]?.validate?.invoke()
-    return context[ProviderRequestAccounting]?.begin(provider, params, body, encodedBody)
-}
+): ProviderRequestReceipt? = currentCoroutineContext()[ProviderRequestAccounting]
+    ?.begin(provider, params, body, encodedBody)
 
 
 /** Image and Responses dialects report different counters; absent counters remain unknown. */

@@ -17,7 +17,6 @@ def version():
 
 
 def export(source, extension, target):
-    import uno
     with office_document(source, extension) as document:
         if extension == 'xlsx':
             # A calculateAll return alone does not verify saved formula caches.
@@ -30,7 +29,7 @@ def export(source, extension, target):
             'ExportFormFields': False, 'ExportBookmarks': True,
         }.items())
         document.storeToURL(target.resolve().as_uri(), (property_value('FilterName', filters[extension]),
-                                                       property_value('FilterData', uno.Any('[]com.sun.star.beans.PropertyValue', data)), property_value('Overwrite', False)))
+                                                       property_value('FilterData', data), property_value('Overwrite', False)))
 
 
 def main(input_directory=Path('/input'), output=Path('/output')):

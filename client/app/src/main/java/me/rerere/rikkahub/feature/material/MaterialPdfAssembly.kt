@@ -57,7 +57,7 @@ object MaterialPdfAssembly {
                 check(current.sha256 == input.item.sha256 && current.size == input.item.size &&
                     current.extension == input.item.extension && current.sourceId == input.item.sourceId) { "PDF源版本或谱系改变" }
             }
-            val key = me.rerere.rikkahub.feature.interactive.InteractiveSurface.hash("pdf-assembly-v2:${source.id}:${source.sha256}:$spec:$title")
+            val key = me.rerere.rikkahub.feature.interactive.InteractiveSurface.hash("pdf-assembly-v1:${source.id}:${source.sha256}:$spec:$title")
             val existing = store.list(owner).firstOrNull { it.output && it.state == "SUCCEEDED" && it.requestKey == key }
             if (existing != null) {
                 val evidence = verify(frozen, store.verifiedFile(owner, existing.id))
@@ -65,7 +65,7 @@ object MaterialPdfAssembly {
                 checkSources()
                 return existing
             }
-            return store.runTask(MaterialFile(UUID.randomUUID().toString(), owner, "$title.pdf", "pdf", output = true, sourceId = source.id, sourceReferences = inputs.map { MaterialSourceBinding(it.item.id, it.item.sha256) }.distinct(), requestKey = key)) { target ->
+            return store.runTask(MaterialFile(UUID.randomUUID().toString(), owner, "$title.pdf", "pdf", output = true, sourceId = source.id, requestKey = key)) { target ->
                 MaterialEditor.pdfPages(frozen, target)
                 check(target.length() <= 30L * 1024 * 1024)
                 // Compare an independently reopened output with each frozen physical source page.

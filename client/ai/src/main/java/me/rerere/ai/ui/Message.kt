@@ -33,8 +33,6 @@ data class UIMessage(
     // 请求期间生成的内部消息；该标记仅在内存中使用
     @Transient
     val isSynthetic: Boolean = false,
-    // Local checkpoint provenance; never a provider parameter or permission grant.
-    val generationTaskId: String? = null,
 ) {
     fun summaryAsText(maxLength: Int = Int.MAX_VALUE): String {
         val text = "[${role.name}]: " + parts.joinToString(separator = "\n") { part ->

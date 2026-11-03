@@ -198,7 +198,7 @@ class AgentChatAcceptanceTest {
                 ids.forEach { id ->
                     repo.getConversationById(id)?.let { conversation ->
                         service?.stopGeneration(id)
-                        requireNotNull(service).deleteConversation(conversation)
+                        repo.deleteConversation(conversation)
                     }
                     service?.removeConversationReference(id)
                 }
@@ -216,21 +216,13 @@ class AgentChatAcceptanceTest {
                             val ownedTasks = "SELECT id FROM tasks WHERE owner=? AND conversation_id=?"
                             val args = arrayOf(original.activeProfileId,id.toString())
                             db.execSQL("UPDATE slot SET task_id=NULL WHERE task_id IN ($ownedTasks)",args)
-                            // Schema 13 receipts remain in production. Only these random QA
-                            // conversations, after the synthetic localhost server is closed, are cleaned.
-                            val requests = "SELECT request_id FROM usage WHERE task_id IN ($ownedTasks)"
-                            for (table in listOf("usage_costs", "agent_hosted_results"))
-                                db.execSQL("DELETE FROM $table WHERE request_id IN ($requests)", args)
-                            for(table in listOf("agent_provider_commands","agent_sessions","agent_host_credentials",
-                                "agent_executor_bindings","executor_handoffs",
-                                "credential_overrides","credential_validation_intents","credential_commands",
+                            // Schema 7 children are retained in production. Only this closed,
+                            // synthetic fixture's random conversation IDs are removed here.
+                            for(table in listOf("credential_overrides","credential_validation_intents","credential_commands",
                                 "task_tool_decisions","task_approval_waits","plan_steps","plans","task_commands","grants",
                                 "task_control","calls","usage"))
                                 db.execSQL("DELETE FROM $table WHERE task_id IN ($ownedTasks)",args)
                             db.execSQL("DELETE FROM tasks WHERE owner=? AND conversation_id=?",args)
-                        }
-                        db.rawQuery("PRAGMA foreign_key_check", null).use { rows ->
-                            assertFalse("Synthetic cleanup left a broken task reference", rows.moveToFirst())
                         }
                         db.setTransactionSuccessful()
                     } finally { db.endTransaction() }
@@ -269,7 +261,7 @@ class AgentChatAcceptanceTest {
             assertTrue(stored.queue.messages.isEmpty())
         } finally {
             try {
-                repository.getConversationById(id)?.let { service?.stopGeneration(id); requireNotNull(service).deleteConversation(it) }
+                repository.getConversationById(id)?.let { service?.stopGeneration(id); repository.deleteConversation(it) }
                 service?.removeConversationReference(id)
             } finally { settings.update(original) }
         }
@@ -307,7 +299,7 @@ class AgentChatAcceptanceTest {
             }
         } finally {
             try {
-                repo.getConversationById(id)?.let { service?.stopGeneration(id); requireNotNull(service).deleteConversation(it) }
+                repo.getConversationById(id)?.let { service?.stopGeneration(id); repo.deleteConversation(it) }
                 service?.errors?.value?.filter { it.conversationId==id }?.forEach { service.dismissError(it.id) }
                 service?.removeConversationReference(id)
             } finally { settings.update(original) }

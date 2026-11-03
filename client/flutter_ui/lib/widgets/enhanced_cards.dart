@@ -170,23 +170,17 @@ class EnhancedToolCard extends StatefulWidget {
 
 class _EnhancedToolCardState extends State<EnhancedToolCard> {
   bool _expanded = false;
-  String? _outputText;
-  Map<String, dynamic> _outputData = const {};
 
   bool get isSearch => widget.part.toolName == 'search_web';
   bool get isWebRead => isSearch || widget.part.toolName == 'scrape_web';
 
   Map<String, dynamic> get searchOutput {
-    final text = widget.part.toolOutput ?? '{}';
-    if (_outputText == text) return _outputData;
-    _outputText = text;
     try {
-      final value = jsonDecode(text);
-      _outputData = value is Map<String, dynamic> ? value : const {};
+      final value = jsonDecode(widget.part.toolOutput ?? '{}');
+      return value is Map<String, dynamic> ? value : {};
     } catch (_) {
-      _outputData = const {};
+      return {};
     }
-    return _outputData;
   }
 
   String? get searchQuery {
@@ -208,7 +202,6 @@ class _EnhancedToolCardState extends State<EnhancedToolCard> {
       'create_material_file' => '生成文件',
       'edit_material_file' => '修改文件',
       'convert_material_to_pdf' => '转换 PDF',
-      'recalculate_material_xlsx' => '重算 XLSX',
       'read_material_file' => '读取文件',
       'use_skill' => '加载技能资料',
       'render_interactive_ui' || 'create_interactive_surface' => '生成交互界面',
@@ -222,30 +215,6 @@ class _EnhancedToolCardState extends State<EnhancedToolCard> {
   String get statusLabel {
     final isPending = widget.part.approvalState?.toLowerCase() == 'pending';
     if (isPending) return '等待确认';
-    if (const [
-          'parse_material_enhanced',
-          'convert_material_to_pdf',
-          'recalculate_material_xlsx',
-        ].contains(widget.part.toolName) &&
-        widget.part.executionState == 'COMPLETED' &&
-        searchOutput['task_id'] is String) {
-      final data = searchOutput;
-      if (data['cancel_requested'] == true) {
-        return data['cancel_confirmed'] == true ? '已取消交付' : '已请求取消，等待确认';
-      }
-      if (data['readback_valid'] == false) return '成果核验失效，请重新检查';
-      return switch (data['state']) {
-        'SUBMITTING' => '提交回执未确认',
-        'QUEUED' => '服务排队中',
-        'RUNNING' => '服务处理中',
-        'SUCCEEDED' => data['downloaded'] == true ? '成果已下载并核验' : '等待下载与核验',
-        'PARTIAL' => '部分结果，请核对覆盖范围',
-        'FAILED' => '服务处理失败',
-        'CANCELLED' => '已取消交付',
-        'EXPIRED' => '服务结果已过期',
-        _ => '服务状态未知',
-      };
-    }
     if (!isWebRead &&
         widget.part.executionState == 'COMPLETED' &&
         const ['FAILED', 'error'].contains(searchOutput['status'])) {
@@ -301,14 +270,6 @@ class _EnhancedToolCardState extends State<EnhancedToolCard> {
     if (isPending) return Icons.hourglass_empty;
     if (const ['FAILED', 'error'].contains(searchOutput['status'])) {
       return Icons.info_outline;
-    }
-    if (widget.part.executionState == 'COMPLETED' &&
-        searchOutput['task_id'] is String &&
-        !(searchOutput['state'] == 'SUCCEEDED' &&
-            searchOutput['downloaded'] == true &&
-            searchOutput['readback_valid'] != false &&
-            searchOutput['cancel_requested'] != true)) {
-      return Icons.hourglass_empty;
     }
 
     return switch (widget.part.executionState) {
