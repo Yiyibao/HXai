@@ -1,5 +1,6 @@
 // Explicit opt-in for native Gradle outputs; Flutter's reusable host AAR repository
-// remains at its integration contract path. No daemon/device ownership is implied.
+// Pass an absolute -I path. `gradle -p client -I scripts/storage.init.gradle`
+// resolves the script under client/, not the repository root.
 def runDir = System.getenv('HXAI_RUN_DIR')
 if (!runDir || !new File(runDir).isDirectory()) {
     throw new GradleException('Run through scripts/project_storage.py run first')

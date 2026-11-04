@@ -1,0 +1,57 @@
+{
+  "head": "fac15db2f0be0336c0c7c5bfd2f2a4b2a30dcdbf",
+  "run_dir": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\hxai-runs\\98ba86325b144c7ebf735734e8072373",
+  "init_script": "D:\\Office\\Study\\code\\MathStudyAgent\\scripts\\storage.init.gradle",
+  "started": "2026-11-04T10:45:31+0800",
+  "old_debug_apk_mtime": 1793757764.9905646,
+  "redirect": {
+    "exit": 0,
+    "gated_message_absent": true,
+    "output_dir": "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\hxai-runs\\98ba86325b144c7ebf735734e8072373\\gradle\\_app",
+    "file_count": 1,
+    "sample": [
+      "gradle\\_app\\generated\\source\\buildConfig\\debug\\me\\rerere\\rikkahub\\BuildConfig.java"
+    ],
+    "old_apk_mtime_unchanged": true
+  },
+  "package_build_exit": 0,
+  "package_build_tail": ":lintAnalyzeDebugUnitTest UP-TO-DATE\n> Task :search:preDebugAndroidTestBuild UP-TO-DATE\n> Task :search:generateDebugAndroidTestLintModel UP-TO-DATE\n> Task :search:generateDebugUnitTestLintModel UP-TO-DATE\n> Task :search:lintAnalyzeDebugAndroidTest UP-TO-DATE\n> Task :search:lintAnalyzeDebugUnitTest UP-TO-DATE\n> Task :speech:preDebugAndroidTestBuild UP-TO-DATE\n> Task :speech:generateDebugAndroidTestLintModel UP-TO-DATE\n> Task :speech:preDebugUnitTestBuild UP-TO-DATE\n> Task :speech:generateDebugUnitTestLintModel UP-TO-DATE\n> Task :speech:lintAnalyzeDebugAndroidTest UP-TO-DATE\n> Task :speech:lintAnalyzeDebugUnitTest UP-TO-DATE\n> Task :videogen:preDebugAndroidTestBuild UP-TO-DATE\n> Task :videogen:generateDebugAndroidTestLintModel UP-TO-DATE\n> Task :videogen:preDebugUnitTestBuild UP-TO-DATE\n> Task :videogen:generateDebugUnitTestLintModel UP-TO-DATE\n> Task :videogen:lintAnalyzeDebugAndroidTest UP-TO-DATE\n> Task :videogen:lintAnalyzeDebugUnitTest UP-TO-DATE\n> Task :web:preDebugAndroidTestBuild UP-TO-DATE\n> Task :web:generateDebugAndroidTestLintModel UP-TO-DATE\n> Task :web:preDebugUnitTestBuild UP-TO-DATE\n> Task :web:generateDebugUnitTestLintModel UP-TO-DATE\n> Task :web:lintAnalyzeDebugAndroidTest UP-TO-DATE\n> Task :web:lintAnalyzeDebugUnitTest UP-TO-DATE\n> Task :workspace:preDebugAndroidTestBuild UP-TO-DATE\n> Task :workspace:generateDebugAndroidTestLintModel UP-TO-DATE\n> Task :workspace:preDebugUnitTestBuild UP-TO-DATE\n> Task :workspace:generateDebugUnitTestLintModel UP-TO-DATE\n> Task :workspace:lintAnalyzeDebugAndroidTest UP-TO-DATE\n> Task :workspace:lintAnalyzeDebugUnitTest UP-TO-DATE\n\n> Task :app:lintReportDebug\nWrote HTML report to file:///D:/Office/Study/code/MathStudyAgent/client/app/build/reports/lint-results-debug.html\nWrote SARIF report to file:///D:/Office/Study/code/MathStudyAgent/client/app/build/reports/lint-results-debug.sarif\n\n> Task :app:lintDebug\n\nBUILD SUCCESSFUL in 7m 15s\n546 actionable tasks: 30 executed, 516 up-to-date\nConfiguration cache entry stored.\n",
+  "bindings": {
+    "debug": {
+      "exit": 1,
+      "tail": "FAIL: 38 Flutter assets; debug; x86_64; APK SHA-256 c8663c99514fff4d3cce059f6e83b2656a7ddff5ee3d45998da15831730e2bfd\nMatching SDK engine unavailable: x86_64\n",
+      "report": "D:\\Office\\Study\\code\\MathStudyAgent\\HXai_CHANGE_REVIEW\\G47-01-BUILD-BASELINE-20261104\\binding-debug.json"
+    }
+  },
+  "release": {
+    "status": "BLOCKED",
+    "reason": "processReleaseGoogleServices found no client for org.hxsi.agent; google-services.json only contains org.hxsi.agent.debug. Unsigned release was not substituted with the debug key.",
+    "aar_present": true,
+    "apk_present": false
+  },
+  "normal_package": {
+    "badging_exit": 0,
+    "package_lines": [
+      "package: name='org.hxsi.agent.debug' versionCode='1' versionName='0.1.0-dev' platformBuildVersionName='17' platformBuildVersionCode='37' compileSdkVersion='37' compileSdkVersionCodename='17'"
+    ],
+    "xml_exit": 0,
+    "qa_markers_present": []
+  },
+  "apk_sha256": {
+    "debug_x86_64": "c8663c99514fff4d3cce059f6e83b2656a7ddff5ee3d45998da15831730e2bfd",
+    "androidTest": "c481c64aaab56fbfcd2afebc71da0efc1dc9dab318798bcf7ec32313632641ea"
+  },
+  "status": "FAIL",
+  "devices": [
+    {
+      "avd": "hxai-api26",
+      "instrument_exit": 1,
+      "reason": "boot_timeout"
+    },
+    {
+      "avd": "hxai-api34",
+      "instrument_exit": 1,
+      "reason": "boot_timeout"
+    }
+  ]
+}

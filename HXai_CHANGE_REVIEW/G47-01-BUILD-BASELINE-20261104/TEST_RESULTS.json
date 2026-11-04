@@ -1,0 +1,28 @@
+{
+  "feature": "G47-01-BUILD-BASELINE-20261104",
+  "cwd": "D:\\Office\\Study\\code\\MathStudyAgent",
+  "base": "fac15db2f0be0336c0c7c5bfd2f2a4b2a30dcdbf",
+  "independent_review": "NOT_EVALUATED",
+  "toolchain": {
+    "flutter": "3.47.9",
+    "dart": "3.13.7",
+    "jdk": "21.0.9",
+    "gradle": "9.6.0",
+    "compileSdk": "37.0 minor 2",
+    "android_platforms": ["android-26", "android-34", "android-36", "android-37.0", "android-37.2"],
+    "avd": ["hxai-api26", "hxai-api34"]
+  },
+  "runs": [
+    {"name": "pigeon", "result": "PASS", "exit": 0, "note": "regenerated; git status empty for both generated files"},
+    {"name": "flutter analyze --no-pub", "result": "PASS", "exit": 0, "note": "No issues found, 128.9s"},
+    {"name": "flutter test --no-pub", "result": "PASS", "exit": 0, "note": "422 tests passed"},
+    {"name": "gradle redirect generateDebugBuildConfig", "result": "PASS", "exit": 0, "note": "output under HXAI_RUN_DIR/gradle/_app; existing debug APK mtime unchanged"},
+    {"name": "relative -I without storage", "result": "FAIL", "exit": 1, "note": "resolved to client/scripts/storage.init.gradle and never reached the gate"},
+    {"name": "absolute -I without HXAI_RUN_DIR", "result": "PASS", "exit": 1, "note": "expected gate failure: Run through scripts/project_storage.py run first"},
+    {"name": "assembleDebug assembleDebugAndroidTest unit tests lintDebug", "result": "PASS", "exit": 0, "note": "BUILD SUCCESSFUL in 7m 15s; app 554, ai 215, search 33 unit tests, 0 failures"},
+    {"name": "assembleRelease", "result": "BLOCKED", "exit": 1, "note": "No matching client for org.hxsi.agent in google-services.json"},
+    {"name": "verify_flutter_apk debug", "result": "FAIL", "exit": 1, "note": "38 assets matched, 0 mismatches; SDK debug engine jar android-x64/flutter.jar absent"},
+    {"name": "API26 HostEpochAndDocumentRevokeTest", "result": "PASS", "exit": 0, "note": "OK (2 tests), 0.614s, after ANDROID_AVD_HOME was set"},
+    {"name": "API34 HostEpochAndDocumentRevokeTest", "result": "PASS", "exit": 0, "note": "OK (2 tests), 1.703s"}
+  ]
+}

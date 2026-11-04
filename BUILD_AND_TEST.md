@@ -18,7 +18,7 @@ $storageInit = (Resolve-Path scripts/storage.init.gradle).Path
 python scripts/project_storage.py run --feature NATIVE --kind build --disposable --reserve-mib 6144 -- cmd /d /c client\gradlew.bat -p client -I $storageInit :app:assembleDebug --offline --no-daemon
 ```
 
-该 Gradle 重定向需在恢复外部 Android/Flutter 环境后做真实构建验证，当前不宣称已通过原生构建。Flutter host AAR 仓库仍按集成约定复用一套。旧验证脚本的 `--run-dir` / `--out` 必须显式指定到 `HXAI_RUN_DIR` 的子目录；环境变量不会自动改写脚本中的固定路径。结束前运行 `report` / `gc` 检查，`gc` 默认仅预览；`gc --apply` 只回收符合登记条件的一次性输出。
+2026-11-04 已验证：绝对路径 `-I` 会把 `:app:generateDebugBuildConfig` 写到 `HXAI_RUN_DIR/gradle/_app`，且不改已有 `client/app/build` 的 Debug APK。相对路径会被 `-p client` 解析到 `client/scripts/`，到不了门禁。这不是 Release、Mate 50 或完整前端新建通过。
 
 ## R27-05 前台确认与离线停止接续
 
