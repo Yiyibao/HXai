@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "wrong-ca",
+      "status": "PASS",
+      "verifyCode": 20
+    },
+    {
+      "case": "wrong-hostname",
+      "status": "PASS",
+      "verifyCode": 64
+    },
+    {
+      "case": "no-http-downgrade",
+      "status": "PASS"
+    },
+    {
+      "case": "expired-certificate",
+      "status": "PASS",
+      "verifyCode": 10
+    },
+    {
+      "case": "tls-host-crash-live-worker-adoption-exit",
+      "status": "PASS",
+      "originalHostPid": 29392,
+      "restartedHostPid": 27880,
+      "workerPid": 13564,
+      "physicalRequests": [
+        {
+          "model": "synthetic-locked-model",
+          "reasoning": "high",
+          "requestId": "e1804d8a-579b-466f-88f9-e33da8972ffc",
+          "bodyHash": "9c4649886acf983ef34a5be853341f2f1e42bcbfc738769b473b427d4c65b9ae"
+        },
+        {
+          "model": "synthetic-locked-model",
+          "reasoning": "high",
+          "requestId": "238a0b45-c0be-4bc0-9f61-6eb72fd19552",
+          "bodyHash": "cd0d33a3158ada7e698f61510024ad13ae131810762b4df4c4c6a768b74cab24"
+        },
+        {
+          "model": "synthetic-locked-model",
+          "reasoning": "high",
+          "requestId": "ca0d8187-d37b-4ec7-8cf0-acca9ec51e92",
+          "bodyHash": "d8eebe462f5199bc11803dbd61d91ca72ad67df76adaa803b5c94725b01915f6"
+        },
+        {
+          "model": "synthetic-locked-model",
+          "reasoning": "high",
+          "requestId": "53103429-774d-4151-afc3-d9097e4a11aa",
+          "bodyHash": "b0c1db24ca3dba23c2acebe30008265deb096831451059b48e099d3533016d5c"
+        }
+      ],
+      "artifactSha256": "0f06a368a445d3686886d51003bc7bd653ff7ea9a8c5c094797bbb9b452884f9"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "quality-prepare",
+    "exit": 5,
+    "tail": "\n----------------------------------------------------------------------\nRan 0 tests in 0.000s\n\nNO TESTS RAN\n"
+  },
+  {
+    "name": "quality-import",
+    "exit": 5,
+    "tail": "\n----------------------------------------------------------------------\nRan 0 tests in 0.000s\n\nNO TESTS RAN\n"
+  },
+  {
+    "name": "verify_r27_authority.py",
+    "exit": 0,
+    "tail": "{\"status\": \"PASS_SCOPED\", \"scope\": \"Actual loopback HTTP authority, two independent client processes, real server restart; no App/model/tool-quality claim\", \"oldFence\": 1, \"newFence\": 2, \"unknownSlotRetained\": true}\n"
+  },
+  {
+    "name": "verify_r27_cloud.py",
+    "exit": 0,
+    "tail": "l loopback Provider transport, original file Runner and independent artifact bytes; synthetic model responses, not mathematical/real Provider quality\", \"results\": [{\"status\": \"PASS\", \"scenario\": \"phone-client-exited-cloud-worker-completed\", \"authorityPid\": 5448, \"exitedSubmittingClientPid\": 38528, \"workerPids\": [12092], \"artifactSha256\": \"77750a99f8b6d4f8cdb0c0505393302ee7b6e68b72c7a21a946900f81b95dade\", \"physicalProviderRequests\": 4, \"realModelCalls\": 0, \"reportedAndUnknownUsageSeparated\": true, \"plaintextSecretAbsentFromDatabase\": true}, {\"status\": \"PASS\", \"scenario\": \"unknown-physical-request-retains-slot\", \"physicalRequests\": 1, \"resumeRejected\": true}], \"physicalRequests\": [{\"requestId\": \"aebf48e3-8e12-4dc7-8f9d-608cbd659860\", \"bodyHash\": \"4e2c9d326b2a1567420cdead5a96fa58be51d246915a96ec4521916639fd890b\", \"path\": \"/chat/completions\"}, {\"requestId\": \"9860ccbe-da11-44f7-89f8-c257413cdfb6\", \"bodyHash\": \"7fef3f9954eb34824b2e3ae94d1d9f947044e3b8153ce639534d5db854bad4d2\", \"path\": \"/chat/completions\"}, {\"requestId\": \"a98c9aca-adae-4956-8f6b-33cbcd9b8571\", \"bodyHash\": \"57b905a46d56d3dac5166d4495eb647a2ce06d949192b72e0ed1c963a9d9c314\", \"path\": \"/chat/completions\"}, {\"requestId\": \"51105c53-bdf9-4b08-a9d1-e224279b878d\", \"bodyHash\": \"397f566506bd6a69747024a77da377f60fd78f64d5cedafc247e60b6b1de52df\", \"path\": \"/chat/completions\"}, {\"requestId\": \"172562a7-5f4d-4772-90ad-f3602da1da02\", \"bodyHash\": \"4e2c9d326b2a1567420cdead5a96fa58be51d246915a96ec4521916639fd890b\", \"path\": \"/unknown\"}]}\n"
+  },
+  {
+    "name": "verify_r29_tls.py",
+    "exit": 0,
+    "tail": "{\"status\": \"PASS\", \"cases\": [\"wrong-ca\", \"wrong-hostname\", \"no-http-downgrade\", \"expired-certificate\", \"tls-host-crash-live-worker-adoption-exit\"]}\n"
+  },
+  {
+    "name": "verify_r29_validation.py",
+    "exit": 0,
+    "tail": "{\"status\": \"PASS\", \"cases\": [\"known-success-real-worker-death-no-replay\", \"duration-renewal-preserves-expired-key-and-four-blockers\", \"revocation-late-rejection-settles-without-key-install\"], \"physicalRequests\": [\"e30b2fdd-3dc5-4aed-bb19-73f921c13d65\", \"ab523919-fb01-45b0-adc7-7e9a660e9e0b\", \"116d3318-8f34-40b6-8a21-957b76f79fc5\"], \"killedWorkerPid\": 34312}\n"
+  },
+  {
+    "name": "verify_r29_documents.py",
+    "exit": 0,
+    "tail": "{\"status\": \"PASS\", \"tools\": [\"render_office_pdf\", \"recalculate_xlsx\", \"render_office_pdf_lost_upload_ack\"]}\n"
+  }
+]

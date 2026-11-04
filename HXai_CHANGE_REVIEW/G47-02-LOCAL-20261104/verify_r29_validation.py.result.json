@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "cases": [
+    "known-success-real-worker-death-no-replay",
+    "duration-renewal-preserves-expired-key-and-four-blockers",
+    "revocation-late-rejection-settles-without-key-install"
+  ],
+  "physicalRequests": [
+    "e30b2fdd-3dc5-4aed-bb19-73f921c13d65",
+    "ab523919-fb01-45b0-adc7-7e9a660e9e0b",
+    "116d3318-8f34-40b6-8a21-957b76f79fc5"
+  ],
+  "killedWorkerPid": 34312
+}

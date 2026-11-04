@@ -1,0 +1,109 @@
+{
+  "status": "PASS_SCOPED",
+  "scope": "Actual loopback HTTP authority, two independent client processes, real server restart; no App/model/tool-quality claim",
+  "authorityPids": [
+    38040,
+    364
+  ],
+  "clientPids": [
+    3556,
+    37340
+  ],
+  "twoClientResults": [
+    {
+      "status": 200,
+      "result": {
+        "state": "RUNNING",
+        "taskId": "6f295155-44b3-4d7e-9708-1eb8a04e4d4a",
+        "fence": 1,
+        "instance": "client-0"
+      }
+    },
+    {
+      "status": 200,
+      "result": {
+        "state": "QUEUED",
+        "taskId": "e9632d1f-5b59-4120-a76e-9868cd8bf49e"
+      }
+    }
+  ],
+  "oldFence": 1,
+  "newFence": 2,
+  "unknownSlotRetained": true,
+  "forgedStopRejected": true,
+  "revokePreventsDispatch": true,
+  "boundStopAfterRevokeSettled": true,
+  "acceptAndStopAckIdempotent": true,
+  "changedIntentRejected": true,
+  "realModelCalls": 0,
+  "commands": [
+    {
+      "label": "initialize",
+      "command": [
+        "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "hxai_agent.service",
+        "init",
+        "--root",
+        "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\hxai-runs\\a3302af81d644dda8c62c8823698a65c\\verify_r27_authority\\private\\authority",
+        "--key-file",
+        "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\hxai-runs\\a3302af81d644dda8c62c8823698a65c\\verify_r27_authority\\private\\wrapping.key"
+      ],
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\server\\agent-runtime",
+      "exitCode": 0,
+      "sha256": "e29de3b23c93cad935982c503967ee907c454506f1e786701a1d4846c6b653f5"
+    },
+    {
+      "label": "server-initial",
+      "command": [
+        "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "hxai_agent.service",
+        "serve",
+        "--root",
+        "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\hxai-runs\\a3302af81d644dda8c62c8823698a65c\\verify_r27_authority\\private\\authority",
+        "--key-file",
+        "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\hxai-runs\\a3302af81d644dda8c62c8823698a65c\\verify_r27_authority\\private\\wrapping.key",
+        "--port",
+        "62500",
+        "--loopback-http"
+      ],
+      "pid": 38040,
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\server\\agent-runtime"
+    },
+    {
+      "label": "revoke-first",
+      "command": [
+        "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "hxai_agent.service",
+        "revoke",
+        "--root",
+        "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\hxai-runs\\a3302af81d644dda8c62c8823698a65c\\verify_r27_authority\\private\\authority",
+        "--actor",
+        "device-0"
+      ],
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\server\\agent-runtime",
+      "exitCode": 0,
+      "sha256": "bd26f7806ab9f61d8866985976bc4f6dfb52ce37546c1f9fbca4b0fc3a44c986"
+    },
+    {
+      "label": "server-restarted",
+      "command": [
+        "C:\\Users\\Hfff\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "hxai_agent.service",
+        "serve",
+        "--root",
+        "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\hxai-runs\\a3302af81d644dda8c62c8823698a65c\\verify_r27_authority\\private\\authority",
+        "--key-file",
+        "D:\\Office\\Study\\code\\MathStudyAgent\\.local\\hxai-runs\\a3302af81d644dda8c62c8823698a65c\\verify_r27_authority\\private\\wrapping.key",
+        "--port",
+        "62500",
+        "--loopback-http"
+      ],
+      "pid": 364,
+      "cwd": "D:\\Office\\Study\\code\\MathStudyAgent\\server\\agent-runtime"
+    }
+  ]
+}
