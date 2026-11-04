@@ -362,7 +362,7 @@ class FlutterChatBridgeTest {
         assertTrue(runCatching { facade.editMessage(owner, target.id.toString(), message.id.toString(), "different", "p0-edit", 1) }.isFailure)
         val saved = repository.getConversationById(target.id)!!
         assertEquals(2, saved.messageNodes.single().messages.size); assertEquals("Updated synthetic", saved.currentMessages.single().toText())
-        assertTrue(facade.switchBranch(owner, target.id.toString(), saved.messageNodes.single().id.toString(), 0).success)
+        assertTrue(facade.switchBranch(owner, target.id.toString(), saved.messageNodes.single().id.toString(), 0, 1).success)
         assertEquals(marker, repository.getConversationById(target.id)!!.currentMessages.single().toText())
         assertTrue(runCatching { facade.editMessage(owner, target.id.toString(), message.id.toString(), "stale", "new", 999) }.isFailure)
         service.removeConversationReference(target.id)
