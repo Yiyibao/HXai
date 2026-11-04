@@ -239,7 +239,7 @@ class _DocServiceConfigPageState extends ConsumerState<DocServiceConfigPage> {
                             ref.invalidate(documentConfigProvider);
                           }
                         } catch (e) {
-                          if (mounted && owner == ref.read(activeProfileIdProvider)) {
+                          if (mounted && context.mounted && owner == ref.read(activeProfileIdProvider)) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(content: Text('撤权未确认，本地凭据保留：$e')),
                             );

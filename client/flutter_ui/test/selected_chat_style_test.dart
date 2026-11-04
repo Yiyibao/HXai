@@ -9,6 +9,7 @@ import 'package:flutter_ui/theme/study_theme.dart';
 import 'package:flutter_ui/widgets/interactive_surface.dart';
 import 'package:flutter_ui/widgets/math_plot.dart';
 import 'package:flutter_ui/widgets/surface_semantics.dart';
+import 'material_font.dart';
 
 Map<String, dynamic> metric(String id, String label, num value, String unit) =>
     {'id': id, 'type': 'metric', 'label': label, 'value': value, 'unit': unit};
@@ -249,11 +250,11 @@ void main() {
       ..createSync(recursive: true);
     final outputDirectory = evidenceRoot.createTempSync('selected-chat-style-');
     for (final font in <String, String>{
-      'QAFont': '../../.local/flutter/bin/cache/artifacts/material_fonts/roboto-regular.ttf',
+      'QAFont': materialFont('roboto-regular.ttf'),
       'QAChinese': 'C:/Windows/Fonts/msyh.ttc',
       'Ahem': 'C:/Windows/Fonts/msyh.ttc',
       'monospace': 'C:/Windows/Fonts/msyh.ttc',
-      'MaterialIcons': '../../.local/flutter/bin/cache/artifacts/material_fonts/materialicons-regular.otf',
+      'MaterialIcons': materialFont('materialicons-regular.otf'),
     }.entries) {
       final loader = FontLoader(font.key)
         ..addFont(

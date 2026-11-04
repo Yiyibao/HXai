@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_ui/theme/study_theme.dart';
 import 'package:flutter_ui/widgets/interactive_surface.dart';
+import 'material_font.dart';
 
 Map<String, dynamic> visualFixture() => {
   'version': 4,
@@ -93,19 +94,20 @@ void main() {
     final evidenceRoot = Directory(Platform.environment['HXAI_QA_OUTPUT'] ?? '../../qa/flutter-visual-runs')
       ..createSync(recursive: true);
     final outputDirectory = evidenceRoot.createTempSync('surface-rendering-');
-    final fontFile = File(
-      '../../.local/flutter/bin/cache/artifacts/material_fonts/roboto-regular.ttf',
-    );
     final loader = FontLoader('QAFont')
-      ..addFont(Future.value(ByteData.sublistView(fontFile.readAsBytesSync())));
+      ..addFont(
+        Future.value(
+          ByteData.sublistView(
+            File(materialFont('roboto-regular.ttf')).readAsBytesSync(),
+          ),
+        ),
+      );
     await tester.runAsync(loader.load);
     final iconLoader = FontLoader('MaterialIcons')
       ..addFont(
         Future.value(
           ByteData.sublistView(
-            File(
-              '../../.local/flutter/bin/cache/artifacts/material_fonts/materialicons-regular.otf',
-            ).readAsBytesSync(),
+            File(materialFont('materialicons-regular.otf')).readAsBytesSync(),
           ),
         ),
       );
