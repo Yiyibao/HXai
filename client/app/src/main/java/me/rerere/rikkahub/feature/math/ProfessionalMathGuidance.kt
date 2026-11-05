@@ -4,8 +4,8 @@ package me.rerere.rikkahub.feature.math
 internal object ProfessionalMathGuidance {
     const val SCHEMA = " 工具输入协议1：所有math_verify调用均只传{operation,request:JSON对象字符串}。旧Q[x]/Q(x)操作的left/right等参数放在request字符串内，不重复operation；professional_*保持下述request格式。不要发送其他操作的空字段或默认值。旧持久直接输入仍兼容，不能将此兼容方式当作新工具schema。" +
         "professional_linear_algebra request={action:solve|rref|inverse|determinant,matrix:二维有理/十进制字符串数组,rhs:仅solve的字符串数组}，维度1–12，输出精确秩/解族/逆/行列式，逆矩阵附精确无穷范数条件数。" +
-        "professional_multivariate request={action:identity,variables:[x,y,a等最多4名],left,right}或{action:derivative,variables,expression,variable,claimed}，12次/256项多项式，除数只许非零常量；可核含参导数与圆锥曲线代数，不自动证明参数不等式。" +
-        "professional_induction request={start:非负整数字符串,initial:有理数字符串,next:含n/u的多项式,claimed:只含n的闭式}，精确初值和归纳步认证递推，不按有限项猜证明。" +
+        "professional_multivariate request={action:identity,variables:[x,y,a等最多4名],left,right}或{action:derivative,variables,expression,variable,claimed}或{action:cubic_monotonicity,variables,expression,variable,parameter}，12次/256项多项式，除数只许非零常量。cubic_monotonicity只认证导数恰好为Kx^2+La的三次在全部实参数上的单调符号表，不证明一般含参不等式、极值或图像。" +
+        "professional_induction request={start:非负整数字符串,initial:有理数字符串,next:含n/u的多项式或A(n)*u+B(n)，A/B的分母只含n,claimed:只含n的闭式}，精确初值和清分母后的归纳步认证递推。分母在n>=start有整数零点、u非线性或u在分母中均为UNSUPPORTED，不按有限项猜证明。" +
         "professional_numeric request={expression:字符串,digits:10–100的整数字符串,bindings:{变量:[下界,上界]字符串}}；算术/整数幂±32、pi/e、sqrt/exp/ln/log/sin/cos/tan/abs，有向舍入和解析余项认证绝对误差区间，超越参数绝对值≤100（ln支持1e-100至1e100），非零宽输入不能凭位数消除不确定性。" +
         "professional_calculus request={action:integral|root,expression,variable,lower:精确有理字符串,upper:精确有理字符串,digits:2–24整数字符串,bindings:{非积分变量:[有理下界,上界]}}；integral用8阶区间自动微分与Taylor解析余项核有限有向闭区间积分，需整个原式C8可认证；root在lower<upper上以严格单号导数证明唯一性、端点异号/零证明存在性并二分认证误差，不是全部实根枚举。域不全定义、反常/不平滑、条件或精度资源不足UNSUPPORTED，不称发散或无根；NO_ROOT的DISPROVED仅限已认证单调且端点同号的指定区间。数值证书不证恒等/一般定理。" +
         "professional_theorems request={}返回可信定理参数/必要条件目录，不证明条件。" +

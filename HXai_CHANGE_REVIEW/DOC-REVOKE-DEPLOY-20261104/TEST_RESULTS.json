@@ -1,0 +1,78 @@
+{
+  "api_active": true,
+  "backup_directory": "/opt/mathdoc/revoke-backup-20261104T022653Z",
+  "container_running_before_revoke": true,
+  "container_seen_before_revoke": true,
+  "container_stop_evidence": "docker ps -a: exact worker and validator names absent",
+  "container_stopped_confirmed": true,
+  "credential_removed": true,
+  "dispatcher_active": true,
+  "event": "result",
+  "files": {
+    "api/main.py": {
+      "after": "ac57dc23406f2799f4e2059014fa54be1fb0c51ae1e02261eee5bbeef6d9d998",
+      "before": "5f0277f8cb9c5b5ef9b63f7390976c2d268e682022fea39badefb75b94dd5dba",
+      "replace": true,
+      "repository": "89f3e3b0eaa95542760f75a9d9da9e2d6541e530c118e0ee1e6b4ae079e5ea4f"
+    },
+    "api/store.py": {
+      "after": "dc4d75854298f9aaee9aa01ba6cc7ffceafd77d58cb32db4bf55af54b23d1f1d",
+      "before": "42b65697d49c13d90cc9f78bbc9af64cbd6f0d0bda0e9d2c07cd3d960caae37b",
+      "replace": true,
+      "repository": "2a5e7de3ad7ccbe4a29c2bb19131ebf414b9a99b8f0b88854a475baa70ebcf56"
+    },
+    "dispatcher/main.py": {
+      "after": "feda492ab26199f184f3356d1a8414daecc64f51d7ff322890583fdc647fe4d8",
+      "before": "feda492ab26199f184f3356d1a8414daecc64f51d7ff322890583fdc647fe4d8",
+      "replace": false,
+      "repository": "1b63597bd28f31c8060b4b2cacd47d49fe009b0c20546a1a1cab540c6c84acb2"
+    }
+  },
+  "health_ok": true,
+  "host": "ecsLWs9K",
+  "http": {
+    "anonymous_revoke": 401,
+    "authenticated_revoke": 200,
+    "invalid_token_revoke": 401,
+    "old_token_capabilities": 401,
+    "synthetic_submit": 202
+  },
+  "idle_evidence": {
+    "after_api_stop": {
+      "QUEUED": 0,
+      "RUNNING": 0,
+      "task_containers": 0
+    },
+    "after_both_stop": {
+      "QUEUED": 0,
+      "RUNNING": 0,
+      "task_containers": 0
+    },
+    "before_backup": {
+      "QUEUED": 0,
+      "RUNNING": 0,
+      "task_containers": 0
+    },
+    "final": {
+      "QUEUED": 0,
+      "RUNNING": 0,
+      "task_containers": 0
+    },
+    "immediately_before_stop": {
+      "QUEUED": 0,
+      "RUNNING": 0,
+      "task_containers": 0
+    }
+  },
+  "initial_task_state": "QUEUED",
+  "original_retained": true,
+  "original_sha256": "eeff828053fc97bd3a6753c9eac45ff9513351fccfd467717e6840e148ac1df6",
+  "rollback": "NOT_NEEDED",
+  "status": "PASS_SCOPED",
+  "target": "ubuntu@154.222.25.150",
+  "task_error": "authorization_revoked",
+  "task_id": "65ddf923-2fa2-4aa6-b339-d51fef142444",
+  "task_state": "CANCELLED",
+  "temporary_identity_revoked": true,
+  "utc": "20261104T022653Z"
+}

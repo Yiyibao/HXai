@@ -1,0 +1,28 @@
+{
+  "total_bytes": 4831418793,
+  "generated_bytes": 3847147919,
+  "free_bytes": 362395561984,
+  "worktrees": 1,
+  "current_batch": [
+    {
+      "id": "12a6dfcbe15f466085122d91aa315a02",
+      "feature": "DOC-REVOKE-DEPLOY-20261104-PREFLIGHT",
+      "state": "CLEANED",
+      "exit_code": 0,
+      "log_complete": true
+    },
+    {
+      "id": "204c23ff201f4f8587629f0eadcc6d65",
+      "feature": "DOC-REVOKE-DEPLOY-20261104-REGRESSION",
+      "state": "CLEANED",
+      "exit_code": 0,
+      "log_complete": true
+    }
+  ],
+  "other_active": [
+    {
+      "feature": "G47-01-FLUTTER-AAR",
+      "state": "ACTIVE"
+    }
+  ]
+}

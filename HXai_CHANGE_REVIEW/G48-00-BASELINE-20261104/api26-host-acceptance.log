@@ -1,0 +1,11 @@
+me.rerere.rikkahub.feature.agent.HostAcceptanceRuntimeTest:.........
+
+Time: 8.541
+
+OK (9 tests)
+
+device: emulator-5554
+package: org.hxsi.agent.nativeqa
+runner: org.hxsi.agent.nativeqa.test/me.rerere.rikkahub.feature.agent.AgentNativeTestRunner
+class: me.rerere.rikkahub.feature.agent.HostAcceptanceRuntimeTest
+note: first run had 2 failures from an over-strict domain restatement and split witness sentences; those predicates were corrected and this rerun passed.

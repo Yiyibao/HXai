@@ -230,8 +230,13 @@ class _EnhancedToolCardState extends State<EnhancedToolCard> {
         widget.part.executionState == 'COMPLETED' &&
         searchOutput['task_id'] is String) {
       final data = searchOutput;
-      if (data['cancel_requested'] == true) {
-        return data['cancel_confirmed'] == true ? '已取消交付' : '已请求取消，等待确认';
+      if (data['cancel_confirmed'] == true && data['state'] == 'CANCELLED') {
+        return '已取消交付';
+      }
+      if (data['cancel_requested'] == true &&
+          !const ['SUCCEEDED', 'FAILED', 'EXPIRED', 'PARTIAL', 'CANCELLED']
+              .contains(data['state'])) {
+        return '已请求取消，等待确认';
       }
       if (data['readback_valid'] == false) return '成果核验失效，请重新检查';
       return switch (data['state']) {

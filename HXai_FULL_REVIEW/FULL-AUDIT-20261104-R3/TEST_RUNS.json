@@ -1,0 +1,23 @@
+{
+  "review": "FULL-AUDIT-20261104-R3",
+  "head": "54b832613c1b4ab3eefbecedca5367c274b60135",
+  "runs": [
+    {
+      "name": "current_agent_runtime",
+      "status": "PASS",
+      "exit": 0,
+      "summary": "130 passed in 20.64s"
+    },
+    {
+      "name": "current_document_service",
+      "status": "PASS",
+      "exit": 0,
+      "summary": "164 passed, 1 warning, 10.81s"
+    },
+    {
+      "name": "flutter_gradle_device_container_production",
+      "status": "NOT_RUN",
+      "reason": "flutter, kotlinc, adb unavailable; ANDROID_HOME unset"
+    }
+  ]
+}

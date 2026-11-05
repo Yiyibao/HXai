@@ -314,7 +314,8 @@ class _AgentTaskDetailPageState extends ConsumerState<AgentTaskDetailPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text('${step.id} · ${step.tool} · ${step.state}'),
-                            Text(step.purpose),
+                            if (step.state == 'RETURNED')
+                              const Text('此调用已结算，但不是证明。'),
                             if (step.callId != null)
                               SelectableText('调用 ${step.callId}'),
                           ],

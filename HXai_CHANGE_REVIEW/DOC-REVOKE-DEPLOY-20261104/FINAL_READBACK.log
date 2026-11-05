@@ -1,0 +1,20 @@
+UTC 2026-11-04T02:27:41Z
+HOST ecsLWs9K
+UNITS
+active
+active
+HEALTH {"status":"ok","contractVersion":1}
+DEPLOYED_HASHES
+ac57dc23406f2799f4e2059014fa54be1fb0c51ae1e02261eee5bbeef6d9d998  /opt/mathdoc/service/api/main.py
+dc4d75854298f9aaee9aa01ba6cc7ffceafd77d58cb32db4bf55af54b23d1f1d  /opt/mathdoc/service/api/store.py
+feda492ab26199f184f3356d1a8414daecc64f51d7ff322890583fdc647fe4d8  /opt/mathdoc/service/dispatcher/main.py
+BACKUP_HASHES_AND_MODES
+5f0277f8cb9c5b5ef9b63f7390976c2d268e682022fea39badefb75b94dd5dba  /opt/mathdoc/revoke-backup-20261104T022653Z/api/main.py
+42b65697d49c13d90cc9f78bbc9af64cbd6f0d0bda0e9d2c07cd3d960caae37b  /opt/mathdoc/revoke-backup-20261104T022653Z/api/store.py
+700 root:root /opt/mathdoc/revoke-backup-20261104T022653Z
+600 root:root /opt/mathdoc/revoke-backup-20261104T022653Z/api/main.py
+600 root:root /opt/mathdoc/revoke-backup-20261104T022653Z/api/store.py
+INDEPENDENT_SYNTHETIC_READBACK
+{"state": "CANCELLED", "error": "authorization_revoked", "temporary_identity_inactive": true, "original_retained_and_hash_matches": true, "temporary_credential_absent": true, "QUEUED": 0, "RUNNING": 0, "mathdoc_containers": 0}
+RUNTIME
+Python 3.12.3

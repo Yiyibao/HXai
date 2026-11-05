@@ -1,0 +1,14 @@
+Disposable project_storage.py runs deleted their command.log. This file records the summaries observed by the review process.
+
+current agent-runtime without PYTHONPATH: exit 2, 7 collection errors.
+current agent-runtime with PYTHONPATH=server/agent-runtime: 130 passed in 22.69s, exit 0.
+current document revocation fence: 17 passed in 2.92s, exit 0.
+office preflight before fix: 2 failed, 6 passed, exit 1.
+office preflight after fix: 9 passed in 0.56s, exit 0.
+current document-service/tests: 160 passed, 1 warning, 9.21s, exit 0.
+frozen delivery revocation fence: 15 passed in 2.43s, exit 0.
+frozen delivery agent-runtime: 8 failed, 63 passed, exit 1, Windows directory-fd and symlink privilege.
+frozen baseline old store: 2 failed, exit 1, FAIL_BASELINE.
+frozen baseline fixed store: 2 passed, exit 0.
+
+Not run: flutter analyze/test, Gradle unit/lint/assemble, kotlinc helpers, device, Docker worker, production.

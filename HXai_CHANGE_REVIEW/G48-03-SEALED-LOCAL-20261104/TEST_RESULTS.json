@@ -1,0 +1,33 @@
+{
+  "feature": "G48-03-SEALED-LOCAL-20261104",
+  "head": "a90bc8eb4bb81dceb47c593898edd1d6c3e3fad1",
+  "independent_review": "NOT_EVALUATED",
+  "runs": [
+    {
+      "name": "UncertifiedGoalTest + CubicParameterMonotonicityTest + BackupExclusionsTest",
+      "command": "python scripts/project_storage.py run --feature G48-03-SEALED-REPLAY --kind test --disposable --reserve-mib 512 -- gradle :app:testDebugUnitTest --tests those three --offline --no-daemon",
+      "cwd": "client",
+      "result": "PASS",
+      "wall_seconds": 102.61,
+      "note": "BUILD SUCCESSFUL. First run failed on the sealed interval fixture; sentence-scoped matching then passed. The later no-op replace deletion was not recompiled."
+    },
+    {
+      "name": "flutter analyze --no-pub",
+      "command": "D:\\Office\\Study\\Depend\\flutter\\bin\\flutter.bat analyze --no-pub",
+      "cwd": "client/flutter_ui",
+      "result": "PASS",
+      "wall_seconds": 217.07,
+      "note": "No issues found. Not an instrumented grant/revoke run."
+    },
+    {
+      "name": "API26 HostAcceptanceRuntimeTest rerun",
+      "result": "NOT_RUN",
+      "reason": "Binding fix is JVM-green. Full instrumented class was not rerun in this close-out."
+    },
+    {
+      "name": "live cohort",
+      "result": "NOT_RUN",
+      "reason": "New live cohort is not authorized. Old score stays 28 PASS / 9 FAIL."
+    }
+  ]
+}

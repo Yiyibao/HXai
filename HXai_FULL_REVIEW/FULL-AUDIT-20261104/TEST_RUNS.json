@@ -1,0 +1,99 @@
+{
+  "review": "FULL-AUDIT-20261104",
+  "head": "54b832613c1b4ab3eefbecedca5367c274b60135",
+  "cwd": "D:/Office/Study/code/MathStudyAgent",
+  "note": "Disposable storage runs deleted command.log after completion. Counts below are the observed pytest summaries. run_verification.py was not executed in HXai_Pro_Delivery because it overwrites evidence/.",
+  "runs": [
+    {
+      "name": "current_agent_runtime",
+      "status": "PASS",
+      "exit": 0,
+      "summary": "130 passed in 22.69s",
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=server/agent-runtime python scripts/project_storage.py run --feature FULL-REVIEW-L1 --kind test --disposable --reserve-mib 256 -- python -m pytest -q -p no:cacheprovider server/agent-runtime/tests --tb=line",
+      "evidence": "E3-local Python kernel, not Android"
+    },
+    {
+      "name": "current_agent_runtime_without_pythonpath",
+      "status": "FAIL",
+      "exit": 2,
+      "summary": "7 collection errors, ModuleNotFoundError hxai_agent",
+      "note": "Invocation error. Rerun with PYTHONPATH passed."
+    },
+    {
+      "name": "current_document_revocation_fence",
+      "status": "PASS",
+      "exit": 0,
+      "summary": "17 passed in 2.92s",
+      "command": "python -m pytest -q -p no:cacheprovider server/document-service/tests/test_revocation_fence.py --tb=line"
+    },
+    {
+      "name": "office_preflight_before_fix",
+      "status": "FAIL",
+      "exit": 1,
+      "summary": "2 failed, 6 passed. extra2 vbaData.xml and extra5 _XMLSIGNATURES did not raise",
+      "evidence": "E2 failing baseline for F1"
+    },
+    {
+      "name": "office_preflight_after_fix",
+      "status": "PASS",
+      "exit": 0,
+      "summary": "9 passed in 0.56s, including rich-sample digest check"
+    },
+    {
+      "name": "current_document_service_unit",
+      "status": "PASS",
+      "exit": 0,
+      "summary": "160 passed, 1 Starlette deprecation warning, 9.21s",
+      "command": "python -m pytest -q -p no:cacheprovider server/document-service/tests --tb=line",
+      "note": "Collects test_*.py only. Live probes and https://hxnf.top were not executed."
+    },
+    {
+      "name": "frozen_delivery_revocation_fence",
+      "status": "PASS",
+      "exit": 0,
+      "summary": "15 passed in 2.43s",
+      "cwd": "HXai_Pro_Delivery/07_CODE/repo/server/document-service"
+    },
+    {
+      "name": "frozen_delivery_agent_runtime",
+      "status": "FAIL_ENVIRONMENT",
+      "exit": 1,
+      "summary": "8 failed, 63 passed. Windows directory-fd PermissionError and symlink privilege WinError 1314",
+      "note": "Not a current-tree regression. Current tree runtime tests passed."
+    },
+    {
+      "name": "frozen_document_baseline_old_store",
+      "status": "FAIL_BASELINE",
+      "exit": 1,
+      "summary": "2 failed: old store does not raise PermissionError and claim returns a job after active=0",
+      "store": "HXai_Pro_Delivery/07_CODE/source_base/server/document-service/api/store.py"
+    },
+    {
+      "name": "frozen_document_baseline_fixed_store",
+      "status": "PASS",
+      "exit": 0,
+      "summary": "2 passed",
+      "store": "HXai_Pro_Delivery/07_CODE/repo/server/document-service/api/store.py"
+    },
+    {
+      "name": "flutter_analyze_test",
+      "status": "NOT_RUN",
+      "reason": "flutter not on PATH"
+    },
+    {
+      "name": "gradle_unit_lint_assemble",
+      "status": "NOT_RUN",
+      "reason": "ANDROID_HOME unset, client/local.properties absent, adb absent"
+    },
+    {
+      "name": "kotlin_helper_jvm",
+      "status": "NOT_RUN",
+      "reason": "kotlinc not on PATH"
+    },
+    {
+      "name": "mate50_harmony_release_provider_docker_production",
+      "status": "NOT_RUN",
+      "reason": "No device, signing environment, container daemon check, paid-model authorization, or production authorization"
+    }
+  ]
+}

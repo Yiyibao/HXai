@@ -1,0 +1,818 @@
+{
+  "source_head": "a90bc8eb4bb81dceb47c593898edd1d6c3e3fad1",
+  "excluded_runtime_directory": "HXai_CHANGE_REVIEW/G47-02-LIVE-20261104/sealed/",
+  "excluded_runtime_files": 278,
+  "note": "Working-file SHA256 before Git line-ending normalization; manifest itself excluded to avoid self-reference.",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 13524,
+      "sha256": "7058252e6daa72cf1c6397fcd9a8496f64a0fc56afb5dfdf51637ceb645d0eac"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-PACKAGE-PREFLIGHT-20261104/ADVERSARIAL_REVIEW.md",
+      "bytes": 383,
+      "sha256": "1c2ad7ebc9cac38e1b224539ca8a32f2b3e9075009af9065de88418dfdabca2f"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-PACKAGE-PREFLIGHT-20261104/CHANGE_CONTRACT.md",
+      "bytes": 586,
+      "sha256": "314de6b895c0f5768b3d05c93606dbb33da7af0f48b89c4476cf68e3338a43f3"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-PACKAGE-PREFLIGHT-20261104/HANDOFF.md",
+      "bytes": 302,
+      "sha256": "8d448919146d1bbe8e35414537807f060742dbbe739313b0d848919eb30c4810"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-PACKAGE-PREFLIGHT-20261104/TEST_RESULTS.json",
+      "bytes": 331,
+      "sha256": "81242935e6a81d86e9663ae2ec8949bb7c16677373b06d8af5faca9ffcecb83e"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-PACKAGE-PREFLIGHT-20261104/TRACE_AND_DIFF.md",
+      "bytes": 511,
+      "sha256": "869a6bce73b4d246e38792ae62bc777a25a5443720be581f9163a7ab47a43f0f"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-PACKAGE-PREFLIGHT-20261104/VERDICT_AND_ROLLBACK.md",
+      "bytes": 379,
+      "sha256": "e9544db392fea43cdbb1e4d278011719b3f0a624f644c03fa5f00478e1fa6ed2"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-REVOKE-DEPLOY-20261104/ADVERSARIAL_REVIEW.md",
+      "bytes": 1782,
+      "sha256": "1cd3c7874e0a1b6f0d3830fcdfa7b7d894146806f4d73382c7f56e18e64eb745"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-REVOKE-DEPLOY-20261104/CHANGE_CONTRACT.md",
+      "bytes": 2608,
+      "sha256": "b9537aae51d0916aa4805997c9555caf680bcb2c1c48d2c59210d066361e6712"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-REVOKE-DEPLOY-20261104/DEPLOYMENT.log",
+      "bytes": 5046,
+      "sha256": "5090cdd751b3d3daa439b271f361f480fcf6836f957c16bf6f009d074cd23e07"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-REVOKE-DEPLOY-20261104/FINAL_READBACK.log",
+      "bytes": 1191,
+      "sha256": "96a7db53e83ae5c195790c6579988a18bb08c716c86a3038d75ae8e338cabc39"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-REVOKE-DEPLOY-20261104/FIXES.patch",
+      "bytes": 5875,
+      "sha256": "5301650e05747aa3b5f2dde36dfee0efb914492b4f1f5d0005702ea4780091c5"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-REVOKE-DEPLOY-20261104/HANDOFF.md",
+      "bytes": 1716,
+      "sha256": "866a9fdf64541f483ab70106430ca024e10d4d7304718a316ad6df1c87d0c0e1"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-REVOKE-DEPLOY-20261104/LOCAL_TEST_RESULTS.json",
+      "bytes": 274,
+      "sha256": "5ec7ec6cd098f840ff1769f4369737f59e04ce0c35be64d13d0276454a9a964a"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-REVOKE-DEPLOY-20261104/REGRESSION.log",
+      "bytes": 115,
+      "sha256": "a3b27a6c0c7b1b624f3193efb4c4d09e65d284d0f5df1434f9b29596768ed7a4"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-REVOKE-DEPLOY-20261104/SOURCE_MANIFEST.json",
+      "bytes": 1108,
+      "sha256": "a865d3aa3f2ed324f5da6c35b858815ac541a9a6256091e1a0d160b244326c79"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-REVOKE-DEPLOY-20261104/STORAGE_FINAL.json",
+      "bytes": 653,
+      "sha256": "c8a22b3d27641188f3e9250cd29b874e38322b7470136fc534e82a3367c7d904"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-REVOKE-DEPLOY-20261104/TEST_RESULTS.json",
+      "bytes": 2563,
+      "sha256": "b8633c55629f21551e25251df6d8bc76be4d7aef707a7c62a74092260aea292d"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-REVOKE-DEPLOY-20261104/TRACE_AND_DIFF.md",
+      "bytes": 3350,
+      "sha256": "07933c72bfb6a0523f98faaf03419c9c3ab92570890392cdf28ee3f9da97c9fd"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-REVOKE-DEPLOY-20261104/VERDICT_AND_ROLLBACK.md",
+      "bytes": 3137,
+      "sha256": "9a3f03671b391f019d9873145e709e052c746e20c447e1bf55e5f8961b24d9a9"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-REVOKE-DEPLOY-20261104/deploy.py",
+      "bytes": 1757,
+      "sha256": "0a52ed58a056658eb5c402924e73a41424273a043fce9b50d98634557c68635c"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-REVOKE-DEPLOY-20261104/prepare.py",
+      "bytes": 10445,
+      "sha256": "588e45297a766a9eaa3994a57f7925dfb9631997004587692088a0da60c29a18"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/DOC-REVOKE-DEPLOY-20261104/remote_deploy.py",
+      "bytes": 17737,
+      "sha256": "8d92e87c154dbaeb74d86076fdcedf7760226b5a0ee8f50d2dcad37fda6fab7d"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-02-LIVE-20261104/emulator-live.log",
+      "bytes": 5429,
+      "sha256": "cd9121207abefb6398adec11c3a1b6abed707f5af84b46ef0d75c231dd44ca84"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-02-LIVE-20261104/instrument.txt",
+      "bytes": 110,
+      "sha256": "a682ba2772093b20d59fd6e9a9eb9df2b08b2d83efc279aaf23f3f6dfba22bb0"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-02-LIVE-20261104/public-input/LIVE_INPUT.json",
+      "bytes": 8598,
+      "sha256": "01fd8655cb82cf82c421a30671eb53eff1d8a27b4078f37681e59f65ea990cb7"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-02-LIVE-20261104/public-input/LIVE_INPUT_BINDING.json",
+      "bytes": 198,
+      "sha256": "df0c5cd42d98a6888c81aff93e4036365f6c368204cf764a202ec629f3070ef9"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-02-LIVE-20261104/public-input/corpus/BLIND_PROMPTS.json",
+      "bytes": 7337,
+      "sha256": "8e10ced3e771ba24b03d41f1668561d7703cb35a036f0ff08f0604cb4d48c785"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-02-LIVE-20261104/public-input/corpus/CORPUS_SEAL.json",
+      "bytes": 1021,
+      "sha256": "4df62001722161d6bb31c09f808df29d61132acdb0b04666647de80840d9f38c"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-02-LIVE-20261104/public-input/corpus/REFERENCE_RUBRIC.json",
+      "bytes": 21585,
+      "sha256": "ad77dc13a155bcc1e1f29a5f7d819ac66846c3f716453ff18ee8c2b891a52bc9"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-02-LIVE-20261104/run_live.py",
+      "bytes": 4949,
+      "sha256": "153579c8affbba3e38d519c83980a417526a0c51f83692bab67e00a3f6664c86"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-02-REFUTATION-20261104/ADVERSARIAL_REVIEW.md",
+      "bytes": 774,
+      "sha256": "0b1f149da699dbd16aca69da6f58a1d7d7ecc8a4f7faa8984d7913f12f5c87d9"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-02-REFUTATION-20261104/CHANGE_CONTRACT.md",
+      "bytes": 1604,
+      "sha256": "b8ed8a43cc9b3d3216c5ee7c2b292a0197a9f31f9d1b2a4e9ce072461ac23dc4"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-02-REFUTATION-20261104/HANDOFF.md",
+      "bytes": 661,
+      "sha256": "204bbc261eb008ed77f9680145a7fff5a2d3ba563984767e2a21e76b9690072c"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-02-REFUTATION-20261104/TEST_RESULTS.json",
+      "bytes": 932,
+      "sha256": "89c38532fe7cd014b7f36d5d542bf4c04a29ee1c6c0ce8dd9f883395d37bff48"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-02-REFUTATION-20261104/TRACE_AND_DIFF.md",
+      "bytes": 1828,
+      "sha256": "2815ab10adf5a76b1eeaeee74d7d5c38d589b701ee58d187428fe4cf88ad5ebb"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-02-REFUTATION-20261104/VERDICT_AND_ROLLBACK.md",
+      "bytes": 634,
+      "sha256": "e7edcb16de66b4b60878fb9714175e38a097206cd9204b342afeb2f37c6b37a0"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-05-INDUCTION-20261104/ADVERSARIAL_REVIEW.md",
+      "bytes": 715,
+      "sha256": "be95bbbda6c9f88949215a3b887997a5084a0c24c1474aed5db8ffbf05e1afc6"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-05-INDUCTION-20261104/CHANGE_CONTRACT.md",
+      "bytes": 1047,
+      "sha256": "189d9d2d6c89f6be98075121b43f238fa9fd7a8a169003a364ea4809863f3c51"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-05-INDUCTION-20261104/HANDOFF.md",
+      "bytes": 511,
+      "sha256": "821f793228d6f08be534b6ca89cf2bb6445b3f5ca3f5c6445dcb38f6064fbde5"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-05-INDUCTION-20261104/TEST_RESULTS.json",
+      "bytes": 1105,
+      "sha256": "cafcf9efa141f108dff4c7c3a4e1652a196317bc172f85750edb63d07804c28a"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-05-INDUCTION-20261104/VERDICT_AND_ROLLBACK.md",
+      "bytes": 602,
+      "sha256": "0a2421240b140c8b8e721e35cb3c7d5513b0acc1e0d2fd77626018d9e003563c"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-05-INDUCTION-20261104/api26-instrument-r2.log",
+      "bytes": 3432,
+      "sha256": "8de6a9883b853ec3bed5bdfef8f6ec0ac58c84dd43067fbbaadfb98648094b55"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-05-INDUCTION-20261104/api26-instrument-r3.log",
+      "bytes": 3958,
+      "sha256": "bdc3e2d41279a05c7cc3a9e9f0f51405caa846e304270fa3fdbbc1a7a19b7a0a"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-05-INDUCTION-20261104/api26-instrument-r4.log",
+      "bytes": 464,
+      "sha256": "ab8fb7b3c1b8b8f874332e129c267e3a7316f4760682c6f6040679d4b254c226"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-05-INDUCTION-20261104/api26-instrument.log",
+      "bytes": 4223,
+      "sha256": "3de1f7025311c03b5ca39211d77f85712fcb6946710cf9943819d8869eb670eb"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-06-IDENTITY-20261104/HANDOFF.md",
+      "bytes": 397,
+      "sha256": "861c5f7700bd6096c0b984ec35b584be8af3ce3ea7d4fe1336c0f99d0cd96f11"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-06-IDENTITY-20261104/TEST_RESULTS.json",
+      "bytes": 508,
+      "sha256": "eee912c6086771483d35589230f69d5741f934a7752f62f2bd145d22ce296d89"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-06-IDENTITY-20261104/api26-instrument.log",
+      "bytes": 605,
+      "sha256": "3e78b10cfb280df785824f3f5dfc4ee40cbc02f98264905009c18a6643a16221"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-07-MCP-GRANT-20261104/HANDOFF.md",
+      "bytes": 380,
+      "sha256": "d86925b664b1d6b9144af72c21318d72f5fe0276736280ad3ad93e368f604dad"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-08-CLOUD-BOUNDARY-20261104/HANDOFF.md",
+      "bytes": 272,
+      "sha256": "fa6f6de41ce52e01e04b5cccb4866b203e215fa5bf3b87ccb4992edf6140d5bf"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-10-RATIONAL-RECURRENCE-20261104/ADVERSARIAL_REVIEW.md",
+      "bytes": 886,
+      "sha256": "c74afbb476819e43a41e49fa5bbb8c63c72dd5702ccb454106421e2aed5b31ca"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-10-RATIONAL-RECURRENCE-20261104/CHANGE_CONTRACT.md",
+      "bytes": 1298,
+      "sha256": "5d1c3c2c11a2d616770503187684142bff06dadd7f6d97f89bb7524cc0d91e44"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-10-RATIONAL-RECURRENCE-20261104/HANDOFF.md",
+      "bytes": 490,
+      "sha256": "a93ee17c45ccbf834b54111486ad6acfa5487c38444c194a223951c27b2c106d"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-10-RATIONAL-RECURRENCE-20261104/TEST_RESULTS.json",
+      "bytes": 1295,
+      "sha256": "e577e55d3ff5ec735836f6425f96aa0d15d8ea1a01f30d8eef74f187dcbfb954"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-10-RATIONAL-RECURRENCE-20261104/TRACE_AND_DIFF.md",
+      "bytes": 1034,
+      "sha256": "053c3dd64c6aec626ffb2c2b8f300ce9b1e404bfcd3bf374265f260f1ee27739"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-10-RATIONAL-RECURRENCE-20261104/VERDICT_AND_ROLLBACK.md",
+      "bytes": 671,
+      "sha256": "0c3f25aacbb8f52928441aaaae0cd050443be3f6d0d0bb9cfc8d92c16f999d32"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-10-RATIONAL-RECURRENCE-20261104/api26-instrument.log",
+      "bytes": 716,
+      "sha256": "dc2275acb2e743152ab60f623be1a7022aa80bf8d37e74aaa1b74441f1a75a75"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-11-CUBIC-MONOTONICITY-20261104/ADVERSARIAL_REVIEW.md",
+      "bytes": 1011,
+      "sha256": "daf963a7dd0070eccfe13f861e127df58d4d811c9b68563be69ef3c75c98038d"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-11-CUBIC-MONOTONICITY-20261104/CHANGE_CONTRACT.md",
+      "bytes": 872,
+      "sha256": "da9b2902b79361416c4c657c0ec5937fde2f98193f8be2c4e0d504e1c022a720"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-11-CUBIC-MONOTONICITY-20261104/HANDOFF.md",
+      "bytes": 467,
+      "sha256": "d5fccc9d3c57310ac6b9dd983c37e2e83fef7e1fe851c0047252d6c51fd78bed"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-11-CUBIC-MONOTONICITY-20261104/TEST_RESULTS.json",
+      "bytes": 1641,
+      "sha256": "7575247d0a0a6be6f19abc38bda8475bca7aa608139addead40471c768d2eb64"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-11-CUBIC-MONOTONICITY-20261104/TRACE_AND_DIFF.md",
+      "bytes": 1582,
+      "sha256": "ca2806b2a68e9be5f149d1bd192bfb89cb98879718d18b2e01dd07cce2af2e8b"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-11-CUBIC-MONOTONICITY-20261104/VERDICT_AND_ROLLBACK.md",
+      "bytes": 820,
+      "sha256": "44fa1165d40e2476dae02b21b90a17ebeb5ce35f41fa2259de9ea1b63aef35a2"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G47-11-CUBIC-MONOTONICITY-20261104/api26-instrument.log",
+      "bytes": 421,
+      "sha256": "1cab95db51494f819e8fc20c09c7830a82f85a5303fe4cd5b8c8ba489e47e137"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-00-BASELINE-20261104/SNAPSHOT.md",
+      "bytes": 1209,
+      "sha256": "e43a0ff9c1aceaefb10763a88213fd8e69f81bd4566034728dc614e2723302f9"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-00-BASELINE-20261104/SOURCE_SHA256.txt",
+      "bytes": 74406,
+      "sha256": "ccf4cdf4023d062e0d24199d9e848a0c06ee0a2d478eb109ef58d4127329824d"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-00-BASELINE-20261104/api26-host-acceptance.log",
+      "bytes": 464,
+      "sha256": "506cbe9c1110d330d2e3c7c365d354ee939ad255112c2b59b1c0df2e7cf6ec04"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-01-ANSWER-BINDING-20261104/FAIL_BASELINE.xml",
+      "bytes": 24325,
+      "sha256": "4c018bdfb5db524ad641cb7a342d660b451fb8a059e71c373a905742f7a919bd"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-01-ANSWER-BINDING-20261104/TEST_RESULTS.json",
+      "bytes": 621,
+      "sha256": "2dc8781fba098f2761daa0ff1383188df88475c1031a255fc7c8ef65e5fc8fbb"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-01-ANSWER-BINDING-20261104/VERDICT_AND_ROLLBACK.md",
+      "bytes": 483,
+      "sha256": "04ea5045a1305f56d52e2223d5a8decae447243ee2c07a06c7700ee8aa42f962"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-02-MCP-GRANT-20261104/VERDICT_AND_ROLLBACK.md",
+      "bytes": 626,
+      "sha256": "51d2347d194a922ba0a1f061eddc520974fcb0e1b4aa154439d9182f6e5cb190"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-03-SEALED-LOCAL-20261104/ADVERSARIAL_REVIEW.md",
+      "bytes": 716,
+      "sha256": "070f98bcbd3f7210583814b398c7f0a45a923cf68e2f0a25689b79925ecb8349"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-03-SEALED-LOCAL-20261104/CHANGE_CONTRACT.md",
+      "bytes": 1221,
+      "sha256": "e5f39aaad77806ac1a332254953c9d02c2e88ff765618675fa09bb7bed710d48"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-03-SEALED-LOCAL-20261104/HANDOFF.md",
+      "bytes": 929,
+      "sha256": "ff3807fdfcab748559ca60eb30878811abdcdaf9a3915f170b6b447f839c3b34"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-03-SEALED-LOCAL-20261104/TEST_RESULTS.json",
+      "bytes": 1379,
+      "sha256": "b69b66816e8a3fa40aa1c6021144b8da936cb76db457cb3957327d24de8c6f49"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-03-SEALED-LOCAL-20261104/TRACE_AND_DIFF.md",
+      "bytes": 945,
+      "sha256": "51d4d4aa0c5b355410237d1c4238e5e47bcdad3e036521f133b56c402d3c57ab"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-03-SEALED-LOCAL-20261104/VERDICT_AND_ROLLBACK.md",
+      "bytes": 513,
+      "sha256": "c084d0bc84ce377fcc52299cc39f1348ea9d31566aafbd377ebff19bdb6bcb35"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-08-CANDIDATE-20261104/VERDICT.md",
+      "bytes": 1804,
+      "sha256": "f5f7b99dde3eddd0e8c0c2a900ad5c1cf6ffb3fe954ed6ebceca7c733ed483fc"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-09-LOCAL-CLOSE-20261104/ADVERSARIAL_REVIEW.md",
+      "bytes": 671,
+      "sha256": "139b51e185d412b18a7952d89a0f831f58cb4d2f4072a57a08dcbce2ff9e5e25"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-09-LOCAL-CLOSE-20261104/CHANGE_CONTRACT.md",
+      "bytes": 1297,
+      "sha256": "ff3dce91cf7f5245aeb56cd6f8f2466a97aed718b184467f87454fdf9c26829d"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-09-LOCAL-CLOSE-20261104/HANDOFF.md",
+      "bytes": 438,
+      "sha256": "56c60d0c945ceb125c8dab5f85f42bfb02ae4db36e2bb99b25aa226d58b0cbf3"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-09-LOCAL-CLOSE-20261104/SOURCE_MANIFEST.json",
+      "bytes": 127322,
+      "sha256": "aa1731858d29c4096b013dd9d540df4c5e22d0360b55342757d3492cc7dd4acc"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-09-LOCAL-CLOSE-20261104/TEST_RESULTS.json",
+      "bytes": 1211,
+      "sha256": "6a1f0ae3a14057fecb3312906db4e4396bae34dc346fd12df86dad73f53d219f"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-09-LOCAL-CLOSE-20261104/TRACE_AND_DIFF.md",
+      "bytes": 766,
+      "sha256": "939a8067ccf3d92427ebf518dfb9b664124a7e30d1f705009afb91653f2bc6c1"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-09-LOCAL-CLOSE-20261104/VERDICT_AND_ROLLBACK.md",
+      "bytes": 668,
+      "sha256": "02544f0e700e3a1aaa239d5c0645ccec244bd66f85abf2a2262b67febd5b548f"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/G48-09-LOCAL-CLOSE-20261104/api26-instrument.log",
+      "bytes": 677,
+      "sha256": "60d48eacc1e8010d74f8a8b9aaa5bf2339f4e42bc740c990da2f80efceeb3b3f"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/MAIN-SYNC-20261105/CHANGE_CONTRACT.md",
+      "bytes": 1416,
+      "sha256": "6e53f8be92cffdc64fcc820163347e3cbe0e732012a313d6ceca9c01d9512809"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/MAIN-SYNC-20261105/HANDOFF.md",
+      "bytes": 1035,
+      "sha256": "b8aa8cf4cd5de24dc43f02deab267b345c02435e8aa0c3abccf4304a9a1b76f8"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/MAIN-SYNC-20261105/TEST_RESULTS.json",
+      "bytes": 1255,
+      "sha256": "3a16c96e92ad8f373c9de88820c15506bf0d3cb080462a3c58446a06f28738e6"
+    },
+    {
+      "path": "HXai_CHANGE_REVIEW/REVIEW-FIX-20261104/CHANGE_CONTRACT.md",
+      "bytes": 1235,
+      "sha256": "19da6fbd0d82bec6c2a74ad2241e753e9fdc4a74fdfdd01b2ded1e64c03ad2c5"
+    },
+    {
+      "path": "HXai_FULL_REVIEW/FULL-AUDIT-20261104-R2/FINDINGS.md",
+      "bytes": 1417,
+      "sha256": "044fa3aa2cbff27a4af46bc6b310ff81458938fde4afa59f8656ab321e784db2"
+    },
+    {
+      "path": "HXai_FULL_REVIEW/FULL-AUDIT-20261104-R2/REVIEW_VERDICT.md",
+      "bytes": 2171,
+      "sha256": "063a502a0fdbb92cb1b6c3bf7c0d520b5c44f72b924c1098e2c152376e62cb20"
+    },
+    {
+      "path": "HXai_FULL_REVIEW/FULL-AUDIT-20261104-R2/TEST_RUNS.json",
+      "bytes": 893,
+      "sha256": "7bb93ff9f40327be68c535941f7a2bba59f472385173434871d8f3f5ecbafa2c"
+    },
+    {
+      "path": "HXai_FULL_REVIEW/FULL-AUDIT-20261104-R3/DETAILED_REPORT.md",
+      "bytes": 7508,
+      "sha256": "bfccd6b026e2a0fc705298a7cefcc7aff1194d6a18d99d438ff67d40126df7f9"
+    },
+    {
+      "path": "HXai_FULL_REVIEW/FULL-AUDIT-20261104-R3/REVIEW_VERDICT.md",
+      "bytes": 378,
+      "sha256": "5f9c0f25311d4f743514738b1b1b84ad0bd52c43e67d8d6313b8e6b67ed713d5"
+    },
+    {
+      "path": "HXai_FULL_REVIEW/FULL-AUDIT-20261104-R3/TEST_RUNS.json",
+      "bytes": 561,
+      "sha256": "933591a4d5111700872b433c91f409898afd9eab0acbca0350e3e4a6e52be3c3"
+    },
+    {
+      "path": "HXai_FULL_REVIEW/FULL-AUDIT-20261104/FINDINGS.md",
+      "bytes": 5640,
+      "sha256": "6e3d5d39acf454e2201d064bc81252931aee3f1df09649ca399cb46a516155db"
+    },
+    {
+      "path": "HXai_FULL_REVIEW/FULL-AUDIT-20261104/FIXES.patch",
+      "bytes": 2413,
+      "sha256": "9331210437d756d2d929b61c34c022ec832d1ba89ed19bdb340e76638be95a9b"
+    },
+    {
+      "path": "HXai_FULL_REVIEW/FULL-AUDIT-20261104/REVIEW_VERDICT.md",
+      "bytes": 2016,
+      "sha256": "82a1b7735fb194911b8a6f7bc2ab7647aeec26a2495f12a2317917a95f2afa5d"
+    },
+    {
+      "path": "HXai_FULL_REVIEW/FULL-AUDIT-20261104/SNAPSHOT.md",
+      "bytes": 3042,
+      "sha256": "3d32b8eb831e9d640029b7b7f87b22be14c5c724a032381d3c87346213eb4794"
+    },
+    {
+      "path": "HXai_FULL_REVIEW/FULL-AUDIT-20261104/SOL_NEXT_ACTIONS.md",
+      "bytes": 1925,
+      "sha256": "628322ab685e38e15511b2febb0532ad8a0c84c17b8589a2e4602e523a944b42"
+    },
+    {
+      "path": "HXai_FULL_REVIEW/FULL-AUDIT-20261104/SOURCE_TRACE_MATRIX.md",
+      "bytes": 4637,
+      "sha256": "1d47337a9db0f5c4248e97c209fa2edb31f94768a75d765ce6d26af4245db0ee"
+    },
+    {
+      "path": "HXai_FULL_REVIEW/FULL-AUDIT-20261104/TEST_RUNS.json",
+      "bytes": 3810,
+      "sha256": "792da3fdc1251f651b3835f02d7af843830cba98119badc6920505fb4dd0db1d"
+    },
+    {
+      "path": "HXai_FULL_REVIEW/FULL-AUDIT-20261104/logs/observed-commands.txt",
+      "bytes": 917,
+      "sha256": "f979e56050ad7fb1fa79437d7f93a09b228e1d357bdef522aabb05ca2487c10e"
+    },
+    {
+      "path": "HXai_FULL_REVIEW/REVIEW-FIX-20261104/FINDINGS.md",
+      "bytes": 2246,
+      "sha256": "93ec6dc6de85468ef76a799a0a9015a55a1c6b5a0e88818ef9a27070a4942a94"
+    },
+    {
+      "path": "HXai_FULL_REVIEW/REVIEW-FIX-20261104/FUTURE_DEVELOPMENT.md",
+      "bytes": 2738,
+      "sha256": "0d4e3fdf608d37b641aca73009c63a83d2771cfd3ed5e961c738a4755482ca07"
+    },
+    {
+      "path": "HXai_FULL_REVIEW/REVIEW-FIX-20261104/REVIEW_VERDICT.md",
+      "bytes": 1472,
+      "sha256": "288fd6b7cf8a705d57d33aeab7b561293a9d1d37f9839b1dbdd3d1b985e961d2"
+    },
+    {
+      "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/ExtensionRuntimeTest.kt",
+      "bytes": 16468,
+      "sha256": "52581b753d08baf63788804f97f158665a166a3d1809f6788dbc3513c6fb6a05"
+    },
+    {
+      "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/GeneralMcpPersistenceProbe.kt",
+      "bytes": 4964,
+      "sha256": "e35005683ef1bcce512b9d9ff4fbfa28d63523e290766c9ce39f83097f652159"
+    },
+    {
+      "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/HostAcceptanceRuntimeTest.kt",
+      "bytes": 19625,
+      "sha256": "93e65c808d053ab63b2cbd7b822ac363a77744582fbaeced4bc6fd163b3389c8"
+    },
+    {
+      "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/LiveQualityEvaluationTest.kt",
+      "bytes": 16823,
+      "sha256": "c68d78bcaa998e4aa7656286197f9db4361829b3779e13acba686f3a88b61fbb"
+    },
+    {
+      "path": "client/app/src/androidTest/java/me/rerere/rikkahub/feature/agent/SandboxMcpChatStoryTest.kt",
+      "bytes": 9789,
+      "sha256": "68189771ad7f84a46c46f25b4b0faa6449f5e832216135137a9f7b6123121de4"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/data/ai/GenerationLoop.kt",
+      "bytes": 43769,
+      "sha256": "0859e5b24258eac035a07e114eb5b9daf19ba1ca08e6ca7458d3de09a4039773"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/data/sync/BackupExclusions.kt",
+      "bytes": 502,
+      "sha256": "031075e689559d608b3efbe414bcec8308211253d9d88fc26fc4f59fcd0825a9"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/data/sync/BackupManager.kt",
+      "bytes": 22911,
+      "sha256": "14db42e91faa2362d4581986e1c2c65b48bf848c6412a07d47d2bd2962f011fd"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/AgentPlan.kt",
+      "bytes": 3585,
+      "sha256": "f1e70905f74857b6d8d286b473eaa10eba0b12c8b8e49d05387073f4ea2d98ab"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/AgentTaskStore.kt",
+      "bytes": 95446,
+      "sha256": "50ad82d9fb548be3bb773e48008c6b1cd47d44e37a97e637d9bf3931825dbd7d"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/CloudBoundary.kt",
+      "bytes": 232,
+      "sha256": "a50dc3d838d9ec1dc5fc233bc6c502d414fe5d33dd21f52561cacacd94376719"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/CloudFrontend.kt",
+      "bytes": 36101,
+      "sha256": "e7f00f90b8b335c163d47da4b4548903e514983603ec18917e99d0b2cb73e69a"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/CubicParameterGoal.kt",
+      "bytes": 7278,
+      "sha256": "f5a50e95746e78c2ee73f05cdbdcd8b22416d50028678afd899d18e643fed31c"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/ExtensionFrontend.kt",
+      "bytes": 8539,
+      "sha256": "83af400b108f2385a85d0e28edabdf80a2ea2c456d008fba56a81b439791f1ae"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/ExtensionMcpRuntime.kt",
+      "bytes": 8885,
+      "sha256": "92f204237b2650acb2fec31d798adf37b779ba830af697c5d81db7d01458f5aa"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/ExtensionToolGrantStore.kt",
+      "bytes": 3555,
+      "sha256": "55c60338a35f564a6b0106167ec5d4916afbd0f1dcbcb1c2bed180b8041e520c"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/IdentityCaveatGoal.kt",
+      "bytes": 3784,
+      "sha256": "dde1717131b05050ed8bfe1c9737fd4969ae2f7c2955b188e15b1f80b7da85cb"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/InductionGoal.kt",
+      "bytes": 2712,
+      "sha256": "5b12ec5d7632370f71ebdebabcfee3e33fb45a146ff336aab6f982f8b3531ca3"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/RationalRecurrenceGoal.kt",
+      "bytes": 2794,
+      "sha256": "8613a9a175b8063eadb2ba734d1cc4756f0bcbab24f85843a0213faa913096b0"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/RefutationDelivery.kt",
+      "bytes": 3925,
+      "sha256": "be581406ca6f162872e2f1238e0cf959364560dc25033bceb263aaa45cfaf473"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/TaskPlanner.kt",
+      "bytes": 55138,
+      "sha256": "3c4999538f7a6e11351cb08297fe0fb286e98558d727d14ae134ffd46d50aeb0"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/UncertifiedGoal.kt",
+      "bytes": 1261,
+      "sha256": "c2dc353088c4e106dc5d3bc2b71bb6e26742aa03152d3a677ec82b71377445fe"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/UsageProvenance.kt",
+      "bytes": 638,
+      "sha256": "73f4abb40db71c777fce9ee35ac370a06ab103cf7fef1e0a7a1463535888f13b"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/agent/VisibleMathClaim.kt",
+      "bytes": 5592,
+      "sha256": "71cde12e2efbce42b498eaa9d0eecf773544209e1666586599a294cf8d66e663"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/material/DocumentServiceRepository.kt",
+      "bytes": 33358,
+      "sha256": "63b5c9e1631958b9a270e5bdbb2efa38ed9d99f1e7fe12a17bb47e59e2922a0c"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/material/OfficeConversionRepository.kt",
+      "bytes": 24704,
+      "sha256": "e12c587038c6efa92e05b26670b7feb58a46ccce724f1327ef9657bf6ef6be76"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/math/CubicParameterMonotonicity.kt",
+      "bytes": 5398,
+      "sha256": "6586da9acce06c56a4c6b7e4b53ed59a78b74c85f04ec1918d1df695e95af659"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/math/MultivariateCertificate.kt",
+      "bytes": 11984,
+      "sha256": "e0eea6706b0c3fac6236d8b860c9d839f320aa3f754e0b934eba5954cec684f7"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/math/ProfessionalMathGuidance.kt",
+      "bytes": 6755,
+      "sha256": "ff1a52b22f64d37a4db930475b9f32fa959a0b13e0fea7cd66f415729c857d16"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/feature/math/RationalLinearRecurrence.kt",
+      "bytes": 10528,
+      "sha256": "fa9f5cdc5556ea255729cf9f622195490acd8f37914e55ad21bba58d5982b0a7"
+    },
+    {
+      "path": "client/app/src/main/java/me/rerere/rikkahub/flutter/StudyHostFacade.kt",
+      "bytes": 117154,
+      "sha256": "3ddf5409eb087cbd8fe024dca9ba6bd0cc4ffa70963cf89b7cac0fb5fa2af4e7"
+    },
+    {
+      "path": "client/app/src/test/java/me/rerere/rikkahub/data/sync/BackupExclusionsTest.kt",
+      "bytes": 444,
+      "sha256": "9c5d36dbbccb97b779399c7f10851d1dc621d4ea4814cf3c70e431d1e5da5aa1"
+    },
+    {
+      "path": "client/app/src/test/java/me/rerere/rikkahub/feature/agent/CloudBoundaryTest.kt",
+      "bytes": 341,
+      "sha256": "ff9e4cdafab293e4a8bb8ae02fdf8f261e3432d87df07b568f55c3b989bb43e9"
+    },
+    {
+      "path": "client/app/src/test/java/me/rerere/rikkahub/feature/agent/ExtensionToolAdmissionTest.kt",
+      "bytes": 907,
+      "sha256": "e186cc4bc4d9fb72e478c96b46db81c824392ee1fe3e2b687f784d2de90e391a"
+    },
+    {
+      "path": "client/app/src/test/java/me/rerere/rikkahub/feature/agent/IdentityCaveatGoalTest.kt",
+      "bytes": 2275,
+      "sha256": "c16c261810f5d93e08fd3ed6bf98cb0f864b36a0bbb89fc9cc91b2151d3e426e"
+    },
+    {
+      "path": "client/app/src/test/java/me/rerere/rikkahub/feature/agent/InductionGoalTest.kt",
+      "bytes": 1972,
+      "sha256": "a1e031ee3fdf911362025b362b7c1b654d3615a54569c2a4e66c499bd832e303"
+    },
+    {
+      "path": "client/app/src/test/java/me/rerere/rikkahub/feature/agent/RefutationDeliveryTest.kt",
+      "bytes": 3853,
+      "sha256": "06da121a31d014e044632ee9f58bdd6e50e447710fa29ab0096fec421c946179"
+    },
+    {
+      "path": "client/app/src/test/java/me/rerere/rikkahub/feature/agent/UncertifiedGoalTest.kt",
+      "bytes": 2361,
+      "sha256": "6156a09245b8c8a7497c216b10e6295be35bcb152b7059ab14284e20777a2978"
+    },
+    {
+      "path": "client/app/src/test/java/me/rerere/rikkahub/feature/agent/VisibleAnswerBindingTest.kt",
+      "bytes": 3671,
+      "sha256": "ad72760926caa8f71327dfb28d4ff91451a4dc081e775cade1bea16beb5e5385"
+    },
+    {
+      "path": "client/app/src/test/java/me/rerere/rikkahub/feature/material/MaterialSourceLocationReadTest.kt",
+      "bytes": 689,
+      "sha256": "634b0800da0699b8dbc604e12d9d557f1577b6bf7b2fd3db6220fc226b39c24d"
+    },
+    {
+      "path": "client/app/src/test/java/me/rerere/rikkahub/feature/math/CubicParameterMonotonicityTest.kt",
+      "bytes": 5340,
+      "sha256": "5ca9eb8136a4846194dfa2b6329a449efb6fabf25a6e14356996172f72324360"
+    },
+    {
+      "path": "client/app/src/test/java/me/rerere/rikkahub/feature/math/RationalLinearRecurrenceTest.kt",
+      "bytes": 4440,
+      "sha256": "811d03533b8a5d902de42c570d8a3b504f46fe91b644e3edd93c47a5ca86071c"
+    },
+    {
+      "path": "client/flutter_ui/lib/pages/agent_task_detail_page.dart",
+      "bytes": 15736,
+      "sha256": "114bfc26f0a4714fb0618840fd0c6fa667048e2b038a2de32b9bd2897c197f1c"
+    },
+    {
+      "path": "client/flutter_ui/lib/pages/extensions_page.dart",
+      "bytes": 25384,
+      "sha256": "2946b76d52d8a5a86d80dfae100b1e2f9d623a5485e47b5506393ea8a41e1459"
+    },
+    {
+      "path": "client/flutter_ui/lib/widgets/enhanced_cards.dart",
+      "bytes": 35058,
+      "sha256": "cc34ff71a7795da7d2ff32a0e218ae7a0d4220f4dad907c86d5635b311a8d9f2"
+    },
+    {
+      "path": "docs/g47-cubic-parameter-monotonicity-v1.md",
+      "bytes": 728,
+      "sha256": "fb5aa584295d5ef8a146fc32dd891ecdfd5554d7cfd8038185a5a6990da040ca"
+    },
+    {
+      "path": "docs/g47-identity-caveat-v1.md",
+      "bytes": 487,
+      "sha256": "227986dc78a835b02534b9a92bad6b6558908243dad5a3efa60a1e19c5536e1d"
+    },
+    {
+      "path": "docs/g47-induction-delivery-v1.md",
+      "bytes": 442,
+      "sha256": "5f05c66f044d3deb97f39d15f84f5d1e7fe8c00f4cf7d6ebfb3b4eef328cb9d4"
+    },
+    {
+      "path": "docs/g47-mcp-tool-grant-v1.md",
+      "bytes": 394,
+      "sha256": "cf90f0311083e09bee4302fbd4972aabb43d381c2542b5a4563d1a2b8d437580"
+    },
+    {
+      "path": "docs/g47-rational-recurrence-v1.md",
+      "bytes": 954,
+      "sha256": "344647cbdb5d38d757b7cfdf444546d729fbebe6bb649954bf343ce9a2147f02"
+    },
+    {
+      "path": "docs/g47-refutation-delivery-v1.md",
+      "bytes": 577,
+      "sha256": "d6fe9f663d71c209ab8ec10ff353d651a5f5ed5f8acb1300579fbff1de5f0dca"
+    },
+    {
+      "path": "docs/grok-development-tasks-1-7-20261104.md",
+      "bytes": 39537,
+      "sha256": "6bdcd8e79621cfe50b1b1629fa3d8cc68c493b3867835a1f6c22f990e69347a0"
+    },
+    {
+      "path": "docs/grok-next-development-plan-20261104.md",
+      "bytes": 31331,
+      "sha256": "a008eca50bd211fc8df011a65fefa4b11ee7e0171827e9c8545b4aa6e489aa0f"
+    },
+    {
+      "path": "docs/pro-development-baseline-20261012.md",
+      "bytes": 79453,
+      "sha256": "d28fd6a46bc1228dbbbb954d9e9b4e42b0f68e55a5b66335161bfe9b3aae5c03"
+    }
+  ]
+}

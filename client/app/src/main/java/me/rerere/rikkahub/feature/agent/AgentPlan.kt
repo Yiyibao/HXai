@@ -14,8 +14,16 @@ internal data class AgentPlan(
         steps.forEach { require(it.id.matches(Regex("[a-zA-Z0-9_-]{1,80}")) && it.tool in availableTools && it.purpose.length in 1..2000)
             TrustedToolRegistry.require(it.tool) }
         acceptance.forEach {
-            if(it.kind==ResponseCompletion.KIND) {
-                require(steps.isEmpty() && acceptance.size==1 && it.stepId==ResponseCompletion.STEP &&
+            if(it.kind==ResponseCompletion.KIND || it.kind==RefutationDelivery.KIND || it.kind==InductionGoal.KIND || it.kind==IdentityCaveatGoal.KIND || it.kind==RationalRecurrenceGoal.KIND || it.kind==CubicParameterGoal.KIND) {
+                val step=when(it.kind) {
+                    ResponseCompletion.KIND -> ResponseCompletion.STEP
+                    RefutationDelivery.KIND -> RefutationDelivery.STEP
+                    InductionGoal.KIND -> InductionGoal.STEP
+                    RationalRecurrenceGoal.KIND -> RationalRecurrenceGoal.STEP
+                    CubicParameterGoal.KIND -> CubicParameterGoal.STEP
+                    else -> IdentityCaveatGoal.STEP
+                }
+                require(steps.isEmpty() && acceptance.size==1 && it.stepId==step &&
                     it.format==null && it.sourceId==null && it.sourceHash==null && it.contains.size==1 &&
                     it.contains.single().matches(Regex("[a-f0-9]{64}")))
                 return@forEach

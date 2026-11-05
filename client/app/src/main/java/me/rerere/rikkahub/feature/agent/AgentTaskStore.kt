@@ -397,7 +397,7 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
         AgentCostLedger.begin(db,requestId,selection.costBasis)
         requestId
     }.also { usageChanges.tryEmit(Unit) }
-    fun finishRequest(lease: AgentLease, requestId: String, usage: me.rerere.ai.core.TokenUsage?) = transaction { db ->
+    fun finishRequest(lease: AgentLease, requestId: String, usage: me.rerere.ai.core.TokenUsage?, declaredProvenance: String? = null) = transaction { db ->
         requireLease(db,lease)
         db.rawQuery("SELECT c.state,u.prompt_tokens,u.completion_tokens,u.cached_tokens,u.total_tokens FROM calls c JOIN usage u ON u.request_id=c.call_id WHERE c.task_id=? AND c.call_id=? AND c.tool LIKE 'provider:%'",
             arrayOf(lease.task.id,requestId)).use { receipt ->
@@ -412,7 +412,7 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
         }
         AgentCostLedger.finish(db,requestId,usage)
         if (usage != null) db.update("usage",ContentValues().apply {
-            put("provenance",if(usage.promptTokens!=null || usage.completionTokens!=null || usage.cachedTokens!=null || usage.totalTokens!=null) "reported" else "unknown")
+            put("provenance", UsageProvenance.of(usage, declaredProvenance))
             put("prompt_tokens",usage.promptTokens); put("completion_tokens",usage.completionTokens); put("cached_tokens",usage.cachedTokens)
             put("total_tokens",usage.totalTokens)
         },"request_id=? AND task_id=?",arrayOf(requestId,lease.task.id))
@@ -451,8 +451,7 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
         requireLease(db,lease)
         val unsafe = db.rawQuery("SELECT 1 FROM calls WHERE task_id=? AND state IN ('IN_FLIGHT','UNKNOWN') LIMIT 1",arrayOf(lease.task.id)).use { it.moveToFirst() }
         val control = control(db,lease.task.id)
-        val accepted = db.rawQuery("SELECT 1 FROM plans p WHERE task_id=? AND acceptance_verified=1 AND planned_revision=goal_revision AND NOT EXISTS (SELECT 1 FROM plan_steps s WHERE s.task_id=p.task_id AND s.state!='VERIFIED')",
-            arrayOf(lease.task.id)).use { it.moveToFirst() }
+        val accepted = acceptancePromotes(db,lease.task.id)
         val resolved = when {
             unsafe -> "UNCERTAIN_SIDE_EFFECT"
             AgentExecutorHandoff.pending(db,lease.task.id) -> "STOP_REQUESTED"
@@ -473,6 +472,18 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
             supervisedExecutors.remove(lease.task.id)
         }
     }.also { usageChanges.tryEmit(Unit) }
+    private fun acceptancePromotes(db: SQLiteDatabase, id: String): Boolean {
+        val planJson=db.rawQuery("SELECT acceptance_verified,planned_revision,goal_revision,plan_json FROM plans WHERE task_id=?",arrayOf(id)).use {
+            if(!it.moveToFirst() || it.getInt(0)==0 || it.getLong(1)!=it.getLong(2)) return false
+            it.getString(3)
+        } ?: return false
+        val blocking=db.rawQuery("SELECT state,tool FROM plan_steps WHERE task_id=? AND state!='VERIFIED'",arrayOf(id)).use {
+            buildList { while(it.moveToNext()) add(it.getString(0) to it.getString(1)) }
+        }
+        if(blocking.isEmpty()) return true
+        val kind=runCatching { Json.decodeFromString<AgentPlan>(planJson).acceptance.singleOrNull()?.kind }.getOrNull()
+        return kind==RefutationDelivery.KIND && blocking.all { it.first=="RETURNED" && it.second=="math_verify" }
+    }
 
     // A single SELECT has its own consistent snapshot; don't reserve a writer transaction for an advisory read.
     @Synchronized fun readUsageNotificationCandidates(owner: String, after: String?, now: Long, limit: Int = 100) =
@@ -871,6 +882,195 @@ internal class AgentTaskStore(context: Context, name: String = "agent-tasks-v1.d
         db.execSQL("UPDATE plans SET plan_json=?,planned_revision=?,acceptance_verified=?,evidence_json=? WHERE task_id=?",
             arrayOf<Any>(Json.encodeToString(next),goalRevision,if(delivered) 1 else 0,record.toString(),lease.task.id))
         if(outcome=="needs_input")db.execSQL("UPDATE task_control SET input_blocked=1 WHERE task_id=?",arrayOf(lease.task.id))
+        db.execSQL("UPDATE tasks SET revision=revision+1 WHERE id=?",arrayOf(lease.task.id))
+    }
+    /** Records a recomputed counterexample delivery. RETURNED calls stay in the journal and are not promoted to proof. */
+    fun acceptRefutation(lease: AgentLease, goalRevision: Long, reply: String, settled: List<SettledRefutation>) = transaction { db ->
+        requireDispatchLease(db,lease)
+        require(reply.length in 1..ResponseCompletion.MAX_CHARS && settled.isNotEmpty() && settled.size<=64)
+        val current=requireNotNull(task(db,lease.task.id))
+        require(!current.manualPaused && current.revision>=0)
+        val gate=control(db,lease.task.id)
+        require(gate.authorization=="ACTIVE" && !gate.cancelRequested && !gate.inputBlocked && !gate.approvalBlocked &&
+            !gate.deviceBlocked && !gate.deviceConfirmation) { "Refutation cannot clear an independent blocker" }
+        val plan=plan(lease.task.owner,lease.task.id)
+        require(plan.revision==goalRevision && plan.steps.isNotEmpty() && plan.steps.all { it.state=="RETURNED" && it.tool=="math_verify" && it.callId!=null })
+        val journal=db.rawQuery("SELECT call_id,tool,state,input_hash,result_json,result_hash FROM calls WHERE task_id=? AND tool NOT LIKE 'provider:%'",
+            arrayOf(lease.task.id)).use { rows ->
+            buildList { while(rows.moveToNext()) add(List(6) { rows.getString(it) }) }
+        }
+        require(journal.map { it[0] }.toSet()==plan.steps.map { it.callId }.toSet()) { "Refutation cannot hide another tool effect" }
+        require(settled.map { it.callId }.toSet()==journal.map { it[0] }.toSet())
+        require(db.rawQuery("SELECT 1 FROM calls WHERE task_id=? AND state IN ('IN_FLIGHT','UNKNOWN') LIMIT 1",arrayOf(lease.task.id)).use { !it.moveToFirst() })
+        val recorded=settled.map { item ->
+            val row=journal.single { it[0]==item.callId }
+            val receiptJson=requireNotNull(row[4])
+            require(row[1]=="math_verify" && row[2]=="RETURNED" && row[3]==hash(item.input) && hash(receiptJson)==row[5])
+            require(plan.steps.single { it.callId==item.callId }.resultJson==receiptJson)
+            val text=Json.decodeFromString<List<me.rerere.ai.ui.UIMessagePart>>(receiptJson).single() as me.rerere.ai.ui.UIMessagePart.Text
+            val stored=kotlinx.serialization.json.Json.parseToJsonElement(text.text).jsonObject
+            require(stored==item.certificate)
+            require(RefutationDelivery.binds(plan.goal,kotlinx.serialization.json.Json.parseToJsonElement(item.input).jsonObject,item.certificate,reply))
+            kotlinx.serialization.json.buildJsonObject {
+                put("callId",kotlinx.serialization.json.JsonPrimitive(item.callId))
+                put("inputHash",kotlinx.serialization.json.JsonPrimitive(row[3]))
+                put("resultHash",kotlinx.serialization.json.JsonPrimitive(row[5]))
+                put("counterexample",requireNotNull(RefutationDelivery.counterexample(item.certificate)))
+            }
+        }
+        val record=kotlinx.serialization.json.buildJsonObject {
+            put("contract",kotlinx.serialization.json.JsonPrimitive("refutation-delivery-v1"))
+            put("mathematics_status",kotlinx.serialization.json.JsonPrimitive("DISPROVED"))
+            put("claim_promoted",kotlinx.serialization.json.JsonPrimitive(false))
+            put("goalHash",kotlinx.serialization.json.JsonPrimitive(hash(plan.goal)))
+            put("replySha256",kotlinx.serialization.json.JsonPrimitive(hash(reply)))
+            put("calls",kotlinx.serialization.json.JsonArray(recorded))
+        }
+        val next=AgentPlan(acceptance=listOf(AcceptancePredicate(RefutationDelivery.STEP,RefutationDelivery.KIND,contains=listOf(hash(record.toString())))),
+            explanation="独立重算已否定该声明，可见回复引用了反例。该声明未被认证为真。")
+        next.validate(emptySet())
+        db.execSQL("UPDATE plans SET plan_json=?,planned_revision=?,acceptance_verified=1,evidence_json=? WHERE task_id=?",
+            arrayOf<Any>(Json.encodeToString(next),goalRevision,record.toString(),lease.task.id))
+        db.execSQL("UPDATE tasks SET revision=revision+1 WHERE id=?",arrayOf(lease.task.id))
+    }
+    /** Host-recomputed recurrence. Visible prose is not the certificate. */
+    fun acceptInduction(lease: AgentLease, reply: String, certificate: kotlinx.serialization.json.JsonObject) = transaction { db ->
+        requireDispatchLease(db,lease)
+        require(reply.length in 1..ResponseCompletion.MAX_CHARS)
+        val current=plan(lease.task.owner,lease.task.id)
+        val spec=requireNotNull(InductionGoal.parse(current.goal)) { "Goal is not a recognized recurrence" }
+        require(InductionGoal.quoted(reply,spec))
+        require(certificate["status"]?.jsonPrimitive?.content=="VERIFIED" &&
+            certificate["proof_kind"]?.jsonPrimitive?.content=="mathematical_induction_exact_polynomial_base_and_step")
+        require(current.steps.isEmpty() && current.plan?.steps.orEmpty().isEmpty())
+        require(db.rawQuery("SELECT 1 FROM calls WHERE task_id=? AND (tool NOT LIKE 'provider:%' OR state!='VERIFIED') LIMIT 1",
+            arrayOf(lease.task.id)).use { !it.moveToFirst() })
+        val gate=control(db,lease.task.id)
+        require(gate.authorization=="ACTIVE" && !gate.cancelRequested && !gate.inputBlocked && !gate.approvalBlocked &&
+            !gate.deviceBlocked && !gate.deviceConfirmation)
+        require(!requireNotNull(task(db,lease.task.id)).manualPaused)
+        val record=kotlinx.serialization.json.buildJsonObject {
+            put("contract",kotlinx.serialization.json.JsonPrimitive("induction-delivery-v1"))
+            put("mathematics_status",kotlinx.serialization.json.JsonPrimitive("VERIFIED"))
+            put("proof_kind",kotlinx.serialization.json.JsonPrimitive("mathematical_induction_exact_polynomial_base_and_step"))
+            put("start",kotlinx.serialization.json.JsonPrimitive(spec.start))
+            put("initial",kotlinx.serialization.json.JsonPrimitive(spec.initial))
+            put("next",kotlinx.serialization.json.JsonPrimitive(spec.next))
+            put("claimed",kotlinx.serialization.json.JsonPrimitive(spec.claimed))
+            put("goalHash",kotlinx.serialization.json.JsonPrimitive(hash(current.goal)))
+            put("replySha256",kotlinx.serialization.json.JsonPrimitive(hash(reply)))
+            put("certificate",certificate)
+        }
+        val next=AgentPlan(acceptance=listOf(AcceptancePredicate(InductionGoal.STEP,InductionGoal.KIND,contains=listOf(hash(record.toString())))),
+            explanation="宿主按题面重算了初值和归纳步。可见回复不是证明。")
+        next.validate(emptySet())
+        db.execSQL("UPDATE plans SET plan_json=?,planned_revision=?,acceptance_verified=1,evidence_json=? WHERE task_id=?",
+            arrayOf<Any>(Json.encodeToString(next),current.revision,record.toString(),lease.task.id))
+        db.execSQL("UPDATE tasks SET revision=revision+1 WHERE id=?",arrayOf(lease.task.id))
+    }
+    /** Host-recomputed rational recurrence. Visible prose is not the certificate. */
+    fun acceptRationalRecurrence(lease: AgentLease, reply: String, certificate: kotlinx.serialization.json.JsonObject) = transaction { db ->
+        requireDispatchLease(db,lease)
+        require(reply.length in 1..ResponseCompletion.MAX_CHARS)
+        val current=plan(lease.task.owner,lease.task.id)
+        val spec=requireNotNull(RationalRecurrenceGoal.parse(current.goal)) { "Goal is not a recognized rational recurrence" }
+        val claim=requireNotNull(RationalRecurrenceGoal.claim(reply))
+        require(certificate["status"]?.jsonPrimitive?.content=="VERIFIED" &&
+            certificate["proof_kind"]?.jsonPrimitive?.content==me.rerere.rikkahub.feature.math.RationalLinearRecurrence.PROOF_KIND)
+        require(current.steps.isEmpty() && current.plan?.steps.orEmpty().isEmpty())
+        require(db.rawQuery("SELECT 1 FROM calls WHERE task_id=? AND (tool NOT LIKE 'provider:%' OR state!='VERIFIED') LIMIT 1",
+            arrayOf(lease.task.id)).use { !it.moveToFirst() })
+        val gate=control(db,lease.task.id)
+        require(gate.authorization=="ACTIVE" && !gate.cancelRequested && !gate.inputBlocked && !gate.approvalBlocked &&
+            !gate.deviceBlocked && !gate.deviceConfirmation)
+        require(!requireNotNull(task(db,lease.task.id)).manualPaused)
+        val record=kotlinx.serialization.json.buildJsonObject {
+            put("contract",kotlinx.serialization.json.JsonPrimitive("rational-recurrence-delivery-v1"))
+            put("mathematics_status",kotlinx.serialization.json.JsonPrimitive("VERIFIED"))
+            put("proof_kind",kotlinx.serialization.json.JsonPrimitive(me.rerere.rikkahub.feature.math.RationalLinearRecurrence.PROOF_KIND))
+            put("start",kotlinx.serialization.json.JsonPrimitive(spec.start))
+            put("initial",kotlinx.serialization.json.JsonPrimitive(spec.initial))
+            put("next",kotlinx.serialization.json.JsonPrimitive(spec.next))
+            put("claimed",kotlinx.serialization.json.JsonPrimitive(claim))
+            put("goalHash",kotlinx.serialization.json.JsonPrimitive(hash(current.goal)))
+            put("replySha256",kotlinx.serialization.json.JsonPrimitive(hash(reply)))
+            put("certificate",certificate)
+        }
+        val next=AgentPlan(acceptance=listOf(AcceptancePredicate(RationalRecurrenceGoal.STEP,RationalRecurrenceGoal.KIND,contains=listOf(hash(record.toString())))),
+            explanation="宿主按题面重算了有理线性递推。可见回复不是证明。")
+        next.validate(emptySet())
+        db.execSQL("UPDATE plans SET plan_json=?,planned_revision=?,acceptance_verified=1,evidence_json=? WHERE task_id=?",
+            arrayOf<Any>(kotlinx.serialization.json.Json.encodeToString(next),current.revision,record.toString(),lease.task.id))
+        db.execSQL("UPDATE tasks SET revision=revision+1 WHERE id=?",arrayOf(lease.task.id))
+    }
+    /** Host-recomputed cubic parameter sign chart. Visible prose is not the certificate. */
+    fun acceptCubicMonotonicity(lease: AgentLease, reply: String, certificate: kotlinx.serialization.json.JsonObject) = transaction { db ->
+        requireDispatchLease(db,lease)
+        require(reply.length in 1..ResponseCompletion.MAX_CHARS)
+        val current=plan(lease.task.owner,lease.task.id)
+        val spec=requireNotNull(CubicParameterGoal.parse(current.goal)) { "Goal is not a recognized cubic parameter discussion" }
+        require(CubicParameterGoal.quoted(reply,certificate))
+        require(certificate["status"]?.jsonPrimitive?.content=="VERIFIED" &&
+            certificate["proof_kind"]?.jsonPrimitive?.content==me.rerere.rikkahub.feature.math.CubicParameterMonotonicity.PROOF_KIND)
+        require(current.steps.isEmpty() && current.plan?.steps.orEmpty().isEmpty())
+        require(db.rawQuery("SELECT 1 FROM calls WHERE task_id=? AND (tool NOT LIKE 'provider:%' OR state!='VERIFIED') LIMIT 1",
+            arrayOf(lease.task.id)).use { !it.moveToFirst() })
+        val gate=control(db,lease.task.id)
+        require(gate.authorization=="ACTIVE" && !gate.cancelRequested && !gate.inputBlocked && !gate.approvalBlocked &&
+            !gate.deviceBlocked && !gate.deviceConfirmation)
+        require(!requireNotNull(task(db,lease.task.id)).manualPaused)
+        val record=kotlinx.serialization.json.buildJsonObject {
+            put("contract",kotlinx.serialization.json.JsonPrimitive("cubic-parameter-monotonicity-v1"))
+            put("mathematics_status",kotlinx.serialization.json.JsonPrimitive("VERIFIED"))
+            put("proof_kind",kotlinx.serialization.json.JsonPrimitive(me.rerere.rikkahub.feature.math.CubicParameterMonotonicity.PROOF_KIND))
+            put("expression",kotlinx.serialization.json.JsonPrimitive(spec.expression))
+            put("goalHash",kotlinx.serialization.json.JsonPrimitive(hash(current.goal)))
+            put("replySha256",kotlinx.serialization.json.JsonPrimitive(hash(reply)))
+            put("certificate",certificate)
+        }
+        val next=AgentPlan(acceptance=listOf(AcceptancePredicate(CubicParameterGoal.STEP,CubicParameterGoal.KIND,contains=listOf(hash(record.toString())))),
+            explanation="宿主按题面重算了三次含参导数符号表。可见回复不是证明。")
+        next.validate(emptySet())
+        db.execSQL("UPDATE plans SET plan_json=?,planned_revision=?,acceptance_verified=1,evidence_json=? WHERE task_id=?",
+            arrayOf<Any>(kotlinx.serialization.json.Json.encodeToString(next),current.revision,record.toString(),lease.task.id))
+        db.execSQL("UPDATE tasks SET revision=revision+1 WHERE id=?",arrayOf(lease.task.id))
+    }
+    /** Host-recomputed identity. A geometric caveat must be denied in the visible reply. */
+    fun acceptIdentityCaveat(lease: AgentLease, reply: String, certificate: kotlinx.serialization.json.JsonObject,
+        allowedInputHashes: Set<String>) = transaction { db ->
+        requireDispatchLease(db,lease)
+        require(reply.length in 1..ResponseCompletion.MAX_CHARS)
+        val current=plan(lease.task.owner,lease.task.id)
+        val spec=requireNotNull(IdentityCaveatGoal.parse(current.goal)) { "Goal is not a recognized identity caveat" }
+        require(IdentityCaveatGoal.quoted(reply,spec) && IdentityCaveatGoal.deniesGeometry(reply))
+        require(certificate["status"]?.jsonPrimitive?.content=="VERIFIED" &&
+            certificate["proof_kind"]?.jsonPrimitive?.content=="exact_multivariate_rational_coefficients")
+        val calls=db.rawQuery("SELECT tool,state,input_hash FROM calls WHERE task_id=? AND tool NOT LIKE 'provider:%'",
+            arrayOf(lease.task.id)).use { rows -> buildList { while(rows.moveToNext()) add(Triple(rows.getString(0),rows.getString(1),rows.getString(2))) } }
+        if(current.steps.isEmpty()) require(calls.isEmpty() && allowedInputHashes.isEmpty()) else {
+            require(current.steps.all { it.state=="VERIFIED" && it.tool=="math_verify" && it.callId!=null })
+            require(calls.isNotEmpty() && calls.all { it.first=="math_verify" && it.second=="VERIFIED" && it.third in allowedInputHashes })
+        }
+        val gate=control(db,lease.task.id)
+        require(gate.authorization=="ACTIVE" && !gate.cancelRequested && !gate.inputBlocked && !gate.approvalBlocked &&
+            !gate.deviceBlocked && !gate.deviceConfirmation)
+        require(!requireNotNull(task(db,lease.task.id)).manualPaused)
+        val record=kotlinx.serialization.json.buildJsonObject {
+            put("contract",kotlinx.serialization.json.JsonPrimitive("identity-caveat-v1"))
+            put("mathematics_status",kotlinx.serialization.json.JsonPrimitive("VERIFIED"))
+            put("proof_kind",kotlinx.serialization.json.JsonPrimitive("exact_multivariate_rational_coefficients"))
+            put("geometry_promoted",kotlinx.serialization.json.JsonPrimitive(false))
+            put("left",kotlinx.serialization.json.JsonPrimitive(spec.left))
+            put("right",kotlinx.serialization.json.JsonPrimitive(spec.right))
+            put("goalHash",kotlinx.serialization.json.JsonPrimitive(hash(current.goal)))
+            put("replySha256",kotlinx.serialization.json.JsonPrimitive(hash(reply)))
+            put("certificate",certificate)
+        }
+        val next=AgentPlan(acceptance=listOf(AcceptancePredicate(IdentityCaveatGoal.STEP,IdentityCaveatGoal.KIND,contains=listOf(hash(record.toString())))),
+            explanation="宿主重算了代数恒等式。可见回复否认它证明圆锥曲线的几何结论。")
+        next.validate(emptySet())
+        db.execSQL("UPDATE plans SET plan_json=?,planned_revision=?,acceptance_verified=1,evidence_json=? WHERE task_id=?",
+            arrayOf<Any>(kotlinx.serialization.json.Json.encodeToString(next),current.revision,record.toString(),lease.task.id))
         db.execSQL("UPDATE tasks SET revision=revision+1 WHERE id=?",arrayOf(lease.task.id))
     }
     @Synchronized fun completedResult(owner: String,id: String,tool: String,input: String): String? {

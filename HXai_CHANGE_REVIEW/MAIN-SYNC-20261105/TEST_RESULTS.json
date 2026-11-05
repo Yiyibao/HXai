@@ -1,0 +1,14 @@
+{
+  "feature": "MAIN-SYNC-20261105",
+  "source_head": "a90bc8eb4bb81dceb47c593898edd1d6c3e3fad1",
+  "remote_main_before": "5d826d5d7d8755ed42db834d6cd6dc52ae914c69",
+  "independent_review": "NOT_EVALUATED",
+  "checks": [
+    {"name": "initial_storage_check", "result": "PASS", "logical_bytes": 7699809365, "generated_bytes": 5983271804, "worktrees": 1},
+    {"name": "initial_tracked_git_diff_check", "result": "PASS"},
+    {"name": "staged_source_and_document_diff_check", "result": "PASS", "note": "Historical *.patch, *.log and G47-02 instrument.txt retain their original whitespace; the unrestricted check reports those evidence-only lines. No historical evidence is rewritten."},
+    {"name": "fast_forward_ancestry", "result": "PASS", "commits_before_snapshot": 30},
+    {"name": "limited_secret_pattern_scan", "result": "PASS", "files_scanned": 1348, "findings": 0, "scope": "Changed files relative to origin/main plus untracked files, excluding local sealed runtime exports; private-key/provider/GitHub/AWS patterns and long literal secret assignments only; not a complete security audit"},
+    {"name": "new_product_tests", "result": "NOT_RUN", "reason": "Git synchronization only; existing evidence retains its original source and scope"}
+  ]
+}

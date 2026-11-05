@@ -1,0 +1,27 @@
+{
+  "feature": "G47-05-INDUCTION-20261104",
+  "independentReview": "NOT_EVALUATED",
+  "runs": [
+    {
+      "name": "app:testDebugUnitTest InductionGoalTest RefutationDeliveryTest",
+      "cwd": "client",
+      "command": "gradlew.bat :app:testDebugUnitTest --tests me.rerere.rikkahub.feature.agent.InductionGoalTest --tests me.rerere.rikkahub.feature.agent.RefutationDeliveryTest --offline --no-daemon",
+      "exitCode": 0,
+      "result": "PASS",
+      "cases": {
+        "InductionGoalTest": {"tests": 3, "failures": 0, "errors": 0},
+        "RefutationDeliveryTest": {"tests": 3, "failures": 0, "errors": 0}
+      }
+    },
+    {
+      "name": "API26 HostAcceptanceRuntimeTest",
+      "serial": "emulator-5554",
+      "package": "org.hxsi.agent.nativeqa",
+      "command": "adb shell am instrument -w -e class me.rerere.rikkahub.feature.agent.HostAcceptanceRuntimeTest org.hxsi.agent.nativeqa.test/me.rerere.rikkahub.feature.agent.AgentNativeTestRunner",
+      "result": "PASS",
+      "log": "api26-instrument-r4.log",
+      "cases": "OK (3 tests)"
+    }
+  ],
+  "notRun": ["paid live cohort rerun"]
+}

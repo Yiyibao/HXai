@@ -1,0 +1,26 @@
+{
+  "review": "FULL-AUDIT-20261104-R2",
+  "head": "54b832613c1b4ab3eefbecedca5367c274b60135",
+  "worktree": "dirty review fixes plus user AGENTS.md and baseline doc",
+  "runs": [
+    {
+      "name": "current_agent_runtime",
+      "status": "PASS",
+      "exit": 0,
+      "summary": "130 passed in 19.85s",
+      "command": "PYTHONPATH=server/agent-runtime python -m pytest -q -p no:cacheprovider server/agent-runtime/tests --tb=line"
+    },
+    {
+      "name": "current_document_service",
+      "status": "PASS",
+      "exit": 0,
+      "summary": "164 passed, 1 Starlette warning, 9.03s",
+      "command": "python -m pytest -q -p no:cacheprovider server/document-service/tests --tb=line"
+    },
+    {
+      "name": "flutter_gradle_device_container_production",
+      "status": "NOT_RUN",
+      "reason": "flutter, Android SDK, adb absent; no production or container authorization"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "feature": "G47-06-IDENTITY-20261104",
+  "independentReview": "NOT_EVALUATED",
+  "runs": [
+    {
+      "name": "app:testDebugUnitTest IdentityCaveatGoalTest",
+      "cwd": "client",
+      "result": "PASS",
+      "cases": {"tests": 3, "failures": 0, "errors": 0}
+    },
+    {
+      "name": "API26 HostAcceptanceRuntimeTest",
+      "serial": "emulator-5554",
+      "package": "org.hxsi.agent.nativeqa",
+      "result": "PASS",
+      "log": "api26-instrument.log",
+      "cases": "OK (5 tests)"
+    }
+  ]
+}

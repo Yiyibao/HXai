@@ -452,8 +452,8 @@ class GenerationLoop(
         }
         // A final explicit barrier survives conflate; acceptance can only inspect committed Room bytes.
         val response=messages.lastOrNull()?.takeIf {readTaskResponse!=null && commitTaskResponse!=null &&
-            me.rerere.rikkahub.feature.agent.ResponseCompletion.eligible(it)}
-        if(response!=null && execution.store.responseEligible(execution.lease)) {
+            it.role==me.rerere.ai.core.MessageRole.ASSISTANT && it.finishedAt!=null && it.toText().isNotBlank()}
+        if(response!=null) {
             val committed=CompletableDeferred<Unit>()
             emit(GenerationChunk.DurableCheckpoint(messages,committed));committed.await()
         }

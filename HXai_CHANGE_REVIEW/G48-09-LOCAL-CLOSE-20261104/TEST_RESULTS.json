@@ -1,0 +1,27 @@
+{
+  "feature": "G48-09-LOCAL-CLOSE-20261104",
+  "head": "a90bc8eb4bb81dceb47c593898edd1d6c3e3fad1",
+  "device": "emulator-5554 sdk_gphone_x86_64 API26",
+  "apk": "client/app/build/outputs/apk/debug/app-x86_64-debug.apk",
+  "independent_review": "NOT_EVALUATED",
+  "runs": [
+    {
+      "name": "UncertifiedGoalTest",
+      "result": "PASS",
+      "note": "BUILD SUCCESSFUL in 3m 38s. Conic intersection and uniform convergence stay blocked and unmatched by the four parsers."
+    },
+    {
+      "name": "API26 instrument",
+      "command": "am instrument -w -r -e class ExtensionRuntimeTest#ordinaryManagementEntryGrantsCallsRevokesAndRejectsTheOldEpoch,HostAcceptanceRuntimeTest,GeneralMcpChatStoryTest org.hxsi.agent.nativeqa.test/me.rerere.rikkahub.feature.agent.AgentNativeTestRunner",
+      "result": "PASS",
+      "tests": 15,
+      "time_seconds": 15.619,
+      "note": "OK (15 tests). INSTRUMENTATION_CODE -1 is the Android success code. Built with -PagentNativeTest=true."
+    },
+    {
+      "name": "SandboxMcpChatStoryTest",
+      "result": "NOT_RUN",
+      "reason": "Requires instrumentation args code_sha256, sandbox_token, sandbox_port and a Linux container MCP server. Not started."
+    }
+  ]
+}

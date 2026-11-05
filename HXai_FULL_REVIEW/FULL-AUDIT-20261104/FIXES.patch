@@ -1,0 +1,33 @@
+diff --git a/server/document-service/office_worker/package.py b/server/document-service/office_worker/package.py
+index a4321c4..2b31a17 100644
+--- a/server/document-service/office_worker/package.py
++++ b/server/document-service/office_worker/package.py
+@@ -55,10 +55,11 @@ def inspect_package(source, extension, digest):
+         expanded = 0
+         for entry in entries:
+             name = entry.filename
++            folded = name.casefold()
+             if name.startswith('/') or '\\' in name or ':' in name or '..' in name.split('/') or entry.flag_bits & 1:
+                 raise ValueError("encrypted_or_unsafe_office")
+-            if (name.startswith('_xmlsignatures/') or name.lower().endswith('vbaproject.bin') or
+-                    '/activex/' in name.lower() or '/embeddings/' in name.lower() or name.startswith('xl/externalLinks/')):
++            if (folded.startswith('_xmlsignatures/') or folded.endswith('vbaproject.bin') or folded.endswith('vbadata.xml') or
++                    '/activex/' in folded or '/embeddings/' in folded or name.startswith('xl/externalLinks/')):
+                 raise ValueError("active_or_external_office_content")
+             expanded += entry.file_size
+             if entry.file_size > 16 * 1024 * 1024 or expanded > 64 * 1024 * 1024:
+diff --git a/server/document-service/tests/test_office.py b/server/document-service/tests/test_office.py
+index 8040c70..37246eb 100644
+--- a/server/document-service/tests/test_office.py
++++ b/server/document-service/tests/test_office.py
+@@ -88,8 +88,8 @@ def test_cancel_lost_ack_and_cancel_before_enqueue_do_not_require_reupload(offic
+ 
+ 
+ @pytest.mark.parametrize('extra', [
+-    {'../outside.xml':'<x/>'}, {'word/vbaProject.bin':b'bad'}, {'word/embeddings/ole.bin':b'bad'},
+-    {'_xmlsignatures/sig.xml':'<sig/>'}, {'word/external.xml':'<!DOCTYPE x [<!ENTITY y SYSTEM "file:///etc/passwd">]><x/>'},
++    {'../outside.xml':'<x/>'}, {'word/vbaProject.bin':b'bad'}, {'word/vbaData.xml':'<vba/>'}, {'word/embeddings/ole.bin':b'bad'},
++    {'_xmlsignatures/sig.xml':'<sig/>'}, {'_XMLSIGNATURES/sig.xml':'<sig/>'}, {'word/external.xml':'<!DOCTYPE x [<!ENTITY y SYSTEM "file:///etc/passwd">]><x/>'},
+     {'word/_rels/document.xml.rels':'<Relationships><Relationship Type="image" TargetMode="External" Target="https://outside"/></Relationships>'},
+ ])
+ def test_active_expanding_and_external_packages_rejected(tmp_path,extra):

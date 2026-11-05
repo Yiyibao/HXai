@@ -47,7 +47,9 @@ class SandboxMcpChatStoryTest {
             val old=db.get(owner,"sandbox-story")
             val p=db.install(owner,"sandbox-story",old?.revision ?: 0,ExtensionConfig(name="Approved sum Skill",endpoint="http://127.0.0.1:$port/mcp",
                 serverName="hxai-skill-sandbox",serverVersion="1",tools=listOf(ExtensionToolPin("run_python",schema,verification="sandbox_receipt",imageSha256="sha256:69e69785e7156672be426d8e758cfe1becdcfabd7583ae9ca9a88bc41e3c7433"))),token)
-            db.command(owner,p.slot,p.id,p.revision,"enable")
+            val live=db.command(owner,p.slot,p.id,p.revision,"enable")
+            ExtensionToolGrantStore(context).use { it.grant(owner, live.id, "run_python", live.grantEpoch, ExtensionToolAdmission.contractHash(live.config.tools.first { it.name == "run_python" })) }
+            live
         }
         val input=buildJsonObject { put("installation_id",pin.id);put("tool","run_python");put("arguments",buildJsonObject { put("script_id","sum");put("script_sha256",code);put("input_json","{\"values\":[1,2,3]}") }.toString()) }
         val main=AtomicInteger();val semantic=AtomicInteger()

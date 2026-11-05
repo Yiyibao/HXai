@@ -1,0 +1,13 @@
+device emulator-5554 sdk_gphone_x86_64 API26
+apk client/app/build/outputs/apk/debug/app-x86_64-debug.apk
+test apk client/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+runner org.hxsi.agent.nativeqa.test/me.rerere.rikkahub.feature.agent.AgentNativeTestRunner
+numtests=15
+Time: 15.619
+OK (15 tests)
+INSTRUMENTATION_CODE: -1
+
+ExtensionRuntimeTest.ordinaryManagementEntryGrantsCallsRevokesAndRejectsTheOldEpoch PASS
+HostAcceptanceRuntimeTest 11 methods PASS, including cubicIntervalNotationCompletesAndSwappedIntervalsStayUnverified and conicIntersectionAndUniformConvergenceStayUnverified
+GeneralMcpChatStoryTest 3 methods PASS
+SandboxMcpChatStoryTest NOT_RUN

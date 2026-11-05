@@ -140,6 +140,7 @@ internal object MultivariateCertificate {
     suspend fun verify(input: JsonObject): JsonObject {
         currentCoroutineContext().ensureActive()
         val action = input.getValue("action").jsonPrimitive.content
+        if (action == "cubic_monotonicity") return CubicParameterMonotonicity.verify(input)
         val required = if (action == "derivative") setOf("action", "variables", "expression", "variable", "claimed") else setOf("action", "variables", "left", "right")
         if (input.keys != required || action !in setOf("identity", "derivative")) throw MathUnsupported("invalid_multivariate_fields")
         val variables = input.getValue("variables").jsonArray.map { it.jsonPrimitive.also { p -> if (!p.isString) throw MathUnsupported("variable_names_required") }.content }
@@ -165,9 +166,19 @@ internal object MultivariateCertificate {
         val start = input.getValue("start").jsonPrimitive.content.toIntOrNull() ?: throw MathUnsupported("integer_induction_start_required")
         if (start !in 0..1000000) throw MathUnsupported("induction_start_limit")
         val initial = ProfessionalScalar.read(input.getValue("initial"))
+        val nextText = input.getValue("next").jsonPrimitive.content
+        val claimedText = input.getValue("claimed").jsonPrimitive.content
+        return try {
+            polynomialInduction(start, initial, nextText, claimedText)
+        } catch (error: MathUnsupported) {
+            if (error.reason != "multivariate_nonzero_constant_divisor_required") throw error
+            RationalLinearRecurrence.verify(start, initial, nextText, claimedText)
+        }
+    }
+    private suspend fun polynomialInduction(start: Int, initial: Rational, nextText: String, claimedText: String): JsonObject {
         val names = listOf("n", "u")
-        val next = MultiExpression(input.getValue("next").jsonPrimitive.content, names).parse()
-        val claimed = MultiExpression(input.getValue("claimed").jsonPrimitive.content, names).parse()
+        val next = MultiExpression(nextText, names).parse()
+        val claimed = MultiExpression(claimedText, names).parse()
         if (claimed.terms.keys.any { ((it ushr 4) and 15) != 0 }) throw MathUnsupported("closed_formula_cannot_depend_on_sequence_value")
         val base = claimed.substitute(mapOf(0 to MultiPolynomial.constant(ProfessionalScalar.parse(start.toString()))))
             .add(MultiPolynomial.constant(initial), subtract = true)

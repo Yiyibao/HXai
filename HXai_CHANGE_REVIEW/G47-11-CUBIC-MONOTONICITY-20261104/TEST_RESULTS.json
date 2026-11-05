@@ -1,0 +1,32 @@
+{
+  "feature": "G47-11-CUBIC-MONOTONICITY-20261104",
+  "head": "a90bc8eb4bb81dceb47c593898edd1d6c3e3fad1",
+  "independent_review": "NOT_EVALUATED",
+  "runs": [
+    {
+      "name": "CubicParameterMonotonicityTest",
+      "command": "python scripts/project_storage.py run --feature G47-11-CUBIC-MONOTONICITY --kind test --disposable --reserve-mib 512 -- gradle :app:testDebugUnitTest --tests me.rerere.rikkahub.feature.math.CubicParameterMonotonicityTest --offline --no-daemon",
+      "result": "PASS",
+      "tests": 4,
+      "failures": 0,
+      "xml": "client/app/build/test-results/testDebugUnitTest/TEST-me.rerere.rikkahub.feature.math.CubicParameterMonotonicityTest.xml",
+      "timestamp": "2026-11-04T13:23:39.404Z"
+    },
+    {
+      "name": "HostAcceptanceRuntimeTest cubic methods",
+      "command": "adb -s emulator-5554 shell am instrument -w -e class me.rerere.rikkahub.feature.agent.HostAcceptanceRuntimeTest#cubicParameterDiscussionCompletesWhenTheReplyStatesAllThreeCells,me.rerere.rikkahub.feature.agent.HostAcceptanceRuntimeTest#cubicParameterDiscussionThatOmitsTheZeroCellStaysUnverified org.hxsi.agent.nativeqa.test/me.rerere.rikkahub.feature.agent.AgentNativeTestRunner",
+      "result": "PASS",
+      "tests": 2,
+      "failures": 0,
+      "time_seconds": 3.695,
+      "device": "emulator-5554 API26 hxai-api26",
+      "package": "org.hxsi.agent.nativeqa",
+      "log": "HXai_CHANGE_REVIEW/G47-11-CUBIC-MONOTONICITY-20261104/api26-instrument.log"
+    }
+  ],
+  "not_run": [
+    "sealed live model replay of HS-PARAM-CUBIC-FULL",
+    "Mate50 / Release / production",
+    "full HostAcceptanceRuntimeTest class rerun"
+  ]
+}

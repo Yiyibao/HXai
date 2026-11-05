@@ -190,7 +190,12 @@ class LiveQualityEvaluationTest {
                 val usage=if(task!=null) scheduler.captureUsage(owner,task.id,null,null,"requests","evaluation:$runId:$caseId")
                     else buildJsonObject { put("provenance","unknown");put("reason","No accepted task available") }
                 save(File(caseFolder,"USAGE.json"),usage)
-                if(task==null || task.state!="SUCCEEDED")execution="FAIL"
+                execution=when {
+                    task==null -> "FAIL"
+                    task.state=="WAITING_INPUT" -> "WAITING_INPUT"
+                    task.state!="SUCCEEDED" -> "FAIL"
+                    else -> execution
+                }
                 val snapshot=task?.let { buildJsonObject { put("providerId",it.providerId);put("endpoint","https://xinyue.mom/v1")
                     put("modelId","gpt-6.1-terra");put("reasoning",it.reasoning);put("configRevision",it.configurationRevision) } }
                 rows+=buildJsonObject { put("id",caseId);put("promptSha256",hash(prompt));put("engineeringStatus",execution)

@@ -1,0 +1,20 @@
+$ adb shell getprop ro.kernel.qemu
+1
+
+exit=0
+$ adb install -r client\app\build\outputs\apk\debug\app-x86_64-debug.apk
+Performing Streamed Install
+Success
+
+exit=0
+$ adb shell am instrument -w -e class me.rerere.rikkahub.feature.agent.HostAcceptanceRuntimeTest org.hxsi.agent.nativeqa.test/me.rerere.rikkahub.feature.agent.AgentNativeTestRunner
+
+me.rerere.rikkahub.feature.agent.HostAcceptanceRuntimeTest:...
+
+Time: 3.293
+
+OK (3 tests)
+
+
+
+exit=0

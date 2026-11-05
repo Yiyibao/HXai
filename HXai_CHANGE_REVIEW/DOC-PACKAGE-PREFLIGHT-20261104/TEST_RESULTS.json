@@ -1,0 +1,8 @@
+{
+  "feature": "DOC-PACKAGE-PREFLIGHT-20261104",
+  "before": {"status": "FAIL", "summary": "2 failed, 6 passed"},
+  "after": {"status": "PASS", "summary": "9 passed in 0.56s"},
+  "suite": {"status": "PASS", "summary": "server/document-service/tests 160 passed"},
+  "container": "NOT_RUN",
+  "independent_review": "NOT_EVALUATED"
+}

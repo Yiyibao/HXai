@@ -203,7 +203,7 @@ class _ExtensionManagerState extends ConsumerState<_ExtensionManager>
         .where((p) => p['slot'] == slot.text.trim())
         .firstOrNull;
     if (!await confirm(
-      '安装并保存逐工具许可',
+      '安装并保持停用',
       '${parsed['endpoint']}\n工具：${(parsed['tools'] as List).map((t) => t['name']).join(', ')}\n'
           '配置中的参数范围为许可边界。只读工具将多次独立复读，可能产生额外请求；不能选发送、删除或其他写入工具。'
           'Skill 计算仅由所选独立服务执行。安装后保持停用，启用和每个任务的实际外发仍需确认。',
@@ -298,11 +298,34 @@ class _ExtensionManagerState extends ConsumerState<_ExtensionManager>
       ref.invalidate(extensionsProvider);
     });
   }
+  Future<void> grantTool(Map item, String tool, bool revoke) async {
+    if (!await confirm(
+      revoke ? '撤销此工具' : '授予此工具',
+      '$tool\n只授权当前安装、当前契约和当前授权代次。启用、发现和 OAuth 成功都不是授权。',
+    )) {
+      return;
+    }
+    if (!mounted) return;
+    await perform(() async {
+      await FrontendFeatures.fromWidget(
+        ref,
+        revoke ? 'extensions.revokeTool' : 'extensions.grant',
+        {
+          'version': 1,
+          'slot': item['slot'],
+          'id': item['id'],
+          'revision': item['revision'],
+          'tool': tool,
+        },
+      );
+      if (mounted) ref.invalidate(extensionsProvider);
+    });
+  }
 
   Future<void> command(Map item, String action) async {
     if (!await confirm(
       '确认${{'enable': '启用', 'disable': '停用', 'revoke': '撤权', 'uninstall': '卸载'}[action]}',
-      '${item['slot']}\n${action == 'enable' ? '允许发现配置中的工具；实际外发仍需任务审批。' : '阻止后续请求，保留任务、成果和未知结果记录。已发送的请求无法撤回。'}',
+      '${item['slot']}\n${action == 'enable' ? '启用后仍须逐工具授予。启用本身不是授权。' : '阻止后续请求，保留任务、成果和未知结果记录。已发送的请求无法撤回。'}',
     )) {
       return;
     }
@@ -375,6 +398,31 @@ class _ExtensionManagerState extends ConsumerState<_ExtensionManager>
                           Text(
                             '工具：${(c['tools'] as List).map((t) => t['name']).join(', ')}',
                           ),
+                          if (item['state'] == 'ENABLED')
+                            Wrap(
+                              spacing: 8,
+                              children: [
+                                for (final tool in (c['tools'] as List))
+                                  TextButton(
+                                    onPressed: busy
+                                        ? null
+                                        : () => grantTool(
+                                            item,
+                                            tool['name'] as String,
+                                            ((item['grantedTools'] as List?) ??
+                                                    const [])
+                                                .contains(tool['name']),
+                                          ),
+                                    child: Text(
+                                      ((item['grantedTools'] as List?) ??
+                                                  const [])
+                                              .contains(tool['name'])
+                                          ? '撤销此工具 ${tool['name']}'
+                                          : '授予此工具 ${tool['name']}',
+                                    ),
+                                  ),
+                              ],
+                            ),
                           Text('连接：${item['authStatus'] ?? '未知'}'),
                           Wrap(
                             spacing: 8,

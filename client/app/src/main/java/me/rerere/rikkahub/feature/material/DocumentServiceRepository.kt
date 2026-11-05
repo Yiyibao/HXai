@@ -347,7 +347,7 @@ class DocumentServiceRepository(private val context: Context, private val materi
         require(remote == null || UUID.fromString(remote).toString() == remote)
         val state = result.getValue("state").jsonPrimitive.content
         require(state in setOf("SUCCEEDED", "PARTIAL", "FAILED", "CANCELLED", "EXPIRED"))
-        return save(owner, task.copy(remoteId = remote, state = state, cancelRequested = true, cancelConfirmed = true))
+        return save(owner, task.copy(remoteId = remote, state = state, cancelRequested = true, cancelConfirmed = state == "CANCELLED"))
     }
     private fun sourcePageCount(file: File, extension: String): Int {
         if (extension != "pdf") {

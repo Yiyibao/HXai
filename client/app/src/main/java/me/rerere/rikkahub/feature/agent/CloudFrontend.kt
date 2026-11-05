@@ -54,7 +54,7 @@ internal class CloudFrontend(private val context: Context,private val settings: 
         else dispatch(method,owner,args,validate,foreground)
     private suspend fun dispatch(method: String,owner: String,args: Map<*,*>,validate: () -> Unit,foreground: () -> Boolean): Any? {
         validate()
-        if(method=="cloud.state")return workspace.state()+mapOf("crossAppEnabled" to false)
+        if(method=="cloud.state")return workspace.state()+mapOf("crossAppEnabled" to CloudBoundary.CROSS_APP_ENABLED)
         if(method=="cloud.connect") {
             available(foreground)
             check(args["consent"]==true) { "请明确同意将整个用户工作域接入此唯一权威" }

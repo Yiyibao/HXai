@@ -1,5 +1,9 @@
 # Pro 交付包研究与后续开发基线
 
+## v1.42 grok 4.7 子代理许可（2026-11-03）
+
+用户决定：活动模型为 grok 4.7 时允许按 omp 需要开启子代理，数量直至 omp 自身并发上限，不另设仓库配额。此决定覆盖 2026-10-12 禁令，只写入执行入口 `AGENTS.md`。历史批次「未开子代理」保持原事实。子代理不是独立审查；产品安全、验收、存储和两工作树上限不降低。
+
 ## v1.39 R27-05 离线安全控制接续（2026-10-30）
 
 来源 `HXai_CHANGE_REVIEW/R30-05-DURABLE-CONTROLS-20261030/`，协议与源码地图为[r27 v4](r27-cloud-device-protocol-v1.md)。普通任务详情的暂停/取消/撤销托管现在共用原安全 journal，在任何网络读回前封存意图；恢复/补充仍要求所见修订，不自动重放。保留唯一 Scheduler、原 Chat/工具/Verifier、模型锁、UNKNOWN、原件及成果；Room33/TaskStore13/网络schema4/Pigeon/RPC1/noBackup1不迁移。

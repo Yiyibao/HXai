@@ -1,0 +1,26 @@
+$ D:\Office\Study\Depend\android\platform-tools\adb.exe install -r client/app/build/outputs/apk/debug/app-x86_64-debug.apk
+Performing Streamed Install
+Success
+
+
+exit=0
+
+$ D:\Office\Study\Depend\android\platform-tools\adb.exe install -r client/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+Performing Streamed Install
+Success
+
+
+exit=0
+
+$ D:\Office\Study\Depend\android\platform-tools\adb.exe shell am instrument -w -e class me.rerere.rikkahub.feature.agent.HostAcceptanceRuntimeTest org.hxsi.agent.nativeqa.test/me.rerere.rikkahub.feature.agent.AgentNativeTestRunner
+
+me.rerere.rikkahub.feature.agent.HostAcceptanceRuntimeTest:.......
+
+Time: 7.048
+
+OK (7 tests)
+
+
+
+
+exit=0

@@ -3,6 +3,7 @@ package me.rerere.rikkahub.feature.agent
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import kotlinx.coroutines.runBlocking
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.*
 import org.junit.Assert.*
 import org.junit.Test
@@ -38,6 +39,7 @@ internal class GeneralMcpFixture : AutoCloseable {
     fun install(owner: String) { ExtensionInstallationStore(org.koin.core.context.GlobalContext.get().get()).use { db ->
         val p=db.install(owner,"story",db.get(owner,"story")?.revision ?: 0,config(),"")
         installation=db.command(owner,p.slot,p.id,p.revision,"enable")
+        ExtensionToolGrantStore(org.koin.core.context.GlobalContext.get().get()).use { it.grant(owner, installation!!.id, "read_a", installation!!.grantEpoch, ExtensionToolAdmission.contractHash(installation!!.config.tools.first { tool -> tool.name == "read_a" })) }
     } }
     fun input()=input(requireNotNull(installation))
     override fun close() {
@@ -111,6 +113,7 @@ class ExtensionRuntimeTest {
         GeneralMcpFixture().use { f ->
             ExtensionInstallationStore(context).use { db ->
                 val p=db.install(owner,"one",0,f.config(),"");val live=db.command(owner,"one",p.id,p.revision,"enable")
+                ExtensionToolGrantStore(context).use { it.grant(owner, live.id, "read_a", live.grantEpoch, ExtensionToolAdmission.contractHash(live.config.tools.first { it.name == "read_a" })) }
                 suspend fun read(input: JsonObject=f.input(live))=ExtensionMcpRuntime.invoke(owner,input,null,"call") {}
                 val first=read();assertEquals(first,ExtensionMcpRuntime.invoke(owner,f.input(live),first,"call") {})
                 val count=f.server.bodies.size
@@ -131,6 +134,7 @@ class ExtensionRuntimeTest {
         val owner="changed-${UUID.randomUUID()}"
         GeneralMcpFixture().use { f -> ExtensionInstallationStore(context).use { db ->
             val p=db.install(owner,"one",0,f.config(),"");val live=db.command(owner,"one",p.id,p.revision,"enable")
+            ExtensionToolGrantStore(context).use { it.grant(owner, live.id, "read_a", live.grantEpoch, ExtensionToolAdmission.contractHash(live.config.tools.first { it.name == "read_a" })) }
             val old=ExtensionMcpRuntime.invoke(owner,f.input(live),null,"call") {}
             f.value="Changed"
             assertNotEquals(old,ExtensionMcpRuntime.invoke(owner,f.input(live),old,"call") {})
@@ -162,4 +166,46 @@ class ExtensionRuntimeTest {
             assertEquals(2,db.version);db.rawQuery("SELECT value FROM evidence",null).use { row -> assertTrue(row.moveToFirst());assertEquals("keep",row.getString(0)) }
         }
     }
+    @Test fun ordinaryManagementEntryGrantsCallsRevokesAndRejectsTheOldEpoch(): Unit=runBlocking {
+        val owner="ui-grant-${UUID.randomUUID()}";val slot="ui-grant"
+        GeneralMcpFixture().use { fixture ->
+            val frontend=ExtensionFrontend(context)
+            val json=Json { encodeDefaults=true }
+            try {
+                val installed=frontend.handle("extensions.install",owner,mapOf("version" to 1,"slot" to slot,"revision" to 0,"config" to json.encodeToString(fixture.config()),"token" to "")) {} as Map<*,*>
+                val enabled=command(frontend,owner,slot,installed,"enable")
+                fun pin()=ExtensionInstallationStore(context).use { requireNotNull(it.get(owner,slot)) }
+                fun calls()=fixture.server.bodies.count { "tools/call" in it }
+                val before=calls()
+                assertTrue(runCatching { ExtensionMcpRuntime.invoke(owner,fixture.input(pin()),null,"ungranted") {} }.isFailure)
+                assertEquals(before,calls())
+                val granted=frontend.handle("extensions.grant",owner,mapOf("version" to 1,"slot" to slot,"id" to enabled["id"],"revision" to enabled["revision"],"tool" to "read_a")) {} as Map<*,*>
+                assertEquals(listOf("read_a"),granted["grantedTools"])
+                assertEquals("SUCCEEDED",ExtensionMcpRuntime.invoke(owner,fixture.input(pin()),null,"granted") {}["status"]?.jsonPrimitive?.content)
+                val after=calls();assertTrue(after>before)
+                assertTrue(runCatching { ExtensionMcpRuntime.invoke(owner,fixture.input(pin(),name="read_b"),null,"other") {} }.isFailure)
+                assertEquals(after,calls())
+                frontend.handle("extensions.revokeTool",owner,mapOf("version" to 1,"slot" to slot,"id" to enabled["id"],"revision" to enabled["revision"],"tool" to "read_a")) {}
+                assertTrue(runCatching { ExtensionMcpRuntime.invoke(owner,fixture.input(pin()),null,"revoked") {} }.isFailure)
+                assertEquals(after,calls())
+                frontend.handle("extensions.grant",owner,mapOf("version" to 1,"slot" to slot,"id" to enabled["id"],"revision" to enabled["revision"],"tool" to "read_a")) {}
+                assertEquals("SUCCEEDED",ExtensionMcpRuntime.invoke(owner,fixture.input(pin()),null,"regrant") {}["status"]?.jsonPrimitive?.content)
+                val old=pin()
+                val disabled=command(frontend,owner,slot,enabled,"disable")
+                assertNotEquals(old.id,disabled["id"])
+                assertTrue((disabled["grantEpoch"] as Number).toLong()>(enabled["grantEpoch"] as Number).toLong())
+                val rotated=command(frontend,owner,slot,disabled,"enable")
+                val stale=calls()
+                assertTrue(runCatching { ExtensionMcpRuntime.invoke(owner,fixture.input(old),null,"old-id") {} }.isFailure)
+                assertTrue(runCatching { ExtensionMcpRuntime.invoke(owner,fixture.input(pin()),null,"old-epoch") {} }.isFailure)
+                assertEquals(stale,calls())
+                frontend.handle("extensions.grant",owner,mapOf("version" to 1,"slot" to slot,"id" to rotated["id"],"revision" to rotated["revision"],"tool" to "read_a")) {}
+                assertEquals("SUCCEEDED",ExtensionMcpRuntime.invoke(owner,fixture.input(pin()),null,"new-epoch") {}["status"]?.jsonPrimitive?.content)
+            } finally {
+                ExtensionInstallationStore(context).use { db -> db.get(owner,slot)?.takeUnless { it.state=="UNINSTALLED" }?.let { db.command(owner,it.slot,it.id,it.revision,"uninstall") } }
+            }
+        }
+    }
+    private suspend fun command(frontend: ExtensionFrontend,owner: String,slot: String,pin: Map<*,*>,action: String): Map<*,*> =
+        frontend.handle("extensions.command",owner,mapOf("version" to 1,"slot" to slot,"id" to pin["id"],"revision" to pin["revision"],"action" to action)) {} as Map<*,*>
 }

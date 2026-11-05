@@ -1,0 +1,132 @@
+--- online/api/main.py
++++ deployed/api/main.py
+@@ -8,9 +8,9 @@
+ from pathlib import Path
+ 
+ from fastapi import FastAPI, Header, HTTPException, Request
+-from fastapi.responses import FileResponse
++from fastapi.responses import FileResponse, JSONResponse
+ 
+-from api.store import Store
++from api.store import Store, AuthorizationRevoked
+ from api.office import readiness, register_office
+ 
+ MAX_UPLOAD = 30 * 1024 * 1024
+@@ -22,6 +22,12 @@
+     store = Store(Path(root or os.environ.get("MATHDOC_DATA", "/var/lib/mathdoc")))
+     app = FastAPI(title="MathStudy document service", docs_url=None, redoc_url=None)
+     app.state.store = store
++
++    @app.exception_handler(AuthorizationRevoked)
++    async def revoked_after_authentication(_request, _error):
++        # Shared by parse/Office uploads; never return identity or token details.
++        return JSONResponse(status_code=401, content={"detail": "authentication_required"})
++
+ 
+     def identity(authorization):
+         if not authorization or not authorization.startswith("Bearer "):
+@@ -46,6 +52,17 @@
+     @app.get("/health")
+     def health():
+         return {"status": "ok", "contractVersion": 1}
++
++    @app.post("/api/v1/identity/revoke")
++    def revoke_self(authorization: str | None = Header(None)):
++        if not authorization or not authorization.startswith("Bearer "):
++            raise HTTPException(401, "authentication_required")
++        owner = store.token_owner(authorization[7:], include_inactive=True)
++        if not owner:
++            raise HTTPException(401, "authentication_required")
++        store.revoke(owner)
++        return {"revoked": True}
++
+ 
+     @app.get("/api/v1/capabilities")
+     def capabilities(authorization: str | None = Header(None)):
+--- online/api/store.py
++++ deployed/api/store.py
+@@ -11,6 +11,14 @@
+ from pathlib import Path
+ 
+ TERMINAL = {"SUCCEEDED", "PARTIAL", "FAILED", "CANCELLED", "EXPIRED"}
++
++
++class AuthorizationRevoked(PermissionError):
++    """The identity was revoked after the request's initial authentication."""
++
++    def __init__(self):
++        super().__init__("authentication_required")
++
+ 
+ 
+ class Store:
+@@ -60,9 +68,36 @@
+         return owner, token
+ 
+     def authenticate(self, token):
+-        with self.db() as db:
+-            row = db.execute("SELECT id FROM identities WHERE token_hash=? AND active=1", (hashlib.sha256(token.encode()).hexdigest(),)).fetchone()
+-        return row[0] if row else None
++        owner = self.token_owner(token)
++        return owner
++
++    def token_owner(self, token, include_inactive=False):
++        with self.db() as db:
++            row = db.execute("SELECT id, active FROM identities WHERE token_hash=?", (hashlib.sha256(token.encode()).hexdigest(),)).fetchone()
++        if not row or (not include_inactive and not row[1]):
++            return None
++        return row[0]
++
++    def revoke(self, owner):
++        """Atomically revoke and cancel admission/publication, not kill workers."""
++        now = time.time()
++        with self.db() as db:
++            db.execute("BEGIN IMMEDIATE")
++            changed = db.execute("UPDATE identities SET active=0 WHERE id=?", (owner,)).rowcount
++            db.execute("""UPDATE jobs SET cancel=1,state='CANCELLED',error='authorization_revoked',
++                          updated=?,expires=MIN(expires,?)
++                          WHERE owner=? AND state IN ('QUEUED','RUNNING')""",
++                       (now, now + 86400, owner))
++        return bool(changed)
++
++    @staticmethod
++    def _fence_revoked_jobs(db, now):
++        # Honor revocations made by older administrators, preserving stored files.
++        db.execute("""UPDATE jobs SET cancel=1,state='CANCELLED',error='authorization_revoked',
++                      updated=?,expires=MIN(expires,?)
++                      WHERE state IN ('QUEUED','RUNNING') AND NOT EXISTS
++                      (SELECT 1 FROM identities WHERE identities.id=jobs.owner AND active=1)""",
++                   (now, now + 86400))
+ 
+     def get(self, owner, job_id):
+         with self.db() as db:
+@@ -76,6 +111,9 @@
+         try:
+             with self.db() as db:
+                 db.execute("BEGIN IMMEDIATE")
++                # Initial authentication before a slow upload is not a dispatch grant.
++                if not db.execute("SELECT 1 FROM identities WHERE id=? AND active=1", (owner,)).fetchone():
++                    raise AuthorizationRevoked()
+                 old = db.execute("SELECT * FROM jobs WHERE owner=? AND request_key=?", (owner, key)).fetchone()
+                 if old:
+                     if old["fingerprint"] != fingerprint:
+@@ -156,7 +194,10 @@
+     def claim(self):
+         with self.db() as db:
+             db.execute("BEGIN IMMEDIATE")
+-            row = db.execute("SELECT * FROM jobs WHERE state='QUEUED' AND cancel=0 ORDER BY created LIMIT 1").fetchone()
++            self._fence_revoked_jobs(db, time.time())
++            row = db.execute("""SELECT jobs.* FROM jobs JOIN identities ON identities.id=jobs.owner
++                                WHERE jobs.state='QUEUED' AND jobs.cancel=0 AND identities.active=1
++                                ORDER BY jobs.created,jobs.id LIMIT 1""").fetchone()
+             if row:
+                 db.execute("UPDATE jobs SET state='RUNNING',updated=? WHERE id=?", (time.time(), row["id"]))
+         return dict(row) if row else None
+@@ -164,5 +205,7 @@
+     def finish(self, job_id, state, manifest=None, error=None):
+         now = time.time()
+         with self.db() as db:
++            db.execute("BEGIN IMMEDIATE")
++            self._fence_revoked_jobs(db, now)
+             db.execute("UPDATE jobs SET state=?,manifest=?,error=?,updated=?,expires=MIN(expires,?) WHERE id=? AND state='RUNNING' AND cancel=0",
+                        (state, json.dumps(manifest) if manifest else None, error, now, now + 86400, job_id))

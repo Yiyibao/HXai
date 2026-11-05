@@ -62,20 +62,41 @@ internal class ExtensionFrontend(private val context: Context) {
             fun text(key: String)=args[key] as? String ?: error("缺少 $key")
             fun revision()=(args["revision"] as? Number)?.toLong() ?: error("缺少 revision")
             when(method) {
-                "extensions.list" -> mapOf("version" to 1,"installations" to store.list(owner).map(::dto),"events" to store.events(owner),
+                "extensions.list" -> ExtensionToolGrantStore(context).use { grants ->
+                    mapOf("version" to 1,"installations" to store.list(owner).map { pin ->
+                        dto(pin) + mapOf("grantedTools" to grants.currentNames(owner, pin.id, pin.grantEpoch, pin.config.tools).toList())
+                    },"events" to store.events(owner),
                     "oauthFlows" to ExtensionOAuth(context).use { it.cleanupCanceled();it.publicFlows(owner,(args["epoch"] as Number).toLong()) })
+                }
                 "extensions.install" -> {
                     val config=json.decodeFromString<ExtensionConfig>(text("config"))
                     val old=store.get(owner,text("slot"))
                     val stored=args["useStoredCredential"]==true
                     if(stored) require(old!=null && old.config.endpoint==config.endpoint && old.config.oauth!=null && old.config.oauth.expiresAt>System.currentTimeMillis())
                     val token=if(stored) me.rerere.rikkahub.data.datastore.CredentialVault(context).resolve(requireNotNull(old).credential) else args["token"] as? String ?: ""
-                    dto(store.install(owner,text("slot"),revision(),config.copy(oauth=if(stored) old?.config?.oauth else null),token,guard))
+                    val next=store.install(owner,text("slot"),revision(),config.copy(oauth=if(stored) old?.config?.oauth else null),token,guard)
+                    old?.let { ExtensionToolGrantStore(context).use { grants -> grants.drop(owner, it.id) } }
+                    dto(next)
                 }
                 "extensions.command" -> {
+                    val old=store.get(owner,text("slot"))
                     val next=store.command(owner,text("slot"),text("id"),revision(),text("action"),guard)
                     ExtensionOAuth(context).use { it.cancel(owner,next.slot) }
+                    if(old!=null && old.id!=next.id) ExtensionToolGrantStore(context).use { it.drop(owner, old.id) }
                     dto(next)
+                }
+                "extensions.grant" -> {
+                    val pin=requireNotNull(store.get(owner,text("slot"))) { "未安装" }
+                    require(pin.id==text("id") && pin.revision==revision() && pin.state=="ENABLED") { "安装已变化或尚未启用" }
+                    val tool=pin.config.tools.single { it.name==text("tool") }
+                    ExtensionToolGrantStore(context).use { it.grant(owner, pin.id, tool.name, pin.grantEpoch, ExtensionToolAdmission.contractHash(tool)) }
+                    dto(pin) + mapOf("grantedTools" to listOf(tool.name))
+                }
+                "extensions.revokeTool" -> {
+                    val pin=requireNotNull(store.get(owner,text("slot"))) { "未安装" }
+                    require(pin.id==text("id") && pin.revision==revision()) { "安装已变化，请刷新" }
+                    ExtensionToolGrantStore(context).use { it.revoke(owner, pin.id, text("tool")) }
+                    dto(pin) + mapOf("grantedTools" to emptyList<String>())
                 }
                 else -> error("未知扩展命令")
             }.also { guard() }

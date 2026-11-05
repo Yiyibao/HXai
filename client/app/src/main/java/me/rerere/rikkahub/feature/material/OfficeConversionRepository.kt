@@ -182,11 +182,12 @@ class OfficeConversionRepository(private val context: Context, private val mater
             val result = execute(request(taskConfig(owner, task), "/api/v1/$endpoint/${task.id}/cancel").post(ByteArray(0).toRequestBody()).build()).use(::readJson)
             val remote = result["taskId"]?.jsonPrimitive?.contentOrNull
             require(remote == null || UUID.fromString(remote).toString() == remote)
-            task.copy(remoteId = remote, state = result.getValue("state").jsonPrimitive.content, cancelRequested = true, cancelConfirmed = true).also { save(owner, it) }
+            task.copy(remoteId = remote, state = result.getValue("state").jsonPrimitive.content, cancelRequested = true, cancelConfirmed = result.getValue("state").jsonPrimitive.content == "CANCELLED").also { save(owner, it) }
         }
         else {
             val result = execute(request(taskConfig(owner, task), "/api/v1/jobs/${task.remoteId}/cancel").post(ByteArray(0).toRequestBody()).build()).use(::readJson)
-            task.copy(state = result.getValue("state").jsonPrimitive.content, cancelRequested = true, cancelConfirmed = true).also { save(owner, it) }
+            val state = result.getValue("state").jsonPrimitive.content
+            task.copy(state = state, cancelRequested = true, cancelConfirmed = state == "CANCELLED").also { save(owner, it) }
         }
     } }
     private fun decodeManifest(text: String, task: OfficeConversionTask): OfficeArtifactManifest {

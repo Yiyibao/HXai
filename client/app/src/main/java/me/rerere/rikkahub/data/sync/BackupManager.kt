@@ -167,6 +167,7 @@ class BackupManager(
                         inventory["$folder/$relative"] = addFile(zip, source, "$folder/$relative")
                     }
                 }
+                require(inventory.keys.none(BackupExclusions::rejects)) { "backup included a no-backup store" }
                 require(inventory.size < BackupIntegrity.maxEntries)
                 zip.putNextEntry(ZipEntry(BackupIntegrity.manifestName))
                 zip.write(json.encodeToString(BackupManifest(database = true, files = true, entries = inventory, sourceFilesDir = context.filesDir.absolutePath)).toByteArray())

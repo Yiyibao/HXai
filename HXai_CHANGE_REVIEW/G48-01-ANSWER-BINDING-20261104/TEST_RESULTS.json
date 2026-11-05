@@ -1,0 +1,22 @@
+{
+  "feature": "G48-01-ANSWER-BINDING-20261104",
+  "head": "a90bc8eb4bb81dceb47c593898edd1d6c3e3fad1",
+  "independent_review": "NOT_EVALUATED",
+  "runs": [
+    {
+      "name": "VisibleAnswerBindingTest baseline",
+      "result": "FAIL",
+      "tests": 5,
+      "failures": 5,
+      "xml": "HXai_CHANGE_REVIEW/G48-01-ANSWER-BINDING-20261104/FAIL_BASELINE.xml"
+    },
+    {
+      "name": "binding plus existing goal tests",
+      "result": "PASS",
+      "tests": 25,
+      "failures": 0,
+      "timestamp": "2026-11-04T14:11:25.846Z"
+    }
+  ],
+  "not_run": ["HostAcceptanceRuntimeTest full class", "sealed live cohort"]
+}

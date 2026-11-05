@@ -24,7 +24,7 @@ class GeneralMcpPersistenceProbe {
         ExtensionInstallationStore(context).use { db ->
             val p=db.install(owner,"one",0,server.config(),"")
             val live=db.command(owner,"one",p.id,p.revision,"enable")
-            marker.outputStream().use { it.write(live.id.toByteArray());it.fd.sync() }
+            ExtensionToolGrantStore(context).use { it.grant(owner, live.id, "read_a", live.grantEpoch, ExtensionToolAdmission.contractHash(live.config.tools.first { it.name == "read_a" })) }
             if(mode=="revoked") db.command(owner,"one",live.id,live.revision,"revoke")
             if(mode in setOf("unknown","old_approval")) AgentTaskStore(context,database).use { store ->
                 val task=store.accept(owner,fixture,"once","Read approved service","ref","provider","model","OFF","revision")

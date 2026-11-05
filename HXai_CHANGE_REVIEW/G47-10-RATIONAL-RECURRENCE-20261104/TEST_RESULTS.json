@@ -1,0 +1,29 @@
+{
+  "feature": "G47-10-RATIONAL-RECURRENCE-20261104",
+  "head": "a90bc8eb4bb81dceb47c593898edd1d6c3e3fad1",
+  "independent_review": "NOT_EVALUATED",
+  "runs": [
+    {
+      "name": "RationalLinearRecurrenceTest",
+      "command": "python scripts/project_storage.py run --feature G47-10-RATIONAL-RECURRENCE --kind test --disposable --reserve-mib 512 -- gradle :app:testDebugUnitTest --tests me.rerere.rikkahub.feature.math.RationalLinearRecurrenceTest --offline --no-daemon",
+      "result": "PASS",
+      "tests": 7,
+      "failures": 0,
+      "xml": "client/app/build/test-results/testDebugUnitTest/TEST-me.rerere.rikkahub.feature.math.RationalLinearRecurrenceTest.xml"
+    },
+    {
+      "name": "HostAcceptanceRuntimeTest",
+      "command": "adb shell am instrument -w -e class me.rerere.rikkahub.feature.agent.HostAcceptanceRuntimeTest org.hxsi.agent.nativeqa.test/me.rerere.rikkahub.feature.agent.AgentNativeTestRunner",
+      "result": "PASS",
+      "tests": 7,
+      "failures": 0,
+      "device": "emulator-5554 API26",
+      "package": "org.hxsi.agent.nativeqa",
+      "log": "HXai_CHANGE_REVIEW/G47-10-RATIONAL-RECURRENCE-20261104/api26-instrument.log"
+    }
+  ],
+  "not_run": [
+    "sealed live model replay of HS-SEQUENCE-TELESCOPING-FULL",
+    "Mate50 / Release / production"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "minimal candidate ASGI + SQLite, synthetic only",
+  "schema_unchanged": true,
+  "dispatcher_unchanged": true,
+  "existing_regression_cases": 11,
+  "patch_sha256": "5301650e05747aa3b5f2dde36dfee0efb914492b4f1f5d0005702ea4780091c5"
+}

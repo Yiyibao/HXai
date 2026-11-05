@@ -1,0 +1,23 @@
+{
+  "feature": "G47-02-REFUTATION-20261104",
+  "independentReview": "NOT_EVALUATED",
+  "runs": [
+    {
+      "name": "app:testDebugUnitTest RefutationDeliveryTest ResponseCompletionTest",
+      "cwd": "client",
+      "command": "gradlew.bat :app:testDebugUnitTest --tests me.rerere.rikkahub.feature.agent.RefutationDeliveryTest --tests me.rerere.rikkahub.feature.agent.ResponseCompletionTest --offline --no-daemon",
+      "exitCode": 0,
+      "result": "PASS",
+      "cases": {
+        "RefutationDeliveryTest": {"tests": 3, "failures": 0, "errors": 0},
+        "ResponseCompletionTest": {"tests": 5, "failures": 0, "errors": 0}
+      },
+      "evidence": "client/app/build/test-results/testDebugUnitTest/TEST-me.rerere.rikkahub.feature.agent.RefutationDeliveryTest.xml"
+    }
+  ],
+  "notRun": [
+    "API26 instrumented Chat replay of AGENT_FALSE_COMPLETION",
+    "paid live cohort rerun",
+    "Mate50 / Release / production"
+  ]
+}

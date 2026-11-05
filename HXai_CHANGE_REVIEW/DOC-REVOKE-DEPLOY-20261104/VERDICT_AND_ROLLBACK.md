@@ -1,0 +1,15 @@
+# PASS_SCOPED — deployed document identity revocation
+
+Scope: the existing self-revoke route and its Store authorization fences, minimally integrated into the explicitly authorized running mathdoc service. This is not the complete repository document-service version or an App/Release/full-project approval. Same executor validation; independent external review NOT_EVALUATED.
+
+Actual deployment: 2026-11-04T02:26:53Z, host ecsLWs9K / ubuntu@154.222.25.150. Only api/main.py and api/store.py were replaced. Dispatcher bytes are unchanged. No database schema, Nginx, service configuration, image, application source, actual learning-profile credential or real document was changed. No commit/push occurred.
+
+All five observed queue/container snapshots were empty (QUEUED=0, RUNNING=0, mathdoc-* count=0): before backup, immediately before API stop, after API stop, after both services stopped, and final. Dispatcher started before API. Both remained active and local/public health status was ok.
+
+Actual public acceptance: anonymous revoke 401; invalid credential revoke 401; one synthetic PNG submission 202/QUEUED; subsequently observed RUNNING plus the exact task container running; authenticated revoke 200 with only {"revoked":true}; old credential capabilities 401. Read-only SQLite proved CANCELLED / authorization_revoked. Independent Docker listing proved exact worker and validator absent; this is separate from the cancellation row. Original PNG bytes retained the expected hash. Existing administrator CLI then revoked that exact temporary identity; active=0 and removal of its exclusive 0600 credential file were independently read back.
+
+Evidence: DEPLOYMENT.log and TEST_RESULTS.json (remote operator exit 0), FINAL_READBACK.log (separate SSH readback exit 0 at 02:27:41Z), FIXES.patch and SOURCE_MANIFEST.json. Local candidate ASGI/SQLite assertions and eleven selected existing regression cases passed (7 unrelated cases deselected); both storage-managed temporary runs were disposable. Local Python 3.13.13; service Python 3.12.3.
+
+Backup: /opt/mathdoc/revoke-backup-20261104T022653Z, root-owned directory 0700, backed-up api/main.py and api/store.py files 0600. Source hashes were checked before backup, after backup, after replacement, and in separate final readback. This backup contains only source and compact deployment metadata, not SQLite, original documents or credentials. No rollback was needed; the failure rollback path was prepared but not exercised.
+
+Rollback requires a fresh empty queue and absence of all mathdoc-* containers. Verify current source hashes and backup hashes against SOURCE_MANIFEST.json; stop mathdoc-api first; recheck the idle gate; stop mathdoc-dispatcher; restore only the two backed-up Python files to their original root:root 0644 metadata; start mathdoc-dispatcher then mathdoc-api; verify both active and local/public health. Preserve all identity deactivations, job cancellation rows, originals and the live database. If unrelated work or unknown source drift blocks the gate, do not stop or overwrite it. remote_deploy.py contains the exact guarded rollback implementation.
